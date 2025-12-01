@@ -42,3 +42,7 @@ std::vector<double> MCLDS::get_offset_xy(){
 Dir MCLDS::get_dir(){
     return dir;
 }
+
+double MCLDS::read(){
+    return dist_sen.get_distance();
+}

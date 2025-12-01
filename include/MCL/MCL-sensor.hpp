@@ -14,6 +14,7 @@ class MCLDS{
     double get_offset_x();
     double get_offset_y();
     std::vector<double> get_offset_xy();
+    double read();
     Dir get_dir();
     private:
     double offset_x;

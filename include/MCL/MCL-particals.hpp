@@ -13,7 +13,8 @@ class partical{
     double theta;
     double weight;
     void displace(double dtheta, double dx, double dy);
-    void get_weight(double sensor_val, double expected_val, double deviation);
+    void get_weight(std::vector<double> sensor_vals, double allowed_deviation);
     private:
+    std::vector<double> scale(double scaler);
     std::vector<double> get_sim_distance();
 };

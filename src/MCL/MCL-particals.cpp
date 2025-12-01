@@ -26,8 +26,9 @@ std::vector<double> partical::get_sim_distance(){
     double theta4;
     double ttheta;
     pose sensorp; 
-    // define pose for distance sensor
+    // go through each sensor
     for(unsigned int i = 0; i < sensors.size(); i++){
+        //define sensor pose
         switch(sensors[i].get_dir()){
             case Dir::Left:
             sensorp.theta = fmod(theta + M_PI_2, M_2_PI) - M_PI;
@@ -62,4 +63,22 @@ std::vector<double> partical::get_sim_distance(){
         returnlist.push_back(returnval);
     }
     return returnlist;
+}
+
+void partical::get_weight(std::vector<double> sensor_vals, double allowed_deviation){
+    std::vector<double> weighted;
+    std::vector<double> sim_distances = get_sim_distance();
+    double W;
+    int count;
+    for(unsigned int i; i < sensor_vals.size(); i++){
+        W = abs(sensor_vals[i] - sim_distances[i]) / 25.4;
+        if(W <= allowed_deviation){
+            weighted.push_back(W);
+            count++;
+            weight = weight + W;
+        }
+        if(i == sensor_vals.size() - 1){
+            weight = weight / count;
+        }
+    }
 }
