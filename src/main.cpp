@@ -1,9 +1,13 @@
 #include "main.h"
+#include "EZ-Template/sdcard.hpp"
+#include "EZ-Template/util.hpp"
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
 // https://ez-robotics.github.io/EZ-Template/
 /////
+
+//initialize MCL
 
 // Chassis constructor
 ez::Drive chassis(
@@ -22,6 +26,8 @@ ez::Drive chassis(
 // - `4.0` is the distance from the center of the wheel to the center of the robot
 // ez::tracking_wheel horiz_tracker(8, 2.75, 4.0);  // This tracking wheel is perpendicular to the drive wheels
 // ez::tracking_wheel vert_tracker(9, 2.75, 4.0);   // This tracking wheel is parallel to the drive wheels
+
+
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -51,10 +57,12 @@ void initialize() {
 
   // Set the drive to your own constants from autons.cpp!
   default_constants();
+  // Set the drive to your own constants from autons.cpp!
+  default_constants();
+
+  // Initialize MCL sensors
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
-  // chassis.opcontrol_curve_buttons_left_set(pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);  // If using tank, only the left side is used.
-  // chassis.opcontrol_curve_buttons_right_set(pros::E_CONTROLLER_DIGITAL_Y, pros::E_CONTROLLER_DIGITAL_A);
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
