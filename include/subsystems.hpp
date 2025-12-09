@@ -7,12 +7,12 @@ extern Drive chassis;
 
 // Your motors, sensors, etc. should go here.  Below are examples
 
-// inline pros::Motor intake(1);
+inline pros::Motor intake_1(-4);
+inline pros::Motor intake_2(-5);
 // inline pros::adi::DigitalIn limit_switch('A');
 
-enum class Dir {
-    Left,   
-    Right, 
-    Front,
-    Back   
+enum class Rtype{
+    Full,
+    P_1,
+    P_2,
 };
