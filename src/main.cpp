@@ -1,6 +1,8 @@
 #include "main.h"
 #include "EZ-Template/sdcard.hpp"
 #include "EZ-Template/util.hpp"
+#include "pros/misc.h"
+#include "subsystems.hpp"
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
@@ -12,7 +14,7 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-18, 19, -20},     // Left Chassis Ports (negative port will reverse it!)
+    {-18, -19, 20},     // Left Chassis Ports (negative port will reverse it!)
     {1, -2, 3},  // Right Chassis Ports (negative port will reverse it!)
 
     11,      // IMU Port
@@ -265,6 +267,10 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     intake::opcontrol();
+
+    IntakeRaise.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1));
+    MatchLoad.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2));
+    DoublePark.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT));
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
