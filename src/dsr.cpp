@@ -25,20 +25,34 @@ namespace DSR{
         double read0t = 0;
         double read30t = 0;
         double read45t = 0;
+
+        //move away from wall to prevent collision
         chassis.pid_drive_set(-5_in, 40);
         chassis.pid_wait();
+
+        //go through all the sensors and measure their offsets
         for(unsigned int i = 0; i < sensors.size(); i++){
+
+            //reset variables after each iteration
             read0 = 0;
             read30 = 0;
             read45 = 0;
             read0t = 0;
             read30t = 0;
             read45t = 0;
+
+            //algorithm changes a bit based on direction of the sensor
             switch(sensors[i].get_dir()){
                 case Dir::Left:
+
+                // go through multiple times and take the average
                 for(int j = 0; j < iterations; j++){
+
+                    // first turn
                     chassis.pid_turn_set(90_deg, 40);
                     chassis.pid_wait();
+
+                    //read until actual value is read
                     for(int p = 0; p < 20; p++){
                         read0t = sensors[i].read_in();
                         if(read0t < 9999){
@@ -46,8 +60,12 @@ namespace DSR{
                             break;
                         }
                     }
+
+                    //second turn
                     chassis.pid_turn_set(60_deg, 40);
                     chassis.pid_wait();
+
+                    //read until actual value is read
                     for(int p = 0; p < 20; p++){
                         read30t = sensors[i].read_in();
                         if(read30t < 9999){
@@ -55,8 +73,12 @@ namespace DSR{
                             break;
                         }
                     }
+
+                    //third turn
                     chassis.pid_turn_set(45_deg, 40);
                     chassis.pid_wait();
+
+                    //read until actual value is read
                     for(int p = 0; p < 100; p++){
                         read45t = sensors[i].read_in();
                         if(read45t < 9999){
@@ -65,8 +87,11 @@ namespace DSR{
                         }
                     }
                 }
+
+                //measure offsets
                 sensors[i].measure_offsets(read45 / iterations, read30 / iterations, read0 / iterations);
                 break;
+                //same thing for all other cases, just different angles
                 case Dir::Right:
                 for(int j = 0; j < iterations; j++){
                     chassis.pid_turn_set(-90_deg, 40);
@@ -160,6 +185,8 @@ namespace DSR{
     }
 
     void reset_tracking(Dir sensorX_dir, Dir sensorY_dir, double speed, bool slew_on, wait_type Wait_type, int sensorX_specified, int sensorY_specified){
+        
+        //figure out which sensors are being used for x and y semi efficiently by counting down the number of specified sensors until we find the one we want
         for(unsigned int i = 0; i < sensors.size(); i++){
             if(sensors[i].get_dir() == sensorX_dir){
                 sensorX_specified--;
@@ -178,9 +205,14 @@ namespace DSR{
                 }
             }
         }
+
+        //get the robot angle to determine which way the bot is facing
         robot_angle = fmod(chassis.odom_theta_get() - 180, 360) + 180;
+
+        //find direction
         if(-45 <= robot_angle && robot_angle < 45){
 
+            //turn to closest right angle
             chassis.pid_turn_set(0_deg, speed, slew_on);
             switch(Wait_type){
                 case wait:
@@ -194,6 +226,7 @@ namespace DSR{
                 break;
             }
 
+            //thee actual alg
             if(int(sensorX_dir) == int(Left)){
                 chassis.odom_x_set(sensors[Xsen].read_in());
             }else{
@@ -205,7 +238,7 @@ namespace DSR{
             }else{
                 chassis.odom_y_set(144 - sensors[Ysen].read_in());
             }
-        }
+        }//same thing for all other cases, just different angles
         else if(45 <= robot_angle && robot_angle < 135){
 
             chassis.pid_turn_set(90_deg, speed, slew_on);
