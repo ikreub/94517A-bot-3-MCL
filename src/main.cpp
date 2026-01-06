@@ -1,6 +1,7 @@
 #include "main.h"
 #include "EZ-Template/sdcard.hpp"
 #include "EZ-Template/util.hpp"
+#include "dsr.hpp"
 #include "pros/misc.h"
 #include "subsystems.hpp"
 
@@ -9,7 +10,7 @@
 // https://ez-robotics.github.io/EZ-Template/
 /////
 
-//initialize MCL
+//initialize DSR sensors
 
 // Chassis constructor
 ez::Drive chassis(
