@@ -1,0 +1,880 @@
+.TH "c-imu" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+c-imu \- VEX Inertial Sensor C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBimu\&.h\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBimu_raw_s\fP"
+.br
+.ti -1c
+.RI "struct \fBquaternion_s_t\fP"
+.br
+.ti -1c
+.RI "struct \fBimu_gyro_s_t\fP"
+.br
+.ti -1c
+.RI "struct \fBimu_accel_s_t\fP"
+.br
+.ti -1c
+.RI "struct \fBeuler_s_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIMU_MINIMUM_DATA_RATE\fP   5"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBimu_status_e\fP \fBimu_status_e_t\fP"
+.br
+.ti -1c
+.RI "typedef enum imu_orientation_e \fBimu_orientation_e_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBimu_raw_s\fP \fBimu_gyro_s_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBimu_raw_s\fP \fBimu_accel_s_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBimu_status_e\fP { \fBE_IMU_STATUS_READY\fP = 0, \fBE_IMU_STATUS_CALIBRATING\fP = 1, \fBE_IMU_STATUS_ERROR\fP = 0xFF }"
+.br
+.ti -1c
+.RI "enum \fBimu_orientation_e\fP { \fBE_IMU_Z_UP\fP = 0, \fBE_IMU_Z_DOWN\fP = 1, \fBE_IMU_X_UP\fP = 2, \fBE_IMU_X_DOWN\fP = 3, \fBE_IMU_Y_UP\fP = 4, \fBE_IMU_Y_DOWN\fP = 5, \fBE_IMU_ORIENTATION_ERROR\fP = 0xFF }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fB__attribute__\fP ((__packed__)) quaternion_s"
+.br
+.ti -1c
+.RI "int32_t \fBimu_reset\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_reset_blocking\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_set_data_rate\fP (uint8_t port, uint32_t rate)"
+.br
+.ti -1c
+.RI "double \fBimu_get_rotation\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBimu_get_heading\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBquaternion_s_t\fP \fBimu_get_quaternion\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBeuler_s_t\fP \fBimu_get_euler\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBimu_gyro_s_t\fP \fBimu_get_gyro_rate\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBimu_accel_s_t\fP \fBimu_get_accel\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "imu_status_e_t \fBimu_get_status\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBimu_get_pitch\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBimu_get_roll\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBimu_get_yaw\fP (uint8_t port)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBquaternion_s_t\fP"
+.br
+.ti -1c
+.RI "\fBeuler_s_t\fP"
+.br
+.in -1c
+.SS "Value Set Functions"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBimu_set_euler\fP (uint8_t port, \fBeuler_s_t\fP target)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_set_rotation\fP (uint8_t port, double target)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_set_heading\fP (uint8_t port, double target)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_set_pitch\fP (uint8_t port, double target)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_set_roll\fP (uint8_t port, double target)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_set_yaw\fP (uint8_t port, double target)"
+.br
+.ti -1c
+.RI "imu_orientation_e_t \fBimu_get_physical_orientation\fP (uint8_t port)"
+.br
+.in -1c
+.SS "Value Reset Functions"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBimu_tare_heading\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_tare_rotation\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_tare_pitch\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_tare_roll\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_tare_yaw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_tare_euler\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBimu_tare\fP (uint8_t port)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBimu_status_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIE_IMU_STATUS_CALIBRATING \fP
+The IMU is calibrating 
+.TP
+\f(BIE_IMU_STATUS_ERROR \fP
+Used to indicate that an error state was reached in the imu_get_status function,\\ not that the IMU is necessarily in an error state 
+.SH "Function Documentation"
+.PP 
+.SS "\fBimu_accel_s_t\fP imu_get_accel (uint8_t port)"
+Get the Inertial Sensor's raw acceleroneter values
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The roll angle, or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBeuler_s_t\fP imu_get_euler (uint8_t port)"
+Get the Euler angles representing the Inertial Sensor's orientation
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The Euler angles representing the sensor's orientation\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBimu_gyro_s_t\fP imu_get_gyro_rate (uint8_t port)"
+Get the Inertial Sensor's raw gyroscope values
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The pitch angle, or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double imu_get_heading (uint8_t port)"
+Get the Inertial Sensor's heading relative to the initial direction of its x-axis
+
+.PP
+This value is bounded by [0,360)\&. Clockwise rotations are represented with positive degree values, while counterclockwise rotations are represented with negative ones\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The degree value or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "imu_orientation_e_t imu_get_physical_orientation (uint8_t port)"
+Returns the physical orientation of the IMU
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The orientation of the Inertial Sensor or PROS_ERR if an error occured\&. 
+.RE
+.PP
+
+.SS "double imu_get_pitch (uint8_t port)"
+Get the Inertial Sensor's pitch angle bounded by (-180,180)
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The raw accelerometer values\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBquaternion_s_t\fP imu_get_quaternion (uint8_t port)"
+Get a quaternion representing the Inertial Sensor's orientation
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The quaternion representing the sensor's orientation\&. If the operation failed, all the quaternion's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double imu_get_roll (uint8_t port)"
+Get the Inertial Sensor's roll angle bounded by (-180,180)
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The Inertial Sensor's status code, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double imu_get_rotation (uint8_t port)"
+Get the total number of degrees the Inertial Sensor has spun about the z-axis
+
+.PP
+This value is theoretically unbounded\&. Clockwise rotations are represented with positive degree values, while counterclockwise rotations are represented with negative ones\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The degree value or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "imu_status_e_t imu_get_status (uint8_t port)"
+Get the Inertial Sensor's status
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The yaw angle, or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double imu_get_yaw (uint8_t port)"
+Get the Inertial Sensor's yaw angle bounded by (-180,180)
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The yaw angle, or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "int32_t imu_reset (uint8_t port)"
+Calibrate IMU
+
+.PP
+Calibration takes approximately 2 seconds, but this function only blocks until the IMU status flag is set properly to E_IMU_STATUS_CALIBRATING, with a minimum blocking time of 5ms\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is already calibrating, or time out setting the status flag\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_reset_blocking (uint8_t port)"
+Calibrate IMU and Blocks while Calibrating
+
+.PP
+Calibration takes approximately 2 seconds and blocks during this period, with a timeout for this operation being set a 3 seconds as a safety margin\&. Like the other reset function, this function also blocks until the IMU status flag is set properly to E_IMU_STATUS_CALIBRATING, with a minimum blocking time of 5ms and a timeout of 1 second if it's never set\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is already calibrating, or time out setting the status flag\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed (timing out or port claim failure), setting errno\&. 
+.RE
+.PP
+
+.SS "int32_t imu_set_data_rate (uint8_t port, uint32_t rate)"
+Set the Inertial Sensor's refresh interval in milliseconds\&.
+
+.PP
+The rate may be specified in increments of 5ms, and will be rounded down to the nearest increment\&. The minimum allowable refresh rate is 5ms\&. The default rate is 10ms\&.
+
+.PP
+As values are copied into the shared memory buffer only at 10ms intervals, setting this value to less than 10ms does not mean that you can poll the sensor's values any faster\&. However, it will guarantee that the data is as recent as possible\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fIrate\fP The data refresh interval in milliseconds 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_set_euler (uint8_t port, \fBeuler_s_t\fP target)"
+Sets the current reading of the Inertial Sensor's euler values to target euler values\&. Will default to +/- 180 if target exceeds +/- 180\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The raw gyroscope values\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+
+.PP
+Sets the current reading of the Inertial Sensor's euler values to target euler values\&. Will default to +/- 180 if target exceeds +/- 180\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fItarget\fP Target euler values for the euler values to be set to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_set_heading (uint8_t port, double target)"
+Sets the current reading of the Inertial Sensor's heading to target value Target will default to 360 if above 360 and default to 0 if below 0\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fItarget\fP Target value for the heading value to be set to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_set_pitch (uint8_t port, double target)"
+Sets the current reading of the Inertial Sensor's pitch to target value Will default to +/- 180 if target exceeds +/- 180\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fItarget\fP Target value for the pitch value to be set to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_set_roll (uint8_t port, double target)"
+Sets the current reading of the Inertial Sensor's roll to target value Will default to +/- 180 if target exceeds +/- 180\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fItarget\fP Target value for the roll value to be set to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_set_rotation (uint8_t port, double target)"
+Sets the current reading of the Inertial Sensor's rotation to target value
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fItarget\fP Target value for the rotation value to be set to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_set_yaw (uint8_t port, double target)"
+Sets the current reading of the Inertial Sensor's yaw to target value Will default to +/- 180 if target exceeds +/- 180\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.br
+\fItarget\fP Target value for the yaw value to be set to 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare (uint8_t port)"
+Resets all 5 values of the Inertial Sensor to 0\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare_euler (uint8_t port)"
+Reset all 3 euler values of the Inertial Sensor to 0\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare_heading (uint8_t port)"
+Resets the current reading of the Inertial Sensor's heading to zero
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare_pitch (uint8_t port)"
+Resets the current reading of the Inertial Sensor's pitch to zero
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare_roll (uint8_t port)"
+Resets the current reading of the Inertial Sensor's roll to zero
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare_rotation (uint8_t port)"
+Resets the current reading of the Inertial Sensor's rotation to zero
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t imu_tare_yaw (uint8_t port)"
+Resets the current reading of the Inertial Sensor's yaw to zero
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Inertial Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

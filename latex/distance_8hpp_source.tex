@@ -1,0 +1,48 @@
+\doxysection{distance.\+hpp}
+\hypertarget{distance_8hpp_source}{}\label{distance_8hpp_source}\index{include/pros/distance.hpp@{include/pros/distance.hpp}}
+\doxymbox{\hyperlink{distance_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_DISTANCE\_HPP\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_PROS\_DISTANCE\_HPP\_}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{device_8hpp}{pros/device.hpp}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{distance_8h}{pros/distance.h}}"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ \textcolor{keyword}{namespace\ }v5\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{Distance}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}{Distance}}(\textcolor{keyword}{const}\ std::uint8\_t\ port);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}{Distance}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\&\ device)\ :\ \doxymbox{\hyperlink{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}{Distance}}(device.\doxymbox{\hyperlink{group__cpp-device_ga59f09e1fcc8c968254ac974fc62ca9f3}{get\_port}}())\{\};}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-distance_ga9e231cbf8c8fc1cdb46105ad8f72ef23}{get}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-distance_gadea7cc732f3ea723be0a2a4fb13eb7ca}{get\_distance}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<Distance>\ \doxymbox{\hyperlink{group__cpp-distance_gab4bc80e8df54c17902544f9964cdd91e}{get\_all\_devices}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-distance_gac9ec2d316726d687ee8353b6b4ccda3d}{get\_confidence}}();}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-distance_ga69c66abe9a44bd44b54cea1bfdd409ae}{get\_object\_size}}();}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-distance_gacc35a32025d19d59b2d9b884de14076b}{get\_object\_velocity}}();}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \doxymbox{\hyperlink{group__cpp-distance_gaa41d82e47e05b7a17225d93512a88483}{operator<<}}(std::ostream\&\ os,\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::Distance}}\&\ \doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9aa74ec9c5b6882f79e32a8fbd8da90c1b}{distance}});}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00226\ \};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{namespace\ }literals\ \{}
+\DoxyCodeLine{00242\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::Distance}}\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_dist(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ d);}
+\DoxyCodeLine{00243\ \}\ \ \textcolor{comment}{//\ namespace\ literals}}
+\DoxyCodeLine{00244\ \}\ \ \textcolor{comment}{//\ namespace\ v5}}
+\DoxyCodeLine{00245\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

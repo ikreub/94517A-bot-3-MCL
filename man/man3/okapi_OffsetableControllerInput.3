@@ -1,0 +1,65 @@
+.TH "okapi::OffsetableControllerInput" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::OffsetableControllerInput
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ControllerInput< double >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOffsetableControllerInput\fP (const std::shared_ptr< \fBControllerInput\fP< double > > &iinput)"
+.br
+.ti -1c
+.RI "double \fBcontrollerGet\fP () override"
+.br
+.ti -1c
+.RI "virtual void \fBtarePosition\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBControllerInput\fP< double > > \fBinput\fP"
+.br
+.ti -1c
+.RI "double \fBoffset\fP {0}"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::OffsetableControllerInput::OffsetableControllerInput (const std::shared_ptr< \fBControllerInput\fP< double > > & iinput)\fR [explicit]\fP"
+A \fBControllerInput\fP which can be tared to change the zero position\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiinput\fP The \fBControllerInput\fP to reference\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double okapi::OffsetableControllerInput::controllerGet ()\fR [override]\fP, \fR [virtual]\fP"
+Get the sensor value for use in a control loop\&. This method might be automatically called in another thread by the controller\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current sensor value, or PROS_ERR on a failure\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ControllerInput< double >\fP\&.
+.SS "virtual void okapi::OffsetableControllerInput::tarePosition ()\fR [virtual]\fP"
+Sets the "absolute" zero position of this controller input to its current position\&. This does nothing if the underlying controller input returns PROS_ERR\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

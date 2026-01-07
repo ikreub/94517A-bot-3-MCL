@@ -1,0 +1,225 @@
+.TH "include/pros/adi.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/adi.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPROS_ERR\fP   (INT32_MAX)"
+.br
+.ti -1c
+.RI "#define \fB_DEPRECATE_DIGITAL_IN\fP   __attribute__((deprecated('use E_ADI_DIGITAL_IN instead'))) = E_ADI_DIGITAL_IN"
+.br
+.ti -1c
+.RI "#define \fB_DEPRECATE_ANALOG_IN\fP   __attribute__((deprecated('use E_ADI_ANALOG_IN instead'))) = E_ADI_ANALOG_IN"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_ADI_PORT\fP   22"
+.br
+.ti -1c
+.RI "#define \fBNUM_ADI_PORTS\fP   8"
+.br
+.in -1c
+.PP
+.RI "\fBEase of use macro definitions\fP"
+.br
+These functions provide ease of use definitions for the ADI functions\&. 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBHIGH\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLOW\fP   0"
+.br
+.ti -1c
+.RI "#define \fBINPUT\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBOUTPUT\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBINPUT_ANALOG\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBOUTPUT_ANALOG\fP   0x03"
+.br
+.in -1c
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBadi_port_config_e\fP \fBadi_port_config_e_t\fP"
+.br
+.ti -1c
+.RI "typedef enum adi_potentiometer_type_e \fBadi_potentiometer_type_e_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBadi_encoder_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBadi_ultrasonic_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBadi_gyro_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBadi_potentiometer_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBadi_led_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBadi_port_config_e\fP { \fBE_ADI_ANALOG_IN\fP = 0, \fBE_ADI_ANALOG_OUT\fP = 1, \fBE_ADI_DIGITAL_IN\fP = 2, \fBE_ADI_DIGITAL_OUT\fP = 3, \fB_DEPRECATE_DIGITAL_IN\fP, \fB_DEPRECATE_ANALOG_IN\fP, \fB_DEPRECATE_DIGITAL_IN\fP, \fB_DEPRECATE_ANALOG_IN\fP, \fB_DEPRECATE_DIGITAL_IN\fP, \fB_DEPRECATE_ANALOG_IN\fP, \fB_DEPRECATE_ANALOG_IN\fP, \fB_DEPRECATE_ANALOG_IN\fP, \fBE_ADI_LEGACY_GYRO\fP = 10, \fB_DEPRECATE_ANALOG_IN\fP, \fBE_ADI_LEGACY_SERVO\fP = 12, \fBE_ADI_LEGACY_PWM\fP = 13, \fBE_ADI_LEGACY_ENCODER\fP = 14, \fBE_ADI_LEGACY_ULTRASONIC\fP = 15, \fBE_ADI_TYPE_UNDEFINED\fP = 255, \fBE_ADI_ERR\fP = PROS_ERR }"
+.br
+.ti -1c
+.RI "enum \fBadi_potentiometer_type_e\fP { \fBE_ADI_POT_EDR\fP = 0, \fBE_ADI_POT_V2\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "adi_port_config_e_t \fBadi_port_get_config\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_port_get_value\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_port_set_config\fP (uint8_t port, adi_port_config_e_t type)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_port_set_value\fP (uint8_t port, int32_t value)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_analog_calibrate\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_analog_read\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_analog_read_calibrated\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_analog_read_calibrated_HR\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_digital_read\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_digital_get_new_press\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_digital_write\fP (uint8_t port, bool value)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_pin_mode\fP (uint8_t port, uint8_t mode)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_motor_set\fP (uint8_t port, int8_t speed)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_motor_get\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_motor_stop\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_encoder_get\fP (\fBadi_encoder_t\fP enc)"
+.br
+.ti -1c
+.RI "\fBadi_encoder_t\fP \fBadi_encoder_init\fP (uint8_t port_top, uint8_t port_bottom, bool reverse)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_encoder_reset\fP (\fBadi_encoder_t\fP enc)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_encoder_shutdown\fP (\fBadi_encoder_t\fP enc)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_ultrasonic_get\fP (\fBadi_ultrasonic_t\fP ult)"
+.br
+.ti -1c
+.RI "\fBadi_ultrasonic_t\fP \fBadi_ultrasonic_init\fP (uint8_t port_ping, uint8_t port_echo)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_ultrasonic_shutdown\fP (\fBadi_ultrasonic_t\fP ult)"
+.br
+.ti -1c
+.RI "double \fBadi_gyro_get\fP (\fBadi_gyro_t\fP gyro)"
+.br
+.ti -1c
+.RI "\fBadi_gyro_t\fP \fBadi_gyro_init\fP (uint8_t port, double multiplier)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_gyro_reset\fP (\fBadi_gyro_t\fP gyro)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_gyro_shutdown\fP (\fBadi_gyro_t\fP gyro)"
+.br
+.ti -1c
+.RI "\fBadi_potentiometer_t\fP \fBadi_potentiometer_init\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBadi_potentiometer_t\fP \fBadi_potentiometer_type_init\fP (uint8_t port, adi_potentiometer_type_e_t potentiometer_type)"
+.br
+.ti -1c
+.RI "double \fBadi_potentiometer_get_angle\fP (\fBadi_potentiometer_t\fP potentiometer)"
+.br
+.ti -1c
+.RI "\fBadi_led_t\fP \fBadi_led_init\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBadi_led_clear_all\fP (\fBadi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length)"
+.br
+.RI "Clear the entire led strip of color\&. "
+.ti -1c
+.RI "int32_t \fBadi_led_set\fP (\fBadi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length)"
+.br
+.RI "Set the entire led strip using the colors contained in the buffer\&. "
+.ti -1c
+.RI "int32_t \fBadi_led_set_all\fP (\fBadi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length, uint32_t color)"
+.br
+.RI "Set the entire led strip to one color\&. "
+.ti -1c
+.RI "int32_t \fBadi_led_set_pixel\fP (\fBadi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length, uint32_t color, uint32_t pixel_position)"
+.br
+.RI "Set one pixel on the led strip\&. "
+.ti -1c
+.RI "int32_t \fBadi_led_clear_pixel\fP (\fBadi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length, uint32_t pixel_position)"
+.br
+.RI "Clear one pixel on the led strip\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for interfacing with the ADI\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,426 @@
+.TH "cpp-optical" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-optical \- VEX Optical Sensor C++ API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBoptical\&.hpp\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::v5::Optical\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::Optical::Optical\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Optical::Optical\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "static std::vector< \fBOptical\fP > \fBpros::v5::Optical::get_all_devices\fP ()"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Optical::get_hue\fP ()"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Optical::get_saturation\fP ()"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Optical::get_brightness\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Optical::get_proximity\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Optical::set_led_pwm\fP (uint8_t value)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Optical::get_led_pwm\fP ()"
+.br
+.ti -1c
+.RI "virtual pros::c::optical_rgb_s_t \fBpros::v5::Optical::get_rgb\fP ()"
+.br
+.ti -1c
+.RI "virtual pros::c::optical_raw_s_t \fBpros::v5::Optical::get_raw\fP ()"
+.br
+.ti -1c
+.RI "virtual pros::c::optical_direction_e_t \fBpros::v5::Optical::get_gesture\fP ()"
+.br
+.ti -1c
+.RI "virtual pros::c::optical_gesture_s_t \fBpros::v5::Optical::get_gesture_raw\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Optical::enable_gesture\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Optical::disable_gesture\fP ()"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Optical::get_integration_time\fP ()"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Optical::set_integration_time\fP (double time)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBpros::v5::Optical::operator<<\fP (std::ostream &os, \fBpros::Optical\fP &optical)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "virtual std::int32_t pros::v5::Optical::disable_gesture ()\fR [virtual]\fP"
+Disable gesture detection on the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Optical::enable_gesture ()\fR [virtual]\fP"
+Enable gesture detection on the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::vector< \fBOptical\fP > pros::v5::Optical::get_all_devices ()\fR [static]\fP"
+Gets all optical sensors\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of \fBOptical\fP sensor objects\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Optical::get_brightness ()\fR [virtual]\fP"
+Get the detected color brightness
+
+.PP
+This is not available if gestures are being detected\&. Brightness has a range of 0 to 1\&.0
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+brightness value if the operation was successful or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::c::optical_direction_e_t pros::v5::Optical::get_gesture ()\fR [virtual]\fP"
+Get the most recent gesture data from the sensor
+
+.PP
+Gestures will be cleared after 500mS
+
+.PP
+0 = no gesture, 1 = up (towards cable), 2 = down, 3 = right, 4 = left
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+gesture value if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::c::optical_gesture_s_t pros::v5::Optical::get_gesture_raw ()\fR [virtual]\fP"
+Get the most recent raw gesture data from the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+gesture value if the operation was successful or an \fBoptical_gesture_s_t\fP with all fields set to PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Optical::get_hue ()\fR [virtual]\fP"
+Get the detected color hue
+
+.PP
+This is not available if gestures are being detected\&. Hue has a range of 0 to 359\&.999
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+hue value if the operation was successful or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double pros::v5::Optical::get_integration_time ()"
+Set integration time (update rate) of the optical sensor in milliseconds, with minimum time being 3 ms and maximum time being 712 ms\&. Default is 100 ms, with the optical sensor communciating with the V5 brain every 20 ms\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "virtual std::int32_t pros::v5::Optical::get_led_pwm ()\fR [virtual]\fP"
+Get the pwm value of the White LED on the sensor
+
+.PP
+value that ranges from 0 to 100
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+LED pwm value if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Optical::get_proximity ()\fR [virtual]\fP"
+Get the detected proximity value
+
+.PP
+This is not available if gestures are being detected\&. proximity has a range of 0 to 255\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+Proximity value if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::c::optical_raw_s_t pros::v5::Optical::get_raw ()\fR [virtual]\fP"
+Get the raw un-processed RGBC data from the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+raw rgb value if the operation was successful or an \fBoptical_raw_s_t\fP with all fields set to PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::c::optical_rgb_s_t pros::v5::Optical::get_rgb ()\fR [virtual]\fP"
+Get the processed RGBC data from the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+rgb value if the operation was successful or an \fBoptical_rgb_s_t\fP with all fields set to PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Optical::get_saturation ()\fR [virtual]\fP"
+Get the detected color saturation
+
+.PP
+This is not available if gestures are being detected\&. Saturation has a range of 0 to 1\&.0
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+saturation value if the operation was successful or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Optical::Optical (const std::uint8_t port)"
+Creates an \fBOptical\fP Sensor object for the given port\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Optical::set_integration_time (double time)"
+Get integration time (update rate) of the optical sensor in milliseconds\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP The desired integration time in milliseconds 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Integration time in milliseconds if the operation is successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "virtual std::int32_t pros::v5::Optical::set_led_pwm (uint8_t value)\fR [virtual]\fP"
+Set the pwm value of the White LED on the sensor
+
+.PP
+value that ranges from 0 to 100
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBOptical\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+The Error code encountered or PROS_SUCCESS\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Friends"
+.PP 
+.SS "std::ostream & operator<< (std::ostream & os, \fBpros::Optical\fP & optical)\fR [friend]\fP"
+This is the overload for the << operator for printing to streams
+
+.PP
+Prints in format(this below is all in one line with no new line): \fBOptical\fP [port: (port number), hue: (hue), saturation: (saturation), brightness: (brightness), proximity: (proximity), rgb: {red, green, blue}]
+
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,224 @@
+\doxysection{chassis\+Controller\+Builder.\+hpp}
+\hypertarget{chassis_controller_builder_8hpp_source}{}\label{chassis_controller_builder_8hpp_source}\index{include/okapi/impl/chassis/controller/chassisControllerBuilder.hpp@{include/okapi/impl/chassis/controller/chassisControllerBuilder.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/controller/chassisControllerIntegrated.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/controller/chassisControllerPid.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/controller/defaultOdomChassisController.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/model/hDriveModel.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/model/skidSteerModel.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/model/xDriveModel.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/logging.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/mathUtil.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/motor/motor.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/motor/motorGroup.hpp"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/rotarysensor/adiEncoder.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/rotarysensor/integratedEncoder.hpp"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/rotarysensor/rotationSensor.hpp"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/util/timeUtilFactory.hpp"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \{}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}(}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&ilogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a1ceb7c4b4f0ccfd37a92d8ffd64fa64e}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&iright);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a98b304ce096222c0f3af8105ab61ee71}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&iright);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00059\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a4482565290d9433bff4dc6c48543e334}{withMotors}}(\textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&ileft,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&iright);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00071\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a0d0a144c1b600aa90cf19b6a76a7dd04}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&itopLeft,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&itopRight,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&ibottomRight,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&ibottomLeft);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00085\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a5f8ddcfcd9c00fc205c1ec0536db3118}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&itopLeft,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&itopRight,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&ibottomRight,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&ibottomLeft);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00099\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a423ebf033857cae3bfcf5542db6dffd2}{withMotors}}(\textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&itopLeft,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&itopRight,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&ibottomRight,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&ibottomLeft);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00112\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&}
+\DoxyCodeLine{00113\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_aac43aeb3307760f2fd2c6b4db81c9bab}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&iright,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&imiddle);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00123\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&}
+\DoxyCodeLine{00124\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_aa0bd6b382e456f285421641c786b0daf}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&iright,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&imiddle);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00134\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&}
+\DoxyCodeLine{00135\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a670f860d2bda15f85b978b47c8b41b4b}{withMotors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group}{MotorGroup}}\ \&iright,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_motor}{Motor}}\ \&imiddle);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00145\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a9cf46890f0b7f9a894e617aef1e8be1d}{withMotors}}(\textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&ileft,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&iright,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&imiddle);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00156\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a0197aa35c2c36dd82476bc70c5824a56}{withSensors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_encoder}{ADIEncoder}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_encoder}{ADIEncoder}}\ \&iright);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00166\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&}
+\DoxyCodeLine{00167\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a5733a2198a3f10befcae5ee2a9a02d7e}{withSensors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_encoder}{ADIEncoder}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_encoder}{ADIEncoder}}\ \&iright,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_encoder}{ADIEncoder}}\ \&imiddle);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00176\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_ad02e5629b44b9ff26e489309fcb9620a}{withSensors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor}{RotationSensor}}\ \&ileft,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor}{RotationSensor}}\ \&iright);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00186\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a1670cf8b6ef447070c62b2cec8b0a7a3}{withSensors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor}{RotationSensor}}\ \&ileft,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor}{RotationSensor}}\ \&iright,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor}{RotationSensor}}\ \&imiddle);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00197\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_adcc6c5e490cd2f51e319bd52f40b1d3f}{withSensors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_integrated_encoder}{IntegratedEncoder}}\ \&ileft,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_integrated_encoder}{IntegratedEncoder}}\ \&iright);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00208\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a9ba0a2bf4c4d0334f96bd08b08144cc3}{withSensors}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_integrated_encoder}{IntegratedEncoder}}\ \&ileft,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_integrated_encoder}{IntegratedEncoder}}\ \&iright,}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_encoder}{ADIEncoder}}\ \&imiddle);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00219\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a10214db4bffeb20b0e7b3d5c956061fa}{withSensors}}(\textcolor{keyword}{const}\ std::shared\_ptr<ContinuousRotarySensor>\ \&ileft,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<ContinuousRotarySensor>\ \&iright);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00230\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a7f1da1b23e210fca609151c14a51e802}{withSensors}}(\textcolor{keyword}{const}\ std::shared\_ptr<ContinuousRotarySensor>\ \&ileft,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<ContinuousRotarySensor>\ \&iright,}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<ContinuousRotarySensor>\ \&imiddle);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00242\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_ac7b348a81cda8897540db92f14d1d8e3}{withGains}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{IterativePosPIDController::Gains}}\ \&idistanceGains,}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{IterativePosPIDController::Gains}}\ \&iturnGains);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00253\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a4fa2d56589f5a4c8e69b36238bc3f4de}{withGains}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{IterativePosPIDController::Gains}}\ \&idistanceGains,}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{IterativePosPIDController::Gains}}\ \&iturnGains,}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{IterativePosPIDController::Gains}}\ \&iangleGains);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00266\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_aeb585b3b9f21b9e83ce52fa29bc133dd}{withOdometry}}(\textcolor{keyword}{const}\ StateMode\ \&imode\ =\ StateMode::FRAME\_TRANSFORMATION,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QLength\ \&imoveThreshold\ =\ 0\_mm,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QAngle\ \&iturnThreshold\ =\ 0\_deg);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00281\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a71228bb4e5905b0f3f930e766d5df431}{withOdometry}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_chassis_scales}{ChassisScales}}\ \&iodomScales,}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ StateMode\ \&imode\ =\ StateMode::FRAME\_TRANSFORMATION,}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QLength\ \&imoveThreshold\ =\ 0\_mm,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QAngle\ \&iturnThreshold\ =\ 0\_deg);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00296\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_ae5f1e0967b0f0064be9e473a22f1aaea}{withOdometry}}(std::shared\_ptr<Odometry>\ iodometry,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ StateMode\ \&imode\ =\ StateMode::FRAME\_TRANSFORMATION,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QLength\ \&imoveThreshold\ =\ 0\_mm,}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QAngle\ \&iturnThreshold\ =\ 0\_deg);}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00309\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a4d65988fd98e4530dfa236fce6d4d99a}{withDerivativeFilters}}(}
+\DoxyCodeLine{00310\ \ \ \ \ std::unique\_ptr<Filter>\ idistanceFilter,}
+\DoxyCodeLine{00311\ \ \ \ \ std::unique\_ptr<Filter>\ iturnFilter\ =\ std::make\_unique<PassthroughFilter>(),}
+\DoxyCodeLine{00312\ \ \ \ \ std::unique\_ptr<Filter>\ iangleFilter\ =\ std::make\_unique<PassthroughFilter>());}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00321\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a2164207fd9a58242de9935a815068d0d}{withDimensions}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{AbstractMotor::GearsetRatioPair}}\ \&igearset,}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_chassis_scales}{ChassisScales}}\ \&iscales);}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00330\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_aee0580c75bf16663f065aad88fdc795d}{withMaxVelocity}}(\textcolor{keywordtype}{double}\ imaxVelocity);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00338\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a7bf0a781b124ae39c8fc46786d18243a}{withMaxVoltage}}(\textcolor{keywordtype}{double}\ imaxVoltage);}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00348\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&}
+\DoxyCodeLine{00349\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a1ca2919cbd6fa19b34aeaa1eeee98462}{withChassisControllerTimeUtilFactory}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_time_util_factory}{TimeUtilFactory}}\ \&itimeUtilFactory);}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00358\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&}
+\DoxyCodeLine{00359\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a5bf13424f9357099d6e4d336cc0cec98}{withClosedLoopControllerTimeUtilFactory}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_time_util_factory}{TimeUtilFactory}}\ \&itimeUtilFactory);}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00370\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a7d38aeba7a515ea7cb621488ce2979bb}{withClosedLoopControllerTimeUtil}}(\textcolor{keywordtype}{double}\ iatTargetError\ =\ 50,}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ iatTargetDerivative\ =\ 5,}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QTime\ \&iatTargetTime\ =\ 250\_ms);}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00381\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_ab601ad0881616b9af271d19c820ca3f2}{withOdometryTimeUtilFactory}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_time_util_factory}{TimeUtilFactory}}\ \&itimeUtilFactory);}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00389\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_ac2ba4b3f5a3b08e611ea21e0d9406250}{withLogger}}(\textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&ilogger);}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00401\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_adbfc4b12deb93feb87cd74eadc53b0f5}{parentedToCurrentTask}}();}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00414\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a47e82afd7b6f3e3076d153e6130820ed}{ChassisControllerBuilder}}\ \&\doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a1fcfad731fc317b44b310aa8b89c9953}{notParentedToCurrentTask}}();}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00422\ \ \ std::shared\_ptr<ChassisController>\ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a5dfd1f4d60a3c4bfcc28a57211c1a6a2}{build}}();}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00430\ \ \ std::shared\_ptr<OdomChassisController>\ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller_builder_a9c631ea817466483aa2cfcb886f6d892}{buildOdometry}}();}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00433\ \ \ std::shared\_ptr<Logger>\ logger;}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \textcolor{keyword}{struct\ }SkidSteerMotors\ \{}
+\DoxyCodeLine{00436\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ left;}
+\DoxyCodeLine{00437\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ right;}
+\DoxyCodeLine{00438\ \ \ \};}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \textcolor{keyword}{struct\ }XDriveMotors\ \{}
+\DoxyCodeLine{00441\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ topLeft;}
+\DoxyCodeLine{00442\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ topRight;}
+\DoxyCodeLine{00443\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ bottomRight;}
+\DoxyCodeLine{00444\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ bottomLeft;}
+\DoxyCodeLine{00445\ \ \ \};}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \textcolor{keyword}{struct\ }HDriveMotors\ \{}
+\DoxyCodeLine{00448\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ left;}
+\DoxyCodeLine{00449\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ right;}
+\DoxyCodeLine{00450\ \ \ \ \ std::shared\_ptr<AbstractMotor>\ middle;}
+\DoxyCodeLine{00451\ \ \ \};}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \textcolor{keyword}{enum\ class}\ DriveMode\ \{\ SkidSteer,\ XDrive,\ HDrive\ \};}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \textcolor{keywordtype}{bool}\ hasMotors\{\textcolor{keyword}{false}\};\ \textcolor{comment}{//\ Used\ to\ verify\ motors\ were\ passed}}
+\DoxyCodeLine{00456\ \ \ DriveMode\ driveMode\{DriveMode::SkidSteer\};}
+\DoxyCodeLine{00457\ \ \ SkidSteerMotors\ skidSteerMotors;}
+\DoxyCodeLine{00458\ \ \ XDriveMotors\ xDriveMotors;}
+\DoxyCodeLine{00459\ \ \ HDriveMotors\ hDriveMotors;}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \textcolor{keywordtype}{bool}\ sensorsSetByUser\{\textcolor{keyword}{false}\};\ \textcolor{comment}{//\ Used\ so\ motors\ don't\ overwrite\ sensors\ set\ manually}}
+\DoxyCodeLine{00462\ \ \ std::shared\_ptr<ContinuousRotarySensor>\ leftSensor\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00463\ \ \ std::shared\_ptr<ContinuousRotarySensor>\ rightSensor\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00464\ \ \ std::shared\_ptr<ContinuousRotarySensor>\ middleSensor\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \textcolor{keywordtype}{bool}\ hasGains\{\textcolor{keyword}{false}\};\ \textcolor{comment}{//\ Whether\ gains\ were\ passed,\ no\ gains\ means\ CCI}}
+\DoxyCodeLine{00467\ \ \ IterativePosPIDController::Gains\ distanceGains;}
+\DoxyCodeLine{00468\ \ \ std::unique\_ptr<Filter>\ distanceFilter\ =\ std::make\_unique<PassthroughFilter>();}
+\DoxyCodeLine{00469\ \ \ IterativePosPIDController::Gains\ angleGains;}
+\DoxyCodeLine{00470\ \ \ std::unique\_ptr<Filter>\ angleFilter\ =\ std::make\_unique<PassthroughFilter>();}
+\DoxyCodeLine{00471\ \ \ IterativePosPIDController::Gains\ turnGains;}
+\DoxyCodeLine{00472\ \ \ std::unique\_ptr<Filter>\ turnFilter\ =\ std::make\_unique<PassthroughFilter>();}
+\DoxyCodeLine{00473\ \ \ TimeUtilFactory\ chassisControllerTimeUtilFactory\ =\ TimeUtilFactory();}
+\DoxyCodeLine{00474\ \ \ TimeUtilFactory\ closedLoopControllerTimeUtilFactory\ =\ TimeUtilFactory();}
+\DoxyCodeLine{00475\ \ \ TimeUtilFactory\ odometryTimeUtilFactory\ =\ TimeUtilFactory();}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ AbstractMotor::GearsetRatioPair\ gearset\{AbstractMotor::gearset::invalid,\ 1.0\};}
+\DoxyCodeLine{00478\ \ \ ChassisScales\ driveScales\{\{1,\ 1\},\ imev5GreenTPR\};}
+\DoxyCodeLine{00479\ \ \ \textcolor{keywordtype}{bool}\ differentOdomScales\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00480\ \ \ ChassisScales\ odomScales\{\{1,\ 1\},\ imev5GreenTPR\};}
+\DoxyCodeLine{00481\ \ \ std::shared\_ptr<Logger>\ controllerLogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}();}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \textcolor{keywordtype}{bool}\ hasOdom\{\textcolor{keyword}{false}\};\ \textcolor{comment}{//\ Whether\ odometry\ was\ passed}}
+\DoxyCodeLine{00484\ \ \ std::shared\_ptr<Odometry>\ odometry;}
+\DoxyCodeLine{00485\ \ \ StateMode\ stateMode;}
+\DoxyCodeLine{00486\ \ \ QLength\ moveThreshold;}
+\DoxyCodeLine{00487\ \ \ QAngle\ turnThreshold;}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \textcolor{keywordtype}{bool}\ maxVelSetByUser\{\textcolor{keyword}{false}\};\ \textcolor{comment}{//\ Used\ so\ motors\ don't\ overwrite\ maxVelocity}}
+\DoxyCodeLine{00490\ \ \ \textcolor{keywordtype}{double}\ maxVelocity\{600\};}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \ \ \textcolor{keywordtype}{double}\ maxVoltage\{12000\};}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \textcolor{keywordtype}{bool}\ isParentedToCurrentTask\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ std::shared\_ptr<ChassisControllerPID>\ buildCCPID();}
+\DoxyCodeLine{00497\ \ \ std::shared\_ptr<ChassisControllerIntegrated>\ buildCCI();}
+\DoxyCodeLine{00498\ \ \ std::shared\_ptr<DefaultOdomChassisController>}
+\DoxyCodeLine{00499\ \ \ buildDOCC(std::shared\_ptr<ChassisController>\ chassisController);}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \ \ std::shared\_ptr<ChassisModel>\ makeChassisModel();}
+\DoxyCodeLine{00502\ \ \ std::shared\_ptr<SkidSteerModel>\ makeSkidSteerModel();}
+\DoxyCodeLine{00503\ \ \ std::shared\_ptr<XDriveModel>\ makeXDriveModel();}
+\DoxyCodeLine{00504\ \ \ std::shared\_ptr<HDriveModel>\ makeHDriveModel();}
+\DoxyCodeLine{00505\ \};}
+\DoxyCodeLine{00506\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

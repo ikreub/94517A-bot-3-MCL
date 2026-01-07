@@ -1,0 +1,46 @@
+\doxysection{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t Struct Reference}
+\hypertarget{struct__lv__fs__drv__t}{}\label{struct__lv__fs__drv__t}\index{\_lv\_fs\_drv\_t@{\_lv\_fs\_drv\_t}}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a1cb5b38d33c75014403bc708c08c15c4}\label{struct__lv__fs__drv__t_a1cb5b38d33c75014403bc708c08c15c4} 
+char {\bfseries letter}
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a2f1466977df43ca6fc16f62099ce5d73}\label{struct__lv__fs__drv__t_a2f1466977df43ca6fc16f62099ce5d73} 
+uint16\+\_\+t {\bfseries cache\+\_\+size}
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a1c3a00196857145003768ef69188616f}\label{struct__lv__fs__drv__t_a1c3a00196857145003768ef69188616f} 
+bool(\texorpdfstring{$\ast$}{*} {\bfseries ready\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a6d15931a6580a3956467405ae36daff6}\label{struct__lv__fs__drv__t_a6d15931a6580a3956467405ae36daff6} 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries open\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, const char \texorpdfstring{$\ast$}{*}path, lv\+\_\+fs\+\_\+mode\+\_\+t mode)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a27063e9b51ed4a4dac74b64a33fa9438}\label{struct__lv__fs__drv__t_a27063e9b51ed4a4dac74b64a33fa9438} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries close\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}file\+\_\+p)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a4c525cb8651b04b451246c05594c8c37}\label{struct__lv__fs__drv__t_a4c525cb8651b04b451246c05594c8c37} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries read\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}file\+\_\+p, void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t btr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}br)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_ab117ba33c0378b58ca87ec55f88cc555}\label{struct__lv__fs__drv__t_ab117ba33c0378b58ca87ec55f88cc555} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries write\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}file\+\_\+p, const void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t btw, uint32\+\_\+t \texorpdfstring{$\ast$}{*}bw)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_ad13356bd1360f45c0e62d0d3d3ca3bb2}\label{struct__lv__fs__drv__t_ad13356bd1360f45c0e62d0d3d3ca3bb2} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries seek\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}file\+\_\+p, uint32\+\_\+t pos, \doxymbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b}{lv\+\_\+fs\+\_\+whence\+\_\+t}} whence)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_ad11d5b2d3198a1a3f591e282e8c36a35}\label{struct__lv__fs__drv__t_ad11d5b2d3198a1a3f591e282e8c36a35} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries tell\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}file\+\_\+p, uint32\+\_\+t \texorpdfstring{$\ast$}{*}pos\+\_\+p)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a0913c354e6457254e185752451116b14}\label{struct__lv__fs__drv__t_a0913c354e6457254e185752451116b14} 
+void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries dir\+\_\+open\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a203777fa9172ed9331c5540e8eba2aa2}\label{struct__lv__fs__drv__t_a203777fa9172ed9331c5540e8eba2aa2} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries dir\+\_\+read\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}rddir\+\_\+p, char \texorpdfstring{$\ast$}{*}fn)
+\item 
+\Hypertarget{struct__lv__fs__drv__t_a630cd3d1cebc5482d94f715838220ca8}\label{struct__lv__fs__drv__t_a630cd3d1cebc5482d94f715838220ca8} 
+lv\+\_\+fs\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries dir\+\_\+close\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, void \texorpdfstring{$\ast$}{*}rddir\+\_\+p)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+liblvgl/\+misc/\+\doxymbox{\hyperlink{lv__fs_8h}{lv\+\_\+fs.\+h}}\end{DoxyCompactItemize}

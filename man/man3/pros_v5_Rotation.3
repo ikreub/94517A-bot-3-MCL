@@ -1,0 +1,113 @@
+.TH "pros::v5::Rotation" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::v5::Rotation
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::v5::Device\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRotation\fP (const std::int8_t port)"
+.br
+.ti -1c
+.RI "\fBRotation\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBreset\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBset_data_rate\fP (std::uint32_t rate) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBset_position\fP (std::uint32_t position) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBreset_position\fP (void) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBget_position\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBget_velocity\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBget_angle\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBset_reversed\fP (bool value) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBreverse\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBget_reversed\fP () const"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "std::uint8_t \fBget_port\fP (void) const"
+.br
+.ti -1c
+.RI "virtual bool \fBis_installed\fP ()"
+.br
+.ti -1c
+.RI "pros::DeviceType \fBget_plugged_type\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static std::vector< \fBRotation\fP > \fBget_all_devices\fP ()"
+.br
+.in -1c
+
+Static Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "static pros::DeviceType \fBget_plugged_type\fP (std::uint8_t port)"
+.br
+.ti -1c
+.RI "static std::vector< \fBDevice\fP > \fBget_all_devices\fP (pros::DeviceType device_type=\fBpros::DeviceType::undefined\fP)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBpros::Rotation\fP &rotation)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port, const enum \fBDeviceType\fP deviceType)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "const std::uint8_t \fB_port\fP"
+.br
+.ti -1c
+.RI "enum \fBDeviceType\fP \fB_deviceType\fP = \fBpros::DeviceType::none\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

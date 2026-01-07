@@ -1,0 +1,139 @@
+.TH "include/pros/gps.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/gps.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBgps_raw_s\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBgps_raw_s\fP \fBgps_accel_s_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBgps_raw_s\fP \fBgps_gyro_s_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fB__attribute__\fP ((__packed__)) gps_position_s"
+.br
+.ti -1c
+.RI "int32_t \fBgps_initialize_full\fP (uint8_t port, double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset)"
+.br
+.ti -1c
+.RI "int32_t \fBgps_set_offset\fP (uint8_t port, double xOffset, double yOffset)"
+.br
+.ti -1c
+.RI "\fBgps_position_s_t\fP \fBgps_get_offset\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBgps_set_position\fP (uint8_t port, double xInitial, double yInitial, double headingInitial)"
+.br
+.ti -1c
+.RI "int32_t \fBgps_set_data_rate\fP (uint8_t port, uint32_t rate)"
+.br
+.ti -1c
+.RI "double \fBgps_get_error\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBgps_status_s_t\fP \fBgps_get_position_and_orientation\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBgps_position_s_t\fP \fBgps_get_position\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_position_x\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_position_y\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBgps_orientation_s_t\fP \fBgps_get_orientation\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_pitch\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_roll\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_yaw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_heading\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_heading_raw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBgps_gyro_s_t\fP \fBgps_get_gyro_rate\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_gyro_rate_x\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_gyro_rate_y\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_gyro_rate_z\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBgps_accel_s_t\fP \fBgps_get_accel\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_accel_x\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_accel_y\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBgps_get_accel_z\fP (uint8_t port)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBgps_position_s_t\fP"
+.br
+.ti -1c
+.RI "\fBgps_status_s_t\fP"
+.br
+.ti -1c
+.RI "\fBgps_orientation_s_t\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for functions related to the VEX GPS\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

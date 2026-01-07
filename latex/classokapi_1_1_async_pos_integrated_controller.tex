@@ -1,0 +1,299 @@
+\doxysection{okapi::\+Async\+Pos\+Integrated\+Controller Class Reference}
+\hypertarget{classokapi_1_1_async_pos_integrated_controller}{}\label{classokapi_1_1_async_pos_integrated_controller}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+
+
+{\ttfamily \+\#include $<$async\+Pos\+Integrated\+Controller.\+hpp$>$}
+
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_async_position_controller}{okapi::\+\+Async\+Position\+Controller$<$ double, double $>$}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a6017c7eeed0e2054ff325582c404de60}{Async\+Pos\+Integrated\+Controller}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor}{Abstract\+Motor}} $>$ \&imotor, const \doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{Abstract\+Motor::\+\+Gearset\+Ratio\+Pair}} \&ipair, std::\+int32\+\_\+t imax\+Velocity, const \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \&itime\+Util, const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ \&ilogger=\doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}())
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_ae5cb385dc40c2c183266a3fa4aed7cac}{set\+Target}} (double itarget) override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8d09fefb4a02fcb9d0352b4aa68821e3}{get\+Target}} () override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a674042fa5e7f75363169e389e64d3772}{get\+Process\+Value}} () const override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a82aeb0cb2d1aab524b9a79a249260e11}{get\+Error}} () const override
+\item 
+bool \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a21b7ee29d335ee33aed1c41969a27f62}{is\+Settled}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a5858445747fe5a03f17f6fd83ee9aaaa}{reset}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a95c0b1350a2287e72d6517acdb8082b1}{flip\+Disable}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a6476dde71ef77fceb1c461b4f0ebe62b}{flip\+Disable}} (bool iis\+Disabled) override
+\item 
+bool \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8774fe656abb2cf72d046b40ba3572a9}{is\+Disabled}} () const override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a9f03807433a02bcbee583c1d85eaf55a}{wait\+Until\+Settled}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_aaa8d694c814e7b419dfb55b3e3a1d72e}{controller\+Set}} (double ivalue) override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a5fa801adbb46287423c5baae82f75924}{tare\+Position}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8559a6aa43c74f5caf1a6839d1a2224a}{set\+Max\+Velocity}} (std::\+int32\+\_\+t imax\+Velocity) override
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a0bf08ade0fdf74555a1aaa21152884f2}{stop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a20e951832cc1b7e622ca481a1664f0f8}{resume\+Movement}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a8bf0ffc06146b3b94b99e67a5321be3f}\label{classokapi_1_1_async_pos_integrated_controller_a8bf0ffc06146b3b94b99e67a5321be3f} 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ {\bfseries logger}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a128a3c1837b700afe7acd08af41799e8}\label{classokapi_1_1_async_pos_integrated_controller_a128a3c1837b700afe7acd08af41799e8} 
+\doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} {\bfseries time\+Util}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a6e75dccbe6c1634dbb018a1d86f23edb}\label{classokapi_1_1_async_pos_integrated_controller_a6e75dccbe6c1634dbb018a1d86f23edb} 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor}{Abstract\+Motor}} $>$ {\bfseries motor}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a70d4b32dda21ed2f5e2c944b8ad78c36}\label{classokapi_1_1_async_pos_integrated_controller_a70d4b32dda21ed2f5e2c944b8ad78c36} 
+\doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{Abstract\+Motor::\+\+Gearset\+Ratio\+Pair}} {\bfseries pair}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a7a95aef2b429d73a6c8b1696f02727dd}\label{classokapi_1_1_async_pos_integrated_controller_a7a95aef2b429d73a6c8b1696f02727dd} 
+std::\+int32\+\_\+t {\bfseries max\+Velocity}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_af158cd794225bad03ab07560dcc70bcb}\label{classokapi_1_1_async_pos_integrated_controller_af158cd794225bad03ab07560dcc70bcb} 
+double {\bfseries last\+Target} \{0\}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a6925855ac71fc3d609844f90bd09dd62}\label{classokapi_1_1_async_pos_integrated_controller_a6925855ac71fc3d609844f90bd09dd62} 
+double {\bfseries offset} \{0\}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_afd0b5307a43a05e8b541af9819a097b3}\label{classokapi_1_1_async_pos_integrated_controller_afd0b5307a43a05e8b541af9819a097b3} 
+bool {\bfseries controller\+Is\+Disabled} \{false\}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a8ac17264d716b7a07d4f20c003653c9e}\label{classokapi_1_1_async_pos_integrated_controller_a8ac17264d716b7a07d4f20c003653c9e} 
+bool {\bfseries has\+First\+Target} \{false\}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a3d8f6b2fc0cc4019742de861b0e42d60}\label{classokapi_1_1_async_pos_integrated_controller_a3d8f6b2fc0cc4019742de861b0e42d60} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_settled_util}{Settled\+Util}} $>$ {\bfseries settled\+Util}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Closed-\/loop controller that uses the V5 motor\textquotesingle{}s onboard control to move. Input units are whatever units the motor is in. 
+
+\label{doc-constructors}
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a6017c7eeed0e2054ff325582c404de60}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!AsyncPosIntegratedController@{AsyncPosIntegratedController}}
+\index{AsyncPosIntegratedController@{AsyncPosIntegratedController}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{AsyncPosIntegratedController()}{AsyncPosIntegratedController()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a6017c7eeed0e2054ff325582c404de60} 
+okapi::\+\+Async\+Pos\+Integrated\+Controller::\+\+Async\+Pos\+Integrated\+Controller (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor}{Abstract\+Motor}} $>$ \&}]{imotor}{, }\item[{const \doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{Abstract\+Motor::\+\+Gearset\+Ratio\+Pair}} \&}]{ipair}{, }\item[{std::\+int32\+\_\+t}]{imax\+Velocity}{, }\item[{const \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \&}]{itime\+Util}{, }\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ \&}]{ilogger}{ = {\ttfamily \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}()}}\end{DoxyParamCaption})}
+
+Closed-\/loop controller that uses the V5 motor\textquotesingle{}s onboard control to move. Input units are whatever units the motor is in. Throws a std::\+invalid\+\_\+argument exception if the gear ratio is zero.
+
+
+\begin{DoxyParams}{Parameters}
+{\em imotor} & The motor to control. \\
+\hline
+{\em ipair} & The gearset. \\
+\hline
+{\em imax\+Velocity} & The maximum velocity after gearing. \\
+\hline
+{\em itime\+Util} & The \doxylink{classokapi_1_1_time_util}{Time\+Util}. \\
+\hline
+{\em ilogger} & The logger this instance will log to. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_aaa8d694c814e7b419dfb55b3e3a1d72e}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!controllerSet@{controllerSet}}
+\index{controllerSet@{controllerSet}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{controllerSet()}{controllerSet()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_aaa8d694c814e7b419dfb55b3e3a1d72e} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+controller\+Set (\begin{DoxyParamCaption}\item[{double}]{ivalue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Writes the value of the controller output. This method might be automatically called in another thread by the controller. The range of input values is expected to be \+[-\/1, 1]\+.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ivalue} & the controller\textquotesingle{}s output in the range \+[-\/1, 1]\+ \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_controller_output_a360c08f0c10b36f882d6d3100c2cad49}{okapi::\+\+Controller\+Output$<$ double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a95c0b1350a2287e72d6517acdb8082b1}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!flipDisable@{flipDisable}}
+\index{flipDisable@{flipDisable}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{flipDisable()}{flipDisable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a95c0b1350a2287e72d6517acdb8082b1} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+flip\+Disable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Changes whether the controller is off or on. Turning the controller on after it was off will cause the controller to move to its last set target, unless it was reset in that time. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a9de69b60885df41cd2164fe1a23f34d3}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a6476dde71ef77fceb1c461b4f0ebe62b}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!flipDisable@{flipDisable}}
+\index{flipDisable@{flipDisable}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{flipDisable()}{flipDisable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a6476dde71ef77fceb1c461b4f0ebe62b} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+flip\+Disable (\begin{DoxyParamCaption}\item[{bool}]{iis\+Disabled}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+Sets whether the controller is off or on. Turning the controller on after it was off will cause the controller to move to its last set target, unless it was reset in that time.
+
+
+\begin{DoxyParams}{Parameters}
+{\em iis\+Disabled} & whether the controller is disabled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a82aeb0cb2d1aab524b9a79a249260e11}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!getError@{getError}}
+\index{getError@{getError}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{getError()}{getError()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a82aeb0cb2d1aab524b9a79a249260e11} 
+double okapi::\+\+Async\+Pos\+Integrated\+Controller::\+get\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns the last error of the controller. Does not update when disabled. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a50c73444ff6e3e631951c43d0f951953}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a674042fa5e7f75363169e389e64d3772}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!getProcessValue@{getProcessValue}}
+\index{getProcessValue@{getProcessValue}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{getProcessValue()}{getProcessValue()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a674042fa5e7f75363169e389e64d3772} 
+double okapi::\+\+Async\+Pos\+Integrated\+Controller::\+get\+Process\+Value (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The most recent value of the process variable. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_abffaa2af6941299849e460e15c65080f}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a8d09fefb4a02fcb9d0352b4aa68821e3}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!getTarget@{getTarget}}
+\index{getTarget@{getTarget}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{getTarget()}{getTarget()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a8d09fefb4a02fcb9d0352b4aa68821e3} 
+double okapi::\+\+Async\+Pos\+Integrated\+Controller::\+get\+Target (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the last set target, or the default target if none was set.
+
+\begin{DoxyReturn}{Returns}
+the last target 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a22012bedbfaff6e5a3a508f274ec2497}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a8774fe656abb2cf72d046b40ba3572a9}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!isDisabled@{isDisabled}}
+\index{isDisabled@{isDisabled}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{isDisabled()}{isDisabled()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a8774fe656abb2cf72d046b40ba3572a9} 
+bool okapi::\+\+Async\+Pos\+Integrated\+Controller::\+is\+Disabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns whether the controller is currently disabled.
+
+\begin{DoxyReturn}{Returns}
+whether the controller is currently disabled 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a40bd4ec2b8c75503fbf6f494fd7cbe69}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a21b7ee29d335ee33aed1c41969a27f62}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!isSettled@{isSettled}}
+\index{isSettled@{isSettled}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{isSettled()}{isSettled()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a21b7ee29d335ee33aed1c41969a27f62} 
+bool okapi::\+\+Async\+Pos\+Integrated\+Controller::\+is\+Settled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns whether the controller has settled at the target. Determining what settling means is implementation-\/dependent.
+
+If the controller is disabled, this method must return true.
+
+\begin{DoxyReturn}{Returns}
+whether the controller is settled 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_aed7aa0e94b6474c28314f8517d6cb4d8}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a5858445747fe5a03f17f6fd83ee9aaaa}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!reset@{reset}}
+\index{reset@{reset}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a5858445747fe5a03f17f6fd83ee9aaaa} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Resets the controller\textquotesingle{}s internal state so it is similar to when it was first initialized, while keeping any user-\/configured information. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a7dd6ce28b3e38bdf987514a1b6c83c8c}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a20e951832cc1b7e622ca481a1664f0f8}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!resumeMovement@{resumeMovement}}
+\index{resumeMovement@{resumeMovement}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{resumeMovement()}{resumeMovement()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a20e951832cc1b7e622ca481a1664f0f8} 
+virtual void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+resume\+Movement (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Resumes moving after the controller is reset. Should not cause movement if the controller is turned off, reset, and turned back on. \Hypertarget{classokapi_1_1_async_pos_integrated_controller_a8559a6aa43c74f5caf1a6839d1a2224a}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!setMaxVelocity@{setMaxVelocity}}
+\index{setMaxVelocity@{setMaxVelocity}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{setMaxVelocity()}{setMaxVelocity()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a8559a6aa43c74f5caf1a6839d1a2224a} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+set\+Max\+Velocity (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{imax\+Velocity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets a new maximum velocity in motor RPM \+[0-\/600]\+.
+
+
+\begin{DoxyParams}{Parameters}
+{\em imax\+Velocity} & The new maximum velocity in motor RPM \+[0-\/600]\+. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_ac56b3e8bc43ad9d9a6c95ff0a883e499}{okapi::\+\+Async\+Position\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_ae5cb385dc40c2c183266a3fa4aed7cac}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!setTarget@{setTarget}}
+\index{setTarget@{setTarget}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{setTarget()}{setTarget()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_ae5cb385dc40c2c183266a3fa4aed7cac} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+set\+Target (\begin{DoxyParamCaption}\item[{double}]{itarget}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target for the controller. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_ac14482d0768b3f157d52e0214a4c36d7}{okapi::\+\+Closed\+Loop\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a0bf08ade0fdf74555a1aaa21152884f2}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!stop@{stop}}
+\index{stop@{stop}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a0bf08ade0fdf74555a1aaa21152884f2} 
+virtual void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Stops the motor mid-\/movement. Does not change the last set target. \Hypertarget{classokapi_1_1_async_pos_integrated_controller_a5fa801adbb46287423c5baae82f75924}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!tarePosition@{tarePosition}}
+\index{tarePosition@{tarePosition}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{tarePosition()}{tarePosition()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a5fa801adbb46287423c5baae82f75924} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+tare\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the "{}absolute"{} zero position of the controller to its current position. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_a0af03d0035343cbf843a19374f38a059}{okapi::\+\+Async\+Position\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_integrated_controller_a9f03807433a02bcbee583c1d85eaf55a}\index{okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}!waitUntilSettled@{waitUntilSettled}}
+\index{waitUntilSettled@{waitUntilSettled}!okapi::AsyncPosIntegratedController@{okapi::AsyncPosIntegratedController}}
+\doxysubsubsection{\texorpdfstring{waitUntilSettled()}{waitUntilSettled()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_integrated_controller_a9f03807433a02bcbee583c1d85eaf55a} 
+void okapi::\+\+Async\+Pos\+Integrated\+Controller::\+wait\+Until\+Settled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Blocks the current task until the controller has settled. Determining what settling means is implementation-\/dependent. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_async_controller_a20e19f334e3dc7a3092e0e4355edcf49}{okapi::\+\+Async\+Controller$<$ double, double $>$}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+api/\+control/\+async/\+async\+Pos\+Integrated\+Controller.\+hpp\end{DoxyCompactItemize}

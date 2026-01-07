@@ -1,0 +1,117 @@
+\doxysection{motor\+Group.\+hpp}
+\hypertarget{motor_group_8hpp_source}{}\label{motor_group_8hpp_source}\index{include/okapi/impl/device/motor/motorGroup.hpp@{include/okapi/impl/device/motor/motorGroup.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/device/motor/abstractMotor.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/logging.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/motor/motor.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_motor_group_a6bc96434556403fecf7e715faa6359f9}{MotorGroup}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor}{AbstractMotor}}\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a6bc96434556403fecf7e715faa6359f9}{MotorGroup}}(\textcolor{keyword}{const}\ std::initializer\_list<Motor>\ \&imotors,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&ilogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00036\ \ \ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a3ab22f3617b30f6d1aeef45e2b54f249}{MotorGroup}}(\textcolor{keyword}{const}\ std::initializer\_list<std::shared\_ptr<AbstractMotor>>\ \&imotors,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&ilogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ /******************************************************************************/}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ /******************************************************************************/}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00058\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_afe6800639a995d37d8963c72fb8526d4}{moveAbsolute}}(\textcolor{keywordtype}{double}\ iposition,\ std::int32\_t\ ivelocity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00074\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a4295103133b5cb721dfb457a8cc8c2bc}{moveRelative}}(\textcolor{keywordtype}{double}\ iposition,\ std::int32\_t\ ivelocity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00089\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a9f31c14e92efe7ab492b2c335c51b488}{moveVelocity}}(std::int16\_t\ ivelocity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_acebebe160f2c733ee497b1b8b50b0781}{moveVoltage}}(std::int16\_t\ ivoltage)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00107\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a616f20db24f1eff4d3641b86faef4fbd}{modifyProfiledVelocity}}(std::int32\_t\ ivelocity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ /******************************************************************************/}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ /******************************************************************************/}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_ad6332111f8b2642bc13fbd8822328121}{getTargetPosition}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a6bf3c5a2f5caf0e5b02e8dcf2e8130d9}{getPosition}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a59aef8ea3c212e3466b67631978e47eb}{tarePosition}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00144\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a841736ae664104fb38ffff33ef763394}{getTargetVelocity}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a5cbb95146d4663440632a9e3ccc99ae9}{getActualVelocity}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00159\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a5cdc06b92c943b2348130b162f6c5f16}{getCurrentDraw}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a5466d52a245b10765945b91c0194da66}{getDirection}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00179\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a16413d00d77dd73b4977e8b7f73a33ce}{getEfficiency}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00187\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_ab714cb81d252599ab2933e13cc8af40d}{isOverCurrent}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00195\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a60eaf29b00c8c0f26b9e70f3f28f74be}{isOverTemp}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00206\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a50dfcb9272ad53aa231119a523ad2f2e}{isStopped}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00217\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a94be8c4591e65b268dd4f7357fdf4b50}{getZeroPositionFlag}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00226\ \ \ uint32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a1fece81a588e0d2ab40a08a1bcb86475}{getFaults}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00235\ \ \ uint32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a5a8206be671413586f461a45132c9056}{getFlags}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00244\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_ac7d9b049f24ddc141b2b63f7e3e4d3ba}{getRawPosition}}(std::uint32\_t\ *timestamp)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a67bdc04d59ba8293ccd58d26b849c9f0}{getPower}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00259\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_acba91d770dbc7e38f59070e8d5957d6d}{getTemperature}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00266\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a591e2ac0cc80b58f6b5b767c5d0128c5}{getTorque}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00273\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a399d4a16683c5498483f1f1e5e6307b5}{getVoltage}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{comment}{\ \ /******************************************************************************/}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ \ /******************************************************************************/}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00290\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a2124ee76893c401cd6dbf4879808349a}{setBrakeMode}}(\doxymbox{\hyperlink{classokapi_1_1_abstract_motor_a132e0485dbb59a60c3f934338d8fa601}{AbstractMotor::brakeMode}}\ imode)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00298\ \ \ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor_a132e0485dbb59a60c3f934338d8fa601}{brakeMode}}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_ad77fa0a3bde93700d0fcf9d5570082d3}{getBrakeMode}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00309\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a6d70691246bb8ba18d17f97b40a7f3f9}{setCurrentLimit}}(std::int32\_t\ ilimit)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00316\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_afe3f1ed73d64cc7204074d5cdb2a874e}{getCurrentLimit}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00324\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_ad08cc59d805811a81ce5d25580ad0ce0}{setEncoderUnits}}(\doxymbox{\hyperlink{classokapi_1_1_abstract_motor_ae811cd825099f2defadeb1b7f7e7764c}{AbstractMotor::encoderUnits}}\ iunits)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00332\ \ \ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor_ae811cd825099f2defadeb1b7f7e7764c}{encoderUnits}}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a3084370911dfe27e2d652c50deddb9ae}{getEncoderUnits}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00340\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a5720f3775594f0097856754776526a47}{setGearing}}(\doxymbox{\hyperlink{classokapi_1_1_abstract_motor_a88aaa6ea2fa10f5520a537bbf26774d5}{AbstractMotor::gearset}}\ igearset)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00348\ \ \ \doxymbox{\hyperlink{classokapi_1_1_abstract_motor_a88aaa6ea2fa10f5520a537bbf26774d5}{gearset}}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a2521c4f8fb0596d6f8ab2eecf4307014}{getGearing}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00357\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a5655accbdc1b548bc75ec49d40337fe0}{setReversed}}(\textcolor{keywordtype}{bool}\ ireverse)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00365\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a1ccc0bc9af94c6bab28f2373a902b23a}{setVoltageLimit}}(std::int32\_t\ ilimit)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00373\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a9da308795bb956d5f7f3f7885a727d8e}{controllerSet}}(\textcolor{keywordtype}{double}\ ivalue)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00380\ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a3ffb4066b0c1cd8eccdd4e00f708614f}{getSize}}();}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00387\ \ \ std::shared\_ptr<ContinuousRotarySensor>\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a911d4c2a66deafb2e54f66411eceaa59}{getEncoder}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00395\ \ \ \textcolor{keyword}{virtual}\ std::shared\_ptr<ContinuousRotarySensor>\ \doxymbox{\hyperlink{classokapi_1_1_motor_group_a13cf258030a2213b2bd925b2e9c22af4}{getEncoder}}(std::size\_t\ index);}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00398\ \ \ std::vector<std::shared\_ptr<AbstractMotor>>\ motors;}
+\DoxyCodeLine{00399\ \};}
+\DoxyCodeLine{00400\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

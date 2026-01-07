@@ -1,0 +1,79 @@
+\doxysection{okapi::\+Timer Class Reference}
+\hypertarget{classokapi_1_1_timer}{}\label{classokapi_1_1_timer}\index{okapi::Timer@{okapi::Timer}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_abstract_timer}{okapi::\+\+Abstract\+Timer}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+QTime \doxymbox{\hyperlink{classokapi_1_1_timer_aca51b21d6302021cd24b49b64648c13c}{millis}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_abstract_timer}{okapi::\+\+Abstract\+Timer}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_abstract_timer_aec03f7e11e25f300ec1fd44aaff3596f}{Abstract\+Timer}} (QTime ifirst\+Called)
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_aaeb8bf1697373e0859a97f155b208858}{get\+Dt}} ()
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a74dcd9eacaf8af4e7b081be79cfd52f2}{read\+Dt}} () const
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_ac632b81415f8d4199a8778190827a9bd}{get\+Starting\+Time}} () const
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a83effaff55fce03c3768f930fe6f0284}{get\+Dt\+From\+Start}} () const
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a15a00f0f80448174de5f364d72e56e4a}{place\+Mark}} ()
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a7d951e2e7324dcb82ba5058f3301b7d3}{clear\+Mark}} ()
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_af2f7d6fbeff539101689c629b76a709e}{place\+Hard\+Mark}} ()
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_ae93ed3379b54cf8e6133f89a42209690}{clear\+Hard\+Mark}} ()
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a729e4e24a907e17cf87957d892cd2977}{get\+Dt\+From\+Mark}} () const
+\item 
+virtual QTime \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a747c5062af748b44f511f76b893486c5}{get\+Dt\+From\+Hard\+Mark}} () const
+\item 
+virtual bool \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_ab7dfed8f4b5ef61c79bd987630a18b8c}{repeat}} (QTime time)
+\item 
+virtual bool \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_afb8713308cdd1ab9e5438208333d5820}{repeat}} (QFrequency frequency)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classokapi_1_1_abstract_timer}{okapi::\+\+Abstract\+Timer}}}
+\begin{DoxyCompactItemize}
+\item 
+QTime {\bfseries first\+Called}
+\item 
+QTime {\bfseries last\+Called}
+\item 
+QTime {\bfseries mark}
+\item 
+QTime {\bfseries hard\+Mark}
+\item 
+QTime {\bfseries repeat\+Mark}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_timer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_timer_aca51b21d6302021cd24b49b64648c13c}\index{okapi::Timer@{okapi::Timer}!millis@{millis}}
+\index{millis@{millis}!okapi::Timer@{okapi::Timer}}
+\doxysubsubsection{\texorpdfstring{millis()}{millis()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_timer_aca51b21d6302021cd24b49b64648c13c} 
+QTime okapi::\+\+Timer::\+millis (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns the current time in units of QTime.
+
+\begin{DoxyReturn}{Returns}
+the current time 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_abstract_timer_a6871e119f74d8b6a8c928244e837e762}{okapi::\+\+Abstract\+Timer}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+impl/\+util/\+timer.\+hpp\end{DoxyCompactItemize}

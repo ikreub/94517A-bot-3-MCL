@@ -1,0 +1,243 @@
+\doxysection{ez::\+tracking\+\_\+wheel Class Reference}
+\hypertarget{classez_1_1tracking__wheel}{}\label{classez_1_1tracking__wheel}\index{ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classez_1_1tracking__wheel_a2aa2943972605b7ef89c1b522480fd4b}{tracking\+\_\+wheel}} (std::\+vector$<$ int $>$ ports, double wheel\+\_\+diameter, double distance\+\_\+to\+\_\+center=0.\+0, double ratio=1.\+0)
+\item 
+\doxymbox{\hyperlink{classez_1_1tracking__wheel_a0bb98760981921db549f486deb1246c4}{tracking\+\_\+wheel}} (int smart\+\_\+port, std::\+vector$<$ int $>$ ports, double wheel\+\_\+diameter, double distance\+\_\+to\+\_\+center=0.\+0, double ratio=1.\+0)
+\item 
+\doxymbox{\hyperlink{classez_1_1tracking__wheel_a1807a526cec61edfacec3962599da4ee}{tracking\+\_\+wheel}} (int port, double wheel\+\_\+diameter, double distance\+\_\+to\+\_\+center=0.\+0, double ratio=1.\+0)
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_ad73e86bb2d65c6ee3572c0f441a694ae}{get}} ()
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_a33aa634792ef8949924bbec8cc34ac9c}{get\+\_\+raw}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1tracking__wheel_a9e25ddf4e768b54fd0a1463020cfeb9a}{distance\+\_\+to\+\_\+center\+\_\+set}} (double input)
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_a8de0c00d9eee85044c5315070ddb0044}{distance\+\_\+to\+\_\+center\+\_\+get}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1tracking__wheel_a9e1e124193515016e4ff7ae436570e20}{distance\+\_\+to\+\_\+center\+\_\+flip\+\_\+set}} (bool input)
+\item 
+bool \doxymbox{\hyperlink{classez_1_1tracking__wheel_ab72fbc3ebca93268c911ed0aca3f6e76}{distance\+\_\+to\+\_\+center\+\_\+flip\+\_\+get}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1tracking__wheel_a726ea7b931ef5b9e6eddebeedfa9ede6}{reset}} ()
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_a0e82bf89c562519eb62bf4858b6ed01a}{ticks\+\_\+per\+\_\+inch}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1tracking__wheel_a787ed03234a7b57ccfb9e67e498c356d}{ticks\+\_\+per\+\_\+rev\+\_\+set}} (double input)
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_a6d2f58656f71610e2a3182f1e6fec753}{ticks\+\_\+per\+\_\+rev\+\_\+get}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1tracking__wheel_a533ca2d1148c3173d72366f78de4eb69}{ratio\+\_\+set}} (double input)
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_a2cbc1dcfdc4f47d9703ffc8bb3978aa9}{ratio\+\_\+get}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1tracking__wheel_a12542e5ac8b81584224f13504b6e46cb}{wheel\+\_\+diameter\+\_\+set}} (double input)
+\item 
+double \doxymbox{\hyperlink{classez_1_1tracking__wheel_ab6d9850105104ed10042edf4ffc7b82d}{wheel\+\_\+diameter\+\_\+get}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classez_1_1tracking__wheel_aba8965b8a83fd6c80033bd8d0ca3afa9}\label{classez_1_1tracking__wheel_aba8965b8a83fd6c80033bd8d0ca3afa9} 
+\doxymbox{\hyperlink{classpros_1_1adi_1_1_encoder}{pros::\+adi::\+\+Encoder}} {\bfseries adi\+\_\+encoder}
+\item 
+\Hypertarget{classez_1_1tracking__wheel_a771aa528dc0352c50d2f3e8f9a3265db}\label{classez_1_1tracking__wheel_a771aa528dc0352c50d2f3e8f9a3265db} 
+\doxymbox{\hyperlink{classpros_1_1v5_1_1_rotation}{pros::\+\+Rotation}} {\bfseries smart\+\_\+encoder}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classez_1_1tracking__wheel_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classez_1_1tracking__wheel_a2aa2943972605b7ef89c1b522480fd4b}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!tracking\_wheel@{tracking\_wheel}}
+\index{tracking\_wheel@{tracking\_wheel}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{tracking\_wheel()}{tracking\_wheel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a2aa2943972605b7ef89c1b522480fd4b} 
+ez::\+tracking\+\_\+wheel::\+tracking\+\_\+wheel (\begin{DoxyParamCaption}\item[{std::\+vector$<$ int $>$}]{ports}{, }\item[{double}]{wheel\+\_\+diameter}{, }\item[{double}]{distance\+\_\+to\+\_\+center}{ = {\ttfamily 0.0}, }\item[{double}]{ratio}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+Creates a new tracking wheel with an ADI Encoder.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ports} & \{\textquotesingle{}A\textquotesingle{}, \textquotesingle{}B\textquotesingle{}\}. make the encoder negative if reversed \\
+\hline
+{\em wheel\+\_\+diameter} & assumed inches, this is the diameter of your wheel \\
+\hline
+{\em distance\+\_\+to\+\_\+center} & the distance to the center of your robot, this is used for tracking \\
+\hline
+{\em ratio} & the gear ratio of your tracking wheel. if it\textquotesingle{}s not geared, this should be 1.\+0 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1tracking__wheel_a0bb98760981921db549f486deb1246c4}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!tracking\_wheel@{tracking\_wheel}}
+\index{tracking\_wheel@{tracking\_wheel}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{tracking\_wheel()}{tracking\_wheel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a0bb98760981921db549f486deb1246c4} 
+ez::\+tracking\+\_\+wheel::\+tracking\+\_\+wheel (\begin{DoxyParamCaption}\item[{int}]{smart\+\_\+port}{, }\item[{std::\+vector$<$ int $>$}]{ports}{, }\item[{double}]{wheel\+\_\+diameter}{, }\item[{double}]{distance\+\_\+to\+\_\+center}{ = {\ttfamily 0.0}, }\item[{double}]{ratio}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+Creates a new tracking wheel with an ADI Encoder plugged into a 3-\/wire expander.
+
+
+\begin{DoxyParams}{Parameters}
+{\em smart\+\_\+port} & the smart port your ADI Expander is plugged into \\
+\hline
+{\em ports} & \{\textquotesingle{}A\textquotesingle{}, \textquotesingle{}B\textquotesingle{}\}. make the encoder negative if reversed \\
+\hline
+{\em wheel\+\_\+diameter} & assumed inches, this is the diameter of your wheel \\
+\hline
+{\em distance\+\_\+to\+\_\+center} & the distance to the center of your robot, this is used for tracking \\
+\hline
+{\em ratio} & the gear ratio of your tracking wheel. if it\textquotesingle{}s not geared, this should be 1.\+0 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1tracking__wheel_a1807a526cec61edfacec3962599da4ee}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!tracking\_wheel@{tracking\_wheel}}
+\index{tracking\_wheel@{tracking\_wheel}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{tracking\_wheel()}{tracking\_wheel()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a1807a526cec61edfacec3962599da4ee} 
+ez::\+tracking\+\_\+wheel::\+tracking\+\_\+wheel (\begin{DoxyParamCaption}\item[{int}]{port}{, }\item[{double}]{wheel\+\_\+diameter}{, }\item[{double}]{distance\+\_\+to\+\_\+center}{ = {\ttfamily 0.0}, }\item[{double}]{ratio}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+Creates a new tracking wheel with a Rotation sensor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & the port your Rotation sensor is plugged into, make this negative if reversed \\
+\hline
+{\em wheel\+\_\+diameter} & assumed inches, this is the diameter of your wheel \\
+\hline
+{\em distance\+\_\+to\+\_\+center} & the distance to the center of your robot, this is used for tracking \\
+\hline
+{\em ratio} & the gear ratio of your tracking wheel. if it\textquotesingle{}s not geared, this should be 1.\+0 \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classez_1_1tracking__wheel_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classez_1_1tracking__wheel_ab72fbc3ebca93268c911ed0aca3f6e76}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!distance\_to\_center\_flip\_get@{distance\_to\_center\_flip\_get}}
+\index{distance\_to\_center\_flip\_get@{distance\_to\_center\_flip\_get}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{distance\_to\_center\_flip\_get()}{distance\_to\_center\_flip\_get()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_ab72fbc3ebca93268c911ed0aca3f6e76} 
+bool ez::\+tracking\+\_\+wheel::\+distance\+\_\+to\+\_\+center\+\_\+flip\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns if the distance to center is flipped or not. False is not, true is. \Hypertarget{classez_1_1tracking__wheel_a9e1e124193515016e4ff7ae436570e20}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!distance\_to\_center\_flip\_set@{distance\_to\_center\_flip\_set}}
+\index{distance\_to\_center\_flip\_set@{distance\_to\_center\_flip\_set}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{distance\_to\_center\_flip\_set()}{distance\_to\_center\_flip\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a9e1e124193515016e4ff7ae436570e20} 
+void ez::\+tracking\+\_\+wheel::\+distance\+\_\+to\+\_\+center\+\_\+flip\+\_\+set (\begin{DoxyParamCaption}\item[{bool}]{input}{}\end{DoxyParamCaption})}
+
+Sets the distance to the center to be flipped to negative or not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & flips distance to center to negative. false leaves it alone, true flips it \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1tracking__wheel_a8de0c00d9eee85044c5315070ddb0044}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!distance\_to\_center\_get@{distance\_to\_center\_get}}
+\index{distance\_to\_center\_get@{distance\_to\_center\_get}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{distance\_to\_center\_get()}{distance\_to\_center\_get()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a8de0c00d9eee85044c5315070ddb0044} 
+double ez::\+tracking\+\_\+wheel::\+distance\+\_\+to\+\_\+center\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the distance to the center of the robot. \Hypertarget{classez_1_1tracking__wheel_a9e25ddf4e768b54fd0a1463020cfeb9a}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!distance\_to\_center\_set@{distance\_to\_center\_set}}
+\index{distance\_to\_center\_set@{distance\_to\_center\_set}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{distance\_to\_center\_set()}{distance\_to\_center\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a9e25ddf4e768b54fd0a1463020cfeb9a} 
+void ez::\+tracking\+\_\+wheel::\+distance\+\_\+to\+\_\+center\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{input}{}\end{DoxyParamCaption})}
+
+Sets the distance to the center of the robot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & distance to the center of your robot in inches \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1tracking__wheel_ad73e86bb2d65c6ee3572c0f441a694ae}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!get@{get}}
+\index{get@{get}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_ad73e86bb2d65c6ee3572c0f441a694ae} 
+double ez::\+tracking\+\_\+wheel::\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns how far the wheel has traveled in inches. \Hypertarget{classez_1_1tracking__wheel_a33aa634792ef8949924bbec8cc34ac9c}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!get\_raw@{get\_raw}}
+\index{get\_raw@{get\_raw}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{get\_raw()}{get\_raw()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a33aa634792ef8949924bbec8cc34ac9c} 
+double ez::\+tracking\+\_\+wheel::\+get\+\_\+raw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the raw sensor value. \Hypertarget{classez_1_1tracking__wheel_a2cbc1dcfdc4f47d9703ffc8bb3978aa9}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!ratio\_get@{ratio\_get}}
+\index{ratio\_get@{ratio\_get}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{ratio\_get()}{ratio\_get()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a2cbc1dcfdc4f47d9703ffc8bb3978aa9} 
+double ez::\+tracking\+\_\+wheel::\+ratio\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the gear ratio for your tracking wheel. \Hypertarget{classez_1_1tracking__wheel_a533ca2d1148c3173d72366f78de4eb69}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!ratio\_set@{ratio\_set}}
+\index{ratio\_set@{ratio\_set}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{ratio\_set()}{ratio\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a533ca2d1148c3173d72366f78de4eb69} 
+void ez::\+tracking\+\_\+wheel::\+ratio\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{input}{}\end{DoxyParamCaption})}
+
+Sets the gear ratio for your tracking wheel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & gear ratio of tracking wheel \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1tracking__wheel_a726ea7b931ef5b9e6eddebeedfa9ede6}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!reset@{reset}}
+\index{reset@{reset}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a726ea7b931ef5b9e6eddebeedfa9ede6} 
+void ez::\+tracking\+\_\+wheel::\+reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Resets your sensor. \Hypertarget{classez_1_1tracking__wheel_a0e82bf89c562519eb62bf4858b6ed01a}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!ticks\_per\_inch@{ticks\_per\_inch}}
+\index{ticks\_per\_inch@{ticks\_per\_inch}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{ticks\_per\_inch()}{ticks\_per\_inch()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a0e82bf89c562519eb62bf4858b6ed01a} 
+double ez::\+tracking\+\_\+wheel::\+ticks\+\_\+per\+\_\+inch (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the constant for how many ticks is 1 inch. \Hypertarget{classez_1_1tracking__wheel_a6d2f58656f71610e2a3182f1e6fec753}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!ticks\_per\_rev\_get@{ticks\_per\_rev\_get}}
+\index{ticks\_per\_rev\_get@{ticks\_per\_rev\_get}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{ticks\_per\_rev\_get()}{ticks\_per\_rev\_get()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a6d2f58656f71610e2a3182f1e6fec753} 
+double ez::\+tracking\+\_\+wheel::\+ticks\+\_\+per\+\_\+rev\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the amount of ticks per revolution of your sensor. \Hypertarget{classez_1_1tracking__wheel_a787ed03234a7b57ccfb9e67e498c356d}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!ticks\_per\_rev\_set@{ticks\_per\_rev\_set}}
+\index{ticks\_per\_rev\_set@{ticks\_per\_rev\_set}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{ticks\_per\_rev\_set()}{ticks\_per\_rev\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a787ed03234a7b57ccfb9e67e498c356d} 
+void ez::\+tracking\+\_\+wheel::\+ticks\+\_\+per\+\_\+rev\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{input}{}\end{DoxyParamCaption})}
+
+Sets the amount of ticks per revolution of your sensor.
+
+This is useful for custom encoders.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & ticks per revolution \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1tracking__wheel_ab6d9850105104ed10042edf4ffc7b82d}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!wheel\_diameter\_get@{wheel\_diameter\_get}}
+\index{wheel\_diameter\_get@{wheel\_diameter\_get}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{wheel\_diameter\_get()}{wheel\_diameter\_get()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_ab6d9850105104ed10042edf4ffc7b82d} 
+double ez::\+tracking\+\_\+wheel::\+wheel\+\_\+diameter\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the diameter of your wheel. \Hypertarget{classez_1_1tracking__wheel_a12542e5ac8b81584224f13504b6e46cb}\index{ez::tracking\_wheel@{ez::tracking\_wheel}!wheel\_diameter\_set@{wheel\_diameter\_set}}
+\index{wheel\_diameter\_set@{wheel\_diameter\_set}!ez::tracking\_wheel@{ez::tracking\_wheel}}
+\doxysubsubsection{\texorpdfstring{wheel\_diameter\_set()}{wheel\_diameter\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1tracking__wheel_a12542e5ac8b81584224f13504b6e46cb} 
+void ez::\+tracking\+\_\+wheel::\+wheel\+\_\+diameter\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{input}{}\end{DoxyParamCaption})}
+
+Sets the diameter of your wheel.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & wheel diameter \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\+EZ-\/\+Template/\+tracking\+\_\+wheel.\+hpp\end{DoxyCompactItemize}

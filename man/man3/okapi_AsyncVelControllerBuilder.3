@@ -1,0 +1,312 @@
+.TH "okapi::AsyncVelControllerBuilder" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AsyncVelControllerBuilder
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP (const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithMotor\fP (const \fBMotor\fP &imotor)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithMotor\fP (const \fBMotorGroup\fP &imotor)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithMotor\fP (const std::shared_ptr< \fBAbstractMotor\fP > &imotor)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithSensor\fP (const \fBADIEncoder\fP &isensor)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithSensor\fP (const \fBIntegratedEncoder\fP &isensor)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithSensor\fP (const std::shared_ptr< \fBRotarySensor\fP > &isensor)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithGains\fP (const \fBIterativeVelPIDController::Gains\fP &igains)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithVelMath\fP (std::unique_ptr< \fBVelMath\fP > ivelMath)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithDerivativeFilter\fP (std::unique_ptr< \fBFilter\fP > iderivativeFilter)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithGearset\fP (const \fBAbstractMotor::GearsetRatioPair\fP &igearset)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithMaxVelocity\fP (double imaxVelocity)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithTimeUtilFactory\fP (const \fBTimeUtilFactory\fP &itimeUtilFactory)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBwithLogger\fP (const std::shared_ptr< \fBLogger\fP > &ilogger)"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBparentedToCurrentTask\fP ()"
+.br
+.ti -1c
+.RI "\fBAsyncVelControllerBuilder\fP & \fBnotParentedToCurrentTask\fP ()"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAsyncVelocityController\fP< double, double > > \fBbuild\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::AsyncVelControllerBuilder::AsyncVelControllerBuilder (const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [explicit]\fP"
+A builder that creates async velocity controllers\&. Use this to create an \fBAsyncVelIntegratedController\fP or an \fBAsyncVelPIDController\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::shared_ptr< \fBAsyncVelocityController\fP< double, double > > okapi::AsyncVelControllerBuilder::build ()"
+Builds the \fBAsyncVelocityController\fP\&. Throws a std::runtime_exception is no motors were set\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A fully built \fBAsyncVelocityController\fP\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::notParentedToCurrentTask ()"
+Prevents parenting the internal tasks started by this builder to the current task, meaning they will not be deleted once the current task is deleted\&. This can cause runaway tasks, but is sometimes the desired behavior (e\&.x\&., if you want to use this builder once in \fR\fBautonomous\fP\fP and then again in \fRopcontrol\fP)\&.
+
+.PP
+Read more about this in the [builders and tasks tutorial] (docs/tutorials/concepts/builders-and-tasks\&.md)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::parentedToCurrentTask ()"
+Parents the internal tasks started by this builder to the current task, meaning they will be deleted once the current task is deleted\&. The \fRinitialize\fP and \fRcompetition_initialize\fP tasks are never parented to\&. This is the default behavior\&.
+
+.PP
+Read more about this in the [builders and tasks tutorial] (docs/tutorials/concepts/builders-and-tasks\&.md)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withDerivativeFilter (std::unique_ptr< \fBFilter\fP > iderivativeFilter)"
+Sets the derivative filter which filters the derivative term before it is scaled by kD\&. The filter is ignored when using integrated control\&. The default derivative filter is a \fBPassthroughFilter\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiderivativeFilter\fP The derivative filter\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withGains (const \fBIterativeVelPIDController::Gains\fP & igains)"
+Sets the controller gains, causing the builder to generate an \fBAsyncVelPIDController\fP\&. This does not set the integrated control's gains\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigains\fP The gains\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withGearset (const \fBAbstractMotor::GearsetRatioPair\fP & igearset)"
+Sets the gearset\&. The default gearset is derived from the motor's\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigearset\fP The gearset\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withLogger (const std::shared_ptr< \fBLogger\fP > & ilogger)"
+Sets the logger\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilogger\fP The logger\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withMaxVelocity (double imaxVelocity)"
+Sets the maximum velocity\&. The default maximum velocity is derived from the motor's gearset\&. This parameter is ignored when using an \fBAsyncVelPIDController\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimaxVelocity\fP The maximum velocity\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withMotor (const \fBMotor\fP & imotor)"
+Sets the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP The motor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withMotor (const \fBMotorGroup\fP & imotor)"
+Sets the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP The motor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withMotor (const std::shared_ptr< \fBAbstractMotor\fP > & imotor)"
+Sets the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP The motor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withSensor (const \fBADIEncoder\fP & isensor)"
+Sets the sensor\&. The default sensor is the motor's integrated encoder\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisensor\fP The sensor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withSensor (const \fBIntegratedEncoder\fP & isensor)"
+Sets the sensor\&. The default sensor is the motor's integrated encoder\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisensor\fP The sensor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withSensor (const std::shared_ptr< \fBRotarySensor\fP > & isensor)"
+Sets the sensor\&. The default sensor is the motor's integrated encoder\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisensor\fP The sensor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withTimeUtilFactory (const \fBTimeUtilFactory\fP & itimeUtilFactory)"
+Sets the \fBTimeUtilFactory\fP used when building the controller\&. The default is the static \fBTimeUtilFactory\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimeUtilFactory\fP The \fBTimeUtilFactory\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+.SS "\fBAsyncVelControllerBuilder\fP & okapi::AsyncVelControllerBuilder::withVelMath (std::unique_ptr< \fBVelMath\fP > ivelMath)"
+Sets the \fBVelMath\fP which calculates and filters velocity\&. This is ignored when using integrated controller\&. If using a PID controller (by setting the gains), this is required\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivelMath\fP The \fBVelMath\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+An ongoing builder\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

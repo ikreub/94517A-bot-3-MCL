@@ -1,0 +1,633 @@
+.TH "include/liblvgl/lv_conf.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/lv_conf.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_HOR_RES_MAX\fP   (480)"
+.br
+.ti -1c
+.RI "#define \fBLV_VER_RES_MAX\fP   (240)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_DEPTH\fP   32"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_16_SWAP\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SCREEN_TRANSP\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_TRANSP\fP   LV_COLOR_LIME         /*LV_COLOR_LIME: pure green*/"
+.br
+.ti -1c
+.RI "#define \fBLV_ANTIALIAS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_DISP_DEF_REFR_PERIOD\fP   40      /*[ms]*/"
+.br
+.ti -1c
+.RI "#define \fBLV_DPI\fP   126     /*[px]*/"
+.br
+.ti -1c
+.RI "#define \fBLV_DISP_SMALL_LIMIT\fP   30"
+.br
+.ti -1c
+.RI "#define \fBLV_DISP_MEDIUM_LIMIT\fP   50"
+.br
+.ti -1c
+.RI "#define \fBLV_DISP_LARGE_LIMIT\fP   70"
+.br
+.ti -1c
+.RI "#define \fBLV_DISP_ROT_MAX_BUF\fP   (10U * 1024U)"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_CUSTOM\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_SIZE\fP   (32U * 1024U)"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_ATTR\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_ADR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_AUTO_DEFRAG\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_MEMCPY_MEMSET_STD\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_ENABLE_GC\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_READ_PERIOD\fP   50"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_DRAG_LIMIT\fP   10"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_DRAG_THROW\fP   20"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_LONG_PRESS_TIME\fP   400"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_LONG_PRESS_REP_TIME\fP   100"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_GESTURE_LIMIT\fP   50"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_GESTURE_MIN_VELOCITY\fP   3"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ANIMATION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_SHADOW\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_SHADOW_CACHE_SIZE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_OUTLINE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_PATTERN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_VALUE_STR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_BLEND_MODES\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_OPA_SCALE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_IMG_TRANSFORM\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GROUP\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GPU\fP   0   /*Only enables `gpu_fill_cb` and `gpu_blend_cb` in the disp\&. drv\- */"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GPU_STM32_DMA2D\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_GPU_DMA2D_CMSIS_INCLUDE\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GPU_NXP_PXP\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GPU_NXP_PXP_AUTO_INIT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GPU_NXP_VG_LITE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_FILESYSTEM\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_USER_DATA\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_PERF_MONITOR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_API_EXTENSION_V6\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_API_EXTENSION_V7\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_IMG_CF_INDEXED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_IMG_CF_ALPHA\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_IMG_CACHE_DEF_SIZE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_BIG_ENDIAN_SYSTEM\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_TICK_INC\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_TASK_HANDLER\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_FLUSH_READY\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_MEM_ALIGN_SIZE\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_MEM_ALIGN\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_LARGE_CONST\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_FAST_MEM\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_EXPORT_CONST_INT\fP(int_value)"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_DMA\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_TICK_CUSTOM\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_LOG\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_DEBUG\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ASSERT_NULL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ASSERT_MEM\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ASSERT_MEM_INTEGRITY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ASSERT_STR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ASSERT_OBJ\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ASSERT_STYLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_8\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_10\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_12\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_14\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_16\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_18\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_20\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_22\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_24\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_26\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_28\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_30\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_32\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_34\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_36\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_38\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_40\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_42\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_44\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_46\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_48\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_12_SUBPX\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_MONTSERRAT_28_COMPRESSED\fP   0  /*bpp = 3*/"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_DEJAVU_16_PERSIAN_HEBREW\fP   0  /*Hebrew, Arabic, PErisan letters and all their forms*/"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_SIMSUN_16_CJK\fP   0  /*1000 most common CJK radicals*/"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_UNSCII_8\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_UNSCII_16\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_CUSTOM_DECLARE\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_FMT_TXT_LARGE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_FONT_COMPRESSED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_FONT_SUBPX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_SUBPX_BGR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUSE_PROS_FONT_DEJAVU_MONO_10\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_PROS_FONT_DEJAVU_MONO_18\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_PROS_FONT_DEJAVU_MONO_30\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUSE_PROS_FONT_DEJAVU_MONO_40\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_THEME_EMPTY\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_THEME_TEMPLATE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_THEME_MATERIAL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_THEME_MONO\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_INCLUDE\fP   <stdint\&.h>      /*Include a header for the init\&. function*/"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_INIT\fP   lv_theme_material_init"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_COLOR_PRIMARY\fP   lv_color_hex(0x01a2b1)"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_COLOR_SECONDARY\fP   lv_color_hex(0x44d1b6)"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_FLAG\fP   LV_THEME_MATERIAL_FLAG_DARK"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_FONT_SMALL\fP   &lv_font_montserrat_10"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_FONT_NORMAL\fP   &lv_font_montserrat_20"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_FONT_SUBTITLE\fP   &lv_font_montserrat_10"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_DEFAULT_FONT_TITLE\fP   &lv_font_montserrat_30"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_LV_THEME_DEFAULT_DARK\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_ENC\fP   LV_TXT_ENC_UTF8"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_BREAK_CHARS\fP   ' ,\&.;:\-_'"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_LINE_BREAK_LONG_LEN\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_LINE_BREAK_LONG_PRE_MIN_LEN\fP   3"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_LINE_BREAK_LONG_POST_MIN_LEN\fP   3"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_COLOR_CMD\fP   '#'"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_BIDI\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ARABIC_PERSIAN_CHARS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_SPRINTF_CUSTOM\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_SPRINTF_DISABLE_FLOAT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_USER_DATA_FREE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_OBJ_REALIGN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_EXT_CLICK_AREA\fP   LV_EXT_CLICK_AREA_TINY"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ARC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_BAR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_BTN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_BTNMATRIX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_CALENDAR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_CALENDAR_WEEK_STARTS_MONDAY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_CANVAS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_CHECKBOX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_CHART\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_CHART_AXIS_TICK_LABEL_MAX_LEN\fP   256"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_CONT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_CPICKER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_DROPDOWN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_DROPDOWN_DEF_ANIM_TIME\fP   200"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_GAUGE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_IMG\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_IMGBTN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_IMGBTN_TILED\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_KEYBOARD\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_LABEL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LABEL_DEF_SCROLL_SPEED\fP   25"
+.br
+.ti -1c
+.RI "#define \fBLV_LABEL_WAIT_CHAR_COUNT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBLV_LABEL_TEXT_SEL\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_LABEL_LONG_TXT_HINT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_LED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LED_BRIGHT_MIN\fP   120      /*Minimal brightness*/"
+.br
+.ti -1c
+.RI "#define \fBLV_LED_BRIGHT_MAX\fP   255     /*Maximal brightness*/"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_LINE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_LIST\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LIST_DEF_ANIM_TIME\fP   100"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_LINEMETER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LINEMETER_PRECISE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_OBJMASK\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_MSGBOX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_PAGE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_PAGE_DEF_ANIM_TIME\fP   400"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_SPINNER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_SPINNER_DEF_ARC_LENGTH\fP   60      /*[deg]*/"
+.br
+.ti -1c
+.RI "#define \fBLV_SPINNER_DEF_SPIN_TIME\fP   1000    /*[ms]*/"
+.br
+.ti -1c
+.RI "#define \fBLV_SPINNER_DEF_ANIM\fP   LV_SPINNER_TYPE_SPINNING_ARC"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_ROLLER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_ROLLER_DEF_ANIM_TIME\fP   200"
+.br
+.ti -1c
+.RI "#define \fBLV_ROLLER_INF_PAGES\fP   7"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_SLIDER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_SPINBOX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_SWITCH\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_TEXTAREA\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TEXTAREA_DEF_CURSOR_BLINK_TIME\fP   400     /*ms*/"
+.br
+.ti -1c
+.RI "#define \fBLV_TEXTAREA_DEF_PWD_SHOW_TIME\fP   1500    /*ms*/"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_TABLE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TABLE_COL_MAX\fP   12"
+.br
+.ti -1c
+.RI "#define \fBLV_TABLE_CELL_STYLE_CNT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_TABVIEW\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TABVIEW_DEF_ANIM_TIME\fP   300"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_TILEVIEW\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TILEVIEW_DEF_ANIM_TIME\fP   300"
+.br
+.ti -1c
+.RI "#define \fBLV_USE_WIN\fP   1"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int16_t \fBlv_coord_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_anim_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_group_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_fs_drv_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_img_decoder_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_disp_drv_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_indev_drv_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_font_user_data_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBlv_obj_user_data_t\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration file for v7\&.11\&.0
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LV_EXPORT_CONST_INT( int_value)"
+\fBValue:\fP
+.nf
+struct _silence_gcc_warning
+.PP
+.fi
+
+.SS "#define LV_SPRINTF_DISABLE_FLOAT   1"
+LV_SPRINTF_CUSTOM 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

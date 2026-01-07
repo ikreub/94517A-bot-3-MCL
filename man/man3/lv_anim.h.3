@@ -1,0 +1,391 @@
+.TH "include/liblvgl/misc/lv_anim.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_anim.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_anim_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_ANIM_REPEAT_INFINITE\fP   0xFFFF"
+.br
+.ti -1c
+.RI "#define \fBLV_ANIM_PLAYTIME_INFINITE\fP   0xFFFFFFFF"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int32_t(* \fBlv_anim_path_cb_t\fP) (const struct \fB_lv_anim_t\fP *)"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_anim_exec_xcb_t\fP) (void *, int32_t)"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_anim_custom_exec_cb_t\fP) (struct \fB_lv_anim_t\fP *, int32_t)"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_anim_ready_cb_t\fP) (struct \fB_lv_anim_t\fP *)"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_anim_start_cb_t\fP) (struct \fB_lv_anim_t\fP *)"
+.br
+.ti -1c
+.RI "typedef int32_t(* \fBlv_anim_get_value_cb_t\fP) (struct \fB_lv_anim_t\fP *)"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_anim_deleted_cb_t\fP) (struct \fB_lv_anim_t\fP *)"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_anim_t\fP \fBlv_anim_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlv_anim_enable_t\fP { \fBLV_ANIM_OFF\fP, \fBLV_ANIM_ON\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (LV_ANIM_REPEAT_INFINITE)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (LV_ANIM_PLAYTIME_INFINITE)"
+.br
+.ti -1c
+.RI "void \fB_lv_anim_core_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_init\fP (\fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "\fBlv_anim_t\fP * \fBlv_anim_start\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "uint32_t \fBlv_anim_get_playtime\fP (\fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "bool \fBlv_anim_del\fP (void *var, \fBlv_anim_exec_xcb_t\fP exec_cb)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_del_all\fP (void)"
+.br
+.ti -1c
+.RI "\fBlv_anim_t\fP * \fBlv_anim_get\fP (void *var, \fBlv_anim_exec_xcb_t\fP exec_cb)"
+.br
+.ti -1c
+.RI "struct \fB_lv_timer_t\fP * \fBlv_anim_get_timer\fP (void)"
+.br
+.ti -1c
+.RI "uint16_t \fBlv_anim_count_running\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBlv_anim_speed_to_time\fP (uint32_t speed, int32_t start, int32_t end)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_refr_now\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_linear\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_ease_in\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_ease_out\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_ease_in_out\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_overshoot\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_bounce\fP (const \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "int32_t \fBlv_anim_path_step\fP (const \fBlv_anim_t\fP *a)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* lv_anim_custom_exec_cb_t) (struct \fB_lv_anim_t\fP *, int32_t)"
+Same as \fR\fBlv_anim_exec_xcb_t\fP\fP but receives \fR\fBlv_anim_t\fP *\fP as the first parameter\&. It's more consistent but less convenient\&. Might be used by binding generator functions\&. 
+.SS "typedef void(* lv_anim_deleted_cb_t) (struct \fB_lv_anim_t\fP *)"
+Callback used when the animation is deleted 
+.SS "typedef void(* lv_anim_exec_xcb_t) (void *, int32_t)"
+Generic prototype of "animator" functions\&. First parameter is the variable to animate\&. Second parameter is the value to set\&. Compatible with \fRlv_xxx_set_yyy(obj, value)\fP functions The \fRx\fP in \fR_xcb_t\fP means it's not a fully generic prototype because it doesn't receive \fR\fBlv_anim_t\fP *\fP as its first argument 
+.SS "typedef int32_t(* lv_anim_get_value_cb_t) (struct \fB_lv_anim_t\fP *)"
+Callback used when the animation values are relative to get the current value 
+.SS "typedef int32_t(* lv_anim_path_cb_t) (const struct \fB_lv_anim_t\fP *)"
+Get the current value during an animation 
+.PP
+\fBExamples\fP
+.in +1c
+\fBC:/Users/Leon/OneDrive/robotics/94517A\-bot\-3\-MCL/include/liblvgl/misc/lv_style\&.h\fP\&.
+.SS "typedef void(* lv_anim_ready_cb_t) (struct \fB_lv_anim_t\fP *)"
+Callback to call when the animation is ready 
+.SS "typedef void(* lv_anim_start_cb_t) (struct \fB_lv_anim_t\fP *)"
+Callback to call when the animation really stars (considering \fR\fBdelay\fP\fP) 
+.SS "typedef struct \fB_lv_anim_t\fP \fBlv_anim_t\fP"
+Describes an animation 
+.PP
+\fBExamples\fP
+.in +1c
+\fBC:/Users/Leon/OneDrive/robotics/94517A\-bot\-3\-MCL/include/liblvgl/core/lv_event\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBlv_anim_enable_t\fP"
+Can be used to indicate if animations are enabled or disabled in a case 
+.SH "Function Documentation"
+.PP 
+.SS "void _lv_anim_core_init (void )"
+Init\&. the animation module 
+.SS "uint16_t lv_anim_count_running (void )"
+Get the number of currently running animations 
+.PP
+\fBReturns\fP
+.RS 4
+the number of running animations 
+.RE
+.PP
+
+.SS "bool lv_anim_del (void * var, \fBlv_anim_exec_xcb_t\fP exec_cb)"
+Get the user_data field of the animation 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an initialized \fR\fBlv_anim_t\fP\fP variable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the pointer to the custom user_data of the animation Delete an animation of a variable with a given animator function 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIvar\fP pointer to variable 
+.br
+\fIexec_cb\fP a function pointer which is animating 'var', or NULL to ignore it and delete all the animations of 'var 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: at least 1 animation is deleted, false: no animation is deleted 
+.RE
+.PP
+
+.SS "void lv_anim_del_all (void )"
+Delete all the animations 
+.SS "\fBlv_anim_t\fP * lv_anim_get (void * var, \fBlv_anim_exec_xcb_t\fP exec_cb)"
+Get the animation of a variable and its \fRexec_cb\fP\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvar\fP pointer to variable 
+.br
+\fIexec_cb\fP a function pointer which is animating 'var', or NULL to return first matching 'var' 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the animation\&. 
+.RE
+.PP
+
+.SS "uint32_t lv_anim_get_playtime (\fBlv_anim_t\fP * a)"
+Get the time used to play the animation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the play time in milliseconds\&. 
+.RE
+.PP
+
+.SS "struct \fB_lv_timer_t\fP * lv_anim_get_timer (void )"
+Get global animation refresher timer\&. 
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the animation refresher timer\&. 
+.RE
+.PP
+
+.SS "void lv_anim_init (\fBlv_anim_t\fP * a)"
+Initialize an animation variable\&. E\&.g\&.: \fBlv_anim_t\fP a; lv_anim_init(&a); lv_anim_set_\&.\&.\&.(&a); lv_anim_start(&a); 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an \fR\fBlv_anim_t\fP\fP variable to initialize 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_bounce (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation with 3 bounces 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_ease_in (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation slowing down the start phase 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_ease_in_out (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation applying an "S" characteristic (cosine) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_ease_out (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation slowing down the end phase 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_linear (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation applying linear characteristic 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_overshoot (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation with overshoot at the end 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "int32_t lv_anim_path_step (const \fBlv_anim_t\fP * a)"
+Calculate the current value of an animation applying step characteristic\&. (Set end value on the end of the animation) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current value to set 
+.RE
+.PP
+
+.SS "void lv_anim_refr_now (void )"
+Manually refresh the state of the animations\&. Useful to make the animations running in a blocking process where \fRlv_timer_handler\fP can't run for a while\&. Shouldn't be used directly because it is called in \fR\fBlv_refr_now()\fP\fP\&. 
+.SS "uint32_t lv_anim_speed_to_time (uint32_t speed, int32_t start, int32_t end)"
+Calculate the time of an animation with a given speed and the start and end values 
+.PP
+\fBParameters\fP
+.RS 4
+\fIspeed\fP speed of animation in unit/sec 
+.br
+\fIstart\fP start value of the animation 
+.br
+\fIend\fP end value of the animation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the required time [ms] for the animation with the given parameters 
+.RE
+.PP
+
+.SS "\fBlv_anim_t\fP * lv_anim_start (const \fBlv_anim_t\fP * a)"
+Set the custom user data field of the animation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP pointer to an initialized \fR\fBlv_anim_t\fP\fP variable 
+.br
+\fIuser_data\fP pointer to the new user_data\&. Create an animation 
+.br
+\fIa\fP an initialized 'anim_t' variable\&. Not required after call\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the created animation (different from the \fRa\fP parameter) 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

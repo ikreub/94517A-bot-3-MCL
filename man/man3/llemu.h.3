@@ -1,0 +1,119 @@
+.TH "include/liblvgl/llemu.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/llemu.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <errno\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include 'liblvgl/lvgl\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlcd_s\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLCD_BTN_LEFT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBLCD_BTN_CENTER\fP   2"
+.br
+.ti -1c
+.RI "#define \fBLCD_BTN_RIGHT\fP   1"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBlcd_btn_cb_fn_t\fP) (void)"
+.br
+.ti -1c
+.RI "typedef struct \fBlcd_s\fP \fBlcd_s_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBlcd_text_align_e\fP \fBtext_align_e_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlcd_text_align_e\fP { \fBLCD_TEXT_ALIGN_LEFT\fP = 0, \fBLCD_TEXT_ALIGN_CENTER\fP = 1, \fBLCD_TEXT_ALIGN_RIGHT\fP = 2 }"
+.br
+.RI "Represents how to align the text in the LCD\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBlcd_is_initialized\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBlcd_initialize\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBlcd_shutdown\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBlcd_print\fP (int16_t line, const char *fmt,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "bool \fBlcd_set_text\fP (int16_t line, const char *text)"
+.br
+.ti -1c
+.RI "bool \fBlcd_clear\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBlcd_clear_line\fP (int16_t line)"
+.br
+.ti -1c
+.RI "bool \fBlcd_register_btn0_cb\fP (lcd_btn_cb_fn_t cb)"
+.br
+.ti -1c
+.RI "bool \fBlcd_register_btn1_cb\fP (lcd_btn_cb_fn_t cb)"
+.br
+.ti -1c
+.RI "bool \fBlcd_register_btn2_cb\fP (lcd_btn_cb_fn_t cb)"
+.br
+.ti -1c
+.RI "uint8_t \fBlcd_read_buttons\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlcd_set_text_align\fP (text_align_e_t alignment)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Legacy LCD Emulator
+
+.PP
+This file defines a high-level API for emulating the three-button, UART-based VEX LCD, containing a set of functions that facilitate the use of a software- emulated version of the classic VEX LCD module\&.
+
+.PP
+Visit https://pros.cs.purdue.edu/v5/tutorials/topical/adi.html to learn more\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

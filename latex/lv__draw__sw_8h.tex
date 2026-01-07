@@ -1,0 +1,65 @@
+\doxysection{include/\+liblvgl/\+draw/\+sw/\+lv\+\_\+draw\+\_\+sw.h File Reference}
+\hypertarget{lv__draw__sw_8h}{}\label{lv__draw__sw_8h}\index{include/liblvgl/draw/sw/lv\_draw\_sw.h@{include/liblvgl/draw/sw/lv\_draw\_sw.h}}
+{\ttfamily \+\#include "{}lv\+\_\+draw\+\_\+sw\+\_\+blend.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+draw/\+lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+hal/\+lv\+\_\+hal\+\_\+disp.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__draw__sw__ctx__t}{lv\+\_\+draw\+\_\+sw\+\_\+ctx\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structlv__draw__sw__layer__ctx__t}{lv\+\_\+draw\+\_\+sw\+\_\+layer\+\_\+ctx\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__sw_8h_a693b5b12e87690768a9db73b1339807d}\label{lv__draw__sw_8h_a693b5b12e87690768a9db73b1339807d} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+init\+\_\+ctx} (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx)
+\item 
+\Hypertarget{lv__draw__sw_8h_a86b6adcdcec757dd805464b50be873d8}\label{lv__draw__sw_8h_a86b6adcdcec757dd805464b50be873d8} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+deinit\+\_\+ctx} (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv, lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx)
+\item 
+\Hypertarget{lv__draw__sw_8h_a50103733161a6ef7537bba6abfd175fa}\label{lv__draw__sw_8h_a50103733161a6ef7537bba6abfd175fa} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+wait\+\_\+for\+\_\+finish} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx)
+\item 
+\Hypertarget{lv__draw__sw_8h_aa695711d1081df9301f3d72a0d0c0f1c}\label{lv__draw__sw_8h_aa695711d1081df9301f3d72a0d0c0f1c} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+arc} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}center, uint16\+\_\+t radius, uint16\+\_\+t start\+\_\+angle, uint16\+\_\+t end\+\_\+angle)
+\item 
+\Hypertarget{lv__draw__sw_8h_a93af30dd6eebcb77adceb3a991b9d427}\label{lv__draw__sw_8h_a93af30dd6eebcb77adceb3a991b9d427} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+rect} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords)
+\item 
+\Hypertarget{lv__draw__sw_8h_a37ecf8899414180166d728edfc9003f9}\label{lv__draw__sw_8h_a37ecf8899414180166d728edfc9003f9} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+bg} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords)
+\item 
+\Hypertarget{lv__draw__sw_8h_a4523b09ec0f45105e13cd05f5f850c7c}\label{lv__draw__sw_8h_a4523b09ec0f45105e13cd05f5f850c7c} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+letter} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}pos\+\_\+p, uint32\+\_\+t letter)
+\item 
+\Hypertarget{lv__draw__sw_8h_a780681858344235b16f10199a0e8ba5f}\label{lv__draw__sw_8h_a780681858344235b16f10199a0e8ba5f} 
+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+img\+\_\+decoded} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}src\+\_\+buf, lv\+\_\+img\+\_\+cf\+\_\+t cf)
+\item 
+\Hypertarget{lv__draw__sw_8h_ab4fa1e69322a2e5d429fa55efc089abb}\label{lv__draw__sw_8h_ab4fa1e69322a2e5d429fa55efc089abb} 
+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+line} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}point1, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}point2)
+\item 
+\Hypertarget{lv__draw__sw_8h_a23bf58357bc3db772bde88925a6b607d}\label{lv__draw__sw_8h_a23bf58357bc3db772bde88925a6b607d} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+polygon} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}points, uint16\+\_\+t point\+\_\+cnt)
+\item 
+\Hypertarget{lv__draw__sw_8h_a73d0bf5c833598813fd557ac0cb110ac}\label{lv__draw__sw_8h_a73d0bf5c833598813fd557ac0cb110ac} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+buffer\+\_\+copy} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, void \texorpdfstring{$\ast$}{*}dest\+\_\+buf, lv\+\_\+coord\+\_\+t dest\+\_\+stride, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+area, void \texorpdfstring{$\ast$}{*}src\+\_\+buf, lv\+\_\+coord\+\_\+t src\+\_\+stride, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}src\+\_\+area)
+\item 
+\Hypertarget{lv__draw__sw_8h_a2c4ad8e2701039884e106b50b7b80b75}\label{lv__draw__sw_8h_a2c4ad8e2701039884e106b50b7b80b75} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+transform} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+area, const void \texorpdfstring{$\ast$}{*}src\+\_\+buf, lv\+\_\+coord\+\_\+t src\+\_\+w, lv\+\_\+coord\+\_\+t src\+\_\+h, lv\+\_\+coord\+\_\+t src\+\_\+stride, const \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc, lv\+\_\+img\+\_\+cf\+\_\+t cf, lv\+\_\+color\+\_\+t \texorpdfstring{$\ast$}{*}cbuf, lv\+\_\+opa\+\_\+t \texorpdfstring{$\ast$}{*}abuf)
+\item 
+\Hypertarget{lv__draw__sw_8h_a0ce05c15853ef926d27ba437d08646f0}\label{lv__draw__sw_8h_a0ce05c15853ef926d27ba437d08646f0} 
+struct \doxymbox{\hyperlink{struct__lv__draw__layer__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+layer\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+layer\+\_\+create} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, lv\+\_\+draw\+\_\+layer\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}layer\+\_\+ctx, lv\+\_\+draw\+\_\+layer\+\_\+flags\+\_\+t flags)
+\item 
+\Hypertarget{lv__draw__sw_8h_a7f0b24695980d75321fd5f01543654c2}\label{lv__draw__sw_8h_a7f0b24695980d75321fd5f01543654c2} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+layer\+\_\+adjust} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, struct \doxymbox{\hyperlink{struct__lv__draw__layer__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+layer\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}layer\+\_\+ctx, lv\+\_\+draw\+\_\+layer\+\_\+flags\+\_\+t flags)
+\item 
+\Hypertarget{lv__draw__sw_8h_a1c87689712e0b36c8145222c41c25002}\label{lv__draw__sw_8h_a1c87689712e0b36c8145222c41c25002} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+layer\+\_\+blend} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, struct \doxymbox{\hyperlink{struct__lv__draw__layer__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+layer\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}layer\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
+\item 
+\Hypertarget{lv__draw__sw_8h_a1cd0dff932daa249dae53c2bab6f1e0f}\label{lv__draw__sw_8h_a1cd0dff932daa249dae53c2bab6f1e0f} 
+void {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+layer\+\_\+destroy} (lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, lv\+\_\+draw\+\_\+layer\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}layer\+\_\+ctx)
+\end{DoxyCompactItemize}

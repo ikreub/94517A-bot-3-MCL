@@ -1,0 +1,192 @@
+.TH "okapi::IterativeController< Input, Output >" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::IterativeController< Input, Output >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <iterativeController\&.hpp>\fP
+.PP
+Inherits \fBokapi::ClosedLoopController< Input, Output >\fP\&.
+.PP
+Inherited by \fBokapi::IterativePositionController< Input, Output >\fP, and \fBokapi::IterativeVelocityController< Input, Output >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual Output \fBstep\fP (Input ireading)=0"
+.br
+.ti -1c
+.RI "virtual Output \fBgetOutput\fP () const =0"
+.br
+.ti -1c
+.RI "virtual void \fBsetOutputLimits\fP (Output imax, Output imin)=0"
+.br
+.ti -1c
+.RI "virtual void \fBsetControllerSetTargetLimits\fP (Output itargetMax, Output itargetMin)=0"
+.br
+.ti -1c
+.RI "virtual Output \fBgetMaxOutput\fP ()=0"
+.br
+.ti -1c
+.RI "virtual Output \fBgetMinOutput\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBsetSampleTime\fP (QTime isampleTime)=0"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetSampleTime\fP () const =0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ClosedLoopController< Input, Output >\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBsetTarget\fP (Input itarget)=0"
+.br
+.ti -1c
+.RI "virtual Input \fBgetTarget\fP ()=0"
+.br
+.ti -1c
+.RI "virtual Input \fBgetProcessValue\fP () const =0"
+.br
+.ti -1c
+.RI "virtual Output \fBgetError\fP () const =0"
+.br
+.ti -1c
+.RI "virtual bool \fBisSettled\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBreset\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBflipDisable\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBflipDisable\fP (bool iisDisabled)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBisDisabled\fP () const =0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ControllerOutput< Input >\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBcontrollerSet\fP (Input ivalue)=0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename Input, typename Output>
+.br
+class okapi::IterativeController< Input, Output >"Closed-loop controller that steps iteratively using the step method below\&.
+
+.PP
+\fR\fBControllerOutput::controllerSet()\fP\fP should set the controller's target to the input scaled by the output bounds\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename Input, typename Output> virtual Output \fBokapi::IterativeController\fP< Input, Output >::getMaxOutput ()\fR [pure virtual]\fP"
+Get the upper output bound\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the upper output bound 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual Output \fBokapi::IterativeController\fP< Input, Output >::getMinOutput ()\fR [pure virtual]\fP"
+Get the lower output bound\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the lower output bound 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual Output \fBokapi::IterativeController\fP< Input, Output >::getOutput () const\fR [pure virtual]\fP"
+Returns the last calculated output of the controller\&. 
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual QTime \fBokapi::IterativeController\fP< Input, Output >::getSampleTime () const\fR [pure virtual]\fP"
+Get the last set sample time\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+sample time 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual void \fBokapi::IterativeController\fP< Input, Output >::setControllerSetTargetLimits (Output itargetMax, Output itargetMin)\fR [pure virtual]\fP"
+Sets the (soft) limits for the target range that \fBcontrollerSet()\fP scales into\&. The target computed by \fR\fBcontrollerSet()\fP\fP is scaled into the range \fR[-itargetMin, itargetMax]\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitargetMax\fP The new max target for \fR\fBcontrollerSet()\fP\fP\&. 
+.br
+\fIitargetMin\fP The new min target for \fR\fBcontrollerSet()\fP\fP\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual void \fBokapi::IterativeController\fP< Input, Output >::setOutputLimits (Output imax, Output imin)\fR [pure virtual]\fP"
+Set controller output bounds\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimax\fP max output 
+.br
+\fIimin\fP min output 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual void \fBokapi::IterativeController\fP< Input, Output >::setSampleTime (QTime isampleTime)\fR [pure virtual]\fP"
+Set time between loops\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisampleTime\fP time between loops 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual Output \fBokapi::IterativeController\fP< Input, Output >::step (Input ireading)\fR [pure virtual]\fP"
+Do one iteration of the controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireading\fP A new measurement\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The controller output\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::IterativeMotorVelocityController\fP, \fBokapi::IterativePosPIDController\fP, and \fBokapi::IterativeVelPIDController\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

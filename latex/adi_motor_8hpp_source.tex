@@ -1,0 +1,38 @@
+\doxysection{adi\+Motor.\+hpp}
+\hypertarget{adi_motor_8hpp_source}{}\label{adi_motor_8hpp_source}\index{include/okapi/impl/device/motor/adiMotor.hpp@{include/okapi/impl/device/motor/adiMotor.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/controllerOutput.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/logging.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_a_d_i_motor_a44abc0f7804cc45e2ad98a54d4fea920}{ADIMotor}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{ControllerOutput}}<double>\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_motor_a44abc0f7804cc45e2ad98a54d4fea920}{ADIMotor}}(std::uint8\_t\ iport,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ireverse\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&logger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00045\ \ \ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_motor_ab2f10e8270a170ace2dd5770cca16139}{ADIMotor}}(std::pair<std::uint8\_t,\ std::uint8\_t>\ iports,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ireverse\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&logger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_motor_a799b349171bf1919cdfa8cd57d2db865}{moveVoltage}}(std::int8\_t\ ivoltage)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_a_d_i_motor_ac290a47e904c728ff1e61ee85408a1be}{controllerSet}}(\textcolor{keywordtype}{double}\ ivalue)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00065\ \ \ std::uint8\_t\ smartPort;}
+\DoxyCodeLine{00066\ \ \ std::uint8\_t\ port;}
+\DoxyCodeLine{00067\ \ \ std::int8\_t\ reversed;}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

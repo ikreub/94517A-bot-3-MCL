@@ -1,0 +1,39 @@
+\doxysection{include/\+liblvgl/\+hal/\+lv\+\_\+hal.h File Reference}
+\hypertarget{lv__hal_8h}{}\label{lv__hal_8h}\index{include/liblvgl/hal/lv\_hal.h@{include/liblvgl/hal/lv\_hal.h}}
+{\ttfamily \+\#include "{}lv\+\_\+hal\+\_\+disp.\+h"{}}\newline
+{\ttfamily \+\#include "{}lv\+\_\+hal\+\_\+indev.\+h"{}}\newline
+{\ttfamily \+\#include "{}lv\+\_\+hal\+\_\+tick.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{lv__hal_8h_af127e51c1636050ca39e52d69f40725b}{\+\_\+\+LV\+\_\+\+DPX\+\_\+\+CALC}}(dpi,  n)
+\item 
+\+\#define \doxymbox{\hyperlink{lv__hal_8h_af899ca4d4ba17880b64111f602ba36e1}{LV\+\_\+\+DPX}}(n)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{lv__hal_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lv__hal_8h_af127e51c1636050ca39e52d69f40725b}\index{lv\_hal.h@{lv\_hal.h}!\_LV\_DPX\_CALC@{\_LV\_DPX\_CALC}}
+\index{\_LV\_DPX\_CALC@{\_LV\_DPX\_CALC}!lv\_hal.h@{lv\_hal.h}}
+\doxysubsubsection{\texorpdfstring{\_LV\_DPX\_CALC}{\_LV\_DPX\_CALC}}
+{\footnotesize\ttfamily \label{lv__hal_8h_af127e51c1636050ca39e52d69f40725b} 
+\+\#define \+\_\+\+LV\+\_\+\+DPX\+\_\+\+CALC(\begin{DoxyParamCaption}\item[{}]{dpi}{, }\item[{}]{n}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((n)\ ==\ 0\ ?\ 0\ :LV\_MAX(((\ (dpi)\ *\ (n)\ +\ 80)\ /\ 160),\ 1))\ \textcolor{comment}{/*+80\ for\ rounding*/}}
+
+\end{DoxyCode}
+Same as Android\textquotesingle{}s DIP. (Different name is chosen to avoid mistype between LV\+\_\+\+DPI and LV\+\_\+\+DIP) 1 dip is 1 px on a 160 DPI screen 1 dip is 2 px on a 320 DPI screen \href{https://stackoverflow.com/questions/2025282/what-is-the-difference-between-px-dip-dp-and-sp}{\texttt{https:\+/\+/\+stackoverflow.\+com/\+questions/\+2025282/\+what-\/is-\/the-\/difference-\/between-\/px-\/dip-\/dp-\/and-\/sp}} \Hypertarget{lv__hal_8h_af899ca4d4ba17880b64111f602ba36e1}\index{lv\_hal.h@{lv\_hal.h}!LV\_DPX@{LV\_DPX}}
+\index{LV\_DPX@{LV\_DPX}!lv\_hal.h@{lv\_hal.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DPX}{LV\_DPX}}
+{\footnotesize\ttfamily \label{lv__hal_8h_af899ca4d4ba17880b64111f602ba36e1} 
+\+\#define LV\+\_\+\+DPX(\begin{DoxyParamCaption}\item[{}]{n}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{lv__hal_8h_af127e51c1636050ca39e52d69f40725b}{\_LV\_DPX\_CALC}}(\doxymbox{\hyperlink{lv__hal__disp_8h_a438d2021a713a4e495acbaadaedac2ec}{lv\_disp\_get\_dpi}}(NULL),\ n)}
+
+\end{DoxyCode}

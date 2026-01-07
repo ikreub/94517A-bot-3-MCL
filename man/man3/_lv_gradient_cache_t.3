@@ -1,0 +1,58 @@
+.TH "_lv_gradient_cache_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_gradient_cache_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_draw_sw_gradient\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBkey\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlife\fP: 30"
+.br
+.ti -1c
+.RI "uint32_t \fBfilled\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBnot_cached\fP: 1"
+.br
+.ti -1c
+.RI "lv_color_t * \fBmap\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBalloc_size\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBsize\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+To avoid recomputing gradient for each draw operation, it's possible to cache the computation in this structure instance\&. Whenever possible, this structure is reused instead of recomputing the gradient map 
+.SH "Member Data Documentation"
+.PP 
+.SS "lv_coord_t _lv_gradient_cache_t::alloc_size"
+The map allocated size in colors 
+.SS "uint32_t _lv_gradient_cache_t::filled"
+Used to skip dithering in it if already done 
+.SS "uint32_t _lv_gradient_cache_t::key"
+A discriminating key that's built from the drawing operation\&. If the key does not match, the cache item is not used 
+.SS "uint32_t _lv_gradient_cache_t::life"
+A life counter that's incremented on usage\&. Higher counter is less likely to be evicted from the cache 
+.SS "lv_color_t* _lv_gradient_cache_t::map"
+The computed gradient low bitdepth color map, points into the cache's buffer, no free needed 
+.SS "uint32_t _lv_gradient_cache_t::not_cached"
+The cache was too small so this item is not managed by the cache 
+.SS "lv_coord_t _lv_gradient_cache_t::size"
+The computed gradient color map size, in colors 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

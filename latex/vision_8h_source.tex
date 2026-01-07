@@ -1,0 +1,145 @@
+\doxysection{vision.\+h}
+\hypertarget{vision_8h_source}{}\label{vision_8h_source}\index{include/pros/vision.h@{include/pros/vision.h}}
+\doxymbox{\hyperlink{vision_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_VISION\_H\_}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \_PROS\_VISION\_H\_}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_ERR\_SIG\ 255}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ VISION\_FOV\_WIDTH\ 316}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ VISION\_FOV\_HEIGHT\ 212}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ vision\_object\_type\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ E\_VISION\_OBJECT\_NORMAL\ =\ 0,}
+\DoxyCodeLine{00064\ \ \ \ \ E\_VISION\_OBJECT\_COLOR\_CODE\ =\ 1,}
+\DoxyCodeLine{00065\ \ \ \ \ E\_VISION\_OBJECT\_LINE\ =\ 2}
+\DoxyCodeLine{00066\ \}\ vision\_object\_type\_e\_t;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_attribute\_\_((\_\_packed\_\_))\ vision\_signature\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ uint8\_t\ id;}
+\DoxyCodeLine{00074\ \ \ \ \ uint8\_t\ \_pad[3];}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ range;}
+\DoxyCodeLine{00076\ \ \ \ \ int32\_t\ u\_min;}
+\DoxyCodeLine{00077\ \ \ \ \ int32\_t\ u\_max;}
+\DoxyCodeLine{00078\ \ \ \ \ int32\_t\ u\_mean;}
+\DoxyCodeLine{00079\ \ \ \ \ int32\_t\ v\_min;}
+\DoxyCodeLine{00080\ \ \ \ \ int32\_t\ v\_max;}
+\DoxyCodeLine{00081\ \ \ \ \ int32\_t\ v\_mean;}
+\DoxyCodeLine{00082\ \ \ \ \ uint32\_t\ rgb;}
+\DoxyCodeLine{00083\ \ \ \ \ uint32\_t\ type;}
+\DoxyCodeLine{00084\ \}\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{typedef}\ uint16\_t\ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_attribute\_\_((\_\_packed\_\_))\ vision\_object\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ uint16\_t\ signature;}
+\DoxyCodeLine{00100\ \ \ \ \ vision\_object\_type\_e\_t\ type;}
+\DoxyCodeLine{00102\ \ \ \ \ int16\_t\ left\_coord;}
+\DoxyCodeLine{00104\ \ \ \ \ int16\_t\ top\_coord;}
+\DoxyCodeLine{00106\ \ \ \ \ int16\_t\ width;}
+\DoxyCodeLine{00108\ \ \ \ \ int16\_t\ height;}
+\DoxyCodeLine{00110\ \ \ \ \ uint16\_t\ angle;}
+\DoxyCodeLine{00112\ \ \ \ \ int16\_t\ x\_middle\_coord;}
+\DoxyCodeLine{00114\ \ \ \ \ int16\_t\ y\_middle\_coord;}
+\DoxyCodeLine{00115\ \}\ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{group__c-vision_gaef7c8269b3fb0dfbf4e597b2d8dd7af5}{vision\_zero}}\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \doxymbox{\hyperlink{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5a0ff244c5f3e9771f962986e25b00ff3d}{E\_VISION\_ZERO\_TOPLEFT}}\ =\ 0,}
+\DoxyCodeLine{00125\ \ \ \ \ \doxymbox{\hyperlink{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5ac4bfba95a9c18805da897280e18387c1}{E\_VISION\_ZERO\_CENTER}}\ =\ 1}
+\DoxyCodeLine{00126\ \}\ vision\_zero\_e\_t;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#ifdef\ PROS\_USE\_SIMPLE\_NAMES}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_NORMAL\ pros::E\_VISION\_OBJECT\_NORMAL}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_COLOR\_CODE\ pros::E\_VISION\_OBJECT\_COLOR\_CODE}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_LINE\ pros::E\_VISION\_OBJECT\_LINE}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ VISION\_ZERO\_TOPLEFT\ pros::E\_VISION\_ZERO\_TOPLEFT}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ VISION\_ZERO\_CENTER\ pros::E\_VISION\_ZERO\_CENTER}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_NORMAL\ E\_VISION\_OBJECT\_NORMAL}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_COLOR\_CODE\ E\_VISION\_OBJECT\_COLOR\_CODE}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ VISION\_OBJECT\_LINE\ E\_VISION\_OBJECT\_LINE}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ VISION\_ZERO\_TOPLEFT\ E\_VISION\_ZERO\_TOPLEFT}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ VISION\_ZERO\_CENTER\ E\_VISION\_ZERO\_CENTER}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00145\ \textcolor{keyword}{namespace\ }c\ \{}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00174\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga92834afc57fa21039a4221608e01e592}{vision\_clear\_led}}(uint8\_t\ port);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00220\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}\ \doxymbox{\hyperlink{group__c-vision_ga452a6732e27d1496360f69b84af7609f}{vision\_signature\_from\_utility}}(\textcolor{keyword}{const}\ int32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ int32\_t\ u\_min,\ \textcolor{keyword}{const}\ int32\_t\ u\_max,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ u\_mean,\ \textcolor{keyword}{const}\ int32\_t\ v\_min,\ \textcolor{keyword}{const}\ int32\_t\ v\_max,}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ int32\_t\ v\_mean,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ range,\ \textcolor{keyword}{const}\ int32\_t\ type);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00260\ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}}\ \doxymbox{\hyperlink{group__c-vision_ga675146281c6f575b3b95e1b20fb16a6a}{vision\_create\_color\_code}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ sig\_id1,\ \textcolor{keyword}{const}\ uint32\_t\ sig\_id2,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ sig\_id3,\ \textcolor{keyword}{const}\ uint32\_t\ sig\_id4,\ \textcolor{keyword}{const}\ uint32\_t\ sig\_id5);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00296\ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}\ \doxymbox{\hyperlink{group__c-vision_ga89cf079d79ec4b805b2baec609e810ee}{vision\_get\_by\_size}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ size\_id);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00336\ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}\ \doxymbox{\hyperlink{group__c-vision_gae7d3f64f0a84d842e1c07c83cbbc1318}{vision\_get\_by\_sig}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ uint32\_t\ sig\_id);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00375\ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}\ \doxymbox{\hyperlink{group__c-vision_gacd5c817b31e522688e6f661246a374f5}{vision\_get\_by\_code}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}}\ color\_code);}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00401\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_gaf23dbc1294b67885665c7c1e81780a1f}{vision\_get\_exposure}}(uint8\_t\ port);}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00429\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_gac50ece961223bd8ff99f513543d2323c}{vision\_get\_object\_count}}(uint8\_t\ port);}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00455\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga21a5a2aa09cf4d16021120ce0325eac1}{vision\_get\_white\_balance}}(uint8\_t\ port);}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00476\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga2fc1d334e9d0a312a5d07378d4a95f18}{vision\_print\_signature}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}\ sig);}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00520\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga5091bfb5dadeb9a5a854c13d684f3f23}{vision\_read\_by\_size}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ uint32\_t\ object\_count,}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}*\ \textcolor{keyword}{const}\ object\_arr);}
+\DoxyCodeLine{00522\ }
+\DoxyCodeLine{00568\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_gadfb6fcb835556086acfa82b23c3c6683}{vision\_read\_by\_sig}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ uint32\_t\ sig\_id,\ \textcolor{keyword}{const}\ uint32\_t\ object\_count,}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}*\ \textcolor{keyword}{const}\ object\_arr);}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00617\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga4b4978438d0d0e0173a05122ea7b205e}{vision\_read\_by\_code}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}}\ color\_code,}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ object\_count,\ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}*\ \textcolor{keyword}{const}\ object\_arr);}
+\DoxyCodeLine{00619\ }
+\DoxyCodeLine{00641\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}\ \doxymbox{\hyperlink{group__c-vision_ga4e530910b0cf333cfaad20509ed88c9b}{vision\_get\_signature}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint8\_t\ signature\_id);}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00670\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga16cf475074058c13bba0fcea12906d82}{vision\_set\_signature}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint8\_t\ signature\_id,\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}*\ \textcolor{keyword}{const}\ signature\_ptr);}
+\DoxyCodeLine{00671\ }
+\DoxyCodeLine{00698\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga842a2758f2cf0964a91e376061380122}{vision\_set\_auto\_white\_balance}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint8\_t\ enable);}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00726\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_gaa16405c90b21955c47960d814c9f8ef4}{vision\_set\_exposure}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint8\_t\ exposure);}
+\DoxyCodeLine{00727\ }
+\DoxyCodeLine{00753\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga115ef040c736971c180c812932d97dc7}{vision\_set\_led}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ int32\_t\ rgb);}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00781\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_gafe156ff40f90b71ef5bb1ce49d056d08}{vision\_set\_white\_balance}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ int32\_t\ rgb);}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00812\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga17ba398060da4cff1dda541fde50773c}{vision\_set\_zero\_point}}(uint8\_t\ port,\ vision\_zero\_e\_t\ zero\_point);}
+\DoxyCodeLine{00813\ }
+\DoxyCodeLine{00839\ int32\_t\ \doxymbox{\hyperlink{group__c-vision_ga446d8d1600570e573eb7afa9f0377e49}{vision\_set\_wifi\_mode}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ uint8\_t\ enable);}
+\DoxyCodeLine{00840\ }
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00844\ }
+\DoxyCodeLine{00845\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00846\ \}\ \ \textcolor{comment}{//\ namespace\ c}}
+\DoxyCodeLine{00847\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{00848\ \}}
+\DoxyCodeLine{00849\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00850\ }
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_PROS\_VISION\_H\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,2429 @@
+.TH "cpp-motor-group" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-motor-group \- Motors C++ API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBmotor_group\&.hpp\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::MotorGroup::MotorGroup\fP (const std::initializer_list< std::int8_t >, const \fBpros::v5::MotorGears\fP gearset=pros::v5::MotorGears::invalid, const \fBpros::v5::MotorUnits\fP encoder_units=pros::v5::MotorUnits::invalid)"
+.br
+.ti -1c
+.RI "\fBpros::v5::MotorGroup::MotorGroup\fP (const std::vector< std::int8_t > &ports, const \fBpros::v5::MotorGears\fP gearset=pros::v5::MotorGears::invalid, const \fBpros::v5::MotorUnits\fP encoder_units=pros::v5::MotorUnits::invalid)"
+.br
+.ti -1c
+.RI "\fBpros::v5::MotorGroup::MotorGroup\fP (\fBAbstractMotor\fP &motor_group)"
+.br
+.in -1c
+.SS "Motor movement functions"
+These functions allow programmers to make motors move 
+.in +1c
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::move\fP (std::int32_t voltage) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::move_absolute\fP (const double position, const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::move_relative\fP (const double position, const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::move_velocity\fP (const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::move_voltage\fP (const std::int32_t voltage) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::brake\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::modify_profiled_velocity\fP (const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_target_position\fP (const std::uint8_t index) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_target_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_target_velocity\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_target_velocity_all\fP (void) const"
+.br
+.in -1c
+.SS "Motor telemetry functions"
+These functions allow programmers to collect telemetry from motors 
+.in +1c
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_actual_velocity\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_actual_velocity_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_current_draw\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_current_draw_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_direction\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_direction_all\fP (void) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_efficiency\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_efficiency_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::v5::MotorGroup::get_faults\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::uint32_t > \fBpros::v5::MotorGroup::get_faults_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::v5::MotorGroup::get_flags\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::uint32_t > \fBpros::v5::MotorGroup::get_flags_all\fP (void) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_power\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_power_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_raw_position\fP (std::uint32_t *const timestamp, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_raw_position_all\fP (std::uint32_t *const timestamp) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_temperature\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_temperature_all\fP (void) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::MotorGroup::get_torque\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::MotorGroup::get_torque_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_voltage\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_voltage_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::is_over_current\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::is_over_current_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::is_over_temp\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::is_over_temp_all\fP (void) const"
+.br
+.in -1c
+.SS "Motor configuration functions"
+These functions allow programmers to configure the behavior of motors 
+.in +1c
+.ti -1c
+.RI "\fBMotorBrake\fP \fBpros::v5::MotorGroup::get_brake_mode\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorBrake\fP > \fBpros::v5::MotorGroup::get_brake_mode_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_current_limit\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_current_limit_all\fP (void) const"
+.br
+.ti -1c
+.RI "\fBMotorUnits\fP \fBpros::v5::MotorGroup::get_encoder_units\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorUnits\fP > \fBpros::v5::MotorGroup::get_encoder_units_all\fP (void) const"
+.br
+.ti -1c
+.RI "\fBMotorGears\fP \fBpros::v5::MotorGroup::get_gearing\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorGears\fP > \fBpros::v5::MotorGroup::get_gearing_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int8_t > \fBpros::v5::MotorGroup::get_port_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::get_voltage_limit\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::get_voltage_limit_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::is_reversed\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::MotorGroup::is_reversed_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_brake_mode\fP (const \fBMotorBrake\fP mode, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_brake_mode\fP (const pros::motor_brake_mode_e_t mode, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_brake_mode_all\fP (const \fBMotorBrake\fP mode) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_brake_mode_all\fP (const pros::motor_brake_mode_e_t mode) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_current_limit\fP (const std::int32_t limit, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_current_limit_all\fP (const std::int32_t limit) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_encoder_units\fP (const \fBMotorUnits\fP units, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_encoder_units\fP (const pros::motor_encoder_units_e_t units, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_encoder_units_all\fP (const \fBMotorUnits\fP units) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_encoder_units_all\fP (const pros::motor_encoder_units_e_t units) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_gearing\fP (std::vector< pros::motor_gearset_e_t > gearsets) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_gearing\fP (const pros::motor_gearset_e_t gearset, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_gearing\fP (std::vector< \fBMotorGears\fP > gearsets) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_gearing\fP (const \fBMotorGears\fP gearset, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_gearing_all\fP (const \fBMotorGears\fP gearset) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_gearing_all\fP (const pros::motor_gearset_e_t gearset) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_reversed\fP (const bool reverse, const std::uint8_t index=0)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_reversed_all\fP (const bool reverse)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_voltage_limit\fP (const std::int32_t limit, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_voltage_limit_all\fP (const std::int32_t limit) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_zero_position\fP (const double position, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::set_zero_position_all\fP (const double position) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::tare_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::MotorGroup::tare_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int8_t \fBpros::v5::MotorGroup::size\fP (void) const"
+.br
+.ti -1c
+.RI "std::int8_t \fBpros::v5::MotorGroup::get_port\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "void \fBpros::v5::MotorGroup::operator+=\fP (\fBAbstractMotor\fP &)"
+.br
+.ti -1c
+.RI "void \fBpros::v5::MotorGroup::append\fP (\fBAbstractMotor\fP &)"
+.br
+.ti -1c
+.RI "void \fBpros::v5::MotorGroup::erase_port\fP (std::int8_t port)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBNote\fP
+.RS 4
+Additional example code for this module can be found in its \fBTutorial\fP\&.
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void pros::v5::MotorGroup::append (\fBAbstractMotor\fP & )"
+Appends all the motors in the other motor group reference to this motor group
+
+.PP
+Maintains the order of the other motor group 
+.SS "std::int32_t pros::v5::MotorGroup::brake (void ) const\fR [virtual]\fP"
+Stops the motor group using the currently configured brake mode\&.
+
+.PP
+This function sets motor velocity to zero, which will cause it to act according to the set brake mode\&. If brake mode is set to MOTOR_BRAKE_HOLD, this function may behave differently than calling move_absolute(0) or motor_move_relative(0)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "void pros::v5::MotorGroup::erase_port (std::int8_t port)"
+Removes the all motors on the port (regardless of reversal) from the motor group
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port to remove from the motor group 
+.RE
+.PP
+
+.SS "double pros::v5::MotorGroup::get_actual_velocity (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the actual velocity of a motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - THe motor group is empty
+
+.PP
+EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's actual velocity in RPM or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_actual_velocity_all (void ) const\fR [virtual]\fP"
+Gets a vector of the the actual velocity of each motor the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - THe motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of the each motor's actual velocity in RPM or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "\fBMotorBrake\fP pros::v5::MotorGroup::get_brake_mode (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the brake mode that was set for a motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBMotorBrake\fP, according to what was set for the motor, or E_MOTOR_BRAKE_INVALID if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotorBrake\fP > pros::v5::MotorGroup::get_brake_mode_all (void ) const\fR [virtual]\fP"
+Gets a vector with the brake mode that was set for each motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector with one of \fBMotorBrake\fP for each motor in the motor group, according to what was set for the motor, or E_MOTOR_BRAKE_INVALID if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_current_draw (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the current drawn by a motor in the motor group in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_current_draw_all (void ) const\fR [virtual]\fP"
+Gets a vector of the current drawn each motor in the motor group in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector with each motor's current in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_current_limit (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the current limit for a motor in the motor group in mA\&.
+
+.PP
+The default value is 2500 mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current limit in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_current_limit_all (void ) const\fR [virtual]\fP"
+Gets a vector of the current limit for each motor in the motor group in mA\&.
+
+.PP
+The default value is 2500 mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of each motor's current limit in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_direction (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the direction of movement for a motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 for moving in the positive direction, -1 for moving in the negative direction, and PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_direction_all (void ) const\fR [virtual]\fP"
+Gets a vector of the directions of movement for each motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+1 for moving in the positive direction, -1 for moving in the negative direction, and PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::MotorGroup::get_efficiency (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the efficiency of a motor in the motor group in percent\&.
+
+.PP
+An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's efficiency in percent or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_efficiency_all (void ) const\fR [virtual]\fP"
+Gets a vector of the efficiency of each motor in percent\&.
+
+.PP
+An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - THe motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing each motor's efficiency in percent or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "\fBMotorUnits\fP pros::v5::MotorGroup::get_encoder_units (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the encoder units that were set for a motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+One of MotorUnits according to what is set for the motor or E_MOTOR_ENCODER_INVALID if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotorUnits\fP > pros::v5::MotorGroup::get_encoder_units_all (void ) const\fR [virtual]\fP"
+Gets a vector of the encoder units that were set for each motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector with the following for each motor, One of MotorUnits according to what is set for the motor or E_MOTOR_ENCODER_INVALID if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::uint32_t pros::v5::MotorGroup::get_faults (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the faults experienced by a motor in the motor group\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_fault_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's faults\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::uint32_t > pros::v5::MotorGroup::get_faults_all (void ) const\fR [virtual]\fP"
+Gets a vector of the faults experienced by each motor in the motor group\&.
+
+.PP
+Compare these bitfields to the bitmasks in pros::motor_fault_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the bitfields containing each motor's faults\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::uint32_t pros::v5::MotorGroup::get_flags (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the flags set by a motor in the motor group's operation\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_flag_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's flags\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::uint32_t > pros::v5::MotorGroup::get_flags_all (void ) const\fR [virtual]\fP"
+Gets a vector of the flags set by each motor in the motor groups's operation\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_flag_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's flags\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "\fBMotorGears\fP pros::v5::MotorGroup::get_gearing (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the gearset that was set for a motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBMotorGears\fP according to what is set for the motor, or \fBpros::MotorGears::invalid\fP if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotorGears\fP > pros::v5::MotorGroup::get_gearing_all (void ) const\fR [virtual]\fP"
+Gets a vector of the gearset that was set for each motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector with one of \fBMotorGears\fP according to what is set for the motor, or \fBpros::MotorGears::invalid\fP if the operation failed for each motor\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int8_t pros::v5::MotorGroup::get_port (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the port of a motor in the motor group via index
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The port of the motor at the specified index\&. The return value is negative if the corresponding motor is reversed 
+.RE
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int8_t > pros::v5::MotorGroup::get_port_all (void ) const\fR [virtual]\fP"
+Gets a vector with all the port numbers in the motor group\&. A port will be negative if the motor in the motor group is reversed
+
+.PP
+\fBReturns\fP
+.RS 4
+a vector with all the port numbers for the motor group 
+.RE
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::MotorGroup::get_position (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the absolute position of a motor in the motor group in its encoder units\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's absolute position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_position_all (void ) const\fR [virtual]\fP"
+Gets a vector of the absolute position of each motor in its encoder units\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of the motor's absolute position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::MotorGroup::get_power (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the power drawn by a motor in the motor group in Watts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's power draw in Watts or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_power_all (void ) const\fR [virtual]\fP"
+Gets a vector of the power drawn by each motor in the motor group in Watts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of each motor's power draw in Watts or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_raw_position (std::uint32_t *const timestamp, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the raw encoder count of a motor in the motor group at a given timestamp\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimestamp\fP A pointer to a time in milliseconds for which the encoder count will be returned\&. If NULL, the timestamp at which the encoder count was read will not be supplied
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The raw encoder count at the given timestamp or PROS_ERR if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_raw_position_all (std::uint32_t *const timestamp) const\fR [virtual]\fP"
+Gets the raw encoder count of each motor at a given timestamp\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimestamp\fP A pointer to a time in milliseconds for which the encoder count will be returned\&. If NULL, the timestamp at which the encoder count was read will not be supplied
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A vector of each raw encoder count at the given timestamp or PROS_ERR if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::MotorGroup::get_target_position (const std::uint8_t index) const\fR [virtual]\fP"
+Gets the target position set for a motor in the motor group, with a parameter for the motor index\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The target position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_target_position_all (void ) const\fR [virtual]\fP"
+Gets a vector of the the target positions set for the motor group
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The \fBMotor\fP group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+The a vector of the target positions in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_target_velocity (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the velocity commanded to the motor by the user at the index specified\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP EDOM - The motor group was empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_target_velocity_all (void ) const\fR [virtual]\fP"
+Gets a vector of the velocity commanded to the motor by the user
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - THe motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of the commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::MotorGroup::get_temperature (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the temperature of a motor in the motor group in degrees Celsius\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's temperature in degrees Celsius or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_temperature_all (void ) const\fR [virtual]\fP"
+Gets the temperature of each motor in the motor group in degrees Celsius\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of each motor's temperature in degrees Celsius or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::MotorGroup::get_torque (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the torque generated by a motor in the motor groupin Newton Meters (Nm)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's torque in Nm or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::MotorGroup::get_torque_all (void ) const\fR [virtual]\fP"
+Gets a vector of the torque generated by each motor in Newton Meters (Nm)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing each motor's torque in Nm or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_voltage (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the voltage delivered to a motor in the motor group in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's voltage in mV or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_voltage_all (void ) const\fR [virtual]\fP"
+Gets a vector of the voltage delivered to each motor in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of each motor's voltage in mV or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::get_voltage_limit (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the voltage limit of a motor in the motor group set by the user\&.
+
+.PP
+Default value is 0V, which means that there is no software limitation imposed on the voltage\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's voltage limit in V or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::get_voltage_limit_all (void ) const\fR [virtual]\fP"
+Gets a vector of the voltage limit of each motor in the motor group
+
+.PP
+Default value is 0V, which means that there is no software limitation imposed on the voltage\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The \fBMotor\fP group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's voltage limit in V or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::is_over_current (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Checks if a motor in the motor group is drawing over its current limit\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::is_over_current_all (void ) const\fR [virtual]\fP"
+Checks if each motor in the motor group is drawing over its current limit\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the following for each motor: 1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::is_over_temp (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the temperature limit flag for a motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the temperature limit is exceeded and 0 if the temperature is below the limit, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::is_over_temp_all (void ) const\fR [virtual]\fP"
+Gets a vector with the temperature limit flag for each motor in the motor group\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the temperature limit is exceeded and 0 if the temperature is below the limit, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::is_reversed (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the operation direction of a motor in the motor group as set by the user\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor has been reversed and 0 if the motor was not reversed, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::MotorGroup::is_reversed_all (void ) const\fR [virtual]\fP"
+Gets a vector of the operation direction of each motor in the motor group as set by the user\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EDOM - The motor group is empty
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector conatining the following for each motor: 1 if the motor has been reversed and 0 if the motor was not reversed, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::modify_profiled_velocity (const std::int32_t velocity) const\fR [virtual]\fP"
+Changes the output velocity for a profiled movement (move_absolute or move_relative)\&. This will have no effect if the motor group is not following a profiled movement\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvelocity\fP The new motor velocity from +-100, +-200, or +-600 depending on the motor's gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "pros::v5::MotorGroup::MotorGroup (\fBAbstractMotor\fP & motor_group)"
+Constructs a new \fBMotorGroup\fP object from an abstract motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENXIO - The given value is not within the range of V5 ports |1-21|\&.
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIabstract_motor\fP THe abstract motor to turn into a motor group Uses abstract_motor\&.get_port_all() to get the vector of ports
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::MotorGroup::MotorGroup (const std::initializer_list< std::int8_t > , const \fBpros::v5::MotorGears\fP gearset = \fRpros::v5::MotorGears::invalid\fP, const \fBpros::v5::MotorUnits\fP encoder_units = \fRpros::v5::MotorUnits::invalid\fP)"
+Constructs a new \fBMotorGroup\fP object\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports |1-21|\&. ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP A initializer list of V5 port numbers from 1 to 21, or from -21 to -1 for reversed motors\&. A reversed motor will reverse the input or output movement functions and movement related telemetry in order to produce consistant behavior with non-reversed motors
+.br
+\fIgearset\fP = pros::v5::MotorGears::invalid Optional parameter for the gearset for the motor\&. Does not explicitly set the motor gearset if it is invalid or not specified
+.br
+\fIencoder_units\fP = pros::v5::MotorUnits::invalid Optional parameter for the encoder units of the motor Does not explicitly set the motor units if it is invalid or not specified
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::MotorGroup::MotorGroup (const std::vector< std::int8_t > & ports, const \fBpros::v5::MotorGears\fP gearset = \fRpros::v5::MotorGears::invalid\fP, const \fBpros::v5::MotorUnits\fP encoder_units = \fRpros::v5::MotorUnits::invalid\fP)"
+Constructs a new \fBMotorGroup\fP object\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENXIO - The given value is not within the range of V5 ports |1-21|\&.
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP A initializer list of V5 port numbers from 1 to 21, or from -21 to -1 for reversed motors\&. A reversed motor will reverse the input or output movement functions and movement related telemetry in order to produce consistant behavior with non-reversed motors
+.br
+\fIgearset\fP = pros::v5::MotorGears::invalid 
+.br
+\fIgearset\fP = pros::v5::MotorGears::green Optional parameter for the gearset for the motor\&. Does not explicitly set the motor gearset if it is invalid or not specified
+.br
+\fIencoder_units\fP = pros::v5::MotorUnits::invalid Optional parameter for the encoder units of the motor Does not explicitly set the motor units if it is invalid or not specified
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::MotorGroup::move (std::int32_t voltage) const\fR [virtual]\fP"
+Sets the voltage for the motor group from -127 to 127\&.
+
+.PP
+This is designed to map easily to the input from the controller's analog stick for simple opcontrol use\&. The actual behavior of the motor is analogous to use of \fBmotor_move()\fP
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoltage\fP The new voltage from -127 to 127
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::move_absolute (const double position, const std::int32_t velocity) const\fR [virtual]\fP"
+Sets the target absolute position for the motor group to move to\&.
+
+.PP
+This movement is relative to the position of the motor when initialized or the position when it was most recently reset with \fBpros::Motor::set_zero_position()\fP\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - the motor group has size 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The absolute position to move to in the motor's encoder units 
+.br
+\fIvelocity\fP The maximum allowable velocity for the movement in RPM
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::move_relative (const double position, const std::int32_t velocity) const\fR [virtual]\fP"
+Sets the relative target position for the motor group to move to\&.
+
+.PP
+This movement is relative to the current position of each motor as given in \fBpros::MotorGroup::get_position()\fP\&. Providing 10\&.0 as the position parameter would result in the motor moving 10 units, no matter what the current position is\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The relative position to move to in the motor's encoder units 
+.br
+\fIvelocity\fP The maximum allowable velocity for the movement in RPM
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::move_velocity (const std::int32_t velocity) const\fR [virtual]\fP"
+Sets the velocity for the motor group\&.
+
+.PP
+This velocity corresponds to different actual speeds depending on the gearset used for the motor\&. This results in a range of +-100 for E_MOTOR_GEARSET_36, +-200 for E_MOTOR_GEARSET_18, and +-600 for E_MOTOR_GEARSET_6\&. The velocity is held with PID to ensure consistent speed, as opposed to setting the motor's voltage\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvelocity\fP The new velocity from +-100, +-200, or +-600 depending on the motor's gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::move_voltage (const std::int32_t voltage) const\fR [virtual]\fP"
+Sets the output voltage for the motor group from -12000 to 12000 in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoltage\fP The new voltage value from -12000 to 12000
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "void pros::v5::MotorGroup::operator+= (\fBAbstractMotor\fP & )"
+Appends all the motors in the other motor group reference to this motor group
+
+.PP
+Maintains the order of the other motor group 
+.SS "std::int32_t pros::v5::MotorGroup::set_brake_mode (const \fBMotorBrake\fP mode, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of \fBMotorBrake\fP to a motor in the motor group\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The \fBMotorBrake\fP to set for the motor
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_brake_mode (const pros::motor_brake_mode_e_t mode, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of \fBMotorBrake\fP to a motor in the motor group\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The \fBMotorBrake\fP to set for the motor
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_brake_mode_all (const \fBMotorBrake\fP mode) const\fR [virtual]\fP"
+Sets one of \fBMotorBrake\fP all the motors in the motor group\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The \fBMotorBrake\fP to set for the motor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_brake_mode_all (const pros::motor_brake_mode_e_t mode) const\fR [virtual]\fP"
+Sets one of \fBMotorBrake\fP to a motor in the motor group\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The \fBMotorBrake\fP to set for the motor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_current_limit (const std::int32_t limit, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the current limit for one motor in the motor group in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new current limit in mA
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_current_limit_all (const std::int32_t limit) const\fR [virtual]\fP"
+Sets the current limit for every motor in the motor group in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group was empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new current limit in mA
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_encoder_units (const \fBMotorUnits\fP units, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of MotorUnits for one motor in the motor group's motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units 
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_encoder_units (const pros::motor_encoder_units_e_t units, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of MotorUnits for one motor in the motor group's motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units 
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_encoder_units_all (const \fBMotorUnits\fP units) const\fR [virtual]\fP"
+Sets one of MotorUnits for every motor in the motor group's motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_encoder_units_all (const pros::motor_encoder_units_e_t units) const\fR [virtual]\fP"
+Sets one of MotorUnits for every motor in the motor group's motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_gearing (const \fBMotorGears\fP gearset, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for one motor in the motor group\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new geatset of the motor
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_gearing (const pros::motor_gearset_e_t gearset, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for one motor in the motor group\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new geatset of the motor
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_gearing (std::vector< \fBMotorGears\fP > gearsets) const"
+Sets the gear cartridge (red, green, blue) for each motor in the motor group by taking in a vector of the cartridges\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty E2BIG - The size of the vector mismatches the number of motors in the motor group
+
+.PP
+\fBNote\fP
+.RS 4
+If there are more motors than gearsets passed in, only the first n motors will have their gearsets changed where n is the number of gearsets passed in\&. If there are more gearsets passed in than motors, then the only the first m gearsets will be used, where m is the number of motors\&. In either case, errno will be set to E2BIG, but the operation still occurs
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The a vector containing the new geatsets of the motors
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::MotorGroup::set_gearing (std::vector< pros::motor_gearset_e_t > gearsets) const"
+Sets one of the gear cartridge (red, green, blue) for one motor in the motor group\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty E2BIG - The size of the vector mismatches the number of motors in the motor group
+
+.PP
+\fBNote\fP
+.RS 4
+If there are more motors than gearsets passed in, only the first n motors will have their gearsets changed where n is the number of gearsets passed in\&. If there are more gearsets passed in than motors, then the only the first m gearsets will be used, where m is the number of motors\&. In either case, errno will be set to E2BIG, but the operation still occurs
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new geatset of the motor
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::MotorGroup::set_gearing_all (const \fBMotorGears\fP gearset) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for one motor in the motor group\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new geatset of the motor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_gearing_all (const pros::motor_gearset_e_t gearset) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for every motor in the motor group\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new geatset of the motor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_reversed (const bool reverse, const std::uint8_t index = \fR0\fP)\fR [virtual]\fP"
+sets the reversal for a motor in the motor group\&.
+
+.PP
+This will invert its movements and the values returned for its position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIreverse\fP True reverses the motor, false is default
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_reversed_all (const bool reverse)\fR [virtual]\fP"
+Sets the reversal for all the motors in the motor group\&.
+
+.PP
+This will invert its movements and the values returned for its position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIreverse\fP True reverses the motor, false is default
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_voltage_limit (const std::int32_t limit, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the voltage limit for a motor in the motor group in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new voltage limit in Volts
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_voltage_limit_all (const std::int32_t limit) const\fR [virtual]\fP"
+Sets the voltage limit for every motor in the motor group in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new voltage limit in Volts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_zero_position (const double position, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the position for a motor in the motor group in its encoder units\&.
+
+.PP
+This will be the future reference point for the motor's "absolute" position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The new reference position in its encoder units 
+.br
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::set_zero_position_all (const double position) const\fR [virtual]\fP"
+Sets the position for every motor in the motor group in its encoder units\&.
+
+.PP
+This will be the future reference point for the motor's "absolute" position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The new reference position in its encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int8_t pros::v5::MotorGroup::size (void ) const\fR [virtual]\fP"
+Returns the number of motors in the motor group
+
+.PP
+\fBReturns\fP
+.RS 4
+the number of motors in the motor group 
+.RE
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::tare_position (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the "absolute" zero position of a motor in the motor group to its current position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EDOM - The motor group is empty EOVERFLOW - The index is greater than or equal to \fBMotorGroup::size()\fP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter, 0 by default\&. The zero indexed index of the motor in the motor group
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::MotorGroup::tare_position_all (void ) const\fR [virtual]\fP"
+Sets the "absolute" zero position of every motor in the motor group to its current position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

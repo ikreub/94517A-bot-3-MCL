@@ -1,0 +1,183 @@
+\doxysection{VEX Distance Sensor C++ API }
+\hypertarget{group__cpp-distance}{}\label{group__cpp-distance}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{distance_8hpp}{distance.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::\+v5::\+\+Distance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}{pros::\+v5::\+\+Distance::\+\+Distance}} (const std::\+uint8\+\_\+t port)
+\item 
+\Hypertarget{group__cpp-distance_gabcf89a60b001e701d5929a2e94e0d10e}\label{group__cpp-distance_gabcf89a60b001e701d5929a2e94e0d10e} 
+{\bfseries pros::\+v5::\+\+Distance::\+\+Distance} (const \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} \&device)
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-distance_ga9e231cbf8c8fc1cdb46105ad8f72ef23}{pros::\+v5::\+\+Distance::\+get}} ()
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-distance_gadea7cc732f3ea723be0a2a4fb13eb7ca}{pros::\+v5::\+\+Distance::\+get\+\_\+distance}} ()
+\item 
+static std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}{Distance}} $>$ \doxymbox{\hyperlink{group__cpp-distance_gab4bc80e8df54c17902544f9964cdd91e}{pros::\+v5::\+\+Distance::\+get\+\_\+all\+\_\+devices}} ()
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-distance_gac9ec2d316726d687ee8353b6b4ccda3d}{pros::\+v5::\+\+Distance::\+get\+\_\+confidence}} ()
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-distance_ga69c66abe9a44bd44b54cea1bfdd409ae}{pros::\+v5::\+\+Distance::\+get\+\_\+object\+\_\+size}} ()
+\item 
+virtual double \doxymbox{\hyperlink{group__cpp-distance_gacc35a32025d19d59b2d9b884de14076b}{pros::\+v5::\+\+Distance::\+get\+\_\+object\+\_\+velocity}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::\+ostream \& \doxymbox{\hyperlink{group__cpp-distance_gaa41d82e47e05b7a17225d93512a88483}{pros::\+v5::\+\+Distance::\+operator$<$$<$}} (std::\+ostream \&os, \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::\+\+Distance}} \&distance)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group__cpp-distance_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!Distance@{Distance}}
+\index{Distance@{Distance}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{Distance()}{Distance()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f} 
+pros::\+v5::\+\+Distance::\+\+Distance (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Creates a \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor object for the given port.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-distance_ga9e231cbf8c8fc1cdb46105ad8f72ef23}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!get@{get}}
+\index{get@{get}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_ga9e231cbf8c8fc1cdb46105ad8f72ef23} 
+virtual std::\+int32\+\_\+t pros::\+v5::\+\+Distance::\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the currently measured distance from the sensor in mm
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor
+
+\begin{DoxyReturn}{Returns}
+The distance value or PROS\+\_\+\+ERR if the operation failed, setting errno. Will return 9999 if the sensor can not detect an object.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-distance_gab4bc80e8df54c17902544f9964cdd91e}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!get\_all\_devices@{get\_all\_devices}}
+\index{get\_all\_devices@{get\_all\_devices}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_all\_devices()}{get\_all\_devices()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_gab4bc80e8df54c17902544f9964cdd91e} 
+std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-distance_gaafec2cc52af714bcc8245519ee87503f}{Distance}} $>$ pros::\+v5::\+\+Distance::\+get\+\_\+all\+\_\+devices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets all distance sensors.
+
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{classpros_1_1v5_1_1_distance}{Distance} sensor objects.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-distance_gac9ec2d316726d687ee8353b6b4ccda3d}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!get\_confidence@{get\_confidence}}
+\index{get\_confidence@{get\_confidence}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_confidence()}{get\_confidence()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_gac9ec2d316726d687ee8353b6b4ccda3d} 
+virtual std::\+int32\+\_\+t pros::\+v5::\+\+Distance::\+get\+\_\+confidence (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the confidence in the distance reading
+
+This is a value that has a range of 0 to 63. 63 means high confidence, lower values imply less confidence. Confidence is only available when distance is \texorpdfstring{$>$}{>} 200mm.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor
+
+\begin{DoxyReturn}{Returns}
+The confidence value or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-distance_gadea7cc732f3ea723be0a2a4fb13eb7ca}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!get\_distance@{get\_distance}}
+\index{get\_distance@{get\_distance}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_distance()}{get\_distance()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_gadea7cc732f3ea723be0a2a4fb13eb7ca} 
+virtual std::\+int32\+\_\+t pros::\+v5::\+\+Distance::\+get\+\_\+distance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the currently measured distance from the sensor in mm. \begin{DoxyNote}{Note}
+This function is identical to \doxylink{group__cpp-distance_ga9e231cbf8c8fc1cdb46105ad8f72ef23}{get()}.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor
+
+\begin{DoxyReturn}{Returns}
+The distance value or PROS\+\_\+\+ERR if the operation failed, setting errno. Will return 9999 if the sensor can not detect an object.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-distance_ga69c66abe9a44bd44b54cea1bfdd409ae}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!get\_object\_size@{get\_object\_size}}
+\index{get\_object\_size@{get\_object\_size}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_object\_size()}{get\_object\_size()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_ga69c66abe9a44bd44b54cea1bfdd409ae} 
+virtual std::\+int32\+\_\+t pros::\+v5::\+\+Distance::\+get\+\_\+object\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the current guess at relative object size
+
+This is a value that has a range of 0 to 400. A 18"{} x 30"{} grey card will return a value of approximately 75 in typical room lighting.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor
+
+\begin{DoxyReturn}{Returns}
+The size value or PROS\+\_\+\+ERR if the operation failed, setting errno. Will return -\/1 if the sensor is not able to determine object size.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-distance_gacc35a32025d19d59b2d9b884de14076b}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!get\_object\_velocity@{get\_object\_velocity}}
+\index{get\_object\_velocity@{get\_object\_velocity}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_object\_velocity()}{get\_object\_velocity()}}
+{\footnotesize\ttfamily \label{group__cpp-distance_gacc35a32025d19d59b2d9b884de14076b} 
+virtual double pros::\+v5::\+\+Distance::\+get\+\_\+object\+\_\+velocity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the object velocity in m/\+s
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an \doxylink{classpros_1_1v5_1_1_distance}{Distance} Sensor
+
+\begin{DoxyReturn}{Returns}
+The velocity value or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+\label{doc-friend-members}
+\Hypertarget{group__cpp-distance_doc-friend-members}
+\doxysubsection{Friends}
+\Hypertarget{group__cpp-distance_gaa41d82e47e05b7a17225d93512a88483}\index{VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!VEX Distance Sensor C++ API@{VEX Distance Sensor C++ API}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{group__cpp-distance_gaa41d82e47e05b7a17225d93512a88483} 
+std::\+ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std::\+ostream \&}]{os}{, }\item[{\doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::\+\+Distance}} \&}]{distance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+This is the overload for the \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} operator for printing to streams
+
+Prints in format(this below is all in one line with no new line):\+ \doxylink{classpros_1_1v5_1_1_distance}{Distance} \+[port:\+ (port number), distance:\+ (distance), confidence:\+ (confidence), object size:\+ (object size), object velocity:\+ (object velocity)]\+ 

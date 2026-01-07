@@ -1,0 +1,78 @@
+\doxysection{pros::\+adi::\+Analog\+Out Class Reference}
+\hypertarget{classpros_1_1adi_1_1_analog_out}{}\label{classpros_1_1adi_1_1_analog_out}\index{pros::adi::AnalogOut@{pros::adi::AnalogOut}}
+
+
+Inherits \doxymbox{\hyperlink{classpros_1_1adi_1_1_port}{pros::\+adi::\+\+Port}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_ga73fe7f8ee51643a5724f870044d25f76}{Analog\+Out}} (std::\+uint8\+\_\+t adi\+\_\+port)
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_ga04f866a785e57135628254d927714af2}{Analog\+Out}} (\doxymbox{\hyperlink{adi_8hpp_ab37033b41b12e194bac431882402e29e}{ext\+\_\+adi\+\_\+port\+\_\+pair\+\_\+t}} port\+\_\+pair)
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{classpros_1_1adi_1_1_analog_out_a597a9fbfbb21af10ce0947950cbc9003}{set\+\_\+value}} (std::\+int32\+\_\+t value) const
+\item 
+virtual \doxymbox{\hyperlink{adi_8hpp_aaf8032e34261234d519e439ef01ffd89}{ext\+\_\+adi\+\_\+port\+\_\+tuple\+\_\+t}} \doxymbox{\hyperlink{classpros_1_1adi_1_1_analog_out_a9a38443e7e91d87f9e56461cd8fd0440}{get\+\_\+port}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::\+ostream \& \doxymbox{\hyperlink{group__cpp-adi_gaa970da17b4fc22b0e585d24e2ed44477}{operator$<$$<$}} (std::\+ostream \&os, \doxymbox{\hyperlink{classpros_1_1adi_1_1_analog_out}{pros::\+adi::\+\+Analog\+Out}} \&analog\+\_\+out)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classpros_1_1adi_1_1_analog_out_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpros_1_1adi_1_1_analog_out_a9a38443e7e91d87f9e56461cd8fd0440}\index{pros::adi::AnalogOut@{pros::adi::AnalogOut}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!pros::adi::AnalogOut@{pros::adi::AnalogOut}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily \label{classpros_1_1adi_1_1_analog_out_a9a38443e7e91d87f9e56461cd8fd0440} 
+virtual \doxymbox{\hyperlink{adi_8hpp_aaf8032e34261234d519e439ef01ffd89}{ext\+\_\+adi\+\_\+port\+\_\+tuple\+\_\+t}} \doxymbox{\hyperlink{group__cpp-adi_ga9a38443e7e91d87f9e56461cd8fd0440}{pros::\+adi::\+\+Port::\+get\+\_\+port}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the port of the sensor.
+
+\begin{DoxyReturn}{Returns}
+returns a tuple of integer ports.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The parts of the tuple are \{smart port, adi port, second adi port (when applicable)\}.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Reimplemented from \doxymbox{\hyperlink{group__cpp-adi_ga9a38443e7e91d87f9e56461cd8fd0440}{pros::\+adi::\+\+Port}}.
+
+\Hypertarget{classpros_1_1adi_1_1_analog_out_a597a9fbfbb21af10ce0947950cbc9003}\index{pros::adi::AnalogOut@{pros::adi::AnalogOut}!set\_value@{set\_value}}
+\index{set\_value@{set\_value}!pros::adi::AnalogOut@{pros::adi::AnalogOut}}
+\doxysubsubsection{\texorpdfstring{set\_value()}{set\_value()}}
+{\footnotesize\ttfamily \label{classpros_1_1adi_1_1_analog_out_a597a9fbfbb21af10ce0947950cbc9003} 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga597a9fbfbb21af10ce0947950cbc9003}{pros::\+adi::\+\+Port::\+set\+\_\+value}} (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{value}{}\end{DoxyParamCaption}) const}
+
+Sets the output for the Analog Output from 0 (0V) to 4095 (5V).
+
+Inherited from ADIPort::\+set\+\_\+value.
+
+This function uses the following values of errno when an error state is reached:\+ EACCES -\/ Another resource is currently trying to access the ADI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to set the ADI port to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+pros/\+\doxymbox{\hyperlink{adi_8hpp}{adi.\+hpp}}\end{DoxyCompactItemize}

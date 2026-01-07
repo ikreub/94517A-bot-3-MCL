@@ -1,0 +1,202 @@
+.TH "okapi::ThreeEncoderXDriveModel" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ThreeEncoderXDriveModel
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::XDriveModel\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBThreeEncoderXDriveModel\fP (std::shared_ptr< \fBAbstractMotor\fP > itopLeftMotor, std::shared_ptr< \fBAbstractMotor\fP > itopRightMotor, std::shared_ptr< \fBAbstractMotor\fP > ibottomRightMotor, std::shared_ptr< \fBAbstractMotor\fP > ibottomLeftMotor, std::shared_ptr< \fBContinuousRotarySensor\fP > ileftEnc, std::shared_ptr< \fBContinuousRotarySensor\fP > irightEnc, std::shared_ptr< \fBContinuousRotarySensor\fP > imiddleEnc, double imaxVelocity, double imaxVoltage)"
+.br
+.ti -1c
+.RI "std::valarray< std::int32_t > \fBgetSensorVals\fP () const override"
+.br
+.ti -1c
+.RI "void \fBresetSensors\fP () override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::XDriveModel\fP
+.in +1c
+.ti -1c
+.RI "\fBXDriveModel\fP (std::shared_ptr< \fBAbstractMotor\fP > itopLeftMotor, std::shared_ptr< \fBAbstractMotor\fP > itopRightMotor, std::shared_ptr< \fBAbstractMotor\fP > ibottomRightMotor, std::shared_ptr< \fBAbstractMotor\fP > ibottomLeftMotor, std::shared_ptr< \fBContinuousRotarySensor\fP > ileftEnc, std::shared_ptr< \fBContinuousRotarySensor\fP > irightEnc, double imaxVelocity, double imaxVoltage)"
+.br
+.ti -1c
+.RI "void \fBforward\fP (double ipower) override"
+.br
+.ti -1c
+.RI "void \fBdriveVector\fP (double iforwardSpeed, double iyaw) override"
+.br
+.ti -1c
+.RI "void \fBdriveVectorVoltage\fP (double iforwardSpeed, double iyaw) override"
+.br
+.ti -1c
+.RI "void \fBrotate\fP (double ipower) override"
+.br
+.ti -1c
+.RI "void \fBstrafe\fP (double ipower)"
+.br
+.ti -1c
+.RI "void \fBstrafeVector\fP (double istrafeSpeed, double iyaw)"
+.br
+.ti -1c
+.RI "void \fBstop\fP () override"
+.br
+.ti -1c
+.RI "void \fBtank\fP (double ileftSpeed, double irightSpeed, double ithreshold=0) override"
+.br
+.ti -1c
+.RI "void \fBarcade\fP (double iforwardSpeed, double iyaw, double ithreshold=0) override"
+.br
+.ti -1c
+.RI "void \fBcurvature\fP (double iforwardSpeed, double icurvature, double ithreshold=0) override"
+.br
+.ti -1c
+.RI "virtual void \fBxArcade\fP (double irightSpeed, double iforwardSpeed, double iyaw, double ithreshold=0)"
+.br
+.ti -1c
+.RI "virtual void \fBfieldOrientedXArcade\fP (double ixSpeed, double iySpeed, double iyaw, QAngle iangle, double ithreshold=0)"
+.br
+.ti -1c
+.RI "void \fBleft\fP (double ispeed) override"
+.br
+.ti -1c
+.RI "void \fBright\fP (double ispeed) override"
+.br
+.ti -1c
+.RI "std::valarray< std::int32_t > \fBgetSensorVals\fP () const override"
+.br
+.ti -1c
+.RI "void \fBresetSensors\fP () override"
+.br
+.ti -1c
+.RI "void \fBsetBrakeMode\fP (\fBAbstractMotor::brakeMode\fP mode) override"
+.br
+.ti -1c
+.RI "void \fBsetEncoderUnits\fP (\fBAbstractMotor::encoderUnits\fP units) override"
+.br
+.ti -1c
+.RI "void \fBsetGearing\fP (\fBAbstractMotor::gearset\fP gearset) override"
+.br
+.ti -1c
+.RI "void \fBsetMaxVelocity\fP (double imaxVelocity) override"
+.br
+.ti -1c
+.RI "double \fBgetMaxVelocity\fP () const override"
+.br
+.ti -1c
+.RI "void \fBsetMaxVoltage\fP (double imaxVoltage) override"
+.br
+.ti -1c
+.RI "double \fBgetMaxVoltage\fP () const override"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBgetTopLeftMotor\fP () const"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBgetTopRightMotor\fP () const"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBgetBottomRightMotor\fP () const"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBgetBottomLeftMotor\fP () const"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ChassisModel\fP
+.in +1c
+.ti -1c
+.RI "\fBChassisModel\fP (const ChassisModel &)=delete"
+.br
+.ti -1c
+.RI "ChassisModel & \fBoperator=\fP (const ChassisModel &)=delete"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBContinuousRotarySensor\fP > \fBmiddleSensor\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBokapi::XDriveModel\fP
+.in +1c
+.ti -1c
+.RI "double \fBmaxVelocity\fP"
+.br
+.ti -1c
+.RI "double \fBmaxVoltage\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBtopLeftMotor\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBtopRightMotor\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBbottomRightMotor\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBAbstractMotor\fP > \fBbottomLeftMotor\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBContinuousRotarySensor\fP > \fBleftSensor\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBContinuousRotarySensor\fP > \fBrightSensor\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ThreeEncoderXDriveModel::ThreeEncoderXDriveModel (std::shared_ptr< \fBAbstractMotor\fP > itopLeftMotor, std::shared_ptr< \fBAbstractMotor\fP > itopRightMotor, std::shared_ptr< \fBAbstractMotor\fP > ibottomRightMotor, std::shared_ptr< \fBAbstractMotor\fP > ibottomLeftMotor, std::shared_ptr< \fBContinuousRotarySensor\fP > ileftEnc, std::shared_ptr< \fBContinuousRotarySensor\fP > irightEnc, std::shared_ptr< \fBContinuousRotarySensor\fP > imiddleEnc, double imaxVelocity, double imaxVoltage)"
+Model for an x drive (wheels at 45 deg from a skid steer drive)\&. When all motors are powered +100%, the robot should move forward in a straight line\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitopLeftMotor\fP The top left motor\&. 
+.br
+\fIitopRightMotor\fP The top right motor\&. 
+.br
+\fIibottomRightMotor\fP The bottom right motor\&. 
+.br
+\fIibottomLeftMotor\fP The bottom left motor\&. 
+.br
+\fIileftEnc\fP The left side encoder\&. 
+.br
+\fIirightEnc\fP The right side encoder\&. 
+.br
+\fIimiddleEnc\fP The middle encoder\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::valarray< std::int32_t > okapi::ThreeEncoderXDriveModel::getSensorVals () const\fR [override]\fP, \fR [virtual]\fP"
+Read the sensors\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+sensor readings in the format {left, right, middle} 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ReadOnlyChassisModel\fP\&.
+.SS "void okapi::ThreeEncoderXDriveModel::resetSensors ()\fR [override]\fP, \fR [virtual]\fP"
+Reset the sensors to their zero point\&. 
+.PP
+Implements \fBokapi::ChassisModel\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

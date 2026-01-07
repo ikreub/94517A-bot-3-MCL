@@ -1,0 +1,78 @@
+\doxysection{\+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t Struct Reference}
+\hypertarget{struct__lv__gradient__cache__t}{}\label{struct__lv__gradient__cache__t}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+
+
+{\ttfamily \+\#include $<$lv\+\_\+draw\+\_\+sw\+\_\+gradient.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__gradient__cache__t_abb6f3d7d4a3fc7400065fa0e86835a42}{key}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a5d65025e7c6a6a81059563dfb8e91481}{life}}:\+ 30
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a93928df034871640a5c42dccfc0c04ae}{filled}}:\+ 1
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__gradient__cache__t_ac8eec5eedc2f427ed08f2f2811819509}{not\+\_\+cached}}:\+ 1
+\item 
+lv\+\_\+color\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a3b37c404e032bdcb5246a0aff0a80c3a}{map}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a4be546c87bb34c1d1c6439f25fc43dfc}{alloc\+\_\+size}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a3bbe46939f812638af0f2d52309827da}{size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+To avoid recomputing gradient for each draw operation, it\textquotesingle{}s possible to cache the computation in this structure instance. Whenever possible, this structure is reused instead of recomputing the gradient map 
+
+\label{doc-variable-members}
+\Hypertarget{struct__lv__gradient__cache__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct__lv__gradient__cache__t_a4be546c87bb34c1d1c6439f25fc43dfc}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!alloc\_size@{alloc\_size}}
+\index{alloc\_size@{alloc\_size}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{alloc\_size}{alloc\_size}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_a4be546c87bb34c1d1c6439f25fc43dfc} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+alloc\+\_\+size}
+
+The map allocated size in colors \Hypertarget{struct__lv__gradient__cache__t_a93928df034871640a5c42dccfc0c04ae}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!filled@{filled}}
+\index{filled@{filled}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{filled}{filled}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_a93928df034871640a5c42dccfc0c04ae} 
+uint32\+\_\+t \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+filled}
+
+Used to skip dithering in it if already done \Hypertarget{struct__lv__gradient__cache__t_abb6f3d7d4a3fc7400065fa0e86835a42}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!key@{key}}
+\index{key@{key}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_abb6f3d7d4a3fc7400065fa0e86835a42} 
+uint32\+\_\+t \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+key}
+
+A discriminating key that\textquotesingle{}s built from the drawing operation. If the key does not match, the cache item is not used \Hypertarget{struct__lv__gradient__cache__t_a5d65025e7c6a6a81059563dfb8e91481}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!life@{life}}
+\index{life@{life}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{life}{life}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_a5d65025e7c6a6a81059563dfb8e91481} 
+uint32\+\_\+t \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+life}
+
+A life counter that\textquotesingle{}s incremented on usage. Higher counter is less likely to be evicted from the cache \Hypertarget{struct__lv__gradient__cache__t_a3b37c404e032bdcb5246a0aff0a80c3a}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!map@{map}}
+\index{map@{map}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_a3b37c404e032bdcb5246a0aff0a80c3a} 
+lv\+\_\+color\+\_\+t\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+map}
+
+The computed gradient low bitdepth color map, points into the cache\textquotesingle{}s buffer, no free needed \Hypertarget{struct__lv__gradient__cache__t_ac8eec5eedc2f427ed08f2f2811819509}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!not\_cached@{not\_cached}}
+\index{not\_cached@{not\_cached}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{not\_cached}{not\_cached}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_ac8eec5eedc2f427ed08f2f2811819509} 
+uint32\+\_\+t \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+not\+\_\+cached}
+
+The cache was too small so this item is not managed by the cache \Hypertarget{struct__lv__gradient__cache__t_a3bbe46939f812638af0f2d52309827da}\index{\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}!size@{size}}
+\index{size@{size}!\_lv\_gradient\_cache\_t@{\_lv\_gradient\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{struct__lv__gradient__cache__t_a3bbe46939f812638af0f2d52309827da} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t::\+size}
+
+The computed gradient color map size, in colors 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+liblvgl/\+draw/\+sw/\+\doxymbox{\hyperlink{lv__draw__sw__gradient_8h}{lv\+\_\+draw\+\_\+sw\+\_\+gradient.\+h}}\end{DoxyCompactItemize}

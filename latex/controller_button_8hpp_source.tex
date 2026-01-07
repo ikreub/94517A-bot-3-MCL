@@ -1,0 +1,31 @@
+\doxysection{controller\+Button.\+hpp}
+\hypertarget{controller_button_8hpp_source}{}\label{controller_button_8hpp_source}\index{include/okapi/impl/device/button/controllerButton.hpp@{include/okapi/impl/device/button/controllerButton.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/device/button/buttonBase.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/controllerUtil.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_controller_button_a4c82179b73b34bae616c5fe180c207a4}{ControllerButton}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_button_base_a6327e273244bac5ca425f23999807849}{ButtonBase}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \doxymbox{\hyperlink{classokapi_1_1_controller_button_a4c82179b73b34bae616c5fe180c207a4}{ControllerButton}}(ControllerDigital\ ibtn,\ \textcolor{keywordtype}{bool}\ iinverted\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00030\ \ \ \doxymbox{\hyperlink{classokapi_1_1_controller_button_a491473201555bb78fb5dc20666e12bcf}{ControllerButton}}(ControllerId\ icontroller,\ ControllerDigital\ ibtn,\ \textcolor{keywordtype}{bool}\ iinverted\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ pros::controller\_id\_e\_t\ id;}
+\DoxyCodeLine{00034\ \ \ pros::controller\_digital\_e\_t\ btn;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ currentlyPressed()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

@@ -1,0 +1,64 @@
+\doxysection{lv\+\_\+draw\+\_\+arc.\+h}
+\hypertarget{lv__draw__arc_8h_source}{}\label{lv__draw__arc_8h_source}\index{include/liblvgl/draw/lv\_draw\_arc.h@{include/liblvgl/draw/lv\_draw\_arc.h}}
+\doxymbox{\hyperlink{lv__draw__arc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_ARC\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_ARC\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__color_8h}{liblvgl/misc/lv\_color.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__area_8h}{liblvgl/misc/lv\_area.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__style_8h}{liblvgl/misc/lv\_style.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ lv\_color\_t\ color;}
+\DoxyCodeLine{00030\ \ \ \ \ lv\_coord\_t\ width;}
+\DoxyCodeLine{00031\ \ \ \ \ uint16\_t\ start\_angle;}
+\DoxyCodeLine{00032\ \ \ \ \ uint16\_t\ end\_angle;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ img\_src;}
+\DoxyCodeLine{00034\ \ \ \ \ lv\_opa\_t\ opa;}
+\DoxyCodeLine{00035\ \ \ \ \ lv\_blend\_mode\_t\ blend\_mode\ \ :\ 2;}
+\DoxyCodeLine{00036\ \ \ \ \ uint8\_t\ rounded\ :\ 1;}
+\DoxyCodeLine{00037\ \}\ \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\_draw\_arc\_dsc\_t}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ lv\_draw\_arc\_dsc\_init(\doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\_draw\_arc\_dsc\_t}}\ *\ dsc);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__draw__arc_8h_abea9335e5dfdff9ff1f1d0798529a9a6}{lv\_draw\_arc}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\_draw\_arc\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ center,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ radius,\ \ uint16\_t\ start\_angle,\ uint16\_t\ end\_angle);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__draw__arc_8h_a7fdb2623d9494ebbe1daa1a69ab1aab7}{lv\_draw\_arc\_get\_area}}(lv\_coord\_t\ x,\ lv\_coord\_t\ y,\ uint16\_t\ radius,\ \ uint16\_t\ start\_angle,\ uint16\_t\ end\_angle,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_coord\_t\ w,\ \textcolor{keywordtype}{bool}\ rounded,\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00080\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_ARC\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

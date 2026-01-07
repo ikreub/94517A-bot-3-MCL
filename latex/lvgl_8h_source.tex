@@ -1,0 +1,117 @@
+\doxysection{lvgl.\+h}
+\hypertarget{lvgl_8h_source}{}\label{lvgl_8h_source}\index{include/liblvgl/lvgl.h@{include/liblvgl/lvgl.h}}
+\doxymbox{\hyperlink{lvgl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LVGL\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LVGL\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/***************************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ CURRENT\ VERSION\ OF\ LVGL}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ ***************************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ LVGL\_VERSION\_MAJOR\ 8}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ LVGL\_VERSION\_MINOR\ 3}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ LVGL\_VERSION\_PATCH\ 4}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ LVGL\_VERSION\_INFO\ "{}dev"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__log_8h}{liblvgl/misc/lv\_log.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__timer_8h}{liblvgl/misc/lv\_timer.h}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__math_8h}{liblvgl/misc/lv\_math.h}}"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__mem_8h}{liblvgl/misc/lv\_mem.h}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__async_8h}{liblvgl/misc/lv\_async.h}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__anim__timeline_8h}{liblvgl/misc/lv\_anim\_timeline.h}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}liblvgl/misc/lv\_printf.h"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__hal_8h}{liblvgl/hal/lv\_hal.h}}"{}}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__obj_8h}{liblvgl/core/lv\_obj.h}}"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__group_8h}{liblvgl/core/lv\_group.h}}"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__indev_8h}{liblvgl/core/lv\_indev.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__refr_8h}{liblvgl/core/lv\_refr.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__disp_8h}{liblvgl/core/lv\_disp.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__theme_8h}{liblvgl/core/lv\_theme.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__font_8h}{liblvgl/font/lv\_font.h}}"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__font__loader_8h}{liblvgl/font/lv\_font\_loader.h}}"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__font__fmt__txt_8h}{liblvgl/font/lv\_font\_fmt\_txt.h}}"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__arc_8h}{liblvgl/widgets/lv\_arc.h}}"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__btn_8h}{liblvgl/widgets/lv\_btn.h}}"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__img_8h}{liblvgl/widgets/lv\_img.h}}"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__label_8h}{liblvgl/widgets/lv\_label.h}}"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__line_8h}{liblvgl/widgets/lv\_line.h}}"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__table_8h}{liblvgl/widgets/lv\_table.h}}"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}liblvgl/widgets/lv\_checkbox.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__bar_8h}{liblvgl/widgets/lv\_bar.h}}"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__slider_8h}{liblvgl/widgets/lv\_slider.h}}"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__btnmatrix_8h}{liblvgl/widgets/lv\_btnmatrix.h}}"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__dropdown_8h}{liblvgl/widgets/lv\_dropdown.h}}"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__roller_8h}{liblvgl/widgets/lv\_roller.h}}"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__textarea_8h}{liblvgl/widgets/lv\_textarea.h}}"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__canvas_8h}{liblvgl/widgets/lv\_canvas.h}}"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__switch_8h}{liblvgl/widgets/lv\_switch.h}}"{}}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw_8h}{liblvgl/draw/lv\_draw.h}}"{}}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__api__map_8h}{liblvgl/lv\_api\_map.h}}"{}}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ EXTRAS}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__extra_8h}{liblvgl/extra/lv\_extra.h}}"{}}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ LV\_VERSION\_CHECK(x,y,z)\ (x\ ==\ LVGL\_VERSION\_MAJOR\ \&\&\ (y\ <\ LVGL\_VERSION\_MINOR\ ||\ (y\ ==\ LVGL\_VERSION\_MINOR\ \&\&\ z\ <=\ LVGL\_VERSION\_PATCH)))}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ lv\_version\_major(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00115\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ LVGL\_VERSION\_MAJOR;}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ lv\_version\_minor(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ LVGL\_VERSION\_MINOR;}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ lv\_version\_patch(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00125\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ LVGL\_VERSION\_PATCH;}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *lv\_version\_info(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00130\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ LVGL\_VERSION\_INFO;}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00135\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LVGL\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

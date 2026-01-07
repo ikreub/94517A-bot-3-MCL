@@ -1,0 +1,170 @@
+.TH "_lv_disp_drv_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_disp_drv_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_hal_disp\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "lv_coord_t \fBhor_res\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBver_res\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBphysical_hor_res\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBphysical_ver_res\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBoffset_x\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBoffset_y\fP"
+.br
+.ti -1c
+.RI "\fBlv_disp_draw_buf_t\fP * \fBdraw_buf\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBdirect_mode\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBfull_refresh\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBsw_rotate\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBantialiasing\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBrotated\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_transp\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBdpi\fP: 10"
+.br
+.ti -1c
+.RI "void(* \fBflush_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, const \fBlv_area_t\fP *area, lv_color_t *color_p)"
+.br
+.ti -1c
+.RI "void(* \fBrounder_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, \fBlv_area_t\fP *area)"
+.br
+.ti -1c
+.RI "void(* \fBset_px_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, uint8_t *buf, lv_coord_t buf_w, lv_coord_t x, lv_coord_t y, lv_color_t color, lv_opa_t opa)"
+.br
+.ti -1c
+.RI "void(* \fBclear_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, uint8_t *buf, uint32_t size)"
+.br
+.ti -1c
+.RI "void(* \fBmonitor_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, uint32_t time, uint32_t px)"
+.br
+.ti -1c
+.RI "void(* \fBwait_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv)"
+.br
+.ti -1c
+.RI "void(* \fBclean_dcache_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv)"
+.br
+.ti -1c
+.RI "void(* \fBdrv_update_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv)"
+.br
+.ti -1c
+.RI "void(* \fBrender_start_cb\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv)"
+.br
+.ti -1c
+.RI "lv_color_t \fBcolor_chroma_key\fP"
+.br
+.ti -1c
+.RI "lv_draw_ctx_t * \fBdraw_ctx\fP"
+.br
+.ti -1c
+.RI "void(* \fBdraw_ctx_init\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, lv_draw_ctx_t *draw_ctx)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_ctx_deinit\fP )(struct \fB_lv_disp_drv_t\fP *disp_drv, lv_draw_ctx_t *draw_ctx)"
+.br
+.ti -1c
+.RI "size_t \fBdraw_ctx_size\fP"
+.br
+.ti -1c
+.RI "void * \fBuser_data\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Display Driver structure to be registered by HAL\&. Only its pointer will be saved in \fR\fBlv_disp_t\fP\fP so it should be declared as \fRstatic \fBlv_disp_drv_t\fP my_drv\fP or allocated dynamically\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "uint32_t _lv_disp_drv_t::antialiasing"
+1: anti-aliasing is enabled on this display\&. 
+.SS "void(* _lv_disp_drv_t::clean_dcache_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv)"
+OPTIONAL: Called when lvgl needs any CPU cache that affects rendering to be cleaned 
+.SS "lv_color_t _lv_disp_drv_t::color_chroma_key"
+On CHROMA_KEYED images this color will be transparent\&. \fRLV_COLOR_CHROMA_KEY\fP by default\&. (\fBlv_conf\&.h\fP) 
+.SS "uint32_t _lv_disp_drv_t::direct_mode"
+1: Use screen-sized buffers and draw to absolute coordinates 
+.SS "uint32_t _lv_disp_drv_t::dpi"
+Handle if the screen doesn't have a solid (opa == LV_OPA_COVER) background\&. Use only if required because it's slower\&. 
+.SS "\fBlv_disp_draw_buf_t\fP* _lv_disp_drv_t::draw_buf"
+Pointer to a buffer initialized with \fR\fBlv_disp_draw_buf_init()\fP\fP\&. LVGL will use this buffer(s) to draw the screens contents 
+.SS "void(* _lv_disp_drv_t::drv_update_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv)"
+OPTIONAL: called when driver parameters are updated 
+.SS "void(* _lv_disp_drv_t::flush_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv, const \fBlv_area_t\fP *area, lv_color_t *color_p)"
+DPI (dot per inch) of the display\&. Default value is \fRLV_DPI_DEF\fP\&. MANDATORY: Write the internal buffer (draw_buf) to the display\&. 'lv_disp_flush_ready()' has to be called when finished 
+.SS "uint32_t _lv_disp_drv_t::full_refresh"
+1: Always make the whole screen redrawn 
+.SS "lv_coord_t _lv_disp_drv_t::hor_res"
+Horizontal resolution\&. 
+.SS "void(* _lv_disp_drv_t::monitor_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv, uint32_t time, uint32_t px)"
+OPTIONAL: Called after every refresh cycle to tell the rendering and flushing time + the number of flushed pixels 
+.SS "lv_coord_t _lv_disp_drv_t::offset_x"
+Horizontal offset from the full / physical display\&. Set to 0 for fullscreen mode\&. 
+.SS "lv_coord_t _lv_disp_drv_t::offset_y"
+Vertical offset from the full / physical display\&. Set to 0 for fullscreen mode\&. 
+.SS "lv_coord_t _lv_disp_drv_t::physical_hor_res"
+Horizontal resolution of the full / physical display\&. Set to -1 for fullscreen mode\&. 
+.SS "lv_coord_t _lv_disp_drv_t::physical_ver_res"
+Vertical resolution of the full / physical display\&. Set to -1 for fullscreen mode\&. 
+.SS "void(* _lv_disp_drv_t::render_start_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv)"
+OPTIONAL: called when start rendering 
+.SS "uint32_t _lv_disp_drv_t::rotated"
+1: turn the display by 90 degree\&. 
+.PP
+\fBWarning\fP
+.RS 4
+Does not update coordinates for you! 
+.RE
+.PP
+
+.SS "void(* _lv_disp_drv_t::rounder_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv, \fBlv_area_t\fP *area)"
+OPTIONAL: Extend the invalidated areas to match with the display drivers requirements E\&.g\&. round \fRy\fP to, 8, 16 \&.\&.) on a monochrome display 
+.SS "void(* _lv_disp_drv_t::set_px_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv, uint8_t *buf, lv_coord_t buf_w, lv_coord_t x, lv_coord_t y, lv_color_t color, lv_opa_t opa)"
+OPTIONAL: Set a pixel in a buffer according to the special requirements of the display Can be used for color format not supported in LittelvGL\&. E\&.g\&. 2 bit -> 4 gray scales 
+.PP
+\fBNote\fP
+.RS 4
+Much slower then drawing with supported color formats\&. 
+.RE
+.PP
+
+.SS "uint32_t _lv_disp_drv_t::sw_rotate"
+1: use software rotation (slower) 
+.SS "void* _lv_disp_drv_t::user_data"
+Custom display driver user data 
+.SS "lv_coord_t _lv_disp_drv_t::ver_res"
+Vertical resolution\&. 
+.SS "void(* _lv_disp_drv_t::wait_cb) (struct \fB_lv_disp_drv_t\fP *disp_drv)"
+OPTIONAL: Called periodically while lvgl waits for operation to be completed\&. For example flushing or GPU User can execute very simple tasks here or yield the task 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

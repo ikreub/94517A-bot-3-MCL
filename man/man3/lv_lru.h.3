@@ -1,0 +1,81 @@
+.TH "include/liblvgl/misc/lv_lru.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_lru.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include 'lv_types\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlv_lru_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void \fBlv_lru_free_t\fP(void *v)"
+.br
+.ti -1c
+.RI "typedef struct _lv_lru_item_t \fBlv_lru_item_t\fP"
+.br
+.ti -1c
+.RI "typedef struct lv_lru_t \fBlv_lru_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlv_lru_res_t\fP { \fBLV_LRU_OK\fP = 0, \fBLV_LRU_MISSING_CACHE\fP, \fBLV_LRU_MISSING_KEY\fP, \fBLV_LRU_MISSING_VALUE\fP, \fBLV_LRU_LOCK_ERROR\fP, \fBLV_LRU_VALUE_TOO_LARGE\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlv_lru_t\fP * \fBlv_lru_create\fP (size_t cache_size, size_t average_length, lv_lru_free_t *value_free, lv_lru_free_t *key_free)"
+.br
+.ti -1c
+.RI "void \fBlv_lru_del\fP (\fBlv_lru_t\fP *cache)"
+.br
+.ti -1c
+.RI "lv_lru_res_t \fBlv_lru_set\fP (\fBlv_lru_t\fP *cache, const void *key, size_t key_length, void *value, size_t value_length)"
+.br
+.ti -1c
+.RI "lv_lru_res_t \fBlv_lru_get\fP (\fBlv_lru_t\fP *cache, const void *key, size_t key_size, void **value)"
+.br
+.ti -1c
+.RI "lv_lru_res_t \fBlv_lru_remove\fP (\fBlv_lru_t\fP *cache, const void *key, size_t key_size)"
+.br
+.ti -1c
+.RI "void \fBlv_lru_remove_lru_item\fP (\fBlv_lru_t\fP *cache)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void lv_lru_remove_lru_item (\fBlv_lru_t\fP * cache)"
+remove the least recently used item
+
+.PP
+\fBTodo\fP
+.RS 4
+we can optimise this by finding the n lru items, where n = required_space / average_length 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

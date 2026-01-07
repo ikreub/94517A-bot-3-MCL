@@ -1,0 +1,136 @@
+\doxysection{lv\+\_\+span.\+h}
+\hypertarget{lv__span_8h_source}{}\label{lv__span_8h_source}\index{include/liblvgl/extra/widgets/span/lv\_span.h@{include/liblvgl/extra/widgets/span/lv\_span.h}}
+\doxymbox{\hyperlink{lv__span_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_SPAN\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_SPAN\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lvgl_8h}{liblvgl/lvgl.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_SPAN\ !=\ 0}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ LV\_SPAN\_SNIPPET\_STACK\_SIZE}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LV\_SPAN\_SNIPPET\_STACK\_SIZE\ 64}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ LV\_SPAN\_OVERFLOW\_CLIP,}
+\DoxyCodeLine{00032\ \ \ \ \ LV\_SPAN\_OVERFLOW\_ELLIPSIS,}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_span\_overflow\_t;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ LV\_SPAN\_MODE\_FIXED,\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ LV\_SPAN\_MODE\_EXPAND,\ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ LV\_SPAN\_MODE\_BREAK,\ \ \ \ \ }
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_span\_mode\_t;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ txt;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ a\ pointer\ to\ display\ text\ */}}
+\DoxyCodeLine{00045\ \ \ \ \ lv\_obj\_t\ *\ spangroup;\ \ \ \textcolor{comment}{/*\ a\ pointer\ to\ spangroup\ */}}
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ style;\ \ \ \ \ \ \ \textcolor{comment}{/*\ display\ text\ style\ */}}
+\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ static\_flag\ :\ 1;\textcolor{comment}{/*\ the\ text\ is\ static\ flag\ */}}
+\DoxyCodeLine{00048\ \}\ lv\_span\_t;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ lv\_obj\_t\ obj;}
+\DoxyCodeLine{00053\ \ \ \ \ int32\_t\ lines;}
+\DoxyCodeLine{00054\ \ \ \ \ lv\_coord\_t\ indent;\ \ \ \ \ \ \textcolor{comment}{/*\ first\ line\ indent\ */}}
+\DoxyCodeLine{00055\ \ \ \ \ lv\_coord\_t\ cache\_w;\ \ \ \ \ \textcolor{comment}{/*\ the\ cache\ automatically\ calculates\ the\ width\ */}}
+\DoxyCodeLine{00056\ \ \ \ \ lv\_coord\_t\ cache\_h;\ \ \ \ \ \textcolor{comment}{/*\ similar\ cache\_w\ */}}
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{structlv__ll__t}{lv\_ll\_t}}\ \ child\_ll;}
+\DoxyCodeLine{00058\ \ \ \ \ uint8\_t\ mode\ :\ 2;\ \ \ \ \ \ \ \textcolor{comment}{/*\ details\ see\ lv\_span\_mode\_t\ */}}
+\DoxyCodeLine{00059\ \ \ \ \ uint8\_t\ overflow\ :\ 1;\ \ \ \textcolor{comment}{/*\ details\ see\ lv\_span\_overflow\_t\ */}}
+\DoxyCodeLine{00060\ \ \ \ \ uint8\_t\ refresh\ :\ 1;\ \ \ \ \textcolor{comment}{/*\ the\ spangroup\ need\ refresh\ cache\_w\ and\ cache\_h\ */}}
+\DoxyCodeLine{00061\ \}\ lv\_spangroup\_t;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_spangroup\_class;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ lv\_obj\_t\ *\ lv\_spangroup\_create(lv\_obj\_t\ *\ par);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ lv\_span\_t\ *\ lv\_spangroup\_new\_span(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ lv\_spangroup\_del\_span(lv\_obj\_t\ *\ obj,\ lv\_span\_t\ *\ span);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ lv\_span\_set\_text(lv\_span\_t\ *\ span,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ text);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ lv\_span\_set\_text\_static(lv\_span\_t\ *\ span,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ text);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ lv\_spangroup\_set\_align(lv\_obj\_t\ *\ obj,\ lv\_text\_align\_t\ align);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ lv\_spangroup\_set\_overflow(lv\_obj\_t\ *\ obj,\ lv\_span\_overflow\_t\ overflow);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ lv\_spangroup\_set\_indent(lv\_obj\_t\ *\ obj,\ lv\_coord\_t\ indent);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ lv\_spangroup\_set\_mode(lv\_obj\_t\ *\ obj,\ lv\_span\_mode\_t\ mode);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ lv\_spangroup\_set\_lines(lv\_obj\_t\ *\ obj,\ int32\_t\ lines);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00160\ lv\_span\_t\ *\ lv\_spangroup\_get\_child(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj,\ int32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ uint32\_t\ lv\_spangroup\_get\_child\_cnt(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ lv\_text\_align\_t\ lv\_spangroup\_get\_align(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00181\ lv\_span\_overflow\_t\ lv\_spangroup\_get\_overflow(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00188\ lv\_coord\_t\ lv\_spangroup\_get\_indent(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00194\ lv\_span\_mode\_t\ lv\_spangroup\_get\_mode(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ int32\_t\ lv\_spangroup\_get\_lines(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00207\ lv\_coord\_t\ lv\_spangroup\_get\_max\_line\_h(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00216\ uint32\_t\ lv\_spangroup\_get\_expand\_width(lv\_obj\_t\ *\ obj,\ uint32\_t\ max\_width);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ lv\_coord\_t\ lv\_spangroup\_get\_expand\_height(lv\_obj\_t\ *\ obj,\ lv\_coord\_t\ width);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ *\ Other\ functions}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00233\ \textcolor{keywordtype}{void}\ lv\_spangroup\_refr\_mode(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_SPAN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00242\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_SPAN\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

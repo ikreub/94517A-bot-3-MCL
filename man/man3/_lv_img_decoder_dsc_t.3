@@ -1,0 +1,73 @@
+.TH "_lv_img_decoder_dsc_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_img_decoder_dsc_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_img_decoder\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "lv_img_decoder_t * \fBdecoder\fP"
+.br
+.ti -1c
+.RI "const void * \fBsrc\fP"
+.br
+.ti -1c
+.RI "lv_color_t \fBcolor\fP"
+.br
+.ti -1c
+.RI "int32_t \fBframe_id\fP"
+.br
+.ti -1c
+.RI "lv_img_src_t \fBsrc_type\fP"
+.br
+.ti -1c
+.RI "\fBlv_img_header_t\fP \fBheader\fP"
+.br
+.ti -1c
+.RI "const uint8_t * \fBimg_data\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBtime_to_open\fP"
+.br
+.ti -1c
+.RI "const char * \fBerror_msg\fP"
+.br
+.ti -1c
+.RI "void * \fBuser_data\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Describe an image decoding session\&. Stores data about the decoding 
+.SH "Member Data Documentation"
+.PP 
+.SS "lv_color_t _lv_img_decoder_dsc_t::color"
+Color to draw the image\&. USed when the image has alpha channel only 
+.SS "lv_img_decoder_t* _lv_img_decoder_dsc_t::decoder"
+The decoder which was able to open the image source 
+.SS "const char* _lv_img_decoder_dsc_t::error_msg"
+A text to display instead of the image when the image can't be opened\&. Can be set in \fRopen\fP function or set NULL\&. 
+.SS "int32_t _lv_img_decoder_dsc_t::frame_id"
+Frame of the image, using with animated images 
+.SS "\fBlv_img_header_t\fP _lv_img_decoder_dsc_t::header"
+Info about the opened image: color format, size, etc\&. MUST be set in \fRopen\fP function 
+.SS "const uint8_t* _lv_img_decoder_dsc_t::img_data"
+Pointer to a buffer where the image's data (pixels) are stored in a decoded, plain format\&. MUST be set in \fRopen\fP function 
+.SS "const void* _lv_img_decoder_dsc_t::src"
+The image source\&. A file path like "S:my_img\&.png" or pointer to an \fR\fBlv_img_dsc_t\fP\fP variable 
+.SS "lv_img_src_t _lv_img_decoder_dsc_t::src_type"
+Type of the source: file or variable\&. Can be set in \fRopen\fP function if required 
+.SS "uint32_t _lv_img_decoder_dsc_t::time_to_open"
+How much time did it take to open the image\&. [ms] If not set \fRlv_img_cache\fP will measure and set the time to open 
+.SS "void* _lv_img_decoder_dsc_t::user_data"
+Store any custom data here is required 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,122 @@
+.TH "pros::adi::Led" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::adi::Led
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::adi::Port\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLed\fP (std::uint8_t adi_port, std::uint32_t \fBlength\fP)"
+.br
+.RI "Configures an ADI port to act as a \fBLED\fP\&. "
+.ti -1c
+.RI "\fBLed\fP (\fBext_adi_port_pair_t\fP port_pair, std::uint32_t \fBlength\fP)"
+.br
+.RI "Configures an ADI port on a adi_expander to act as a \fBLED\fP\&. "
+.ti -1c
+.RI "std::int32_t \fBclear_all\fP ()"
+.br
+.RI "Operator overload to access the buffer in the ADILed class, it is recommended that you call \&.\fBupdate()\fP; after doing any operations with this\&. "
+.ti -1c
+.RI "std::int32_t \fBclear\fP ()"
+.br
+.ti -1c
+.RI "std::int32_t \fBupdate\fP () const"
+.br
+.RI "Force the \fBLED\fP strip to update with the current buffered values, this should be called after any changes to the buffer using the [] operator\&. "
+.ti -1c
+.RI "std::int32_t \fBset_all\fP (uint32_t color)"
+.br
+.RI "Set the entire led strip to one color\&. "
+.ti -1c
+.RI "std::int32_t \fBset_pixel\fP (uint32_t color, uint32_t pixel_position)"
+.br
+.RI "Set one pixel on the led strip\&. "
+.ti -1c
+.RI "std::int32_t \fBclear_pixel\fP (uint32_t pixel_position)"
+.br
+.RI "Clear one pixel on the led strip\&. "
+.ti -1c
+.RI "std::int32_t \fBlength\fP ()"
+.br
+.RI "Get the length of the led strip\&. "
+.ti -1c
+.RI "virtual \fBext_adi_port_tuple_t\fP \fBget_port\fP () const"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< uint32_t > \fB_buffer\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBpros::adi::Port\fP
+.in +1c
+.ti -1c
+.RI "std::uint8_t \fB_smart_port\fP"
+.br
+.ti -1c
+.RI "std::uint8_t \fB_adi_port\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBpros::adi::Port\fP
+.in +1c
+.ti -1c
+.RI "\fBPort\fP (std::uint8_t adi_port, adi_port_config_e_t type=E_ADI_TYPE_UNDEFINED)"
+.br
+.ti -1c
+.RI "\fBPort\fP (\fBext_adi_port_pair_t\fP port_pair, adi_port_config_e_t type=E_ADI_TYPE_UNDEFINED)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_config\fP () const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_value\fP () const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_config\fP (adi_port_config_e_t type) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_value\fP (std::int32_t value) const"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBext_adi_port_tuple_t\fP \fBpros::adi::Port::get_port\fP () const\fR [virtual]\fP"
+Gets the port of the sensor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+returns a tuple of integer ports\&.
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The parts of the tuple are {smart port, adi port, second adi port (when applicable)}\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Reimplemented from \fBpros::adi::Port\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,73 @@
+.TH "squiggles::Constraints" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+squiggles::Constraints
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConstraints\fP (double imax_vel, double imax_accel=std::numeric_limits< double >::max(), double imax_jerk=std::numeric_limits< double >::max(), double imax_curvature=1000, double imin_accel=std::nan(''))"
+.br
+.ti -1c
+.RI "std::string \fBto_string\fP () const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBmax_vel\fP"
+.br
+.ti -1c
+.RI "double \fBmax_accel\fP"
+.br
+.ti -1c
+.RI "double \fBmax_jerk\fP"
+.br
+.ti -1c
+.RI "double \fBmin_accel\fP"
+.br
+.ti -1c
+.RI "double \fBmax_curvature\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "squiggles::Constraints::Constraints (double imax_vel, double imax_accel = \fRstd::numeric_limits<double>::max()\fP, double imax_jerk = \fRstd::numeric_limits<double>::max()\fP, double imax_curvature = \fR1000\fP, double imin_accel = \fRstd::nan('')\fP)\fR [inline]\fP"
+Defines the motion constraints for a path\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimax_vel\fP The maximum allowable velocity for the robot in meters per second\&. 
+.br
+\fIimax_accel\fP The maximum allowable acceleration for the robot in meters per second per second\&. 
+.br
+\fIimax_jerk\fP The maximum allowable jerk for the robot in meters per second per second per second (m/s^3)\&. 
+.br
+\fIimax_curvature\fP The maximum allowable change in heading in radians per second\&. This is not set to the numeric limits by default as that will allow for wild paths\&. 
+.br
+\fIimin_accel\fP The minimum allowable acceleration for the robot in meters per second per second\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::string squiggles::Constraints::to_string () const\fR [inline]\fP"
+Serializes the \fBConstraints\fP data for debugging\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The \fBConstraints\fP data\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

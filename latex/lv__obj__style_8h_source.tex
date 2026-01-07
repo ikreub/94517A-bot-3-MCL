@@ -1,0 +1,154 @@
+\doxysection{lv\+\_\+obj\+\_\+style.\+h}
+\hypertarget{lv__obj__style_8h_source}{}\label{lv__obj__style_8h_source}\index{include/liblvgl/core/lv\_obj\_style.h@{include/liblvgl/core/lv\_obj\_style.h}}
+\doxymbox{\hyperlink{lv__obj__style_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_OBJ\_STYLE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_OBJ\_STYLE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__bidi_8h}{liblvgl/misc/lv\_bidi.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00027\ \textcolor{comment}{/*Can't\ include\ lv\_obj.h\ because\ it\ includes\ this\ header\ file*/}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \_LV\_STYLE\_STATE\_CMP\_SAME,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*The\ style\ properties\ in\ the\ 2\ states\ are\ identical*/}}
+\DoxyCodeLine{00032\ \ \ \ \ \_LV\_STYLE\_STATE\_CMP\_DIFF\_REDRAW,\ \ \ \ \textcolor{comment}{/*The\ differences\ can\ be\ shown\ with\ a\ simple\ redraw*/}}
+\DoxyCodeLine{00033\ \ \ \ \ \_LV\_STYLE\_STATE\_CMP\_DIFF\_DRAW\_PAD,\ \ \textcolor{comment}{/*The\ differences\ can\ be\ shown\ with\ a\ simple\ redraw*/}}
+\DoxyCodeLine{00034\ \ \ \ \ \_LV\_STYLE\_STATE\_CMP\_DIFF\_LAYOUT,\ \ \ \ \textcolor{comment}{/*The\ differences\ can\ be\ shown\ with\ a\ simple\ redraw*/}}
+\DoxyCodeLine{00035\ \}\ \_lv\_style\_state\_cmp\_t;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ uint32\_t\ lv\_style\_selector\_t;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style;}
+\DoxyCodeLine{00041\ \ \ \ \ uint32\_t\ selector\ :\ 24;}
+\DoxyCodeLine{00042\ \ \ \ \ uint32\_t\ is\_local\ :\ 1;}
+\DoxyCodeLine{00043\ \ \ \ \ uint32\_t\ is\_trans\ :\ 1;}
+\DoxyCodeLine{00044\ \}\ \doxymbox{\hyperlink{struct__lv__obj__style__t}{\_lv\_obj\_style\_t}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ uint16\_t\ time;}
+\DoxyCodeLine{00048\ \ \ \ \ uint16\_t\ delay;}
+\DoxyCodeLine{00049\ \ \ \ \ lv\_style\_selector\_t\ selector;}
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop;}
+\DoxyCodeLine{00051\ \ \ \ \ \doxymbox{\hyperlink{lv__anim_8h_a32c487fbcd8daa37b095ddc4a34630ac}{lv\_anim\_path\_cb\_t}}\ path\_cb;}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#if\ LV\_USE\_USER\_DATA}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ user\_data;}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00055\ \}\ \doxymbox{\hyperlink{struct__lv__obj__style__transition__dsc__t}{\_lv\_obj\_style\_transition\_dsc\_t}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_a06dd08ec4b467767ea5593834fd3d7a5}{\_lv\_obj\_style\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ lv\_obj\_add\_style(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ lv\_obj\_remove\_style(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_obj\_remove\_style\_all(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj)}
+\DoxyCodeLine{00093\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ lv\_obj\_remove\_style(obj,\ NULL,\ \doxymbox{\hyperlink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a20fb4a8bd26c73f27bab2c13cca4135c}{LV\_PART\_ANY}}\ |\ \doxymbox{\hyperlink{lv__obj_8h_aa70899857551794b52cf8b1345ffd003a801cebe920a9b6b4d341e8eab3d19780}{LV\_STATE\_ANY}});}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_af31066bb732f613395d109ea853e7f5c}{lv\_obj\_report\_style\_change}}(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_a17a2a80e1e1f4f6ab7343e0d84d7968e}{lv\_obj\_refresh\_style}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_part\_t\ part,\ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_aff37096e213941e398c8be8d141a7cf8}{lv\_obj\_enable\_style\_refresh}}(\textcolor{keywordtype}{bool}\ en);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00131\ \doxymbox{\hyperlink{unionlv__style__value__t}{lv\_style\_value\_t}}\ \doxymbox{\hyperlink{lv__obj__style_8h_ac497f3b04f60b6e76cea85194f2f2fed}{lv\_obj\_get\_style\_prop}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_part\_t\ part,\ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_aa896726281d89cb81af64d8b86112ead}{lv\_obj\_set\_local\_style\_prop}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop,\ \doxymbox{\hyperlink{unionlv__style__value__t}{lv\_style\_value\_t}}\ value,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_local\_style\_prop\_meta(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop,\ uint16\_t\ meta,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ lv\_style\_res\_t\ lv\_obj\_get\_local\_style\_prop(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop,\ \doxymbox{\hyperlink{unionlv__style__value__t}{lv\_style\_value\_t}}\ *\ value,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__obj__style_8h_a6dd0a1b463f4803f55648eed8bd2c4a0}{lv\_obj\_remove\_local\_style\_prop}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \doxymbox{\hyperlink{lv__style_8h_a1cc3fc02ad523b88130a21e3e7d116a5}{lv\_style\_prop\_t}}\ prop,\ lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \doxymbox{\hyperlink{unionlv__style__value__t}{lv\_style\_value\_t}}\ \doxymbox{\hyperlink{lv__obj__style_8h_a8c222bdc00207f3ec10ee1dc3ea99b18}{\_lv\_obj\_style\_apply\_color\_filter}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ uint32\_t\ part,\ \doxymbox{\hyperlink{unionlv__style__value__t}{lv\_style\_value\_t}}\ v);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_af8d4e231a266ddf1da6ab893cd642c50}{\_lv\_obj\_style\_create\_transition}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_part\_t\ part,\ lv\_state\_t\ prev\_state,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_state\_t\ new\_state,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct__lv__obj__style__transition__dsc__t}{\_lv\_obj\_style\_transition\_dsc\_t}}\ *\ tr);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00181\ \_lv\_style\_state\_cmp\_t\ \doxymbox{\hyperlink{lv__obj__style_8h_ac7328dd150f2cf468f5ffdfc1bfefb83}{\_lv\_obj\_style\_state\_compare}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_state\_t\ state1,\ lv\_state\_t\ state2);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_a4f30d7ed77ce3c88251e8abad8735f0d}{lv\_obj\_fade\_in}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ uint32\_t\ time,\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_gab8c5a8048d5576a33d7f79b95a2fa0dd}{delay}});}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00197\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__obj__style_8h_a51cf0b87e9125d52b0a79f2bfdbd0892}{lv\_obj\_fade\_out}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ uint32\_t\ time,\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_gab8c5a8048d5576a33d7f79b95a2fa0dd}{delay}});}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ lv\_state\_t\ lv\_obj\_style\_get\_selector\_state(lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ lv\_part\_t\ lv\_obj\_style\_get\_selector\_part(lv\_style\_selector\_t\ selector);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#include\ "{}lv\_obj\_style\_gen.h"{}}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_style\_pad\_all(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_coord\_t\ value,\ lv\_style\_selector\_t\ selector)}
+\DoxyCodeLine{00206\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ lv\_obj\_set\_style\_pad\_left(obj,\ value,\ selector);}
+\DoxyCodeLine{00208\ \ \ \ \ lv\_obj\_set\_style\_pad\_right(obj,\ value,\ selector);}
+\DoxyCodeLine{00209\ \ \ \ \ lv\_obj\_set\_style\_pad\_top(obj,\ value,\ selector);}
+\DoxyCodeLine{00210\ \ \ \ \ lv\_obj\_set\_style\_pad\_bottom(obj,\ value,\ selector);}
+\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_style\_pad\_hor(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_coord\_t\ value,\ lv\_style\_selector\_t\ selector)}
+\DoxyCodeLine{00214\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ lv\_obj\_set\_style\_pad\_left(obj,\ value,\ selector);}
+\DoxyCodeLine{00216\ \ \ \ \ lv\_obj\_set\_style\_pad\_right(obj,\ value,\ selector);}
+\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_style\_pad\_ver(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_coord\_t\ value,\ lv\_style\_selector\_t\ selector)}
+\DoxyCodeLine{00220\ \{}
+\DoxyCodeLine{00221\ \ \ \ \ lv\_obj\_set\_style\_pad\_top(obj,\ value,\ selector);}
+\DoxyCodeLine{00222\ \ \ \ \ lv\_obj\_set\_style\_pad\_bottom(obj,\ value,\ selector);}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_style\_pad\_gap(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_coord\_t\ value,\ lv\_style\_selector\_t\ selector)}
+\DoxyCodeLine{00226\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ lv\_obj\_set\_style\_pad\_row(obj,\ value,\ selector);}
+\DoxyCodeLine{00228\ \ \ \ \ lv\_obj\_set\_style\_pad\_column(obj,\ value,\ selector);}
+\DoxyCodeLine{00229\ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_style\_size(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_coord\_t\ value,\ lv\_style\_selector\_t\ selector)}
+\DoxyCodeLine{00232\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ lv\_obj\_set\_style\_width(obj,\ value,\ selector);}
+\DoxyCodeLine{00234\ \ \ \ \ lv\_obj\_set\_style\_height(obj,\ value,\ selector);}
+\DoxyCodeLine{00235\ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ lv\_text\_align\_t\ lv\_obj\_calculate\_style\_text\_align(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ lv\_part\_t\ part,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ txt);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00245\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_OBJ\_STYLE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

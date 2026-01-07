@@ -1,0 +1,96 @@
+.TH "okapi::ADIUltrasonic" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ADIUltrasonic
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ControllerInput< double >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBADIUltrasonic\fP (std::uint8_t iportPing, std::uint8_t iportEcho, std::unique_ptr< \fBFilter\fP > ifilter=std::make_unique< \fBPassthroughFilter\fP >())"
+.br
+.ti -1c
+.RI "\fBADIUltrasonic\fP (std::tuple< std::uint8_t, std::uint8_t, std::uint8_t > iports, std::unique_ptr< \fBFilter\fP > ifilter=std::make_unique< \fBPassthroughFilter\fP >())"
+.br
+.ti -1c
+.RI "virtual double \fBget\fP ()"
+.br
+.ti -1c
+.RI "virtual double \fBcontrollerGet\fP () override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "pros::c::ext_adi_ultrasonic_t \fBultra\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBFilter\fP > \fBfilter\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ADIUltrasonic::ADIUltrasonic (std::uint8_t iportPing, std::uint8_t iportEcho, std::unique_ptr< \fBFilter\fP > ifilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP)"
+An ultrasonic sensor in the ADI (3-wire) ports\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiportPing\fP The port connected to the orange OUTPUT cable\&. This must be in port \fR1\fP, \fR3\fP, \fR5\fP, or \fR7\fP (\fRA\fP, \fRC\fP, \fRE\fP, or \fRG\fP)\&. 
+.br
+\fIiportEcho\fP The port connected to the yellow INPUT cable\&. This must be in the next highest port following iportPing\&. 
+.br
+\fIifilter\fP The filter to use for filtering the distance measurements\&. 
+.RE
+.PP
+
+.SS "okapi::ADIUltrasonic::ADIUltrasonic (std::tuple< std::uint8_t, std::uint8_t, std::uint8_t > iports, std::unique_ptr< \fBFilter\fP > ifilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP)"
+An ultrasonic sensor in the ADI (3-wire) ports\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiports\fP The ports the ultrasonic is plugged in to in the order \fR{smart port, ping port, echo port}\fP\&. The smart port is the smart port number (\fR[1, 21]\fP)\&. The ping port is the port connected to the orange OUTPUT cable\&. This must be in port \fR1\fP, \fR3\fP, \fR5\fP, or \fR7\fP (\fRA\fP, \fRC\fP, \fRE\fP, or \fRG\fP)\&. The echo port is the port connected to the yellow INPUT cable\&. This must be in the next highest port following the ping port\&. 
+.br
+\fIifilter\fP The filter to use for filtering the distance measurements\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual double okapi::ADIUltrasonic::controllerGet ()\fR [override]\fP, \fR [virtual]\fP"
+Get the sensor value for use in a control loop\&. This method might be automatically called in another thread by the controller\&. Calls \fBget()\fP\&. 
+.PP
+Implements \fBokapi::ControllerInput< double >\fP\&.
+.SS "virtual double okapi::ADIUltrasonic::get ()\fR [virtual]\fP"
+Returns the current filtered sensor value\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+current value 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

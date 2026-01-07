@@ -1,0 +1,847 @@
+.TH "okapi::AbstractMotor" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AbstractMotor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ControllerOutput< double >\fP\&.
+.PP
+Inherited by \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGearsetRatioPair\fP"
+.br
+.in -1c
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBbrakeMode\fP { \fBcoast\fP = 0, \fBbrake\fP = 1, \fBhold\fP = 2, \fBinvalid\fP = INT32_MAX }"
+.br
+.ti -1c
+.RI "enum class \fBencoderUnits\fP { \fBdegrees\fP = 0, \fBrotations\fP = 1, \fBcounts\fP = 2, \fBinvalid\fP = INT32_MAX }"
+.br
+.ti -1c
+.RI "enum class \fBgearset\fP { \fBred\fP = 100, \fBgreen\fP = 200, \fBblue\fP = 600, \fBinvalid\fP = INT32_MAX }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual std::int32_t \fBmoveAbsolute\fP (double iposition, std::int32_t ivelocity)=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBmoveRelative\fP (double iposition, std::int32_t ivelocity)=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBmoveVelocity\fP (std::int16_t ivelocity)=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBmoveVoltage\fP (std::int16_t ivoltage)=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBmodifyProfiledVelocity\fP (std::int32_t ivelocity)=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetTargetPosition\fP ()=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetPosition\fP ()=0"
+.br
+.ti -1c
+.RI "double \fBgetPositionError\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBtarePosition\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetTargetVelocity\fP ()=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetActualVelocity\fP ()=0"
+.br
+.ti -1c
+.RI "double \fBgetVelocityError\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetCurrentDraw\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetDirection\fP ()=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetEfficiency\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBisOverCurrent\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBisOverTemp\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBisStopped\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetZeroPositionFlag\fP ()=0"
+.br
+.ti -1c
+.RI "virtual uint32_t \fBgetFaults\fP ()=0"
+.br
+.ti -1c
+.RI "virtual uint32_t \fBgetFlags\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetRawPosition\fP (std::uint32_t *timestamp)=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetPower\fP ()=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetTemperature\fP ()=0"
+.br
+.ti -1c
+.RI "virtual double \fBgetTorque\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetVoltage\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetBrakeMode\fP (\fBbrakeMode\fP imode)=0"
+.br
+.ti -1c
+.RI "virtual \fBbrakeMode\fP \fBgetBrakeMode\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetCurrentLimit\fP (std::int32_t ilimit)=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetCurrentLimit\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetEncoderUnits\fP (\fBencoderUnits\fP iunits)=0"
+.br
+.ti -1c
+.RI "virtual \fBencoderUnits\fP \fBgetEncoderUnits\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetGearing\fP (\fBgearset\fP igearset)=0"
+.br
+.ti -1c
+.RI "virtual \fBgearset\fP \fBgetGearing\fP ()=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetReversed\fP (bool ireverse)=0"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetVoltageLimit\fP (std::int32_t ilimit)=0"
+.br
+.ti -1c
+.RI "virtual std::shared_ptr< \fBContinuousRotarySensor\fP > \fBgetEncoder\fP ()=0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ControllerOutput< double >\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBcontrollerSet\fP (double ivalue)=0"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum class \fBokapi::AbstractMotor::brakeMode\fP\fR [strong]\fP"
+Indicates the 'brake mode' of a motor\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIcoast \fP
+\fBMotor\fP coasts when stopped, traditional behavior\&. 
+.TP
+\f(BIbrake \fP
+\fBMotor\fP brakes when stopped\&. 
+.TP
+\f(BIhold \fP
+\fBMotor\fP actively holds position when stopped\&. 
+.SS "enum class \fBokapi::AbstractMotor::encoderUnits\fP\fR [strong]\fP"
+Indicates the units used by the motor encoders\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIdegrees \fP
+degrees 
+.TP
+\f(BIrotations \fP
+rotations 
+.TP
+\f(BIcounts \fP
+counts 
+.TP
+\f(BIinvalid \fP
+invalid 
+.SS "enum class \fBokapi::AbstractMotor::gearset\fP\fR [strong]\fP"
+Indicates the internal gear ratio of a motor\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIred \fP
+36:1, 100 RPM, Red gear set 
+.TP
+\f(BIgreen \fP
+18:1, 200 RPM, Green gear set 
+.TP
+\f(BIblue \fP
+6:1, 600 RPM, Blue gear set 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual double okapi::AbstractMotor::getActualVelocity ()\fR [pure virtual]\fP"
+Gets the actual velocity of the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's actual velocity in RPM or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual \fBbrakeMode\fP okapi::AbstractMotor::getBrakeMode ()\fR [pure virtual]\fP"
+Gets the brake mode that was set for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBbrakeMode\fP, according to what was set for the motor, or brakeMode::invalid if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::getCurrentDraw ()\fR [pure virtual]\fP"
+Gets the current drawn by the motor in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current in mA or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::getCurrentLimit ()\fR [pure virtual]\fP"
+Gets the current limit for the motor in mA\&.
+
+.PP
+The default value is 2500 mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current limit in mA or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::getDirection ()\fR [pure virtual]\fP"
+Gets the direction of movement for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 for moving in the positive direction, -1 for moving in the negative direction, and PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual double okapi::AbstractMotor::getEfficiency ()\fR [pure virtual]\fP"
+Gets the efficiency of the motor in percent\&.
+
+.PP
+An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's efficiency in percent or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::shared_ptr< \fBContinuousRotarySensor\fP > okapi::AbstractMotor::getEncoder ()\fR [pure virtual]\fP"
+Returns the encoder associated with this motor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the encoder for this motor 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual \fBencoderUnits\fP okapi::AbstractMotor::getEncoderUnits ()\fR [pure virtual]\fP"
+Gets the encoder units that were set for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBencoderUnits\fP according to what is set for the motor or \fBencoderUnits::invalid\fP if the operation failed\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual uint32_t okapi::AbstractMotor::getFaults ()\fR [pure virtual]\fP"
+Gets the faults experienced by the motor\&. Compare this bitfield to the bitmasks in pros::motor_fault_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A currently unknown bitfield containing the motor's faults\&. 0b00000100 = Current Limit Hit 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual uint32_t okapi::AbstractMotor::getFlags ()\fR [pure virtual]\fP"
+Gets the flags set by the motor's operation\&. Compare this bitfield to the bitmasks in pros::motor_flag_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A currently unknown bitfield containing the motor's flags\&. These seem to be unrelated to the individual get_specific_flag functions 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual \fBgearset\fP okapi::AbstractMotor::getGearing ()\fR [pure virtual]\fP"
+Gets the gearset that was set for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+One of gearset according to what is set for the motor, or gearset::invalid if the operation failed\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual double okapi::AbstractMotor::getPosition ()\fR [pure virtual]\fP"
+Gets the absolute position of the motor in its encoder units\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's absolute position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "double okapi::AbstractMotor::getPositionError ()"
+Gets the positional error (target position minus actual position) of the motor in its encoder units\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's positional error in its encoder units or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "virtual double okapi::AbstractMotor::getPower ()\fR [pure virtual]\fP"
+Gets the power drawn by the motor in Watts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's power draw in Watts or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::getRawPosition (std::uint32_t * timestamp)\fR [pure virtual]\fP"
+Gets the raw encoder count of the motor at a given timestamp\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimestamp\fP A pointer to a time in milliseconds for which the encoder count will be returned\&. If NULL, the timestamp at which the encoder count was read will not be supplied
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The raw encoder count at the given timestamp or PROS_ERR if the operation failed\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual double okapi::AbstractMotor::getTargetPosition ()\fR [pure virtual]\fP"
+\fBMotor\fP telemetry functions These functions allow programmers to collect telemetry from motors Gets the target position set for the motor by the user\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The target position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::getTargetVelocity ()\fR [pure virtual]\fP"
+Gets the velocity commanded to the motor by the user\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual double okapi::AbstractMotor::getTemperature ()\fR [pure virtual]\fP"
+Gets the temperature of the motor in degrees Celsius\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's temperature in degrees Celsius or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual double okapi::AbstractMotor::getTorque ()\fR [pure virtual]\fP"
+Gets the torque generated by the motor in Newton Metres (Nm)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's torque in NM or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "double okapi::AbstractMotor::getVelocityError ()"
+Gets the difference between the target velocity of the motor and the actual velocity of the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's velocity error in RPM or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "virtual std::int32_t okapi::AbstractMotor::getVoltage ()\fR [pure virtual]\fP"
+Gets the voltage delivered to the motor in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's voltage in V or PROS_ERR_F if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::getZeroPositionFlag ()\fR [pure virtual]\fP"
+Checks if the motor is at its zero position\&.
+
+.PP
+Although this function forwards data from the motor, the motor presently does not provide any value\&. This function returns PROS_ERR with errno set to ENOSYS\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor is at zero absolute position, 0 if the motor has moved from its absolute zero, or PROS_ERR if the operation failed, setting errno 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::isOverCurrent ()\fR [pure virtual]\fP"
+Checks if the motor is drawing over its current limit\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::isOverTemp ()\fR [pure virtual]\fP"
+Checks if the motor's temperature is above its limit\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the temperature limit is exceeded and 0 if the the temperature is below the limit, or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::isStopped ()\fR [pure virtual]\fP"
+Checks if the motor is stopped\&.
+
+.PP
+Although this function forwards data from the motor, the motor presently does not provide any value\&. This function returns PROS_ERR with errno set to ENOSYS\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor is not moving, 0 if the motor is moving, or PROS_ERR if the operation failed, setting errno 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::modifyProfiledVelocity (std::int32_t ivelocity)\fR [pure virtual]\fP"
+Changes the output velocity for a profiled movement (moveAbsolute or moveRelative)\&. This will have no effect if the motor is not following a profiled movement\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivelocity\fP The new motor velocity from -+-100, +-200, or +-600 depending on the motor's gearset 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::moveAbsolute (double iposition, std::int32_t ivelocity)\fR [pure virtual]\fP"
+\fBMotor\fP movement functions These functions allow programmers to make motors move Sets the target absolute position for the motor to move to\&.
+
+.PP
+This movement is relative to the position of the motor when initialized or the position when it was most recently reset with setZeroPosition()\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiposition\fP The absolute position to move to in the motor's encoder units 
+.br
+\fIivelocity\fP The maximum allowable velocity for the movement in RPM 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::moveRelative (double iposition, std::int32_t ivelocity)\fR [pure virtual]\fP"
+Sets the relative target position for the motor to move to\&.
+
+.PP
+This movement is relative to the current position of the motor\&. Providing 10\&.0 as the position parameter would result in the motor moving clockwise 10 units, no matter what the current position is\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiposition\fP The relative position to move to in the motor's encoder units 
+.br
+\fIivelocity\fP The maximum allowable velocity for the movement in RPM 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::moveVelocity (std::int16_t ivelocity)\fR [pure virtual]\fP"
+Sets the velocity for the motor\&.
+
+.PP
+This velocity corresponds to different actual speeds depending on the gearset used for the motor\&. This results in a range of +-100 for pros::c::red, +-200 for green, and +-600 for blue\&. The velocity is held with PID to ensure consistent speed, as opposed to setting the motor's voltage\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivelocity\fP The new motor velocity from -+-100, +-200, or +-600 depending on the motor's gearset 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::moveVoltage (std::int16_t ivoltage)\fR [pure virtual]\fP"
+Sets the voltage for the motor from -12000 to 12000\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivoltage\fP The new voltage value from -12000 to 12000 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::setBrakeMode (\fBbrakeMode\fP imode)\fR [pure virtual]\fP"
+\fBMotor\fP configuration functions These functions allow programmers to configure the behavior of motors Sets one of \fBbrakeMode\fP to the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimode\fP The new motor brake mode to set for the motor 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::setCurrentLimit (std::int32_t ilimit)\fR [pure virtual]\fP"
+Sets the current limit for the motor in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilimit\fP The new current limit in mA 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::setEncoderUnits (\fBencoderUnits\fP iunits)\fR [pure virtual]\fP"
+Sets one of \fBencoderUnits\fP for the motor encoder\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiunits\fP The new motor encoder units 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::setGearing (\fBgearset\fP igearset)\fR [pure virtual]\fP"
+Sets one of gearset for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigearset\fP The new motor gearset 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::setReversed (bool ireverse)\fR [pure virtual]\fP"
+Sets the reverse flag for the motor\&.
+
+.PP
+This will invert its movements and the values returned for its position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireverse\fP True reverses the motor, false is default 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::setVoltageLimit (std::int32_t ilimit)\fR [pure virtual]\fP"
+Sets the voltage limit for the motor in Volts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilimit\fP The new voltage limit in Volts 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+.SS "virtual std::int32_t okapi::AbstractMotor::tarePosition ()\fR [pure virtual]\fP"
+Sets the "absolute" zero position of the motor to its current position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Motor\fP, and \fBokapi::MotorGroup\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

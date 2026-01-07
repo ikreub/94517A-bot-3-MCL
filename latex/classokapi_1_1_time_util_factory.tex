@@ -1,0 +1,50 @@
+\doxysection{okapi::\+Time\+Util\+Factory Class Reference}
+\hypertarget{classokapi_1_1_time_util_factory}{}\label{classokapi_1_1_time_util_factory}\index{okapi::TimeUtilFactory@{okapi::TimeUtilFactory}}
+
+
+Inherited by \doxymbox{\hyperlink{classokapi_1_1_configurable_time_util_factory}{okapi::\+\+Configurable\+Time\+Util\+Factory}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \doxymbox{\hyperlink{classokapi_1_1_time_util_factory_abac38202f12e2cd697935f1178150095}{create}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \doxymbox{\hyperlink{classokapi_1_1_time_util_factory_afa3783bd7e6b9cf1313430ff7a05a16d}{create\+Default}} ()
+\item 
+static \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \doxymbox{\hyperlink{classokapi_1_1_time_util_factory_a3a8949368da406d164508fa5f36e70af}{with\+Settled\+Util\+Params}} (double iat\+Target\+Error=50, double iat\+Target\+Derivative=5, const QTime \&iat\+Target\+Time=250\+\_\+ms)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_time_util_factory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_time_util_factory_abac38202f12e2cd697935f1178150095}\index{okapi::TimeUtilFactory@{okapi::TimeUtilFactory}!create@{create}}
+\index{create@{create}!okapi::TimeUtilFactory@{okapi::TimeUtilFactory}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_time_util_factory_abac38202f12e2cd697935f1178150095} 
+virtual \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} okapi::\+\+Time\+Util\+Factory::\+create (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates a default \doxylink{classokapi_1_1_time_util}{Time\+Util}. 
+
+Reimplemented in \doxymbox{\hyperlink{classokapi_1_1_configurable_time_util_factory_a40de39d64f1992bdc55030fb82e5bf9f}{okapi::\+\+Configurable\+Time\+Util\+Factory}}.
+
+\Hypertarget{classokapi_1_1_time_util_factory_afa3783bd7e6b9cf1313430ff7a05a16d}\index{okapi::TimeUtilFactory@{okapi::TimeUtilFactory}!createDefault@{createDefault}}
+\index{createDefault@{createDefault}!okapi::TimeUtilFactory@{okapi::TimeUtilFactory}}
+\doxysubsubsection{\texorpdfstring{createDefault()}{createDefault()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_time_util_factory_afa3783bd7e6b9cf1313430ff7a05a16d} 
+\doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} okapi::\+\+Time\+Util\+Factory::\+create\+Default (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a default \doxylink{classokapi_1_1_time_util}{Time\+Util}. \Hypertarget{classokapi_1_1_time_util_factory_a3a8949368da406d164508fa5f36e70af}\index{okapi::TimeUtilFactory@{okapi::TimeUtilFactory}!withSettledUtilParams@{withSettledUtilParams}}
+\index{withSettledUtilParams@{withSettledUtilParams}!okapi::TimeUtilFactory@{okapi::TimeUtilFactory}}
+\doxysubsubsection{\texorpdfstring{withSettledUtilParams()}{withSettledUtilParams()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_time_util_factory_a3a8949368da406d164508fa5f36e70af} 
+\doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} okapi::\+\+Time\+Util\+Factory::\+with\+Settled\+Util\+Params (\begin{DoxyParamCaption}\item[{double}]{iat\+Target\+Error}{ = {\ttfamily 50}, }\item[{double}]{iat\+Target\+Derivative}{ = {\ttfamily 5}, }\item[{const QTime \&}]{iat\+Target\+Time}{ = {\ttfamily 250\+\_\+ms}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a \doxylink{classokapi_1_1_time_util}{Time\+Util} with custom \doxylink{classokapi_1_1_settled_util}{Settled\+Util} params. See \doxylink{classokapi_1_1_settled_util}{Settled\+Util} docs. 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+impl/\+util/\+time\+Util\+Factory.\+hpp\end{DoxyCompactItemize}

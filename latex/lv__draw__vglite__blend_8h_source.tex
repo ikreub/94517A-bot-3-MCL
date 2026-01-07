@@ -1,0 +1,95 @@
+\doxysection{lv\+\_\+draw\+\_\+vglite\+\_\+blend.\+h}
+\hypertarget{lv__draw__vglite__blend_8h_source}{}\label{lv__draw__vglite__blend_8h_source}\index{include/liblvgl/draw/nxp/vglite/lv\_draw\_vglite\_blend.h@{include/liblvgl/draw/nxp/vglite/lv\_draw\_vglite\_blend.h}}
+\doxymbox{\hyperlink{lv__draw__vglite__blend_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_VGLITE\_BLEND\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_VGLITE\_BLEND\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#if\ LV\_USE\_GPU\_NXP\_VG\_LITE}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__gpu__nxp__vglite_8h}{lv\_gpu\_nxp\_vglite.h}}"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_FILL\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_FILL\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_FILL\_OPA\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_FILL\_OPA\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_BLIT\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_BLIT\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_BUFF\_SYNC\_BLIT\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_BUFF\_SYNC\_BLIT\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_BLIT\_OPA\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_BLIT\_OPA\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ lv\_color\_t\ *\ src;\ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ src\_area;\ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ lv\_coord\_t\ src\_width;\ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ lv\_coord\_t\ src\_height;\ \ \ }
+\DoxyCodeLine{00088\ \ \ \ \ int32\_t\ src\_stride;\ \ \ \ \ \ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ lv\_color\_t\ *\ dst;\ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ dst\_area;\ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ lv\_coord\_t\ dst\_width;\ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ lv\_coord\_t\ dst\_height;\ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ int32\_t\ dst\_stride;\ \ \ \ \ \ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ lv\_opa\_t\ opa;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ uint32\_t\ angle;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00098\ \ \ \ \ uint32\_t\ zoom;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ pivot;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00100\ \}\ lv\_gpu\_nxp\_vglite\_blit\_info\_t;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00118\ lv\_res\_t\ lv\_gpu\_nxp\_vglite\_fill(lv\_color\_t\ *\ dest\_buf,\ lv\_coord\_t\ dest\_width,\ lv\_coord\_t\ dest\_height,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ fill\_area,\ lv\_color\_t\ color,\ lv\_opa\_t\ opa);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00128\ lv\_res\_t\ lv\_gpu\_nxp\_vglite\_blit(lv\_gpu\_nxp\_vglite\_blit\_info\_t\ *\ blit);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00137\ lv\_res\_t\ lv\_gpu\_nxp\_vglite\_blit\_transform(lv\_gpu\_nxp\_vglite\_blit\_info\_t\ *\ blit);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GPU\_NXP\_VG\_LITE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00146\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_VGLITE\_BLEND\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

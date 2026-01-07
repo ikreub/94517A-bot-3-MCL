@@ -1,0 +1,615 @@
+\doxysection{lv\+\_\+color.\+h}
+\hypertarget{lv__color_8h_source}{}\label{lv__color_8h_source}\index{include/liblvgl/misc/lv\_color.h@{include/liblvgl/misc/lv\_color.h}}
+\doxymbox{\hyperlink{lv__color_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_COLOR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__assert_8h}{lv\_assert.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__math_8h}{lv\_math.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__types_8h}{lv\_types.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*Error\ checking*/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 24}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#error\ "{}LV\_COLOR\_DEPTH\ 24\ is\ deprecated.\ Use\ LV\_COLOR\_DEPTH\ 32\ instead\ (lv\_conf.h)"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ !=\ 16\ \&\&\ LV\_COLOR\_16\_SWAP\ !=\ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#error\ "{}LV\_COLOR\_16\_SWAP\ requires\ LV\_COLOR\_DEPTH\ ==\ 16.\ Set\ it\ in\ lv\_conf.h"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00035\ LV\_EXPORT\_CONST\_INT(LV\_COLOR\_DEPTH);}
+\DoxyCodeLine{00036\ LV\_EXPORT\_CONST\_INT(LV\_COLOR\_16\_SWAP);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ LV\_OPA\_TRANSP\ =\ 0,}
+\DoxyCodeLine{00043\ \ \ \ \ LV\_OPA\_0\ \ \ \ \ \ =\ 0,}
+\DoxyCodeLine{00044\ \ \ \ \ LV\_OPA\_10\ \ \ \ \ =\ 25,}
+\DoxyCodeLine{00045\ \ \ \ \ LV\_OPA\_20\ \ \ \ \ =\ 51,}
+\DoxyCodeLine{00046\ \ \ \ \ LV\_OPA\_30\ \ \ \ \ =\ 76,}
+\DoxyCodeLine{00047\ \ \ \ \ LV\_OPA\_40\ \ \ \ \ =\ 102,}
+\DoxyCodeLine{00048\ \ \ \ \ LV\_OPA\_50\ \ \ \ \ =\ 127,}
+\DoxyCodeLine{00049\ \ \ \ \ LV\_OPA\_60\ \ \ \ \ =\ 153,}
+\DoxyCodeLine{00050\ \ \ \ \ LV\_OPA\_70\ \ \ \ \ =\ 178,}
+\DoxyCodeLine{00051\ \ \ \ \ LV\_OPA\_80\ \ \ \ \ =\ 204,}
+\DoxyCodeLine{00052\ \ \ \ \ LV\_OPA\_90\ \ \ \ \ =\ 229,}
+\DoxyCodeLine{00053\ \ \ \ \ LV\_OPA\_100\ \ \ \ =\ 255,}
+\DoxyCodeLine{00054\ \ \ \ \ LV\_OPA\_COVER\ \ =\ 255,}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ LV\_OPA\_MIN\ 2\ \ \ \ }\textcolor{comment}{/*Opacities\ below\ this\ will\ be\ transparent*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ LV\_OPA\_MAX\ 253\ \ }\textcolor{comment}{/*Opacities\ above\ this\ will\ fully\ cover*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 1}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SIZE\ 8}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 8}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SIZE\ 8}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SIZE\ 16}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SIZE\ 32}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#error\ "{}Invalid\ LV\_COLOR\_DEPTH\ in\ lv\_conf.h!\ Set\ it\ to\ 1,\ 8,\ 16\ or\ 32!"{}}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#if\ defined(\_\_cplusplus)\ \&\&\ !defined(\_LV\_COLOR\_HAS\_MODERN\_CPP)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#if\ \_MSC\_VER\ >=\ 1900\ }\textcolor{comment}{/*Visual\ Studio\ 2015*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ \_LV\_COLOR\_HAS\_MODERN\_CPP\ 1}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#if\ \_\_cplusplus\ >=\ 201103L}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ \_LV\_COLOR\_HAS\_MODERN\_CPP\ 1}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\_\_cplusplus*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#ifndef\ \_LV\_COLOR\_HAS\_MODERN\_CPP}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ \_LV\_COLOR\_HAS\_MODERN\_CPP\ 0}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#if\ \_LV\_COLOR\_HAS\_MODERN\_CPP}}
+\DoxyCodeLine{00094\ \textcolor{comment}{/*Fix\ msvc\ compiler\ error\ C4576\ inside\ C++\ code*/}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ \_LV\_COLOR\_MAKE\_TYPE\_HELPER\ lv\_color\_t}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ \_LV\_COLOR\_MAKE\_TYPE\_HELPER\ (lv\_color\_t)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *\ Macros\ for\ all\ existing\ color\ depths}}
+\DoxyCodeLine{00102\ \textcolor{comment}{\ *\ to\ set/get\ values\ of\ the\ color\ channels}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_R1(c,\ v)\ (c).ch.red\ =\ (uint8\_t)((v)\ \&\ 0x1)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_G1(c,\ v)\ (c).ch.green\ =\ (uint8\_t)((v)\ \&\ 0x1)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_B1(c,\ v)\ (c).ch.blue\ =\ (uint8\_t)((v)\ \&\ 0x1)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_A1(c,\ v)\ do\ \{\}\ while(0)}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_R1(c)\ (c).ch.red}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_G1(c)\ (c).ch.green}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_B1(c)\ (c).ch.blue}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_A1(c)\ 0xFF}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#\ define\ \_LV\_COLOR\_ZERO\_INITIALIZER1\ \{0x00\}}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_MAKE1(r8,\ g8,\ b8)\ \ \{(uint8\_t)((b8\ >>\ 7)\ |\ (g8\ >>\ 7)\ |\ (r8\ >>\ 7))\}}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_R8(c,\ v)\ (c).ch.red\ =\ (uint8\_t)((v)\ \&\ 0x7U)}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_G8(c,\ v)\ (c).ch.green\ =\ (uint8\_t)((v)\ \&\ 0x7U)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_B8(c,\ v)\ (c).ch.blue\ =\ (uint8\_t)((v)\ \&\ 0x3U)}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_A8(c,\ v)\ do\ \{\}\ while(0)}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_R8(c)\ (c).ch.red}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_G8(c)\ (c).ch.green}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_B8(c)\ (c).ch.blue}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_A8(c)\ 0xFF}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#\ define\ \_LV\_COLOR\_ZERO\_INITIALIZER8\ \{\{0x00,\ 0x00,\ 0x00\}\}}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_MAKE8(r8,\ g8,\ b8)\ \{\{(uint8\_t)((b8\ >>\ 6)\ \&\ 0x3U),\ (uint8\_t)((g8\ >>\ 5)\ \&\ 0x7U),\ (uint8\_t)((r8\ >>\ 5)\ \&\ 0x7U)\}\}}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_R16(c,\ v)\ (c).ch.red\ =\ (uint8\_t)((v)\ \&\ 0x1FU)}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_16\_SWAP\ ==\ 0}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_G16(c,\ v)\ (c).ch.green\ =\ (uint8\_t)((v)\ \&\ 0x3FU)}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_G16(c,\ v)\ \{(c).ch.green\_h\ =\ (uint8\_t)(((v)\ >>\ 3)\ \&\ 0x7);\ (c).ch.green\_l\ =\ (uint8\_t)((v)\ \&\ 0x7);\}}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_B16(c,\ v)\ (c).ch.blue\ =\ (uint8\_t)((v)\ \&\ 0x1FU)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_A16(c,\ v)\ do\ \{\}\ while(0)}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_R16(c)\ (c).ch.red}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_16\_SWAP\ ==\ 0}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_G16(c)\ (c).ch.green}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_G16(c)\ (((c).ch.green\_h\ <<\ 3)\ +\ (c).ch.green\_l)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_B16(c)\ (c).ch.blue}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_A16(c)\ 0xFF}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_16\_SWAP\ ==\ 0}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#\ define\ \_LV\_COLOR\_ZERO\_INITIALIZER16\ \ \{\{0x00,\ 0x00,\ 0x00\}\}}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_MAKE16(r8,\ g8,\ b8)\ \{\{(uint8\_t)((b8\ >>\ 3)\ \&\ 0x1FU),\ (uint8\_t)((g8\ >>\ 2)\ \&\ 0x3FU),\ (uint8\_t)((r8\ >>\ 3)\ \&\ 0x1FU)\}\}}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#\ define\ \_LV\_COLOR\_ZERO\_INITIALIZER16\ \{\{0x00,\ 0x00,\ 0x00,\ 0x00\}\}}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_MAKE16(r8,\ g8,\ b8)\ \{\{(uint8\_t)((g8\ >>\ 5)\ \&\ 0x7U),\ (uint8\_t)((r8\ >>\ 3)\ \&\ 0x1FU),\ (uint8\_t)((b8\ >>\ 3)\ \&\ 0x1FU),\ (uint8\_t)((g8\ >>\ 2)\ \&\ 0x7U)\}\}}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_R32(c,\ v)\ (c).ch.red\ =\ (uint8\_t)((v)\ \&\ 0xFF)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_G32(c,\ v)\ (c).ch.green\ =\ (uint8\_t)((v)\ \&\ 0xFF)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_B32(c,\ v)\ (c).ch.blue\ =\ (uint8\_t)((v)\ \&\ 0xFF)}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_SET\_A32(c,\ v)\ (c).ch.alpha\ =\ (uint8\_t)((v)\ \&\ 0xFF)}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_R32(c)\ (c).ch.red}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_G32(c)\ (c).ch.green}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_B32(c)\ (c).ch.blue}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_GET\_A32(c)\ (c).ch.alpha}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#\ define\ \_LV\_COLOR\_ZERO\_INITIALIZER32\ \ \{\{0x00,\ 0x00,\ 0x00,\ 0x00\}\}}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#\ define\ LV\_COLOR\_MAKE32(r8,\ g8,\ b8)\ \{\{b8,\ g8,\ r8,\ 0xff\}\}\ }\textcolor{comment}{/*Fix\ 0xff\ alpha*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ *\ Macros\ for\ the\ current\ color\ depth}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ *\ to\ set/get\ values\ of\ the\ color\ channels}}
+\DoxyCodeLine{00172\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SET\_R(c,\ v)\ LV\_CONCAT(LV\_COLOR\_SET\_R,\ LV\_COLOR\_DEPTH)(c,\ v)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SET\_G(c,\ v)\ LV\_CONCAT(LV\_COLOR\_SET\_G,\ LV\_COLOR\_DEPTH)(c,\ v)}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SET\_B(c,\ v)\ LV\_CONCAT(LV\_COLOR\_SET\_B,\ LV\_COLOR\_DEPTH)(c,\ v)}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_SET\_A(c,\ v)\ LV\_CONCAT(LV\_COLOR\_SET\_A,\ LV\_COLOR\_DEPTH)(c,\ v)}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_GET\_R(c)\ LV\_CONCAT(LV\_COLOR\_GET\_R,\ LV\_COLOR\_DEPTH)(c)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_GET\_G(c)\ LV\_CONCAT(LV\_COLOR\_GET\_G,\ LV\_COLOR\_DEPTH)(c)}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_GET\_B(c)\ LV\_CONCAT(LV\_COLOR\_GET\_B,\ LV\_COLOR\_DEPTH)(c)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_GET\_A(c)\ LV\_CONCAT(LV\_COLOR\_GET\_A,\ LV\_COLOR\_DEPTH)(c)}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ \_LV\_COLOR\_ZERO\_INITIALIZER\ LV\_CONCAT(\_LV\_COLOR\_ZERO\_INITIALIZER,\ LV\_COLOR\_DEPTH)}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_MAKE(r8,\ g8,\ b8)\ LV\_CONCAT(LV\_COLOR\_MAKE,\ LV\_COLOR\_DEPTH)(r8,\ g8,\ b8)}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00191\ \ \ \ \ uint8\_t\ full;\ \textcolor{comment}{/*must\ be\ declared\ first\ to\ set\ all\ bits\ of\ byte\ via\ initializer\ list*/}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ uint8\_t\ blue\ :\ 1;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ uint8\_t\ green\ :\ 1;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ uint8\_t\ red\ :\ 1;}
+\DoxyCodeLine{00196\ \ \ \ \ \}\ ch;}
+\DoxyCodeLine{00197\ \}\ \doxymbox{\hyperlink{unionlv__color1__t}{lv\_color1\_t}};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ uint8\_t\ blue\ :\ 2;}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ uint8\_t\ green\ :\ 3;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ uint8\_t\ red\ :\ 3;}
+\DoxyCodeLine{00204\ \ \ \ \ \}\ ch;}
+\DoxyCodeLine{00205\ \ \ \ \ uint8\_t\ full;}
+\DoxyCodeLine{00206\ \}\ \doxymbox{\hyperlink{unionlv__color8__t}{lv\_color8\_t}};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_16\_SWAP\ ==\ 0}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ uint16\_t\ blue\ :\ 5;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ uint16\_t\ green\ :\ 6;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ uint16\_t\ red\ :\ 5;}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ uint16\_t\ green\_h\ :\ 3;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ uint16\_t\ red\ :\ 5;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ uint16\_t\ blue\ :\ 5;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ uint16\_t\ green\_l\ :\ 3;}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00220\ \ \ \ \ \}\ ch;}
+\DoxyCodeLine{00221\ \ \ \ \ uint16\_t\ full;}
+\DoxyCodeLine{00222\ \}\ \doxymbox{\hyperlink{unionlv__color16__t}{lv\_color16\_t}};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ uint8\_t\ blue;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ uint8\_t\ green;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ uint8\_t\ red;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ uint8\_t\ alpha;}
+\DoxyCodeLine{00230\ \ \ \ \ \}\ ch;}
+\DoxyCodeLine{00231\ \ \ \ \ uint32\_t\ full;}
+\DoxyCodeLine{00232\ \}\ \doxymbox{\hyperlink{unionlv__color32__t}{lv\_color32\_t}};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{keyword}{typedef}\ LV\_CONCAT3(uint,\ LV\_COLOR\_SIZE,\ \_t)\ lv\_color\_int\_t;}
+\DoxyCodeLine{00235\ \textcolor{keyword}{typedef}\ LV\_CONCAT3(lv\_color,\ LV\_COLOR\_DEPTH,\ \_t)\ lv\_color\_t;}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00238\ \ \ \ \ uint16\_t\ h;}
+\DoxyCodeLine{00239\ \ \ \ \ uint8\_t\ s;}
+\DoxyCodeLine{00240\ \ \ \ \ uint8\_t\ v;}
+\DoxyCodeLine{00241\ \}\ \doxymbox{\hyperlink{structlv__color__hsv__t}{lv\_color\_hsv\_t}};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00244\ \textcolor{comment}{/*No\ idea\ where\ the\ guard\ is\ required\ but\ else\ throws\ warnings\ in\ the\ docs*/}}
+\DoxyCodeLine{00245\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_opa\_t;}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__color__filter__dsc__t}{\_lv\_color\_filter\_dsc\_t}};}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{keyword}{typedef}\ lv\_color\_t\ (*lv\_color\_filter\_cb\_t)(\textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__color__filter__dsc__t}{\_lv\_color\_filter\_dsc\_t}}\ *,\ lv\_color\_t,\ lv\_opa\_t);}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__color__filter__dsc__t}{\_lv\_color\_filter\_dsc\_t}}\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ lv\_color\_filter\_cb\_t\ filter\_cb;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ user\_data;}
+\DoxyCodeLine{00255\ \}\ lv\_color\_filter\_dsc\_t;}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ LV\_PALETTE\_RED,}
+\DoxyCodeLine{00260\ \ \ \ \ LV\_PALETTE\_PINK,}
+\DoxyCodeLine{00261\ \ \ \ \ LV\_PALETTE\_PURPLE,}
+\DoxyCodeLine{00262\ \ \ \ \ LV\_PALETTE\_DEEP\_PURPLE,}
+\DoxyCodeLine{00263\ \ \ \ \ LV\_PALETTE\_INDIGO,}
+\DoxyCodeLine{00264\ \ \ \ \ LV\_PALETTE\_BLUE,}
+\DoxyCodeLine{00265\ \ \ \ \ LV\_PALETTE\_LIGHT\_BLUE,}
+\DoxyCodeLine{00266\ \ \ \ \ LV\_PALETTE\_CYAN,}
+\DoxyCodeLine{00267\ \ \ \ \ LV\_PALETTE\_TEAL,}
+\DoxyCodeLine{00268\ \ \ \ \ LV\_PALETTE\_GREEN,}
+\DoxyCodeLine{00269\ \ \ \ \ LV\_PALETTE\_LIGHT\_GREEN,}
+\DoxyCodeLine{00270\ \ \ \ \ LV\_PALETTE\_LIME,}
+\DoxyCodeLine{00271\ \ \ \ \ LV\_PALETTE\_YELLOW,}
+\DoxyCodeLine{00272\ \ \ \ \ LV\_PALETTE\_AMBER,}
+\DoxyCodeLine{00273\ \ \ \ \ LV\_PALETTE\_ORANGE,}
+\DoxyCodeLine{00274\ \ \ \ \ LV\_PALETTE\_DEEP\_ORANGE,}
+\DoxyCodeLine{00275\ \ \ \ \ LV\_PALETTE\_BROWN,}
+\DoxyCodeLine{00276\ \ \ \ \ LV\_PALETTE\_BLUE\_GREY,}
+\DoxyCodeLine{00277\ \ \ \ \ LV\_PALETTE\_GREY,}
+\DoxyCodeLine{00278\ \ \ \ \ \_LV\_PALETTE\_LAST,}
+\DoxyCodeLine{00279\ \ \ \ \ LV\_PALETTE\_NONE\ =\ 0xff,}
+\DoxyCodeLine{00280\ \}\ lv\_palette\_t;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00283\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00284\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{comment}{/*In\ color\ conversations:}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ *\ -\/\ When\ converting\ to\ bigger\ color\ type\ the\ LSB\ weight\ of\ 1\ LSB\ is\ calculated}}
+\DoxyCodeLine{00288\ \textcolor{comment}{\ *\ \ \ E.g.\ 16\ bit\ Red\ has\ 5\ bits}}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ 8\ bit\ Red\ has\ 3\ bits}}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00291\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ 8\ bit\ red\ LSB\ =\ (2\string^5\ -\/\ 1)\ /\ (2\string^3\ -\/\ 1)\ =\ 31\ /\ 7\ =\ 4}}
+\DoxyCodeLine{00292\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00293\ \textcolor{comment}{\ *\ -\/\ When\ calculating\ to\ smaller\ color\ type\ simply\ shift\ out\ the\ LSBs}}
+\DoxyCodeLine{00294\ \textcolor{comment}{\ *\ \ \ E.g.\ \ 8\ bit\ Red\ has\ 3\ bits}}
+\DoxyCodeLine{00295\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ 16\ bit\ Red\ has\ 5\ bits}}
+\DoxyCodeLine{00296\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00297\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ Shift\ right\ with\ 5\ -\/\ 3\ =\ 2}}
+\DoxyCodeLine{00298\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00299\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint8\_t\ lv\_color\_to1(lv\_color\_t\ color)}
+\DoxyCodeLine{00300\ \{}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 1}}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ color.full;}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 8}}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{if}((LV\_COLOR\_GET\_R(color)\ \&\ 0x4)\ ||\ (LV\_COLOR\_GET\_G(color)\ \&\ 0x4)\ ||\ (LV\_COLOR\_GET\_B(color)\ \&\ 0x2))\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00306\ \ \ \ \ \}}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00309\ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordflow}{if}((LV\_COLOR\_GET\_R(color)\ \&\ 0x10)\ ||\ (LV\_COLOR\_GET\_G(color)\ \&\ 0x20)\ ||\ (LV\_COLOR\_GET\_B(color)\ \&\ 0x10))\ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00313\ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{if}((LV\_COLOR\_GET\_R(color)\ \&\ 0x80)\ ||\ (LV\_COLOR\_GET\_G(color)\ \&\ 0x80)\ ||\ (LV\_COLOR\_GET\_B(color)\ \&\ 0x80))\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00320\ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00325\ \}}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint8\_t\ lv\_color\_to8(lv\_color\_t\ color)}
+\DoxyCodeLine{00328\ \{}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 1}}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordflow}{if}(color.full\ ==\ 0)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0xFF;}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 8}}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordflow}{return}\ color.full;}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}}
+\DoxyCodeLine{00337\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color8__t}{lv\_color8\_t}}\ ret;}
+\DoxyCodeLine{00338\ \ \ \ \ LV\_COLOR\_SET\_R8(ret,\ LV\_COLOR\_GET\_R(color)\ >>\ 2);\ \textcolor{comment}{/*5\ -\/\ 3\ \ =\ 2*/}}
+\DoxyCodeLine{00339\ \ \ \ \ LV\_COLOR\_SET\_G8(ret,\ LV\_COLOR\_GET\_G(color)\ >>\ 3);\ \textcolor{comment}{/*6\ -\/\ 3\ \ =\ 3*/}}
+\DoxyCodeLine{00340\ \ \ \ \ LV\_COLOR\_SET\_B8(ret,\ LV\_COLOR\_GET\_B(color)\ >>\ 3);\ \textcolor{comment}{/*5\ -\/\ 2\ \ =\ 3*/}}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordflow}{return}\ ret.full;}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00343\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color8__t}{lv\_color8\_t}}\ ret;}
+\DoxyCodeLine{00344\ \ \ \ \ LV\_COLOR\_SET\_R8(ret,\ LV\_COLOR\_GET\_R(color)\ >>\ 5);\ \textcolor{comment}{/*8\ -\/\ 3\ \ =\ 5*/}}
+\DoxyCodeLine{00345\ \ \ \ \ LV\_COLOR\_SET\_G8(ret,\ LV\_COLOR\_GET\_G(color)\ >>\ 5);\ \textcolor{comment}{/*8\ -\/\ 3\ \ =\ 5*/}}
+\DoxyCodeLine{00346\ \ \ \ \ LV\_COLOR\_SET\_B8(ret,\ LV\_COLOR\_GET\_B(color)\ >>\ 6);\ \textcolor{comment}{/*8\ -\/\ 2\ \ =\ 6*/}}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordflow}{return}\ ret.full;}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00349\ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint16\_t\ lv\_color\_to16(lv\_color\_t\ color)}
+\DoxyCodeLine{00352\ \{}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 1}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{if}(color.full\ ==\ 0)}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0xFFFF;}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 8}}
+\DoxyCodeLine{00359\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color16__t}{lv\_color16\_t}}\ ret;}
+\DoxyCodeLine{00360\ \ \ \ \ LV\_COLOR\_SET\_R16(ret,\ LV\_COLOR\_GET\_R(color)\ *\ 4);\ \ \textcolor{comment}{/*(2\string^5\ -\/\ 1)/(2\string^3\ -\/\ 1)\ =\ 31/7\ =\ 4*/}}
+\DoxyCodeLine{00361\ \ \ \ \ LV\_COLOR\_SET\_G16(ret,\ LV\_COLOR\_GET\_G(color)\ *\ 9);\ \ \textcolor{comment}{/*(2\string^6\ -\/\ 1)/(2\string^3\ -\/\ 1)\ =\ 63/7\ =\ 9*/}}
+\DoxyCodeLine{00362\ \ \ \ \ LV\_COLOR\_SET\_B16(ret,\ LV\_COLOR\_GET\_B(color)\ *\ 10);\ \textcolor{comment}{/*(2\string^5\ -\/\ 1)/(2\string^2\ -\/\ 1)\ =\ 31/3\ =\ 10*/}}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordflow}{return}\ ret.full;}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{return}\ color.full;}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00367\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color16__t}{lv\_color16\_t}}\ ret;}
+\DoxyCodeLine{00368\ \ \ \ \ LV\_COLOR\_SET\_R16(ret,\ LV\_COLOR\_GET\_R(color)\ >>\ 3);\ \textcolor{comment}{/*8\ -\/\ 5\ \ =\ 3*/}}
+\DoxyCodeLine{00369\ \ \ \ \ LV\_COLOR\_SET\_G16(ret,\ LV\_COLOR\_GET\_G(color)\ >>\ 2);\ \textcolor{comment}{/*8\ -\/\ 6\ \ =\ 2*/}}
+\DoxyCodeLine{00370\ \ \ \ \ LV\_COLOR\_SET\_B16(ret,\ LV\_COLOR\_GET\_B(color)\ >>\ 3);\ \textcolor{comment}{/*8\ -\/\ 5\ \ =\ 3*/}}
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keywordflow}{return}\ ret.full;}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00373\ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint32\_t\ lv\_color\_to32(lv\_color\_t\ color)}
+\DoxyCodeLine{00376\ \{}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 1}}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{if}(color.full\ ==\ 0)}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0xFF000000;}
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0xFFFFFFFF;}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 8}}
+\DoxyCodeLine{00383\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color32__t}{lv\_color32\_t}}\ ret;}
+\DoxyCodeLine{00384\ \ \ \ \ LV\_COLOR\_SET\_R32(ret,\ LV\_COLOR\_GET\_R(color)\ *\ 36);\ \textcolor{comment}{/*(2\string^8\ -\/\ 1)/(2\string^3\ -\/\ 1)\ =\ 255/7\ =\ 36*/}}
+\DoxyCodeLine{00385\ \ \ \ \ LV\_COLOR\_SET\_G32(ret,\ LV\_COLOR\_GET\_G(color)\ *\ 36);\ \textcolor{comment}{/*(2\string^8\ -\/\ 1)/(2\string^3\ -\/\ 1)\ =\ 255/7\ =\ 36*/}}
+\DoxyCodeLine{00386\ \ \ \ \ LV\_COLOR\_SET\_B32(ret,\ LV\_COLOR\_GET\_B(color)\ *\ 85);\ \textcolor{comment}{/*(2\string^8\ -\/\ 1)/(2\string^2\ -\/\ 1)\ =\ 255/3\ =\ 85*/}}
+\DoxyCodeLine{00387\ \ \ \ \ LV\_COLOR\_SET\_A32(ret,\ 0xFF);}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{return}\ ret.full;}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color32__t}{lv\_color32\_t}}\ ret;}
+\DoxyCodeLine{00420\ \ \ \ \ LV\_COLOR\_SET\_R32(ret,\ (LV\_COLOR\_GET\_R(color)\ *\ 263\ +\ 7)\ >>\ 5);}
+\DoxyCodeLine{00421\ \ \ \ \ LV\_COLOR\_SET\_G32(ret,\ (LV\_COLOR\_GET\_G(color)\ *\ 259\ +\ 3)\ >>\ 6);}
+\DoxyCodeLine{00422\ \ \ \ \ LV\_COLOR\_SET\_B32(ret,\ (LV\_COLOR\_GET\_B(color)\ *\ 263\ +\ 7)\ >>\ 5);}
+\DoxyCodeLine{00423\ \ \ \ \ LV\_COLOR\_SET\_A32(ret,\ 0xFF);}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{return}\ ret.full;}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keywordflow}{return}\ color.full;}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00428\ \}}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00439\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_mix(lv\_color\_t\ c1,\ lv\_color\_t\ c2,\ uint8\_t\ mix)}
+\DoxyCodeLine{00440\ \{}
+\DoxyCodeLine{00441\ \ \ \ \ lv\_color\_t\ ret;}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 16\ \&\&\ LV\_COLOR\_16\_SWAP\ ==\ 0\ \&\&\ LV\_COLOR\_MIX\_ROUND\_OFS\ ==\ 0}}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{comment}{/*Source:\ https://stackoverflow.com/a/50012418/1999969*/}}
+\DoxyCodeLine{00445\ \ \ \ \ mix\ =\ (uint32\_t)((uint32\_t)mix\ +\ 4)\ >>\ 3;}
+\DoxyCodeLine{00446\ \ \ \ \ uint32\_t\ bg\ =\ (uint32\_t)((uint32\_t)c2.full\ |\ ((uint32\_t)c2.full\ <<\ 16))\ \&}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x7E0F81F;\ \textcolor{comment}{/*0b00000111111000001111100000011111*/}}
+\DoxyCodeLine{00448\ \ \ \ \ uint32\_t\ fg\ =\ (uint32\_t)((uint32\_t)c1.full\ |\ ((uint32\_t)c1.full\ <<\ 16))\ \&\ 0x7E0F81F;}
+\DoxyCodeLine{00449\ \ \ \ \ uint32\_t\ result\ =\ ((((fg\ -\/\ bg)\ *\ mix)\ >>\ 5)\ +\ bg)\ \&\ 0x7E0F81F;}
+\DoxyCodeLine{00450\ \ \ \ \ ret.full\ =\ (uint16\_t)((result\ >>\ 16)\ |\ result);}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ !=\ 1}}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{comment}{/*LV\_COLOR\_DEPTH\ ==\ 8,\ 16\ or\ 32*/}}
+\DoxyCodeLine{00453\ \ \ \ \ LV\_COLOR\_SET\_R(ret,\ LV\_UDIV255((uint16\_t)LV\_COLOR\_GET\_R(c1)\ *\ mix\ +\ LV\_COLOR\_GET\_R(c2)\ *}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (255\ -\/\ mix)\ +\ LV\_COLOR\_MIX\_ROUND\_OFS));}
+\DoxyCodeLine{00455\ \ \ \ \ LV\_COLOR\_SET\_G(ret,\ LV\_UDIV255((uint16\_t)LV\_COLOR\_GET\_G(c1)\ *\ mix\ +\ LV\_COLOR\_GET\_G(c2)\ *}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (255\ -\/\ mix)\ +\ LV\_COLOR\_MIX\_ROUND\_OFS));}
+\DoxyCodeLine{00457\ \ \ \ \ LV\_COLOR\_SET\_B(ret,\ LV\_UDIV255((uint16\_t)LV\_COLOR\_GET\_B(c1)\ *\ mix\ +\ LV\_COLOR\_GET\_B(c2)\ *}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (255\ -\/\ mix)\ +\ LV\_COLOR\_MIX\_ROUND\_OFS));}
+\DoxyCodeLine{00459\ \ \ \ \ LV\_COLOR\_SET\_A(ret,\ 0xFF);}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{comment}{/*LV\_COLOR\_DEPTH\ ==\ 1*/}}
+\DoxyCodeLine{00462\ \ \ \ \ ret.full\ =\ mix\ >\ LV\_OPA\_50\ ?\ c1.full\ :\ c2.full;}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00466\ \}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_color\_premult(lv\_color\_t\ c,\ uint8\_t\ mix,\ uint16\_t\ *\ out)}
+\DoxyCodeLine{00469\ \{}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ !=\ 1}}
+\DoxyCodeLine{00471\ \ \ \ \ out[0]\ =\ (uint16\_t)LV\_COLOR\_GET\_R(c)\ *\ mix;}
+\DoxyCodeLine{00472\ \ \ \ \ out[1]\ =\ (uint16\_t)LV\_COLOR\_GET\_G(c)\ *\ mix;}
+\DoxyCodeLine{00473\ \ \ \ \ out[2]\ =\ (uint16\_t)LV\_COLOR\_GET\_B(c)\ *\ mix;}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00475\ \ \ \ \ (void)\ mix;}
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{comment}{/*Pre-\/multiplication\ can't\ be\ used\ with\ 1\ bpp*/}}
+\DoxyCodeLine{00477\ \ \ \ \ out[0]\ =\ LV\_COLOR\_GET\_R(c);}
+\DoxyCodeLine{00478\ \ \ \ \ out[1]\ =\ LV\_COLOR\_GET\_G(c);}
+\DoxyCodeLine{00479\ \ \ \ \ out[2]\ =\ LV\_COLOR\_GET\_B(c);}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00493\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_mix\_premult(uint16\_t\ *\ premult\_c1,\ lv\_color\_t\ c2,\ uint8\_t\ mix)}
+\DoxyCodeLine{00494\ \{}
+\DoxyCodeLine{00495\ \ \ \ \ lv\_color\_t\ ret;}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ !=\ 1}}
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{comment}{/*LV\_COLOR\_DEPTH\ ==\ 8\ or\ 32*/}}
+\DoxyCodeLine{00498\ \ \ \ \ LV\_COLOR\_SET\_R(ret,\ LV\_UDIV255(premult\_c1[0]\ +\ LV\_COLOR\_GET\_R(c2)\ *\ mix\ +\ LV\_COLOR\_MIX\_ROUND\_OFS));}
+\DoxyCodeLine{00499\ \ \ \ \ LV\_COLOR\_SET\_G(ret,\ LV\_UDIV255(premult\_c1[1]\ +\ LV\_COLOR\_GET\_G(c2)\ *\ mix\ +\ LV\_COLOR\_MIX\_ROUND\_OFS));}
+\DoxyCodeLine{00500\ \ \ \ \ LV\_COLOR\_SET\_B(ret,\ LV\_UDIV255(premult\_c1[2]\ +\ LV\_COLOR\_GET\_B(c2)\ *\ mix\ +\ LV\_COLOR\_MIX\_ROUND\_OFS));}
+\DoxyCodeLine{00501\ \ \ \ \ LV\_COLOR\_SET\_A(ret,\ 0xFF);}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{comment}{/*LV\_COLOR\_DEPTH\ ==\ 1*/}}
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{comment}{/*Restore\ color1*/}}
+\DoxyCodeLine{00505\ \ \ \ \ lv\_color\_t\ c1;}
+\DoxyCodeLine{00506\ \ \ \ \ LV\_COLOR\_SET\_R(c1,\ premult\_c1[0]);}
+\DoxyCodeLine{00507\ \ \ \ \ LV\_COLOR\_SET\_G(c1,\ premult\_c1[1]);}
+\DoxyCodeLine{00508\ \ \ \ \ LV\_COLOR\_SET\_B(c1,\ premult\_c1[2]);}
+\DoxyCodeLine{00509\ \ \ \ \ ret.full\ =\ mix\ >\ LV\_OPA\_50\ ?\ c2.full\ :\ c1.full;}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00513\ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00524\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_color\_mix\_with\_alpha(lv\_color\_t\ bg\_color,\ lv\_opa\_t\ bg\_opa,}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_color\_t\ fg\_color,\ lv\_opa\_t\ fg\_opa,}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_color\_t\ *\ res\_color,\ lv\_opa\_t\ *\ res\_opa)}
+\DoxyCodeLine{00527\ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{comment}{/*Pick\ the\ foreground\ if\ it's\ fully\ opaque\ or\ the\ Background\ is\ fully\ transparent*/}}
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordflow}{if}(fg\_opa\ >=\ LV\_OPA\_MAX\ ||\ bg\_opa\ <=\ LV\_OPA\_MIN)\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ res\_color-\/>full\ =\ fg\_color.full;}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ *res\_opa\ =\ fg\_opa;}
+\DoxyCodeLine{00532\ \ \ \ \ \}}
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{comment}{/*Transparent\ foreground:\ use\ the\ Background*/}}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(fg\_opa\ <=\ LV\_OPA\_MIN)\ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ res\_color-\/>full\ =\ bg\_color.full;}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ *res\_opa\ =\ bg\_opa;}
+\DoxyCodeLine{00537\ \ \ \ \ \}}
+\DoxyCodeLine{00538\ \ \ \ \ \textcolor{comment}{/*Opaque\ background:\ use\ simple\ mix*/}}
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(bg\_opa\ >=\ LV\_OPA\_MAX)\ \{}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ *res\_color\ =\ lv\_color\_mix(fg\_color,\ bg\_color,\ fg\_opa);}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ *res\_opa\ =\ LV\_OPA\_COVER;}
+\DoxyCodeLine{00542\ \ \ \ \ \}}
+\DoxyCodeLine{00543\ \ \ \ \ \textcolor{comment}{/*Both\ colors\ have\ alpha.\ Expensive\ calculation\ need\ to\ be\ applied*/}}
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Save\ the\ parameters\ and\ the\ result.\ If\ they\ will\ be\ asked\ again\ don't\ compute\ again*/}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ lv\_opa\_t\ fg\_opa\_save\ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ lv\_opa\_t\ bg\_opa\_save\ \ \ \ \ =\ 0;}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ lv\_color\_t\ fg\_color\_save\ =\ \_LV\_COLOR\_ZERO\_INITIALIZER;}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ lv\_color\_t\ bg\_color\_save\ =\ \_LV\_COLOR\_ZERO\_INITIALIZER;}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ lv\_color\_t\ res\_color\_saved\ =\ \_LV\_COLOR\_ZERO\_INITIALIZER;}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ lv\_opa\_t\ res\_opa\_saved\ =\ 0;}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(fg\_opa\ !=\ fg\_opa\_save\ ||\ bg\_opa\ !=\ bg\_opa\_save\ ||\ fg\_color.full\ !=\ fg\_color\_save.full\ ||}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ bg\_color.full\ !=\ bg\_color\_save.full)\ \{}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ fg\_opa\_save\ \ \ \ \ \ \ \ =\ fg\_opa;}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ bg\_opa\_save\ \ \ \ \ \ \ \ =\ bg\_opa;}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color\_save.full\ =\ fg\_color.full;}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ bg\_color\_save.full\ =\ bg\_color.full;}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Info:}}
+\DoxyCodeLine{00560\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ *\ https://en.wikipedia.org/wiki/Alpha\_compositing\#Analytical\_derivation\_of\_the\_over\_operator*/}}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ res\_opa\_saved\ =\ 255\ -\/\ ((uint16\_t)((uint16\_t)(255\ -\/\ fg\_opa)\ *\ (255\ -\/\ bg\_opa))\ >>\ 8);}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_ASSERT(res\_opa\_saved\ !=\ 0);}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ lv\_opa\_t\ ratio\ =\ (uint16\_t)((uint16\_t)fg\_opa\ *\ 255)\ /\ res\_opa\_saved;}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ res\_color\_saved\ =\ lv\_color\_mix(fg\_color,\ bg\_color,\ ratio);}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ res\_color-\/>full\ =\ res\_color\_saved.full;}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ *res\_opa\ =\ res\_opa\_saved;}
+\DoxyCodeLine{00570\ \ \ \ \ \}}
+\DoxyCodeLine{00571\ \}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00580\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ uint8\_t\ lv\_color\_brightness(lv\_color\_t\ color)}
+\DoxyCodeLine{00581\ \{}
+\DoxyCodeLine{00582\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color32__t}{lv\_color32\_t}}\ c32;}
+\DoxyCodeLine{00583\ \ \ \ \ c32.full\ \ \ \ \ \ \ \ =\ lv\_color\_to32(color);}
+\DoxyCodeLine{00584\ \ \ \ \ uint16\_t\ bright\ =\ (uint16\_t)(3u\ *\ LV\_COLOR\_GET\_R32(c32)\ +\ LV\_COLOR\_GET\_B32(c32)\ +\ 4u\ *\ LV\_COLOR\_GET\_G32(c32));}
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keywordflow}{return}\ (uint8\_t)(bright\ >>\ 3);}
+\DoxyCodeLine{00586\ \}}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_make(uint8\_t\ r,\ uint8\_t\ g,\ uint8\_t\ b)}
+\DoxyCodeLine{00589\ \{}
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordflow}{return}\ \_LV\_COLOR\_MAKE\_TYPE\_HELPER\ LV\_COLOR\_MAKE(r,\ g,\ b);}
+\DoxyCodeLine{00591\ \}}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00593\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_hex(uint32\_t\ c)}
+\DoxyCodeLine{00594\ \{}
+\DoxyCodeLine{00595\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 16}}
+\DoxyCodeLine{00596\ \ \ \ \ lv\_color\_t\ r;}
+\DoxyCodeLine{00597\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_16\_SWAP\ ==\ 0}}
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{comment}{/*\ Convert\ a\ 4\ bytes\ per\ pixel\ in\ format\ ARGB32\ to\ R5G6B5\ format}}
+\DoxyCodeLine{00599\ \textcolor{comment}{\ \ \ \ \ \ \ \ naive\ way\ (by\ calling\ lv\_color\_make\ with\ components):}}
+\DoxyCodeLine{00600\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ ((c\ \&\ 0xFF0000)\ >>\ 19)}}
+\DoxyCodeLine{00601\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\ =\ ((c\ \&\ 0xFF00)\ >>\ 10)}}
+\DoxyCodeLine{00602\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ ((c\ \&\ 0xFF)\ >>\ 3)}}
+\DoxyCodeLine{00603\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rgb565\ =\ (r\ <<\ 11)\ |\ (g\ <<\ 5)\ |\ b}}
+\DoxyCodeLine{00604\ \textcolor{comment}{\ \ \ \ \ \ \ \ That's\ 3\ mask,\ 5\ bitshift\ and\ 2\ or\ operations}}
+\DoxyCodeLine{00605\ \textcolor{comment}{}}
+\DoxyCodeLine{00606\ \textcolor{comment}{\ \ \ \ \ \ \ \ A\ bit\ better:}}
+\DoxyCodeLine{00607\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ ((c\ \&\ 0xF80000)\ >>\ 8)}}
+\DoxyCodeLine{00608\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ g\ =\ ((c\ \&\ 0xFC00)\ >>\ 5)}}
+\DoxyCodeLine{00609\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b\ =\ ((c\ \&\ 0xFF)\ >>\ 3)}}
+\DoxyCodeLine{00610\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rgb565\ =\ r\ |\ g\ |\ b}}
+\DoxyCodeLine{00611\ \textcolor{comment}{\ \ \ \ \ \ \ \ That's\ 3\ mask,\ 3\ bitshifts\ and\ 2\ or\ operations\ */}}
+\DoxyCodeLine{00612\ \ \ \ \ r.full\ =\ (uint16\_t)(((c\ \&\ 0xF80000)\ >>\ 8)\ |\ ((c\ \&\ 0xFC00)\ >>\ 5)\ |\ ((c\ \&\ 0xFF)\ >>\ 3));}
+\DoxyCodeLine{00613\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{comment}{/*\ We\ want:\ rrrr\ rrrr\ GGGg\ gggg\ bbbb\ bbbb\ =>\ gggb\ bbbb\ rrrr\ rGGG\ */}}
+\DoxyCodeLine{00615\ \ \ \ \ r.full\ =\ (uint16\_t)(((c\ \&\ 0xF80000)\ >>\ 16)\ |\ ((c\ \&\ 0xFC00)\ >>\ 13)\ |\ ((c\ \&\ 0x1C00)\ <<\ 3)\ |\ ((c\ \&\ 0xF8)\ <<\ 5));}
+\DoxyCodeLine{00616\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00617\ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{00618\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00619\ \ \ \ \ lv\_color\_t\ r;}
+\DoxyCodeLine{00620\ \ \ \ \ r.full\ =\ c\ |\ 0xFF000000;}
+\DoxyCodeLine{00621\ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*LV\_COLOR\_DEPTH\ ==\ 8*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00623\ \ \ \ \ \textcolor{keywordflow}{return}\ lv\_color\_make((uint8\_t)((c\ >>\ 16)\ \&\ 0xFF),\ (uint8\_t)((c\ >>\ 8)\ \&\ 0xFF),\ (uint8\_t)(c\ \&\ 0xFF));}
+\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00625\ \}}
+\DoxyCodeLine{00626\ }
+\DoxyCodeLine{00627\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_hex3(uint32\_t\ c)}
+\DoxyCodeLine{00628\ \{}
+\DoxyCodeLine{00629\ \ \ \ \ \textcolor{keywordflow}{return}\ lv\_color\_make((uint8\_t)(((c\ >>\ 4)\ \&\ 0xF0)\ |\ ((c\ >>\ 8)\ \&\ 0xF)),\ (uint8\_t)((c\ \&\ 0xF0)\ |\ ((c\ \&\ 0xF0)\ >>\ 4)),}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (uint8\_t)((c\ \&\ 0xF)\ |\ ((c\ \&\ 0xF)\ <<\ 4)));}
+\DoxyCodeLine{00631\ \}}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00633\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_color\_filter\_dsc\_init(lv\_color\_filter\_dsc\_t\ *\ dsc,\ lv\_color\_filter\_cb\_t\ cb)}
+\DoxyCodeLine{00634\ \{}
+\DoxyCodeLine{00635\ \ \ \ \ dsc-\/>filter\_cb\ =\ cb;}
+\DoxyCodeLine{00636\ \}}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00640\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keywordtype}{void}\ lv\_color\_fill(lv\_color\_t\ *\ buf,\ lv\_color\_t\ color,\ uint32\_t\ px\_num);}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00643\ lv\_color\_t\ lv\_color\_lighten(lv\_color\_t\ c,\ lv\_opa\_t\ lvl);}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ lv\_color\_t\ lv\_color\_darken(lv\_color\_t\ c,\ lv\_opa\_t\ lvl);}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ lv\_color\_t\ lv\_color\_change\_lightness(lv\_color\_t\ c,\ lv\_opa\_t\ lvl);}
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00656\ lv\_color\_t\ \doxymbox{\hyperlink{lv__color_8h_a09816229b98000ba2fc7098696c2b740}{lv\_color\_hsv\_to\_rgb}}(uint16\_t\ h,\ uint8\_t\ s,\ uint8\_t\ v);}
+\DoxyCodeLine{00657\ }
+\DoxyCodeLine{00665\ \doxymbox{\hyperlink{structlv__color__hsv__t}{lv\_color\_hsv\_t}}\ \doxymbox{\hyperlink{lv__color_8h_a4d455fed0393e8a3fee3d8d5d3ea5900}{lv\_color\_rgb\_to\_hsv}}(uint8\_t\ r8,\ uint8\_t\ g8,\ uint8\_t\ b8);}
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00672\ \doxymbox{\hyperlink{structlv__color__hsv__t}{lv\_color\_hsv\_t}}\ \doxymbox{\hyperlink{lv__color_8h_a2afdf6490e5979aa453398c03773bf2d}{lv\_color\_to\_hsv}}(lv\_color\_t\ color);}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00678\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_chroma\_key(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00679\ \{}
+\DoxyCodeLine{00680\ \ \ \ \ \textcolor{keywordflow}{return}\ LV\_COLOR\_CHROMA\_KEY;}
+\DoxyCodeLine{00681\ \}}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00683\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00684\ \textcolor{comment}{\ *\ \ PREDEFINED\ COLORS}}
+\DoxyCodeLine{00685\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00686\ \textcolor{comment}{/*Source:\ https://vuetifyjs.com/en/styles/colors/\#material-\/colors*/}}
+\DoxyCodeLine{00687\ }
+\DoxyCodeLine{00688\ lv\_color\_t\ lv\_palette\_main(lv\_palette\_t\ p);}
+\DoxyCodeLine{00689\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_white(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00690\ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \textcolor{keywordflow}{return}\ lv\_color\_make(0xff,\ 0xff,\ 0xff);}
+\DoxyCodeLine{00692\ \}}
+\DoxyCodeLine{00693\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_color\_t\ lv\_color\_black(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00694\ \{}
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{keywordflow}{return}\ lv\_color\_make(0x00,\ 0x0,\ 0x00);}
+\DoxyCodeLine{00696\ \}}
+\DoxyCodeLine{00697\ lv\_color\_t\ lv\_palette\_lighten(lv\_palette\_t\ p,\ uint8\_t\ lvl);}
+\DoxyCodeLine{00698\ lv\_color\_t\ lv\_palette\_darken(lv\_palette\_t\ p,\ uint8\_t\ lvl);}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00701\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00702\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00704\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00705\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00706\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_COLOR\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,44 @@
+.TH "_lv_indev_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_indev_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_hal_indev\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_indev_drv_t\fP * \fBdriver\fP"
+.br
+.ti -1c
+.RI "\fB_lv_indev_proc_t\fP \fBproc\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_obj_t\fP * \fBcursor\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_group_t\fP * \fBgroup\fP"
+.br
+.ti -1c
+.RI "const \fBlv_point_t\fP * \fBbtn_points\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The main input device descriptor with driver, runtime data ('proc') and some additional information 
+.SH "Member Data Documentation"
+.PP 
+.SS "const \fBlv_point_t\fP* _lv_indev_t::btn_points"
+Array points assigned to the button ()screen will be pressed here by the buttons 
+.SS "struct \fB_lv_obj_t\fP* _lv_indev_t::cursor"
+Cursor for LV_INPUT_TYPE_POINTER 
+.SS "struct \fB_lv_group_t\fP* _lv_indev_t::group"
+Keypad destination group 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

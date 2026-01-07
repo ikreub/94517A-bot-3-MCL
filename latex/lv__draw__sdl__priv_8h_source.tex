@@ -1,0 +1,75 @@
+\doxysection{lv\+\_\+draw\+\_\+sdl\+\_\+priv.\+h}
+\hypertarget{lv__draw__sdl__priv_8h_source}{}\label{lv__draw__sdl__priv_8h_source}\index{include/liblvgl/draw/sdl/lv\_draw\_sdl\_priv.h@{include/liblvgl/draw/sdl/lv\_draw\_sdl\_priv.h}}
+\doxymbox{\hyperlink{lv__draw__sdl__priv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SDL\_PRIV\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SDL\_PRIV\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_GPU\_SDL}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ LV\_GPU\_SDL\_INCLUDE\_PATH}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw_8h}{../lv\_draw.h}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__lru_8h}{../../misc/lv\_lru.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }lv\_draw\_sdl\_context\_internals\_t\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ lv\_lru\_t\ *\ texture\_cache;}
+\DoxyCodeLine{00036\ \ \ \ \ SDL\_Texture\ *\ mask;}
+\DoxyCodeLine{00037\ \ \ \ \ SDL\_Texture\ *\ composition;}
+\DoxyCodeLine{00038\ \ \ \ \ SDL\_Texture\ *\ target\_backup;}
+\DoxyCodeLine{00039\ \ \ \ \ uint8\_t\ transform\_count;}
+\DoxyCodeLine{00040\ \}\ lv\_draw\_sdl\_context\_internals\_t;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*======================}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ Add/remove\ functions}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *=====================*/}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ Other\ functions}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GPU\_SDL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00069\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_SDL\_PRIV\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

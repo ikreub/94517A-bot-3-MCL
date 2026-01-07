@@ -1,0 +1,143 @@
+\doxysection{ez::\+slew Class Reference}
+\hypertarget{classez_1_1slew}{}\label{classez_1_1slew}\index{ez::slew@{ez::slew}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structez_1_1slew_1_1_constants}{Constants}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classez_1_1slew_a4639a58ad8824fadab7c5c49e3365830}{slew}} (double distance, int minimum\+\_\+speed)
+\item 
+void \doxymbox{\hyperlink{classez_1_1slew_a8839624d77fa089b230d6aa6f99e3edc}{constants\+\_\+set}} (double distance, int minimum\+\_\+speed)
+\item 
+\Hypertarget{classez_1_1slew_a482b5c2eaf0e081da64a284000fe146b}\label{classez_1_1slew_a482b5c2eaf0e081da64a284000fe146b} 
+\doxymbox{\hyperlink{structez_1_1slew_1_1_constants}{Constants}} {\bfseries constants\+\_\+get} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1slew_a65da25e333e94a3c946b7096aa90856e}{initialize}} (bool \doxymbox{\hyperlink{classez_1_1slew_a94cba9316eb8c01be794d9ac6deb4c49}{enabled}}, double maximum\+\_\+speed, double target, double current)
+\item 
+double \doxymbox{\hyperlink{classez_1_1slew_a1191561cb1b85492775614c0808b2e38}{iterate}} (double current)
+\item 
+bool \doxymbox{\hyperlink{classez_1_1slew_a94cba9316eb8c01be794d9ac6deb4c49}{enabled}} ()
+\item 
+double \doxymbox{\hyperlink{classez_1_1slew_a2a8614f6786fd18665b88c0bcad77001}{output}} ()
+\item 
+void \doxymbox{\hyperlink{classez_1_1slew_af6cfbcd63d0878788cdf03fa79097004}{speed\+\_\+max\+\_\+set}} (double speed)
+\item 
+double \doxymbox{\hyperlink{classez_1_1slew_ac4b670aee38c1c2ee5f26b5416871fc3}{speed\+\_\+max\+\_\+get}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classez_1_1slew_ad6aa3fb79245ce721a5243963742f766}\label{classez_1_1slew_ad6aa3fb79245ce721a5243963742f766} 
+\doxymbox{\hyperlink{structez_1_1slew_1_1_constants}{Constants}} {\bfseries constants}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classez_1_1slew_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classez_1_1slew_a4639a58ad8824fadab7c5c49e3365830}\index{ez::slew@{ez::slew}!slew@{slew}}
+\index{slew@{slew}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{slew()}{slew()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_a4639a58ad8824fadab7c5c49e3365830} 
+ez::\+slew::\+slew (\begin{DoxyParamCaption}\item[{double}]{distance}{, }\item[{int}]{minimum\+\_\+speed}{}\end{DoxyParamCaption})}
+
+Sets constants for slew. Slew ramps up the speed of the robot until the set distance is traveled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & the distance the robot travels before reaching max speed \\
+\hline
+{\em minimum\+\_\+speed} & the starting speed for the movement \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classez_1_1slew_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classez_1_1slew_a8839624d77fa089b230d6aa6f99e3edc}\index{ez::slew@{ez::slew}!constants\_set@{constants\_set}}
+\index{constants\_set@{constants\_set}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{constants\_set()}{constants\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_a8839624d77fa089b230d6aa6f99e3edc} 
+void ez::\+slew::\+constants\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{distance}{, }\item[{int}]{minimum\+\_\+speed}{}\end{DoxyParamCaption})}
+
+Sets constants for slew. Slew ramps up the speed of the robot until the set distance is traveled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & the distance the robot travels before reaching max speed \\
+\hline
+{\em minimum\+\_\+speed} & the starting speed for the movement \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1slew_a94cba9316eb8c01be794d9ac6deb4c49}\index{ez::slew@{ez::slew}!enabled@{enabled}}
+\index{enabled@{enabled}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{enabled()}{enabled()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_a94cba9316eb8c01be794d9ac6deb4c49} 
+bool ez::\+slew::\+enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns true if slew is enabled, and false if it isn\textquotesingle{}t. \Hypertarget{classez_1_1slew_a65da25e333e94a3c946b7096aa90856e}\index{ez::slew@{ez::slew}!initialize@{initialize}}
+\index{initialize@{initialize}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_a65da25e333e94a3c946b7096aa90856e} 
+void ez::\+slew::\+initialize (\begin{DoxyParamCaption}\item[{bool}]{enabled}{, }\item[{double}]{maximum\+\_\+speed}{, }\item[{double}]{target}{, }\item[{double}]{current}{}\end{DoxyParamCaption})}
+
+Initializes slew for the motion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & true enables slew, false disables slew \\
+\hline
+{\em maximum\+\_\+speed} & the target speed the robot will ramp up too \\
+\hline
+{\em target} & the target position for the motion \\
+\hline
+{\em current} & the position at the start of the motion \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1slew_a1191561cb1b85492775614c0808b2e38}\index{ez::slew@{ez::slew}!iterate@{iterate}}
+\index{iterate@{iterate}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{iterate()}{iterate()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_a1191561cb1b85492775614c0808b2e38} 
+double ez::\+slew::\+iterate (\begin{DoxyParamCaption}\item[{double}]{current}{}\end{DoxyParamCaption})}
+
+Iterates slew and ramps up speed the farther along the motion the robot gets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em current} & current sensor value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classez_1_1slew_a2a8614f6786fd18665b88c0bcad77001}\index{ez::slew@{ez::slew}!output@{output}}
+\index{output@{output}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{output()}{output()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_a2a8614f6786fd18665b88c0bcad77001} 
+double ez::\+slew::\+output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the last output of iterate. \Hypertarget{classez_1_1slew_ac4b670aee38c1c2ee5f26b5416871fc3}\index{ez::slew@{ez::slew}!speed\_max\_get@{speed\_max\_get}}
+\index{speed\_max\_get@{speed\_max\_get}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{speed\_max\_get()}{speed\_max\_get()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_ac4b670aee38c1c2ee5f26b5416871fc3} 
+double ez::\+slew::\+speed\+\_\+max\+\_\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the max speed the slew can be. \Hypertarget{classez_1_1slew_af6cfbcd63d0878788cdf03fa79097004}\index{ez::slew@{ez::slew}!speed\_max\_set@{speed\_max\_set}}
+\index{speed\_max\_set@{speed\_max\_set}!ez::slew@{ez::slew}}
+\doxysubsubsection{\texorpdfstring{speed\_max\_set()}{speed\_max\_set()}}
+{\footnotesize\ttfamily \label{classez_1_1slew_af6cfbcd63d0878788cdf03fa79097004} 
+void ez::\+slew::\+speed\+\_\+max\+\_\+set (\begin{DoxyParamCaption}\item[{double}]{speed}{}\end{DoxyParamCaption})}
+
+Sets the max speed the slew can be.
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & maximum speed \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+\+EZ-\/\+Template/\+slew.\+hpp\end{DoxyCompactItemize}

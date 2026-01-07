@@ -1,0 +1,333 @@
+.TH "pros::v5::Motor" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::v5::Motor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::v5::AbstractMotor\fP, and \fBpros::v5::Device\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMotor\fP (const std::int8_t port, const \fBpros::v5::MotorGears\fP gearset=pros::v5::MotorGears::invalid, const \fBpros::v5::MotorUnits\fP encoder_units=pros::v5::MotorUnits::invalid)"
+.br
+.ti -1c
+.RI "\fBMotor\fP (const \fBDevice\fP &device)"
+.br
+.in -1c
+.PP
+.RI "\fBMotor movement functions\fP"
+.br
+These functions allow programmers to make motors move 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "std::int32_t \fBmove\fP (std::int32_t voltage) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBmove_absolute\fP (const double position, const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBmove_relative\fP (const double position, const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBmove_velocity\fP (const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBmove_voltage\fP (const std::int32_t voltage) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBbrake\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBmodify_profiled_velocity\fP (const std::int32_t velocity) const"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBMotor telemetry functions\fP"
+.br
+These functions allow programmers to collect telemetry from motors 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "double \fBget_target_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_target_velocity\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBget_actual_velocity\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_current_draw\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_direction\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBget_efficiency\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::uint32_t \fBget_faults\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::uint32_t \fBget_flags\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBget_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBget_power\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_raw_position\fP (std::uint32_t *const timestamp, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBget_temperature\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBget_torque\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_voltage\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBis_over_current\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBis_over_temp\fP (const std::uint8_t index=0) const"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBAdditional motor functions\fP"
+.br
+These functions allow for motors and motor groups to be used interchangeably 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "std::vector< double > \fBget_target_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_target_velocity_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBget_actual_velocity_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_current_draw_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_direction_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBget_efficiency_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::uint32_t > \fBget_faults_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::uint32_t > \fBget_flags_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBget_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBget_power_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_raw_position_all\fP (std::uint32_t *const timestamp) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBget_temperature_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBget_torque_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_voltage_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBis_over_current_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBis_over_temp_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorBrake\fP > \fBget_brake_mode_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_current_limit_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorUnits\fP > \fBget_encoder_units_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorGears\fP > \fBget_gearing_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int8_t > \fBget_port_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBget_voltage_limit_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBis_reversed_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_brake_mode_all\fP (const \fBMotorBrake\fP mode) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_brake_mode_all\fP (const pros::motor_brake_mode_e_t mode) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_current_limit_all\fP (const std::int32_t limit) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_encoder_units_all\fP (const \fBMotorUnits\fP units) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_encoder_units_all\fP (const pros::motor_encoder_units_e_t units) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_gearing_all\fP (const \fBMotorGears\fP gearset) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_gearing_all\fP (const pros::motor_gearset_e_t gearset) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_reversed_all\fP (const bool reverse)"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_voltage_limit_all\fP (const std::int32_t limit) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_zero_position_all\fP (const double position) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBtare_position_all\fP (void) const"
+.br
+.in -1c
+.in -1c
+
+Public Member Functions inherited from \fBpros::v5::AbstractMotor\fP
+
+Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "std::uint8_t \fBget_port\fP (void) const"
+.br
+.ti -1c
+.RI "virtual bool \fBis_installed\fP ()"
+.br
+.ti -1c
+.RI "pros::DeviceType \fBget_plugged_type\fP () const"
+.br
+.in -1c
+.SS "Motor configuration functions"
+These functions allow programmers to configure the behavior of motors 
+.in +1c
+.ti -1c
+.RI "\fBMotorBrake\fP \fBget_brake_mode\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_current_limit\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "\fBMotorUnits\fP \fBget_encoder_units\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "\fBMotorGears\fP \fBget_gearing\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_voltage_limit\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBis_reversed\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_brake_mode\fP (const \fBMotorBrake\fP mode, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_brake_mode\fP (const pros::motor_brake_mode_e_t mode, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_current_limit\fP (const std::int32_t limit, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_encoder_units\fP (const \fBMotorUnits\fP units, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_encoder_units\fP (const pros::motor_encoder_units_e_t units, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_gearing\fP (const \fBMotorGears\fP gearset, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_gearing\fP (const pros::motor_gearset_e_t gearset, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_reversed\fP (const bool reverse, const std::uint8_t index=0)"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_voltage_limit\fP (const std::int32_t limit, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_zero_position\fP (const double position, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBtare_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int8_t \fBsize\fP (void) const"
+.br
+.ti -1c
+.RI "std::int8_t \fBget_port\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "static std::vector< \fBMotor\fP > \fBget_all_devices\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Static Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "static pros::DeviceType \fBget_plugged_type\fP (std::uint8_t port)"
+.br
+.ti -1c
+.RI "static std::vector< \fBDevice\fP > \fBget_all_devices\fP (pros::DeviceType device_type=\fBpros::DeviceType::undefined\fP)"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port, const enum \fBDeviceType\fP deviceType)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "const std::uint8_t \fB_port\fP"
+.br
+.ti -1c
+.RI "enum \fBDeviceType\fP \fB_deviceType\fP = \fBpros::DeviceType::none\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

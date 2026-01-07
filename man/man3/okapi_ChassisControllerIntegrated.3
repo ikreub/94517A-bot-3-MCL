@@ -1,0 +1,344 @@
+.TH "okapi::ChassisControllerIntegrated" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ChassisControllerIntegrated
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ChassisController\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBChassisControllerIntegrated\fP (const \fBTimeUtil\fP &itimeUtil, std::shared_ptr< \fBChassisModel\fP > imodel, std::unique_ptr< \fBAsyncPosIntegratedController\fP > ileftController, std::unique_ptr< \fBAsyncPosIntegratedController\fP > irightController, const \fBAbstractMotor::GearsetRatioPair\fP &igearset=\fBAbstractMotor::gearset::green\fP, const \fBChassisScales\fP &iscales=\fBChassisScales\fP({1, 1}, imev5GreenTPR), std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "void \fBmoveDistance\fP (QLength itarget) override"
+.br
+.ti -1c
+.RI "void \fBmoveRaw\fP (double itarget) override"
+.br
+.ti -1c
+.RI "void \fBmoveDistanceAsync\fP (QLength itarget) override"
+.br
+.ti -1c
+.RI "void \fBmoveRawAsync\fP (double itarget) override"
+.br
+.ti -1c
+.RI "void \fBturnAngle\fP (QAngle idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBturnRaw\fP (double idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBturnAngleAsync\fP (QAngle idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBturnRawAsync\fP (double idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBsetTurnsMirrored\fP (bool ishouldMirror) override"
+.br
+.ti -1c
+.RI "bool \fBisSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBwaitUntilSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBstop\fP () override"
+.br
+.ti -1c
+.RI "\fBChassisScales\fP \fBgetChassisScales\fP () const override"
+.br
+.ti -1c
+.RI "\fBAbstractMotor::GearsetRatioPair\fP \fBgetGearsetRatioPair\fP () const override"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBChassisModel\fP > \fBgetModel\fP () override"
+.br
+.ti -1c
+.RI "\fBChassisModel\fP & \fBmodel\fP () override"
+.br
+.ti -1c
+.RI "void \fBsetMaxVelocity\fP (double imaxVelocity) override"
+.br
+.ti -1c
+.RI "double \fBgetMaxVelocity\fP () const override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ChassisController\fP
+.in +1c
+.ti -1c
+.RI "\fBChassisController\fP ()=default"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "bool \fBnormalTurns\fP {true}"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBChassisModel\fP > \fBchassisModel\fP"
+.br
+.ti -1c
+.RI "\fBTimeUtil\fP \fBtimeUtil\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAsyncPosIntegratedController\fP > \fBleftController\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAsyncPosIntegratedController\fP > \fBrightController\fP"
+.br
+.ti -1c
+.RI "int \fBlastTarget\fP"
+.br
+.ti -1c
+.RI "\fBChassisScales\fP \fBscales\fP"
+.br
+.ti -1c
+.RI "\fBAbstractMotor::GearsetRatioPair\fP \fBgearsetRatioPair\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ChassisControllerIntegrated::ChassisControllerIntegrated (const \fBTimeUtil\fP & itimeUtil, std::shared_ptr< \fBChassisModel\fP > imodel, std::unique_ptr< \fBAsyncPosIntegratedController\fP > ileftController, std::unique_ptr< \fBAsyncPosIntegratedController\fP > irightController, const \fBAbstractMotor::GearsetRatioPair\fP & igearset = \fR\fBAbstractMotor::gearset::green\fP\fP, const \fBChassisScales\fP & iscales = \fR\fBChassisScales\fP({1, 1}, imev5GreenTPR)\fP, std::shared_ptr< \fBLogger\fP > ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+\fBChassisController\fP using the V5 motor's integrated control\&. Puts the motors into encoder count units\&. Throws a \fRstd::invalid_argument\fP exception if the gear ratio is zero\&. The initial model's max velocity will be propagated to the controllers\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimeUtil\fP The \fBTimeUtil\fP\&. 
+.br
+\fIimodel\fP The \fBChassisModel\fP used to read from sensors/write to motors\&. 
+.br
+\fIileftController\fP The controller used for the left side motors\&. 
+.br
+\fIirightController\fP The controller used for the right side motors\&. 
+.br
+\fIigearset\fP The internal gearset and external ratio used on the drive motors\&. 
+.br
+\fIiscales\fP The \fBChassisScales\fP\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBChassisScales\fP okapi::ChassisControllerIntegrated::getChassisScales () const\fR [override]\fP, \fR [virtual]\fP"
+Get the \fBChassisScales\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "\fBAbstractMotor::GearsetRatioPair\fP okapi::ChassisControllerIntegrated::getGearsetRatioPair () const\fR [override]\fP, \fR [virtual]\fP"
+Get the GearsetRatioPair\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "double okapi::ChassisControllerIntegrated::getMaxVelocity () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The maximum velocity in RPM [0-600]\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "std::shared_ptr< \fBChassisModel\fP > okapi::ChassisControllerIntegrated::getModel ()\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The internal \fBChassisModel\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "bool okapi::ChassisControllerIntegrated::isSettled ()\fR [override]\fP, \fR [virtual]\fP"
+Checks whether the internal controllers are currently settled\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+Whether this \fBChassisController\fP is settled\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "\fBChassisModel\fP & okapi::ChassisControllerIntegrated::model ()\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The internal \fBChassisModel\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::moveDistance (QLength itarget)\fR [override]\fP, \fR [virtual]\fP"
+Drives the robot straight for a distance (using closed-loop control)\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitarget\fP distance to travel 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::moveDistanceAsync (QLength itarget)\fR [override]\fP, \fR [virtual]\fP"
+Sets the target distance for the robot to drive straight (using closed-loop control)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitarget\fP distance to travel 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::moveRaw (double itarget)\fR [override]\fP, \fR [virtual]\fP"
+Drives the robot straight for a distance (using closed-loop control)\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitarget\fP distance to travel in motor degrees 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::moveRawAsync (double itarget)\fR [override]\fP, \fR [virtual]\fP"
+Sets the target distance for the robot to drive straight (using closed-loop control)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitarget\fP distance to travel in motor degrees 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::setMaxVelocity (double imaxVelocity)\fR [override]\fP, \fR [virtual]\fP"
+Sets a new maximum velocity in RPM [0-600]\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimaxVelocity\fP The new maximum velocity\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::setTurnsMirrored (bool ishouldMirror)\fR [override]\fP, \fR [virtual]\fP"
+Sets whether turns should be mirrored\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIishouldMirror\fP whether turns should be mirrored 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::stop ()\fR [override]\fP, \fR [virtual]\fP"
+Interrupts the current movement to stop the robot\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::turnAngle (QAngle idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+Turns the robot clockwise in place (using closed-loop control)\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidegTarget\fP angle to turn for 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::turnAngleAsync (QAngle idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+Sets the target angle for the robot to turn clockwise in place (using closed-loop control)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidegTarget\fP angle to turn for 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::turnRaw (double idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+Turns the robot clockwise in place (using closed-loop control)\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidegTarget\fP angle to turn for in motor degrees 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::turnRawAsync (double idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+Sets the target angle for the robot to turn clockwise in place (using closed-loop control)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidegTarget\fP angle to turn for in motor degrees 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::ChassisControllerIntegrated::waitUntilSettled ()\fR [override]\fP, \fR [virtual]\fP"
+Delays until the currently executing movement completes\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

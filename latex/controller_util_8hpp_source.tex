@@ -1,0 +1,52 @@
+\doxysection{controller\+Util.\+hpp}
+\hypertarget{controller_util_8hpp_source}{}\label{controller_util_8hpp_source}\index{include/okapi/impl/device/controllerUtil.hpp@{include/okapi/impl/device/controllerUtil.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{enum\ class}\ ControllerId\ \{}
+\DoxyCodeLine{00015\ \ \ master\ =\ 0,\ }
+\DoxyCodeLine{00016\ \ \ partner\ =\ 1\ }
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{enum\ class}\ ControllerAnalog\ \{}
+\DoxyCodeLine{00023\ \ \ leftX\ =\ 0,\ \ }
+\DoxyCodeLine{00024\ \ \ leftY\ =\ 1,\ \ }
+\DoxyCodeLine{00025\ \ \ rightX\ =\ 2,\ }
+\DoxyCodeLine{00026\ \ \ rightY\ =\ 3\ \ }
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{enum\ class}\ ControllerDigital\ \{}
+\DoxyCodeLine{00033\ \ \ L1\ =\ 6,\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ L2\ =\ 7,\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ R1\ =\ 8,\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ R2\ =\ 9,\ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ up\ =\ 10,\ \ \ \ }
+\DoxyCodeLine{00038\ \ \ down\ =\ 11,\ \ }
+\DoxyCodeLine{00039\ \ \ left\ =\ 12,\ \ }
+\DoxyCodeLine{00040\ \ \ right\ =\ 13,\ }
+\DoxyCodeLine{00041\ \ \ X\ =\ 14,\ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ B\ =\ 15,\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ Y\ =\ 16,\ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ A\ =\ 17\ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_controller_util}{ControllerUtil}}\ \{}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{static}\ pros::controller\_id\_e\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_util_aa6ceb9620daaa36bfa95f44184d8f581}{idToProsEnum}}(ControllerId\ in);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ pros::controller\_analog\_e\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_util_aa8349cce3d29bfc56204e53fa541ee06}{analogToProsEnum}}(ControllerAnalog\ in);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{static}\ pros::controller\_digital\_e\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_util_ae8298cb1d81c5a859614398fca9f9d0a}{digitalToProsEnum}}(ControllerDigital\ in);}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

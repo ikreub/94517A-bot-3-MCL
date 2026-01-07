@@ -1,0 +1,97 @@
+\doxysection{lv\+\_\+colorwheel.\+h}
+\hypertarget{lv__colorwheel_8h_source}{}\label{lv__colorwheel_8h_source}\index{include/liblvgl/extra/widgets/colorwheel/lv\_colorwheel.h@{include/liblvgl/extra/widgets/colorwheel/lv\_colorwheel.h}}
+\doxymbox{\hyperlink{lv__colorwheel_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_COLORWHEEL\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_COLORWHEEL\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lvgl_8h}{liblvgl/lvgl.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_COLORWHEEL}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ LV\_COLORWHEEL\_MODE\_HUE,}
+\DoxyCodeLine{00030\ \ \ \ \ LV\_COLORWHEEL\_MODE\_SATURATION,}
+\DoxyCodeLine{00031\ \ \ \ \ LV\_COLORWHEEL\_MODE\_VALUE}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_colorwheel\_mode\_t;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*Data\ of\ color\ picker*/}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ lv\_obj\_t\ obj;}
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{structlv__color__hsv__t}{lv\_color\_hsv\_t}}\ hsv;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ pos;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ uint8\_t\ recolor\ \ \ \ \ :\ 1;}
+\DoxyCodeLine{00043\ \ \ \ \ \}\ knob;}
+\DoxyCodeLine{00044\ \ \ \ \ uint32\_t\ last\_click\_time;}
+\DoxyCodeLine{00045\ \ \ \ \ uint32\_t\ last\_change\_time;}
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ last\_press\_point;}
+\DoxyCodeLine{00047\ \ \ \ \ lv\_colorwheel\_mode\_t\ mode\ \ :\ 2;}
+\DoxyCodeLine{00048\ \ \ \ \ uint8\_t\ mode\_fixed\ \ \ \ \ \ \ \ \ \ \ \ :\ 1;}
+\DoxyCodeLine{00049\ \}\ lv\_colorwheel\_t;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_colorwheel\_class;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ lv\_obj\_t\ *\ lv\_colorwheel\_create(lv\_obj\_t\ *\ parent,\ \textcolor{keywordtype}{bool}\ knob\_recolor);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{bool}\ lv\_colorwheel\_set\_hsv(lv\_obj\_t\ *\ obj,\ \doxymbox{\hyperlink{structlv__color__hsv__t}{lv\_color\_hsv\_t}}\ hsv);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{bool}\ lv\_colorwheel\_set\_rgb(lv\_obj\_t\ *\ obj,\ lv\_color\_t\ color);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ lv\_colorwheel\_set\_mode(lv\_obj\_t\ *\ obj,\ lv\_colorwheel\_mode\_t\ mode);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ lv\_colorwheel\_set\_mode\_fixed(lv\_obj\_t\ *\ obj,\ \textcolor{keywordtype}{bool}\ fixed);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \doxymbox{\hyperlink{structlv__color__hsv__t}{lv\_color\_hsv\_t}}\ lv\_colorwheel\_get\_hsv(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00115\ lv\_color\_t\ lv\_colorwheel\_get\_rgb(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00122\ lv\_colorwheel\_mode\_t\ lv\_colorwheel\_get\_color\_mode(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{bool}\ lv\_colorwheel\_get\_color\_mode\_fixed(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_USE\_COLORWHEEL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00138\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_COLORWHEEL\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00142\ }
+
+\end{DoxyCode}

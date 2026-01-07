@@ -1,0 +1,81 @@
+\doxysection{include/\+liblvgl/\+lvgl.h File Reference}
+\hypertarget{lvgl_8h}{}\label{lvgl_8h}\index{include/liblvgl/lvgl.h@{include/liblvgl/lvgl.h}}
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+log.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+timer.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+mem.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+async.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+anim\+\_\+timeline.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+printf.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+hal/\+lv\+\_\+hal.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+core/\+lv\+\_\+obj.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+core/\+lv\+\_\+group.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+core/\+lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+core/\+lv\+\_\+refr.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+core/\+lv\+\_\+disp.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+core/\+lv\+\_\+theme.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+font/\+lv\+\_\+font.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+font/\+lv\+\_\+font\+\_\+loader.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+font/\+lv\+\_\+font\+\_\+fmt\+\_\+txt.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+arc.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+btn.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+img.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+label.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+line.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+table.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+checkbox.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+bar.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+slider.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+btnmatrix.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+dropdown.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+roller.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+textarea.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+canvas.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+widgets/\+lv\+\_\+switch.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+draw/\+lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+lv\+\_\+api\+\_\+map.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+extra/\+lv\+\_\+extra.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lvgl_8h_a9c133c35dad430c2120b0ac5a4c05ee8}\label{lvgl_8h_a9c133c35dad430c2120b0ac5a4c05ee8} 
+\+\#define {\bfseries LVGL\+\_\+\+VERSION\+\_\+\+MAJOR}~8
+\item 
+\Hypertarget{lvgl_8h_aa747cad9d3885ca2806a0c2d1518104f}\label{lvgl_8h_aa747cad9d3885ca2806a0c2d1518104f} 
+\+\#define {\bfseries LVGL\+\_\+\+VERSION\+\_\+\+MINOR}~3
+\item 
+\Hypertarget{lvgl_8h_aab8dce6b82062dda61da04e332712e70}\label{lvgl_8h_aab8dce6b82062dda61da04e332712e70} 
+\+\#define {\bfseries LVGL\+\_\+\+VERSION\+\_\+\+PATCH}~4
+\item 
+\Hypertarget{lvgl_8h_a121236c230a9f1ccac22fc80aa63f4e4}\label{lvgl_8h_a121236c230a9f1ccac22fc80aa63f4e4} 
+\+\#define {\bfseries LVGL\+\_\+\+VERSION\+\_\+\+INFO}~"{}dev"{}
+\item 
+\+\#define \doxymbox{\hyperlink{lvgl_8h_ae53fb44157a7f8d2b4edac52dd39fdf4}{LV\+\_\+\+VERSION\+\_\+\+CHECK}}(x,  y,  z)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Include all LVGL related headers 
+
+\label{doc-define-members}
+\Hypertarget{lvgl_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lvgl_8h_ae53fb44157a7f8d2b4edac52dd39fdf4}\index{lvgl.h@{lvgl.h}!LV\_VERSION\_CHECK@{LV\_VERSION\_CHECK}}
+\index{LV\_VERSION\_CHECK@{LV\_VERSION\_CHECK}!lvgl.h@{lvgl.h}}
+\doxysubsubsection{\texorpdfstring{LV\_VERSION\_CHECK}{LV\_VERSION\_CHECK}}
+{\footnotesize\ttfamily \label{lvgl_8h_ae53fb44157a7f8d2b4edac52dd39fdf4} 
+\+\#define LV\+\_\+\+VERSION\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{, }\item[{}]{z}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(x\ ==\ LVGL\_VERSION\_MAJOR\ \&\&\ (y\ <\ LVGL\_VERSION\_MINOR\ ||\ (y\ ==\ LVGL\_VERSION\_MINOR\ \&\&\ z\ <=\ LVGL\_VERSION\_PATCH)))}
+
+\end{DoxyCode}
+Gives 1 if the x.\+y.\+z version is supported in the current version Usage:\+
+
+
+\begin{DoxyItemize}
+\item Require v6 \+\#if \doxylink{lvgl_8h_ae53fb44157a7f8d2b4edac52dd39fdf4}{LV\+\_\+\+VERSION\+\_\+\+CHECK(6,0,0)} new\+\_\+func\+\_\+in\+\_\+v6(); \+\#endif
+\item Require at least v5.\+3 \+\#if \doxylink{lvgl_8h_ae53fb44157a7f8d2b4edac52dd39fdf4}{LV\+\_\+\+VERSION\+\_\+\+CHECK(5,3,0)} new\+\_\+feature\+\_\+from\+\_\+v5\+\_\+3(); \+\#endif
+\item Require v5.\+3.\+2 bugfixes \+\#if \doxylink{lvgl_8h_ae53fb44157a7f8d2b4edac52dd39fdf4}{LV\+\_\+\+VERSION\+\_\+\+CHECK(5,3,2)} bugfix\+\_\+in\+\_\+v5\+\_\+3\+\_\+2(); \+\#endif 
+\end{DoxyItemize}

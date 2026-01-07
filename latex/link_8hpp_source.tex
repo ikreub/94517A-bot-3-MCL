@@ -1,0 +1,43 @@
+\doxysection{link.\+hpp}
+\hypertarget{link_8hpp_source}{}\label{link_8hpp_source}\index{include/pros/link.hpp@{include/pros/link.hpp}}
+\doxymbox{\hyperlink{link_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_LINK\_HPP\_}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \_PROS\_LINK\_HPP\_}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{link_8h}{pros/link.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{device_8hpp}{pros/device.hpp}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{group__cpp-link_gae3646bbc19f10bc746dd75a861ab0d13}{Link}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{Device}}\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{group__cpp-link_gae3646bbc19f10bc746dd75a861ab0d13}{Link}}(\textcolor{keyword}{const}\ std::uint8\_t\ port,\ \textcolor{keyword}{const}\ std::string\ link\_id,\ link\_type\_e\_t\ type,\ \textcolor{keywordtype}{bool}\ ov\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group__cpp-link_ga08a8bca759c5bfc770bef362255680de}{connected}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00111\ \ \ \ \ std::uint32\_t\ \doxymbox{\hyperlink{group__cpp-link_ga5605212e3a5aea0ac0f21052e46ac384}{raw\_receivable\_size}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00132\ \ \ \ \ std::uint32\_t\ raw\_transmittable\_size();}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00164\ \ \ \ \ std::uint32\_t\ \doxymbox{\hyperlink{group__cpp-link_gab67af15902bc7e9e04aba800d7aec4bd}{transmit\_raw}}(\textcolor{keywordtype}{void}*\ data,\ std::uint16\_t\ data\_size);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00194\ \ \ \ \ std::uint32\_t\ \doxymbox{\hyperlink{group__cpp-link_ga287bf0dc04b76032073e5de2608f8491}{receive\_raw}}(\textcolor{keywordtype}{void}*\ dest,\ std::uint16\_t\ data\_size);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00225\ \ \ \ \ std::uint32\_t\ \doxymbox{\hyperlink{group__cpp-link_ga37c1641fbda1f15ed55f4a3c4802314d}{transmit}}(\textcolor{keywordtype}{void}*\ data,\ std::uint16\_t\ data\_size);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00256\ \ \ \ \ std::uint32\_t\ \doxymbox{\hyperlink{group__cpp-link_ga0696172c20f2791affb23dc143598890}{receive}}(\textcolor{keywordtype}{void}*\ dest,\ std::uint16\_t\ data\_size);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00277\ \ \ \ \ std::uint32\_t\ \doxymbox{\hyperlink{group__cpp-link_gaba4f63afa2e096ef49dd6df880a15c76}{clear\_receive\_buf}}();}
+\DoxyCodeLine{00278\ \ \ }
+\DoxyCodeLine{00280\ \};}
+\DoxyCodeLine{00281\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

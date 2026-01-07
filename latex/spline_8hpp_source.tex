@@ -1,0 +1,181 @@
+\doxysection{spline.\+hpp}
+\hypertarget{spline_8hpp_source}{}\label{spline_8hpp_source}\index{include/okapi/squiggles/spline.hpp@{include/okapi/squiggles/spline.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_SQUIGGLES\_SPLINE\_HPP\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_SQUIGGLES\_SPLINE\_HPP\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}constraints.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}geometry/controlvector.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}geometry/profilepoint.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}math/quinticpolynomial.hpp"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}physicalmodel/passthroughmodel.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}physicalmodel/physicalmodel.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacesquiggles}{squiggles}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ac5d2f525f3a2b3c25509f2dbe224c5f2}{SplineGenerator}}\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ac5d2f525f3a2b3c25509f2dbe224c5f2}{SplineGenerator}}(\doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}}\ iconstraints,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<PhysicalModel>\ imodel\ =}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_shared<PassthroughModel>(),}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ idt\ =\ 0.1);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00048\ \ \ std::vector<ProfilePoint>\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a8ef93b33c9df4a88e2700a50246ac10f}{generate}}(std::vector<Pose>\ iwaypoints,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ fast\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00050\ \ \ std::vector<ProfilePoint>\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a8ef93b33c9df4a88e2700a50246ac10f}{generate}}(std::initializer\_list<Pose>\ iwaypoints,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ fast\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \ \ std::vector<ProfilePoint>\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a5e754a874f4b6514af949b4aa41a8d21}{generate}}(std::vector<ControlVector>\ iwaypoints);}
+\DoxyCodeLine{00062\ \ \ std::vector<ProfilePoint>}
+\DoxyCodeLine{00063\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a8ef93b33c9df4a88e2700a50246ac10f}{generate}}(std::initializer\_list<ControlVector>\ iwaypoints);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00069\ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a22f2a2cf89bbea8f47e913f437c380c3}{constraints}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ std::shared\_ptr<PhysicalModel>\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ab5c7e06ff0ec4a3d989dc1e741894336}{model}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a84c9d030b28469be3b3021367620414e}{dt}};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a414d2f23ba6fa351d94ac24d2e391b81}{T\_MIN}}\ =\ 2;}
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ T\_MAX\ =\ 15;}
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_GRAD\_DESCENT\_ITERATIONS\ =\ 10;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a248e2852fd8abf4742301719ad50e037}{K\_DEFAULT\_VEL}}\ =\ 1.0;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \textcolor{keyword}{struct\ }GeneratedPoint\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ GeneratedPoint(\doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ ipose,\ \textcolor{keywordtype}{double}\ icurvature\ =\ 0.0)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ :\ pose(ipose),\ curvature(icurvature)\ \{\}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ std::string\ to\_string()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GeneratedPoint:\ \{"{}}\ +\ pose.to\_string()\ +}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ curvature:\ "{}}\ +\ std::to\_string(curvature)\ +\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ pose;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{double}\ curvature;}
+\DoxyCodeLine{00119\ \ \ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \ \ \textcolor{keyword}{struct\ }GeneratedVector\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ GeneratedVector(\doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_generated_point}{GeneratedPoint}}\ ipoint,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ivel,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ iaccel,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ijerk)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ :\ point(ipoint),\ vel(ivel),\ accel(iaccel),\ jerk(ijerk)\ \{\}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_generated_point}{GeneratedPoint}}\ point;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{double}\ vel;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{double}\ accel;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{double}\ jerk;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ std::string\ to\_string()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}GeneratedVector:\ \{"{}}\ +\ point.to\_string()\ +}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ vel:\ "{}}\ +\ std::to\_string(vel)\ +}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ accel:\ "{}}\ +\ std::to\_string(accel)\ +}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ jerk:\ "{}}\ +\ std::to\_string(jerk)\ +\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ std::vector<GeneratedVector>\ gen\_single\_raw\_path(\doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ start,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ end,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ duration,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ start\_vel,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ end\_vel);}
+\DoxyCodeLine{00158\ \ \ std::vector<GeneratedPoint>}
+\DoxyCodeLine{00159\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_aae031c45af5e99b8ec568ae73233e044}{gradient\_descent}}(\doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\&\ start,\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\&\ end,\ \textcolor{keywordtype}{bool}\ fast);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keyword}{struct\ }ConstrainedState\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ ConstrainedState(\doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ ipose,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ icurvature,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ idistance,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ imax\_vel,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ imin\_accel,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ imax\_accel)}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ :\ pose(ipose),}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ curvature(icurvature),}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ distance(idistance),}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ max\_vel(imax\_vel),}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ min\_accel(imin\_accel),}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ max\_accel(imax\_accel)\ \{\}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ ConstrainedState()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ pose\ =\ \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}();}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{double}\ curvature\ =\ 0;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{double}\ distance\ =\ 0;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{double}\ max\_vel\ =\ 0;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{double}\ min\_accel\ =\ 0;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{double}\ max\_accel\ =\ 0;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ std::string\ to\_string()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}ConstrainedState:\ \{x:\ "{}}\ +\ std::to\_string(pose.x)\ +}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ y:\ "{}}\ +\ std::to\_string(pose.y)\ +}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ yaw:\ "{}}\ +\ std::to\_string(pose.yaw)\ +}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ k:\ "{}}\ +\ std::to\_string(curvature)\ +}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ dist:\ "{}}\ +\ std::to\_string(distance)\ +}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ v:\ "{}}\ +\ std::to\_string(max\_vel)\ +}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ min\_a:\ "{}}\ +\ std::to\_string(min\_accel)\ +}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{},\ max\_a:\ "{}}\ +\ std::to\_string(max\_accel)\ +\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ \ \ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00209\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Iter>}
+\DoxyCodeLine{00210\ \ \ std::vector<ProfilePoint>\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ab4d21fd01ba01ba2f2b8363d47b3a920}{\_generate}}(Iter\ start,\ Iter\ end,\ \textcolor{keywordtype}{bool}\ fast);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00220\ \ \ std::vector<GeneratedPoint>}
+\DoxyCodeLine{00221\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a523ac1ec6e3e783a3223efe1bae63805}{gen\_raw\_path}}(\doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\&\ start,\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\&\ end,\ \textcolor{keywordtype}{bool}\ fast);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00229\ \ \ std::vector<ProfilePoint>}
+\DoxyCodeLine{00230\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a372a8d848ce721c167df528ce159f6f9}{parameterize}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ start,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ end,}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<GeneratedPoint>\&\ raw\_path,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ preferred\_start\_vel,}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ preferred\_end\_vel,}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ start\_time);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00241\ \ \ std::vector<ProfilePoint>}
+\DoxyCodeLine{00242\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ad8829f745e98d612f1d21db5d78f7ad6}{integrate\_constrained\_states}}(std::vector<ConstrainedState>\ constrainedStates);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00250\ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_profile_point}{ProfilePoint}}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a0c5db60986a2164fff9e8f5493b8d0ad}{get\_point\_at\_time}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ start,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ end,}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<ProfilePoint>\ points,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00258\ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_profile_point}{ProfilePoint}}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a3434f7f1e76ab3f04600a24eb26eb974}{lerp\_point}}(\doxymbox{\hyperlink{classsquiggles_1_1_quintic_polynomial}{QuinticPolynomial}}\ x\_qp,}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_quintic_polynomial}{QuinticPolynomial}}\ y\_qp,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_profile_point}{ProfilePoint}}\ start,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_profile_point}{ProfilePoint}}\ end,}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ i);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00267\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_quintic_polynomial}{QuinticPolynomial}}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ad2a455b8de7de0557b13b0a08932d355}{get\_x\_spline}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ start,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ end,}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ duration);}
+\DoxyCodeLine{00270\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_quintic_polynomial}{QuinticPolynomial}}\ get\_y\_spline(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ start,}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_control_vector}{ControlVector}}\ end,}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ duration);}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00277\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a5d7f0823266d56de66709a603d4e3c5d}{enforce\_accel\_lims}}(\doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_constrained_state}{ConstrainedState}}*\ state);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00283\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a8c1d89a1400c7c982cff9f4671dd041e}{forward\_pass}}(\doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_constrained_state}{ConstrainedState}}*\ predecessor,\ \doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_constrained_state}{ConstrainedState}}*\ successor);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00289\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ac11222b1179dc05ae2e58d350e4dcd99}{backward\_pass}}(\doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_constrained_state}{ConstrainedState}}*\ predecessor,}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_spline_generator_1_1_constrained_state}{ConstrainedState}}*\ successor);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00295\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ad2feec052415c1a0121ddf9b3fe9e132}{vf}}(\textcolor{keywordtype}{double}\ vi,\ \textcolor{keywordtype}{double}\ a,\ \textcolor{keywordtype}{double}\ ds);}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00301\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_a2c7aac564c4b791cc9c0ec002a293e7c}{ai}}(\textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_ad2feec052415c1a0121ddf9b3fe9e132}{vf}},\ \textcolor{keywordtype}{double}\ vi,\ \textcolor{keywordtype}{double}\ s);}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00306\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classsquiggles_1_1_spline_generator_abba5aa10a5f0af89062cc966293d4e1c}{K\_EPSILON}}\ =\ 1e-\/5;}
+\DoxyCodeLine{00307\ \};}
+\DoxyCodeLine{00308\ \}\ \textcolor{comment}{//\ namespace\ squiggles}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

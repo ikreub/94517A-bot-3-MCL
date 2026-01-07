@@ -1,0 +1,219 @@
+\doxysection{pros::\+v5::\+Motor Class Reference}
+\hypertarget{classpros_1_1v5_1_1_motor}{}\label{classpros_1_1v5_1_1_motor}\index{pros::v5::Motor@{pros::v5::Motor}}
+
+
+Inherits \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}, and \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a}{Motor}} (const std::\+int8\+\_\+t port, const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{pros::\+v5::\+\+Motor\+Gears}} gearset=pros::\+v5::\+\+Motor\+Gears::\+invalid, const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{pros::\+v5::\+\+Motor\+Units}} encoder\+\_\+units=pros::\+v5::\+\+Motor\+Units::\+invalid)
+\item 
+{\bfseries Motor} (const \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} \&device)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Motor movement functions}\par
+{\em These functions allow programmers to make motors move }\begin{DoxyCompactItemize}
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga73c3d1ed05efeee76ba13ab4236aa26f}{move}} (std::\+int32\+\_\+t voltage) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gacc8345014ebfae0936bb175ca315f378}{move\+\_\+absolute}} (const double position, const std::\+int32\+\_\+t velocity) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga6e9b21dfbd6d6065f56615351589540b}{move\+\_\+relative}} (const double position, const std::\+int32\+\_\+t velocity) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gab4e59fa2f764f6b54a0343e799dbb381}{move\+\_\+velocity}} (const std::\+int32\+\_\+t velocity) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga8b51645eff3c373926152976826944dc}{move\+\_\+voltage}} (const std::\+int32\+\_\+t voltage) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga1bba4ab70560af1e4e98e373f79dd5c8}{brake}} (void) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga90153729de78b74e23d59cfdf2fcdead}{modify\+\_\+profiled\+\_\+velocity}} (const std::\+int32\+\_\+t velocity) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Motor telemetry functions}\par
+{\em These functions allow programmers to collect telemetry from motors }\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga924a787549945a4cc27dcebc3b8c078f}{get\+\_\+target\+\_\+position}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga48ee6d108706749a3ed9a17276e92d5c}{get\+\_\+target\+\_\+velocity}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_gac11cfa395c7cb1895adb2f269513762a}{get\+\_\+actual\+\_\+velocity}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaf4fd828e65850413f8c1f2e0044f4fb4}{get\+\_\+current\+\_\+draw}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga95b22eb681685034e181628d21492324}{get\+\_\+direction}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga9fbe92c743f3c2e9f0829108fc3744ed}{get\+\_\+efficiency}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+uint32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaf47e03332fe5f2832e4a9254de7cc73a}{get\+\_\+faults}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+uint32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga29a0f5d145a9878c8ae607659b468cfb}{get\+\_\+flags}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_gaf7ad2ce04c707f8b9546f99e21f44d73}{get\+\_\+position}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_gad2a9349eeba882e234ae9fdd788a13b3}{get\+\_\+power}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga24e7c37e75126a7c26ea92ba1e54e3f5}{get\+\_\+raw\+\_\+position}} (std::\+uint32\+\_\+t \texorpdfstring{$\ast$}{*}const timestamp, const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga83f44378bb40f4bf868982df837d1680}{get\+\_\+temperature}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga579944bc16904e46b4992b9021edf6c6}{get\+\_\+torque}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaf9bf5ad44d6a6d2212ca69b9226e5793}{get\+\_\+voltage}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga2c1a1a3e77eca5080bf2703968258b53}{is\+\_\+over\+\_\+current}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga69381dc6326003da0fe87c33aa2352ee}{is\+\_\+over\+\_\+temp}} (const std::\+uint8\+\_\+t index=0) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Additional motor functions}\par
+{\em These functions allow for motors and motor groups to be used interchangeably }\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga727cc598acc2caa7790b56ef612aac47}{get\+\_\+target\+\_\+position\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_gaeafa3d747ff879cb468fd7bfbd8b6e4f}{get\+\_\+target\+\_\+velocity\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga3737662dff2536f8fb9a3dfdcb10840c}{get\+\_\+actual\+\_\+velocity\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga9de2541513957ce781c5c8ca0879777c}{get\+\_\+current\+\_\+draw\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga645330f28a1c874244f28730891f5dbe}{get\+\_\+direction\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_gaeb2d3024cee9aa5e037961a44a2b5911}{get\+\_\+efficiency\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+uint32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga2bc8d94717c378b1372fad1bdeac2f24}{get\+\_\+faults\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+uint32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga2f5686184d9363fa36a58397e85aab8a}{get\+\_\+flags\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga023ca0cad162b5083e57389d3557d7a6}{get\+\_\+position\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga646f71cd9718074ceebaed30fd823516}{get\+\_\+power\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga55b91871ad9f31cdac410675bddf8b3b}{get\+\_\+raw\+\_\+position\+\_\+all}} (std::\+uint32\+\_\+t \texorpdfstring{$\ast$}{*}const timestamp) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga70ead149e5040d5207050f0eee6e072a}{get\+\_\+temperature\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga41f1d25ac15a26ce7d0c8bb379a4ccd0}{get\+\_\+torque\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_gab504ec9ec6598f0c37cd6a3f0aad2b56}{get\+\_\+voltage\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga21f6957de6036ea796485d27aa9a4900}{is\+\_\+over\+\_\+current\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_gadf83a1157e3cc4ef65145a660ac8c0c2}{is\+\_\+over\+\_\+temp\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} $>$ \doxymbox{\hyperlink{group__cpp-motors_ga758a7f0b109dd3fa2debe02c580cb61f}{get\+\_\+brake\+\_\+mode\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga5c607ca01eabdeba5c6b3f1be6459f47}{get\+\_\+current\+\_\+limit\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} $>$ \doxymbox{\hyperlink{group__cpp-motors_gaeb81f949c2f821a36082b64e3a65130f}{get\+\_\+encoder\+\_\+units\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} $>$ \doxymbox{\hyperlink{group__cpp-motors_ga6f5d9411a27adc3b777320bab70390a5}{get\+\_\+gearing\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int8\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga0f034cb9e4132b3508ff4ce84ae96eb0}{get\+\_\+port\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga21f30c44dd7b517cb40ab5cc3fb1b65d}{get\+\_\+voltage\+\_\+limit\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga611d8ae7d96095498c3575e41a5d4984}{is\+\_\+reversed\+\_\+all}} (void) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae33e1f68baf93ccaf1dc063ebe42c8a2}{set\+\_\+brake\+\_\+mode\+\_\+all}} (const \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} mode) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga608d95d3d2b3d03944ba30774f63b164}{set\+\_\+brake\+\_\+mode\+\_\+all}} (const pros::\+motor\+\_\+brake\+\_\+mode\+\_\+e\+\_\+t mode) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga18bff592d6229a43f23e06d8923c00f0}{set\+\_\+current\+\_\+limit\+\_\+all}} (const std::\+int32\+\_\+t limit) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga28e859c3edb1a32ab807fec37e16bc2e}{set\+\_\+encoder\+\_\+units\+\_\+all}} (const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} units) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga748ca54df8a11278bd2163072dc3379f}{set\+\_\+encoder\+\_\+units\+\_\+all}} (const pros::\+motor\+\_\+encoder\+\_\+units\+\_\+e\+\_\+t units) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga6be8007efca4c4faa7622b9da7899f37}{set\+\_\+gearing\+\_\+all}} (const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} gearset) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga56a90e2693e962b9630d35d4023fc548}{set\+\_\+gearing\+\_\+all}} (const pros::\+motor\+\_\+gearset\+\_\+e\+\_\+t gearset) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga6c705be89b0c9af22710877030d8cd9c}{set\+\_\+reversed\+\_\+all}} (const bool reverse)
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga656af4c546675cecda942f56f427c85a}{set\+\_\+voltage\+\_\+limit\+\_\+all}} (const std::\+int32\+\_\+t limit) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga62d7601bcdeb1c2424cc58c5ec37d1d3}{set\+\_\+zero\+\_\+position\+\_\+all}} (const double position) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaa1a5efbd55cdea690cef2bab6891b97d}{tare\+\_\+position\+\_\+all}} (void) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} (const std::\+uint8\+\_\+t port)
+\item 
+std::\+uint8\+\_\+t \doxymbox{\hyperlink{group__cpp-device_ga59f09e1fcc8c968254ac974fc62ca9f3}{get\+\_\+port}} (void) const
+\item 
+virtual bool \doxymbox{\hyperlink{group__cpp-device_ga0892f3acccd6d80b480eaa1c27a58904}{is\+\_\+installed}} ()
+\item 
+pros::\+\+Device\+Type \doxymbox{\hyperlink{group__cpp-device_gaeffa975ad70ee4c29178f98a9574e37f}{get\+\_\+plugged\+\_\+type}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Motor configuration functions}
+These functions allow programmers to configure the behavior of motors \begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} \doxymbox{\hyperlink{group__cpp-motors_gab76ee6d29b0edfdd62f2f7079d7d70cd}{get\+\_\+brake\+\_\+mode}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae0b708e0976b3b0542b8fd753662f33a}{get\+\_\+current\+\_\+limit}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+\doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} \doxymbox{\hyperlink{group__cpp-motors_gaa361dbc6aeb7810b255b75493a74a905}{get\+\_\+encoder\+\_\+units}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+\doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} \doxymbox{\hyperlink{group__cpp-motors_ga7708eccb7adeb58941f1aa34f8c8c876}{get\+\_\+gearing}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga219a52f874ad570bb8755be8e72bae8d}{get\+\_\+voltage\+\_\+limit}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae58e0ba260104982fdb9583139ba0609}{is\+\_\+reversed}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gacb8d2f518f2788bb05cb714534491458}{set\+\_\+brake\+\_\+mode}} (const \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} mode, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga3c80c84f6319d0b096b52a2ea10bd0b6}{set\+\_\+brake\+\_\+mode}} (const pros::\+motor\+\_\+brake\+\_\+mode\+\_\+e\+\_\+t mode, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gac36974069ae8581a9944a439c8e3fa92}{set\+\_\+current\+\_\+limit}} (const std::\+int32\+\_\+t limit, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga694102afd4c591c0d94dad5efbe7bea3}{set\+\_\+encoder\+\_\+units}} (const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} units, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gab7ba616a29ea7f511cc0f0cb226e448f}{set\+\_\+encoder\+\_\+units}} (const pros::\+motor\+\_\+encoder\+\_\+units\+\_\+e\+\_\+t units, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaa29f7c743af261895a91562bd746aa0f}{set\+\_\+gearing}} (const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} gearset, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gafc40159400f09f8aa44b5db420d64376}{set\+\_\+gearing}} (const pros::\+motor\+\_\+gearset\+\_\+e\+\_\+t gearset, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaa18f4304efd9d681edf1196347ce0e7b}{set\+\_\+reversed}} (const bool reverse, const std::\+uint8\+\_\+t index=0)
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga91fcd566fe69325e9bfa232a9e3c46ae}{set\+\_\+voltage\+\_\+limit}} (const std::\+int32\+\_\+t limit, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga99595f4b9744d8ca6f3949ec10a01c3c}{set\+\_\+zero\+\_\+position}} (const double position, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gabc3147bc4c20cd07d35fed30c6badd9f}{tare\+\_\+position}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int8\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga0ece07fb8db217583926b601194f20a6}{size}} (void) const
+\item 
+std::\+int8\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae5a5b32625e0e12d863b7f61faefdaf2}{get\+\_\+port}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+static std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a}{Motor}} $>$ \doxymbox{\hyperlink{group__cpp-motors_gacb54fb8189a13f0e4c565eff910d4970}{get\+\_\+all\+\_\+devices}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+static pros::\+\+Device\+Type \doxymbox{\hyperlink{group__cpp-device_ga3c9d8a819e1df454c2d49ce650da601c}{get\+\_\+plugged\+\_\+type}} (std::\+uint8\+\_\+t port)
+\item 
+static std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} $>$ \doxymbox{\hyperlink{group__cpp-device_gadb201bf26ef5f5dd058179d710487555}{get\+\_\+all\+\_\+devices}} (pros::\+\+Device\+Type device\+\_\+type=\doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a5e543256c480ac577d30f76f9120eb74}{pros::\+\+Device\+Type::\+undefined}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-device_gac7714863c8869903d5ab8877f6289cd7}{Device}} (const std::\+uint8\+\_\+t port, const enum \doxymbox{\hyperlink{group__cpp-device_ga0a7387ba6156c831ba1e61d75a04c3d9}{Device\+Type}} device\+Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+const std::\+uint8\+\_\+t {\bfseries \+\_\+port}
+\item 
+enum \doxymbox{\hyperlink{group__cpp-device_ga0a7387ba6156c831ba1e61d75a04c3d9}{Device\+Type}} {\bfseries \+\_\+device\+Type} = \doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a334c4a4c42fdb79d7ebc3e73b517e6f8}{pros::\+\+Device\+Type::\+none}}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+pros/\+\doxymbox{\hyperlink{motors_8hpp}{motors.\+hpp}}\end{DoxyCompactItemize}

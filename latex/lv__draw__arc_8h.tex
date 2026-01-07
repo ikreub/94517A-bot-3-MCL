@@ -1,0 +1,76 @@
+\doxysection{include/\+liblvgl/\+draw/\+lv\+\_\+draw\+\_\+arc.h File Reference}
+\hypertarget{lv__draw__arc_8h}{}\label{lv__draw__arc_8h}\index{include/liblvgl/draw/lv\_draw\_arc.h@{include/liblvgl/draw/lv\_draw\_arc.h}}
+{\ttfamily \+\#include "{}liblvgl/\+lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+style.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__arc_8h_af04c786eb64c0fc08f922818ae44ca55}\label{lv__draw__arc_8h_af04c786eb64c0fc08f922818ae44ca55} 
+void {\bfseries lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+init} (\doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \doxymbox{\hyperlink{lv__draw__arc_8h_abea9335e5dfdff9ff1f1d0798529a9a6}{lv\+\_\+draw\+\_\+arc}} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}center, uint16\+\_\+t radius, uint16\+\_\+t start\+\_\+angle, uint16\+\_\+t end\+\_\+angle)
+\item 
+void \doxymbox{\hyperlink{lv__draw__arc_8h_a7fdb2623d9494ebbe1daa1a69ab1aab7}{lv\+\_\+draw\+\_\+arc\+\_\+get\+\_\+area}} (lv\+\_\+coord\+\_\+t x, lv\+\_\+coord\+\_\+t y, uint16\+\_\+t radius, uint16\+\_\+t start\+\_\+angle, uint16\+\_\+t end\+\_\+angle, lv\+\_\+coord\+\_\+t w, bool rounded, \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__draw__arc_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__draw__arc_8h_abea9335e5dfdff9ff1f1d0798529a9a6}\index{lv\_draw\_arc.h@{lv\_draw\_arc.h}!lv\_draw\_arc@{lv\_draw\_arc}}
+\index{lv\_draw\_arc@{lv\_draw\_arc}!lv\_draw\_arc.h@{lv\_draw\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_arc()}{lv\_draw\_arc()}}
+{\footnotesize\ttfamily \label{lv__draw__arc_8h_abea9335e5dfdff9ff1f1d0798529a9a6} 
+void lv\+\_\+draw\+\_\+arc (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+ctx}{, }\item[{const \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{center}{, }\item[{uint16\+\_\+t}]{radius}{, }\item[{uint16\+\_\+t}]{start\+\_\+angle}{, }\item[{uint16\+\_\+t}]{end\+\_\+angle}{}\end{DoxyParamCaption})}
+
+Draw an arc. (Can draw pie too with great thickness.) 
+\begin{DoxyParams}{Parameters}
+{\em center\+\_\+x} & the x coordinate of the center of the arc \\
+\hline
+{\em center\+\_\+y} & the y coordinate of the center of the arc \\
+\hline
+{\em radius} & the radius of the arc \\
+\hline
+{\em mask} & the arc will be drawn only in this mask \\
+\hline
+{\em start\+\_\+angle} & the start angle of the arc (0 deg on the bottom, 90 deg on the right) \\
+\hline
+{\em end\+\_\+angle} & the end angle of the arc \\
+\hline
+{\em clip\+\_\+area} & the arc will be drawn only in this area \\
+\hline
+{\em dsc} & pointer to an initialized {\ttfamily \doxylink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} variable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__arc_8h_a7fdb2623d9494ebbe1daa1a69ab1aab7}\index{lv\_draw\_arc.h@{lv\_draw\_arc.h}!lv\_draw\_arc\_get\_area@{lv\_draw\_arc\_get\_area}}
+\index{lv\_draw\_arc\_get\_area@{lv\_draw\_arc\_get\_area}!lv\_draw\_arc.h@{lv\_draw\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_arc\_get\_area()}{lv\_draw\_arc\_get\_area()}}
+{\footnotesize\ttfamily \label{lv__draw__arc_8h_a7fdb2623d9494ebbe1daa1a69ab1aab7} 
+void lv\+\_\+draw\+\_\+arc\+\_\+get\+\_\+area (\begin{DoxyParamCaption}\item[{lv\+\_\+coord\+\_\+t}]{x}{, }\item[{lv\+\_\+coord\+\_\+t}]{y}{, }\item[{uint16\+\_\+t}]{radius}{, }\item[{uint16\+\_\+t}]{start\+\_\+angle}{, }\item[{uint16\+\_\+t}]{end\+\_\+angle}{, }\item[{lv\+\_\+coord\+\_\+t}]{w}{, }\item[{bool}]{rounded}{, }\item[{\doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{area}{}\end{DoxyParamCaption})}
+
+Get an area the should be invalidated when the arcs angle changed between start\+\_\+angle and end\+\_\+ange 
+\begin{DoxyParams}{Parameters}
+{\em x} & the x coordinate of the center of the arc \\
+\hline
+{\em y} & the y coordinate of the center of the arc \\
+\hline
+{\em radius} & the radius of the arc \\
+\hline
+{\em start\+\_\+angle} & the start angle of the arc (0 deg on the bottom, 90 deg on the right) \\
+\hline
+{\em end\+\_\+angle} & the end angle of the arc \\
+\hline
+{\em w} & width of the arc \\
+\hline
+{\em rounded} & true:\+ the arc is rounded \\
+\hline
+{\em area} & store the area to invalidate here \\
+\hline
+\end{DoxyParams}

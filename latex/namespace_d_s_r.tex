@@ -1,0 +1,108 @@
+\doxysection{DSR Namespace Reference}
+\hypertarget{namespace_d_s_r}{}\label{namespace_d_s_r}\index{DSR@{DSR}}
+
+
+All functions in \doxylink{namespace_d_s_r}{DSR} that need to be accessible.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{namespace_d_s_r_a7af800f623cb0d8c63bc43721f59061f}{set\+\_\+sensors}} (std::\+vector$<$ \doxymbox{\hyperlink{class_d_s_r_d_s}{DSRDS}} \& $>$ \doxymbox{\hyperlink{namespace_d_s_r_a1d73402380031847f2bb6f1d449ba67d}{sensors}})
+\begin{DoxyCompactList}\small\item\em sets the list of sensors \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_d_s_r_ac0bf7973506f7460576c3be7a93a07a5}{add\+\_\+sensor}} (\doxymbox{\hyperlink{class_d_s_r_d_s}{DSRDS}} \&sensor)
+\begin{DoxyCompactList}\small\item\em add a sensor to the list \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_d_s_r_a80361ec1fda85f151cdbddd03bcd8f86}{reset\+\_\+tracking}} (Dir sensor\+X\+\_\+dir, Dir sensor\+Y\+\_\+dir, int sensor\+X\+\_\+specified=1, int sensor\+Y\+\_\+specified=1)
+\begin{DoxyCompactList}\small\item\em used in autonomous to reset the tracking values based on specified distance sensor readings. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{namespace_d_s_r_aee49789368c0c0a2cfc8955b3d646721}{measure\+\_\+offsets}} (int iterations)
+\begin{DoxyCompactList}\small\item\em measure offsets for all used sensors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespace_d_s_r_a1d73402380031847f2bb6f1d449ba67d}\label{namespace_d_s_r_a1d73402380031847f2bb6f1d449ba67d} 
+std::\+vector$<$ \doxymbox{\hyperlink{class_d_s_r_d_s}{DSRDS}} $>$ {\bfseries sensors} = \{\}
+\begin{DoxyCompactList}\small\item\em The list of sensors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+All functions in \doxylink{namespace_d_s_r}{DSR} that need to be accessible. 
+
+It has the ability to:\+ \begin{DoxyVerb}-Set all sensors
+
+-Add individual sensors
+
+-Reset odom tracking
+
+-Measure sensor offsets
+\end{DoxyVerb}
+ 
+
+\label{doc-func-members}
+\Hypertarget{namespace_d_s_r_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_d_s_r_ac0bf7973506f7460576c3be7a93a07a5}\index{DSR@{DSR}!add\_sensor@{add\_sensor}}
+\index{add\_sensor@{add\_sensor}!DSR@{DSR}}
+\doxysubsubsection{\texorpdfstring{add\_sensor()}{add\_sensor()}}
+{\footnotesize\ttfamily \label{namespace_d_s_r_ac0bf7973506f7460576c3be7a93a07a5} 
+void DSR::\+add\+\_\+sensor (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_d_s_r_d_s}{DSRDS}} \&}]{sensor}{}\end{DoxyParamCaption})}
+
+
+
+add a sensor to the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor} & the referenced sensor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespace_d_s_r_aee49789368c0c0a2cfc8955b3d646721}\index{DSR@{DSR}!measure\_offsets@{measure\_offsets}}
+\index{measure\_offsets@{measure\_offsets}!DSR@{DSR}}
+\doxysubsubsection{\texorpdfstring{measure\_offsets()}{measure\_offsets()}}
+{\footnotesize\ttfamily \label{namespace_d_s_r_aee49789368c0c0a2cfc8955b3d646721} 
+void DSR::\+measure\+\_\+offsets (\begin{DoxyParamCaption}\item[{int}]{iterations}{}\end{DoxyParamCaption})}
+
+
+
+measure offsets for all used sensors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em iterations} & the number of times to read each sensor for better accuracy\\
+\hline
+\end{DoxyParams}
+Put the bot against a wall facing the wall and run the auton. It will back up and tuen a bunch of times to measure the offsets of each sensor. \Hypertarget{namespace_d_s_r_a80361ec1fda85f151cdbddd03bcd8f86}\index{DSR@{DSR}!reset\_tracking@{reset\_tracking}}
+\index{reset\_tracking@{reset\_tracking}!DSR@{DSR}}
+\doxysubsubsection{\texorpdfstring{reset\_tracking()}{reset\_tracking()}}
+{\footnotesize\ttfamily \label{namespace_d_s_r_a80361ec1fda85f151cdbddd03bcd8f86} 
+void DSR::\+reset\+\_\+tracking (\begin{DoxyParamCaption}\item[{Dir}]{sensor\+X\+\_\+dir}{, }\item[{Dir}]{sensor\+Y\+\_\+dir}{, }\item[{int}]{sensor\+X\+\_\+specified}{ = {\ttfamily 1}, }\item[{int}]{sensor\+Y\+\_\+specified}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+used in autonomous to reset the tracking values based on specified distance sensor readings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensor\+X\+\_\+dir} & the direction of the sensor used for x tracking \\
+\hline
+{\em sensor\+Y\+\_\+dir} & the direction of the sensor used for y tracking \\
+\hline
+{\em sensor\+X\+\_\+specified} & the specific sensor used for x tracking (defaults to the first one mentioned) \\
+\hline
+{\em sensor\+Y\+\_\+specified} & the specific sensor used for y tracking (defaults to the first one mentioned) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespace_d_s_r_a7af800f623cb0d8c63bc43721f59061f}\index{DSR@{DSR}!set\_sensors@{set\_sensors}}
+\index{set\_sensors@{set\_sensors}!DSR@{DSR}}
+\doxysubsubsection{\texorpdfstring{set\_sensors()}{set\_sensors()}}
+{\footnotesize\ttfamily \label{namespace_d_s_r_a7af800f623cb0d8c63bc43721f59061f} 
+void DSR::\+set\+\_\+sensors (\begin{DoxyParamCaption}\item[{std::\+vector$<$ \doxymbox{\hyperlink{class_d_s_r_d_s}{DSRDS}} \& $>$}]{sensors}{}\end{DoxyParamCaption})}
+
+
+
+sets the list of sensors 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sensors} & the list of referenced sensors \\
+\hline
+\end{DoxyParams}

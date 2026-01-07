@@ -1,0 +1,214 @@
+.TH "include/liblvgl/hal/lv_hal_indev.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/hal/lv_hal_indev.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'liblvgl/misc/lv_area\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_timer\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlv_indev_data_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_indev_drv_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_indev_proc_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_indev_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_SCROLL_LIMIT\fP   10"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_SCROLL_THROW\fP   10"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_LONG_PRESS_TIME\fP   400"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_LONG_PRESS_REP_TIME\fP   100"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_GESTURE_LIMIT\fP   50"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DEF_GESTURE_MIN_VELOCITY\fP   3"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_lv_indev_drv_t\fP \fBlv_indev_drv_t\fP"
+.br
+.ti -1c
+.RI "typedef struct _lv_indev_proc_t \fB_lv_indev_proc_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_indev_t\fP \fBlv_indev_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlv_indev_type_t\fP { \fBLV_INDEV_TYPE_NONE\fP, \fBLV_INDEV_TYPE_POINTER\fP, \fBLV_INDEV_TYPE_KEYPAD\fP, \fBLV_INDEV_TYPE_BUTTON\fP, \fBLV_INDEV_TYPE_ENCODER\fP }"
+.br
+.ti -1c
+.RI "enum \fBlv_indev_state_t\fP { \fBLV_INDEV_STATE_RELEASED\fP = 0, \fBLV_INDEV_STATE_PRESSED\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlv_indev_drv_init\fP (struct \fB_lv_indev_drv_t\fP *driver)"
+.br
+.ti -1c
+.RI "\fBlv_indev_t\fP * \fBlv_indev_drv_register\fP (struct \fB_lv_indev_drv_t\fP *driver)"
+.br
+.ti -1c
+.RI "void \fBlv_indev_drv_update\fP (\fBlv_indev_t\fP *indev, struct \fB_lv_indev_drv_t\fP *new_drv)"
+.br
+.ti -1c
+.RI "void \fBlv_indev_delete\fP (\fBlv_indev_t\fP *indev)"
+.br
+.ti -1c
+.RI "\fBlv_indev_t\fP * \fBlv_indev_get_next\fP (\fBlv_indev_t\fP *indev)"
+.br
+.ti -1c
+.RI "void \fB_lv_indev_read\fP (\fBlv_indev_t\fP *indev, \fBlv_indev_data_t\fP *data)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+@description Input Device HAL interface layer header file 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _lv_indev_proc_t _lv_indev_proc_t"
+Run time data of input devices Internally used by the library, you should not need to touch it\&. 
+.SS "typedef struct \fB_lv_indev_drv_t\fP \fBlv_indev_drv_t\fP"
+Initialized by the user and registered by 'lv_indev_add()' 
+.SS "typedef struct \fB_lv_indev_t\fP \fBlv_indev_t\fP"
+The main input device descriptor with driver, runtime data ('proc') and some additional information 
+.PP
+\fBExamples\fP
+.in +1c
+\fBC:/Users/Leon/OneDrive/robotics/94517A\-bot\-3\-MCL/include/liblvgl/core/lv_event\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBlv_indev_state_t\fP"
+States for input devices 
+.SS "enum \fBlv_indev_type_t\fP"
+Possible input device types 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_INDEV_TYPE_NONE \fP
+Uninitialized state 
+.TP
+\f(BILV_INDEV_TYPE_POINTER \fP
+Touch pad, mouse, external button 
+.TP
+\f(BILV_INDEV_TYPE_KEYPAD \fP
+Keypad or keyboard 
+.TP
+\f(BILV_INDEV_TYPE_BUTTON \fP
+External (hardware button) which is assigned to a specific point of the screen 
+.TP
+\f(BILV_INDEV_TYPE_ENCODER \fP
+Encoder with only Left, Right turn and a Button 
+.SH "Function Documentation"
+.PP 
+.SS "void _lv_indev_read (\fBlv_indev_t\fP * indev, \fBlv_indev_data_t\fP * data)"
+Read data from an input device\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIindev\fP pointer to an input device 
+.br
+\fIdata\fP input device will write its data here 
+.RE
+.PP
+
+.SS "void lv_indev_delete (\fBlv_indev_t\fP * indev)"
+Remove the provided input device\&. Make sure not to use the provided input device afterwards anymore\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIindev\fP pointer to delete 
+.RE
+.PP
+
+.SS "void lv_indev_drv_init (struct \fB_lv_indev_drv_t\fP * driver)"
+Initialize an input device driver with default values\&. It is used to surely have known values in the fields and not memory junk\&. After it you can set the fields\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdriver\fP pointer to driver variable to initialize 
+.RE
+.PP
+
+.SS "\fBlv_indev_t\fP * lv_indev_drv_register (struct \fB_lv_indev_drv_t\fP * driver)"
+Register an initialized input device driver\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdriver\fP pointer to an initialized '\fBlv_indev_drv_t\fP' variable (can be local variable) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the new input device or NULL on error 
+.RE
+.PP
+
+.SS "void lv_indev_drv_update (\fBlv_indev_t\fP * indev, struct \fB_lv_indev_drv_t\fP * new_drv)"
+Update the driver in run time\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIindev\fP pointer to an input device\&. (return value of \fR\fBlv_indev_drv_register\fP\fP) 
+.br
+\fInew_drv\fP pointer to the new driver 
+.RE
+.PP
+
+.SS "\fBlv_indev_t\fP * lv_indev_get_next (\fBlv_indev_t\fP * indev)"
+Get the next input device\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIindev\fP pointer to the current input device\&. NULL to initialize\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the next input device or NULL if there are no more\&. Provide the first input device when the parameter is NULL 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

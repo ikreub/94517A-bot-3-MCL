@@ -1,0 +1,180 @@
+.TH "include/pros/rtos.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/rtos.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCURRENT_TASK\fP   ((\fBtask_t\fP)NULL)"
+.br
+.in -1c
+.PP
+.RI "\fBMacros\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBTASK_PRIORITY_MAX\fP   16"
+.br
+.ti -1c
+.RI "#define \fBTASK_PRIORITY_MIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTASK_PRIORITY_DEFAULT\fP   8"
+.br
+.ti -1c
+.RI "#define \fBTASK_STACK_DEPTH_DEFAULT\fP   0x2000"
+.br
+.ti -1c
+.RI "#define \fBTASK_STACK_DEPTH_MIN\fP   0x200"
+.br
+.ti -1c
+.RI "#define \fBTASK_NAME_MAX_LEN\fP   32"
+.br
+.ti -1c
+.RI "#define \fBTIMEOUT_MAX\fP   ((uint32_t)0xffffffffUL)"
+.br
+.in -1c
+.in -1c
+.SS "Typedefs"
+
+.PP
+.RI "\fBTypedefs\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "typedef void * \fBtask_t\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBtask_fn_t\fP) (void *)"
+.br
+.ti -1c
+.RI "typedef void * \fBmutex_t\fP"
+.br
+.in -1c
+.in -1c
+.SS "Enumerations"
+
+.PP
+.RI "\fBEnumerations\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "enum \fBtask_state_e_t\fP { \fBE_TASK_STATE_RUNNING\fP = 0, \fBE_TASK_STATE_READY\fP, \fBE_TASK_STATE_BLOCKED\fP, \fBE_TASK_STATE_SUSPENDED\fP, \fBE_TASK_STATE_DELETED\fP, \fBE_TASK_STATE_INVALID\fP }"
+.br
+.ti -1c
+.RI "enum \fBnotify_action_e_t\fP { \fBE_NOTIFY_ACTION_NONE\fP, \fBE_NOTIFY_ACTION_BITS\fP, \fBE_NOTIFY_ACTION_INCR\fP, \fBE_NOTIFY_ACTION_OWRITE\fP, \fBE_NOTIFY_ACTION_NO_OWRITE\fP }"
+.br
+.in -1c
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBmillis\fP (void)"
+.br
+.ti -1c
+.RI "uint64_t \fBmicros\fP (void)"
+.br
+.ti -1c
+.RI "\fBtask_t\fP \fBtask_create\fP (\fBtask_fn_t\fP function, void *const parameters, uint32_t prio, const uint16_t stack_depth, const char *const name)"
+.br
+.ti -1c
+.RI "void \fBtask_delete\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "void \fBtask_delay\fP (const uint32_t milliseconds)"
+.br
+.ti -1c
+.RI "void \fBdelay\fP (const uint32_t milliseconds)"
+.br
+.ti -1c
+.RI "void \fBtask_delay_until\fP (uint32_t *const prev_time, const uint32_t delta)"
+.br
+.ti -1c
+.RI "uint32_t \fBtask_get_priority\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "void \fBtask_set_priority\fP (\fBtask_t\fP task, uint32_t prio)"
+.br
+.ti -1c
+.RI "\fBtask_state_e_t\fP \fBtask_get_state\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "void \fBtask_suspend\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "void \fBtask_resume\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "uint32_t \fBtask_get_count\fP (void)"
+.br
+.ti -1c
+.RI "char * \fBtask_get_name\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "\fBtask_t\fP \fBtask_get_by_name\fP (const char *name)"
+.br
+.ti -1c
+.RI "\fBtask_t\fP \fBtask_get_current\fP ()"
+.br
+.ti -1c
+.RI "uint32_t \fBtask_notify\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "void \fBtask_join\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "uint32_t \fBtask_notify_ext\fP (\fBtask_t\fP task, uint32_t value, \fBnotify_action_e_t\fP action, uint32_t *prev_value)"
+.br
+.ti -1c
+.RI "uint32_t \fBtask_notify_take\fP (bool clear_on_exit, uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBtask_notify_clear\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "\fBmutex_t\fP \fBmutex_create\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBmutex_take\fP (\fBmutex_t\fP mutex, uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBmutex_give\fP (\fBmutex_t\fP mutex)"
+.br
+.ti -1c
+.RI "void \fBmutex_delete\fP (\fBmutex_t\fP mutex)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains declarations for the PROS RTOS kernel for use by typical VEX programmers\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&. All rights reserved\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

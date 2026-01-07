@@ -1,0 +1,72 @@
+.TH "include/liblvgl/draw/lv_img_cache.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/draw/lv_img_cache.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'lv_img_decoder\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_img_cache_entry_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB_lv_img_cache_entry_t\fP * \fB_lv_img_cache_open\fP (const void *src, lv_color_t color, int32_t frame_id)"
+.br
+.ti -1c
+.RI "void \fBlv_img_cache_set_size\fP (uint16_t new_slot_num)"
+.br
+.ti -1c
+.RI "void \fBlv_img_cache_invalidate_src\fP (const void *src)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "\fB_lv_img_cache_entry_t\fP * _lv_img_cache_open (const void * src, lv_color_t color, int32_t frame_id)"
+Open an image using the image decoder interface and cache it\&. The image will be left open meaning if the image decoder open callback allocated memory then it will remain\&. The image is closed if a new image is opened and the new image takes its place in the cache\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP source of the image\&. Path to file or pointer to an \fR\fBlv_img_dsc_t\fP\fP variable 
+.br
+\fIcolor\fP The color of the image with \fRLV_IMG_CF_ALPHA_\&.\&.\&.\fP 
+.br
+\fIframe_id\fP the index of the frame\&. Used only with animated images, set 0 for normal images 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the cache entry or NULL if can open the image 
+.RE
+.PP
+
+.SS "void lv_img_cache_invalidate_src (const void * src)"
+Invalidate an image source in the cache\&. Useful if the image source is updated therefore it needs to be cached again\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsrc\fP an image source path to a file or pointer to an \fR\fBlv_img_dsc_t\fP\fP variable\&. 
+.RE
+.PP
+
+.SS "void lv_img_cache_set_size (uint16_t new_slot_num)"
+Set the number of images to be cached\&. More cached images mean more opened image at same time which might mean more memory usage\&. E\&.g\&. if 20 PNG or JPG images are open in the RAM they consume memory while opened in the cache\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fInew_entry_cnt\fP number of image to cache 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

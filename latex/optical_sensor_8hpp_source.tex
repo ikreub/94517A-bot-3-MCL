@@ -1,0 +1,64 @@
+\doxysection{optical\+Sensor.\+hpp}
+\hypertarget{optical_sensor_8hpp_source}{}\label{optical_sensor_8hpp_source}\index{include/okapi/impl/device/opticalSensor.hpp@{include/okapi/impl/device/opticalSensor.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/controllerInput.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/filter/passthroughFilter.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{enum\ class}\ OpticalSensorOutput\ \{}
+\DoxyCodeLine{00015\ \ \ hue,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \ \ saturation,\ }
+\DoxyCodeLine{00017\ \ \ brightness\ \ }
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a1f7a1f6e671b504228cc18d807c54984}{OpticalSensor}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_controller_input}{ControllerInput}}<double>\ \{}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a1f7a1f6e671b504228cc18d807c54984}{OpticalSensor}}(std::uint8\_t\ iport,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ OpticalSensorOutput\ ioutput\ =\ OpticalSensorOutput::hue,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ idisableGestures\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<Filter>\ ifilter\ =\ std::make\_unique<PassthroughFilter>());}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a1f7a1f6e671b504228cc18d807c54984}{\string~OpticalSensor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ab2991c6035f0bcdf4aa411ab50a5fe6f}{get}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a38bc1d6af3146d2f861999fe19499718}{getHue}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a5f258946dc01cc980ce9120c068797ce}{getBrightness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a3ab8069f903227f3b8caacde42616d02}{getSaturation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \ \ int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ab263e8901c03b42689647014848f267c}{getLedPWM}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a4afe032f06720560768afc25b818a564}{setLedPWM}}(std::uint8\_t\ ivalue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_adccbc413af8f6f5c6791d9fc487414a4}{getProximity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00104\ \ \ pros::c::optical\_rgb\_s\_t\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ac927b353f819cd88cf7e26fb01f505fe}{getRGB}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a0fc24da8154265d53064909a83af75ff}{controllerGet}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_aeaf5067360016d5185002381a4762e52}{enableGestures}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ \ \ int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ae1fce3fe4113b583b3c45feef2e126a5}{disableGestures}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00131\ \ \ std::uint8\_t\ port;}
+\DoxyCodeLine{00132\ \ \ OpticalSensorOutput\ output;}
+\DoxyCodeLine{00133\ \ \ std::unique\_ptr<Filter>\ filter;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a0b9a599c904bf82a5ef152b33460e08e}{getSelectedOutput}}();}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

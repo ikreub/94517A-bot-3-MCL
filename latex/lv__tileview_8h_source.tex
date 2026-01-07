@@ -1,0 +1,70 @@
+\doxysection{lv\+\_\+tileview.\+h}
+\hypertarget{lv__tileview_8h_source}{}\label{lv__tileview_8h_source}\index{include/liblvgl/extra/widgets/tileview/lv\_tileview.h@{include/liblvgl/extra/widgets/tileview/lv\_tileview.h}}
+\doxymbox{\hyperlink{lv__tileview_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_TILEVIEW\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_TILEVIEW\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__obj_8h}{liblvgl/core/lv\_obj.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_TILEVIEW}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ lv\_obj\_t\ obj;}
+\DoxyCodeLine{00029\ \ \ \ \ lv\_obj\_t\ *\ tile\_act;}
+\DoxyCodeLine{00030\ \}\ lv\_tileview\_t;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ lv\_obj\_t\ obj;}
+\DoxyCodeLine{00034\ \ \ \ \ lv\_dir\_t\ dir;}
+\DoxyCodeLine{00035\ \}\ lv\_tileview\_tile\_t;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_tileview\_class;}
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_tileview\_tile\_class;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ lv\_obj\_t\ *\ lv\_tileview\_create(lv\_obj\_t\ *\ parent);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ lv\_obj\_t\ *\ lv\_tileview\_add\_tile(lv\_obj\_t\ *\ tv,\ uint8\_t\ col\_id,\ uint8\_t\ row\_id,\ lv\_dir\_t\ dir);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_tile(lv\_obj\_t\ *\ tv,\ lv\_obj\_t\ *\ tile\_obj,\ \doxymbox{\hyperlink{lv__anim_8h_a1ba9d18fd18b8c83da1f058155b43a71}{lv\_anim\_enable\_t}}\ anim\_en);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_tile\_id(lv\_obj\_t\ *\ tv,\ uint32\_t\ col\_id,\ uint32\_t\ row\_id,\ \doxymbox{\hyperlink{lv__anim_8h_a1ba9d18fd18b8c83da1f058155b43a71}{lv\_anim\_enable\_t}}\ anim\_en);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ lv\_obj\_t\ *\ lv\_tileview\_get\_tile\_act(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ Other\ functions}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TILEVIEW*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00069\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TILEVIEW\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

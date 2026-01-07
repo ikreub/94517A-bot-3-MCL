@@ -1,0 +1,2634 @@
+.TH "cpp-motors" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-motors \- Motors C++ API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBmotors\&.hpp\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::Motor::Motor\fP (const std::int8_t port, const \fBpros::v5::MotorGears\fP gearset=pros::v5::MotorGears::invalid, const \fBpros::v5::MotorUnits\fP encoder_units=pros::v5::MotorUnits::invalid)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Motor::Motor\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "const \fBpros::Motor\fP \fBpros::v5::literals::operator''_mtr\fP (const unsigned long long int m)"
+.br
+.ti -1c
+.RI "const \fBpros::Motor\fP \fBpros::v5::literals::operator''_rmtr\fP (const unsigned long long int m)"
+.br
+.in -1c
+.SS "Motor movement functions"
+These functions allow programmers to make motors move 
+.in +1c
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::move\fP (std::int32_t voltage) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::move_absolute\fP (const double position, const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::move_relative\fP (const double position, const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::move_velocity\fP (const std::int32_t velocity) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::move_voltage\fP (const std::int32_t voltage) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::brake\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::modify_profiled_velocity\fP (const std::int32_t velocity) const"
+.br
+.in -1c
+.SS "Motor telemetry functions"
+These functions allow programmers to collect telemetry from motors 
+.in +1c
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_target_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_target_velocity\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_actual_velocity\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_current_draw\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_direction\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_efficiency\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::v5::Motor::get_faults\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::v5::Motor::get_flags\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_power\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_raw_position\fP (std::uint32_t *const timestamp, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_temperature\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "double \fBpros::v5::Motor::get_torque\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_voltage\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::is_over_current\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::is_over_temp\fP (const std::uint8_t index=0) const"
+.br
+.in -1c
+.SS "Motor configuration functions"
+These functions allow programmers to configure the behavior of motors 
+.in +1c
+.ti -1c
+.RI "\fBMotorBrake\fP \fBpros::v5::Motor::get_brake_mode\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_current_limit\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "\fBMotorUnits\fP \fBpros::v5::Motor::get_encoder_units\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "\fBMotorGears\fP \fBpros::v5::Motor::get_gearing\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::get_voltage_limit\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::is_reversed\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_brake_mode\fP (const \fBMotorBrake\fP mode, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_brake_mode\fP (const pros::motor_brake_mode_e_t mode, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_current_limit\fP (const std::int32_t limit, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_encoder_units\fP (const \fBMotorUnits\fP units, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_encoder_units\fP (const pros::motor_encoder_units_e_t units, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_gearing\fP (const \fBMotorGears\fP gearset, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_gearing\fP (const pros::motor_gearset_e_t gearset, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_reversed\fP (const bool reverse, const std::uint8_t index=0)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_voltage_limit\fP (const std::int32_t limit, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_zero_position\fP (const double position, const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::tare_position\fP (const std::uint8_t index=0) const"
+.br
+.ti -1c
+.RI "std::int8_t \fBpros::v5::Motor::size\fP (void) const"
+.br
+.ti -1c
+.RI "static std::vector< \fBMotor\fP > \fBpros::v5::Motor::get_all_devices\fP ()"
+.br
+.ti -1c
+.RI "std::int8_t \fBpros::v5::Motor::get_port\fP (const std::uint8_t index=0) const"
+.br
+.in -1c
+.SS "Additional motor functions"
+These functions allow for motors and motor groups to be used interchangeably 
+.in +1c
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_target_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_target_velocity_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_actual_velocity_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_current_draw_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_direction_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_efficiency_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::uint32_t > \fBpros::v5::Motor::get_faults_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::uint32_t > \fBpros::v5::Motor::get_flags_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_position_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_power_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_raw_position_all\fP (std::uint32_t *const timestamp) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_temperature_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< double > \fBpros::v5::Motor::get_torque_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_voltage_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::is_over_current_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::is_over_temp_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorBrake\fP > \fBpros::v5::Motor::get_brake_mode_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_current_limit_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorUnits\fP > \fBpros::v5::Motor::get_encoder_units_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< \fBMotorGears\fP > \fBpros::v5::Motor::get_gearing_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int8_t > \fBpros::v5::Motor::get_port_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::get_voltage_limit_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::vector< std::int32_t > \fBpros::v5::Motor::is_reversed_all\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_brake_mode_all\fP (const \fBMotorBrake\fP mode) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_brake_mode_all\fP (const pros::motor_brake_mode_e_t mode) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_current_limit_all\fP (const std::int32_t limit) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_encoder_units_all\fP (const \fBMotorUnits\fP units) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_encoder_units_all\fP (const pros::motor_encoder_units_e_t units) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_gearing_all\fP (const \fBMotorGears\fP gearset) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_gearing_all\fP (const pros::motor_gearset_e_t gearset) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_reversed_all\fP (const bool reverse)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_voltage_limit_all\fP (const std::int32_t limit) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::set_zero_position_all\fP (const double position) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Motor::tare_position_all\fP (void) const"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBNote\fP
+.RS 4
+Additional example code for this module can be found in its \fBTutorial\fP\&.
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "std::int32_t pros::v5::Motor::brake (void ) const\fR [virtual]\fP"
+Stops the motor using the currently configured brake mode\&.
+
+.PP
+This function sets motor velocity to zero, which will cause it to act according to the set brake mode\&. If brake mode is set to MOTOR_BRAKE_HOLD, this function may behave differently than calling move_absolute(0) or motor_move_relative(0)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_actual_velocity (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the actual velocity of the motor\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's actual velocity in RPM or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_actual_velocity_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the actual velocity commanded of the motor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's actual velocity in RPM or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotor\fP > pros::v5::Motor::get_all_devices ()\fR [static]\fP"
+Gets all motors\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of \fBMotor\fP objects\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBMotorBrake\fP pros::v5::Motor::get_brake_mode (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the brake mode that was set for the motor\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBMotorBrake\fP, according to what was set for the motor, or E_MOTOR_BRAKE_INVALID if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotorBrake\fP > pros::v5::Motor::get_brake_mode_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the brake mode that was set for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+One of Motor_Brake, according to what was set for the motor, or E_MOTOR_BRAKE_INVALID if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_current_draw (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the current drawn by the motor in mA\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_current_draw_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the current drawn by the motor in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's current in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_current_limit (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the current limit for the motor in mA\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current limit in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_current_limit_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the current limit for the motor in mA\&.
+
+.PP
+The default value is 2500 mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's current limit in mA or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_direction (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the direction of movement for the motor\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 for moving in the positive direction, -1 for moving in the negative direction, and PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_direction_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the direction of movement for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing 1 for moving in the positive direction, -1 for moving in the negative direction, and PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_efficiency (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the efficiency of the motor in percent\&.
+
+.PP
+An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's efficiency in percent or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_efficiency_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the efficiency of the motor in percent\&.
+
+.PP
+An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing The motor's efficiency in percent or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "\fBMotorUnits\fP pros::v5::Motor::get_encoder_units (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the encoder units that were set for the motor\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+One of MotorUnits according to what is set for the motor or E_MOTOR_ENCODER_INVALID if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotorUnits\fP > pros::v5::Motor::get_encoder_units_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the encoder units that were set for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing One of Motor_Units according to what is set for the motor or E_MOTOR_ENCODER_INVALID if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::uint32_t pros::v5::Motor::get_faults (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the faults experienced by the motor\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_fault_e_t\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's faults\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::uint32_t > pros::v5::Motor::get_faults_all (void ) const\fR [virtual]\fP"
+Gets a vector of the faults experienced by the motor\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_fault_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's faults\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::uint32_t pros::v5::Motor::get_flags (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the flags set by the motor's operation\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_flag_e_t\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's flags\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::uint32_t > pros::v5::Motor::get_flags_all (void ) const\fR [virtual]\fP"
+Gets a vector of the flags set by the motor's operation\&.
+
+.PP
+Compare this bitfield to the bitmasks in pros::motor_flag_e_t\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A bitfield containing the motor's flags\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "\fBMotorGears\fP pros::v5::Motor::get_gearing (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the gearset that was set for the motor\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBMotorGears\fP according to what is set for the motor, or \fBpros::MotorGears::invalid\fP if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< \fBMotorGears\fP > pros::v5::Motor::get_gearing_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the gearset that was set for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing one of Motor_Gears according to what is set for the motor, or pros::Motor_Gears::invalid if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int8_t pros::v5::Motor::get_port (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+gets the port number of the motor
+
+.PP
+\fBReturns\fP
+.RS 4
+The signed port of the motor\&. (negative if the motor is reversed) 
+.RE
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int8_t > pros::v5::Motor::get_port_all (void ) const\fR [virtual]\fP"
+Gets returns a vector with all the port numbers in the motor group\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the signed port of the motor\&. (negative if the motor is reversed) 
+.RE
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_position (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the absolute position of the motor in its encoder units\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's absolute position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_position_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the absolute position of the motor in its encoder units\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's absolute position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_power (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the power drawn by the motor in Watts\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's power draw in Watts or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_power_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the power drawn by the motor in Watts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's power draw in Watts or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_raw_position (std::uint32_t *const timestamp, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the raw encoder count of the motor at a given timestamp\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimestamp\fP A pointer to a time in milliseconds for which the encoder count will be returned\&. If NULL, the timestamp at which the encoder count was read will not be supplied
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The raw encoder count at the given timestamp or PROS_ERR if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_raw_position_all (std::uint32_t *const timestamp) const\fR [virtual]\fP"
+Gets a vector of the raw encoder count of the motor at a given timestamp\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimestamp\fP A pointer to a time in milliseconds for which the encoder count will be returned\&. If NULL, the timestamp at which the encoder count was read will not be supplied
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the raw encoder count at the given timestamp or PROS_ERR if the operation failed\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_target_position (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the target position set for the motor by the user
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The target position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_target_position_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the target position set for the motor by the user
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the target position in its encoder units or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_target_velocity (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the velocity commanded to the motor by the user at the index specified\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_target_velocity_all (void ) const\fR [virtual]\fP"
+Gets a vector containing the velocity commanded to the motor by the user
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_temperature (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the temperature of the motor in degrees Celsius\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's temperature in degrees Celsius or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_temperature_all (void ) const\fR [virtual]\fP"
+Gets a vector of the temperature of the motor in degrees Celsius\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector contaioning the motor's temperature in degrees Celsius or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "double pros::v5::Motor::get_torque (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the torque generated by the motor in Newton Meters (Nm)\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's torque in Nm or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< double > pros::v5::Motor::get_torque_all (void ) const\fR [virtual]\fP"
+Gets a vector of the torque generated by the motor in Newton Meters (Nm)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's torque in Nm or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_voltage (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the voltage delivered to the motor in millivolts\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The motor's voltage in mV or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_voltage_all (void ) const\fR [virtual]\fP"
+Gets a vector of the voltage delivered to the motor in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of the motor's voltage in mV or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::get_voltage_limit (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the voltage limit set by the user\&.
+
+.PP
+Default value is 0V, which means that there is no software limitation imposed on the voltage\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::get_voltage_limit_all (void ) const\fR [virtual]\fP"
+Gets a vector of the voltage limit set by the user\&.
+
+.PP
+Default value is 0V, which means that there is no software limitation imposed on the voltage\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing the motor's voltage limit in V or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::is_over_current (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Checks if the motor is drawing over its current limit\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::is_over_current_all (void ) const\fR [virtual]\fP"
+Checks if the motor is drawing over its current limit\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing 1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::is_over_temp (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets the temperature limit flag for the motor\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the temperature limit is exceeded and 0 if the temperature is below the limit, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::is_over_temp_all (void ) const\fR [virtual]\fP"
+Gets the temperature limit flag for the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing 1 if the temperature limit is exceeded and 0 if the temperature is below the limit, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::is_reversed (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Gets whether the motor is reversed or not
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor has been reversed and 0 if the motor was not reversed, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::vector< std::int32_t > pros::v5::Motor::is_reversed_all (void ) const\fR [virtual]\fP"
+Gets a vector containg whether the motor is reversed or not
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector containing 1 if the motor has been reversed and 0 if the motor was not reversed, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::modify_profiled_velocity (const std::int32_t velocity) const\fR [virtual]\fP"
+Changes the output velocity for a profiled movement (motor_move_absolute or motor_move_relative)\&. This will have no effect if the motor is not following a profiled movement\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvelocity\fP The new motor velocity from +-100, +-200, or +-600 depending on the motor's gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "pros::v5::Motor::Motor (const std::int8_t port, const \fBpros::v5::MotorGears\fP gearset = \fRpros::v5::MotorGears::invalid\fP, const \fBpros::v5::MotorUnits\fP encoder_units = \fRpros::v5::MotorUnits::invalid\fP)"
+Constructs a new \fBMotor\fP object\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports |1-21|\&. ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1 to 21, or from -21 to -1 for reversed motors\&. A reversed motor will reverse the input or output movement functions and movement related telemetry in order to produce consistant behavior with non-reversed motors
+.br
+\fIgearset\fP = pros::v5::MotorGears::green Optional parameter for the gearset for the motor\&. Does not explicitly set the gearset if not specified or if the gearset is invalid
+.br
+\fIencoder_units\fP = pros::v5::MotorUnits::degrees Optional parameter for the encoder units of the motor Does not explicitly set the gearset if not specified or if the gearset is invalid
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Motor::move (std::int32_t voltage) const\fR [virtual]\fP"
+Sets the voltage for the motor from -127 to 127\&.
+
+.PP
+This is designed to map easily to the input from the controller's analog stick for simple opcontrol use\&. The actual behavior of the motor is analogous to use of \fBmotor_move()\fP\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoltage\fP The new motor voltage from -127 to 127
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::move_absolute (const double position, const std::int32_t velocity) const\fR [virtual]\fP"
+Sets the target absolute position for the motor to move to\&.
+
+.PP
+This movement is relative to the position of the motor when initialized or the position when it was most recently reset with \fBpros::Motor::set_zero_position()\fP\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The absolute position to move to in the motor's encoder units 
+.br
+\fIvelocity\fP The maximum allowable velocity for the movement in RPM
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::move_relative (const double position, const std::int32_t velocity) const\fR [virtual]\fP"
+Sets the relative target position for the motor to move to\&.
+
+.PP
+This movement is relative to the current position of the motor as given in pros::Motor::motor_get_position()\&. Providing 10\&.0 as the position parameter would result in the motor moving clockwise 10 units (counter clockwise if reversed), no matter what the current position is\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The relative position to move to in the motor's encoder units 
+.br
+\fIvelocity\fP The maximum allowable velocity for the movement in RPM
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::move_velocity (const std::int32_t velocity) const\fR [virtual]\fP"
+Sets the velocity for the motor\&.
+
+.PP
+This velocity corresponds to different actual speeds depending on the gearset used for the motor\&. This results in a range of +-100 for E_MOTOR_GEARSET_36, +-200 for E_MOTOR_GEARSET_18, and +-600 for E_MOTOR_GEARSET_6\&. The velocity is held with PID to ensure consistent speed, as opposed to setting the motor's voltage\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvelocity\fP The new motor velocity from -+-100, +-200, or +-600 depending on the motor's gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::move_voltage (const std::int32_t voltage) const\fR [virtual]\fP"
+Sets the output voltage for the motor from -12000 to 12000 in millivolts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIvoltage\fP The new voltage value from -12000 to 12000
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "const \fBpros::Motor\fP pros::v5::literals::operator''_mtr (const unsigned long long int m)"
+Constructs a \fBMotor\fP from a literal ending in _mtr
+
+.PP
+\fBReturns\fP
+.RS 4
+a \fBpros::Motor\fP for the corresponding port
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "const \fBpros::Motor\fP pros::v5::literals::operator''_rmtr (const unsigned long long int m)"
+Constructs a reversed \fBMotor\fP from a literal ending in _rmtr
+
+.PP
+\fBReturns\fP
+.RS 4
+a \fBpros::Motor\fP for the corresponding port that is reversed
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Motor::set_brake_mode (const \fBMotorBrake\fP mode, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of Motor_Brake to the motor\&. 
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The \fBMotorBrake\fP to set for the motor
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_brake_mode (const pros::motor_brake_mode_e_t mode, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of \fBMotorBrake\fP to the motor\&. 
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The \fBMotorBrake\fP to set for the motor
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_brake_mode_all (const \fBMotorBrake\fP mode) const\fR [virtual]\fP"
+Sets one of Motor_Brake to the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The Motor_Brake to set for the motor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_brake_mode_all (const pros::motor_brake_mode_e_t mode) const\fR [virtual]\fP"
+Sets one of Motor_Brake to the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImode\fP The Motor_Brake to set for the motor
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_current_limit (const std::int32_t limit, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the current limit for the motor in mA\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new current limit in mA
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_current_limit_all (const std::int32_t limit) const\fR [virtual]\fP"
+Sets the current limit for the motor in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new current limit in mA
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_encoder_units (const \fBMotorUnits\fP units, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of MotorUnits for the motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_encoder_units (const pros::motor_encoder_units_e_t units, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of MotorUnits for the motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+.IP "\(bu" 2
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_encoder_units_all (const \fBMotorUnits\fP units) const\fR [virtual]\fP"
+Sets one of Motor_Units for the motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+.IP "\(bu" 2
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_encoder_units_all (const pros::motor_encoder_units_e_t units) const\fR [virtual]\fP"
+Sets one of Motor_Units for the motor encoder\&. Works with the C enum and the C++ enum class\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIunits\fP The new motor encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_gearing (const \fBMotorGears\fP gearset, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for the motor\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index 
+.br
+\fIgearset\fP The new motor gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_gearing (const pros::motor_gearset_e_t gearset, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for the motor\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new motor gearset
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_gearing_all (const \fBMotorGears\fP gearset) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for the motor\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new motor gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_gearing_all (const pros::motor_gearset_e_t gearset) const\fR [virtual]\fP"
+Sets one of the gear cartridge (red, green, blue) for the motor\&. Usable with the C++ enum class and the C enum\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIgearset\fP The new motor gearset
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_reversed (const bool reverse, const std::uint8_t index = \fR0\fP)\fR [virtual]\fP"
+Sets the reverse flag for the motor\&.
+
+.PP
+This will invert its movements and the values returned for its position\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIreverse\fP True reverses the motor, false is default direction
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_reversed_all (const bool reverse)\fR [virtual]\fP"
+Sets the reverse flag for the motor\&.
+
+.PP
+This will invert its movements and the values returned for its position\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIreverse\fP True reverses the motor, false is default direction
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_voltage_limit (const std::int32_t limit, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the voltage limit for the motor in Volts\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new voltage limit in Volts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_voltage_limit_all (const std::int32_t limit) const\fR [virtual]\fP"
+Sets the voltage limit for the motor in Volts\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlimit\fP The new voltage limit in Volts
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_zero_position (const double position, const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the position for the motor in its encoder units\&.
+
+.PP
+This will be the future reference point for the motor's "absolute" position\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The new reference position in its encoder units
+.br
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::set_zero_position_all (const double position) const\fR [virtual]\fP"
+Sets the position for the motor in its encoder units\&.
+
+.PP
+This will be the future reference point for the motor's "absolute" position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The new reference position in its encoder units
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int8_t pros::v5::Motor::size (void ) const\fR [virtual]\fP"
+Gets the number of motors\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+Always returns 1 
+.RE
+.PP
+
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::tare_position (const std::uint8_t index = \fR0\fP) const\fR [virtual]\fP"
+Sets the "absolute" zero position of the motor to its current position\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This is one of many \fBMotor\fP functions that takes in an optional index parameter\&. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+.RE
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+ENODEV - The port cannot be configured as a motor
+
+.PP
+EOVERFLOW - The index is non 0
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP Optional parameter\&. The zero-indexed index of the motor to get the target position of\&. By default index is 0, and will return an error for a non-zero index
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SS "std::int32_t pros::v5::Motor::tare_position_all (void ) const\fR [virtual]\fP"
+Sets the "absolute" zero position of the motor to its current position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a motor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Implements \fBpros::v5::AbstractMotor\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

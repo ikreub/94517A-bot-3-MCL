@@ -1,0 +1,106 @@
+.TH "pros::rtos::MutexVar< Var >" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::rtos::MutexVar< Var >
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename\&.\&.\&. Args> \fBMutexVar\fP (Args &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "std::optional< \fBMutexVarLock\fP< Var > > \fBtry_lock\fP (std::uint32_t timeout)"
+.br
+.ti -1c
+.RI "template<typename Rep, typename Period> std::optional< \fBMutexVarLock\fP< Var > > \fBtry_lock\fP (const std::chrono::duration< Rep, Period > &rel_time)"
+.br
+.ti -1c
+.RI "\fBMutexVarLock\fP< Var > \fBlock\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename Var> template<typename\&.\&.\&. Args> \fBpros::rtos::MutexVar\fP< Var >::MutexVar (Args &&\&.\&.\&. args)\fR [inline]\fP"
+Creates a mutex-protected variable which is initialized with the given constructor arguments\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIargs\fP The arguments to provide to the Var constructor\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename Var> \fBMutexVarLock\fP< Var > \fBpros::rtos::MutexVar\fP< Var >::lock ()\fR [inline]\fP"
+Lock the mutex-protected variable, waiting indefinitely\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A \fBMutexVarLock\fP providing access to the protected variable\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "template<typename Var> template<typename Rep, typename Period> std::optional< \fBMutexVarLock\fP< Var > > \fBpros::rtos::MutexVar\fP< Var >::try_lock (const std::chrono::duration< Rep, Period > & rel_time)\fR [inline]\fP"
+Try to lock the mutex-protected variable\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP Time to wait before the mutex becomes available\&. A timeout of 0 can be used to poll the mutex\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A std::optional which contains a \fBMutexVarLock\fP providing access to the protected variable if locking is successful\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "template<typename Var> std::optional< \fBMutexVarLock\fP< Var > > \fBpros::rtos::MutexVar\fP< Var >::try_lock (std::uint32_t timeout)\fR [inline]\fP"
+Try to lock the mutex-protected variable\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP Time to wait before the mutex becomes available, in milliseconds\&. A timeout of 0 can be used to poll the mutex\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A std::optional which contains a \fBMutexVarLock\fP providing access to the protected variable if locking is successful\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

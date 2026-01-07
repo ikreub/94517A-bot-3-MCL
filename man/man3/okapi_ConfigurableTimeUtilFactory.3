@@ -1,0 +1,55 @@
+.TH "okapi::ConfigurableTimeUtilFactory" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ConfigurableTimeUtilFactory
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <configurableTimeUtilFactory\&.hpp>\fP
+.PP
+Inherits \fBokapi::TimeUtilFactory\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBConfigurableTimeUtilFactory\fP (double iatTargetError=50, double iatTargetDerivative=5, const QTime &iatTargetTime=250_ms)"
+.br
+.ti -1c
+.RI "\fBTimeUtil\fP \fBcreate\fP () override"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Static Public Member Functions inherited from \fBokapi::TimeUtilFactory\fP
+.in +1c
+.ti -1c
+.RI "static \fBTimeUtil\fP \fBcreateDefault\fP ()"
+.br
+.ti -1c
+.RI "static \fBTimeUtil\fP \fBwithSettledUtilParams\fP (double iatTargetError=50, double iatTargetDerivative=5, const QTime &iatTargetTime=250_ms)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A \fBTimeUtilFactory\fP that supplies the \fBSettledUtil\fP parameters passed in the constructor to every new \fBTimeUtil\fP instance\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBTimeUtil\fP okapi::ConfigurableTimeUtilFactory::create ()\fR [override]\fP, \fR [virtual]\fP"
+Creates a \fBTimeUtil\fP with the \fBSettledUtil\fP parameters specified in the constructor by delegating to \fBTimeUtilFactory::withSettledUtilParams\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A \fBTimeUtil\fP with the \fBSettledUtil\fP parameters specified in the constructor\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBokapi::TimeUtilFactory\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

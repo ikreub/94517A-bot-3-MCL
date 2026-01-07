@@ -1,0 +1,112 @@
+\doxysection{include/\+liblvgl/\+draw/\+lv\+\_\+draw\+\_\+img.h File Reference}
+\hypertarget{lv__draw__img_8h}{}\label{lv__draw__img_8h}\index{include/liblvgl/draw/lv\_draw\_img.h@{include/liblvgl/draw/lv\_draw\_img.h}}
+{\ttfamily \+\#include "{}lv\+\_\+img\+\_\+decoder.\+h"{}}\newline
+{\ttfamily \+\#include "{}lv\+\_\+img\+\_\+buf.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+style.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__img_8h_a9d92929d0507c273317209c1153bedef}\label{lv__draw__img_8h_a9d92929d0507c273317209c1153bedef} 
+void {\bfseries lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+init} (\doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \doxymbox{\hyperlink{lv__draw__img_8h_adf4c44786a723624c89ee707276a152e}{lv\+\_\+draw\+\_\+img}} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords, const void \texorpdfstring{$\ast$}{*}src)
+\item 
+\Hypertarget{lv__draw__img_8h_aba99127acca3481effbbe21b1af35a44}\label{lv__draw__img_8h_aba99127acca3481effbbe21b1af35a44} 
+void {\bfseries lv\+\_\+draw\+\_\+img\+\_\+decoded} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}map\+\_\+p, lv\+\_\+img\+\_\+cf\+\_\+t color\+\_\+format)
+\item 
+lv\+\_\+img\+\_\+src\+\_\+t \doxymbox{\hyperlink{lv__draw__img_8h_ad1749598689c14b0b65ed7a81bc48148}{lv\+\_\+img\+\_\+src\+\_\+get\+\_\+type}} (const void \texorpdfstring{$\ast$}{*}src)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{lv__draw__img_8h_a8e26314bd67791a846ceafda0d0511b4}{lv\+\_\+img\+\_\+cf\+\_\+get\+\_\+px\+\_\+size}} (lv\+\_\+img\+\_\+cf\+\_\+t cf)
+\item 
+bool \doxymbox{\hyperlink{lv__draw__img_8h_aa072f33174c22115a3f3d48ec42ecbc1}{lv\+\_\+img\+\_\+cf\+\_\+is\+\_\+chroma\+\_\+keyed}} (lv\+\_\+img\+\_\+cf\+\_\+t cf)
+\item 
+bool \doxymbox{\hyperlink{lv__draw__img_8h_afdcbf14b7126296414e731ddc803f0b3}{lv\+\_\+img\+\_\+cf\+\_\+has\+\_\+alpha}} (lv\+\_\+img\+\_\+cf\+\_\+t cf)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__draw__img_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__draw__img_8h_adf4c44786a723624c89ee707276a152e}\index{lv\_draw\_img.h@{lv\_draw\_img.h}!lv\_draw\_img@{lv\_draw\_img}}
+\index{lv\_draw\_img@{lv\_draw\_img}!lv\_draw\_img.h@{lv\_draw\_img.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_img()}{lv\_draw\_img()}}
+{\footnotesize\ttfamily \label{lv__draw__img_8h_adf4c44786a723624c89ee707276a152e} 
+void lv\+\_\+draw\+\_\+img (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+ctx}{, }\item[{const \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{src}{}\end{DoxyParamCaption})}
+
+Draw an image 
+\begin{DoxyParams}{Parameters}
+{\em coords} & the coordinates of the image \\
+\hline
+{\em mask} & the image will be drawn only in this area \\
+\hline
+{\em src} & pointer to a lv\+\_\+color\+\_\+t array which contains the pixels of the image \\
+\hline
+{\em dsc} & pointer to an initialized {\ttfamily \doxylink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} variable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__img_8h_a8e26314bd67791a846ceafda0d0511b4}\index{lv\_draw\_img.h@{lv\_draw\_img.h}!lv\_img\_cf\_get\_px\_size@{lv\_img\_cf\_get\_px\_size}}
+\index{lv\_img\_cf\_get\_px\_size@{lv\_img\_cf\_get\_px\_size}!lv\_draw\_img.h@{lv\_draw\_img.h}}
+\doxysubsubsection{\texorpdfstring{lv\_img\_cf\_get\_px\_size()}{lv\_img\_cf\_get\_px\_size()}}
+{\footnotesize\ttfamily \label{lv__draw__img_8h_a8e26314bd67791a846ceafda0d0511b4} 
+uint8\+\_\+t lv\+\_\+img\+\_\+cf\+\_\+get\+\_\+px\+\_\+size (\begin{DoxyParamCaption}\item[{lv\+\_\+img\+\_\+cf\+\_\+t}]{cf}{}\end{DoxyParamCaption})}
+
+Get the pixel size of a color format in bits 
+\begin{DoxyParams}{Parameters}
+{\em cf} & a color format ({\ttfamily LV\+\_\+\+IMG\+\_\+\+CF\+\_\+...}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pixel size in bits 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__img_8h_afdcbf14b7126296414e731ddc803f0b3}\index{lv\_draw\_img.h@{lv\_draw\_img.h}!lv\_img\_cf\_has\_alpha@{lv\_img\_cf\_has\_alpha}}
+\index{lv\_img\_cf\_has\_alpha@{lv\_img\_cf\_has\_alpha}!lv\_draw\_img.h@{lv\_draw\_img.h}}
+\doxysubsubsection{\texorpdfstring{lv\_img\_cf\_has\_alpha()}{lv\_img\_cf\_has\_alpha()}}
+{\footnotesize\ttfamily \label{lv__draw__img_8h_afdcbf14b7126296414e731ddc803f0b3} 
+bool lv\+\_\+img\+\_\+cf\+\_\+has\+\_\+alpha (\begin{DoxyParamCaption}\item[{lv\+\_\+img\+\_\+cf\+\_\+t}]{cf}{}\end{DoxyParamCaption})}
+
+Check if a color format has alpha channel or not 
+\begin{DoxyParams}{Parameters}
+{\em cf} & a color format ({\ttfamily LV\+\_\+\+IMG\+\_\+\+CF\+\_\+...}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true:\+ has alpha channel; false:\+ doesn\textquotesingle{}t have alpha channel 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__img_8h_aa072f33174c22115a3f3d48ec42ecbc1}\index{lv\_draw\_img.h@{lv\_draw\_img.h}!lv\_img\_cf\_is\_chroma\_keyed@{lv\_img\_cf\_is\_chroma\_keyed}}
+\index{lv\_img\_cf\_is\_chroma\_keyed@{lv\_img\_cf\_is\_chroma\_keyed}!lv\_draw\_img.h@{lv\_draw\_img.h}}
+\doxysubsubsection{\texorpdfstring{lv\_img\_cf\_is\_chroma\_keyed()}{lv\_img\_cf\_is\_chroma\_keyed()}}
+{\footnotesize\ttfamily \label{lv__draw__img_8h_aa072f33174c22115a3f3d48ec42ecbc1} 
+bool lv\+\_\+img\+\_\+cf\+\_\+is\+\_\+chroma\+\_\+keyed (\begin{DoxyParamCaption}\item[{lv\+\_\+img\+\_\+cf\+\_\+t}]{cf}{}\end{DoxyParamCaption})}
+
+Check if a color format is chroma keyed or not 
+\begin{DoxyParams}{Parameters}
+{\em cf} & a color format ({\ttfamily LV\+\_\+\+IMG\+\_\+\+CF\+\_\+...}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true:\+ chroma keyed; false:\+ not chroma keyed 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__img_8h_ad1749598689c14b0b65ed7a81bc48148}\index{lv\_draw\_img.h@{lv\_draw\_img.h}!lv\_img\_src\_get\_type@{lv\_img\_src\_get\_type}}
+\index{lv\_img\_src\_get\_type@{lv\_img\_src\_get\_type}!lv\_draw\_img.h@{lv\_draw\_img.h}}
+\doxysubsubsection{\texorpdfstring{lv\_img\_src\_get\_type()}{lv\_img\_src\_get\_type()}}
+{\footnotesize\ttfamily \label{lv__draw__img_8h_ad1749598689c14b0b65ed7a81bc48148} 
+lv\+\_\+img\+\_\+src\+\_\+t lv\+\_\+img\+\_\+src\+\_\+get\+\_\+type (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{src}{}\end{DoxyParamCaption})}
+
+Get the type of an image source 
+\begin{DoxyParams}{Parameters}
+{\em src} & pointer to an image source:\+
+\begin{DoxyItemize}
+\item pointer to an \textquotesingle{}lv\+\_\+img\+\_\+t\textquotesingle{} variable (image stored internally and compiled into the code)
+\item a path to a file (e.\+g. "{}\+S:\+/\+folder/\+image.\+bin"{})
+\item or a symbol (e.\+g. LV\+\_\+\+SYMBOL\+\_\+\+CLOSE) 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+type of the image source LV\+\_\+\+IMG\+\_\+\+SRC\+\_\+\+VARIABLE/\+\+FILE/\+\+SYMBOL/\+\+UNKNOWN 
+\end{DoxyReturn}

@@ -1,0 +1,74 @@
+\doxysection{lv\+\_\+checkbox.\+h}
+\hypertarget{lv__checkbox_8h_source}{}\label{lv__checkbox_8h_source}\index{include/liblvgl/widgets/lv\_checkbox.h@{include/liblvgl/widgets/lv\_checkbox.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_CHECKBOX\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_CHECKBOX\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__obj_8h}{liblvgl/core/lv\_obj.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_CHECKBOX\ !=\ 0}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00030\ \ \ \ \ lv\_obj\_t\ obj;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}\ *\ txt;}
+\DoxyCodeLine{00032\ \ \ \ \ uint32\_t\ static\_txt\ :\ 1;}
+\DoxyCodeLine{00033\ \}\ lv\_checkbox\_t;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_checkbox\_class;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ LV\_CHECKBOX\_DRAW\_PART\_BOX,\ \ \ \ }
+\DoxyCodeLine{00043\ \}\ lv\_checkbox\_draw\_part\_type\_t;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ lv\_obj\_t\ *\ lv\_checkbox\_create(lv\_obj\_t\ *\ parent);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ lv\_checkbox\_set\_text(lv\_obj\_t\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ txt);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ lv\_checkbox\_set\_text\_static(lv\_obj\_t\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ txt);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ lv\_checkbox\_get\_text(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_CHECKBOX*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00094\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_CHECKBOX\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

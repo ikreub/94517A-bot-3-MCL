@@ -1,0 +1,142 @@
+.TH "pros::v5::Vision" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::v5::Vision
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::v5::Device\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVision\fP (std::uint8_t port, vision_zero_e_t zero_point=\fBE_VISION_ZERO_TOPLEFT\fP)"
+.br
+.ti -1c
+.RI "\fBVision\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "std::int32_t \fBclear_led\fP (void) const"
+.br
+.ti -1c
+.RI "\fBvision_color_code_t\fP \fBcreate_color_code\fP (const std::uint32_t sig_id1, const std::uint32_t sig_id2, const std::uint32_t sig_id3=0, const std::uint32_t sig_id4=0, const std::uint32_t sig_id5=0) const"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP \fBget_by_size\fP (const std::uint32_t size_id) const"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP \fBget_by_sig\fP (const std::uint32_t size_id, const std::uint32_t sig_id) const"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP \fBget_by_code\fP (const std::uint32_t size_id, const \fBvision_color_code_t\fP color_code) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_exposure\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_object_count\fP (void) const"
+.br
+.ti -1c
+.RI "\fBvision_signature_s_t\fP \fBget_signature\fP (const std::uint8_t signature_id) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_white_balance\fP (void) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBread_by_size\fP (const std::uint32_t size_id, const std::uint32_t object_count, \fBvision_object_s_t\fP *const object_arr) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBread_by_sig\fP (const std::uint32_t size_id, const std::uint32_t sig_id, const std::uint32_t object_count, \fBvision_object_s_t\fP *const object_arr) const"
+.br
+.ti -1c
+.RI "int32_t \fBread_by_code\fP (const std::uint32_t size_id, const \fBvision_color_code_t\fP color_code, const std::uint32_t object_count, \fBvision_object_s_t\fP *const object_arr) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_auto_white_balance\fP (const std::uint8_t enable) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_exposure\fP (const std::uint8_t exposure) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_led\fP (const std::int32_t rgb) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_signature\fP (const std::uint8_t signature_id, \fBvision_signature_s_t\fP *const signature_ptr) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_white_balance\fP (const std::int32_t rgb) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_zero_point\fP (vision_zero_e_t zero_point) const"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_wifi_mode\fP (const std::uint8_t enable) const"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "std::uint8_t \fBget_port\fP (void) const"
+.br
+.ti -1c
+.RI "virtual bool \fBis_installed\fP ()"
+.br
+.ti -1c
+.RI "pros::DeviceType \fBget_plugged_type\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBvision_signature_s_t\fP \fBsignature_from_utility\fP (const std::int32_t id, const std::int32_t u_min, const std::int32_t u_max, const std::int32_t u_mean, const std::int32_t v_min, const std::int32_t v_max, const std::int32_t v_mean, const float range, const std::int32_t type)"
+.br
+.ti -1c
+.RI "static std::vector< \fBVision\fP > \fBget_all_devices\fP ()"
+.br
+.ti -1c
+.RI "static std::int32_t \fBprint_signature\fP (const \fBvision_signature_s_t\fP sig)"
+.br
+.ti -1c
+.RI "static \fBVision\fP \fBget_vision\fP ()"
+.br
+.in -1c
+
+Static Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "static pros::DeviceType \fBget_plugged_type\fP (std::uint8_t port)"
+.br
+.ti -1c
+.RI "static std::vector< \fBDevice\fP > \fBget_all_devices\fP (pros::DeviceType device_type=\fBpros::DeviceType::undefined\fP)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port, const enum \fBDeviceType\fP deviceType)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "const std::uint8_t \fB_port\fP"
+.br
+.ti -1c
+.RI "enum \fBDeviceType\fP \fB_deviceType\fP = \fBpros::DeviceType::none\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

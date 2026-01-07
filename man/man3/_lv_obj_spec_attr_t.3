@@ -1,0 +1,86 @@
+.TH "_lv_obj_spec_attr_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_obj_spec_attr_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_obj\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_obj_t\fP ** \fBchildren\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBchild_cnt\fP"
+.br
+.ti -1c
+.RI "\fBlv_group_t\fP * \fBgroup_p\fP"
+.br
+.ti -1c
+.RI "struct _lv_event_dsc_t * \fBevent_dsc\fP"
+.br
+.ti -1c
+.RI "\fBlv_point_t\fP \fBscroll\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBext_click_pad\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBext_draw_size\fP"
+.br
+.ti -1c
+.RI "lv_scrollbar_mode_t \fBscrollbar_mode\fP: 2"
+.br
+.ti -1c
+.RI "lv_scroll_snap_t \fBscroll_snap_x\fP: 2"
+.br
+.ti -1c
+.RI "lv_scroll_snap_t \fBscroll_snap_y\fP: 2"
+.br
+.ti -1c
+.RI "lv_dir_t \fBscroll_dir\fP: 4"
+.br
+.ti -1c
+.RI "uint8_t \fBevent_dsc_cnt\fP: 6"
+.br
+.ti -1c
+.RI "uint8_t \fBlayer_type\fP: 2"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Special, rarely used attributes\&. They are allocated automatically if any elements is set\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "uint32_t _lv_obj_spec_attr_t::child_cnt"
+Number of children 
+.SS "struct \fB_lv_obj_t\fP** _lv_obj_spec_attr_t::children"
+Store the pointer of the children in an array\&. 
+.SS "struct _lv_event_dsc_t* _lv_obj_spec_attr_t::event_dsc"
+Dynamically allocated event callback and user data array 
+.SS "uint8_t _lv_obj_spec_attr_t::event_dsc_cnt"
+Number of event callbacks stored in \fR\fBevent_dsc\fP\fP array 
+.SS "lv_coord_t _lv_obj_spec_attr_t::ext_click_pad"
+Extra click padding in all direction 
+.SS "lv_coord_t _lv_obj_spec_attr_t::ext_draw_size"
+EXTend the size in every direction for drawing\&. 
+.SS "uint8_t _lv_obj_spec_attr_t::layer_type"
+Cache the layer type here\&. Element of @lv_intermediate_layer_type_t 
+.SS "\fBlv_point_t\fP _lv_obj_spec_attr_t::scroll"
+The current X/Y scroll offset 
+.SS "lv_dir_t _lv_obj_spec_attr_t::scroll_dir"
+The allowed scroll direction(s) 
+.SS "lv_scroll_snap_t _lv_obj_spec_attr_t::scroll_snap_x"
+Where to align the snappable children horizontally 
+.SS "lv_scroll_snap_t _lv_obj_spec_attr_t::scroll_snap_y"
+Where to align the snappable children vertically 
+.SS "lv_scrollbar_mode_t _lv_obj_spec_attr_t::scrollbar_mode"
+How to display scrollbars 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

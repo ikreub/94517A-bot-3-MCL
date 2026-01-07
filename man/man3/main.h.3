@@ -1,0 +1,76 @@
+.TH "include/main.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/main.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'api\&.h'\fP
+.br
+\fR#include 'EZ\-Template/api\&.hpp'\fP
+.br
+\fR#include 'autons\&.hpp'\fP
+.br
+\fR#include 'subsystems\&.hpp'\fP
+.br
+\fR#include '\&.\&./include/intake\&.hpp'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPROS_USE_SIMPLE_NAMES\fP"
+.br
+.ti -1c
+.RI "#define \fBPROS_USE_LITERALS\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBautonomous\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinitialize\fP (void)"
+.br
+.ti -1c
+.RI "void \fBdisabled\fP (void)"
+.br
+.ti -1c
+.RI "void \fBcompetition_initialize\fP (void)"
+.br
+.ti -1c
+.RI "void \fBopcontrol\fP (void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains common definitions and header files used throughout your PROS project\&.
+
+.PP
+Copyright (c) 2017-2021, Purdue University ACM SIGBots\&. All rights reserved\&.
+
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PROS_USE_LITERALS"
+If defined, C++ literals will be available for use\&. All literals are in the pros::literals namespace\&.
+
+.PP
+For instance, you can do \fR4_mtr = 50\fP to set motor 4's target velocity to 50 
+.SS "#define PROS_USE_SIMPLE_NAMES"
+If defined, some commonly used enums will have preprocessor macros which give a shorter, more convenient naming pattern\&. If this isn't desired, simply comment the following line out\&.
+
+.PP
+For instance, E_CONTROLLER_MASTER has a shorter name: CONTROLLER_MASTER\&. E_CONTROLLER_MASTER is pedantically correct within the PROS styleguide, but not convienent for most student programmers\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void autonomous (void )"
+Prototypes for the competition control tasks are redefined here to ensure that they can be called from user code (i\&.e\&. calling autonomous from a button press in opcontrol() for testing purposes)\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

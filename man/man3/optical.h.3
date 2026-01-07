@@ -1,0 +1,133 @@
+.TH "include/pros/optical.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/optical.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'error\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBoptical_rgb_s\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_raw_s\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_gesture_s\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBOPT_GESTURE_ERR\fP   (INT8_MAX)"
+.br
+.ti -1c
+.RI "#define \fBOPT_COUNT_ERR\fP   (INT16_MAX)"
+.br
+.ti -1c
+.RI "#define \fBOPT_TIME_ERR\fP   PROS_ERR"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBoptical_direction_e\fP \fBoptical_direction_e_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBoptical_rgb_s\fP \fBoptical_rgb_s_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBoptical_raw_s\fP \fBoptical_raw_s_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBoptical_gesture_s\fP \fBoptical_gesture_s_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBoptical_direction_e\fP { \fBNO_GESTURE\fP = 0, \fBUP\fP = 1, \fBDOWN\fP = 2, \fBRIGHT\fP = 3, \fBLEFT\fP = 4, \fBERROR\fP = PROS_ERR }"
+.br
+.in -1c
+.SS "Functions"
+
+.PP
+.RI "\fBFunctions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "double \fBoptical_get_hue\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBoptical_get_saturation\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBoptical_get_brightness\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_get_proximity\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_set_led_pwm\fP (uint8_t port, uint8_t value)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_get_led_pwm\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBoptical_rgb_s_t\fP \fBoptical_get_rgb\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBoptical_raw_s_t\fP \fBoptical_get_raw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "optical_direction_e_t \fBoptical_get_gesture\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBoptical_gesture_s_t\fP \fBoptical_get_gesture_raw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_enable_gesture\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_disable_gesture\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBoptical_get_integration_time\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_set_integration_time\fP (uint8_t port, double time)"
+.br
+.in -1c
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for functions related to the VEX Optical sensor\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

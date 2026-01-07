@@ -1,0 +1,61 @@
+.TH "pros::v5::Controller" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::v5::Controller
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBController\fP (controller_id_e_t id)"
+.br
+.ti -1c
+.RI "std::int32_t \fBis_connected\fP (void)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_analog\fP (controller_analog_e_t channel)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_battery_capacity\fP (void)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_battery_level\fP (void)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_digital\fP (controller_digital_e_t button)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_digital_new_press\fP (controller_digital_e_t button)"
+.br
+.ti -1c
+.RI "template<typename T> T \fBconvert_args\fP (T arg)"
+.br
+.ti -1c
+.RI "const char * \fBconvert_args\fP (const std::string &arg)"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Params> std::int32_t \fBprint\fP (std::uint8_t line, std::uint8_t col, const char *fmt, Params\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_text\fP (std::uint8_t line, std::uint8_t col, const char *str)"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_text\fP (std::uint8_t line, std::uint8_t col, const std::string &str)"
+.br
+.ti -1c
+.RI "std::int32_t \fBclear_line\fP (std::uint8_t line)"
+.br
+.ti -1c
+.RI "std::int32_t \fBrumble\fP (const char *rumble_pattern)"
+.br
+.ti -1c
+.RI "std::int32_t \fBclear\fP (void)"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

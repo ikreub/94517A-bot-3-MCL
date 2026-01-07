@@ -1,0 +1,25 @@
+\doxysection{async\+Position\+Controller.\+hpp}
+\hypertarget{async_position_controller_8hpp_source}{}\label{async_position_controller_8hpp_source}\index{include/okapi/api/control/async/asyncPositionController.hpp@{include/okapi/api/control/async/asyncPositionController.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/async/asyncController.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Input,\ \textcolor{keyword}{typename}\ Output>}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_async_position_controller}{AsyncPositionController}}\ :\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_async_controller}{AsyncController}}<Input,\ Output>\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_a0af03d0035343cbf843a19374f38a059}{tarePosition}}()\ =\ 0;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_ac56b3e8bc43ad9d9a6c95ff0a883e499}{setMaxVelocity}}(std::int32\_t\ imaxVelocity)\ =\ 0;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

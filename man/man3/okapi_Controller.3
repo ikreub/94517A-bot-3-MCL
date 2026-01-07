@@ -1,0 +1,207 @@
+.TH "okapi::Controller" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::Controller
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBController\fP (ControllerId iid=ControllerId::master)"
+.br
+.ti -1c
+.RI "virtual bool \fBisConnected\fP ()"
+.br
+.ti -1c
+.RI "virtual float \fBgetAnalog\fP (ControllerAnalog ichannel)"
+.br
+.ti -1c
+.RI "virtual bool \fBgetDigital\fP (ControllerDigital ibutton)"
+.br
+.ti -1c
+.RI "virtual \fBControllerButton\fP & \fBoperator[]\fP (ControllerDigital ibtn)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBsetText\fP (std::uint8_t iline, std::uint8_t icol, std::string itext)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBclear\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBclearLine\fP (std::uint8_t iline)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBrumble\fP (std::string irumblePattern)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetBatteryCapacity\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBgetBatteryLevel\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "ControllerId \fBokapiId\fP"
+.br
+.ti -1c
+.RI "pros::controller_id_e_t \fBprosId\fP"
+.br
+.ti -1c
+.RI "std::array< \fBControllerButton\fP *, 12 > \fBbuttonArray\fP {}"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual std::int32_t okapi::Controller::clear ()\fR [virtual]\fP"
+Clears all of the lines of the controller screen\&. On vexOS version 1\&.0\&.0 this function will block for 110ms\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful, PROS_ERR otherwise 
+.RE
+.PP
+
+.SS "virtual std::int32_t okapi::Controller::clearLine (std::uint8_t iline)\fR [virtual]\fP"
+Clears an individual line of the controller screen\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiline\fP the line number to clear in the range [0, 2]\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful, PROS_ERR otherwise 
+.RE
+.PP
+
+.SS "virtual float okapi::Controller::getAnalog (ControllerAnalog ichannel)\fR [virtual]\fP"
+Returns the current analog reading for the channel in the range [-1, 1]\&. Returns 0 if the controller is not connected\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIichannel\fP the channel to read 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the value of that channel in the range [-1, 1] 
+.RE
+.PP
+
+.SS "virtual std::int32_t okapi::Controller::getBatteryCapacity ()\fR [virtual]\fP"
+Gets the battery capacity of the given controller\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the controller's battery capacity 
+.RE
+.PP
+
+.SS "virtual std::int32_t okapi::Controller::getBatteryLevel ()\fR [virtual]\fP"
+Gets the battery level of the given controller\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the controller's battery level 
+.RE
+.PP
+
+.SS "virtual bool okapi::Controller::getDigital (ControllerDigital ibutton)\fR [virtual]\fP"
+Returns whether the digital button is currently pressed\&. Returns false if the controller is not connected\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIibutton\fP the button to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the button is pressed, false if the controller is not connected 
+.RE
+.PP
+
+.SS "virtual bool okapi::Controller::isConnected ()\fR [virtual]\fP"
+Returns whether the controller is connected\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+true if the controller is connected 
+.RE
+.PP
+
+.SS "virtual \fBControllerButton\fP & okapi::Controller::operator[] (ControllerDigital ibtn)\fR [virtual]\fP"
+Returns a \fBControllerButton\fP for the given button on this controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIibtn\fP the button 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a \fBControllerButton\fP on this controller 
+.RE
+.PP
+
+.SS "virtual std::int32_t okapi::Controller::rumble (std::string irumblePattern)\fR [virtual]\fP"
+Rumble the controller\&.
+
+.PP
+\fBController\fP rumble activation is currently in beta, so continuous, fast updates will not work well\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIirumblePattern\fP A string consisting of the characters '\&.', '-', and ' ', where dots are short rumbles, dashes are long rumbles, and spaces are pauses\&. Maximum supported length is 8 characters\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "virtual std::int32_t okapi::Controller::setText (std::uint8_t iline, std::uint8_t icol, std::string itext)\fR [virtual]\fP"
+Sets text to the controller LCD screen\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiline\fP the line number in the range [0-2] at which the text will be displayed 
+.br
+\fIicol\fP the column number in the range [0-14] at which the text will be displayed 
+.br
+\fIitext\fP the string to display 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful, PROS_ERR otherwise 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,132 @@
+.TH "okapi::EKFFilter" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::EKFFilter
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::Filter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEKFFilter\fP (double iQ=0\&.0001, double iR=ipow(0\&.2, 2))"
+.br
+.ti -1c
+.RI "double \fBfilter\fP (double ireading) override"
+.br
+.ti -1c
+.RI "virtual double \fBfilter\fP (double ireading, double icontrol)"
+.br
+.ti -1c
+.RI "double \fBgetOutput\fP () const override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "const double \fBQ\fP"
+.br
+.ti -1c
+.RI "const double \fBR\fP"
+.br
+.ti -1c
+.RI "double \fBxHat\fP = 0"
+.br
+.ti -1c
+.RI "double \fBxHatPrev\fP = 0"
+.br
+.ti -1c
+.RI "double \fBxHatMinus\fP = 0"
+.br
+.ti -1c
+.RI "double \fBP\fP = 0"
+.br
+.ti -1c
+.RI "double \fBPprev\fP = 1"
+.br
+.ti -1c
+.RI "double \fBPminus\fP = 0"
+.br
+.ti -1c
+.RI "double \fBK\fP = 0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::EKFFilter::EKFFilter (double iQ = \fR0\&.0001\fP, double iR = \fRipow(0\&.2, 2)\fP)\fR [explicit]\fP"
+One dimensional extended Kalman filter\&. The default arguments should work fine for most signal filtering\&. It won't hurt to graph your signal and the filtered result, and check if the filter is doing its job\&.
+
+.PP
+Q is the covariance of the process noise and R is the covariance of the observation noise\&. The default values for Q and R should be a modest balance between trust in the sensor and FIR filtering\&.
+
+.PP
+Think of R as how noisy your sensor is\&. Its value can be found mathematically by computing the standard deviation of your sensor reading vs\&. "truth" (of course, "truth" is still an estimate; try to calibrate your robot in a controlled setting where you can minimize the error in what "truth" is)\&.
+
+.PP
+Think of Q as how noisy your model is\&. It decides how much "smoothing" the filter does and how far it lags behind the true signal\&. This parameter is most often used as a "tuning" parameter to adjust the response of the filter\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiQ\fP process noise covariance 
+.br
+\fIiR\fP measurement noise covariance 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double okapi::EKFFilter::filter (double ireading)\fR [override]\fP, \fR [virtual]\fP"
+Filters a value, like a sensor reading\&. Assumes the control input is zero\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireading\fP new measurement 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+filtered result 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+.SS "virtual double okapi::EKFFilter::filter (double ireading, double icontrol)\fR [virtual]\fP"
+Filters a reading with a control input\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireading\fP new measurement 
+.br
+\fIicontrol\fP control input 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+filtered result 
+.RE
+.PP
+
+.SS "double okapi::EKFFilter::getOutput () const\fR [override]\fP, \fR [virtual]\fP"
+Returns the previous output from filter\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the previous output from filter 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

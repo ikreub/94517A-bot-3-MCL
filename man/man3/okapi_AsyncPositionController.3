@@ -1,0 +1,87 @@
+.TH "okapi::AsyncPositionController< Input, Output >" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AsyncPositionController< Input, Output >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::AsyncController< Input, Output >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBtarePosition\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBsetMaxVelocity\fP (std::int32_t imaxVelocity)=0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::AsyncController< Input, Output >\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBwaitUntilSettled\fP ()=0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ClosedLoopController< Input, Output >\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBsetTarget\fP (Input itarget)=0"
+.br
+.ti -1c
+.RI "virtual Input \fBgetTarget\fP ()=0"
+.br
+.ti -1c
+.RI "virtual Input \fBgetProcessValue\fP () const =0"
+.br
+.ti -1c
+.RI "virtual Output \fBgetError\fP () const =0"
+.br
+.ti -1c
+.RI "virtual bool \fBisSettled\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBreset\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBflipDisable\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBflipDisable\fP (bool iisDisabled)=0"
+.br
+.ti -1c
+.RI "virtual bool \fBisDisabled\fP () const =0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ControllerOutput< Input >\fP
+.in +1c
+.ti -1c
+.RI "virtual void \fBcontrollerSet\fP (Input ivalue)=0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename Input, typename Output> virtual void \fBokapi::AsyncPositionController\fP< Input, Output >::setMaxVelocity (std::int32_t imaxVelocity)\fR [pure virtual]\fP"
+Sets a new maximum velocity (typically motor RPM [0-600])\&. The interpretation of the units of this velocity and whether it will be respected is implementation-dependent\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimaxVelocity\fP The new maximum velocity\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::AsyncLinearMotionProfileController\fP, \fBokapi::AsyncMotionProfileController\fP, \fBokapi::AsyncPosIntegratedController\fP, and \fBokapi::AsyncPosPIDController\fP\&.
+.SS "template<typename Input, typename Output> virtual void \fBokapi::AsyncPositionController\fP< Input, Output >::tarePosition ()\fR [pure virtual]\fP"
+Sets the "absolute" zero position of the controller to its current position\&. 
+.PP
+Implemented in \fBokapi::AsyncLinearMotionProfileController\fP, \fBokapi::AsyncMotionProfileController\fP, \fBokapi::AsyncPosIntegratedController\fP, and \fBokapi::AsyncPosPIDController\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

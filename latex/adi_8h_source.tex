@@ -1,0 +1,217 @@
+\doxysection{adi.\+h}
+\hypertarget{adi_8h_source}{}\label{adi_8h_source}\index{include/pros/adi.h@{include/pros/adi.h}}
+\doxymbox{\hyperlink{adi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_ADI\_H\_}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \_PROS\_ADI\_H\_}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ PROS\_ERR}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ PROS\_ERR\ (INT32\_MAX)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{group__c-adi_gad5f9ddf0fd9de73c4b23fa5485144b7f}{adi\_port\_config\_e}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ E\_ADI\_ANALOG\_IN\ =\ 0,}
+\DoxyCodeLine{00050\ \ \ \ \ E\_ADI\_ANALOG\_OUT\ =\ 1,}
+\DoxyCodeLine{00051\ \ \ \ \ E\_ADI\_DIGITAL\_IN\ =\ 2,}
+\DoxyCodeLine{00052\ \ \ \ \ E\_ADI\_DIGITAL\_OUT\ =\ 3,}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifdef\ \_INTELLISENSE}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ \_DEPRECATE\_DIGITAL\_IN\ =\ E\_ADI\_DIGITAL\_IN}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ \_DEPRECATE\_ANALOG\_IN\ =\ E\_ADI\_ANALOG\_IN}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ \_DEPRECATE\_DIGITAL\_IN\ \_\_attribute\_\_((deprecated("{}use\ E\_ADI\_DIGITAL\_IN\ instead"{})))\ =\ E\_ADI\_DIGITAL\_IN}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ \_DEPRECATE\_ANALOG\_IN\ \_\_attribute\_\_((deprecated("{}use\ E\_ADI\_ANALOG\_IN\ instead"{})))\ =\ E\_ADI\_ANALOG\_IN}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ E\_ADI\_SMART\_BUTTON\ \_DEPRECATE\_DIGITAL\_IN,}
+\DoxyCodeLine{00063\ \ \ \ \ E\_ADI\_SMART\_POT\ \_DEPRECATE\_ANALOG\_IN,}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ E\_ADI\_LEGACY\_BUTTON\ \_DEPRECATE\_DIGITAL\_IN,}
+\DoxyCodeLine{00066\ \ \ \ \ E\_ADI\_LEGACY\_POT\ \_DEPRECATE\_ANALOG\_IN,}
+\DoxyCodeLine{00067\ \ \ \ \ E\_ADI\_LEGACY\_LINE\_SENSOR\ \_DEPRECATE\_ANALOG\_IN,}
+\DoxyCodeLine{00068\ \ \ \ \ E\_ADI\_LEGACY\_LIGHT\_SENSOR\ \_DEPRECATE\_ANALOG\_IN,}
+\DoxyCodeLine{00069\ \ \ \ \ E\_ADI\_LEGACY\_GYRO\ =\ 10,}
+\DoxyCodeLine{00070\ \ \ \ \ E\_ADI\_LEGACY\_ACCELEROMETER\ \_DEPRECATE\_ANALOG\_IN,}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#undef\ \_DEPRECATE\_DIGITAL\_IN}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#undef\ \_DEPRECATE\_ANALOG\_IN}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ E\_ADI\_LEGACY\_SERVO\ =\ 12,}
+\DoxyCodeLine{00076\ \ \ \ \ E\_ADI\_LEGACY\_PWM\ =\ 13,}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ E\_ADI\_LEGACY\_ENCODER\ =\ 14,}
+\DoxyCodeLine{00079\ \ \ \ \ E\_ADI\_LEGACY\_ULTRASONIC\ =\ 15,}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ E\_ADI\_TYPE\_UNDEFINED\ =\ 255,}
+\DoxyCodeLine{00082\ \ \ \ \ E\_ADI\_ERR\ =\ PROS\_ERR}
+\DoxyCodeLine{00083\ \}\ adi\_port\_config\_e\_t;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ adi\_potentiometer\_type\_e\ \{\ }
+\DoxyCodeLine{00090\ \ \ \ \ E\_ADI\_POT\_EDR\ =\ 0,}
+\DoxyCodeLine{00091\ \ \ \ \ E\_ADI\_POT\_V2}
+\DoxyCodeLine{00092\ \}\ adi\_potentiometer\_type\_e\_t;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifdef\ PROS\_USE\_SIMPLE\_NAMES}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ ADI\_ANALOG\_IN\ pros::E\_ADI\_ANALOG\_IN}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ ADI\_ANALOG\_OUT\ pros::E\_ADI\_ANALOG\_OUT}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ ADI\_DIGITAL\_IN\ pros::E\_ADI\_DIGITAL\_IN}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ ADI\_DIGITAL\_OUT\ pros::E\_ADI\_DIGITAL\_OUT}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ ADI\_SMART\_BUTTON\ pros::E\_ADI\_SMART\_BUTTON}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ ADI\_SMART\_POT\ pros::E\_ADI\_SMART\_POT}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_BUTTON\ pros::E\_ADI\_LEGACY\_BUTTON}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_POT\ pros::E\_ADI\_LEGACY\_POT}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_LINE\_SENSOR\ pros::E\_ADI\_LEGACY\_LINE\_SENSOR}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_LIGHT\_SENSOR\ pros::E\_ADI\_LEGACY\_LIGHT\_SENSOR}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_GYRO\ pros::E\_ADI\_LEGACY\_GYRO}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_ACCELEROMETER\ pros::E\_ADI\_LEGACY\_ACCELEROMETER}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_SERVO\ pros::E\_ADI\_LEGACY\_SERVO}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_PWM\ pros::E\_ADI\_LEGACY\_PWM}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_ENCODER\ pros::E\_ADI\_LEGACY\_ENCODER}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_ULTRASONIC\ pros::E\_ADI\_LEGACY\_ULTRASONIC}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ ADI\_TYPE\_UNDEFINED\ pros::E\_ADI\_TYPE\_UNDEFINED}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ ADI\_ERR\ pros::E\_ADI\_ERR}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ ADI\_ANALOG\_IN\ E\_ADI\_ANALOG\_IN}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ ADI\_ANALOG\_OUT\ E\_ADI\_ANALOG\_OUT}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ ADI\_DIGITAL\_IN\ E\_ADI\_DIGITAL\_IN}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ ADI\_DIGITAL\_OUT\ E\_ADI\_DIGITAL\_OUT}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ ADI\_SMART\_BUTTON\ E\_ADI\_SMART\_BUTTON}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ ADI\_SMART\_POT\ E\_ADI\_SMART\_POT}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_BUTTON\ E\_ADI\_LEGACY\_BUTTON}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_POT\ E\_ADI\_LEGACY\_POT}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_LINE\_SENSOR\ E\_ADI\_LEGACY\_LINE\_SENSOR}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_LIGHT\_SENSOR\ E\_ADI\_LEGACY\_LIGHT\_SENSOR}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_GYRO\ E\_ADI\_LEGACY\_GYRO}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_ACCELEROMETER\ E\_ADI\_LEGACY\_ACCELEROMETER}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_SERVO\ E\_ADI\_LEGACY\_SERVO}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_PWM\ E\_ADI\_LEGACY\_PWM}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_ENCODER\ E\_ADI\_LEGACY\_ENCODER}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ ADI\_LEGACY\_ULTRASONIC\ E\_ADI\_LEGACY\_ULTRASONIC}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ ADI\_TYPE\_UNDEFINED\ E\_ADI\_TYPE\_UNDEFINED}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ ADI\_ERR\ E\_ADI\_ERR}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ INTERNAL\_ADI\_PORT\ 22}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ NUM\_ADI\_PORTS\ 8}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00140\ \textcolor{keyword}{namespace\ }c\ \{}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00178\ adi\_port\_config\_e\_t\ \doxymbox{\hyperlink{group__c-adi_gae765689ac259267577a5441d1f601285}{adi\_port\_get\_config}}(uint8\_t\ port);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00203\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga7713677aa3877b225e9f5c8eb7e1e060}{adi\_port\_get\_value}}(uint8\_t\ port);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00229\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga25018d32d3b1d4b40e25c6347a20f3b8}{adi\_port\_set\_config}}(uint8\_t\ port,\ adi\_port\_config\_e\_t\ type);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00260\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga197da3b30a5836e506205c207568ac19}{adi\_port\_set\_value}}(uint8\_t\ port,\ int32\_t\ value);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00299\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gadfc2e1620393d83cc6ffa1678fef3a76}{adi\_analog\_calibrate}}(uint8\_t\ port);}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00331\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gac99e2c1d93be8925ad25e9011d7e1cc1}{adi\_analog\_read}}(uint8\_t\ port);}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00365\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga6564264464394376405fa4cadd1a5783}{adi\_analog\_read\_calibrated}}(uint8\_t\ port);}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00405\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga6850735748a4d241ebe6b04cb71dbe04}{adi\_analog\_read\_calibrated\_HR}}(uint8\_t\ port);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00437\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gae81443abb3c04805627f6b99a5955481}{adi\_digital\_read}}(uint8\_t\ port);}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00475\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gaa5b002469ceb92edc1777e94a7e5a9a6}{adi\_digital\_get\_new\_press}}(uint8\_t\ port);}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00510\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga3cd13739c4635461395ae69132ec8d85}{adi\_digital\_write}}(uint8\_t\ port,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00536\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gafb4a2ceabb48fba6b4caf837f053bc18}{adi\_pin\_mode}}(uint8\_t\ port,\ uint8\_t\ mode);}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00566\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gac287b7ef7aac3d428cd751a4999a97b4}{adi\_motor\_set}}(uint8\_t\ port,\ int8\_t\ speed);}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00593\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga2010f7bc94a5fb2fb097a2f1ff567bdb}{adi\_motor\_get}}(uint8\_t\ port);}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00621\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga89f3d3179523755511b78c046d0fdd91}{adi\_motor\_stop}}(uint8\_t\ port);}
+\DoxyCodeLine{00622\ }
+\DoxyCodeLine{00628\ \textcolor{keyword}{typedef}\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gadc7331a863ca648693c688af1ae9a940}{adi\_encoder\_t}};}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00660\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gaaf191dc0497de4a8653922e136e382c6}{adi\_encoder\_get}}(\doxymbox{\hyperlink{group__c-adi_gadc7331a863ca648693c688af1ae9a940}{adi\_encoder\_t}}\ enc);}
+\DoxyCodeLine{00661\ }
+\DoxyCodeLine{00696\ \doxymbox{\hyperlink{group__c-adi_gadc7331a863ca648693c688af1ae9a940}{adi\_encoder\_t}}\ \doxymbox{\hyperlink{group__c-adi_gaddfd150a8992bbbab0bb4cc709801ecd}{adi\_encoder\_init}}(uint8\_t\ port\_top,\ uint8\_t\ port\_bottom,\ \textcolor{keywordtype}{bool}\ reverse);}
+\DoxyCodeLine{00697\ }
+\DoxyCodeLine{00728\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga0504982be5ae8ff6437589b6b1fa0979}{adi\_encoder\_reset}}(\doxymbox{\hyperlink{group__c-adi_gadc7331a863ca648693c688af1ae9a940}{adi\_encoder\_t}}\ enc);}
+\DoxyCodeLine{00729\ }
+\DoxyCodeLine{00756\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga76c17087e625a97b6e0b2a049cd029be}{adi\_encoder\_shutdown}}(\doxymbox{\hyperlink{group__c-adi_gadc7331a863ca648693c688af1ae9a940}{adi\_encoder\_t}}\ enc);}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00763\ \textcolor{keyword}{typedef}\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga642e06a44cad02177d4111261e17c3df}{adi\_ultrasonic\_t}};}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00798\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga4e89e57b0adb1c89cfd76356914ab59e}{adi\_ultrasonic\_get}}(\doxymbox{\hyperlink{group__c-adi_ga642e06a44cad02177d4111261e17c3df}{adi\_ultrasonic\_t}}\ ult);}
+\DoxyCodeLine{00799\ }
+\DoxyCodeLine{00833\ \doxymbox{\hyperlink{group__c-adi_ga642e06a44cad02177d4111261e17c3df}{adi\_ultrasonic\_t}}\ \doxymbox{\hyperlink{group__c-adi_gabc86207973ae101d00b51ffa7b4415e7}{adi\_ultrasonic\_init}}(uint8\_t\ port\_ping,\ uint8\_t\ port\_echo);}
+\DoxyCodeLine{00834\ }
+\DoxyCodeLine{00865\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga411df541393bd49c3f8bec10d2d1d6df}{adi\_ultrasonic\_shutdown}}(\doxymbox{\hyperlink{group__c-adi_ga642e06a44cad02177d4111261e17c3df}{adi\_ultrasonic\_t}}\ ult);}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00872\ \textcolor{keyword}{typedef}\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga9c451728d4193f1a4e59d7dc489ac292}{adi\_gyro\_t}};}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00907\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__c-adi_ga8908f45ae2b30055a2d572ebd546ddce}{adi\_gyro\_get}}(\doxymbox{\hyperlink{group__c-adi_ga9c451728d4193f1a4e59d7dc489ac292}{adi\_gyro\_t}}\ gyro);}
+\DoxyCodeLine{00908\ }
+\DoxyCodeLine{00946\ \doxymbox{\hyperlink{group__c-adi_ga9c451728d4193f1a4e59d7dc489ac292}{adi\_gyro\_t}}\ \doxymbox{\hyperlink{group__c-adi_gaade60da8093046af98dc7d53295d1df7}{adi\_gyro\_init}}(uint8\_t\ port,\ \textcolor{keywordtype}{double}\ multiplier);}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00985\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga6224671272cc8ed6164d9546cf72892d}{adi\_gyro\_reset}}(\doxymbox{\hyperlink{group__c-adi_ga9c451728d4193f1a4e59d7dc489ac292}{adi\_gyro\_t}}\ gyro);}
+\DoxyCodeLine{00986\ }
+\DoxyCodeLine{01024\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gae9709dd9b6342d5631c80d558ae55d36}{adi\_gyro\_shutdown}}(\doxymbox{\hyperlink{group__c-adi_ga9c451728d4193f1a4e59d7dc489ac292}{adi\_gyro\_t}}\ gyro);}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01031\ \textcolor{keyword}{typedef}\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga57a45eab54fec9fc2d0a16117a64ad96}{adi\_potentiometer\_t}};}
+\DoxyCodeLine{01032\ }
+\DoxyCodeLine{01061\ \doxymbox{\hyperlink{group__c-adi_ga57a45eab54fec9fc2d0a16117a64ad96}{adi\_potentiometer\_t}}\ \doxymbox{\hyperlink{group__c-adi_ga5a96eb0a6d2a74fa8b75abd0f01ddb15}{adi\_potentiometer\_init}}(uint8\_t\ port);}
+\DoxyCodeLine{01062\ }
+\DoxyCodeLine{01094\ \doxymbox{\hyperlink{group__c-adi_ga57a45eab54fec9fc2d0a16117a64ad96}{adi\_potentiometer\_t}}\ \doxymbox{\hyperlink{group__c-adi_gadef49e7bf9ee9364f15304e674f6682a}{adi\_potentiometer\_type\_init}}(uint8\_t\ port,\ adi\_potentiometer\_type\_e\_t\ potentiometer\_type);}
+\DoxyCodeLine{01095\ }
+\DoxyCodeLine{01126\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__c-adi_ga5f6d590f97f84a0774fc66d2ea8b8d83}{adi\_potentiometer\_get\_angle}}(\doxymbox{\hyperlink{group__c-adi_ga57a45eab54fec9fc2d0a16117a64ad96}{adi\_potentiometer\_t}}\ potentiometer);}
+\DoxyCodeLine{01127\ }
+\DoxyCodeLine{01134\ \textcolor{keyword}{typedef}\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}};}
+\DoxyCodeLine{01135\ }
+\DoxyCodeLine{01166\ \doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}}\ \doxymbox{\hyperlink{group__c-adi_gad08cf99158c980fe76dad7d819b5c55d}{adi\_led\_init}}(uint8\_t\ port);}
+\DoxyCodeLine{01167\ }
+\DoxyCodeLine{01201\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gac6c9de7728256d85c1fd3ebcf9c0e400}{adi\_led\_clear\_all}}(\doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}}\ led,\ uint32\_t*\ buffer,\ uint32\_t\ buffer\_length);}
+\DoxyCodeLine{01202\ }
+\DoxyCodeLine{01232\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga0266ff59786b6bb22b8408920f5b40ec}{adi\_led\_set}}(\doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}}\ led,\ uint32\_t*\ buffer,\ uint32\_t\ buffer\_length);}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01264\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga134b3e9ffc7ba4f044600c73d3f44c28}{adi\_led\_set\_all}}(\doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}}\ led,\ uint32\_t*\ buffer,\ uint32\_t\ buffer\_length,\ uint32\_t\ color);}
+\DoxyCodeLine{01265\ }
+\DoxyCodeLine{01297\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_gad5370f08c9edf5aa63f0ec3bd8924ae2}{adi\_led\_set\_pixel}}(\doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}}\ led,\ uint32\_t*\ buffer,\ uint32\_t\ buffer\_length,\ uint32\_t\ color,\ uint32\_t\ pixel\_position);}
+\DoxyCodeLine{01298\ }
+\DoxyCodeLine{01333\ int32\_t\ \doxymbox{\hyperlink{group__c-adi_ga5666776667a73e79e8c9296981f3e00d}{adi\_led\_clear\_pixel}}(\doxymbox{\hyperlink{group__c-adi_ga3f0cd6532514a01a1684ddbaaa40ef8d}{adi\_led\_t}}\ led,\ uint32\_t*\ buffer,\ uint32\_t\ buffer\_length,\ uint32\_t\ pixel\_position);}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01340\ }
+\DoxyCodeLine{01347\ \textcolor{preprocessor}{\#define\ HIGH\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01353\ \textcolor{preprocessor}{\#define\ LOW\ 0}}
+\DoxyCodeLine{01354\ }
+\DoxyCodeLine{01358\ \textcolor{preprocessor}{\#define\ INPUT\ 0x00}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01362\ \textcolor{preprocessor}{\#define\ OUTPUT\ 0x01}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01366\ \textcolor{preprocessor}{\#define\ INPUT\_ANALOG\ 0x02}}
+\DoxyCodeLine{01367\ }
+\DoxyCodeLine{01371\ \textcolor{preprocessor}{\#define\ OUTPUT\_ANALOG\ 0x03}}
+\DoxyCodeLine{01372\ }
+\DoxyCodeLine{01374\ }
+\DoxyCodeLine{01376\ }
+\DoxyCodeLine{01377\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01378\ \}\ \ \textcolor{comment}{//\ namespace\ c}}
+\DoxyCodeLine{01379\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{01380\ \}}
+\DoxyCodeLine{01381\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01382\ }
+\DoxyCodeLine{01383\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_PROS\_ADI\_H\_}}
+
+\end{DoxyCode}

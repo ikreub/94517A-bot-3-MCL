@@ -1,0 +1,63 @@
+.TH "_lv_group_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_group_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_group\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBlv_ll_t\fP \fBobj_ll\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_obj_t\fP ** \fBobj_focus\fP"
+.br
+.ti -1c
+.RI "lv_group_focus_cb_t \fBfocus_cb\fP"
+.br
+.ti -1c
+.RI "lv_group_edge_cb_t \fBedge_cb\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBfrozen\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBediting\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBrefocus_policy\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBwrap\fP: 1"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Groups can be used to logically hold objects so that they can be individually focused\&. They are NOT for laying out objects on a screen (try layouts for that)\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "lv_group_edge_cb_t _lv_group_t::edge_cb"
+A function to call when an edge is reached, no more focus targets are available in this direction (to allow edge feedback like a sound or a scroll bounce) 
+.SS "uint8_t _lv_group_t::editing"
+1: Edit mode, 0: Navigate mode 
+.SS "lv_group_focus_cb_t _lv_group_t::focus_cb"
+A function to call when a new object is focused (optional) 
+.SS "uint8_t _lv_group_t::frozen"
+1: can't focus to new object 
+.SS "struct \fB_lv_obj_t\fP** _lv_group_t::obj_focus"
+The object in focus 
+.SS "\fBlv_ll_t\fP _lv_group_t::obj_ll"
+Linked list to store the objects in the group 
+.SS "uint8_t _lv_group_t::refocus_policy"
+1: Focus prev if focused on deletion\&. 0: Focus next if focused on deletion\&. 
+.SS "uint8_t _lv_group_t::wrap"
+1: Focus next/prev can wrap at end of list\&. 0: Focus next/prev stops at end of list\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

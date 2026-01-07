@@ -1,0 +1,141 @@
+.TH "c-distance" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+c-distance \- VEX Distance Sensor C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBdistance\&.h\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBdistance_get\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBdistance_get_confidence\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBdistance_get_object_size\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBdistance_get_object_velocity\fP (uint8_t port)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "int32_t distance_get (uint8_t port)"
+Get the currently measured distance from the sensor in mm
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Distance Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Distance Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The distance value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t distance_get_confidence (uint8_t port)"
+Get the confidence in the distance reading
+
+.PP
+This is a value that has a range of 0 to 63\&. 63 means high confidence, lower values imply less confidence\&. Confidence is only available when distance is > 200mm (the value 10 is returned in this scenario)\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Distance Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Distance Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The confidence value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t distance_get_object_size (uint8_t port)"
+Get the current guess at relative object size
+
+.PP
+This is a value that has a range of 0 to 400\&. A 18" x 30" grey card will return a value of approximately 75 in typical room lighting\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Distance Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Distance Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The size value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double distance_get_object_velocity (uint8_t port)"
+Get the object velocity in m/s
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Distance Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Distance Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The velocity value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

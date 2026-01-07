@@ -1,0 +1,25 @@
+var group__cpp_motor_configuration =
+[
+    [ "pros::v5::AbstractMotor::get_brake_mode", "group__cpp-motor-configuration.html#ga2e096d274cd5834ca1e8fcf2dbfec2ba", null ],
+    [ "pros::v5::AbstractMotor::get_brake_mode_all", "group__cpp-motor-configuration.html#gae3b9fcfae4e50eb954263858578d0499", null ],
+    [ "pros::v5::AbstractMotor::get_current_limit", "group__cpp-motor-configuration.html#ga3dc0f0e7adec867c59685fd06a9d81e1", null ],
+    [ "pros::v5::AbstractMotor::get_current_limit_all", "group__cpp-motor-configuration.html#ga281f60c0a237188a8e64d7771b2b00ab", null ],
+    [ "pros::v5::AbstractMotor::get_encoder_units", "group__cpp-motor-configuration.html#ga53130a6ece0061481f7e9bf95cffc41b", null ],
+    [ "pros::v5::AbstractMotor::get_encoder_units_all", "group__cpp-motor-configuration.html#ga504d6cc6a9e6539aa343b506f9da8e56", null ],
+    [ "pros::v5::AbstractMotor::get_gearing", "group__cpp-motor-configuration.html#gaf6e29c0ef02cafe2fa95f8c2ba776df2", null ],
+    [ "pros::v5::AbstractMotor::get_gearing_all", "group__cpp-motor-configuration.html#gaefe72a077fbeaa19598953035087a27e", null ],
+    [ "pros::v5::AbstractMotor::get_port_all", "group__cpp-motor-configuration.html#ga1ec880e00b43c61aa2ce72804e391f87", null ],
+    [ "pros::v5::AbstractMotor::get_voltage_limit", "group__cpp-motor-configuration.html#ga4f009a967b462c564cb084fcc8aa39ac", null ],
+    [ "pros::v5::AbstractMotor::get_voltage_limit_all", "group__cpp-motor-configuration.html#ga948e31ec5d1577573ec138b24b77d12d", null ],
+    [ "pros::v5::AbstractMotor::is_reversed", "group__cpp-motor-configuration.html#gae4d3bb40a935f65e1315cb3493134a9a", null ],
+    [ "pros::v5::AbstractMotor::is_reversed_all", "group__cpp-motor-configuration.html#ga39b5cb33c5209825c829c56f3de84f06", null ],
+    [ "pros::v5::AbstractMotor::set_brake_mode", "group__cpp-motor-configuration.html#ga5872ea79f6fba0612dd3bfd2a9ae4fea", null ],
+    [ "pros::v5::AbstractMotor::set_current_limit", "group__cpp-motor-configuration.html#ga0b1c7e60e6a7719874597acd2bf7c8bd", null ],
+    [ "pros::v5::AbstractMotor::set_encoder_units", "group__cpp-motor-configuration.html#gab92a30f1941aa684ffeff99f19d77739", null ],
+    [ "pros::v5::AbstractMotor::set_gearing", "group__cpp-motor-configuration.html#gac3b52a283dbc354e038f7da4d53d1c45", null ],
+    [ "pros::v5::AbstractMotor::set_reversed", "group__cpp-motor-configuration.html#ga668545767bdf491b5ae0ccfe3b2ade34", null ],
+    [ "pros::v5::AbstractMotor::set_voltage_limit", "group__cpp-motor-configuration.html#gaa802c898f1cfa7ef7ff0c66d387d6935", null ],
+    [ "pros::v5::AbstractMotor::set_zero_position", "group__cpp-motor-configuration.html#ga7f43155e5702e311fc9c909d5e4b15e3", null ],
+    [ "pros::v5::AbstractMotor::size", "group__cpp-motor-configuration.html#gad1b493574d455de8552ae223400bf51d", null ],
+    [ "pros::v5::AbstractMotor::tare_position", "group__cpp-motor-configuration.html#ga94567bf6ad9150abbc0f7efa25bf46e3", null ]
+];

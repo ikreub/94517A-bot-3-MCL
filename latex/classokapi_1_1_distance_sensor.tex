@@ -1,0 +1,125 @@
+\doxysection{okapi::\+Distance\+Sensor Class Reference}
+\hypertarget{classokapi_1_1_distance_sensor}{}\label{classokapi_1_1_distance_sensor}\index{okapi::DistanceSensor@{okapi::DistanceSensor}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_controller_input}{okapi::\+\+Controller\+Input$<$ double $>$}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_distance_sensor_ab8a7144f11ebb8840485d3ad981f3c00}{Distance\+Sensor}} (std::\+uint8\+\_\+t iport, std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ ifilter=std::\+make\+\_\+unique$<$ \doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}} $>$())
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_distance_sensor_af16167bf82f0726af288852462555685}{get}} ()
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_distance_sensor_add62f9be29a585bec20031b27247bb30}{controller\+Get}} () override
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_distance_sensor_a0f2c761d936240c5028a1122770231b5}{get\+Confidence}} () const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_distance_sensor_a9cfc9459c97fe9dcfb136ef9645d8dc4}{get\+Object\+Size}} () const
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_distance_sensor_a7f8c5bfb35262480e5c6ec0a8e4c6d52}{get\+Object\+Velocity}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classokapi_1_1_distance_sensor_a30a91934d616957120b5e4226268b434}\label{classokapi_1_1_distance_sensor_a30a91934d616957120b5e4226268b434} 
+std::\+uint8\+\_\+t {\bfseries port}
+\item 
+\Hypertarget{classokapi_1_1_distance_sensor_a39a1c8b3be58cf987935e3d67f691ba3}\label{classokapi_1_1_distance_sensor_a39a1c8b3be58cf987935e3d67f691ba3} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ {\bfseries filter}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classokapi_1_1_distance_sensor_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classokapi_1_1_distance_sensor_ab8a7144f11ebb8840485d3ad981f3c00}\index{okapi::DistanceSensor@{okapi::DistanceSensor}!DistanceSensor@{DistanceSensor}}
+\index{DistanceSensor@{DistanceSensor}!okapi::DistanceSensor@{okapi::DistanceSensor}}
+\doxysubsubsection{\texorpdfstring{DistanceSensor()}{DistanceSensor()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_distance_sensor_ab8a7144f11ebb8840485d3ad981f3c00} 
+okapi::\+\+Distance\+Sensor::\+\+Distance\+Sensor (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t}]{iport}{, }\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$}]{ifilter}{ = {\ttfamily std:\+:\+make\+\_\+unique$<$~\doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}}~$>$()}}\end{DoxyParamCaption})}
+
+A distance sensor on a V5 port.
+
+
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em iport} & The V5 port the device uses. \\
+\hline
+{\em ifilter} & The filter to use for filtering the distance measurements. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_distance_sensor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_distance_sensor_add62f9be29a585bec20031b27247bb30}\index{okapi::DistanceSensor@{okapi::DistanceSensor}!controllerGet@{controllerGet}}
+\index{controllerGet@{controllerGet}!okapi::DistanceSensor@{okapi::DistanceSensor}}
+\doxysubsubsection{\texorpdfstring{controllerGet()}{controllerGet()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_distance_sensor_add62f9be29a585bec20031b27247bb30} 
+double okapi::\+\+Distance\+Sensor::\+controller\+Get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the sensor value for use in a control loop. This method might be automatically called in another thread by the controller.
+
+\begin{DoxyReturn}{Returns}
+The same as \doxylink{classokapi_1_1_distance_sensor_af16167bf82f0726af288852462555685}{get}. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_controller_input_a3c6c86d897983f367928a93890551e17}{okapi::\+\+Controller\+Input$<$ double $>$}}.
+
+\Hypertarget{classokapi_1_1_distance_sensor_af16167bf82f0726af288852462555685}\index{okapi::DistanceSensor@{okapi::DistanceSensor}!get@{get}}
+\index{get@{get}!okapi::DistanceSensor@{okapi::DistanceSensor}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_distance_sensor_af16167bf82f0726af288852462555685} 
+double okapi::\+\+Distance\+Sensor::\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the current filtered sensor value in mm.
+
+\begin{DoxyReturn}{Returns}
+The current filtered sensor value in mm. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_distance_sensor_a0f2c761d936240c5028a1122770231b5}\index{okapi::DistanceSensor@{okapi::DistanceSensor}!getConfidence@{getConfidence}}
+\index{getConfidence@{getConfidence}!okapi::DistanceSensor@{okapi::DistanceSensor}}
+\doxysubsubsection{\texorpdfstring{getConfidence()}{getConfidence()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_distance_sensor_a0f2c761d936240c5028a1122770231b5} 
+std::\+int32\+\_\+t okapi::\+\+Distance\+Sensor::\+get\+Confidence (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the confidence in the distance reading. This value has a range of {\ttfamily \+[0, 63]\+}. {\ttfamily 63} means high confidence, lower values imply less confidence. Confidence is only available when distance is greater than {\ttfamily 200} mm.
+
+\begin{DoxyReturn}{Returns}
+The confidence value in the range {\ttfamily \+[0, 63]\+}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_distance_sensor_a9cfc9459c97fe9dcfb136ef9645d8dc4}\index{okapi::DistanceSensor@{okapi::DistanceSensor}!getObjectSize@{getObjectSize}}
+\index{getObjectSize@{getObjectSize}!okapi::DistanceSensor@{okapi::DistanceSensor}}
+\doxysubsubsection{\texorpdfstring{getObjectSize()}{getObjectSize()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_distance_sensor_a9cfc9459c97fe9dcfb136ef9645d8dc4} 
+std::\+int32\+\_\+t okapi::\+\+Distance\+Sensor::\+get\+Object\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the current guess at relative object size. This value has a range of {\ttfamily \+[0, 400]\+}. A 18"{} x 30"{} grey card will return a value of approximately {\ttfamily 75} in typical room lighting.
+
+\begin{DoxyReturn}{Returns}
+The size value in the range {\ttfamily \+[0, 400]\+} or {\ttfamily PROS\+\_\+\+ERR} if the operation failed, setting errno. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_distance_sensor_a7f8c5bfb35262480e5c6ec0a8e4c6d52}\index{okapi::DistanceSensor@{okapi::DistanceSensor}!getObjectVelocity@{getObjectVelocity}}
+\index{getObjectVelocity@{getObjectVelocity}!okapi::DistanceSensor@{okapi::DistanceSensor}}
+\doxysubsubsection{\texorpdfstring{getObjectVelocity()}{getObjectVelocity()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_distance_sensor_a7f8c5bfb35262480e5c6ec0a8e4c6d52} 
+double okapi::\+\+Distance\+Sensor::\+get\+Object\+Velocity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the object velocity in m/\+s.
+
+\begin{DoxyReturn}{Returns}
+The object velocity in m/\+s. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+impl/\+device/\+distance\+Sensor.\+hpp\end{DoxyCompactItemize}

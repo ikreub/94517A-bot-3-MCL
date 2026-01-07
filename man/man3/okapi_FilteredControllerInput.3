@@ -1,0 +1,80 @@
+.TH "okapi::FilteredControllerInput< InputType, FilterType >" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::FilteredControllerInput< InputType, FilterType >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <filteredControllerInput\&.hpp>\fP
+.PP
+Inherits \fBokapi::ControllerInput< double >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFilteredControllerInput\fP (std::unique_ptr< \fBControllerInput\fP< InputType > > iinput, std::unique_ptr< FilterType > ifilter)"
+.br
+.ti -1c
+.RI "double \fBcontrollerGet\fP () override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::unique_ptr< \fBControllerInput\fP< InputType > > \fBinput\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< FilterType > \fBfilter\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename InputType, typename FilterType>
+.br
+class okapi::FilteredControllerInput< InputType, FilterType >"A \fBControllerInput\fP with a filter built in\&.
+
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIInputType\fP the type of the \fBControllerInput\fP 
+.br
+\fIFilterType\fP the type of the \fBFilter\fP 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename InputType, typename FilterType> \fBokapi::FilteredControllerInput\fP< InputType, FilterType >::FilteredControllerInput (std::unique_ptr< \fBControllerInput\fP< InputType > > iinput, std::unique_ptr< FilterType > ifilter)\fR [inline]\fP"
+A filtered controller input\&. Applies a filter to the controller input\&. Useful if you want to place a filter between a control input and a control loop\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiinput\fP \fBControllerInput\fP type 
+.br
+\fIifilter\fP \fBFilter\fP type 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename InputType, typename FilterType> double \fBokapi::FilteredControllerInput\fP< InputType, FilterType >::controllerGet ()\fR [inline]\fP, \fR [override]\fP, \fR [virtual]\fP"
+Gets the sensor value for use in a control loop\&. This method might be automatically called in another thread by the controller\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current filtered sensor value\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ControllerInput< double >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

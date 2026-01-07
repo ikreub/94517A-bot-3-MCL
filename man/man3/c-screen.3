@@ -1,0 +1,794 @@
+.TH "c-screen" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+c-screen \- Simplified Brain Screen C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBscreen\&.h\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBscreen_touch_status_s\fP"
+.br
+.ti -1c
+.RI "struct \fBscreen_touch_status_s_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBscreen_touch_status_s\fP \fBscreen_touch_status_s_t\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBtouch_event_cb_fn_t\fP) ()"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBtext_format_e_t\fP { \fBE_TEXT_SMALL\fP = 0, \fBE_TEXT_MEDIUM\fP, \fBE_TEXT_LARGE\fP, \fBE_TEXT_MEDIUM_CENTER\fP, \fBE_TEXT_LARGE_CENTER\fP }"
+.br
+.ti -1c
+.RI "enum \fBlast_touch_e_t\fP { \fBE_TOUCH_RELEASED\fP = 0, \fBE_TOUCH_PRESSED\fP, \fBE_TOUCH_HELD\fP, \fBE_TOUCH_ERROR\fP }"
+.br
+.in -1c
+.SS "Screen Graphical Display Functions"
+These functions allow programmers to display shapes on the v5 screen 
+.in +1c
+.ti -1c
+.RI "uint32_t \fBscreen_set_pen\fP (uint32_t color)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_set_eraser\fP (uint32_t color)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_get_pen\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_get_eraser\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_scroll\fP (int16_t start_line, int16_t lines)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_scroll_area\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t lines)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_copy_area\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint32_t *buf, int32_t stride)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_pixel\fP (int16_t x, int16_t y)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_pixel\fP (int16_t x, int16_t y)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_line\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_line\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_rect\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_rect\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_fill_rect\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_circle\fP (int16_t x, int16_t y, int16_t radius)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_circle\fP (int16_t x, int16_t y, int16_t radius)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_fill_circle\fP (int16_t x, int16_t y, int16_t radius)"
+.br
+.in -1c
+.SS "Screen Text Display Functions"
+These functions allow programmers to display text on the v5 screen 
+.in +1c
+.ti -1c
+.RI "uint32_t \fBscreen_print\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t line, const char *text,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_print_at\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t x, const int16_t y, const char *text,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_vprintf\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t line, const char *text, va_list args)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_vprintf_at\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t x, const int16_t y, const char *text, va_list args)"
+.br
+.in -1c
+.SS "Screen Touch Functions"
+These functions allow programmers to access information about screen touches 
+.in +1c
+.ti -1c
+.RI "\fBscreen_touch_status_s_t\fP \fBscreen_touch_status\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_touch_callback\fP (touch_event_cb_fn_t cb, \fBlast_touch_e_t\fP event_type)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBlast_touch_e_t\fP"
+Enum indicating what the current touch status is for the touchscreen\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIE_TOUCH_RELEASED \fP
+Last interaction with screen was a quick press\&. 
+.TP
+\f(BIE_TOUCH_PRESSED \fP
+Last interaction with screen was a release\&. 
+.TP
+\f(BIE_TOUCH_HELD \fP
+User is holding screen down\&. 
+.TP
+\f(BIE_TOUCH_ERROR \fP
+An error occured while taking/returning the mutex\&. 
+.SS "enum \fBtext_format_e_t\fP"
+Different font sizes that can be used in printing text\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIE_TEXT_SMALL \fP
+Small text font size\&. 
+.TP
+\f(BIE_TEXT_MEDIUM \fP
+Normal/Medium text font size\&. 
+.TP
+\f(BIE_TEXT_LARGE \fP
+Large text font size\&. 
+.TP
+\f(BIE_TEXT_MEDIUM_CENTER \fP
+Medium centered text\&. 
+.TP
+\f(BIE_TEXT_LARGE_CENTER \fP
+Large centered text\&. 
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t screen_copy_area (int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint32_t * buf, int32_t stride)"
+Copy a screen region (designated by a rectangle) from an off-screen buffer to the screen
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x,y) coordinates of the first corner of the rectangular region of the screen 
+.br
+\fIx1,y1\fP The (x,y) coordinates of the second corner of the rectangular region of the screen 
+.br
+\fIbuf\fP Off-screen buffer containing screen data 
+.br
+\fIstride\fP Off-screen buffer width in pixels, such that image size is stride-padding
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_draw_circle (int16_t x, int16_t y, int16_t radius)"
+Draw a circle on the screen using the current pen color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx,y\fP The (x,y) coordinates of the center of the circle 
+.br
+\fIr\fP The radius of the circle
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_draw_line (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+Draw a line on the screen using the current pen color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x, y) coordinates of the first point of the line 
+.br
+\fIx1,y1\fP The (x, y) coordinates of the second point of the line
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_draw_pixel (int16_t x, int16_t y)"
+Draw a single pixel on the screen using the current pen color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx,y\fP The (x,y) coordinates of the pixel
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_draw_rect (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+Draw a rectangle on the screen using the current pen color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x,y) coordinates of the first point of the rectangle 
+.br
+\fIx1,y1\fP The (x,y) coordinates of the second point of the rectangle
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_erase (void )"
+Clear display with eraser color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_erase_circle (int16_t x, int16_t y, int16_t radius)"
+Erase a circle on the screen using the current eraser color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx,y\fP The (x,y) coordinates of the center of the circle 
+.br
+\fIr\fP The radius of the circle
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_erase_line (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+Erase a line on the screen using the current eraser color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x, y) coordinates of the first point of the line 
+.br
+\fIx1,y1\fP The (x, y) coordinates of the second point of the line
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_erase_pixel (int16_t x, int16_t y)"
+Erase a pixel from the screen (Sets the location)
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx,y\fP The (x,y) coordinates of the erased
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_erase_rect (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+Erase a rectangle on the screen using the current eraser color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x,y) coordinates of the first point of the rectangle 
+.br
+\fIx1,y1\fP The (x,y) coordinates of the second point of the rectangle
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_fill_circle (int16_t x, int16_t y, int16_t radius)"
+Fill a circular region of the screen using the current pen color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx,y\fP The (x,y) coordinates of the center of the circle 
+.br
+\fIr\fP The radius of the circle
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_fill_rect (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+Fill a rectangular region of the screen using the current pen color
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x,y) coordinates of the first point of the rectangle 
+.br
+\fIx1,y1\fP The (x,y) coordinates of the second point of the rectangle
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_get_eraser (void )"
+Get the current eraser color\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current eraser color in the form of a value from the enum defined in \fBcolors\&.h\fP, or PROS_ERR if there was an error taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_get_pen (void )"
+Get the current pen color\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current pen color in the form of a value from the enum defined in \fBcolors\&.h\fP, or PROS_ERR if there was an error taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_print (\fBtext_format_e_t\fP txt_fmt, const int16_t line, const char * text,  \&.\&.\&.)"
+Print a formatted string to the screen on the specified line
+
+.PP
+Will default to a medium sized font by default if invalid txt_fmt is given\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItxt_fmt\fP Text format enum that determines if the text is medium, large, medium_center, or large_center\&. (DOES NOT SUPPORT SMALL)
+.br
+\fIline\fP The line number on which to print
+.br
+\fItext\fP Format string
+.br
+\fI\&.\&.\&.\fP Optional list of arguments for the format string
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_print_at (\fBtext_format_e_t\fP txt_fmt, const int16_t x, const int16_t y, const char * text,  \&.\&.\&.)"
+Print a formatted string to the screen at the specified point
+
+.PP
+Will default to a medium sized font by default if invalid txt_fmt is given\&.
+
+.PP
+Text formats medium_center and large_center will default to medium and large respectively\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItxt_fmt\fP Text format enum that determines if the text is small, medium, or large\&. 
+.br
+\fIx\fP The y coordinate of the top left corner of the string 
+.br
+\fIy\fP The x coordinate of the top left corner of the string 
+.br
+\fItext\fP Format string 
+.br
+\fI\&.\&.\&.\fP Optional list of arguments for the format string
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_scroll (int16_t start_line, int16_t lines)"
+Scroll lines on the display upwards\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart_line\fP The line from which scrolling will start 
+.br
+\fIlines\fP The number of lines to scroll up
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_scroll_area (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t lines)"
+Scroll lines within a region on the display
+
+.PP
+This function behaves in the same way as \fR\fBscreen_scroll\fP\fP, except that you specify a rectangular region within which to scroll lines instead of a start line\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx0,y0\fP The (x,y) coordinates of the first corner of the rectangular region 
+.br
+\fIx1,y1\fP The (x,y) coordinates of the second corner of the rectangular region 
+.br
+\fIlines\fP The number of lines to scroll upwards
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_set_eraser (uint32_t color)"
+Set the eraser color for erasing and the current background\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolor\fP The background color to set (it is recommended to use values from the enum defined in \fBcolors\&.h\fP)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns 1 if the mutex was successfully returned, or PROS_ERR if there was an error either taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_set_pen (uint32_t color)"
+Set the pen color for subsequent graphics operations
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolor\fP The pen color to set (it is recommended to use values from the enum defined in \fBcolors\&.h\fP)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Returns 1 if the mutex was successfully returned, or PROS_ERR if there was an error either taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_touch_callback (touch_event_cb_fn_t cb, \fBlast_touch_e_t\fP event_type)"
+Assigns a callback function to be called when a certain touch event happens\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIcb\fP Function pointer to callback when event type happens 
+.br
+\fIevent_type\fP Touch event that will trigger the callback\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured while taking or returning the screen mutex\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBscreen_touch_status_s_t\fP screen_touch_status (void )"
+Gets the touch status of the last touch of the screen\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The \fBlast_touch_e_t\fP enum specifier that indicates the last touch status of the screen (E_TOUCH_EVENT_RELEASE, E_TOUCH_EVENT_PRESS, or E_TOUCH_EVENT_PRESS_AND_HOLD)\&. This will be released by default if no action was taken\&. If an error occured, the \fBscreen_touch_status_s_t\fP will have its \fBlast_touch_e_t\fP enum specifier set to E_TOUCH_ERR, and other values set to -1\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t screen_vprintf (\fBtext_format_e_t\fP txt_fmt, const int16_t line, const char * text, va_list args)"
+Print a formatted string to the screen on the specified line
+
+.PP
+Same as \fRdisplay_printf\fP except that this uses a \fRva_list\fP instead of the ellipsis operator so this can be used by other functions\&.
+
+.PP
+Will default to a medium sized font by default if invalid txt_fmt is given\&. Exposed mostly for writing libraries and custom functions\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItxt_fmt\fP Text format enum that determines if the text is medium, large, medium_center, or large_center\&. (DOES NOT SUPPORT SMALL)
+.br
+\fIline\fP The line number on which to print
+.br
+\fItext\fP Format string
+.br
+\fIargs\fP List of arguments for the format string
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured while taking or returning the screen mutex\&. 
+.RE
+.PP
+
+.SS "uint32_t screen_vprintf_at (\fBtext_format_e_t\fP txt_fmt, const int16_t x, const int16_t y, const char * text, va_list args)"
+Print a formatted string to the screen at the specified coordinates
+
+.PP
+Same as \fRdisplay_printf_at\fP except that this uses a \fRva_list\fP instead of the ellipsis operator so this can be used by other functions\&.
+
+.PP
+Will default to a medium sized font by default if invalid txt_fmt is given\&.
+
+.PP
+Text formats medium_center and large_center will default to medium and large respectively\&. Exposed mostly for writing libraries and custom functions\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCESS - Another resource is currently trying to access the screen mutex\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItxt_fmt\fP Text format enum that determines if the text is small, medium, or large\&. 
+.br
+\fIx,y\fP The (x,y) coordinates of the top left corner of the string 
+.br
+\fItext\fP Format string 
+.br
+\fIargs\fP List of arguments for the format string
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if there were no errors, or PROS_ERR if an error occured while taking or returning the screen mutex\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

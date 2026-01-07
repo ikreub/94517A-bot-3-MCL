@@ -1,0 +1,137 @@
+.TH "okapi::ThreeEncoderOdometry" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ThreeEncoderOdometry
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBThreeEncoderOdometry\fP (const \fBTimeUtil\fP &itimeUtil, const std::shared_ptr< \fBReadOnlyChassisModel\fP > &imodel, const \fBChassisScales\fP &ichassisScales, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::TwoEncoderOdometry\fP
+.in +1c
+.ti -1c
+.RI "\fBTwoEncoderOdometry\fP (const \fBTimeUtil\fP &itimeUtil, const std::shared_ptr< \fBReadOnlyChassisModel\fP > &imodel, const \fBChassisScales\fP &ichassisScales, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "void \fBsetScales\fP (const \fBChassisScales\fP &ichassisScales) override"
+.br
+.ti -1c
+.RI "void \fBstep\fP () override"
+.br
+.ti -1c
+.RI "\fBOdomState\fP \fBgetState\fP (const StateMode &imode=StateMode::FRAME_TRANSFORMATION) const override"
+.br
+.ti -1c
+.RI "void \fBsetState\fP (const \fBOdomState\fP &istate, const StateMode &imode=StateMode::FRAME_TRANSFORMATION) override"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBReadOnlyChassisModel\fP > \fBgetModel\fP () override"
+.br
+.ti -1c
+.RI "\fBChassisScales\fP \fBgetScales\fP () override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::Odometry\fP
+.in +1c
+.ti -1c
+.RI "\fBOdometry\fP ()=default"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOdomState\fP \fBodomMathStep\fP (const std::valarray< std::int32_t > &itickDiff, const QTime &ideltaT) override"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBokapi::TwoEncoderOdometry\fP
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAbstractRate\fP > \fBrate\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAbstractTimer\fP > \fBtimer\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBReadOnlyChassisModel\fP > \fBmodel\fP"
+.br
+.ti -1c
+.RI "\fBChassisScales\fP \fBchassisScales\fP"
+.br
+.ti -1c
+.RI "\fBOdomState\fP \fBstate\fP"
+.br
+.ti -1c
+.RI "std::valarray< std::int32_t > \fBnewTicks\fP {0, 0, 0}"
+.br
+.ti -1c
+.RI "std::valarray< std::int32_t > \fBtickDiff\fP {0, 0, 0}"
+.br
+.ti -1c
+.RI "std::valarray< std::int32_t > \fBlastTicks\fP {0, 0, 0}"
+.br
+.ti -1c
+.RI "const std::int32_t \fBmaximumTickDiff\fP {1000}"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ThreeEncoderOdometry::ThreeEncoderOdometry (const \fBTimeUtil\fP & itimeUtil, const std::shared_ptr< \fBReadOnlyChassisModel\fP > & imodel, const \fBChassisScales\fP & ichassisScales, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+\fBOdometry\fP\&. Tracks the movement of the robot and estimates its position in coordinates relative to the start (assumed to be (0, 0))\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimeUtil\fP The \fBTimeUtil\fP\&. 
+.br
+\fIimodel\fP The chassis model for reading sensors\&. 
+.br
+\fIichassisScales\fP See \fBChassisScales\fP docs (the middle wheel scale is the third member) 
+.br
+\fIiwheelVelDelta\fP The maximum delta between wheel velocities to consider the robot as driving straight\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBOdomState\fP okapi::ThreeEncoderOdometry::odomMathStep (const std::valarray< std::int32_t > & itickDiff, const QTime & ideltaT)\fR [override]\fP, \fR [protected]\fP, \fR [virtual]\fP"
+Does the math, side-effect free, for one odom step\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitickDiff\fP The tick difference from the previous step to this step\&. 
+.br
+\fIideltaT\fP The time difference from the previous step to this step\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The newly computed \fBOdomState\fP\&. 
+.RE
+.PP
+
+.PP
+Reimplemented from \fBokapi::TwoEncoderOdometry\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

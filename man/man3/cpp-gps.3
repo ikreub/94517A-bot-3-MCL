@@ -1,0 +1,776 @@
+.TH "cpp-gps" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-gps \- VEX GPS Sensor C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBgps\&.hpp\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::v5::Gps\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::Gps::Gps\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Gps::Gps\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Gps::Gps\fP (const std::uint8_t port, double xInitial, double yInitial, double headingInitial)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Gps::Gps\fP (const std::uint8_t port, double xOffset, double yOffset)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Gps::Gps\fP (const std::uint8_t port, double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Gps::initialize_full\fP (double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Gps::set_offset\fP (double xOffset, double yOffset) const"
+.br
+.ti -1c
+.RI "static std::vector< \fBGps\fP > \fBpros::v5::Gps::get_all_devices\fP ()"
+.br
+.ti -1c
+.RI "virtual pros::gps_position_s_t \fBpros::v5::Gps::get_offset\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Gps::set_position\fP (double xInitial, double yInitial, double headingInitial) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Gps::set_data_rate\fP (std::uint32_t rate) const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_error\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_status_s_t \fBpros::v5::Gps::get_position_and_orientation\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_position_s_t \fBpros::v5::Gps::get_position\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_position_x\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_position_y\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_orientation_s_t \fBpros::v5::Gps::get_orientation\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_pitch\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_roll\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_yaw\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_heading\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_heading_raw\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_gyro_s_t \fBpros::v5::Gps::get_gyro_rate\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_gyro_rate_x\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_gyro_rate_y\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_gyro_rate_z\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_accel_s_t \fBpros::v5::Gps::get_accel\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_accel_x\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_accel_y\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBpros::v5::Gps::get_accel_z\fP () const"
+.br
+.ti -1c
+.RI "static \fBGps\fP \fBpros::v5::Gps::get_gps\fP ()"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBpros::v5::Gps::operator<<\fP (std::ostream &os, const \fBpros::Gps\fP &gps)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBNote\fP
+.RS 4
+For a pros-specific usage guide on the \fBGPS\fP, please check out our article \fBhere\&.\fP
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "virtual pros::gps_accel_s_t pros::v5::Gps::get_accel () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw accelerometer values
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw accelerometer values\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&. 
+.RE
+.PP
+
+.SS "virtual double pros::v5::Gps::get_accel_x () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw accelerometer value in x-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw accelerometer value in x-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_accel_y () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw accelerometer value in y-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw accelerometer value in y-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_accel_z () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw accelerometer value in z-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw accelerometer value in z-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::vector< \fBGps\fP > pros::v5::Gps::get_all_devices ()\fR [static]\fP"
+Gets all \fBGPS\fP sensors\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of \fBGps\fP sensor objects\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_error () const\fR [virtual]\fP"
+Get the possible RMS (Root Mean Squared) error in meters for \fBGPS\fP position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+Possible RMS (Root Mean Squared) error in meters for \fBGPS\fP position\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBGps\fP pros::v5::Gps::get_gps ()\fR [static]\fP"
+Gets a gps sensor that is plugged in to the brain
+
+.PP
+\fBNote\fP
+.RS 4
+The first time this function is called it returns the gps sensor at the lowest port If this function is called multiple times, it will cycle through all the ports\&. For example, if you have 1 gps sensor on the robot this function will always return a gps sensor object for that port\&. If you have 2 gps sensors, all the odd numered calls to this function will return objects for the lower port number, all the even number calls will return gps objects for the higher port number
+.RE
+.PP
+This functions uses the following values of errno when an error state is reached: ENODEV - No gps sensor is plugged into the brain
+
+.PP
+\fBReturns\fP
+.RS 4
+A gps object corresponding to a port that a gps sensor is connected to the brain If no gps sensor is plugged in, it returns a gps sensor on port PROS_ERR_BYTE 
+.RE
+.PP
+
+.SS "virtual pros::gps_gyro_s_t pros::v5::Gps::get_gyro_rate () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw gyroscope value in z-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw gyroscope value in z-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_gyro_rate_x () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw gyroscope value in x-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw gyroscope value in x-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_gyro_rate_y () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw gyroscope value in y-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw gyroscope value in y-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_gyro_rate_z () const\fR [virtual]\fP"
+Get the \fBGPS\fP's raw gyroscope value in z-axis
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The raw gyroscope value in z-axis\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_heading () const\fR [virtual]\fP"
+Get the heading in [0,360) degree values\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The heading in [0,360) degree values\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_heading_raw () const\fR [virtual]\fP"
+Get the heading in the max double value and min double value scale\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The heading in [DOUBLE_MIN, DOUBLE_MAX] values\&. If the operation fails, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::gps_position_s_t pros::v5::Gps::get_offset () const\fR [virtual]\fP"
+Get the \fBGPS\fP's cartesian location relative to the center of turning/origin in meters\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 \fBGPS\fP port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A struct (\fBgps_position_s_t\fP) containing the X and Y values if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::gps_orientation_s_t pros::v5::Gps::get_orientation () const\fR [virtual]\fP"
+Gets the pitch, roll, and yaw of the \fBGPS\fP relative to the starting orientation\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+A struct (\fBgps_orientation_s_t\fP) containing values mentioned above\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_pitch () const\fR [virtual]\fP"
+Gets the pitch of the robot in degrees relative to the starting oreintation\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The pitch in [0,360) degree values\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::gps_position_s_t pros::v5::Gps::get_position () const\fR [virtual]\fP"
+Gets the x and y position on the field of the \fBGPS\fP in meters\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+A struct (\fBgps_position_s_t\fP) containing values mentioned above\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual pros::gps_status_s_t pros::v5::Gps::get_position_and_orientation () const\fR [virtual]\fP"
+Gets the position and roll, yaw, and pitch of the \fBGPS\fP\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+A struct (\fBgps_status_s_t\fP) containing values mentioned above\&. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_position_x () const\fR [virtual]\fP"
+Gets the X position in meters of the robot relative to the starting position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The X position in meters\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_position_y () const\fR [virtual]\fP"
+Gets the Y position in meters of the robot relative to the starting position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The Y position in meters\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_roll () const\fR [virtual]\fP"
+Gets the roll of the robot in degrees relative to the starting oreintation\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The roll in [0,360) degree values\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual double pros::v5::Gps::get_yaw () const\fR [virtual]\fP"
+Gets the yaw of the robot in degrees relative to the starting oreintation\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBReturns\fP
+.RS 4
+The yaw in [0,360) degree values\&. If the operation failed, returns PROS_ERR_F and errno is set\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Gps::Gps (const std::uint8_t port)\fR [inline]\fP"
+Creates a \fBGPS\fP object for the given port\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 \fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "pros::v5::Gps::Gps (const std::uint8_t port, double xInitial, double yInitial, double headingInitial)\fR [inline]\fP, \fR [explicit]\fP"
+Creates a \fBGPS\fP object for the given port\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIxInitial\fP Cartesian 4-Quadrant X initial position (meters) 
+.br
+\fIyInitial\fP Cartesian 4-Quadrant Y initial position (meters) 
+.br
+\fIheadingInitial\fP Initial heading (degrees)
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Gps::Gps (const std::uint8_t port, double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset)\fR [inline]\fP, \fR [explicit]\fP"
+Creates a \fBGPS\fP object for the given port\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIxInitial\fP Initial 4-Quadrant X Position, with (0,0) being at the center of the field (meters) 
+.br
+\fIyInitial\fP Initial 4-Quadrant Y Position, with (0,0) being at the center of the field (meters) 
+.br
+\fIheadingInitial\fP Initial Heading, with 0 being North, 90 being East, 180 being South, and 270 being West (degrees) 
+.br
+\fIxOffset\fP Cartesian 4-Quadrant X offset from center of turning (meters) 
+.br
+\fIyOffset\fP Cartesian 4-Quadrant Y offset from center of turning (meters)
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Gps::Gps (const std::uint8_t port, double xOffset, double yOffset)\fR [inline]\fP, \fR [explicit]\fP"
+Creates a \fBGPS\fP object for the given port\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIxOffset\fP Cartesian 4-Quadrant X offset from center of turning (meters) 
+.br
+\fIyOffset\fP Cartesian 4-Quadrant Y offset from center of turning (meters)
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Gps::initialize_full (double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset) const\fR [virtual]\fP"
+Set the \fBGPS\fP's offset relative to the center of turning in meters, as well as its initial position\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxOffset\fP Cartesian 4-Quadrant X offset from center of turning (meters) 
+.br
+\fIyOffset\fP Cartesian 4-Quadrant Y offset from center of turning (meters) 
+.br
+\fIxInitial\fP Initial 4-Quadrant X Position, with (0,0) being at the center of the field (meters) 
+.br
+\fIyInitial\fP Initial 4-Quadrant Y Position, with (0,0) being at the center of the field (meters) 
+.br
+\fIheadingInitial\fP Heading with 0 being north on the field, in degrees [0,360) going clockwise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Gps::set_data_rate (std::uint32_t rate) const\fR [virtual]\fP"
+Set the \fBGPS\fP sensor's data rate in milliseconds, only applies to IMU on \fBGPS\fP\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIrate\fP Data rate in milliseconds (Minimum: 5 ms) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Gps::set_offset (double xOffset, double yOffset) const\fR [virtual]\fP"
+Set the \fBGPS\fP's offset relative to the center of turning in meters\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxOffset\fP Cartesian 4-Quadrant X offset from center of turning (meters) 
+.br
+\fIyOffset\fP Cartesian 4-Quadrant Y offset from center of turning (meters) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Gps::set_position (double xInitial, double yInitial, double headingInitial) const\fR [virtual]\fP"
+Sets the robot's location relative to the center of the field in meters\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a \fBGPS\fP EAGAIN - The sensor is still calibrating
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxInitial\fP Initial 4-Quadrant X Position, with (0,0) being at the center of the field (meters) 
+.br
+\fIyInitial\fP Initial 4-Quadrant Y Position, with (0,0) being at the center of the field (meters) 
+.br
+\fIheadingInitial\fP Heading with 0 being north on the field, in degrees [0,360) going clockwise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Friends"
+.PP 
+.SS "std::ostream & operator<< (std::ostream & os, const \fBpros::Gps\fP & gps)\fR [friend]\fP"
+This is the overload for the << operator for printing to streams
+
+.PP
+Prints in format: \fBGps\fP [port: gps\&._port, x: (x position), y: (y position), heading: (gps heading), rotation: (gps rotation)]
+
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

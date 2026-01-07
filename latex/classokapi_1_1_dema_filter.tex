@@ -1,0 +1,118 @@
+\doxysection{okapi::\+Dema\+Filter Class Reference}
+\hypertarget{classokapi_1_1_dema_filter}{}\label{classokapi_1_1_dema_filter}\index{okapi::DemaFilter@{okapi::DemaFilter}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_filter}{okapi::\+\+Filter}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_dema_filter_ad5027a998ad5864b890c4aa04d6d54c3}{Dema\+Filter}} (double ialpha, double ibeta)
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_dema_filter_a2d0eb2feae37ceacc865023ac4997ff1}{filter}} (double ireading) override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_dema_filter_a2dba33231bb71e16d13adbcefefed425}{get\+Output}} () const override
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_dema_filter_a7a8f5d93ec9e923f431676b71d250dbc}{set\+Gains}} (double ialpha, double ibeta)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classokapi_1_1_dema_filter_ab28fcb9de16e8df8c510e42b6be99323}\label{classokapi_1_1_dema_filter_ab28fcb9de16e8df8c510e42b6be99323} 
+double {\bfseries alpha}
+\item 
+\Hypertarget{classokapi_1_1_dema_filter_ae3ed95c39828a178e68dd72078ddbfcc}\label{classokapi_1_1_dema_filter_ae3ed95c39828a178e68dd72078ddbfcc} 
+double {\bfseries beta}
+\item 
+\Hypertarget{classokapi_1_1_dema_filter_a546334c52b5e8d8f7463e5c4b5f567cc}\label{classokapi_1_1_dema_filter_a546334c52b5e8d8f7463e5c4b5f567cc} 
+double {\bfseries outputS} = 0
+\item 
+\Hypertarget{classokapi_1_1_dema_filter_a871f1d0708279cae7a395d56838ee2cb}\label{classokapi_1_1_dema_filter_a871f1d0708279cae7a395d56838ee2cb} 
+double {\bfseries last\+OutputS} = 0
+\item 
+\Hypertarget{classokapi_1_1_dema_filter_a3b5321ef933fe42ad34176bbd7ee153a}\label{classokapi_1_1_dema_filter_a3b5321ef933fe42ad34176bbd7ee153a} 
+double {\bfseries outputB} = 0
+\item 
+\Hypertarget{classokapi_1_1_dema_filter_ac2aa6ed56ee0120dcca8e12057b15a70}\label{classokapi_1_1_dema_filter_ac2aa6ed56ee0120dcca8e12057b15a70} 
+double {\bfseries last\+OutputB} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classokapi_1_1_dema_filter_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classokapi_1_1_dema_filter_ad5027a998ad5864b890c4aa04d6d54c3}\index{okapi::DemaFilter@{okapi::DemaFilter}!DemaFilter@{DemaFilter}}
+\index{DemaFilter@{DemaFilter}!okapi::DemaFilter@{okapi::DemaFilter}}
+\doxysubsubsection{\texorpdfstring{DemaFilter()}{DemaFilter()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_dema_filter_ad5027a998ad5864b890c4aa04d6d54c3} 
+okapi::\+\+Dema\+Filter::\+\+Dema\+Filter (\begin{DoxyParamCaption}\item[{double}]{ialpha}{, }\item[{double}]{ibeta}{}\end{DoxyParamCaption})}
+
+Double exponential moving average filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ialpha} & alpha gain \\
+\hline
+{\em ibeta} & beta gain \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_dema_filter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_dema_filter_a2d0eb2feae37ceacc865023ac4997ff1}\index{okapi::DemaFilter@{okapi::DemaFilter}!filter@{filter}}
+\index{filter@{filter}!okapi::DemaFilter@{okapi::DemaFilter}}
+\doxysubsubsection{\texorpdfstring{filter()}{filter()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_dema_filter_a2d0eb2feae37ceacc865023ac4997ff1} 
+double okapi::\+\+Dema\+Filter::\+filter (\begin{DoxyParamCaption}\item[{double}]{ireading}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Filters a value, like a sensor reading.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reading} & new measurement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+filtered result 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_filter_a7c2ea0b64b37b688900189856d58da15}{okapi::\+\+Filter}}.
+
+\Hypertarget{classokapi_1_1_dema_filter_a2dba33231bb71e16d13adbcefefed425}\index{okapi::DemaFilter@{okapi::DemaFilter}!getOutput@{getOutput}}
+\index{getOutput@{getOutput}!okapi::DemaFilter@{okapi::DemaFilter}}
+\doxysubsubsection{\texorpdfstring{getOutput()}{getOutput()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_dema_filter_a2dba33231bb71e16d13adbcefefed425} 
+double okapi::\+\+Dema\+Filter::\+get\+Output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns the previous output from filter.
+
+\begin{DoxyReturn}{Returns}
+the previous output from filter 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_filter_a3469cd4bc108f8accf300d9f5cc9f42f}{okapi::\+\+Filter}}.
+
+\Hypertarget{classokapi_1_1_dema_filter_a7a8f5d93ec9e923f431676b71d250dbc}\index{okapi::DemaFilter@{okapi::DemaFilter}!setGains@{setGains}}
+\index{setGains@{setGains}!okapi::DemaFilter@{okapi::DemaFilter}}
+\doxysubsubsection{\texorpdfstring{setGains()}{setGains()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_dema_filter_a7a8f5d93ec9e923f431676b71d250dbc} 
+virtual void okapi::\+\+Dema\+Filter::\+set\+Gains (\begin{DoxyParamCaption}\item[{double}]{ialpha}{, }\item[{double}]{ibeta}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set filter gains.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ialpha} & alpha gain \\
+\hline
+{\em ibeta} & beta gain \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+api/\+filter/\+dema\+Filter.\+hpp\end{DoxyCompactItemize}

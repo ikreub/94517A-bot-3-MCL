@@ -1,0 +1,83 @@
+\doxysection{okapi::\+Async\+Position\+Controller\texorpdfstring{$<$}{<} Input, Output \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classokapi_1_1_async_position_controller}{}\label{classokapi_1_1_async_position_controller}\index{okapi::AsyncPositionController$<$ Input, Output $>$@{okapi::AsyncPositionController$<$ Input, Output $>$}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_async_controller}{okapi::\+\+Async\+Controller$<$ Input, Output $>$}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_a0af03d0035343cbf843a19374f38a059}{tare\+Position}} ()=0
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_ac56b3e8bc43ad9d9a6c95ff0a883e499}{set\+Max\+Velocity}} (std::\+int32\+\_\+t imax\+Velocity)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_async_controller}{okapi::\+\+Async\+Controller$<$ Input, Output $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_controller_a20e19f334e3dc7a3092e0e4355edcf49}{wait\+Until\+Settled}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller}{okapi::\+\+Closed\+Loop\+Controller$<$ Input, Output $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_ac14482d0768b3f157d52e0214a4c36d7}{set\+Target}} (Input itarget)=0
+\item 
+virtual Input \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a22012bedbfaff6e5a3a508f274ec2497}{get\+Target}} ()=0
+\item 
+virtual Input \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_abffaa2af6941299849e460e15c65080f}{get\+Process\+Value}} () const =0
+\item 
+virtual Output \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a50c73444ff6e3e631951c43d0f951953}{get\+Error}} () const =0
+\item 
+virtual bool \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_aed7aa0e94b6474c28314f8517d6cb4d8}{is\+Settled}} ()=0
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a7dd6ce28b3e38bdf987514a1b6c83c8c}{reset}} ()=0
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a9de69b60885df41cd2164fe1a23f34d3}{flip\+Disable}} ()=0
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a768cd1db40ce9cd5c89b20be6e838ccc}{flip\+Disable}} (bool iis\+Disabled)=0
+\item 
+virtual bool \doxymbox{\hyperlink{classokapi_1_1_closed_loop_controller_a40bd4ec2b8c75503fbf6f494fd7cbe69}{is\+Disabled}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_controller_output}{okapi::\+\+Controller\+Output$<$ Input $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_controller_output_a360c08f0c10b36f882d6d3100c2cad49}{controller\+Set}} (Input ivalue)=0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_async_position_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_async_position_controller_ac56b3e8bc43ad9d9a6c95ff0a883e499}\index{okapi::AsyncPositionController$<$ Input, Output $>$@{okapi::AsyncPositionController$<$ Input, Output $>$}!setMaxVelocity@{setMaxVelocity}}
+\index{setMaxVelocity@{setMaxVelocity}!okapi::AsyncPositionController$<$ Input, Output $>$@{okapi::AsyncPositionController$<$ Input, Output $>$}}
+\doxysubsubsection{\texorpdfstring{setMaxVelocity()}{setMaxVelocity()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_position_controller_ac56b3e8bc43ad9d9a6c95ff0a883e499} 
+template$<$typename Input, typename Output$>$ \\
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_position_controller}{okapi::\+\+Async\+Position\+Controller}}$<$ Input, Output $>$::\+set\+Max\+Velocity (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{imax\+Velocity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Sets a new maximum velocity (typically motor RPM \+[0-\/600]\+). The interpretation of the units of this velocity and whether it will be respected is implementation-\/dependent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em imax\+Velocity} & The new maximum velocity. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \doxymbox{\hyperlink{classokapi_1_1_async_linear_motion_profile_controller_aaeecb68c5bfdc32a7d50b9f1691a0c9c}{okapi::\+\+Async\+Linear\+Motion\+Profile\+Controller}}, \doxymbox{\hyperlink{classokapi_1_1_async_motion_profile_controller_a8c8214249732c79d48601a2da579f220}{okapi::\+\+Async\+Motion\+Profile\+Controller}}, \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8559a6aa43c74f5caf1a6839d1a2224a}{okapi::\+\+Async\+Pos\+Integrated\+Controller}}, and \doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a4e4d599f04780e0e980116f38d8044fa}{okapi::\+\+Async\+Pos\+PIDController}}.
+
+\Hypertarget{classokapi_1_1_async_position_controller_a0af03d0035343cbf843a19374f38a059}\index{okapi::AsyncPositionController$<$ Input, Output $>$@{okapi::AsyncPositionController$<$ Input, Output $>$}!tarePosition@{tarePosition}}
+\index{tarePosition@{tarePosition}!okapi::AsyncPositionController$<$ Input, Output $>$@{okapi::AsyncPositionController$<$ Input, Output $>$}}
+\doxysubsubsection{\texorpdfstring{tarePosition()}{tarePosition()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_position_controller_a0af03d0035343cbf843a19374f38a059} 
+template$<$typename Input, typename Output$>$ \\
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_position_controller}{okapi::\+\+Async\+Position\+Controller}}$<$ Input, Output $>$::\+tare\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Sets the "{}absolute"{} zero position of the controller to its current position. 
+
+Implemented in \doxymbox{\hyperlink{classokapi_1_1_async_linear_motion_profile_controller_a6cfe67f9e4db556fbed1f2c4c4252b0a}{okapi::\+\+Async\+Linear\+Motion\+Profile\+Controller}}, \doxymbox{\hyperlink{classokapi_1_1_async_motion_profile_controller_afc3476c87e3428f9f166273688e45249}{okapi::\+\+Async\+Motion\+Profile\+Controller}}, \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a5fa801adbb46287423c5baae82f75924}{okapi::\+\+Async\+Pos\+Integrated\+Controller}}, and \doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a4d5bb5646dcdc3bc80f15c1d6ae72747}{okapi::\+\+Async\+Pos\+PIDController}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+api/\+control/\+async/\+async\+Position\+Controller.\+hpp\end{DoxyCompactItemize}

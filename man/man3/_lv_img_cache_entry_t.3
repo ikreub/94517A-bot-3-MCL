@@ -1,0 +1,36 @@
+.TH "_lv_img_cache_entry_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_img_cache_entry_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_img_cache\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBlv_img_decoder_dsc_t\fP \fBdec_dsc\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlife\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+When loading images from the network it can take a long time to download and decode the image\&.
+
+.PP
+To avoid repeating this heavy load images can be cached\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBlv_img_decoder_dsc_t\fP _lv_img_cache_entry_t::dec_dsc"
+Image information 
+.SS "int32_t _lv_img_cache_entry_t::life"
+Count the cache entries's life\&. Add \fRtime_to_open\fP to \fR\fBlife\fP\fP when the entry is used\&. Decrement all lifes by one every in every ::lv_img_cache_open\&. If life == 0 the entry can be reused 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

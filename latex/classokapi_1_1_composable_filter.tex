@@ -1,0 +1,100 @@
+\doxysection{okapi::\+Composable\+Filter Class Reference}
+\hypertarget{classokapi_1_1_composable_filter}{}\label{classokapi_1_1_composable_filter}\index{okapi::ComposableFilter@{okapi::ComposableFilter}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_filter}{okapi::\+\+Filter}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_composable_filter_a4aa25022db4aa2b8b0d03c8c8f638aa5}{Composable\+Filter}} (const std::\+initializer\+\_\+list$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ $>$ \&ilist)
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_composable_filter_a76925f04dcd186b249e5bfb169f27992}{filter}} (double ireading) override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_composable_filter_a2d54899ce84c463af2f22cfbf36c7c7c}{get\+Output}} () const override
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_composable_filter_a4f6bdebfa40f971bc588ddf3e9954fd3}{add\+Filter}} (std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ ifilter)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classokapi_1_1_composable_filter_a83da1d231c702e8db79557a2b458fc90}\label{classokapi_1_1_composable_filter_a83da1d231c702e8db79557a2b458fc90} 
+std::\+vector$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ $>$ {\bfseries filters}
+\item 
+\Hypertarget{classokapi_1_1_composable_filter_ab956536a303c97c86fd2ec3af3c35eef}\label{classokapi_1_1_composable_filter_ab956536a303c97c86fd2ec3af3c35eef} 
+double {\bfseries output} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classokapi_1_1_composable_filter_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classokapi_1_1_composable_filter_a4aa25022db4aa2b8b0d03c8c8f638aa5}\index{okapi::ComposableFilter@{okapi::ComposableFilter}!ComposableFilter@{ComposableFilter}}
+\index{ComposableFilter@{ComposableFilter}!okapi::ComposableFilter@{okapi::ComposableFilter}}
+\doxysubsubsection{\texorpdfstring{ComposableFilter()}{ComposableFilter()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_composable_filter_a4aa25022db4aa2b8b0d03c8c8f638aa5} 
+okapi::\+\+Composable\+Filter::\+\+Composable\+Filter (\begin{DoxyParamCaption}\item[{const std::\+initializer\+\_\+list$<$ std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ $>$ \&}]{ilist}{}\end{DoxyParamCaption})}
+
+A composable filter is a filter that consists of other filters. The input signal is passed through each filter in sequence. The final output of this filter is the output of the last filter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ilist} & The filters to use in sequence. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_composable_filter_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_composable_filter_a4f6bdebfa40f971bc588ddf3e9954fd3}\index{okapi::ComposableFilter@{okapi::ComposableFilter}!addFilter@{addFilter}}
+\index{addFilter@{addFilter}!okapi::ComposableFilter@{okapi::ComposableFilter}}
+\doxysubsubsection{\texorpdfstring{addFilter()}{addFilter()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_composable_filter_a4f6bdebfa40f971bc588ddf3e9954fd3} 
+virtual void okapi::\+\+Composable\+Filter::\+add\+Filter (\begin{DoxyParamCaption}\item[{std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$}]{ifilter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Adds a filter to the end of the sequence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ifilter} & The filter to add. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classokapi_1_1_composable_filter_a76925f04dcd186b249e5bfb169f27992}\index{okapi::ComposableFilter@{okapi::ComposableFilter}!filter@{filter}}
+\index{filter@{filter}!okapi::ComposableFilter@{okapi::ComposableFilter}}
+\doxysubsubsection{\texorpdfstring{filter()}{filter()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_composable_filter_a76925f04dcd186b249e5bfb169f27992} 
+double okapi::\+\+Composable\+Filter::\+filter (\begin{DoxyParamCaption}\item[{double}]{ireading}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Filters a value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ireading} & A new measurement. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The filtered result. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_filter_a7c2ea0b64b37b688900189856d58da15}{okapi::\+\+Filter}}.
+
+\Hypertarget{classokapi_1_1_composable_filter_a2d54899ce84c463af2f22cfbf36c7c7c}\index{okapi::ComposableFilter@{okapi::ComposableFilter}!getOutput@{getOutput}}
+\index{getOutput@{getOutput}!okapi::ComposableFilter@{okapi::ComposableFilter}}
+\doxysubsubsection{\texorpdfstring{getOutput()}{getOutput()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_composable_filter_a2d54899ce84c463af2f22cfbf36c7c7c} 
+double okapi::\+\+Composable\+Filter::\+get\+Output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+The previous output from filter. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_filter_a3469cd4bc108f8accf300d9f5cc9f42f}{okapi::\+\+Filter}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+api/\+filter/\+composable\+Filter.\+hpp\end{DoxyCompactItemize}

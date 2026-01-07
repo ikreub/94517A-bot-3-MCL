@@ -1,0 +1,369 @@
+\doxysection{include/\+liblvgl/\+hal/\+lv\+\_\+hal\+\_\+disp.h File Reference}
+\hypertarget{lv__hal__disp_8h}{}\label{lv__hal__disp_8h}\index{include/liblvgl/hal/lv\_hal\_disp.h@{include/liblvgl/hal/lv\_hal\_disp.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include "{}lv\+\_\+hal.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+draw/\+lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+ll.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+timer.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct__lv__disp__draw__buf__t}{\+\_\+lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct__lv__disp__t}{\+\_\+lv\+\_\+disp\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \doxymbox{\hyperlink{struct__lv__disp__draw__buf__t}{\+\_\+lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}}
+\item 
+typedef struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}}
+\item 
+typedef struct \doxymbox{\hyperlink{struct__lv__disp__t}{\+\_\+lv\+\_\+disp\+\_\+t}} \doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__hal__disp_8h_a0f69330483fab1cfa5080f3dc093ccb6}\label{lv__hal__disp_8h_a0f69330483fab1cfa5080f3dc093ccb6} 
+enum {\bfseries lv\+\_\+disp\+\_\+rot\+\_\+t} \{ {\bfseries LV\+\_\+\+DISP\+\_\+\+ROT\+\_\+\+NONE} = 0
+, {\bfseries LV\+\_\+\+DISP\+\_\+\+ROT\+\_\+90}
+, {\bfseries LV\+\_\+\+DISP\+\_\+\+ROT\+\_\+180}
+, {\bfseries LV\+\_\+\+DISP\+\_\+\+ROT\+\_\+270}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{lv__hal__disp_8h_a2a24b30cf6089a3d319bfa624e224894}{lv\+\_\+disp\+\_\+drv\+\_\+init}} (\doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\item 
+void \doxymbox{\hyperlink{lv__hal__disp_8h_a06fe2e658c41b550e6ede53f1a267a0a}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+init}} (\doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, void \texorpdfstring{$\ast$}{*}buf1, void \texorpdfstring{$\ast$}{*}buf2, uint32\+\_\+t size\+\_\+in\+\_\+px\+\_\+cnt)
+\item 
+\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lv__hal__disp_8h_ae208f77493c395905c30da0f73695f04}{lv\+\_\+disp\+\_\+drv\+\_\+register}} (\doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}driver)
+\item 
+void \doxymbox{\hyperlink{lv__hal__disp_8h_a0e26ace940fd5d3a9f27ffdc322f6a86}{lv\+\_\+disp\+\_\+drv\+\_\+update}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp, \doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}new\+\_\+drv)
+\item 
+void \doxymbox{\hyperlink{lv__hal__disp_8h_af37aec229f23769468de96750be77bfc}{lv\+\_\+disp\+\_\+remove}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+void \doxymbox{\hyperlink{lv__hal__disp_8h_a490ee32cbb499fb8f2e2439a8ed7fbb6}{lv\+\_\+disp\+\_\+set\+\_\+default}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lv__hal__disp_8h_a8d429d8e34e08d797169734136a42879}{lv\+\_\+disp\+\_\+get\+\_\+default}} (void)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_a31a32a09b2b1b6ac0ebeedcd6d6f8ce3}{lv\+\_\+disp\+\_\+get\+\_\+hor\+\_\+res}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_ad89a6aa4394a200d4482aa605cc57107}{lv\+\_\+disp\+\_\+get\+\_\+ver\+\_\+res}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_a4663bc51a7c4d5e9da787bb1537dbbfa}{lv\+\_\+disp\+\_\+get\+\_\+physical\+\_\+hor\+\_\+res}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_a241e3b50cd66d7d26e7be62798b862d5}{lv\+\_\+disp\+\_\+get\+\_\+physical\+\_\+ver\+\_\+res}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_aed6bc4bfa2192d86cca4a7bc07809295}{lv\+\_\+disp\+\_\+get\+\_\+offset\+\_\+x}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_ac7443a8c244b2f6742a413cd237b8399}{lv\+\_\+disp\+\_\+get\+\_\+offset\+\_\+y}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+bool \doxymbox{\hyperlink{lv__hal__disp_8h_abe0f2764b9f8b355aa6df60ab75bd70f}{lv\+\_\+disp\+\_\+get\+\_\+antialiasing}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_a438d2021a713a4e495acbaadaedac2ec}{lv\+\_\+disp\+\_\+get\+\_\+dpi}} (const \doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+void \doxymbox{\hyperlink{lv__hal__disp_8h_a9dd8166a1c4c1904e10bea3ee105291f}{lv\+\_\+disp\+\_\+set\+\_\+rotation}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp, lv\+\_\+disp\+\_\+rot\+\_\+t rotation)
+\item 
+lv\+\_\+disp\+\_\+rot\+\_\+t \doxymbox{\hyperlink{lv__hal__disp_8h_a224b7aad394be3e18e519c5f797dad15}{lv\+\_\+disp\+\_\+get\+\_\+rotation}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lv__hal__disp_8h_a9f7abb8a43306b5136907d537eef4779}{lv\+\_\+disp\+\_\+get\+\_\+next}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+\doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lv__hal__disp_8h_a871442a5fd7767a111e6998c98054f1b}{lv\+\_\+disp\+\_\+get\+\_\+draw\+\_\+buf}} (\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+\Hypertarget{lv__hal__disp_8h_a619ee8c54c3ceee9e3e6be340fa9211c}\label{lv__hal__disp_8h_a619ee8c54c3ceee9e3e6be340fa9211c} 
+void {\bfseries lv\+\_\+disp\+\_\+drv\+\_\+use\+\_\+generic\+\_\+set\+\_\+px\+\_\+cb} (\doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, lv\+\_\+img\+\_\+cf\+\_\+t cf)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+@description Display Driver HAL interface header file 
+
+\label{doc-typedef-members}
+\Hypertarget{lv__hal__disp_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_draw\_buf\_t@{lv\_disp\_draw\_buf\_t}}
+\index{lv\_disp\_draw\_buf\_t@{lv\_disp\_draw\_buf\_t}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_draw\_buf\_t}{lv\_disp\_draw\_buf\_t}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3} 
+typedef struct \doxymbox{\hyperlink{struct__lv__disp__draw__buf__t}{\+\_\+lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}}}
+
+Structure for holding display buffer information. \Hypertarget{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_drv\_t@{lv\_disp\_drv\_t}}
+\index{lv\_disp\_drv\_t@{lv\_disp\_drv\_t}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_drv\_t}{lv\_disp\_drv\_t}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774} 
+typedef struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}}}
+
+Display Driver structure to be registered by HAL. Only its pointer will be saved in {\ttfamily \doxylink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} so it should be declared as {\ttfamily static \doxylink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t} my\+\_\+drv} or allocated dynamically. \Hypertarget{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_t@{lv\_disp\_t}}
+\index{lv\_disp\_t@{lv\_disp\_t}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_t}{lv\_disp\_t}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129} 
+typedef struct \doxymbox{\hyperlink{struct__lv__disp__t}{\+\_\+lv\+\_\+disp\+\_\+t}} \doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}}}
+
+Display structure. \begin{DoxyNote}{Note}
+{\ttfamily \doxylink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} should be the first member of the structure. 
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__hal__disp_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__hal__disp_8h_a06fe2e658c41b550e6ede53f1a267a0a}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_draw\_buf\_init@{lv\_disp\_draw\_buf\_init}}
+\index{lv\_disp\_draw\_buf\_init@{lv\_disp\_draw\_buf\_init}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_draw\_buf\_init()}{lv\_disp\_draw\_buf\_init()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a06fe2e658c41b550e6ede53f1a267a0a} 
+void lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{buf1}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{buf2}{, }\item[{uint32\+\_\+t}]{size\+\_\+in\+\_\+px\+\_\+cnt}{}\end{DoxyParamCaption})}
+
+Initialize a display buffer 
+\begin{DoxyParams}{Parameters}
+{\em draw\+\_\+buf} & pointer {\ttfamily \doxylink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} variable to initialize \\
+\hline
+{\em buf1} & A buffer to be used by LVGL to draw the image. Always has to specified and can\textquotesingle{}t be NULL. Can be an array allocated by the user. E.\+g. {\ttfamily static lv\+\_\+color\+\_\+t disp\+\_\+buf1\+[1024 \texorpdfstring{$\ast$}{*} 10]\+} Or a memory address e.\+g. in external SRAM \\
+\hline
+{\em buf2} & Optionally specify a second buffer to make image rendering and image flushing (sending to the display) parallel. In the {\ttfamily disp\+\_\+drv-\/\texorpdfstring{$>$}{>}flush} you should use DMA or similar hardware to send the image to the display in the background. It lets LVGL to render next frame into the other buffer while previous is being sent. Set to {\ttfamily NULL} if unused. \\
+\hline
+{\em size\+\_\+in\+\_\+px\+\_\+cnt} & size of the {\ttfamily buf1} and {\ttfamily buf2} in pixel count. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__hal__disp_8h_a2a24b30cf6089a3d319bfa624e224894}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_drv\_init@{lv\_disp\_drv\_init}}
+\index{lv\_disp\_drv\_init@{lv\_disp\_drv\_init}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_drv\_init()}{lv\_disp\_drv\_init()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a2a24b30cf6089a3d319bfa624e224894} 
+void lv\+\_\+disp\+\_\+drv\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+Initialize a display driver with default values. It is used to have known values in the fields and not junk in memory. After it you can safely set only the fields you need. 
+\begin{DoxyParams}{Parameters}
+{\em driver} & pointer to driver variable to initialize \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__hal__disp_8h_ae208f77493c395905c30da0f73695f04}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_drv\_register@{lv\_disp\_drv\_register}}
+\index{lv\_disp\_drv\_register@{lv\_disp\_drv\_register}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_drv\_register()}{lv\_disp\_drv\_register()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_ae208f77493c395905c30da0f73695f04} 
+\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+disp\+\_\+drv\+\_\+register (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{driver}{}\end{DoxyParamCaption})}
+
+Register an initialized display driver. Automatically set the first display as active. 
+\begin{DoxyParams}{Parameters}
+{\em driver} & pointer to an initialized \textquotesingle{}\doxylink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}\textquotesingle{} variable. Only its pointer is saved! \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the new display or NULL on error 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a0e26ace940fd5d3a9f27ffdc322f6a86}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_drv\_update@{lv\_disp\_drv\_update}}
+\index{lv\_disp\_drv\_update@{lv\_disp\_drv\_update}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_drv\_update()}{lv\_disp\_drv\_update()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a0e26ace940fd5d3a9f27ffdc322f6a86} 
+void lv\+\_\+disp\+\_\+drv\+\_\+update (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{, }\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+drv}{}\end{DoxyParamCaption})}
+
+Update the driver in run time. 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display. (return value of {\ttfamily \doxylink{lv__hal__disp_8h_ae208f77493c395905c30da0f73695f04}{lv\+\_\+disp\+\_\+drv\+\_\+register}}) \\
+\hline
+{\em new\+\_\+drv} & pointer to the new driver \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__hal__disp_8h_abe0f2764b9f8b355aa6df60ab75bd70f}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_antialiasing@{lv\_disp\_get\_antialiasing}}
+\index{lv\_disp\_get\_antialiasing@{lv\_disp\_get\_antialiasing}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_antialiasing()}{lv\_disp\_get\_antialiasing()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_abe0f2764b9f8b355aa6df60ab75bd70f} 
+bool lv\+\_\+disp\+\_\+get\+\_\+antialiasing (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get if anti-\/aliasing is enabled for a display or not 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true:\+ anti-\/aliasing is enabled; false:\+ disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a8d429d8e34e08d797169734136a42879}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_default@{lv\_disp\_get\_default}}
+\index{lv\_disp\_get\_default@{lv\_disp\_get\_default}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_default()}{lv\_disp\_get\_default()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a8d429d8e34e08d797169734136a42879} 
+\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+disp\+\_\+get\+\_\+default (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Get the default display \begin{DoxyReturn}{Returns}
+pointer to the default display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a438d2021a713a4e495acbaadaedac2ec}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_dpi@{lv\_disp\_get\_dpi}}
+\index{lv\_disp\_get\_dpi@{lv\_disp\_get\_dpi}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_dpi()}{lv\_disp\_get\_dpi()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a438d2021a713a4e495acbaadaedac2ec} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+dpi (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the DPI of the display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dpi of the display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a871442a5fd7767a111e6998c98054f1b}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_draw\_buf@{lv\_disp\_get\_draw\_buf}}
+\index{lv\_disp\_get\_draw\_buf@{lv\_disp\_get\_draw\_buf}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_draw\_buf()}{lv\_disp\_get\_draw\_buf()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a871442a5fd7767a111e6998c98054f1b} 
+\doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+disp\+\_\+get\+\_\+draw\+\_\+buf (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the internal buffer of a display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the internal buffers 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a31a32a09b2b1b6ac0ebeedcd6d6f8ce3}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_hor\_res@{lv\_disp\_get\_hor\_res}}
+\index{lv\_disp\_get\_hor\_res@{lv\_disp\_get\_hor\_res}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_hor\_res()}{lv\_disp\_get\_hor\_res()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a31a32a09b2b1b6ac0ebeedcd6d6f8ce3} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+hor\+\_\+res (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the horizontal resolution of a display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the horizontal resolution of the display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a9f7abb8a43306b5136907d537eef4779}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_next@{lv\_disp\_get\_next}}
+\index{lv\_disp\_get\_next@{lv\_disp\_get\_next}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_next()}{lv\_disp\_get\_next()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a9f7abb8a43306b5136907d537eef4779} 
+\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+disp\+\_\+get\+\_\+next (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the next display. 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to the current display. NULL to initialize. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the next display or NULL if no more. Give the first display when the parameter is NULL 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_aed6bc4bfa2192d86cca4a7bc07809295}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_offset\_x@{lv\_disp\_get\_offset\_x}}
+\index{lv\_disp\_get\_offset\_x@{lv\_disp\_get\_offset\_x}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_offset\_x()}{lv\_disp\_get\_offset\_x()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_aed6bc4bfa2192d86cca4a7bc07809295} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+offset\+\_\+x (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the horizontal offset from the full /\+ physical display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the horizontal offset from the full /\+ physical display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_ac7443a8c244b2f6742a413cd237b8399}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_offset\_y@{lv\_disp\_get\_offset\_y}}
+\index{lv\_disp\_get\_offset\_y@{lv\_disp\_get\_offset\_y}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_offset\_y()}{lv\_disp\_get\_offset\_y()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_ac7443a8c244b2f6742a413cd237b8399} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+offset\+\_\+y (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the vertical offset from the full /\+ physical display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the horizontal offset from the full /\+ physical display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a4663bc51a7c4d5e9da787bb1537dbbfa}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_physical\_hor\_res@{lv\_disp\_get\_physical\_hor\_res}}
+\index{lv\_disp\_get\_physical\_hor\_res@{lv\_disp\_get\_physical\_hor\_res}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_physical\_hor\_res()}{lv\_disp\_get\_physical\_hor\_res()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a4663bc51a7c4d5e9da787bb1537dbbfa} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+physical\+\_\+hor\+\_\+res (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the full /\+ physical horizontal resolution of a display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the full /\+ physical horizontal resolution of the display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a241e3b50cd66d7d26e7be62798b862d5}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_physical\_ver\_res@{lv\_disp\_get\_physical\_ver\_res}}
+\index{lv\_disp\_get\_physical\_ver\_res@{lv\_disp\_get\_physical\_ver\_res}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_physical\_ver\_res()}{lv\_disp\_get\_physical\_ver\_res()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a241e3b50cd66d7d26e7be62798b862d5} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+physical\+\_\+ver\+\_\+res (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the full /\+ physical vertical resolution of a display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the full /\+ physical vertical resolution of the display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_a224b7aad394be3e18e519c5f797dad15}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_rotation@{lv\_disp\_get\_rotation}}
+\index{lv\_disp\_get\_rotation@{lv\_disp\_get\_rotation}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_rotation()}{lv\_disp\_get\_rotation()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a224b7aad394be3e18e519c5f797dad15} 
+lv\+\_\+disp\+\_\+rot\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+rotation (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the current rotation of this display. 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rotation angle 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_ad89a6aa4394a200d4482aa605cc57107}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_get\_ver\_res@{lv\_disp\_get\_ver\_res}}
+\index{lv\_disp\_get\_ver\_res@{lv\_disp\_get\_ver\_res}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_get\_ver\_res()}{lv\_disp\_get\_ver\_res()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_ad89a6aa4394a200d4482aa605cc57107} 
+lv\+\_\+coord\+\_\+t lv\+\_\+disp\+\_\+get\+\_\+ver\+\_\+res (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Get the vertical resolution of a display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vertical resolution of the display 
+\end{DoxyReturn}
+\Hypertarget{lv__hal__disp_8h_af37aec229f23769468de96750be77bfc}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_remove@{lv\_disp\_remove}}
+\index{lv\_disp\_remove@{lv\_disp\_remove}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_remove()}{lv\_disp\_remove()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_af37aec229f23769468de96750be77bfc} 
+void lv\+\_\+disp\+\_\+remove (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Remove a display 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to display \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__hal__disp_8h_a490ee32cbb499fb8f2e2439a8ed7fbb6}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_set\_default@{lv\_disp\_set\_default}}
+\index{lv\_disp\_set\_default@{lv\_disp\_set\_default}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_set\_default()}{lv\_disp\_set\_default()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a490ee32cbb499fb8f2e2439a8ed7fbb6} 
+void lv\+\_\+disp\+\_\+set\+\_\+default (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{}\end{DoxyParamCaption})}
+
+Set a default display. The new screens will be created on it by default. 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__hal__disp_8h_a9dd8166a1c4c1904e10bea3ee105291f}\index{lv\_hal\_disp.h@{lv\_hal\_disp.h}!lv\_disp\_set\_rotation@{lv\_disp\_set\_rotation}}
+\index{lv\_disp\_set\_rotation@{lv\_disp\_set\_rotation}!lv\_hal\_disp.h@{lv\_hal\_disp.h}}
+\doxysubsubsection{\texorpdfstring{lv\_disp\_set\_rotation()}{lv\_disp\_set\_rotation()}}
+{\footnotesize\ttfamily \label{lv__hal__disp_8h_a9dd8166a1c4c1904e10bea3ee105291f} 
+void lv\+\_\+disp\+\_\+set\+\_\+rotation (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp}{, }\item[{lv\+\_\+disp\+\_\+rot\+\_\+t}]{rotation}{}\end{DoxyParamCaption})}
+
+Set the rotation of this display. 
+\begin{DoxyParams}{Parameters}
+{\em disp} & pointer to a display (NULL to use the default display) \\
+\hline
+{\em rotation} & rotation angle \\
+\hline
+\end{DoxyParams}

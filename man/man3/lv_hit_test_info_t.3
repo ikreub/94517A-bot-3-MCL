@@ -1,0 +1,45 @@
+.TH "lv_hit_test_info_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lv_hit_test_info_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_event\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const \fBlv_point_t\fP * \fBpoint\fP"
+.br
+.ti -1c
+.RI "bool \fBres\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Used as the event parameter of \fBLV_EVENT_HIT_TEST\fP to check if an \fR\fBpoint\fP\fP can click the object or not\&. \fR\fBres\fP\fP should be set like this:
+.IP "\(bu" 2
+If already set to \fRfalse\fP an other event wants that point non clickable\&. If you want to respect it leave it as \fRfalse\fP or set \fRtrue\fP to overwrite it\&.
+.IP "\(bu" 2
+If already set \fRtrue\fP and \fR\fBpoint\fP\fP shouldn't be clickable set to \fRfalse\fP
+.IP "\(bu" 2
+If already set to \fRtrue\fP you agree that \fR\fBpoint\fP\fP can click the object leave it as \fRtrue\fP 
+.PP
+
+.PP
+\fBExamples\fP
+.in +1c
+\fBC:/Users/Leon/OneDrive/robotics/94517A\-bot\-3\-MCL/include/liblvgl/core/lv_event\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "const \fBlv_point_t\fP* lv_hit_test_info_t::point"
+A point relative to screen to check if it can click the object or not 
+.SS "bool lv_hit_test_info_t::res"
+true: \fR\fBpoint\fP\fP can click the object; false: it cannot 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

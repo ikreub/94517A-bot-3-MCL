@@ -1,0 +1,105 @@
+\doxysection{include/\+pros/\+apix.h File Reference}
+\hypertarget{apix_8h}{}\label{apix_8h}\index{include/pros/apix.h@{include/pros/apix.h}}
+{\ttfamily \+\#include "{}api.\+h"{}}\newline
+{\ttfamily \+\#include "{}pros/\+device.\+h"{}}\newline
+{\ttfamily \+\#include "{}pros/\+serial.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{Indent}\textbf{ Device Registration}\par
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{group__apix_gafdda25e2647e8606131e35ced80de099}{registry\+\_\+bind\+\_\+port}} (uint8\+\_\+t port, v5\+\_\+device\+\_\+e\+\_\+t device\+\_\+type)
+\item 
+int \doxymbox{\hyperlink{group__apix_ga0092551f3eff99f31535a657d2832a86}{registry\+\_\+unbind\+\_\+port}} (uint8\+\_\+t port)
+\item 
+v5\+\_\+device\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__apix_gadd54c9e7c708eee228f2edf67dbe17cb}{registry\+\_\+get\+\_\+bound\+\_\+type}} (uint8\+\_\+t port)
+\item 
+v5\+\_\+device\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__apix_ga490c81f1c80b6655410f96a0a07f4b0b}{registry\+\_\+get\+\_\+plugged\+\_\+type}} (uint8\+\_\+t port)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Filesystem}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga597a3aaaad99225156c5940db91ed7e7}{SERCTL\+\_\+\+ACTIVATE}}~10
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_gaa07c3d6750babcc306ece8dd1b18ec26}{SERCTL\+\_\+\+DEACTIVATE}}~11
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga487ad68591182ba67ceb987f59f31fab}{SERCTL\+\_\+\+BLKWRITE}}~12
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga48765184fb0f8084d9cebf9dcbc27da7}{SERCTL\+\_\+\+NOBLKWRITE}}~13
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga20c46bffd0ef8939413f671a5ac92252}{SERCTL\+\_\+\+ENABLE\+\_\+\+COBS}}~14
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga9a50f0ab303c00138f09df10358b01c4}{SERCTL\+\_\+\+DISABLE\+\_\+\+COBS}}~15
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_gad7e4ecbf8e36a784cdf4d245cd3c7d1d}{DEVCTL\+\_\+\+FIONREAD}}~16
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga0089c4b06b9b75f4995256ca740f8ee2}{DEVCTL\+\_\+\+FIONWRITE}}~18
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga5ac3b151b46b5bfce1ec424b5fdc773b}{DEVCTL\+\_\+\+SET\+\_\+\+BAUDRATE}}~17
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__apix_ga8287028141d5265105a25d899280a8e1}{fdctl}} (int file, const uint32\+\_\+t action, void \texorpdfstring{$\ast$}{*}const extra\+\_\+arg)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__apix_ga2fa32fc79e297f90fa08d22c381c2972}{motor\+\_\+set\+\_\+reversed}} (int8\+\_\+t port, const bool reverse)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__apix_gaa01b06cd1235f48a058a6dae6dc188c5}{motor\+\_\+is\+\_\+reversed}} (int8\+\_\+t port)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{RTOS Facilities}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} {\bfseries queue\+\_\+t}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} {\bfseries sem\+\_\+t}
+\item 
+bool \doxymbox{\hyperlink{group__apix_ga038d6c9efb0a2295b0f2a55242b509f9}{task\+\_\+abort\+\_\+delay}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__apix_gac20573527d51718ab1f1189e69a5cd32}{task\+\_\+notify\+\_\+when\+\_\+deleting}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} target\+\_\+task, \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task\+\_\+to\+\_\+notify, uint32\+\_\+t value, \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}} notify\+\_\+action)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} \doxymbox{\hyperlink{group__apix_gab32c3cf41f7dbde49dfac10c279347f0}{mutex\+\_\+recursive\+\_\+create}} (void)
+\item 
+bool \doxymbox{\hyperlink{group__apix_ga67f8421ccecb58c807762494efe10c3a}{mutex\+\_\+recursive\+\_\+take}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaaf82d93cd652b6173372970018fdc02d}{mutex\+\_\+recursive\+\_\+give}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} \doxymbox{\hyperlink{group__apix_ga34a373877e556e8f6829a49eddb08673}{mutex\+\_\+get\+\_\+owner}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex)
+\item 
+sem\+\_\+t \doxymbox{\hyperlink{group__apix_ga382f9b5dc6ba96dcecffdbd7f41d29ac}{sem\+\_\+create}} (uint32\+\_\+t max\+\_\+count, uint32\+\_\+t init\+\_\+count)
+\item 
+void \doxymbox{\hyperlink{group__apix_ga0dfcd8007428b4249931d0d78157490b}{sem\+\_\+delete}} (sem\+\_\+t sem)
+\item 
+sem\+\_\+t \doxymbox{\hyperlink{group__apix_ga83c9a6c93e3bfce8f36e3f32a6dc8c4b}{sem\+\_\+binary\+\_\+create}} (void)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaee36a9729a21b6ad0de78985a16c4f03}{sem\+\_\+wait}} (sem\+\_\+t sem, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaa2048694c50246f193a40b7e00ed1756}{sem\+\_\+post}} (sem\+\_\+t sem)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__apix_ga5848486405814316a909912fa87f88dc}{sem\+\_\+get\+\_\+count}} (sem\+\_\+t sem)
+\item 
+queue\+\_\+t \doxymbox{\hyperlink{group__apix_ga552456842226c0ccf95e78907a3d6b2a}{queue\+\_\+create}} (uint32\+\_\+t length, uint32\+\_\+t item\+\_\+size)
+\item 
+bool \doxymbox{\hyperlink{group__apix_ga4519896ea7f4a5d2b3726fd172926a8f}{queue\+\_\+append}} (queue\+\_\+t queue, const void \texorpdfstring{$\ast$}{*}item, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gabb333bbc086fdac6213b34a2e019dde3}{queue\+\_\+peek}} (queue\+\_\+t queue, void \texorpdfstring{$\ast$}{*}const buffer, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaca6420b7d656b9559a7d366eb58b8e57}{queue\+\_\+recv}} (queue\+\_\+t queue, void \texorpdfstring{$\ast$}{*}const buffer, uint32\+\_\+t timeout)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__apix_gadd6f8fb018cef82d19fb85425de0e0d2}{queue\+\_\+get\+\_\+waiting}} (const queue\+\_\+t queue)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__apix_gab6a0fede293e948f2a5b43a44238aab6}{queue\+\_\+get\+\_\+available}} (const queue\+\_\+t queue)
+\item 
+void \doxymbox{\hyperlink{group__apix_ga087fa58218ad877e85bcc2fe20b87595}{queue\+\_\+delete}} (queue\+\_\+t queue)
+\item 
+void \doxymbox{\hyperlink{group__apix_gae6146a3577b65ec02e78d0d9498db7e1}{queue\+\_\+reset}} (queue\+\_\+t queue)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PROS Extended API header
+
+Contains additional declarations for use by advaned users of PROS. These functions do not typically have as much error handling or require deeper knowledge of real time operating systems.
+
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.
+
+\begin{DoxyCopyright}{Copyright}
+(c) 2017-\/2023, Purdue University ACM SIGBots. All rights reserved.
+\end{DoxyCopyright}
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.\+0. If a copy of the MPL was not distributed with this file, You can obtain one at \href{http://mozilla.org/MPL/2.0/}{\texttt{http:\+/\+/\+mozilla.\+org/\+\+MPL/\+2.\+0/\+}}. 

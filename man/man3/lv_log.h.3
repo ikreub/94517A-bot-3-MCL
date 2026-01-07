@@ -1,0 +1,151 @@
+.TH "include/liblvgl/misc/lv_log.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_log.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'lv_types\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL_TRACE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL_INFO\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL_WARN\fP   2"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL_ERROR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL_USER\fP   4"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL_NONE\fP   5"
+.br
+.ti -1c
+.RI "#define \fB_LV_LOG_LEVEL_NUM\fP   6"
+.br
+.ti -1c
+.RI "#define \fB_lv_log_add\fP(level,  file,  line, \&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_TRACE\fP(\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_INFO\fP(\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_WARN\fP(\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_ERROR\fP(\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_USER\fP(\&.\&.\&.)"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG\fP(\&.\&.\&.)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int8_t \fBlv_log_level_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (\fBLV_LOG_LEVEL_TRACE\fP)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (\fBLV_LOG_LEVEL_INFO\fP)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (\fBLV_LOG_LEVEL_WARN\fP)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (\fBLV_LOG_LEVEL_ERROR\fP)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (\fBLV_LOG_LEVEL_USER\fP)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (\fBLV_LOG_LEVEL_NONE\fP)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _LV_LOG_LEVEL_NUM   6"
+Number of log levels 
+.SS "#define LV_LOG( \&.\&.\&.)"
+\fBValue:\fP
+.nf
+do {}while(0)
+.PP
+.fi
+
+.SS "#define LV_LOG_ERROR( \&.\&.\&.)"
+\fBValue:\fP
+.nf
+do {}while(0)
+.PP
+.fi
+
+.SS "#define LV_LOG_INFO( \&.\&.\&.)"
+\fBValue:\fP
+.nf
+do {}while(0)
+.PP
+.fi
+
+.SS "#define LV_LOG_LEVEL_ERROR   3"
+Only critical issue, when the system may fail 
+.SS "#define LV_LOG_LEVEL_INFO   1"
+Log important events 
+.SS "#define LV_LOG_LEVEL_NONE   5"
+Do not log anything 
+.SS "#define LV_LOG_LEVEL_TRACE   0"
+A lot of logs to give detailed information 
+.SS "#define LV_LOG_LEVEL_USER   4"
+Custom logs from the user 
+.SS "#define LV_LOG_LEVEL_WARN   2"
+Log if something unwanted happened but didn't caused problem 
+.SS "#define LV_LOG_TRACE( \&.\&.\&.)"
+\fBValue:\fP
+.nf
+do {}while(0)
+.PP
+.fi
+
+.SS "#define LV_LOG_USER( \&.\&.\&.)"
+\fBValue:\fP
+.nf
+do {}while(0)
+.PP
+.fi
+
+.SS "#define LV_LOG_WARN( \&.\&.\&.)"
+\fBValue:\fP
+.nf
+do {}while(0)
+.PP
+.fi
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

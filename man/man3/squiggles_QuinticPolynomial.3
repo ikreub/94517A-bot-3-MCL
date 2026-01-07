@@ -1,0 +1,98 @@
+.TH "squiggles::QuinticPolynomial" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+squiggles::QuinticPolynomial
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQuinticPolynomial\fP (double s_p, double s_v, double s_a, double g_p, double g_v, double g_a, double t)"
+.br
+.ti -1c
+.RI "double \fBcalc_point\fP (double t)"
+.br
+.ti -1c
+.RI "double \fBcalc_first_derivative\fP (double t)"
+.br
+.ti -1c
+.RI "double \fBcalc_second_derivative\fP (double t)"
+.br
+.ti -1c
+.RI "double \fBcalc_third_derivative\fP (double t)"
+.br
+.ti -1c
+.RI "std::string \fBto_string\fP () const"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBa0\fP"
+.br
+.ti -1c
+.RI "double \fBa1\fP"
+.br
+.ti -1c
+.RI "double \fBa2\fP"
+.br
+.ti -1c
+.RI "double \fBa3\fP"
+.br
+.ti -1c
+.RI "double \fBa4\fP"
+.br
+.ti -1c
+.RI "double \fBa5\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "squiggles::QuinticPolynomial::QuinticPolynomial (double s_p, double s_v, double s_a, double g_p, double g_v, double g_a, double t)"
+Defines the polynomial function for a spline in one dimension\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIs_p\fP The starting position of the curve in meters\&. 
+.br
+\fIs_v\fP The starting velocity of the curve in meters per second\&. 
+.br
+\fIs_a\fP The starting acceleration of the curve in meters per second per second\&. 
+.br
+\fIg_p\fP The goal or ending position of the curve in meters\&. 
+.br
+\fIg_v\fP The goal or ending velocity of the curve in meters per second\&. 
+.br
+\fIg_a\fP The goal or ending acceleration of the curve in meters per second per second\&. 
+.br
+\fIt\fP The desired duration for the curve in seconds\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double squiggles::QuinticPolynomial::calc_point (double t)"
+Calculates the values of the polynomial and its derivatives at the given time stamp\&. 
+.SS "std::string squiggles::QuinticPolynomial::to_string () const\fR [inline]\fP"
+Serializes the Quintic Polynomial data for debugging\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The Quintic Polynomial data\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "double squiggles::QuinticPolynomial::a0\fR [protected]\fP"
+The coefficients for each term of the polynomial\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

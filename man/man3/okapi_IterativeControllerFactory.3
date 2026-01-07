@@ -1,0 +1,148 @@
+.TH "okapi::IterativeControllerFactory" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::IterativeControllerFactory
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBIterativePosPIDController\fP \fBposPID\fP (double ikP, double ikI, double ikD, double ikBias=0, std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static \fBIterativeVelPIDController\fP \fBvelPID\fP (double ikP, double ikD, double ikF=0, double ikSF=0, std::unique_ptr< \fBVelMath\fP > ivelMath=\fBVelMathFactory::createPtr\fP(imev5GreenTPR), std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static \fBIterativeMotorVelocityController\fP \fBmotorVelocity\fP (\fBMotor\fP imotor, double ikP, double ikD, double ikF=0, double ikSF=0, std::unique_ptr< \fBVelMath\fP > ivelMath=\fBVelMathFactory::createPtr\fP(imev5GreenTPR), std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static \fBIterativeMotorVelocityController\fP \fBmotorVelocity\fP (\fBMotorGroup\fP imotor, double ikP, double ikD, double ikF=0, double ikSF=0, std::unique_ptr< \fBVelMath\fP > ivelMath=\fBVelMathFactory::createPtr\fP(imev5GreenTPR), std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static \fBIterativeMotorVelocityController\fP \fBmotorVelocity\fP (\fBMotor\fP imotor, std::shared_ptr< \fBIterativeVelocityController\fP< double, double > > icontroller)"
+.br
+.ti -1c
+.RI "static \fBIterativeMotorVelocityController\fP \fBmotorVelocity\fP (\fBMotorGroup\fP imotor, std::shared_ptr< \fBIterativeVelocityController\fP< double, double > > icontroller)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIterativeMotorVelocityController\fP okapi::IterativeControllerFactory::motorVelocity (\fBMotor\fP imotor, double ikP, double ikD, double ikF = \fR0\fP, double ikSF = \fR0\fP, std::unique_ptr< \fBVelMath\fP > ivelMath = \fR\fBVelMathFactory::createPtr\fP(imev5GreenTPR)\fP, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity PD controller that automatically writes to the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP output motor 
+.br
+\fIikP\fP proportional gain 
+.br
+\fIikD\fP derivative gain 
+.br
+\fIikF\fP feed-forward gain 
+.br
+\fIikSF\fP a feed-forward gain to counteract static friction 
+.br
+\fIivelMath\fP The \fBVelMath\fP\&. 
+.br
+\fIiderivativeFilter\fP A filter for filtering the derivative term\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "\fBIterativeMotorVelocityController\fP okapi::IterativeControllerFactory::motorVelocity (\fBMotor\fP imotor, std::shared_ptr< \fBIterativeVelocityController\fP< double, double > > icontroller)\fR [static]\fP"
+Velocity PD controller that automatically writes to the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP output motor 
+.br
+\fIicontroller\fP controller to use 
+.RE
+.PP
+
+.SS "\fBIterativeMotorVelocityController\fP okapi::IterativeControllerFactory::motorVelocity (\fBMotorGroup\fP imotor, double ikP, double ikD, double ikF = \fR0\fP, double ikSF = \fR0\fP, std::unique_ptr< \fBVelMath\fP > ivelMath = \fR\fBVelMathFactory::createPtr\fP(imev5GreenTPR)\fP, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity PD controller that automatically writes to the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP output motor 
+.br
+\fIikP\fP proportional gain 
+.br
+\fIikD\fP derivative gain 
+.br
+\fIikF\fP feed-forward gain 
+.br
+\fIikSF\fP a feed-forward gain to counteract static friction 
+.br
+\fIivelMath\fP The \fBVelMath\fP\&. 
+.br
+\fIiderivativeFilter\fP A filter for filtering the derivative term\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "\fBIterativeMotorVelocityController\fP okapi::IterativeControllerFactory::motorVelocity (\fBMotorGroup\fP imotor, std::shared_ptr< \fBIterativeVelocityController\fP< double, double > > icontroller)\fR [static]\fP"
+Velocity PD controller that automatically writes to the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotor\fP output motor 
+.br
+\fIicontroller\fP controller to use 
+.RE
+.PP
+
+.SS "\fBIterativePosPIDController\fP okapi::IterativeControllerFactory::posPID (double ikP, double ikI, double ikD, double ikBias = \fR0\fP, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Position PID controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIikP\fP proportional gain 
+.br
+\fIikI\fP integral gain 
+.br
+\fIikD\fP derivative gain 
+.br
+\fIikBias\fP controller bias (constant offset added to the output) 
+.br
+\fIiderivativeFilter\fP A filter for filtering the derivative term\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "\fBIterativeVelPIDController\fP okapi::IterativeControllerFactory::velPID (double ikP, double ikD, double ikF = \fR0\fP, double ikSF = \fR0\fP, std::unique_ptr< \fBVelMath\fP > ivelMath = \fR\fBVelMathFactory::createPtr\fP(imev5GreenTPR)\fP, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity PD controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIikP\fP proportional gain 
+.br
+\fIikD\fP derivative gain 
+.br
+\fIikF\fP feed-forward gain 
+.br
+\fIikSF\fP a feed-forward gain to counteract static friction 
+.br
+\fIiderivativeFilter\fP A filter for filtering the derivative term\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

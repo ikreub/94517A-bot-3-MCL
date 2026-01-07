@@ -1,0 +1,64 @@
+.TH "lv_label_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lv_label_t
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "lv_obj_t \fBobj\fP"
+.br
+.ti -1c
+.RI "char * \fBtext\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   char * \fBtmp_ptr\fP"
+.br
+.ti -1c
+.RI "   char \fBtmp\fP [LV_LABEL_DOT_NUM+1]"
+.br
+.ti -1c
+.RI "} \fBdot\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBdot_end\fP"
+.br
+.ti -1c
+.RI "\fBlv_draw_label_hint_t\fP \fBhint\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsel_start\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsel_end\fP"
+.br
+.ti -1c
+.RI "\fBlv_point_t\fP \fBoffset\fP"
+.br
+.ti -1c
+.RI "lv_label_long_mode_t \fBlong_mode\fP: 3"
+.br
+.ti -1c
+.RI "uint8_t \fBstatic_txt\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBrecolor\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBexpand\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBdot_tmp_alloc\fP: 1"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

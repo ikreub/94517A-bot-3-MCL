@@ -1,0 +1,29 @@
+\doxysection{abstract\+Rate.\+hpp}
+\hypertarget{abstract_rate_8hpp_source}{}\label{abstract_rate_8hpp_source}\index{include/okapi/api/util/abstractRate.hpp@{include/okapi/api/util/abstractRate.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/coreProsAPI.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QFrequency.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QTime.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_abstract_rate}{AbstractRate}}\ \{}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{classokapi_1_1_abstract_rate}{\string~AbstractRate}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_abstract_rate_ab1abf71d6cf3184abeed1d3556d39d4f}{delay}}(QFrequency\ ihz)\ =\ 0;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_abstract_rate_a53a15074ca3bd0787ce34d30c068d9b2}{delayUntil}}(QTime\ itime)\ =\ 0;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_abstract_rate_a3faf54ea2951ae5e0567cd50ddba0227}{delayUntil}}(uint32\_t\ ims)\ =\ 0;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

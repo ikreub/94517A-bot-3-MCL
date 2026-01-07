@@ -1,0 +1,68 @@
+.TH "_lv_font_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_font_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_font\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool(* \fBget_glyph_dsc\fP )(const struct \fB_lv_font_t\fP *, \fBlv_font_glyph_dsc_t\fP *, uint32_t letter, uint32_t letter_next)"
+.br
+.ti -1c
+.RI "const uint8_t *(* \fBget_glyph_bitmap\fP )(const struct \fB_lv_font_t\fP *, uint32_t)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBline_height\fP"
+.br
+.ti -1c
+.RI "lv_coord_t \fBbase_line\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBsubpx\fP: 2"
+.br
+.ti -1c
+.RI "int8_t \fBunderline_position\fP"
+.br
+.ti -1c
+.RI "int8_t \fBunderline_thickness\fP"
+.br
+.ti -1c
+.RI "const void * \fBdsc\fP"
+.br
+.ti -1c
+.RI "const struct \fB_lv_font_t\fP * \fBfallback\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Describe the properties of a font 
+.SH "Member Data Documentation"
+.PP 
+.SS "lv_coord_t _lv_font_t::base_line"
+Base line measured from the top of the line_height 
+.SS "const void* _lv_font_t::dsc"
+Store implementation specific or run_time data or caching here 
+.SS "const struct \fB_lv_font_t\fP* _lv_font_t::fallback"
+Fallback font for missing glyph\&. Resolved recursively 
+.SS "const uint8_t *(* _lv_font_t::get_glyph_bitmap) (const struct \fB_lv_font_t\fP *, uint32_t)"
+Get a glyph's bitmap from a font 
+.SS "bool(* _lv_font_t::get_glyph_dsc) (const struct \fB_lv_font_t\fP *, \fBlv_font_glyph_dsc_t\fP *, uint32_t letter, uint32_t letter_next)"
+Get a glyph's descriptor from a font 
+.SS "lv_coord_t _lv_font_t::line_height"
+The real line height where any text fits 
+.SS "uint8_t _lv_font_t::subpx"
+An element of \fRlv_font_subpx_t\fP 
+.SS "int8_t _lv_font_t::underline_position"
+Distance between the top of the underline and base line (< 0 means below the base line) 
+.SS "int8_t _lv_font_t::underline_thickness"
+Thickness of the underline 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

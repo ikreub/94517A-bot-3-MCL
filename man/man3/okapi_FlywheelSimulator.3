@@ -1,0 +1,278 @@
+.TH "okapi::FlywheelSimulator" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::FlywheelSimulator
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFlywheelSimulator\fP (double imass=0\&.01, double ilinkLen=1, double imuStatic=0\&.1, double imuDynamic=0\&.9, double itimestep=0\&.01)"
+.br
+.ti -1c
+.RI "double \fBstep\fP ()"
+.br
+.ti -1c
+.RI "double \fBstep\fP (double itorque)"
+.br
+.ti -1c
+.RI "void \fBsetExternalTorqueFunction\fP (std::function< double(double angle, double mass, double linkLength)> itorqueFunc)"
+.br
+.ti -1c
+.RI "void \fBsetTorque\fP (double itorque)"
+.br
+.ti -1c
+.RI "void \fBsetMaxTorque\fP (double imaxTorque)"
+.br
+.ti -1c
+.RI "void \fBsetAngle\fP (double iangle)"
+.br
+.ti -1c
+.RI "void \fBsetMass\fP (double imass)"
+.br
+.ti -1c
+.RI "void \fBsetLinkLength\fP (double ilinkLen)"
+.br
+.ti -1c
+.RI "void \fBsetStaticFriction\fP (double imuStatic)"
+.br
+.ti -1c
+.RI "void \fBsetDynamicFriction\fP (double imuDynamic)"
+.br
+.ti -1c
+.RI "void \fBsetTimestep\fP (double itimestep)"
+.br
+.ti -1c
+.RI "double \fBgetAngle\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetOmega\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetAcceleration\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetMaxTorque\fP () const"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual double \fBstepImpl\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBinputTorque\fP = 0"
+.br
+.ti -1c
+.RI "double \fBmaxTorque\fP = 0\&.5649"
+.br
+.ti -1c
+.RI "double \fBangle\fP = 0"
+.br
+.ti -1c
+.RI "double \fBomega\fP = 0"
+.br
+.ti -1c
+.RI "double \fBaccel\fP = 0"
+.br
+.ti -1c
+.RI "double \fBmass\fP"
+.br
+.ti -1c
+.RI "double \fBlinkLen\fP"
+.br
+.ti -1c
+.RI "double \fBmuStatic\fP"
+.br
+.ti -1c
+.RI "double \fBmuDynamic\fP"
+.br
+.ti -1c
+.RI "double \fBtimestep\fP"
+.br
+.ti -1c
+.RI "double \fBI\fP = 0"
+.br
+.ti -1c
+.RI "std::function< double(double, double, double)> \fBtorqueFunc\fP"
+.br
+.ti -1c
+.RI "const double \fBminTimestep\fP = 0\&.000001"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::FlywheelSimulator::FlywheelSimulator (double imass = \fR0\&.01\fP, double ilinkLen = \fR1\fP, double imuStatic = \fR0\&.1\fP, double imuDynamic = \fR0\&.9\fP, double itimestep = \fR0\&.01\fP)\fR [explicit]\fP"
+A simulator for an inverted pendulum\&. The center of mass of the system changes as the link rotates (by default, you can set a new torque function with \fBsetExternalTorqueFunction()\fP)\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "double okapi::FlywheelSimulator::getAcceleration () const"
+Returns the current acceleration (angular acceleration in rad / sec^2)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current acceleration 
+.RE
+.PP
+
+.SS "double okapi::FlywheelSimulator::getAngle () const"
+Returns the current angle (angle in rad)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current angle 
+.RE
+.PP
+
+.SS "double okapi::FlywheelSimulator::getMaxTorque () const"
+Returns the maximum torque input\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the max torque input 
+.RE
+.PP
+
+.SS "double okapi::FlywheelSimulator::getOmega () const"
+Returns the current omgea (angular velocity in rad / sec)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current omega 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setAngle (double iangle)"
+Sets the current angle\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiangle\fP new angle 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setDynamicFriction (double imuDynamic)"
+Sets the dynamic friction (N*m)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimuDynamic\fP new dynamic friction 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setExternalTorqueFunction (std::function< double(double angle, double mass, double linkLength)> itorqueFunc)"
+Sets the torque function used to calculate the torque due to external forces\&. This torque gets summed with the input torque\&.
+
+.PP
+For example, the default torque function has the torque due to gravity vary as the link swings: [](double angle, double mass, double linkLength) { return (linkLength * std::cos(angle)) * (mass * -1 * gravity); }
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitorqueFunc\fP the torque function\&. The return value is the torque due to external forces 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setLinkLength (double ilinkLen)"
+Sets the link length (m)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilinkLen\fP new link length 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setMass (double imass)"
+Sets the mass (kg)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimass\fP new mass 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setMaxTorque (double imaxTorque)"
+Sets the max torque\&. The input torque cannot exceed this maximum torque\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimaxTorque\fP new maximum torque 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setStaticFriction (double imuStatic)"
+Sets the static friction (N*m)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimuStatic\fP new static friction 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setTimestep (double itimestep)"
+Sets the timestep (sec)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimestep\fP new timestep 
+.RE
+.PP
+
+.SS "void okapi::FlywheelSimulator::setTorque (double itorque)"
+Sets the input torque\&. The input will be bounded by the max torque\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitorque\fP new input torque 
+.RE
+.PP
+
+.SS "double okapi::FlywheelSimulator::step ()"
+Step the simulation by the timestep\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current angle 
+.RE
+.PP
+
+.SS "double okapi::FlywheelSimulator::step (double itorque)"
+Step the simulation by the timestep\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitorque\fP new input torque 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the current angle 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

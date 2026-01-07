@@ -1,0 +1,71 @@
+.TH "include/pros/serial.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/serial.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Functions"
+
+.PP
+.RI "\fBSerial communication functions\fP"
+.br
+These functions allow programmers to communicate using UART over RS485 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "int32_t \fBserial_enable\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_set_baudrate\fP (uint8_t port, int32_t baudrate)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_flush\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_get_read_avail\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_get_write_free\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_peek_byte\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_read_byte\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_read\fP (uint8_t port, uint8_t *buffer, int32_t length)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_write_byte\fP (uint8_t port, uint8_t buffer)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_write\fP (uint8_t port, uint8_t *buffer, int32_t length)"
+.br
+.in -1c
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for the V5 Generic Serial related functions\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

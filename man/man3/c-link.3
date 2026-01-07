@@ -1,0 +1,382 @@
+.TH "c-link" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+c-link \- VEX Link C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBlink\&.h\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLINK_BUFFER_SIZE\fP   512"
+.br
+.RI "The maximum size of a link buffer\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBlink_type_e\fP \fBlink_type_e_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlink_type_e\fP { \fBE_LINK_RECIEVER\fP = 0, \fBE_LINK_TRANSMITTER\fP, \fBE_LINK_RX\fP = E_LINK_RECIEVER, \fBE_LINK_TX\fP = E_LINK_TRANSMITTER }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBlink_init\fP (uint8_t port, const char *link_id, link_type_e_t type)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_init_override\fP (uint8_t port, const char *link_id, link_type_e_t type)"
+.br
+.ti -1c
+.RI "bool \fBlink_connected\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_raw_receivable_size\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_raw_transmittable_size\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_transmit_raw\fP (uint8_t port, void *data, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_receive_raw\fP (uint8_t port, void *dest, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_transmit\fP (uint8_t port, void *data, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_receive\fP (uint8_t port, void *dest, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_clear_receive_buf\fP (uint8_t port)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBlink_type_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIE_LINK_RECIEVER \fP
+Indicates that the radio is a reciever\&. 
+.TP
+\f(BIE_LINK_TRANSMITTER \fP
+Indicates that the link is a transmitter\&. 
+.TP
+\f(BIE_LINK_RX \fP
+Alias for E_LINK_RECIEVER\&. 
+.TP
+\f(BIE_LINK_TX \fP
+Alias for E_LINK_TRANSMITTER\&. 
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t link_clear_receive_buf (uint8_t port)"
+Clear the receive buffer of the link, and discarding the data\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link, and the successfully received data size if it succeeded\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "bool link_connected (uint8_t port)"
+Checks if a radio link on a port is active or not\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+If a radio is connected to a port and it's connected to a link\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_init (uint8_t port, const char * link_id, link_type_e_t type)"
+Initializes a link on a radio port, with an indicated type\&. There might be a 1 to 2 second delay from when this function is called to when the link is initializes\&. PROS currently only supports the use of one radio per brain\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&. 
+.br
+\fIlink_id\fP Unique link ID in the form of a string, needs to be different from other links in the area\&. 
+.br
+\fItype\fP Indicates whether the radio link on the brain is a transmitter or receiver, with the transmitter having double the transmitting bandwidth as the receiving end (1040 bytes/s vs 520 bytes/s)\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if initialization fails, 1 if the initialization succeeds\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_init_override (uint8_t port, const char * link_id, link_type_e_t type)"
+Initializes a link on a radio port, with an indicated type and the ability for vexlink to override the controller radio\&. There might be a 1 to 2 second delay from when this function is called to when the link is initializes\&. PROS currently only supports the use of one radio per brain\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&. 
+.br
+\fIlink_id\fP Unique link ID in the form of a string, needs to be different from other links in the area\&. 
+.br
+\fItype\fP Indicates whether the radio link on the brain is a transmitter or receiver, with the transmitter having double the transmitting bandwidth as the receiving end (1040 bytes/s vs 520 bytes/s)\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if initialization fails, 1 if the initialization succeeds\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_raw_receivable_size (uint8_t port)"
+Returns the bytes of data available to be read
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link/radio, else the bytes available to be read by the user\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_raw_transmittable_size (uint8_t port)"
+Returns the bytes of data available in transmission buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link/radio,
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_receive (uint8_t port, void * dest, uint16_t data_size)"
+Receive packeted message through vexlink, with a checksum and start byte\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&. EINVAL - The destination given is NULL, or the size given is larger than the FIFO buffer or destination buffer\&. EBADMSG - Protocol error related to start byte, data size, or checksum\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&. 
+.br
+\fIdest\fP Destination buffer to read data to 
+.br
+\fIdata_size\fP Bytes of data to be read to the destination buffer
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link or protocol error, and the successfully transmitted data size if it succeeded\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_receive_raw (uint8_t port, void * dest, uint16_t data_size)"
+Receive raw serial data through vexlink\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&. EINVAL - The destination given is NULL, or the size given is larger than the FIFO buffer or destination buffer\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&. 
+.br
+\fIdest\fP Destination buffer to read data to 
+.br
+\fIdata_size\fP Bytes of data to be read to the destination buffer
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link, and the successfully received data size if it succeeded\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_transmit (uint8_t port, void * data, uint16_t data_size)"
+Send packeted message through vexlink, with a checksum and start byte\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&. EBUSY - The transmitter buffer is still busy with a previous transmission, and there is no room in the FIFO buffer (queue) to transmit the data\&. EINVAL - The data given is NULL
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&. 
+.br
+\fIdata\fP Buffer with data to send 
+.br
+\fIdata_size\fP Bytes of data to be read to the destination buffer
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link, and the successfully transmitted data size if it succeeded\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "uint32_t link_transmit_raw (uint8_t port, void * data, uint16_t data_size)"
+Send raw serial data through vexlink\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as a radio\&. ENXIO - The sensor is still calibrating, or no link is connected via the radio\&. EBUSY - The transmitter buffer is still busy with a previous transmission, and there is no room in the FIFO buffer (queue) to transmit the data\&. EINVAL - The data given is NULL
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The port of the radio for the intended link\&. 
+.br
+\fIdata\fP Buffer with data to send 
+.br
+\fIdata_size\fP Bytes of data to be read to the destination buffer
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+PROS_ERR if port is not a link, and the successfully transmitted data size if it succeeded\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

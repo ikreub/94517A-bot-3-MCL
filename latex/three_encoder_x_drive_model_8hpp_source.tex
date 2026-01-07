@@ -1,0 +1,36 @@
+\doxysection{three\+Encoder\+XDrive\+Model.\+hpp}
+\hypertarget{three_encoder_x_drive_model_8hpp_source}{}\label{three_encoder_x_drive_model_8hpp_source}\index{include/okapi/api/chassis/model/threeEncoderXDriveModel.hpp@{include/okapi/api/chassis/model/threeEncoderXDriveModel.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/model/xDriveModel.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_three_encoder_x_drive_model_a0222dfe861fe36a8059079d89e1c6aaf}{ThreeEncoderXDriveModel}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_x_drive_model_a037b5cd463b8798b86e8bd9aa1098711}{XDriveModel}}\ \{}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \doxymbox{\hyperlink{classokapi_1_1_three_encoder_x_drive_model_a0222dfe861fe36a8059079d89e1c6aaf}{ThreeEncoderXDriveModel}}(std::shared\_ptr<AbstractMotor>\ itopLeftMotor,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<AbstractMotor>\ itopRightMotor,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<AbstractMotor>\ ibottomRightMotor,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<AbstractMotor>\ ibottomLeftMotor,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ContinuousRotarySensor>\ ileftEnc,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ContinuousRotarySensor>\ irightEnc,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ContinuousRotarySensor>\ imiddleEnc,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ imaxVelocity,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ imaxVoltage);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ std::valarray<std::int32\_t>\ \doxymbox{\hyperlink{classokapi_1_1_three_encoder_x_drive_model_a795ca68a4fd9acaf454a58b3f692eb9a}{getSensorVals}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_three_encoder_x_drive_model_a37273244fe76d87946408292f8ec942f}{resetSensors}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00048\ \ \ std::shared\_ptr<ContinuousRotarySensor>\ middleSensor;}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

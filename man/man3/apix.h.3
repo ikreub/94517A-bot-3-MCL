@@ -1,0 +1,167 @@
+.TH "include/pros/apix.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/apix.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'api\&.h'\fP
+.br
+\fR#include 'pros/device\&.h'\fP
+.br
+\fR#include 'pros/serial\&.h'\fP
+.br
+
+.SS "Functions"
+
+.PP
+.RI "\fBDevice Registration\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "int \fBregistry_bind_port\fP (uint8_t port, v5_device_e_t device_type)"
+.br
+.ti -1c
+.RI "int \fBregistry_unbind_port\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "v5_device_e_t \fBregistry_get_bound_type\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "v5_device_e_t \fBregistry_get_plugged_type\fP (uint8_t port)"
+.br
+.in -1c
+.in -1c
+.SS "Filesystem"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSERCTL_ACTIVATE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSERCTL_DEACTIVATE\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSERCTL_BLKWRITE\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSERCTL_NOBLKWRITE\fP   13"
+.br
+.ti -1c
+.RI "#define \fBSERCTL_ENABLE_COBS\fP   14"
+.br
+.ti -1c
+.RI "#define \fBSERCTL_DISABLE_COBS\fP   15"
+.br
+.ti -1c
+.RI "#define \fBDEVCTL_FIONREAD\fP   16"
+.br
+.ti -1c
+.RI "#define \fBDEVCTL_FIONWRITE\fP   18"
+.br
+.ti -1c
+.RI "#define \fBDEVCTL_SET_BAUDRATE\fP   17"
+.br
+.ti -1c
+.RI "int32_t \fBfdctl\fP (int file, const uint32_t action, void *const extra_arg)"
+.br
+.ti -1c
+.RI "int32_t \fBmotor_set_reversed\fP (int8_t port, const bool reverse)"
+.br
+.ti -1c
+.RI "int32_t \fBmotor_is_reversed\fP (int8_t port)"
+.br
+.in -1c
+.SS "RTOS Facilities"
+
+.in +1c
+.ti -1c
+.RI "typedef void * \fBqueue_t\fP"
+.br
+.ti -1c
+.RI "typedef void * \fBsem_t\fP"
+.br
+.ti -1c
+.RI "bool \fBtask_abort_delay\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "void \fBtask_notify_when_deleting\fP (\fBtask_t\fP target_task, \fBtask_t\fP task_to_notify, uint32_t value, \fBnotify_action_e_t\fP notify_action)"
+.br
+.ti -1c
+.RI "\fBmutex_t\fP \fBmutex_recursive_create\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBmutex_recursive_take\fP (\fBmutex_t\fP mutex, uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBmutex_recursive_give\fP (\fBmutex_t\fP mutex)"
+.br
+.ti -1c
+.RI "\fBtask_t\fP \fBmutex_get_owner\fP (\fBmutex_t\fP mutex)"
+.br
+.ti -1c
+.RI "sem_t \fBsem_create\fP (uint32_t max_count, uint32_t init_count)"
+.br
+.ti -1c
+.RI "void \fBsem_delete\fP (sem_t sem)"
+.br
+.ti -1c
+.RI "sem_t \fBsem_binary_create\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBsem_wait\fP (sem_t sem, uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBsem_post\fP (sem_t sem)"
+.br
+.ti -1c
+.RI "uint32_t \fBsem_get_count\fP (sem_t sem)"
+.br
+.ti -1c
+.RI "queue_t \fBqueue_create\fP (uint32_t length, uint32_t item_size)"
+.br
+.ti -1c
+.RI "bool \fBqueue_append\fP (queue_t queue, const void *item, uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBqueue_peek\fP (queue_t queue, void *const buffer, uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBqueue_recv\fP (queue_t queue, void *const buffer, uint32_t timeout)"
+.br
+.ti -1c
+.RI "uint32_t \fBqueue_get_waiting\fP (const queue_t queue)"
+.br
+.ti -1c
+.RI "uint32_t \fBqueue_get_available\fP (const queue_t queue)"
+.br
+.ti -1c
+.RI "void \fBqueue_delete\fP (queue_t queue)"
+.br
+.ti -1c
+.RI "void \fBqueue_reset\fP (queue_t queue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+PROS Extended API header
+
+.PP
+Contains additional declarations for use by advaned users of PROS\&. These functions do not typically have as much error handling or require deeper knowledge of real time operating systems\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&. All rights reserved\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

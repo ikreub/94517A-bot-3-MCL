@@ -1,0 +1,79 @@
+\doxysection{pros::\+v5::\+Rotation Class Reference}
+\hypertarget{classpros_1_1v5_1_1_rotation}{}\label{classpros_1_1v5_1_1_rotation}\index{pros::v5::Rotation@{pros::v5::Rotation}}
+
+
+Inherits \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-rotation_gada2b747e2f1c526bffd85a6cbe1bfc39}{Rotation}} (const std::\+int8\+\_\+t port)
+\item 
+{\bfseries Rotation} (const \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} \&device)
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_ga6b8f41b64707e3765d09bce781750edc}{reset}} ()
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_ga88d82b164f032065e1fd6694ddc6f61a}{set\+\_\+data\+\_\+rate}} (std::\+uint32\+\_\+t rate) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_ga6547a32d3e65e4cb3a6d27516d36863f}{set\+\_\+position}} (std::\+uint32\+\_\+t position) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_gafbc805845e8a7203a8c4ff1da30c8d90}{reset\+\_\+position}} (void) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_gaa5921b3950bdc9e52c4c0a254c8acea9}{get\+\_\+position}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_ga40be1bfbe00119d26c6a8f11bc079856}{get\+\_\+velocity}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_gab7730ad2250b4b4395dedfd8cc6ebac5}{get\+\_\+angle}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_ga1b6fa7b2313a7459cce726a027827509}{set\+\_\+reversed}} (bool value) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_gae6269170f19a04a689635c6dc51eb5bc}{reverse}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-rotation_gaa65f2081414f28e762811aa0a2b97043}{get\+\_\+reversed}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} (const std::\+uint8\+\_\+t port)
+\item 
+std::\+uint8\+\_\+t \doxymbox{\hyperlink{group__cpp-device_ga59f09e1fcc8c968254ac974fc62ca9f3}{get\+\_\+port}} (void) const
+\item 
+virtual bool \doxymbox{\hyperlink{group__cpp-device_ga0892f3acccd6d80b480eaa1c27a58904}{is\+\_\+installed}} ()
+\item 
+pros::\+\+Device\+Type \doxymbox{\hyperlink{group__cpp-device_gaeffa975ad70ee4c29178f98a9574e37f}{get\+\_\+plugged\+\_\+type}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-rotation_gada2b747e2f1c526bffd85a6cbe1bfc39}{Rotation}} $>$ \doxymbox{\hyperlink{group__cpp-rotation_ga915945a44d2899a368439c18814a89a5}{get\+\_\+all\+\_\+devices}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+static pros::\+\+Device\+Type \doxymbox{\hyperlink{group__cpp-device_ga3c9d8a819e1df454c2d49ce650da601c}{get\+\_\+plugged\+\_\+type}} (std::\+uint8\+\_\+t port)
+\item 
+static std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} $>$ \doxymbox{\hyperlink{group__cpp-device_gadb201bf26ef5f5dd058179d710487555}{get\+\_\+all\+\_\+devices}} (pros::\+\+Device\+Type device\+\_\+type=\doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a5e543256c480ac577d30f76f9120eb74}{pros::\+\+Device\+Type::\+undefined}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::\+ostream \& \doxymbox{\hyperlink{group__cpp-rotation_ga07c1d70d3da0dc8853afe3ddfb10f907}{operator$<$$<$}} (std::\+ostream \&os, const \doxymbox{\hyperlink{classpros_1_1v5_1_1_rotation}{pros::\+\+Rotation}} \&rotation)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-device_gac7714863c8869903d5ab8877f6289cd7}{Device}} (const std::\+uint8\+\_\+t port, const enum \doxymbox{\hyperlink{group__cpp-device_ga0a7387ba6156c831ba1e61d75a04c3d9}{Device\+Type}} device\+Type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{pros::\+v5::\+\+Device}}}
+\begin{DoxyCompactItemize}
+\item 
+const std::\+uint8\+\_\+t {\bfseries \+\_\+port}
+\item 
+enum \doxymbox{\hyperlink{group__cpp-device_ga0a7387ba6156c831ba1e61d75a04c3d9}{Device\+Type}} {\bfseries \+\_\+device\+Type} = \doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a334c4a4c42fdb79d7ebc3e73b517e6f8}{pros::\+\+Device\+Type::\+none}}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+pros/\+\doxymbox{\hyperlink{rotation_8hpp}{rotation.\+hpp}}\end{DoxyCompactItemize}

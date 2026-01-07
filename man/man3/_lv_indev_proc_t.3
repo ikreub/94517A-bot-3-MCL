@@ -1,0 +1,130 @@
+.TH "_lv_indev_proc_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_indev_proc_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_hal_indev\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBlv_indev_state_t\fP \fBstate\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBlong_pr_sent\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBreset_query\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBdisabled\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBwait_until_release\fP: 1"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBact_point\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBlast_point\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBlast_raw_point\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBvect\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBscroll_sum\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBscroll_throw_vect\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBscroll_throw_vect_ori\fP"
+.br
+.ti -1c
+.RI "      struct \fB_lv_obj_t\fP * \fBact_obj\fP"
+.br
+.ti -1c
+.RI "      struct \fB_lv_obj_t\fP * \fBlast_obj\fP"
+.br
+.ti -1c
+.RI "      struct \fB_lv_obj_t\fP * \fBscroll_obj\fP"
+.br
+.ti -1c
+.RI "      struct \fB_lv_obj_t\fP * \fBlast_pressed\fP"
+.br
+.ti -1c
+.RI "      \fBlv_area_t\fP \fBscroll_area\fP"
+.br
+.ti -1c
+.RI "      \fBlv_point_t\fP \fBgesture_sum\fP"
+.br
+.ti -1c
+.RI "      lv_dir_t \fBscroll_dir\fP: 4"
+.br
+.ti -1c
+.RI "      lv_dir_t \fBgesture_dir\fP: 4"
+.br
+.ti -1c
+.RI "      uint8_t \fBgesture_sent\fP: 1"
+.br
+.ti -1c
+.RI "   } \fBpointer\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fBlv_indev_state_t\fP \fBlast_state\fP"
+.br
+.ti -1c
+.RI "      uint32_t \fBlast_key\fP"
+.br
+.ti -1c
+.RI "   } \fBkeypad\fP"
+.br
+.ti -1c
+.RI "} \fBtypes\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBpr_timestamp\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlongpr_rep_timestamp\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Run time data of input devices Internally used by the library, you should not need to touch it\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBlv_point_t\fP _lv_indev_proc_t::act_point"
+Current point of input device\&. 
+.SS "\fBlv_point_t\fP _lv_indev_proc_t::last_point"
+Last point of input device\&. 
+.SS "\fBlv_point_t\fP _lv_indev_proc_t::last_raw_point"
+Last point read from read_cb\&. 
+.SS "uint32_t _lv_indev_proc_t::longpr_rep_timestamp"
+Long press repeat time stamp 
+.SS "uint32_t _lv_indev_proc_t::pr_timestamp"
+Pressed time stamp 
+.SS "\fBlv_indev_state_t\fP _lv_indev_proc_t::state"
+Current state of the input device\&. 
+.SS "\fBlv_point_t\fP _lv_indev_proc_t::vect"
+Difference between \fR\fBact_point\fP\fP and \fR\fBlast_point\fP\fP\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

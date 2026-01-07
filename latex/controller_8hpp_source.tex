@@ -1,0 +1,51 @@
+\doxysection{controller.\+hpp}
+\hypertarget{controller_8hpp_source}{}\label{controller_8hpp_source}\index{include/okapi/impl/device/controller.hpp@{include/okapi/impl/device/controller.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/button/controllerButton.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/impl/device/controllerUtil.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }Controller\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ Controller(ControllerId\ iid\ =\ ControllerId::master);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{virtual}\ \string~Controller();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_controller_adc36eca47e8a9f6489f27416722d7211}{isConnected}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \doxymbox{\hyperlink{classokapi_1_1_controller_a3ccd51b3015c7729e1b765a8ff98be95}{getAnalog}}(ControllerAnalog\ ichannel);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_controller_a4aff4f5577f77b08928ce3e451b5f0c9}{getDigital}}(ControllerDigital\ ibutton);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{classokapi_1_1_controller_button}{ControllerButton}}\ \&\doxymbox{\hyperlink{classokapi_1_1_controller_a32a1cbb3764754c0d5090b9c4aadca7f}{operator[]}}(ControllerDigital\ ibtn);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_a34b1e354f0600798e49e37ac142b641e}{setText}}(std::uint8\_t\ iline,\ std::uint8\_t\ icol,\ std::string\ itext);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_a434c92487cefe37753413580f17ab4f2}{clear}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_a8c62b891d06d42c48c4a198ed28e2390}{clearLine}}(std::uint8\_t\ iline);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_a0892402cfc2f2c88aec2a7a3ec94dc37}{rumble}}(std::string\ irumblePattern);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_aa3a76fb3fc4d2fe430c7e20083c4fb79}{getBatteryCapacity}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_controller_affbb74de7f9b5855110eb0af7a431014}{getBatteryLevel}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00114\ \ \ ControllerId\ okapiId;}
+\DoxyCodeLine{00115\ \ \ pros::controller\_id\_e\_t\ prosId;}
+\DoxyCodeLine{00116\ \ \ std::array<ControllerButton\ *,\ 12>\ buttonArray\{\};}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

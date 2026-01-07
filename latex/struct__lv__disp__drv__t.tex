@@ -1,0 +1,230 @@
+\doxysection{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t Struct Reference}
+\hypertarget{struct__lv__disp__drv__t}{}\label{struct__lv__disp__drv__t}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+
+
+{\ttfamily \+\#include $<$lv\+\_\+hal\+\_\+disp.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a9a46dcf72a366efa819bccc6c243c52e}{hor\+\_\+res}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a629f3773b25f0321cf19c67983e62b75}{ver\+\_\+res}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a9e4127d0410de5e8401ab96ad5c7731f}{physical\+\_\+hor\+\_\+res}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_ad835a17e54002d23fe136d13ce29ad6d}{physical\+\_\+ver\+\_\+res}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_ab4c7bb6df22f3ea73ebad5cddfdaed3b}{offset\+\_\+x}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a80999403d167ad631404dab2ac6f85c6}{offset\+\_\+y}}
+\item 
+\doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a76b0d49876861b2e2f848c0b3f5c4792}{draw\+\_\+buf}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a8c282533fa38e2c02e7bd59543ebe21a}{direct\+\_\+mode}}:\+ 1
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_acdff28b6362847710348e09a80329a8e}{full\+\_\+refresh}}:\+ 1
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a292c93471eee2cd218898281273da44e}{sw\+\_\+rotate}}:\+ 1
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a5140627de9920d06824f64ba22a5a245}{antialiasing}}:\+ 1
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_aa57abbd61258b5f8fb2af5a1e2b379d1}{rotated}}:\+ 2
+\item 
+\Hypertarget{struct__lv__disp__drv__t_a1f20bba3ab4e29515004e70e3fb0b725}\label{struct__lv__disp__drv__t_a1f20bba3ab4e29515004e70e3fb0b725} 
+uint32\+\_\+t {\bfseries screen\+\_\+transp}:\+ 1
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_a45c3688e1af458041ca334d2e297adb6}{dpi}}:\+ 10
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a0579966c493920404caac738f467b614}{flush\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area, lv\+\_\+color\+\_\+t \texorpdfstring{$\ast$}{*}color\+\_\+p)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a151ea253d8396ea15ca79662cb8de3a7}{rounder\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a05e48a3ce29ceae24aa6106719dfc23e}{set\+\_\+px\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, lv\+\_\+coord\+\_\+t buf\+\_\+w, lv\+\_\+coord\+\_\+t x, lv\+\_\+coord\+\_\+t y, lv\+\_\+color\+\_\+t color, lv\+\_\+opa\+\_\+t opa)
+\item 
+\Hypertarget{struct__lv__disp__drv__t_a20ab453ebd6b1026dc010bb75c3fb9c3}\label{struct__lv__disp__drv__t_a20ab453ebd6b1026dc010bb75c3fb9c3} 
+void(\texorpdfstring{$\ast$}{*} {\bfseries clear\+\_\+cb} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t size)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_ab8e9021bc4401273f9e5e159baddc5a3}{monitor\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, uint32\+\_\+t time, uint32\+\_\+t px)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a8a2da37af8c2236f72b54a008bb60206}{wait\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a8f580334339f58469ce29aee4b8c97ac}{clean\+\_\+dcache\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_a89a4b6012925cfe99c33659131b5d269}{drv\+\_\+update\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)
+\item 
+void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_adc85d7b0662c4ca1f1df6744d82a6850}{render\+\_\+start\+\_\+cb}} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)
+\item 
+lv\+\_\+color\+\_\+t \doxymbox{\hyperlink{struct__lv__disp__drv__t_adb7820a88a8b1726e7ba12e7c5538c70}{color\+\_\+chroma\+\_\+key}}
+\item 
+\Hypertarget{struct__lv__disp__drv__t_aeda0cfc7260f834eeaa1c53fab492293}\label{struct__lv__disp__drv__t_aeda0cfc7260f834eeaa1c53fab492293} 
+lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries draw\+\_\+ctx}
+\item 
+\Hypertarget{struct__lv__disp__drv__t_aba7ab4c879b0f4b798a1eaee6c6b0f47}\label{struct__lv__disp__drv__t_aba7ab4c879b0f4b798a1eaee6c6b0f47} 
+void(\texorpdfstring{$\ast$}{*} {\bfseries draw\+\_\+ctx\+\_\+init} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx)
+\item 
+\Hypertarget{struct__lv__disp__drv__t_ad8917c67e7bd427b5af306f7af7d9de9}\label{struct__lv__disp__drv__t_ad8917c67e7bd427b5af306f7af7d9de9} 
+void(\texorpdfstring{$\ast$}{*} {\bfseries draw\+\_\+ctx\+\_\+deinit} )(struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx)
+\item 
+\Hypertarget{struct__lv__disp__drv__t_a820833f0ad76968bc152aee6654a398d}\label{struct__lv__disp__drv__t_a820833f0ad76968bc152aee6654a398d} 
+size\+\_\+t {\bfseries draw\+\_\+ctx\+\_\+size}
+\item 
+void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__disp__drv__t_af5fdca24bab6f48c437c21a6d29864bd}{user\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Display Driver structure to be registered by HAL. Only its pointer will be saved in {\ttfamily \doxylink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\+\_\+disp\+\_\+t}} so it should be declared as {\ttfamily static \doxylink{lv__hal__disp_8h_ad9ffc837ed3653c57cc9c961cafe2774}{lv\+\_\+disp\+\_\+drv\+\_\+t} my\+\_\+drv} or allocated dynamically. 
+
+\label{doc-variable-members}
+\Hypertarget{struct__lv__disp__drv__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct__lv__disp__drv__t_a5140627de9920d06824f64ba22a5a245}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!antialiasing@{antialiasing}}
+\index{antialiasing@{antialiasing}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{antialiasing}{antialiasing}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a5140627de9920d06824f64ba22a5a245} 
+uint32\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+antialiasing}
+
+1:\+ anti-\/aliasing is enabled on this display. \Hypertarget{struct__lv__disp__drv__t_a8f580334339f58469ce29aee4b8c97ac}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!clean\_dcache\_cb@{clean\_dcache\_cb}}
+\index{clean\_dcache\_cb@{clean\_dcache\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{clean\_dcache\_cb}{clean\_dcache\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a8f580334339f58469ce29aee4b8c97ac} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+clean\+\_\+dcache\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)}
+
+OPTIONAL:\+ Called when lvgl needs any CPU cache that affects rendering to be cleaned \Hypertarget{struct__lv__disp__drv__t_adb7820a88a8b1726e7ba12e7c5538c70}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!color\_chroma\_key@{color\_chroma\_key}}
+\index{color\_chroma\_key@{color\_chroma\_key}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{color\_chroma\_key}{color\_chroma\_key}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_adb7820a88a8b1726e7ba12e7c5538c70} 
+lv\+\_\+color\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+color\+\_\+chroma\+\_\+key}
+
+On CHROMA\+\_\+\+KEYED images this color will be transparent. {\ttfamily LV\+\_\+\+COLOR\+\_\+\+CHROMA\+\_\+\+KEY} by default. (\doxylink{lv__conf_8h}{lv\+\_\+conf.\+h}) \Hypertarget{struct__lv__disp__drv__t_a8c282533fa38e2c02e7bd59543ebe21a}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!direct\_mode@{direct\_mode}}
+\index{direct\_mode@{direct\_mode}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{direct\_mode}{direct\_mode}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a8c282533fa38e2c02e7bd59543ebe21a} 
+uint32\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+direct\+\_\+mode}
+
+1:\+ Use screen-\/sized buffers and draw to absolute coordinates \Hypertarget{struct__lv__disp__drv__t_a45c3688e1af458041ca334d2e297adb6}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!dpi@{dpi}}
+\index{dpi@{dpi}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{dpi}{dpi}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a45c3688e1af458041ca334d2e297adb6} 
+uint32\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+dpi}
+
+Handle if the screen doesn\textquotesingle{}t have a solid (opa == LV\+\_\+\+OPA\+\_\+\+COVER) background. Use only if required because it\textquotesingle{}s slower. \Hypertarget{struct__lv__disp__drv__t_a76b0d49876861b2e2f848c0b3f5c4792}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!draw\_buf@{draw\_buf}}
+\index{draw\_buf@{draw\_buf}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{draw\_buf}{draw\_buf}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a76b0d49876861b2e2f848c0b3f5c4792} 
+\doxymbox{\hyperlink{lv__hal__disp_8h_aabc7592e4a01c99ac13c46aa45296ca3}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+draw\+\_\+buf}
+
+Pointer to a buffer initialized with {\ttfamily \doxylink{lv__hal__disp_8h_a06fe2e658c41b550e6ede53f1a267a0a}{lv\+\_\+disp\+\_\+draw\+\_\+buf\+\_\+init()}}. LVGL will use this buffer(s) to draw the screens contents \Hypertarget{struct__lv__disp__drv__t_a89a4b6012925cfe99c33659131b5d269}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!drv\_update\_cb@{drv\_update\_cb}}
+\index{drv\_update\_cb@{drv\_update\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{drv\_update\_cb}{drv\_update\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a89a4b6012925cfe99c33659131b5d269} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+drv\+\_\+update\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)}
+
+OPTIONAL:\+ called when driver parameters are updated \Hypertarget{struct__lv__disp__drv__t_a0579966c493920404caac738f467b614}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!flush\_cb@{flush\_cb}}
+\index{flush\_cb@{flush\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{flush\_cb}{flush\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a0579966c493920404caac738f467b614} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+flush\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area, lv\+\_\+color\+\_\+t \texorpdfstring{$\ast$}{*}color\+\_\+p)}
+
+DPI (dot per inch) of the display. Default value is {\ttfamily LV\+\_\+\+DPI\+\_\+\+DEF}. MANDATORY:\+ Write the internal buffer (draw\+\_\+buf) to the display. \textquotesingle{}lv\+\_\+disp\+\_\+flush\+\_\+ready()\textquotesingle{} has to be called when finished \Hypertarget{struct__lv__disp__drv__t_acdff28b6362847710348e09a80329a8e}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!full\_refresh@{full\_refresh}}
+\index{full\_refresh@{full\_refresh}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{full\_refresh}{full\_refresh}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_acdff28b6362847710348e09a80329a8e} 
+uint32\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+full\+\_\+refresh}
+
+1:\+ Always make the whole screen redrawn \Hypertarget{struct__lv__disp__drv__t_a9a46dcf72a366efa819bccc6c243c52e}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!hor\_res@{hor\_res}}
+\index{hor\_res@{hor\_res}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{hor\_res}{hor\_res}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a9a46dcf72a366efa819bccc6c243c52e} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+hor\+\_\+res}
+
+Horizontal resolution. \Hypertarget{struct__lv__disp__drv__t_ab8e9021bc4401273f9e5e159baddc5a3}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!monitor\_cb@{monitor\_cb}}
+\index{monitor\_cb@{monitor\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{monitor\_cb}{monitor\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_ab8e9021bc4401273f9e5e159baddc5a3} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+monitor\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, uint32\+\_\+t time, uint32\+\_\+t px)}
+
+OPTIONAL:\+ Called after every refresh cycle to tell the rendering and flushing time + the number of flushed pixels \Hypertarget{struct__lv__disp__drv__t_ab4c7bb6df22f3ea73ebad5cddfdaed3b}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!offset\_x@{offset\_x}}
+\index{offset\_x@{offset\_x}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{offset\_x}{offset\_x}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_ab4c7bb6df22f3ea73ebad5cddfdaed3b} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+offset\+\_\+x}
+
+Horizontal offset from the full /\+ physical display. Set to 0 for fullscreen mode. \Hypertarget{struct__lv__disp__drv__t_a80999403d167ad631404dab2ac6f85c6}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!offset\_y@{offset\_y}}
+\index{offset\_y@{offset\_y}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{offset\_y}{offset\_y}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a80999403d167ad631404dab2ac6f85c6} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+offset\+\_\+y}
+
+Vertical offset from the full /\+ physical display. Set to 0 for fullscreen mode. \Hypertarget{struct__lv__disp__drv__t_a9e4127d0410de5e8401ab96ad5c7731f}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!physical\_hor\_res@{physical\_hor\_res}}
+\index{physical\_hor\_res@{physical\_hor\_res}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{physical\_hor\_res}{physical\_hor\_res}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a9e4127d0410de5e8401ab96ad5c7731f} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+physical\+\_\+hor\+\_\+res}
+
+Horizontal resolution of the full /\+ physical display. Set to -\/1 for fullscreen mode. \Hypertarget{struct__lv__disp__drv__t_ad835a17e54002d23fe136d13ce29ad6d}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!physical\_ver\_res@{physical\_ver\_res}}
+\index{physical\_ver\_res@{physical\_ver\_res}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{physical\_ver\_res}{physical\_ver\_res}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_ad835a17e54002d23fe136d13ce29ad6d} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+physical\+\_\+ver\+\_\+res}
+
+Vertical resolution of the full /\+ physical display. Set to -\/1 for fullscreen mode. \Hypertarget{struct__lv__disp__drv__t_adc85d7b0662c4ca1f1df6744d82a6850}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!render\_start\_cb@{render\_start\_cb}}
+\index{render\_start\_cb@{render\_start\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{render\_start\_cb}{render\_start\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_adc85d7b0662c4ca1f1df6744d82a6850} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+render\+\_\+start\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)}
+
+OPTIONAL:\+ called when start rendering \Hypertarget{struct__lv__disp__drv__t_aa57abbd61258b5f8fb2af5a1e2b379d1}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!rotated@{rotated}}
+\index{rotated@{rotated}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{rotated}{rotated}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_aa57abbd61258b5f8fb2af5a1e2b379d1} 
+uint32\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+rotated}
+
+1:\+ turn the display by 90 degree. \begin{DoxyWarning}{Warning}
+Does not update coordinates for you! 
+\end{DoxyWarning}
+\Hypertarget{struct__lv__disp__drv__t_a151ea253d8396ea15ca79662cb8de3a7}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!rounder\_cb@{rounder\_cb}}
+\index{rounder\_cb@{rounder\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{rounder\_cb}{rounder\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a151ea253d8396ea15ca79662cb8de3a7} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+rounder\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area)}
+
+OPTIONAL:\+ Extend the invalidated areas to match with the display drivers requirements E.\+g. round {\ttfamily y} to, 8, 16 ..) on a monochrome display \Hypertarget{struct__lv__disp__drv__t_a05e48a3ce29ceae24aa6106719dfc23e}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!set\_px\_cb@{set\_px\_cb}}
+\index{set\_px\_cb@{set\_px\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{set\_px\_cb}{set\_px\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a05e48a3ce29ceae24aa6106719dfc23e} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+set\+\_\+px\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv, uint8\+\_\+t \texorpdfstring{$\ast$}{*}buf, lv\+\_\+coord\+\_\+t buf\+\_\+w, lv\+\_\+coord\+\_\+t x, lv\+\_\+coord\+\_\+t y, lv\+\_\+color\+\_\+t color, lv\+\_\+opa\+\_\+t opa)}
+
+OPTIONAL:\+ Set a pixel in a buffer according to the special requirements of the display Can be used for color format not supported in Littelv\+GL. E.\+g. 2 bit -\/\texorpdfstring{$>$}{>} 4 gray scales \begin{DoxyNote}{Note}
+Much slower then drawing with supported color formats. 
+\end{DoxyNote}
+\Hypertarget{struct__lv__disp__drv__t_a292c93471eee2cd218898281273da44e}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!sw\_rotate@{sw\_rotate}}
+\index{sw\_rotate@{sw\_rotate}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{sw\_rotate}{sw\_rotate}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a292c93471eee2cd218898281273da44e} 
+uint32\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+sw\+\_\+rotate}
+
+1:\+ use software rotation (slower) \Hypertarget{struct__lv__disp__drv__t_af5fdca24bab6f48c437c21a6d29864bd}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!user\_data@{user\_data}}
+\index{user\_data@{user\_data}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{user\_data}{user\_data}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_af5fdca24bab6f48c437c21a6d29864bd} 
+void\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+user\+\_\+data}
+
+Custom display driver user data \Hypertarget{struct__lv__disp__drv__t_a629f3773b25f0321cf19c67983e62b75}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!ver\_res@{ver\_res}}
+\index{ver\_res@{ver\_res}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{ver\_res}{ver\_res}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a629f3773b25f0321cf19c67983e62b75} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+ver\+\_\+res}
+
+Vertical resolution. \Hypertarget{struct__lv__disp__drv__t_a8a2da37af8c2236f72b54a008bb60206}\index{\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}!wait\_cb@{wait\_cb}}
+\index{wait\_cb@{wait\_cb}!\_lv\_disp\_drv\_t@{\_lv\_disp\_drv\_t}}
+\doxysubsubsection{\texorpdfstring{wait\_cb}{wait\_cb}}
+{\footnotesize\ttfamily \label{struct__lv__disp__drv__t_a8a2da37af8c2236f72b54a008bb60206} 
+void(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t::\+wait\+\_\+cb) (struct \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\+\_\+lv\+\_\+disp\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}disp\+\_\+drv)}
+
+OPTIONAL:\+ Called periodically while lvgl waits for operation to be completed. For example flushing or GPU User can execute very simple tasks here or yield the task 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+liblvgl/\+hal/\+\doxymbox{\hyperlink{lv__hal__disp_8h}{lv\+\_\+hal\+\_\+disp.\+h}}\end{DoxyCompactItemize}

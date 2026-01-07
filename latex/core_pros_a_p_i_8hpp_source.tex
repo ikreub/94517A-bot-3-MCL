@@ -1,0 +1,138 @@
+\doxysection{core\+Pros\+API.\+hpp}
+\hypertarget{core_pros_a_p_i_8hpp_source}{}\label{core_pros_a_p_i_8hpp_source}\index{include/okapi/api/coreProsAPI.hpp@{include/okapi/api/coreProsAPI.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cstdbool>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cstdio>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CROSSPLATFORM\_THREAD\_T\ std::thread}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ CROSSPLATFORM\_MUTEX\_T\ std::mutex}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{apix_8h}{pros/apix.h}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ CROSSPLATFORM\_THREAD\_T\ pros::task\_t}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ CROSSPLATFORM\_MUTEX\_T\ pros::Mutex}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ NOT\_INITIALIZE\_TASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ (strcmp(pros::c::task\_get\_name(pros::c::task\_get\_current()),\ "{}User\ Initialization\ (PROS)"{})\ !=\ 0)}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ NOT\_COMP\_INITIALIZE\_TASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ (strcmp(pros::c::task\_get\_name(pros::c::task\_get\_current()),\ "{}User\ Comp.\ Init.\ (PROS)"{})\ !=\ 0)}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }CrossplatformThread\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00040\ \ \ CrossplatformThread(\textcolor{keywordtype}{void}\ (*ptr)(\textcolor{keywordtype}{void}\ *),}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *params,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ =\ \textcolor{stringliteral}{"{}OkapiLibCrossplatformTask"{}})}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00044\ \ \ CrossplatformThread(\textcolor{keywordtype}{void}\ (*ptr)(\textcolor{keywordtype}{void}\ *),}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *params,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\textcolor{keyword}{const}\ name\ =\ \textcolor{stringliteral}{"{}OkapiLibCrossplatformTask"{}})}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ \ \ \ \ :}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ thread(ptr,\ params)}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ thread(}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ pros::c::task\_create(ptr,\ params,\ \doxymbox{\hyperlink{group__c-rtos_ga3082a7e8f15691441dba683711bb823f}{TASK\_PRIORITY\_DEFAULT}},\ \doxymbox{\hyperlink{group__c-rtos_ga9ffb33b9e3714ca949d9f45dde3cbf8f}{TASK\_STACK\_DEPTH\_DEFAULT}},\ name))}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00055\ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \string~CrossplatformThread()\ \{}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00060\ \ \ \ \ thread.join();}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (pros::c::task\_get\_state(thread)\ !=\ pros::E\_TASK\_STATE\_DELETED)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ pros::c::task\_delete(thread);}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ notifyWhenDeleting(CrossplatformThread\ *)\ \{}
+\DoxyCodeLine{00070\ \ \ \}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ notifyWhenDeleting(CrossplatformThread\ *parent)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ pros::c::task\_notify\_when\_deleting(parent-\/>thread,\ thread,\ 1,\ pros::E\_NOTIFY\_ACTION\_INCR);}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ notifyWhenDeletingRaw(CROSSPLATFORM\_THREAD\_T\ *)\ \{}
+\DoxyCodeLine{00079\ \ \ \}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}\ notifyWhenDeletingRaw(CROSSPLATFORM\_THREAD\_T\ parent)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ pros::c::task\_notify\_when\_deleting(parent,\ thread,\ 1,\ pros::E\_NOTIFY\_ACTION\_INCR);}
+\DoxyCodeLine{00083\ \ \ \}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00087\ \ \ std::uint32\_t\ notifyTake(\textcolor{keyword}{const}\ std::uint32\_t)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00089\ \ \ \}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00091\ \ \ std::uint32\_t\ notifyTake(\textcolor{keyword}{const}\ std::uint32\_t\ itimeout)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ pros::c::task\_notify\_take(\textcolor{keyword}{true},\ itimeout);}
+\DoxyCodeLine{00093\ \ \ \}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{static}\ std::string\ getName()\ \{}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00098\ \ \ \ \ std::ostringstream\ ss;}
+\DoxyCodeLine{00099\ \ \ \ \ ss\ <<\ std::this\_thread::get\_id();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{return}\ ss.str();}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ std::string(pros::c::task\_get\_name(NULL));}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00104\ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ CROSSPLATFORM\_THREAD\_T\ thread;}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }CrossplatformMutex\ \{}
+\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00111\ \ \ CrossplatformMutex()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ lock()\ \{}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00115\ \ \ \ \ mutex.lock();}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{while}\ (!mutex.take(1))\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00120\ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ unlock()\ \{}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#ifdef\ THREADS\_STD}}
+\DoxyCodeLine{00124\ \ \ \ \ mutex.unlock();}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00126\ \ \ \ \ mutex.give();}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00128\ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00131\ \ \ CROSSPLATFORM\_MUTEX\_T\ mutex;}
+\DoxyCodeLine{00132\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,35 @@
+\doxysection{filtered\+Controller\+Input.\+hpp}
+\hypertarget{filtered_controller_input_8hpp_source}{}\label{filtered_controller_input_8hpp_source}\index{include/okapi/api/filter/filteredControllerInput.hpp@{include/okapi/api/filter/filteredControllerInput.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/controllerInput.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/filter/filter.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ InputType,\ \textcolor{keyword}{typename}\ FilterType>}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_filtered_controller_input_a525a87935b8792d39e0769463f9bde54}{FilteredControllerInput}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_controller_input}{ControllerInput}}<double>\ \{}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \doxymbox{\hyperlink{classokapi_1_1_filtered_controller_input_a525a87935b8792d39e0769463f9bde54}{FilteredControllerInput}}(std::unique\_ptr<\doxymbox{\hyperlink{classokapi_1_1_controller_input}{ControllerInput<InputType>}}>\ iinput,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<FilterType>\ ifilter)}
+\DoxyCodeLine{00031\ \ \ \ \ :\ input(std::move(iinput)),\ filter(std::move(ifilter))\ \{}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_filtered_controller_input_abc48c2eb875b0e927d0fd6b462d391d6}{controllerGet}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ filter-\/>filter(input-\/>controllerGet());}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00045\ \ \ std::unique\_ptr<ControllerInput<InputType>>\ input;}
+\DoxyCodeLine{00046\ \ \ std::unique\_ptr<FilterType>\ filter;}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

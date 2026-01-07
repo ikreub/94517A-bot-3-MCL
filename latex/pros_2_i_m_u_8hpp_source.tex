@@ -1,0 +1,83 @@
+\doxysection{imu.\+hpp}
+\hypertarget{pros_2_i_m_u_8hpp_source}{}\label{pros_2_i_m_u_8hpp_source}\index{include/pros/imu.hpp@{include/pros/imu.hpp}}
+\doxymbox{\hyperlink{pros_2_i_m_u_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_IMU\_HPP\_}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \_PROS\_IMU\_HPP\_}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{device_8hpp}{pros/device.hpp}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{imu_8h}{pros/imu.h}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{enum\ class}\ \doxymbox{\hyperlink{group__cpp-imu_gad33282b693e3f276879b5afd6a264e57}{ImuStatus}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ ready\ =\ 0,}
+\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-imu_ggad33282b693e3f276879b5afd6a264e57ad6e305f27560127320d39d1b9d809678}{calibrating}}\ =\ 19,}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-imu_ggad33282b693e3f276879b5afd6a264e57acb5e100e5a9a3e7f6d1fd97512215282}{error}}\ =\ 0xFF,}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{inline}\ \textcolor{keyword}{namespace\ }v5\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpros_1_1v5_1_1_imu}{Imu}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\ \{}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-imu_ga73291a80a860eca639bf21bd9b6cede7}{Imu}}(\textcolor{keyword}{const}\ std::uint8\_t\ port)\ :\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}(port,\ \doxymbox{\hyperlink{group__cpp-device_ga0a7387ba6156c831ba1e61d75a04c3d9}{DeviceType}}::\doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a2ba0b99abec8c19b66d7d036b19999ae}{imu}})\{\};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-imu_ga73291a80a860eca639bf21bd9b6cede7}{Imu}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_device}{Device}}\&\ device)\ :\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_imu}{Imu}}(device.\doxymbox{\hyperlink{group__cpp-device_ga59f09e1fcc8c968254ac974fc62ca9f3}{get\_port}}())\{\};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{group__cpp-imu_ga73291a80a860eca639bf21bd9b6cede7}{Imu}}\ \doxymbox{\hyperlink{group__cpp-imu_ga44f759e14a49dc89ad006dc0b9b3e9ce}{get\_imu}}();}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga0627247b00559fd71c2168d4928899b1}{reset}}(\textcolor{keywordtype}{bool}\ blocking\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_gace00eb616f64f03cb658bfce9c06ec45}{set\_data\_rate}}(std::uint32\_t\ rate)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<Imu>\ \doxymbox{\hyperlink{group__cpp-imu_ga66d576f1edaad190e5ce17ccd98a9f4e}{get\_all\_devices}}();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-imu_gacfc5d3f1cfc5ecae9888ba201db814ac}{get\_rotation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-imu_ga4029c4cf3c85e65e83239a5b1757ee6e}{get\_heading}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::quaternion\_s\_t\ \doxymbox{\hyperlink{group__cpp-imu_gab8058aaeafd53c9dad6d0897290a2696}{get\_quaternion}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::euler\_s\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga8376cb7563646956821e2f3f05ca2d6c}{get\_euler}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-imu_gadac5f5cdbe84e419c78bf533752c988b}{get\_pitch}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-imu_ga39771e485c9542b17feee52462225efb}{get\_roll}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-imu_ga15e421314412001a242c1420c128b193}{get\_yaw}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::imu\_gyro\_s\_t\ \doxymbox{\hyperlink{group__cpp-imu_gafdcb176432fb8b9b3e1a6a3b73180fb6}{get\_gyro\_rate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00505\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga091e81fd0e0c4d0691ec583d01c4c144}{tare\_rotation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_gaa02634b40da1cd662b3a2667aa7fa356}{tare\_heading}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga2048774bd55e03efe8349ef605be499f}{tare\_pitch}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga2fe385d43ac89dee49fadd9f6c1db173}{tare\_yaw}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00653\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_gaea0fb8b0dc26439005a895221ee9019d}{tare\_roll}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00684\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga22148affdf3a616fb51be6508e4d7b27}{tare}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00715\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga4aea8e8d7acddad9073c2dd008ff327a}{tare\_euler}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00751\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga0e0001ba3911f8b0ddb77ba082c0e097}{set\_heading}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00786\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga4378b8f91f91e65c867f4d34111b175b}{set\_rotation}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00822\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_gae51f1d5bad265aba150c28a2f3e4bbd8}{set\_yaw}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga25f70e3ae8ae71958789e92e0b8f1bd3}{set\_pitch}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00893\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga6268d1bc277ee127aeae07c8971ffb6c}{set\_roll}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00929\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-imu_gace1b24d242500367c0feb5317fa7b4f0}{set\_euler}}(\textcolor{keyword}{const}\ pros::euler\_s\_t\ target)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00963\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::imu\_accel\_s\_t\ \doxymbox{\hyperlink{group__cpp-imu_ga38fa272f28a65d15b02584847f7a193d}{get\_accel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00997\ \ \ \ \ \textcolor{keyword}{virtual}\ \doxymbox{\hyperlink{group__cpp-imu_gad33282b693e3f276879b5afd6a264e57}{pros::ImuStatus}}\ \doxymbox{\hyperlink{group__cpp-imu_gafb0d0790d260b3f7cdc700effa726db1}{get\_status}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group__cpp-imu_ga1faa0415d03810f9dd5d67d46296a177}{is\_calibrating}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01041\ \ \ \ \ \textcolor{keyword}{virtual}\ imu\_orientation\_e\_t\ \doxymbox{\hyperlink{group__cpp-imu_gaeb90d407ebbe0b23dffec0483acdb3e6}{get\_physical\_orientation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01042\ }
+\DoxyCodeLine{01051\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \doxymbox{\hyperlink{group__cpp-imu_gabd821ec2ebab154ce30562661a77d006}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_imu}{pros::Imu}}\&\ \doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a2ba0b99abec8c19b66d7d036b19999ae}{imu}});}
+\DoxyCodeLine{01052\ }
+\DoxyCodeLine{01054\ \};}
+\DoxyCodeLine{01055\ }
+\DoxyCodeLine{01056\ \textcolor{keyword}{namespace\ }literals\ \{}
+\DoxyCodeLine{01070\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_imu}{pros::Imu}}\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_imu(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{01071\ \}\ \ \textcolor{comment}{//\ namespace\ literals}}
+\DoxyCodeLine{01072\ }
+\DoxyCodeLine{01073\ \textcolor{keyword}{using\ }IMU\ =\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_imu}{Imu}};}
+\DoxyCodeLine{01074\ \}\ \ \textcolor{comment}{//\ namespace\ v5}}
+\DoxyCodeLine{01075\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{01076\ }
+\DoxyCodeLine{01077\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

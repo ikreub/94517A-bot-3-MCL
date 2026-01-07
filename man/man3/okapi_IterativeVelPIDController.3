@@ -1,0 +1,463 @@
+.TH "okapi::IterativeVelPIDController" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::IterativeVelPIDController
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::IterativeVelocityController< double, double >\fP\&.
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGains\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIterativeVelPIDController\fP (double ikP, double ikD, double ikF, double ikSF, std::unique_ptr< \fBVelMath\fP > ivelMath, const \fBTimeUtil\fP &itimeUtil, std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBIterativeVelPIDController\fP (const \fBGains\fP &igains, std::unique_ptr< \fBVelMath\fP > ivelMath, const \fBTimeUtil\fP &itimeUtil, std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "double \fBstep\fP (double inewReading) override"
+.br
+.ti -1c
+.RI "void \fBsetTarget\fP (double itarget) override"
+.br
+.ti -1c
+.RI "void \fBcontrollerSet\fP (double ivalue) override"
+.br
+.ti -1c
+.RI "double \fBgetTarget\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetTarget\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetProcessValue\fP () const override"
+.br
+.ti -1c
+.RI "double \fBgetOutput\fP () const override"
+.br
+.ti -1c
+.RI "double \fBgetMaxOutput\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetMinOutput\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetError\fP () const override"
+.br
+.ti -1c
+.RI "bool \fBisSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBsetSampleTime\fP (QTime isampleTime) override"
+.br
+.ti -1c
+.RI "void \fBsetOutputLimits\fP (double imax, double imin) override"
+.br
+.ti -1c
+.RI "void \fBsetControllerSetTargetLimits\fP (double itargetMax, double itargetMin) override"
+.br
+.ti -1c
+.RI "void \fBreset\fP () override"
+.br
+.ti -1c
+.RI "void \fBflipDisable\fP () override"
+.br
+.ti -1c
+.RI "void \fBflipDisable\fP (bool iisDisabled) override"
+.br
+.ti -1c
+.RI "bool \fBisDisabled\fP () const override"
+.br
+.ti -1c
+.RI "QTime \fBgetSampleTime\fP () const override"
+.br
+.ti -1c
+.RI "virtual QAngularSpeed \fBstepVel\fP (double inewReading)"
+.br
+.ti -1c
+.RI "virtual void \fBsetGains\fP (const \fBGains\fP &igains)"
+.br
+.ti -1c
+.RI "\fBGains\fP \fBgetGains\fP () const"
+.br
+.ti -1c
+.RI "virtual void \fBsetTicksPerRev\fP (double tpr)"
+.br
+.ti -1c
+.RI "virtual QAngularSpeed \fBgetVel\fP () const"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "double \fBkP\fP"
+.br
+.ti -1c
+.RI "double \fBkD\fP"
+.br
+.ti -1c
+.RI "double \fBkF\fP"
+.br
+.ti -1c
+.RI "double \fBkSF\fP"
+.br
+.ti -1c
+.RI "QTime \fBsampleTime\fP {10_ms}"
+.br
+.ti -1c
+.RI "double \fBerror\fP {0}"
+.br
+.ti -1c
+.RI "double \fBderivative\fP {0}"
+.br
+.ti -1c
+.RI "double \fBtarget\fP {0}"
+.br
+.ti -1c
+.RI "double \fBoutputSum\fP {0}"
+.br
+.ti -1c
+.RI "double \fBoutput\fP {0}"
+.br
+.ti -1c
+.RI "double \fBoutputMax\fP {1}"
+.br
+.ti -1c
+.RI "double \fBoutputMin\fP {\-1}"
+.br
+.ti -1c
+.RI "double \fBcontrollerSetTargetMax\fP {1}"
+.br
+.ti -1c
+.RI "double \fBcontrollerSetTargetMin\fP {\-1}"
+.br
+.ti -1c
+.RI "bool \fBcontrollerIsDisabled\fP {false}"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBVelMath\fP > \fBvelMath\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBFilter\fP > \fBderivativeFilter\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAbstractTimer\fP > \fBloopDtTimer\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBSettledUtil\fP > \fBsettledUtil\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::IterativeVelPIDController::IterativeVelPIDController (double ikP, double ikD, double ikF, double ikSF, std::unique_ptr< \fBVelMath\fP > ivelMath, const \fBTimeUtil\fP & itimeUtil, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, std::shared_ptr< \fBLogger\fP > ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+Velocity PD controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIikP\fP the proportional gain 
+.br
+\fIikD\fP the derivative gain 
+.br
+\fIikF\fP the feed-forward gain 
+.br
+\fIikSF\fP a feed-forward gain to counteract static friction 
+.br
+\fIivelMath\fP The \fBVelMath\fP used for calculating velocity\&. 
+.br
+\fIitimeUtil\fP see \fBTimeUtil\fP docs 
+.br
+\fIiderivativeFilter\fP a filter for filtering the derivative term 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "okapi::IterativeVelPIDController::IterativeVelPIDController (const \fBGains\fP & igains, std::unique_ptr< \fBVelMath\fP > ivelMath, const \fBTimeUtil\fP & itimeUtil, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, std::shared_ptr< \fBLogger\fP > ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+Velocity PD controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigains\fP The controller gains\&. 
+.br
+\fIivelMath\fP The \fBVelMath\fP used for calculating velocity\&. 
+.br
+\fIitimeUtil\fP see \fBTimeUtil\fP docs 
+.br
+\fIiderivativeFilter\fP a filter for filtering the derivative term 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void okapi::IterativeVelPIDController::controllerSet (double ivalue)\fR [override]\fP, \fR [virtual]\fP"
+Writes the value of the controller output\&. This method might be automatically called in another thread by the controller\&. The range of input values is expected to be [-1, 1]\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivalue\fP the controller's output in the range [-1, 1] 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ControllerOutput< double >\fP\&.
+.SS "void okapi::IterativeVelPIDController::flipDisable ()\fR [override]\fP, \fR [virtual]\fP"
+Changes whether the controller is off or on\&. Turning the controller on after it was off will cause the controller to move to its last set target, unless it was reset in that time\&. 
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "void okapi::IterativeVelPIDController::flipDisable (bool iisDisabled)\fR [override]\fP"
+Sets whether the controller is off or on\&. Turning the controller on after it was off will cause the controller to move to its last set target, unless it was reset in that time\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiisDisabled\fP whether the controller is disabled 
+.RE
+.PP
+
+.SS "double okapi::IterativeVelPIDController::getError () const\fR [override]\fP, \fR [virtual]\fP"
+Returns the last error of the controller\&. Does not update when disabled\&. 
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "\fBGains\fP okapi::IterativeVelPIDController::getGains () const"
+Gets the current gains\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current gains\&. 
+.RE
+.PP
+
+.SS "double okapi::IterativeVelPIDController::getMaxOutput ()\fR [override]\fP, \fR [virtual]\fP"
+Get the upper output bound\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the upper output bound 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "double okapi::IterativeVelPIDController::getMinOutput ()\fR [override]\fP, \fR [virtual]\fP"
+Get the lower output bound\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the lower output bound 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "double okapi::IterativeVelPIDController::getOutput () const\fR [override]\fP, \fR [virtual]\fP"
+Returns the last calculated output of the controller\&. 
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "double okapi::IterativeVelPIDController::getProcessValue () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The most recent value of the process variable\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "QTime okapi::IterativeVelPIDController::getSampleTime () const\fR [override]\fP, \fR [virtual]\fP"
+Get the last set sample time\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+sample time 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "double okapi::IterativeVelPIDController::getTarget () const"
+Gets the last set target, or the default target if none was set\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the last target 
+.RE
+.PP
+
+.SS "double okapi::IterativeVelPIDController::getTarget ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the last set target, or the default target if none was set\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the last target 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "virtual QAngularSpeed okapi::IterativeVelPIDController::getVel () const\fR [virtual]\fP"
+Returns the current velocity\&. 
+.SS "bool okapi::IterativeVelPIDController::isDisabled () const\fR [override]\fP, \fR [virtual]\fP"
+Returns whether the controller is currently disabled\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+whether the controller is currently disabled 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "bool okapi::IterativeVelPIDController::isSettled ()\fR [override]\fP, \fR [virtual]\fP"
+Returns whether the controller has settled at the target\&. Determining what settling means is implementation-dependent\&.
+
+.PP
+If the controller is disabled, this method must return true\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+whether the controller is settled 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "void okapi::IterativeVelPIDController::reset ()\fR [override]\fP, \fR [virtual]\fP"
+Resets the controller's internal state so it is similar to when it was first initialized, while keeping any user-configured information\&. 
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "void okapi::IterativeVelPIDController::setControllerSetTargetLimits (double itargetMax, double itargetMin)\fR [override]\fP, \fR [virtual]\fP"
+Sets the (soft) limits for the target range that \fBcontrollerSet()\fP scales into\&. The target computed by \fBcontrollerSet()\fP is scaled into the range [-itargetMin, itargetMax]\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitargetMax\fP The new max target for \fBcontrollerSet()\fP\&. 
+.br
+\fIitargetMin\fP The new min target for \fBcontrollerSet()\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "virtual void okapi::IterativeVelPIDController::setGains (const \fBGains\fP & igains)\fR [virtual]\fP"
+Set controller gains\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigains\fP The new gains\&. 
+.RE
+.PP
+
+.SS "void okapi::IterativeVelPIDController::setOutputLimits (double imax, double imin)\fR [override]\fP, \fR [virtual]\fP"
+Set controller output bounds\&. Default bounds are [-1, 1]\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimax\fP max output 
+.br
+\fIimin\fP min output 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "void okapi::IterativeVelPIDController::setSampleTime (QTime isampleTime)\fR [override]\fP, \fR [virtual]\fP"
+Set time between loops in ms\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIisampleTime\fP time between loops 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "void okapi::IterativeVelPIDController::setTarget (double itarget)\fR [override]\fP, \fR [virtual]\fP"
+Sets the target for the controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitarget\fP new target velocity 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ClosedLoopController< double, double >\fP\&.
+.SS "virtual void okapi::IterativeVelPIDController::setTicksPerRev (double tpr)\fR [virtual]\fP"
+Sets the number of encoder ticks per revolution\&. Default is 1800\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItpr\fP number of measured units per revolution 
+.RE
+.PP
+
+.SS "double okapi::IterativeVelPIDController::step (double inewReading)\fR [override]\fP, \fR [virtual]\fP"
+Do one iteration of the controller\&. Returns the reading in the range [-1, 1] unless the bounds have been changed with \fBsetOutputLimits()\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinewReading\fP new measurement 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+controller output 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::IterativeController< double, double >\fP\&.
+.SS "virtual QAngularSpeed okapi::IterativeVelPIDController::stepVel (double inewReading)\fR [virtual]\fP"
+Do one iteration of velocity calculation\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinewReading\fP new measurement 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+filtered velocity 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,233 @@
+\doxysection{okapi::\+Async\+Pos\+PIDController Class Reference}
+\hypertarget{classokapi_1_1_async_pos_p_i_d_controller}{}\label{classokapi_1_1_async_pos_p_i_d_controller}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{okapi::\+\+Async\+Wrapper$<$ double, double $>$}}, and \doxymbox{\hyperlink{classokapi_1_1_async_position_controller}{okapi::\+\+Async\+Position\+Controller$<$ double, double $>$}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a13a9491bb1f32a126c0c568817d5a634}{Async\+Pos\+PIDController}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_input}{Controller\+Input}}$<$ double $>$ $>$ \&iinput, const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{Controller\+Output}}$<$ double $>$ $>$ \&ioutput, const \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \&itime\+Util, double ikP, double ikI, double ikD, double ik\+Bias=0, double iratio=1, std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ iderivative\+Filter=std::\+make\+\_\+unique$<$ \doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}} $>$(), const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ \&ilogger=\doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}())
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a4fe4c0c7d758cc301fc78d646bd69ccc}{Async\+Pos\+PIDController}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_offsetable_controller_input}{Offsetable\+Controller\+Input}} $>$ \&iinput, const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{Controller\+Output}}$<$ double $>$ $>$ \&ioutput, const \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \&itime\+Util, double ikP, double ikI, double ikD, double ik\+Bias=0, double iratio=1, std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ iderivative\+Filter=std::\+make\+\_\+unique$<$ \doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}} $>$(), const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ \&ilogger=\doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}())
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a4d5bb5646dcdc3bc80f15c1d6ae72747}{tare\+Position}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a4e4d599f04780e0e980116f38d8044fa}{set\+Max\+Velocity}} (std::\+int32\+\_\+t imax\+Velocity) override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_aa2b247484df4a9f2e1964309f8cb95c3}{set\+Gains}} (const \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{Iterative\+Pos\+PIDController::\+\+Gains}} \&igains)
+\item 
+\doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{Iterative\+Pos\+PIDController::\+\+Gains}} \doxymbox{\hyperlink{classokapi_1_1_async_pos_p_i_d_controller_a9c8fcd888cfb8f42bb4cf0bfca1bfcf2}{get\+Gains}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{okapi::\+\+Async\+Wrapper$<$ double, double $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{Async\+Wrapper}} (const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_input}{Controller\+Input}}$<$ double $>$ $>$ \&iinput, const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{Controller\+Output}}$<$ double $>$ $>$ \&ioutput, const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_iterative_controller}{Iterative\+Controller}}$<$ double, double $>$ $>$ \&icontroller, const \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier}}$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_abstract_rate}{Abstract\+Rate}} $>$ $>$ \&irate\+Supplier, const double iratio=1, std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ ilogger=\doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}())
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{Async\+Wrapper}}$<$ double, double $>$ \& {\bfseries operator=} (\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{Async\+Wrapper}}$<$ double, double $>$ \&\&other)=delete
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_aa4b9a4ff29aff5047425e239b574c3c6}{set\+Target}} (const double itarget) override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_aec6d1a4214bad2151bee23dc5e8076e7}{controller\+Set}} (const double ivalue) override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a2471c7b5f388d441db77fa9199db7b83}{get\+Target}} () override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad1c7a4258eb5ad5127fe12d7b78ddb15}{get\+Process\+Value}} () const override
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a6f3859f212f0348e73df98c83208f3c4}{get\+Output}} () const
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a64b690883ff7475375a6d08ad3fb62f9}{get\+Error}} () const override
+\item 
+bool \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a93343937a8bbe762aeb6460197a22dfe}{is\+Settled}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_afe14fb6e7727c313bd40cf74d28f0a14}{set\+Sample\+Time}} (const QTime \&isample\+Time)
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a668c83b4a2b5bee7f2d072b57157d19a}{set\+Output\+Limits}} (const double imax, const double imin)
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a9cb3a50a27e7d3e1263ed3aa6c57bb82}{set\+Controller\+Set\+Target\+Limits}} (double itarget\+Max, double itarget\+Min)
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a95112bac1792ef04010cd97efa135998}{get\+Max\+Output}} ()
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a41ccefbf1da06cca1ec525d0ad80fa00}{get\+Min\+Output}} ()
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a9372a74580e5be429ecd65ec0e110c23}{reset}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_afdf4d80b0f3eec3d77280a561b24f0b0}{flip\+Disable}} () override
+\item 
+bool \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a83d411851373f0483b5ae392560a180a}{is\+Disabled}} () const override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a23435c257ac2d6df59ab5d96408e608a}{wait\+Until\+Settled}} () override
+\item 
+void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a5225a6b4748da30bf17ddbda692cbf4a}{start\+Thread}} ()
+\item 
+\doxymbox{\hyperlink{class_crossplatform_thread}{Crossplatform\+Thread}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a41b7503e92a977d8daaf4c191e9aec77}{get\+Thread}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a6e7a064075af197d89f4369e3c8e48b6}\label{classokapi_1_1_async_pos_p_i_d_controller_a6e7a064075af197d89f4369e3c8e48b6} 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_offsetable_controller_input}{Offsetable\+Controller\+Input}} $>$ {\bfseries offsettable\+Input}
+\item 
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a3c661138bab5c2abe14e2f395e9349ec}\label{classokapi_1_1_async_pos_p_i_d_controller_a3c661138bab5c2abe14e2f395e9349ec} 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_iterative_pos_p_i_d_controller}{Iterative\+Pos\+PIDController}} $>$ {\bfseries internal\+Controller}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{okapi::\+\+Async\+Wrapper$<$ double, double $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ {\bfseries logger}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier}}$<$ std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_abstract_rate}{Abstract\+Rate}} $>$ $>$ {\bfseries rate\+Supplier}
+\item 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_input}{Controller\+Input}}$<$ double $>$ $>$ {\bfseries input}
+\item 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{Controller\+Output}}$<$ double $>$ $>$ {\bfseries output}
+\item 
+std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_iterative_controller}{Iterative\+Controller}}$<$ double, double $>$ $>$ {\bfseries controller}
+\item 
+bool {\bfseries has\+First\+Target}
+\item 
+double {\bfseries last\+Target}
+\item 
+double {\bfseries ratio}
+\item 
+std::\+atomic\+\_\+bool {\bfseries dtor\+Called}
+\item 
+\doxymbox{\hyperlink{class_crossplatform_thread}{Crossplatform\+Thread}} \texorpdfstring{$\ast$}{*} {\bfseries task}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{okapi::\+\+Async\+Wrapper$<$ double, double $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries loop} ()
+\item 
+virtual void \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a67fa1bf10df9b8f3c280d8f2b136038a}{resume\+Movement}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions inherited from \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{okapi::\+\+Async\+Wrapper$<$ double, double $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+static void {\bfseries trampoline} (void \texorpdfstring{$\ast$}{*}context)
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a13a9491bb1f32a126c0c568817d5a634}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}!AsyncPosPIDController@{AsyncPosPIDController}}
+\index{AsyncPosPIDController@{AsyncPosPIDController}!okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+\doxysubsubsection{\texorpdfstring{AsyncPosPIDController()}{AsyncPosPIDController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_p_i_d_controller_a13a9491bb1f32a126c0c568817d5a634} 
+okapi::\+\+Async\+Pos\+PIDController::\+\+Async\+Pos\+PIDController (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_input}{Controller\+Input}}$<$ double $>$ $>$ \&}]{iinput}{, }\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{Controller\+Output}}$<$ double $>$ $>$ \&}]{ioutput}{, }\item[{const \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \&}]{itime\+Util}{, }\item[{double}]{ikP}{, }\item[{double}]{ikI}{, }\item[{double}]{ikD}{, }\item[{double}]{ik\+Bias}{ = {\ttfamily 0}, }\item[{double}]{iratio}{ = {\ttfamily 1}, }\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$}]{iderivative\+Filter}{ = {\ttfamily std:\+:\+make\+\_\+unique$<$~\doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}}~$>$()}, }\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ \&}]{ilogger}{ = {\ttfamily \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}()}}\end{DoxyParamCaption})}
+
+An async position PID controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em iinput} & The controller input. Will be turned into an Offsettable\+Controller\+Input. \\
+\hline
+{\em ioutput} & The controller output. \\
+\hline
+{\em itime\+Util} & The \doxylink{classokapi_1_1_time_util}{Time\+Util}. \\
+\hline
+{\em ikP} & The proportional gain. \\
+\hline
+{\em ikI} & The integral gain. \\
+\hline
+{\em ikD} & The derivative gain. \\
+\hline
+{\em ik\+Bias} & The controller bias. \\
+\hline
+{\em iratio} & Any external gear ratio. \\
+\hline
+{\em iderivative\+Filter} & The derivative filter. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a4fe4c0c7d758cc301fc78d646bd69ccc}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}!AsyncPosPIDController@{AsyncPosPIDController}}
+\index{AsyncPosPIDController@{AsyncPosPIDController}!okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+\doxysubsubsection{\texorpdfstring{AsyncPosPIDController()}{AsyncPosPIDController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_p_i_d_controller_a4fe4c0c7d758cc301fc78d646bd69ccc} 
+okapi::\+\+Async\+Pos\+PIDController::\+\+Async\+Pos\+PIDController (\begin{DoxyParamCaption}\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_offsetable_controller_input}{Offsetable\+Controller\+Input}} $>$ \&}]{iinput}{, }\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_controller_output}{Controller\+Output}}$<$ double $>$ $>$ \&}]{ioutput}{, }\item[{const \doxymbox{\hyperlink{classokapi_1_1_time_util}{Time\+Util}} \&}]{itime\+Util}{, }\item[{double}]{ikP}{, }\item[{double}]{ikI}{, }\item[{double}]{ikD}{, }\item[{double}]{ik\+Bias}{ = {\ttfamily 0}, }\item[{double}]{iratio}{ = {\ttfamily 1}, }\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$}]{iderivative\+Filter}{ = {\ttfamily std:\+:\+make\+\_\+unique$<$~\doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}}~$>$()}, }\item[{const std::\+shared\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_logger}{Logger}} $>$ \&}]{ilogger}{ = {\ttfamily \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::\+get\+Default\+Logger}}()}}\end{DoxyParamCaption})}
+
+An async position PID controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em iinput} & The controller input. \\
+\hline
+{\em ioutput} & The controller output. \\
+\hline
+{\em itime\+Util} & The \doxylink{classokapi_1_1_time_util}{Time\+Util}. \\
+\hline
+{\em ikP} & The proportional gain. \\
+\hline
+{\em ikI} & The integral gain. \\
+\hline
+{\em ikD} & The derivative gain. \\
+\hline
+{\em ik\+Bias} & The controller bias. \\
+\hline
+{\em iratio} & Any external gear ratio. \\
+\hline
+{\em iderivative\+Filter} & The derivative filter. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a9c8fcd888cfb8f42bb4cf0bfca1bfcf2}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}!getGains@{getGains}}
+\index{getGains@{getGains}!okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+\doxysubsubsection{\texorpdfstring{getGains()}{getGains()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_p_i_d_controller_a9c8fcd888cfb8f42bb4cf0bfca1bfcf2} 
+\doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{Iterative\+Pos\+PIDController::\+\+Gains}} okapi::\+\+Async\+Pos\+PIDController::\+get\+Gains (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Gets the current gains.
+
+\begin{DoxyReturn}{Returns}
+The current gains. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_aa2b247484df4a9f2e1964309f8cb95c3}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}!setGains@{setGains}}
+\index{setGains@{setGains}!okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+\doxysubsubsection{\texorpdfstring{setGains()}{setGains()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_p_i_d_controller_aa2b247484df4a9f2e1964309f8cb95c3} 
+void okapi::\+\+Async\+Pos\+PIDController::\+set\+Gains (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structokapi_1_1_iterative_pos_p_i_d_controller_1_1_gains}{Iterative\+Pos\+PIDController::\+\+Gains}} \&}]{igains}{}\end{DoxyParamCaption})}
+
+Set controller gains.
+
+
+\begin{DoxyParams}{Parameters}
+{\em igains} & The new gains. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a4e4d599f04780e0e980116f38d8044fa}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}!setMaxVelocity@{setMaxVelocity}}
+\index{setMaxVelocity@{setMaxVelocity}!okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+\doxysubsubsection{\texorpdfstring{setMaxVelocity()}{setMaxVelocity()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_p_i_d_controller_a4e4d599f04780e0e980116f38d8044fa} 
+void okapi::\+\+Async\+Pos\+PIDController::\+set\+Max\+Velocity (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{imax\+Velocity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This implementation does not respect the maximum velocity.
+
+
+\begin{DoxyParams}{Parameters}
+{\em imax\+Velocity} & Ignored. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_ac56b3e8bc43ad9d9a6c95ff0a883e499}{okapi::\+\+Async\+Position\+Controller$<$ double, double $>$}}.
+
+\Hypertarget{classokapi_1_1_async_pos_p_i_d_controller_a4d5bb5646dcdc3bc80f15c1d6ae72747}\index{okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}!tarePosition@{tarePosition}}
+\index{tarePosition@{tarePosition}!okapi::AsyncPosPIDController@{okapi::AsyncPosPIDController}}
+\doxysubsubsection{\texorpdfstring{tarePosition()}{tarePosition()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_async_pos_p_i_d_controller_a4d5bb5646dcdc3bc80f15c1d6ae72747} 
+void okapi::\+\+Async\+Pos\+PIDController::\+tare\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the "{}absolute"{} zero position of the controller to its current position. 
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_async_position_controller_a0af03d0035343cbf843a19374f38a059}{okapi::\+\+Async\+Position\+Controller$<$ double, double $>$}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+api/\+control/\+async/\+async\+Pos\+Pid\+Controller.\+hpp\end{DoxyCompactItemize}

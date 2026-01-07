@@ -1,0 +1,415 @@
+.TH "include/liblvgl/core/lv_group.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/core/lv_group.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include 'liblvgl/misc/lv_ll\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_types\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_group_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint8_t \fBlv_key_t\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_group_focus_cb_t\fP) (struct \fB_lv_group_t\fP *)"
+.br
+.ti -1c
+.RI "typedef void(* \fBlv_group_edge_cb_t\fP) (struct \fB_lv_group_t\fP *, bool)"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_group_t\fP \fBlv_group_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBLV_KEY_UP\fP = 17, \fBLV_KEY_DOWN\fP = 18, \fBLV_KEY_RIGHT\fP = 19, \fBLV_KEY_LEFT\fP = 20, \fBLV_KEY_ESC\fP = 27, \fBLV_KEY_DEL\fP = 127, \fBLV_KEY_BACKSPACE\fP = 8, \fBLV_KEY_ENTER\fP = 10, \fBLV_KEY_NEXT\fP = 9, \fBLV_KEY_PREV\fP = 11, \fBLV_KEY_HOME\fP = 2, \fBLV_KEY_END\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBlv_group_refocus_policy_t\fP { \fBLV_GROUP_REFOCUS_POLICY_NEXT\fP = 0, \fBLV_GROUP_REFOCUS_POLICY_PREV\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB_lv_group_init\fP (void)"
+.br
+.ti -1c
+.RI "\fBlv_group_t\fP * \fBlv_group_create\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_group_del\fP (\fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "void \fBlv_group_set_default\fP (\fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "\fBlv_group_t\fP * \fBlv_group_get_default\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_group_add_obj\fP (\fBlv_group_t\fP *group, struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_group_swap_obj\fP (struct \fB_lv_obj_t\fP *obj1, struct \fB_lv_obj_t\fP *obj2)"
+.br
+.ti -1c
+.RI "void \fBlv_group_remove_obj\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_group_remove_all_objs\fP (\fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "void \fBlv_group_focus_obj\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_group_focus_next\fP (\fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "void \fBlv_group_focus_prev\fP (\fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "void \fBlv_group_focus_freeze\fP (\fBlv_group_t\fP *group, bool en)"
+.br
+.ti -1c
+.RI "lv_res_t \fBlv_group_send_data\fP (\fBlv_group_t\fP *group, uint32_t c)"
+.br
+.ti -1c
+.RI "void \fBlv_group_set_focus_cb\fP (\fBlv_group_t\fP *group, lv_group_focus_cb_t focus_cb)"
+.br
+.ti -1c
+.RI "void \fBlv_group_set_edge_cb\fP (\fBlv_group_t\fP *group, lv_group_edge_cb_t edge_cb)"
+.br
+.ti -1c
+.RI "void \fBlv_group_set_refocus_policy\fP (\fBlv_group_t\fP *group, lv_group_refocus_policy_t policy)"
+.br
+.ti -1c
+.RI "void \fBlv_group_set_editing\fP (\fBlv_group_t\fP *group, bool edit)"
+.br
+.ti -1c
+.RI "void \fBlv_group_set_wrap\fP (\fBlv_group_t\fP *group, bool en)"
+.br
+.ti -1c
+.RI "struct \fB_lv_obj_t\fP * \fBlv_group_get_focused\fP (const \fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "lv_group_focus_cb_t \fBlv_group_get_focus_cb\fP (const \fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "lv_group_edge_cb_t \fBlv_group_get_edge_cb\fP (const \fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "bool \fBlv_group_get_editing\fP (const \fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "bool \fBlv_group_get_wrap\fP (\fBlv_group_t\fP *group)"
+.br
+.ti -1c
+.RI "uint32_t \fBlv_group_get_obj_count\fP (\fBlv_group_t\fP *group)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_lv_group_t\fP \fBlv_group_t\fP"
+Groups can be used to logically hold objects so that they can be individually focused\&. They are NOT for laying out objects on a screen (try layouts for that)\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void _lv_group_init (void )"
+Init\&. the group module 
+.PP
+\fBRemarks\fP
+.RS 4
+Internal function, do not call directly\&. 
+.RE
+.PP
+
+.SS "void lv_group_add_obj (\fBlv_group_t\fP * group, struct \fB_lv_obj_t\fP * obj)"
+Add an object to a group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.br
+\fIobj\fP pointer to an object to add 
+.RE
+.PP
+
+.SS "\fBlv_group_t\fP * lv_group_create (void )"
+Create a new object group 
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the new object group 
+.RE
+.PP
+
+.SS "void lv_group_del (\fBlv_group_t\fP * group)"
+Delete a group object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+
+.SS "void lv_group_focus_freeze (\fBlv_group_t\fP * group, bool en)"
+Do not let to change the focus from the current object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.br
+\fIen\fP true: freeze, false: release freezing (normal mode) 
+.RE
+.PP
+
+.SS "void lv_group_focus_next (\fBlv_group_t\fP * group)"
+Focus the next object in a group (defocus the current) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+
+.SS "void lv_group_focus_obj (struct \fB_lv_obj_t\fP * obj)"
+Focus on an object (defocus the current) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object to focus on 
+.RE
+.PP
+
+.SS "void lv_group_focus_prev (\fBlv_group_t\fP * group)"
+Focus the previous object in a group (defocus the current) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+
+.SS "\fBlv_group_t\fP * lv_group_get_default (void )"
+Get the default group 
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the default group 
+.RE
+.PP
+
+.SS "lv_group_edge_cb_t lv_group_get_edge_cb (const \fBlv_group_t\fP * group)"
+Get the edge callback function of a group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the call back function or NULL if not set 
+.RE
+.PP
+
+.SS "bool lv_group_get_editing (const \fBlv_group_t\fP * group)"
+Get the current mode (edit or navigate)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to group 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: edit mode; false: navigate mode 
+.RE
+.PP
+
+.SS "lv_group_focus_cb_t lv_group_get_focus_cb (const \fBlv_group_t\fP * group)"
+Get the focus callback function of a group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the call back function or NULL if not set 
+.RE
+.PP
+
+.SS "struct \fB_lv_obj_t\fP * lv_group_get_focused (const \fBlv_group_t\fP * group)"
+Get the focused object or NULL if there isn't one 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the focused object 
+.RE
+.PP
+
+.SS "uint32_t lv_group_get_obj_count (\fBlv_group_t\fP * group)"
+Get the number of object in the group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+number of objects in the group 
+.RE
+.PP
+
+.SS "bool lv_group_get_wrap (\fBlv_group_t\fP * group)"
+Get whether focus next/prev will allow wrapping from first->last or last->first object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to group 
+.br
+\fIen\fP true: wrapping enabled; false: wrapping disabled 
+.RE
+.PP
+
+.SS "void lv_group_remove_all_objs (\fBlv_group_t\fP * group)"
+Remove all objects from a group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.RE
+.PP
+
+.SS "void lv_group_remove_obj (struct \fB_lv_obj_t\fP * obj)"
+Remove an object from its group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object to remove 
+.RE
+.PP
+
+.SS "lv_res_t lv_group_send_data (\fBlv_group_t\fP * group, uint32_t c)"
+Send a control character to the focuses object of a group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.br
+\fIc\fP a character (use LV_KEY_\&.\&. to navigate) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+result of focused object in group\&. 
+.RE
+.PP
+
+.SS "void lv_group_set_default (\fBlv_group_t\fP * group)"
+Set a default group\&. New object are added to this group if it's enabled in their class with \fRadd_to_def_group = true\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group (can be \fRNULL\fP) 
+.RE
+.PP
+
+.SS "void lv_group_set_edge_cb (\fBlv_group_t\fP * group, lv_group_edge_cb_t edge_cb)"
+Set a function for a group which will be called when a focus edge is reached 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.br
+\fIedge_cb\fP the call back function or NULL if unused 
+.RE
+.PP
+
+.SS "void lv_group_set_editing (\fBlv_group_t\fP * group, bool edit)"
+Manually set the current mode (edit or navigate)\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to group 
+.br
+\fIedit\fP true: edit mode; false: navigate mode 
+.RE
+.PP
+
+.SS "void lv_group_set_focus_cb (\fBlv_group_t\fP * group, lv_group_focus_cb_t focus_cb)"
+Set a function for a group which will be called when a new object is focused 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.br
+\fIfocus_cb\fP the call back function or NULL if unused 
+.RE
+.PP
+
+.SS "void lv_group_set_refocus_policy (\fBlv_group_t\fP * group, lv_group_refocus_policy_t policy)"
+Set whether the next or previous item in a group is focused if the currently focused obj is deleted\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to a group 
+.br
+\fIpolicy\fP new refocus policy enum 
+.RE
+.PP
+
+.SS "void lv_group_set_wrap (\fBlv_group_t\fP * group, bool en)"
+Set whether focus next/prev will allow wrapping from first->last or last->first object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgroup\fP pointer to group 
+.br
+\fIen\fP true: wrapping enabled; false: wrapping disabled 
+.RE
+.PP
+
+.SS "void lv_group_swap_obj (struct \fB_lv_obj_t\fP * obj1, struct \fB_lv_obj_t\fP * obj2)"
+Swap 2 object in a group\&. The object must be in the same group 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj1\fP pointer to an object 
+.br
+\fIobj2\fP pointer to an other object 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

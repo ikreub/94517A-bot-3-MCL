@@ -1,0 +1,71 @@
+\doxysection{tracking\+\_\+wheel.\+hpp}
+\hypertarget{tracking__wheel_8hpp_source}{}\label{tracking__wheel_8hpp_source}\index{include/EZ-\/Template/tracking\_wheel.hpp@{include/EZ-\/Template/tracking\_wheel.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{adi_8hpp}{pros/adi.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{rotation_8hpp}{pros/rotation.hpp}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }ez\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classez_1_1tracking__wheel_a2aa2943972605b7ef89c1b522480fd4b}{tracking\_wheel}}\ \{}
+\DoxyCodeLine{00014\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \doxymbox{\hyperlink{classpros_1_1adi_1_1_encoder}{pros::adi::Encoder}}\ adi\_encoder;}
+\DoxyCodeLine{00016\ \ \ \doxymbox{\hyperlink{classpros_1_1v5_1_1_rotation}{pros::Rotation}}\ smart\_encoder;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00030\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a2aa2943972605b7ef89c1b522480fd4b}{tracking\_wheel}}(std::vector<int>\ ports,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ distance\_to\_center\ =\ 0.0,\ \textcolor{keywordtype}{double}\ ratio\ =\ 1.0);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00046\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a0bb98760981921db549f486deb1246c4}{tracking\_wheel}}(\textcolor{keywordtype}{int}\ smart\_port,\ std::vector<int>\ ports,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ distance\_to\_center\ =\ 0.0,\ \textcolor{keywordtype}{double}\ ratio\ =\ 1.0);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00060\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a1807a526cec61edfacec3962599da4ee}{tracking\_wheel}}(\textcolor{keywordtype}{int}\ port,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ distance\_to\_center\ =\ 0.0,\ \textcolor{keywordtype}{double}\ ratio\ =\ 1.0);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_ad73e86bb2d65c6ee3572c0f441a694ae}{get}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a33aa634792ef8949924bbec8cc34ac9c}{get\_raw}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a9e25ddf4e768b54fd0a1463020cfeb9a}{distance\_to\_center\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a8de0c00d9eee85044c5315070ddb0044}{distance\_to\_center\_get}}();}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a9e1e124193515016e4ff7ae436570e20}{distance\_to\_center\_flip\_set}}(\textcolor{keywordtype}{bool}\ input);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_ab72fbc3ebca93268c911ed0aca3f6e76}{distance\_to\_center\_flip\_get}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a726ea7b931ef5b9e6eddebeedfa9ede6}{reset}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a0e82bf89c562519eb62bf4858b6ed01a}{ticks\_per\_inch}}();}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a787ed03234a7b57ccfb9e67e498c356d}{ticks\_per\_rev\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a6d2f58656f71610e2a3182f1e6fec753}{ticks\_per\_rev\_get}}();}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a533ca2d1148c3173d72366f78de4eb69}{ratio\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a2cbc1dcfdc4f47d9703ffc8bb3978aa9}{ratio\_get}}();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_a12542e5ac8b81584224f13504b6e46cb}{wheel\_diameter\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1tracking__wheel_ab6d9850105104ed10042edf4ffc7b82d}{wheel\_diameter\_get}}();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ DRIVE\_ADI\_ENCODER\ 2}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ DRIVE\_ROTATION\ 3}}
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordtype}{int}\ IS\_TRACKER\ =\ 0;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{keywordtype}{bool}\ IS\_FLIPPED\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordtype}{double}\ DISTANCE\_TO\_CENTER\ =\ 0.0;}
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{double}\ WHEEL\_DIAMETER\ =\ 0.0;}
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{double}\ RATIO\ =\ 1.0;}
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{double}\ ENCODER\_TICKS\_PER\_REV\ =\ 0.0;}
+\DoxyCodeLine{00160\ \ \ \textcolor{keywordtype}{double}\ WHEEL\_TICK\_PER\_REV\ =\ 0.0;}
+\DoxyCodeLine{00161\ \};}
+\DoxyCodeLine{00162\ \};\ \ \textcolor{comment}{//\ namespace\ ez}}
+
+\end{DoxyCode}

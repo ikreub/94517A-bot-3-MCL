@@ -1,0 +1,874 @@
+.TH "cpp-rtos" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-rtos \- RTOS Facilities C++ API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBrtos\&.hpp\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::rtos::Task\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBpros::rtos::Clock::rep\fP = std::uint32_t"
+.br
+.ti -1c
+.RI "using \fBpros::rtos::Clock::period\fP = std::milli"
+.br
+.ti -1c
+.RI "using \fBpros::rtos::Clock::duration\fP = std::chrono::duration<rep, period>"
+.br
+.ti -1c
+.RI "using \fBpros::rtos::Clock::time_point\fP = std::chrono::time_point<\fBClock\fP>"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::rtos::Task::Task\fP (\fBtask_fn_t\fP function, void *parameters=nullptr, std::uint32_t prio=\fBTASK_PRIORITY_DEFAULT\fP, std::uint16_t stack_depth=\fBTASK_STACK_DEPTH_DEFAULT\fP, const char *name='')"
+.br
+.ti -1c
+.RI "\fBpros::rtos::Task::Task\fP (\fBtask_fn_t\fP function, void *parameters, const char *name)"
+.br
+.ti -1c
+.RI "template<class F> static \fBtask_t\fP \fBpros::rtos::Task::create\fP (F &&function, std::uint32_t prio=\fBTASK_PRIORITY_DEFAULT\fP, std::uint16_t stack_depth=\fBTASK_STACK_DEPTH_DEFAULT\fP, const char *name='')"
+.br
+.ti -1c
+.RI "template<class F> static \fBtask_t\fP \fBpros::rtos::Task::create\fP (F &&function, const char *name)"
+.br
+.ti -1c
+.RI "template<class F> \fBpros::rtos::Task::Task\fP (F &&function, std::uint32_t prio=\fBTASK_PRIORITY_DEFAULT\fP, std::uint16_t stack_depth=\fBTASK_STACK_DEPTH_DEFAULT\fP, const char *name='')"
+.br
+.ti -1c
+.RI "template<class F> \fBpros::rtos::Task::Task\fP (F &&function, const char *name)"
+.br
+.ti -1c
+.RI "\fBpros::rtos::Task::Task\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "static \fBTask\fP \fBpros::rtos::Task::current\fP ()"
+.br
+.ti -1c
+.RI "\fBTask\fP & \fBpros::rtos::Task::operator=\fP (\fBtask_t\fP in)"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Task::remove\fP ()"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::rtos::Task::get_priority\fP ()"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Task::set_priority\fP (std::uint32_t prio)"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::rtos::Task::get_state\fP ()"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Task::suspend\fP ()"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Task::resume\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBpros::rtos::Task::get_name\fP ()"
+.br
+.ti -1c
+.RI "\fBpros::rtos::Task::operator task_t\fP ()"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::rtos::Task::notify\fP ()"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Task::join\fP ()"
+.br
+.ti -1c
+.RI "std::uint32_t \fBpros::rtos::Task::notify_ext\fP (std::uint32_t value, \fBnotify_action_e_t\fP action, std::uint32_t *prev_value)"
+.br
+.ti -1c
+.RI "static std::uint32_t \fBpros::rtos::Task::notify_take\fP (bool clear_on_exit, std::uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBpros::rtos::Task::notify_clear\fP ()"
+.br
+.ti -1c
+.RI "static void \fBpros::rtos::Task::delay\fP (const std::uint32_t milliseconds)"
+.br
+.ti -1c
+.RI "static void \fBpros::rtos::Task::delay_until\fP (std::uint32_t *const prev_time, const std::uint32_t delta)"
+.br
+.ti -1c
+.RI "static std::uint32_t \fBpros::rtos::Task::get_count\fP ()"
+.br
+.ti -1c
+.RI "static time_point \fBpros::rtos::Clock::now\fP ()"
+.br
+.ti -1c
+.RI "\fBpros::rtos::Mutex::Mutex\fP (const Mutex &)=delete"
+.br
+.ti -1c
+.RI "\fBpros::rtos::Mutex::Mutex\fP (Mutex &&)=delete"
+.br
+.ti -1c
+.RI "Mutex & \fBpros::rtos::Mutex::operator=\fP (const Mutex &)=delete"
+.br
+.ti -1c
+.RI "Mutex & \fBpros::rtos::Mutex::operator=\fP (Mutex &&)=delete"
+.br
+.ti -1c
+.RI "bool \fBpros::rtos::Mutex::take\fP ()"
+.br
+.ti -1c
+.RI "bool \fBpros::rtos::Mutex::take\fP (std::uint32_t timeout)"
+.br
+.ti -1c
+.RI "bool \fBpros::rtos::Mutex::give\fP ()"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Mutex::lock\fP ()"
+.br
+.ti -1c
+.RI "void \fBpros::rtos::Mutex::unlock\fP ()"
+.br
+.ti -1c
+.RI "bool \fBpros::rtos::Mutex::try_lock\fP ()"
+.br
+.ti -1c
+.RI "template<typename Rep, typename Period> bool \fBpros::rtos::Mutex::try_lock_for\fP (const std::chrono::duration< Rep, Period > &rel_time)"
+.br
+.ti -1c
+.RI "template<typename Duration> bool \fBpros::rtos::Mutex::try_lock_until\fP (const std::chrono::time_point< \fBClock\fP, Duration > &abs_time)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const bool \fBpros::rtos::Clock::is_steady\fP = true"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBNote\fP
+.RS 4
+Additional example code for this module can be found in its \fBTutorial\&.\fP
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "template<class F> \fBtask_t\fP pros::rtos::Task::create (F && function, const char * name)\fR [inline]\fP, \fR [static]\fP"
+Creates a new task and add it to the list of tasks that are ready to run\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunction\fP Callable object to use as entry function 
+.br
+\fIname\fP A descriptive name for the task\&. This is mainly used to facilitate debugging\&. The name may be up to 32 characters long\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "template<class F> \fBtask_t\fP pros::rtos::Task::create (F && function, std::uint32_t prio = \fR\fBTASK_PRIORITY_DEFAULT\fP\fP, std::uint16_t stack_depth = \fR\fBTASK_STACK_DEPTH_DEFAULT\fP\fP, const char * name = \fR''\fP)\fR [inline]\fP, \fR [static]\fP"
+Creates a new task and add it to the list of tasks that are ready to run\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunction\fP Callable object to use as entry function 
+.br
+\fIprio\fP The priority at which the task should run\&. TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used\&. 
+.br
+\fIstack_depth\fP The number of words (i\&.e\&. 4 * stack_depth) available on the task's stack\&. TASK_STACK_DEPTH_DEFAULT is typically sufficienct\&. 
+.br
+\fIname\fP A descriptive name for the task\&. This is mainly used to facilitate debugging\&. The name may be up to 32 characters long\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBTask\fP pros::rtos::Task::current ()\fR [static]\fP"
+Get the currently running \fBTask\fP
+
+.PP
+\fBReturns\fP
+.RS 4
+The currently running \fBTask\fP\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Task::delay (const std::uint32_t milliseconds)\fR [static]\fP"
+Delays the current task for a specified number of milliseconds\&.
+
+.PP
+This is not the best method to have a task execute code at predefined intervals, as the delay time is measured from when the delay is requested\&. To delay cyclically, use \fBtask_delay_until()\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImilliseconds\fP The number of milliseconds to wait (1000 milliseconds per second)
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Task::delay_until (std::uint32_t *const prev_time, const std::uint32_t delta)\fR [static]\fP"
+Delays the current \fBTask\fP until a specified time\&. This function can be used by periodic tasks to ensure a constant execution frequency\&.
+
+.PP
+The task will be woken up at the time *prev_time + delta, and *prev_time will be updated to reflect the time at which the task will unblock\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIprev_time\fP A pointer to the location storing the setpoint time\&. This should typically be initialized to the return value from pros::millis()\&. 
+.br
+\fIdelta\fP The number of milliseconds to wait (1000 milliseconds per second)
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::uint32_t pros::rtos::Task::get_count ()\fR [static]\fP"
+Gets the number of tasks the kernel is currently managing, including all ready, blocked, or suspended tasks\&. A task that has been deleted, but not yet reaped by the idle task will also be included in the count\&. Tasks recently created may take one context switch to be counted\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The number of tasks that are currently being managed by the kernel\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "const char * pros::rtos::Task::get_name ()"
+Gets the name of the specified task\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A pointer to the name of the task
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::uint32_t pros::rtos::Task::get_priority ()"
+Gets the priority of the specified task\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The priority of the task
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::uint32_t pros::rtos::Task::get_state ()"
+Gets the state of the specified task\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The state of the task
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "bool pros::rtos::Mutex::give ()"
+Unlocks a mutex\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes for details\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+True if the mutex was successfully returned, false otherwise\&. If false is returned, then errno is set with a hint about why the mutex couldn't be returned\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+\&. 
+.SS "void pros::rtos::Task::join ()"
+Utilizes task notifications to wait until specified task is complete and deleted, then continues to execute the program\&. Analogous to std::thread::join in C++\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for details\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+void
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Mutex::lock ()"
+Takes and locks a mutex, waiting for up to TIMEOUT_MAX milliseconds\&.
+
+.PP
+Effectively equivalent to calling pros::Mutex::take with TIMEOUT_MAX as the parameter\&.
+
+.PP
+Conforms to named requirment BasicLockable 
+.PP
+\fBSee also\fP
+.RS 4
+https://en.cppreference.com/w/cpp/named_req/BasicLockable
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Consider using a std::unique_lock, std::lock_guard, or std::scoped_lock instead of interacting with the \fBMutex\fP directly\&.
+.RE
+.PP
+\fBExceptions\fP
+.RS 4
+\fIstd::system_error\fP \fBMutex\fP could not be locked within \fBTIMEOUT_MAX\fP milliseconds\&. see errno for details\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+\&. 
+.SS "std::uint32_t pros::rtos::Task::notify ()"
+Sends a simple notification to task and increments the notification counter\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for details\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+Always returns true\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "bool pros::rtos::Task::notify_clear ()"
+Clears the notification for a task\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for details\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+False if there was not a notification waiting, true if there was \fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "std::uint32_t pros::rtos::Task::notify_ext (std::uint32_t value, \fBnotify_action_e_t\fP action, std::uint32_t * prev_value)"
+Sends a notification to a task, optionally performing some action\&. Will also retrieve the value of the notification in the target task before modifying the notification value\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for details\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP The value used in performing the action 
+.br
+\fIaction\fP An action to optionally perform on the receiving task's notification value 
+.br
+\fIprev_value\fP A pointer to store the previous value of the target task's notification, may be NULL
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Dependent on the notification action\&. For NOTIFY_ACTION_NO_WRITE: return 0 if the value could be written without needing to overwrite, 1 otherwise\&. For all other NOTIFY_ACTION values: always return 0
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::uint32_t pros::rtos::Task::notify_take (bool clear_on_exit, std::uint32_t timeout)\fR [static]\fP"
+Waits for a notification to be nonzero\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for details\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIclear_on_exit\fP If true (1), then the notification value is cleared\&. If false (0), then the notification value is decremented\&. 
+.br
+\fItimeout\fP Specifies the amount of time to be spent waiting for a notification to occur\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The value of the task's notification value before it is decremented or cleared
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "time_point pros::rtos::Clock::now ()\fR [static]\fP"
+Gets the current time\&.
+
+.PP
+Effectively a wrapper around pros::millis()
+
+.PP
+\fBReturns\fP
+.RS 4
+The current time
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::rtos::Task::operator \fBtask_t\fP ()\fR [inline]\fP, \fR [explicit]\fP"
+Convert this object to a C \fBtask_t\fP handle
+
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBTask\fP & pros::rtos::Task::operator= (\fBtask_t\fP in)"
+Creates a task object from the passed task handle\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIin\fP A task handle from \fBtask_create()\fP for which to create a \fBpros::Task\fP object\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Task::remove ()"
+Removes the \fBTask\fP from the RTOS real time kernel's management\&. This task will be removed from all ready, blocked, suspended and event lists\&.
+
+.PP
+Memory dynamically allocated by the task is not automatically freed, and should be freed before the task is deleted\&.
+
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Task::resume ()"
+Resumes the specified task, making it eligible to be scheduled\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItask\fP The task to resume
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Task::set_priority (std::uint32_t prio)"
+Sets the priority of the specified task\&.
+
+.PP
+If the specified task's state is available to be scheduled (e\&.g\&. not blocked) and new priority is higher than the currently running task, a context switch may occur\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIprio\fP The new priority of the task
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Task::suspend ()"
+Suspends the specified task, making it ineligible to be scheduled\&.
+
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "bool pros::rtos::Mutex::take ()"
+Takes and locks a mutex indefinetly\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes for details\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+True if the mutex was successfully taken, false otherwise\&. If false is returned, then errno is set with a hint about why the the mutex couldn't be taken
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+\&. 
+.SS "bool pros::rtos::Mutex::take (std::uint32_t timeout)"
+Takes and locks a mutex, waiting for up to a certain number of milliseconds before timing out\&.
+
+.PP
+See https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes for details\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimeout\fP Time to wait before the mutex becomes available\&. A timeout of 0 can be used to poll the mutex\&. TIMEOUT_MAX can be used to block indefinitely\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the mutex was successfully taken, false otherwise\&. If false is returned, then errno is set with a hint about why the the mutex couldn't be taken\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+\&. 
+.SS "template<class F> pros::rtos::Task::Task (F && function, const char * name)\fR [inline]\fP"
+Creates a new task and add it to the list of tasks that are ready to run\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunction\fP Callable object to use as entry function 
+.br
+\fIname\fP A descriptive name for the task\&. This is mainly used to facilitate debugging\&. The name may be up to 32 characters long\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "template<class F> pros::rtos::Task::Task (F && function, std::uint32_t prio = \fR\fBTASK_PRIORITY_DEFAULT\fP\fP, std::uint16_t stack_depth = \fR\fBTASK_STACK_DEPTH_DEFAULT\fP\fP, const char * name = \fR''\fP)\fR [inline]\fP, \fR [explicit]\fP"
+Creates a new task and add it to the list of tasks that are ready to run\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunction\fP Callable object to use as entry function 
+.br
+\fIprio\fP The priority at which the task should run\&. TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used\&. 
+.br
+\fIstack_depth\fP The number of words (i\&.e\&. 4 * stack_depth) available on the task's stack\&. TASK_STACK_DEPTH_DEFAULT is typically sufficient\&. 
+.br
+\fIname\fP A descriptive name for the task\&. This is mainly used to facilitate debugging\&. The name may be up to 32 characters long\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::rtos::Task::Task (\fBtask_fn_t\fP function, void * parameters, const char * name)"
+Creates a new task and add it to the list of tasks that are ready to run\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunction\fP Pointer to the task entry function 
+.br
+\fIparameters\fP Pointer to memory that will be used as a parameter for the task being created\&. This memory should not typically come from stack, but rather from dynamically (i\&.e\&., malloc'd) or statically allocated memory\&. 
+.br
+\fIname\fP A descriptive name for the task\&. This is mainly used to facilitate debugging\&. The name may be up to 32 characters long\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::rtos::Task::Task (\fBtask_fn_t\fP function, void * parameters = \fRnullptr\fP, std::uint32_t prio = \fR\fBTASK_PRIORITY_DEFAULT\fP\fP, std::uint16_t stack_depth = \fR\fBTASK_STACK_DEPTH_DEFAULT\fP\fP, const char * name = \fR''\fP)"
+Creates a new task and add it to the list of tasks that are ready to run\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfunction\fP Pointer to the task entry function 
+.br
+\fIparameters\fP Pointer to memory that will be used as a parameter for the task being created\&. This memory should not typically come from stack, but rather from dynamically (i\&.e\&., malloc'd) or statically allocated memory\&. 
+.br
+\fIprio\fP The priority at which the task should run\&. TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used\&. 
+.br
+\fIstack_depth\fP The number of words (i\&.e\&. 4 * stack_depth) available on the task's stack\&. TASK_STACK_DEPTH_DEFAULT is typically sufficienct\&. 
+.br
+\fIname\fP A descriptive name for the task\&. This is mainly used to facilitate debugging\&. The name may be up to 32 characters long\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::rtos::Task::Task (\fBtask_t\fP task)\fR [explicit]\fP"
+Create a C++ task object from a task handle
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItask\fP A task handle from \fBtask_create()\fP for which to create a \fBpros::Task\fP object\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "bool pros::rtos::Mutex::try_lock ()"
+Try to lock a mutex\&.
+
+.PP
+Returns immediately if unsucessful\&.
+
+.PP
+Conforms to named requirement Lockable 
+.PP
+\fBSee also\fP
+.RS 4
+https://en.cppreference.com/w/cpp/named_req/Lockable
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True when lock was acquired succesfully, or false otherwise\&.
+.RE
+.PP
+\fBpros::Mutex\fP mutex;
+
+.PP
+void my_task_fn(void* param) { while (true) { if(mutex\&.try_lock()) { printf("Mutex aquired successfully!\\n"); // Do stuff that requires the protected resource here } else { printf("Mutex not aquired!\\n"); } } } 
+.SS "template<typename Rep, typename Period> bool pros::rtos::Mutex::try_lock_for (const std::chrono::duration< Rep, Period > & rel_time)\fR [inline]\fP"
+Takes and locks a mutex, waiting for a specified duration\&.
+
+.PP
+Equivalent to calling pros::Mutex::take with a duration specified in milliseconds\&.
+
+.PP
+Conforms to named requirement TimedLockable 
+.PP
+\fBSee also\fP
+.RS 4
+https://en.cppreference.com/w/cpp/named_req/TimedLockable
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIrel_time\fP Time to wait before the mutex becomes available\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the lock was acquired succesfully, otherwise false\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "template<typename Duration> bool pros::rtos::Mutex::try_lock_until (const std::chrono::time_point< \fBClock\fP, Duration > & abs_time)\fR [inline]\fP"
+Takes and locks a mutex, waiting until a specified time\&.
+
+.PP
+Conforms to named requirement TimedLockable 
+.PP
+\fBSee also\fP
+.RS 4
+https://en.cppreference.com/w/cpp/named_req/TimedLockable
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIabs_time\fP Time point until which to wait for the mutex\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+True if the lock was acquired succesfully, otherwise false\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "void pros::rtos::Mutex::unlock ()"
+Unlocks a mutex\&.
+
+.PP
+Equivalent to calling pros::Mutex::give\&.
+
+.PP
+Conforms to named requirement BasicLockable 
+.PP
+\fBSee also\fP
+.RS 4
+https://en.cppreference.com/w/cpp/named_req/BasicLockable
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Consider using a std::unique_lock, std::lock_guard, or std::scoped_lock instead of interacting with the \fBMutex\fP direcly\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,41 @@
+\doxysection{include/\+liblvgl/\+draw/\+lv\+\_\+draw\+\_\+line.h File Reference}
+\hypertarget{lv__draw__line_8h}{}\label{lv__draw__line_8h}\index{include/liblvgl/draw/lv\_draw\_line.h@{include/liblvgl/draw/lv\_draw\_line.h}}
+{\ttfamily \+\#include "{}liblvgl/\+lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+style.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__line_8h_a8a5bf38eb6e3a129d8887371d124d15e}\label{lv__draw__line_8h_a8a5bf38eb6e3a129d8887371d124d15e} 
+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM void {\bfseries lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+init} (\doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \doxymbox{\hyperlink{lv__draw__line_8h_a4b2ccf7a8813b32d649b444d25f6942e}{lv\+\_\+draw\+\_\+line}} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}point1, const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}point2)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__draw__line_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__draw__line_8h_a4b2ccf7a8813b32d649b444d25f6942e}\index{lv\_draw\_line.h@{lv\_draw\_line.h}!lv\_draw\_line@{lv\_draw\_line}}
+\index{lv\_draw\_line@{lv\_draw\_line}!lv\_draw\_line.h@{lv\_draw\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_line()}{lv\_draw\_line()}}
+{\footnotesize\ttfamily \label{lv__draw__line_8h_a4b2ccf7a8813b32d649b444d25f6942e} 
+void lv\+\_\+draw\+\_\+line (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+ctx}{, }\item[{const \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{point1}{, }\item[{const \doxymbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{point2}{}\end{DoxyParamCaption})}
+
+Draw a line 
+\begin{DoxyParams}{Parameters}
+{\em point1} & first point of the line \\
+\hline
+{\em point2} & second point of the line \\
+\hline
+{\em clip} & the line will be drawn only in this area \\
+\hline
+{\em dsc} & pointer to an initialized {\ttfamily \doxylink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} variable \\
+\hline
+\end{DoxyParams}

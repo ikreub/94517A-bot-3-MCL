@@ -1,0 +1,753 @@
+.TH "okapi::MotorGroup" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::MotorGroup
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::AbstractMotor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMotorGroup\fP (const std::initializer_list< \fBMotor\fP > &imotors, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBMotorGroup\fP (const std::initializer_list< std::shared_ptr< \fBAbstractMotor\fP > > &imotors, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "std::int32_t \fBmoveAbsolute\fP (double iposition, std::int32_t ivelocity) override"
+.br
+.ti -1c
+.RI "std::int32_t \fBmoveRelative\fP (double iposition, std::int32_t ivelocity) override"
+.br
+.ti -1c
+.RI "std::int32_t \fBmoveVelocity\fP (std::int16_t ivelocity) override"
+.br
+.ti -1c
+.RI "std::int32_t \fBmoveVoltage\fP (std::int16_t ivoltage) override"
+.br
+.ti -1c
+.RI "std::int32_t \fBmodifyProfiledVelocity\fP (std::int32_t ivelocity) override"
+.br
+.ti -1c
+.RI "double \fBgetTargetPosition\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetPosition\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBtarePosition\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetTargetVelocity\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetActualVelocity\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetCurrentDraw\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetDirection\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetEfficiency\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBisOverCurrent\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBisOverTemp\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBisStopped\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetZeroPositionFlag\fP () override"
+.br
+.ti -1c
+.RI "uint32_t \fBgetFaults\fP () override"
+.br
+.ti -1c
+.RI "uint32_t \fBgetFlags\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetRawPosition\fP (std::uint32_t *timestamp) override"
+.br
+.ti -1c
+.RI "double \fBgetPower\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetTemperature\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetTorque\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetVoltage\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBsetBrakeMode\fP (\fBAbstractMotor::brakeMode\fP imode) override"
+.br
+.ti -1c
+.RI "\fBbrakeMode\fP \fBgetBrakeMode\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBsetCurrentLimit\fP (std::int32_t ilimit) override"
+.br
+.ti -1c
+.RI "std::int32_t \fBgetCurrentLimit\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBsetEncoderUnits\fP (\fBAbstractMotor::encoderUnits\fP iunits) override"
+.br
+.ti -1c
+.RI "\fBencoderUnits\fP \fBgetEncoderUnits\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBsetGearing\fP (\fBAbstractMotor::gearset\fP igearset) override"
+.br
+.ti -1c
+.RI "\fBgearset\fP \fBgetGearing\fP () override"
+.br
+.ti -1c
+.RI "std::int32_t \fBsetReversed\fP (bool ireverse) override"
+.br
+.ti -1c
+.RI "std::int32_t \fBsetVoltageLimit\fP (std::int32_t ilimit) override"
+.br
+.ti -1c
+.RI "void \fBcontrollerSet\fP (double ivalue) override"
+.br
+.ti -1c
+.RI "size_t \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBContinuousRotarySensor\fP > \fBgetEncoder\fP () override"
+.br
+.ti -1c
+.RI "virtual std::shared_ptr< \fBContinuousRotarySensor\fP > \fBgetEncoder\fP (std::size_t index)"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::AbstractMotor\fP
+.in +1c
+.ti -1c
+.RI "double \fBgetPositionError\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetVelocityError\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< std::shared_ptr< \fBAbstractMotor\fP > > \fBmotors\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Types inherited from \fBokapi::AbstractMotor\fP
+.in +1c
+.ti -1c
+.RI "enum class \fBbrakeMode\fP { \fBcoast\fP = 0, \fBbrake\fP = 1, \fBhold\fP = 2, \fBinvalid\fP = INT32_MAX }"
+.br
+.ti -1c
+.RI "enum class \fBencoderUnits\fP { \fBdegrees\fP = 0, \fBrotations\fP = 1, \fBcounts\fP = 2, \fBinvalid\fP = INT32_MAX }"
+.br
+.ti -1c
+.RI "enum class \fBgearset\fP { \fBred\fP = 100, \fBgreen\fP = 200, \fBblue\fP = 600, \fBinvalid\fP = INT32_MAX }"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::MotorGroup::MotorGroup (const std::initializer_list< \fBMotor\fP > & imotors, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+A group of V5 motors which act as one motor (i\&.e\&. they are mechanically linked)\&. A \fBMotorGroup\fP requires at least one motor\&. If no motors are supplied, a \fRstd::invalid_argument\fP exception is thrown\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotors\fP The motors in this group\&. 
+.br
+\fIilogger\fP The logger this instance will log initialization warnings to\&. 
+.RE
+.PP
+
+.SS "okapi::MotorGroup::MotorGroup (const std::initializer_list< std::shared_ptr< \fBAbstractMotor\fP > > & imotors, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+A group of V5 motors which act as one motor (i\&.e\&. they are mechanically linked)\&. A \fBMotorGroup\fP requires at least one motor\&. If no motors are supplied, a \fRstd::invalid_argument\fP exception is thrown\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimotors\fP The motors in this group\&. 
+.br
+\fIilogger\fP The logger this instance will log initialization warnings to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void okapi::MotorGroup::controllerSet (double ivalue)\fR [override]\fP, \fR [virtual]\fP"
+Writes the value of the controller output\&. This method might be automatically called in another thread by the controller\&. The range of input values is expected to be \fR[-1, 1]\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivalue\fP the controller's output in the range \fR[-1, 1]\fP 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ControllerOutput< double >\fP\&.
+.SS "double okapi::MotorGroup::getActualVelocity ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the actual velocity of the motor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's actual velocity in RPM or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "\fBbrakeMode\fP okapi::MotorGroup::getBrakeMode ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the brake mode that was set for the motor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBbrakeMode\fP, according to what was set for the motor, or brakeMode::invalid if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getCurrentDraw ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the current drawn by the motor in mA\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current in mA or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getCurrentLimit ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the current limit for the motor in mA\&. The default value is \fR2500\fP mA\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's current limit in mA or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getDirection ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the direction of movement for the motor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 for moving in the positive direction, -1 for moving in the negative direction, and \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "double okapi::MotorGroup::getEfficiency ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the efficiency of the motor in percent\&.
+
+.PP
+An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's efficiency in percent or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::shared_ptr< \fBContinuousRotarySensor\fP > okapi::MotorGroup::getEncoder ()\fR [override]\fP, \fR [virtual]\fP"
+Get the encoder associated with the first motor in this group\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The encoder for the motor at index \fR0\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "virtual std::shared_ptr< \fBContinuousRotarySensor\fP > okapi::MotorGroup::getEncoder (std::size_t index)\fR [virtual]\fP"
+Get the encoder associated with this motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIindex\fP The index in \fRmotors\fP to get the encoder from\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The encoder for the motor at \fRindex\fP\&. 
+.RE
+.PP
+
+.SS "\fBencoderUnits\fP okapi::MotorGroup::getEncoderUnits ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the encoder units that were set for the motor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+One of \fBencoderUnits\fP according to what is set for the motor or \fBencoderUnits::invalid\fP if the operation failed\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "uint32_t okapi::MotorGroup::getFaults ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the faults experienced by the motor\&. Compare this bitfield to the bitmasks in pros::motor_fault_e_t\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A currently unknown bitfield containing the motor's faults\&. \fR0b00000100\fP = Current Limit Hit 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "uint32_t okapi::MotorGroup::getFlags ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the flags set by the motor's operation\&. Compare this bitfield to the bitmasks in pros::motor_flag_e_t\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A currently unknown bitfield containing the motor's flags\&. These seem to be unrelated to the individual get_specific_flag functions 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "\fBgearset\fP okapi::MotorGroup::getGearing ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the gearset that was set for the motor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+One of gearset according to what is set for the motor, or \fRgearset::invalid\fP if the operation failed\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "double okapi::MotorGroup::getPosition ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the absolute position of the motor in its encoder units\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's absolute position in its encoder units or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "double okapi::MotorGroup::getPower ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the power drawn by the motor in Watts\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's power draw in Watts or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getRawPosition (std::uint32_t * timestamp)\fR [override]\fP, \fR [virtual]\fP"
+Gets the raw encoder count of the motor at a given timestamp\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItimestamp\fP A pointer to a time in milliseconds for which the encoder count will be returned\&. If \fRNULL\fP, the timestamp at which the encoder count was read will not be supplied\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The raw encoder count at the given timestamp or \fRPROS_ERR\fP if the operation failed\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "size_t okapi::MotorGroup::getSize ()"
+Gets the number of motors in the motor group\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+size_t 
+.RE
+.PP
+
+.SS "double okapi::MotorGroup::getTargetPosition ()\fR [override]\fP, \fR [virtual]\fP"
+\fBMotor\fP telemetry functions These functions allow programmers to collect telemetry from motors Gets the target position set for the motor by the user\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The target position in its encoder units or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getTargetVelocity ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the velocity commanded to the motor by the user\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The commanded motor velocity from +-100, +-200, or +-600, or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "double okapi::MotorGroup::getTemperature ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the temperature of the motor in degrees Celsius\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's temperature in degrees Celsius or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "double okapi::MotorGroup::getTorque ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the torque generated by the motor in Newton Metres (Nm)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's torque in NM or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getVoltage ()\fR [override]\fP, \fR [virtual]\fP"
+Gets the voltage delivered to the motor in millivolts\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The motor's voltage in V or \fR\fBPROS_ERR_F\fP\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::getZeroPositionFlag ()\fR [override]\fP, \fR [virtual]\fP"
+Checks if the motor is at its zero position\&.
+
+.PP
+Although this function forwards data from the motor, the motor presently does not provide any value\&. This function returns \fRPROS_ERR\fP with errno set to \fRENOSYS\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor is at zero absolute position, \fR0\fP if the motor has moved from its absolute zero, or \fRPROS_ERR\fP if the operation failed, setting errno 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::isOverCurrent ()\fR [override]\fP, \fR [virtual]\fP"
+Checks if the motor is drawing over its current limit\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::isOverTemp ()\fR [override]\fP, \fR [virtual]\fP"
+Checks if the motor's temperature is above its limit\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the temperature limit is exceeded and 0 if the the temperature is below the limit, or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::isStopped ()\fR [override]\fP, \fR [virtual]\fP"
+Checks if the motor is stopped\&.
+
+.PP
+Although this function forwards data from the motor, the motor presently does not provide any value\&. This function returns \fRPROS_ERR\fP with errno set to \fRENOSYS\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the motor is not moving, 0 if the motor is moving, or \fRPROS_ERR\fP if the operation failed, setting errno 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::modifyProfiledVelocity (std::int32_t ivelocity)\fR [override]\fP, \fR [virtual]\fP"
+Changes the output velocity for a profiled movement (moveAbsolute or moveRelative)\&. This will have no effect if the motor is not following a profiled movement\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivelocity\fP The new motor velocity from \fR+-100\fP, \fR+-200\fP, or \fR+-600\fP depending on the motor's gearset\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::moveAbsolute (double iposition, std::int32_t ivelocity)\fR [override]\fP, \fR [virtual]\fP"
+\fBMotor\fP movement functions These functions allow programmers to make motors move Sets the target absolute position for the motor to move to\&.
+
+.PP
+This movement is relative to the position of the motor when initialized or the position when it was most recently reset with setZeroPosition()\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIiposition\fP The absolute position to move to in the motor's encoder units 
+.br
+\fIivelocity\fP The maximum allowable velocity for the movement in RPM 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::moveRelative (double iposition, std::int32_t ivelocity)\fR [override]\fP, \fR [virtual]\fP"
+Sets the relative target position for the motor to move to\&.
+
+.PP
+This movement is relative to the current position of the motor\&. Providing 10\&.0 as the position parameter would result in the motor moving clockwise 10 units, no matter what the current position is\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function simply sets the target for the motor, it does not block program execution until the movement finishes\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIiposition\fP The relative position to move to in the motor's encoder units 
+.br
+\fIivelocity\fP The maximum allowable velocity for the movement in RPM 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::moveVelocity (std::int16_t ivelocity)\fR [override]\fP, \fR [virtual]\fP"
+Sets the velocity for the motor\&.
+
+.PP
+This velocity corresponds to different actual speeds depending on the gearset used for the motor\&. This results in a range of +-100 for pros::c::red, +-200 for green, and +-600 for blue\&. The velocity is held with PID to ensure consistent speed, as opposed to setting the motor's voltage\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivelocity\fP The new motor velocity from -+-100, +-200, or +-600 depending on the motor's gearset 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::moveVoltage (std::int16_t ivoltage)\fR [override]\fP, \fR [virtual]\fP"
+Sets the voltage for the motor from \fR-12000\fP to \fR12000\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivoltage\fP The new voltage value from \fR-12000\fP to \fR12000\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::setBrakeMode (\fBAbstractMotor::brakeMode\fP imode)\fR [override]\fP, \fR [virtual]\fP"
+\fBMotor\fP configuration functions These functions allow programmers to configure the behavior of motors Sets one of \fBAbstractMotor::brakeMode\fP to the motor\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimode\fP The new motor brake mode to set for the motor\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::setCurrentLimit (std::int32_t ilimit)\fR [override]\fP, \fR [virtual]\fP"
+Sets the current limit for the motor in mA\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilimit\fP The new current limit in mA\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::setEncoderUnits (\fBAbstractMotor::encoderUnits\fP iunits)\fR [override]\fP, \fR [virtual]\fP"
+Sets one of \fBAbstractMotor::encoderUnits\fP for the motor encoder\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiunits\fP The new motor encoder units\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::setGearing (\fBAbstractMotor::gearset\fP igearset)\fR [override]\fP, \fR [virtual]\fP"
+Sets one of \fBAbstractMotor::gearset\fP for the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigearset\fP The new motor gearset\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::setReversed (bool ireverse)\fR [override]\fP, \fR [virtual]\fP"
+Sets the reverse flag for the motor\&. This will invert its movements and the values returned for its position\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireverse\fP True reverses the motor, false is default\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::setVoltageLimit (std::int32_t ilimit)\fR [override]\fP, \fR [virtual]\fP"
+Sets the voltage limit for the motor in Volts\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilimit\fP The new voltage limit in Volts\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+.SS "std::int32_t okapi::MotorGroup::tarePosition ()\fR [override]\fP, \fR [virtual]\fP"
+Sets the "absolute" zero position of the motor to its current position\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractMotor\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

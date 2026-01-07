@@ -1,0 +1,89 @@
+\doxysection{pros::\+adi::\+Led Class Reference}
+\hypertarget{classpros_1_1adi_1_1_led}{}\label{classpros_1_1adi_1_1_led}\index{pros::adi::Led@{pros::adi::Led}}
+
+
+Inherits \doxymbox{\hyperlink{classpros_1_1adi_1_1_port}{pros::\+adi::\+\+Port}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_gaa9e3f8b9ea0370f18406a0e17cffbb78}{Led}} (std::\+uint8\+\_\+t adi\+\_\+port, std::\+uint32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga21a5970175eba4ce550c8e1cfd6ea3b4}{length}})
+\begin{DoxyCompactList}\small\item\em Configures an ADI port to act as a \doxylink{adi_8hpp_ac96d7950c57e4af32e7f80e5f40b03f0}{LED}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{group__cpp-adi_ga5653adf9f9f57c05d1bdec32037eefcd}{Led}} (\doxymbox{\hyperlink{adi_8hpp_ab37033b41b12e194bac431882402e29e}{ext\+\_\+adi\+\_\+port\+\_\+pair\+\_\+t}} port\+\_\+pair, std::\+uint32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga21a5970175eba4ce550c8e1cfd6ea3b4}{length}})
+\begin{DoxyCompactList}\small\item\em Configures an ADI port on a adi\+\_\+expander to act as a \doxylink{adi_8hpp_ac96d7950c57e4af32e7f80e5f40b03f0}{LED}. \end{DoxyCompactList}\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_gae3474e5c413d3be65f8c13d3035535c2}{clear\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Operator overload to access the buffer in the ADILed class, it is recommended that you call .\doxylink{group__cpp-adi_ga5c54c688eb55333622777a287c513c45}{update()}; after doing any operations with this. \end{DoxyCompactList}\item 
+std::\+int32\+\_\+t {\bfseries clear} ()
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga5c54c688eb55333622777a287c513c45}{update}} () const
+\begin{DoxyCompactList}\small\item\em Force the \doxylink{adi_8hpp_ac96d7950c57e4af32e7f80e5f40b03f0}{LED} strip to update with the current buffered values, this should be called after any changes to the buffer using the \+[]\+ operator. \end{DoxyCompactList}\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga7ae85229868340810bae85a1eea25eca}{set\+\_\+all}} (uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Set the entire led strip to one color. \end{DoxyCompactList}\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga93883c5d41fe08ffb2fd08fb6ef7d08b}{set\+\_\+pixel}} (uint32\+\_\+t color, uint32\+\_\+t pixel\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Set one pixel on the led strip. \end{DoxyCompactList}\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga6d3be3dbe75cfb64edc1a524e3f9c4f9}{clear\+\_\+pixel}} (uint32\+\_\+t pixel\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Clear one pixel on the led strip. \end{DoxyCompactList}\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga21a5970175eba4ce550c8e1cfd6ea3b4}{length}} ()
+\begin{DoxyCompactList}\small\item\em Get the length of the led strip. \end{DoxyCompactList}\item 
+virtual \doxymbox{\hyperlink{adi_8hpp_aaf8032e34261234d519e439ef01ffd89}{ext\+\_\+adi\+\_\+port\+\_\+tuple\+\_\+t}} \doxymbox{\hyperlink{classpros_1_1adi_1_1_led_a9a38443e7e91d87f9e56461cd8fd0440}{get\+\_\+port}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ uint32\+\_\+t $>$ {\bfseries \+\_\+buffer}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classpros_1_1adi_1_1_port}{pros::\+adi::\+\+Port}}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+uint8\+\_\+t {\bfseries \+\_\+smart\+\_\+port}
+\item 
+std::\+uint8\+\_\+t {\bfseries \+\_\+adi\+\_\+port}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \doxymbox{\hyperlink{classpros_1_1adi_1_1_port}{pros::\+adi::\+\+Port}}}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_ga068fab4c5000c517eb7f4e0fb985c547}{Port}} (std::\+uint8\+\_\+t adi\+\_\+port, adi\+\_\+port\+\_\+config\+\_\+e\+\_\+t type=E\+\_\+\+ADI\+\_\+\+TYPE\+\_\+\+UNDEFINED)
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_ga8321dd6a9a75e6b5b462096ef4da6b28}{Port}} (\doxymbox{\hyperlink{adi_8hpp_ab37033b41b12e194bac431882402e29e}{ext\+\_\+adi\+\_\+port\+\_\+pair\+\_\+t}} port\+\_\+pair, adi\+\_\+port\+\_\+config\+\_\+e\+\_\+t type=E\+\_\+\+ADI\+\_\+\+TYPE\+\_\+\+UNDEFINED)
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_gad87cd44b38aa1eece5aa33c4646091a6}{get\+\_\+config}} () const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_gac7ead4fd5e2e05eb6aa635ef0eea9213}{get\+\_\+value}} () const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga9e240595d75c51f6c12a2bef24921b8e}{set\+\_\+config}} (adi\+\_\+port\+\_\+config\+\_\+e\+\_\+t type) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga597a9fbfbb21af10ce0947950cbc9003}{set\+\_\+value}} (std::\+int32\+\_\+t value) const
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classpros_1_1adi_1_1_led_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpros_1_1adi_1_1_led_a9a38443e7e91d87f9e56461cd8fd0440}\index{pros::adi::Led@{pros::adi::Led}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!pros::adi::Led@{pros::adi::Led}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily \label{classpros_1_1adi_1_1_led_a9a38443e7e91d87f9e56461cd8fd0440} 
+virtual \doxymbox{\hyperlink{adi_8hpp_aaf8032e34261234d519e439ef01ffd89}{ext\+\_\+adi\+\_\+port\+\_\+tuple\+\_\+t}} \doxymbox{\hyperlink{group__cpp-adi_ga9a38443e7e91d87f9e56461cd8fd0440}{pros::\+adi::\+\+Port::\+get\+\_\+port}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the port of the sensor.
+
+\begin{DoxyReturn}{Returns}
+returns a tuple of integer ports.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The parts of the tuple are \{smart port, adi port, second adi port (when applicable)\}.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Reimplemented from \doxymbox{\hyperlink{group__cpp-adi_ga9a38443e7e91d87f9e56461cd8fd0440}{pros::\+adi::\+\+Port}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+pros/\+\doxymbox{\hyperlink{adi_8hpp}{adi.\+hpp}}\end{DoxyCompactItemize}

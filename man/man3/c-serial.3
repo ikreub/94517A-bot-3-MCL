@@ -1,0 +1,347 @@
+.TH "c-serial" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+c-serial \- Generic Serial C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBserial\&.h\fP"
+.br
+.in -1c
+.SS "Serial communication functions"
+These functions allow programmers to communicate using UART over RS485 
+.in +1c
+.ti -1c
+.RI "int32_t \fBserial_enable\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_set_baudrate\fP (uint8_t port, int32_t baudrate)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_flush\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_get_read_avail\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_get_write_free\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_peek_byte\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_read_byte\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_read\fP (uint8_t port, uint8_t *buffer, int32_t length)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_write_byte\fP (uint8_t port, uint8_t buffer)"
+.br
+.ti -1c
+.RI "int32_t \fBserial_write\fP (uint8_t port, uint8_t *buffer, int32_t length)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "int32_t serial_enable (uint8_t port)"
+Enables generic serial on the given port\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function must be called before any of the generic serial functions will work\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_flush (uint8_t port)"
+Clears the internal input and output FIFO buffers\&.
+
+.PP
+This can be useful to reset state and remove old, potentially unneeded data from the input FIFO buffer or to cancel sending any data in the output FIFO buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function does not cause the data in the output buffer to be written, it simply clears the internal buffers\&. Unlike stdout, generic serial does not use buffered IO (the FIFO buffers are written as soon as possible)\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_get_read_avail (uint8_t port)"
+Returns the number of bytes available to be read in the the port's FIFO input buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function does not actually read any bytes, is simply returns the number of bytes available to be read\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of bytes avaliable to be read or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_get_write_free (uint8_t port)"
+Returns the number of bytes free in the port's FIFO output buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function does not actually write any bytes, is simply returns the number of bytes free in the port's buffer\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of bytes free or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_peek_byte (uint8_t port)"
+Reads the next byte avaliable in the port's input buffer without removing it\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The next byte avaliable to be read, -1 if none are available, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_read (uint8_t port, uint8_t * buffer, int32_t length)"
+Reads up to the next length bytes from the port's input buffer and places them in the user supplied buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+This function will only return bytes that are currently avaliable to be read and will not block waiting for any to arrive\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIbuffer\fP The location to place the data read 
+.br
+\fIlength\fP The maximum number of bytes to read
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of bytes read or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_read_byte (uint8_t port)"
+Reads the next byte avaliable in the port's input buffer\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The next byte avaliable to be read, -1 if none are available, or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_set_baudrate (uint8_t port, int32_t baudrate)"
+Sets the baudrate for the serial port to operate at\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIbaudrate\fP The baudrate to operate at
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_write (uint8_t port, uint8_t * buffer, int32_t length)"
+Writes up to length bytes from the user supplied buffer to the port's output buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+Data in the port's output buffer is written to the serial port as soon as possible on a FIFO basis and can not be done manually by the user\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&. EIO - Serious internal write error\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIbuffer\fP The data to write 
+.br
+\fIlength\fP The maximum number of bytes to write
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of bytes written or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t serial_write_byte (uint8_t port, uint8_t buffer)"
+Write the given byte to the port's output buffer\&.
+
+.PP
+\fBNote\fP
+.RS 4
+Data in the port's output buffer is written to the serial port as soon as possible on a FIFO basis and can not be done manually by the user\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21)\&. EACCES - Another resource is currently trying to access the port\&. EIO - Serious internal write error\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21 
+.br
+\fIbuffer\fP The byte to write
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of bytes written or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample:\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

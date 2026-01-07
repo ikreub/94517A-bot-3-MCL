@@ -1,0 +1,34 @@
+\doxysection{include/\+liblvgl/\+misc/\+lv\+\_\+bidi.h File Reference}
+\hypertarget{lv__bidi_8h}{}\label{lv__bidi_8h}\index{include/liblvgl/misc/lv\_bidi.h@{include/liblvgl/misc/lv\_bidi.h}}
+{\ttfamily \+\#include "{}liblvgl/\+lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include "{}lv\+\_\+txt.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__bidi_8h_a2554c358d08cf97deae4f9d596395bdf}\label{lv__bidi_8h_a2554c358d08cf97deae4f9d596395bdf} 
+\+\#define {\bfseries LV\+\_\+\+BIDI\+\_\+\+LRO}~"{}\textbackslash{}x\+E2\textbackslash{}x80\textbackslash{}x\+AD"{} /\+\texorpdfstring{$\ast$}{*}U+202D\texorpdfstring{$\ast$}{*}/\+
+\item 
+\Hypertarget{lv__bidi_8h_a86292799aa7a16e014472c0d0b50c45d}\label{lv__bidi_8h_a86292799aa7a16e014472c0d0b50c45d} 
+\+\#define {\bfseries LV\+\_\+\+BIDI\+\_\+\+RLO}~"{}\textbackslash{}x\+E2\textbackslash{}x80\textbackslash{}x\+AE"{} /\+\texorpdfstring{$\ast$}{*}U+202E\texorpdfstring{$\ast$}{*}/\+
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__bidi_8h_adf77ab11b1ee24f462aae136634a216c}\label{lv__bidi_8h_adf77ab11b1ee24f462aae136634a216c} 
+typedef uint8\+\_\+t {\bfseries lv\+\_\+base\+\_\+dir\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__bidi_8h_a308b7462f170b9418ba207f8eb29fa8c}\label{lv__bidi_8h_a308b7462f170b9418ba207f8eb29fa8c} 
+enum \{ \newline
+{\bfseries LV\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+LTR} = 0x00
+, {\bfseries LV\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+RTL} = 0x01
+, {\bfseries LV\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+AUTO} = 0x02
+, {\bfseries LV\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+NEUTRAL} = 0x20
+, \newline
+{\bfseries LV\+\_\+\+BASE\+\_\+\+DIR\+\_\+\+WEAK} = 0x21
+ \}
+\end{DoxyCompactItemize}

@@ -1,0 +1,106 @@
+.TH "include/liblvgl/core/lv_obj_class.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/core/lv_obj_class.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_obj_class_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBlv_obj_class_event_cb_t\fP) (struct \fB_lv_obj_class_t\fP *class_p, struct \fB_lv_event_t\fP *e)"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_obj_class_t\fP \fBlv_obj_class_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlv_obj_class_editable_t\fP { \fBLV_OBJ_CLASS_EDITABLE_INHERIT\fP, \fBLV_OBJ_CLASS_EDITABLE_TRUE\fP, \fBLV_OBJ_CLASS_EDITABLE_FALSE\fP }"
+.br
+.ti -1c
+.RI "enum \fBlv_obj_class_group_def_t\fP { \fBLV_OBJ_CLASS_GROUP_DEF_INHERIT\fP, \fBLV_OBJ_CLASS_GROUP_DEF_TRUE\fP, \fBLV_OBJ_CLASS_GROUP_DEF_FALSE\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_obj_t\fP * \fBlv_obj_class_create_obj\fP (const struct \fB_lv_obj_class_t\fP *class_p, struct \fB_lv_obj_t\fP *parent)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_class_init_obj\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fB_lv_obj_destruct\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_is_editable\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_is_group_def\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_lv_obj_class_t\fP \fBlv_obj_class_t\fP"
+Describe the common methods of every object\&. Similar to a C++ class\&. 
+.PP
+\fBExamples\fP
+.in +1c
+\fBC:/Users/Leon/OneDrive/robotics/94517A\-bot\-3\-MCL/include/liblvgl/core/lv_event\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBlv_obj_class_editable_t\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_OBJ_CLASS_EDITABLE_INHERIT \fP
+Check the base class\&. Must have 0 value to let zero initialized class inherit 
+.SS "enum \fBlv_obj_class_group_def_t\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_OBJ_CLASS_GROUP_DEF_INHERIT \fP
+Check the base class\&. Must have 0 value to let zero initialized class inherit 
+.SH "Function Documentation"
+.PP 
+.SS "struct \fB_lv_obj_t\fP * lv_obj_class_create_obj (const struct \fB_lv_obj_class_t\fP * class_p, struct \fB_lv_obj_t\fP * parent)"
+Create an object form a class descriptor 
+.PP
+\fBParameters\fP
+.RS 4
+\fIclass_p\fP pointer to a class 
+.br
+\fIparent\fP pointer to an object where the new object should be created 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the created object 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

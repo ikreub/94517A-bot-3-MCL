@@ -1,0 +1,52 @@
+\doxysection{IMU.\+hpp}
+\hypertarget{okapi_2impl_2device_2rotarysensor_2_i_m_u_8hpp_source}{}\label{okapi_2impl_2device_2rotarysensor_2_i_m_u_8hpp_source}\index{include/okapi/impl/device/rotarysensor/IMU.hpp@{include/okapi/impl/device/rotarysensor/IMU.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/controllerInput.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/device/rotarysensor/continuousRotarySensor.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ IMUAxes\ \{}
+\DoxyCodeLine{00014\ \ \ z,\ }
+\DoxyCodeLine{00015\ \ \ y,\ }
+\DoxyCodeLine{00016\ \ \ x\ \ }
+\DoxyCodeLine{00017\ \};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_i_m_u_a8dd0b07e2bd1da965dcaefaabdf821c4}{IMU}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_continuous_rotary_sensor}{ContinuousRotarySensor}}\ \{}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_a8dd0b07e2bd1da965dcaefaabdf821c4}{IMU}}(std::uint8\_t\ iport,\ IMUAxes\ iaxis\ =\ IMUAxes::z);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_ab4f006169b21d7280980c14200986f02}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_af28ffacddf2490f27eb5337dda85ebda}{getRemapped}}(\textcolor{keywordtype}{double}\ iupperBound\ =\ 1800,\ \textcolor{keywordtype}{double}\ ilowerBound\ =\ -\/1800)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_acf02aac5308af0eff7e7a3e780dacbdf}{getAcceleration}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00063\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_a1b5ba91b1eaa8520cc4a4154be382ddf}{reset}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00073\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_a233ed21c87990e6a30191ed401f9444a}{reset}}(\textcolor{keywordtype}{double}\ inewAngle);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_aaab7c59addb969843cc9549bcd4bd5ea}{calibrate}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_a7ae196ae818efa5bc2a47afb0dfd84fd}{controllerGet}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_aa0da8d98a5b6e7c1ca172b99b337c8c6}{isCalibrating}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00097\ \ \ std::uint8\_t\ port;}
+\DoxyCodeLine{00098\ \ \ IMUAxes\ axis;}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{double}\ offset\ =\ 0;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_i_m_u_adc26013f851228b91483efc201ff6430}{readAngle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

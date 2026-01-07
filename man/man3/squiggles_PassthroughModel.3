@@ -1,0 +1,70 @@
+.TH "squiggles::PassthroughModel" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+squiggles::PassthroughModel
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBsquiggles::PhysicalModel\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPassthroughModel\fP ()=default"
+.br
+.ti -1c
+.RI "\fBConstraints\fP \fBconstraints\fP (const \fBPose\fP pose, double curvature, double vel) override"
+.br
+.ti -1c
+.RI "std::vector< double > \fBlinear_to_wheel_vels\fP (double lin_vel, double curvature) override"
+.br
+.ti -1c
+.RI "std::string \fBto_string\fP () const override"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "squiggles::PassthroughModel::PassthroughModel ()\fR [default]\fP"
+Defines a Physical Model that imposes no constraints of its own\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBConstraints\fP squiggles::PassthroughModel::constraints (const \fBPose\fP pose, double curvature, double vel)\fR [inline]\fP, \fR [override]\fP, \fR [virtual]\fP"
+Calculate a set of stricter constraints for the path at the given state than the general constraints based on the robot's kinematics\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIpose\fP The 2D pose for this state in the path\&. 
+.br
+\fIcurvature\fP The change in heading at this state in the path in 1 / meters\&. 
+.br
+\fIvel\fP The linear velocity at this state in the path in meters per second\&. 
+.RE
+.PP
+
+.PP
+Implements \fBsquiggles::PhysicalModel\fP\&.
+.SS "std::vector< double > squiggles::PassthroughModel::linear_to_wheel_vels (double linear, double curvature)\fR [inline]\fP, \fR [override]\fP, \fR [virtual]\fP"
+Converts a linear velocity and desired curvature into the component for each wheel of the robot\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIlinear\fP The linear velocity for the robot in meters per second\&. 
+.br
+\fIcurvature\fP The change in heading for the robot in 1 / meters\&. 
+.RE
+.PP
+
+.PP
+Implements \fBsquiggles::PhysicalModel\fP\&.
+.SS "std::string squiggles::PassthroughModel::to_string () const\fR [inline]\fP, \fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+Implements \fBsquiggles::PhysicalModel\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

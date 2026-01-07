@@ -1,0 +1,283 @@
+\doxysection{Generic Serial C++ API }
+\hypertarget{group__cpp-serial}{}\label{group__cpp-serial}\index{Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{serial_8hpp}{serial.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classpros_1_1_serial}{pros::\+\+Serial}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-serial_ga20b7c3c88af816af3078939b048dcf4b}{pros::\+\+Serial::\+\+Serial}} (std::\+uint8\+\_\+t port, std::\+int32\+\_\+t baudrate)
+\item 
+\doxymbox{\hyperlink{group__cpp-serial_ga32311eebb33cab5a52e0a8743d3bd9da}{pros::\+\+Serial::\+\+Serial}} (std::\+uint8\+\_\+t port)
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_gab8c6d804852e6689d6c92c6b2c439824}{pros::\+\+Serial::\+set\+\_\+baudrate}} (std::\+int32\+\_\+t baudrate) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga4d897c6f3f83636f4d4627ab02c10e76}{pros::\+\+Serial::\+flush}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_gaca502997319088ea71cf870fbbca7eb8}{pros::\+\+Serial::\+get\+\_\+read\+\_\+avail}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga08daf4a3df3e3c4924d66d0b2eb91538}{pros::\+\+Serial::\+get\+\_\+write\+\_\+free}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga5ec51db5a7726f2220723971c1999881}{pros::\+\+Serial::\+peek\+\_\+byte}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga59c62f236867ec160668389a47d09a5e}{pros::\+\+Serial::\+read\+\_\+byte}} () const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga0d42f31fa7a5bd936010a346167c1946}{pros::\+\+Serial::\+read}} (std::\+uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, std::\+int32\+\_\+t length) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga16477199d136d4f2ccbc73281d03965b}{pros::\+\+Serial::\+write\+\_\+byte}} (std::\+uint8\+\_\+t buffer) const
+\item 
+virtual std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-serial_ga865313d3b482d9ffdd380edc36273b24}{pros::\+\+Serial::\+write}} (std::\+uint8\+\_\+t \texorpdfstring{$\ast$}{*}buffer, std::\+int32\+\_\+t length) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group__cpp-serial_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__cpp-serial_ga4d897c6f3f83636f4d4627ab02c10e76}\index{Generic Serial C++ API@{Generic Serial C++ API}!flush@{flush}}
+\index{flush@{flush}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga4d897c6f3f83636f4d4627ab02c10e76} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+flush (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Clears the internal input and output FIFO buffers.
+
+This can be useful to reset state and remove old, potentially unneeded data from the input FIFO buffer or to cancel sending any data in the output FIFO buffer.
+
+\begin{DoxyNote}{Note}
+This function does not cause the data in the output buffer to be written, it simply clears the internal buffers. Unlike stdout, generic serial does not use buffered IO (the FIFO buffers are written as soon as possible).
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_gaca502997319088ea71cf870fbbca7eb8}\index{Generic Serial C++ API@{Generic Serial C++ API}!get\_read\_avail@{get\_read\_avail}}
+\index{get\_read\_avail@{get\_read\_avail}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_read\_avail()}{get\_read\_avail()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_gaca502997319088ea71cf870fbbca7eb8} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+get\+\_\+read\+\_\+avail (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of bytes available to be read in the the port\textquotesingle{}s FIFO input buffer.
+
+\begin{DoxyNote}{Note}
+This function does not actually read any bytes, is simply returns the number of bytes available to be read.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+\begin{DoxyReturn}{Returns}
+The number of bytes avaliable to be read or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga08daf4a3df3e3c4924d66d0b2eb91538}\index{Generic Serial C++ API@{Generic Serial C++ API}!get\_write\_free@{get\_write\_free}}
+\index{get\_write\_free@{get\_write\_free}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_write\_free()}{get\_write\_free()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga08daf4a3df3e3c4924d66d0b2eb91538} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+get\+\_\+write\+\_\+free (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the number of bytes free in the port\textquotesingle{}s FIFO output buffer.
+
+\begin{DoxyNote}{Note}
+This function does not actually write any bytes, is simply returns the number of bytes free in the port\textquotesingle{}s buffer.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+\begin{DoxyReturn}{Returns}
+The number of bytes free or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga5ec51db5a7726f2220723971c1999881}\index{Generic Serial C++ API@{Generic Serial C++ API}!peek\_byte@{peek\_byte}}
+\index{peek\_byte@{peek\_byte}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{peek\_byte()}{peek\_byte()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga5ec51db5a7726f2220723971c1999881} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+peek\+\_\+byte (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reads the next byte avaliable in the port\textquotesingle{}s input buffer without removing it.
+
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+\begin{DoxyReturn}{Returns}
+The next byte avaliable to be read, -\/1 if none are available, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga0d42f31fa7a5bd936010a346167c1946}\index{Generic Serial C++ API@{Generic Serial C++ API}!read@{read}}
+\index{read@{read}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga0d42f31fa7a5bd936010a346167c1946} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+read (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{std::\+int32\+\_\+t}]{length}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reads up to the next length bytes from the port\textquotesingle{}s input buffer and places them in the user supplied buffer.
+
+\begin{DoxyNote}{Note}
+This function will only return bytes that are currently avaliable to be read and will not block waiting for any to arrive.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The location to place the data read \\
+\hline
+{\em length} & The maximum number of bytes to read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes read or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga59c62f236867ec160668389a47d09a5e}\index{Generic Serial C++ API@{Generic Serial C++ API}!read\_byte@{read\_byte}}
+\index{read\_byte@{read\_byte}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{read\_byte()}{read\_byte()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga59c62f236867ec160668389a47d09a5e} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+read\+\_\+byte (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reads the next byte avaliable in the port\textquotesingle{}s input buffer.
+
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+\begin{DoxyReturn}{Returns}
+The next byte avaliable to be read, -\/1 if none are available, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga32311eebb33cab5a52e0a8743d3bd9da}\index{Generic Serial C++ API@{Generic Serial C++ API}!Serial@{Serial}}
+\index{Serial@{Serial}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{Serial()}{Serial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga32311eebb33cab5a52e0a8743d3bd9da} 
+pros::\+\+Serial::\+\+Serial (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Creates a \doxylink{classpros_1_1_serial}{Serial} object for the given port without a set baudrate.
+
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga20b7c3c88af816af3078939b048dcf4b}\index{Generic Serial C++ API@{Generic Serial C++ API}!Serial@{Serial}}
+\index{Serial@{Serial}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{Serial()}{Serial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga20b7c3c88af816af3078939b048dcf4b} 
+pros::\+\+Serial::\+\+Serial (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t}]{port}{, }\item[{std::\+int32\+\_\+t}]{baudrate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Creates a \doxylink{classpros_1_1_serial}{Serial} object for the given port and specifications.
+
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em baudrate} & The baudrate to run the port at\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_gab8c6d804852e6689d6c92c6b2c439824}\index{Generic Serial C++ API@{Generic Serial C++ API}!set\_baudrate@{set\_baudrate}}
+\index{set\_baudrate@{set\_baudrate}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_baudrate()}{set\_baudrate()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_gab8c6d804852e6689d6c92c6b2c439824} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+set\+\_\+baudrate (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{baudrate}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\doxylink{classpros_1_1_serial}{Serial} communication functions These functions allow programmers to communicate using UART over RS485 Sets the baudrate for the serial port to operate at.
+
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port.
+
+
+\begin{DoxyParams}{Parameters}
+{\em baudrate} & The baudrate to operate at\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga865313d3b482d9ffdd380edc36273b24}\index{Generic Serial C++ API@{Generic Serial C++ API}!write@{write}}
+\index{write@{write}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga865313d3b482d9ffdd380edc36273b24} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+write (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{std::\+int32\+\_\+t}]{length}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Writes up to length bytes from the user supplied buffer to the port\textquotesingle{}s output buffer.
+
+\begin{DoxyNote}{Note}
+Data in the port\textquotesingle{}s output buffer is written to the serial port as soon as possible on a FIFO basis and can not be done manually by the user.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port. EIO -\/ Serious internal write error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The data to write \\
+\hline
+{\em length} & The maximum number of bytes to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-serial_ga16477199d136d4f2ccbc73281d03965b}\index{Generic Serial C++ API@{Generic Serial C++ API}!write\_byte@{write\_byte}}
+\index{write\_byte@{write\_byte}!Generic Serial C++ API@{Generic Serial C++ API}}
+\doxysubsubsection{\texorpdfstring{write\_byte()}{write\_byte()}}
+{\footnotesize\ttfamily \label{group__cpp-serial_ga16477199d136d4f2ccbc73281d03965b} 
+virtual std::\+int32\+\_\+t pros::\+\+Serial::\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t}]{buffer}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write the given byte to the port\textquotesingle{}s output buffer.
+
+\begin{DoxyNote}{Note}
+Data in the port\textquotesingle{}s output buffer is written to the serial port as soon as possible on a FIFO basis and can not be done manually by the user.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ The given value is not within the range of V5 ports (1-\/21). EACCES -\/ Another resource is currently trying to access the port. EIO -\/ Serious internal write error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The byte to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,219 @@
+.TH "okapi::AbstractTimer" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AbstractTimer
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBokapi::Timer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAbstractTimer\fP (QTime ifirstCalled)"
+.br
+.ti -1c
+.RI "virtual QTime \fBmillis\fP () const =0"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDt\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBreadDt\fP () const"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetStartingTime\fP () const"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDtFromStart\fP () const"
+.br
+.ti -1c
+.RI "virtual void \fBplaceMark\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBclearMark\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBplaceHardMark\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBclearHardMark\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDtFromMark\fP () const"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDtFromHardMark\fP () const"
+.br
+.ti -1c
+.RI "virtual bool \fBrepeat\fP (QTime time)"
+.br
+.ti -1c
+.RI "virtual bool \fBrepeat\fP (QFrequency frequency)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "QTime \fBfirstCalled\fP"
+.br
+.ti -1c
+.RI "QTime \fBlastCalled\fP"
+.br
+.ti -1c
+.RI "QTime \fBmark\fP"
+.br
+.ti -1c
+.RI "QTime \fBhardMark\fP"
+.br
+.ti -1c
+.RI "QTime \fBrepeatMark\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::AbstractTimer::AbstractTimer (QTime ifirstCalled)\fR [explicit]\fP"
+A \fBTimer\fP base class which implements its methods in terms of \fBmillis()\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIifirstCalled\fP the current time 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual QTime okapi::AbstractTimer::clearHardMark ()\fR [virtual]\fP"
+Clears the hard marker\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The old hard marker 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::clearMark ()\fR [virtual]\fP"
+Clears the marker\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The old marker 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::getDt ()\fR [virtual]\fP"
+Returns the time passed in ms since the previous call of this function\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The time passed in ms since the previous call of this function 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::getDtFromHardMark () const\fR [virtual]\fP"
+Returns the time since the hard time marker\&. Returns 0_ms if there is no hard marker set\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The time since the hard time marker 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::getDtFromMark () const\fR [virtual]\fP"
+Returns the time since the time marker\&. Returns 0_ms if there is no marker\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The time since the time marker 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::getDtFromStart () const\fR [virtual]\fP"
+Returns the time since the timer was first constructed\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The time since the timer was first constructed 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::getStartingTime () const\fR [virtual]\fP"
+Returns the time the timer was first constructed\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The time the timer was first constructed 
+.RE
+.PP
+
+.SS "virtual QTime okapi::AbstractTimer::millis () const\fR [pure virtual]\fP"
+Returns the current time in units of QTime\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current time 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::Timer\fP\&.
+.SS "virtual void okapi::AbstractTimer::placeHardMark ()\fR [virtual]\fP"
+Place a hard time marker\&. Placing another hard marker will not overwrite the previous one; instead, call \fBclearHardMark()\fP and then place another\&. 
+.SS "virtual void okapi::AbstractTimer::placeMark ()\fR [virtual]\fP"
+Place a time marker\&. Placing another marker will overwrite the previous one\&. 
+.SS "virtual QTime okapi::AbstractTimer::readDt () const\fR [virtual]\fP"
+Returns the time passed in ms since the previous call of \fBgetDt()\fP\&. Does not change the time recorded by \fBgetDt()\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The time passed in ms since the previous call of \fBgetDt()\fP 
+.RE
+.PP
+
+.SS "virtual bool okapi::AbstractTimer::repeat (QFrequency frequency)\fR [virtual]\fP"
+Returns true when the input time period has passed, then resets\&. Meant to be used in loops to run an action every time period without blocking\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIfrequency\fP the repeat frequency 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true when the input time period has passed, false after reading true until the period has passed again 
+.RE
+.PP
+
+.SS "virtual bool okapi::AbstractTimer::repeat (QTime time)\fR [virtual]\fP"
+Returns true when the input time period has passed, then resets\&. Meant to be used in loops to run an action every time period without blocking\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItime\fP time period 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true when the input time period has passed, false after reading true until the period has passed again 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,72 @@
+\doxysection{include/\+liblvgl/\+misc/\+lv\+\_\+lru.h File Reference}
+\hypertarget{lv__lru_8h}{}\label{lv__lru_8h}\index{include/liblvgl/misc/lv\_lru.h@{include/liblvgl/misc/lv\_lru.h}}
+{\ttfamily \+\#include "{}liblvgl/\+lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \+\#include "{}lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stddef.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__lru_8h_a24f17b9ad10af22f079ccbddb7610bcb}\label{lv__lru_8h_a24f17b9ad10af22f079ccbddb7610bcb} 
+typedef void {\bfseries lv\+\_\+lru\+\_\+free\+\_\+t}(void \texorpdfstring{$\ast$}{*}v)
+\item 
+\Hypertarget{lv__lru_8h_a5990cc8b1cafca927220402af44963d8}\label{lv__lru_8h_a5990cc8b1cafca927220402af44963d8} 
+typedef struct \+\_\+lv\+\_\+lru\+\_\+item\+\_\+t {\bfseries lv\+\_\+lru\+\_\+item\+\_\+t}
+\item 
+\Hypertarget{lv__lru_8h_a9b8f983c736a06243dba796321e5a9a6}\label{lv__lru_8h_a9b8f983c736a06243dba796321e5a9a6} 
+typedef struct lv\+\_\+lru\+\_\+t {\bfseries lv\+\_\+lru\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__lru_8h_a548d8f986f50af8fa6bfc2c5f919651f}\label{lv__lru_8h_a548d8f986f50af8fa6bfc2c5f919651f} 
+enum {\bfseries lv\+\_\+lru\+\_\+res\+\_\+t} \{ \newline
+{\bfseries LV\+\_\+\+LRU\+\_\+\+OK} = 0
+, {\bfseries LV\+\_\+\+LRU\+\_\+\+MISSING\+\_\+\+CACHE}
+, {\bfseries LV\+\_\+\+LRU\+\_\+\+MISSING\+\_\+\+KEY}
+, {\bfseries LV\+\_\+\+LRU\+\_\+\+MISSING\+\_\+\+VALUE}
+, \newline
+{\bfseries LV\+\_\+\+LRU\+\_\+\+LOCK\+\_\+\+ERROR}
+, {\bfseries LV\+\_\+\+LRU\+\_\+\+VALUE\+\_\+\+TOO\+\_\+\+LARGE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__lru_8h_a1d1c3e90bb6666332356b6e5f0223ef6}\label{lv__lru_8h_a1d1c3e90bb6666332356b6e5f0223ef6} 
+\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+lru\+\_\+create} (size\+\_\+t cache\+\_\+size, size\+\_\+t average\+\_\+length, lv\+\_\+lru\+\_\+free\+\_\+t \texorpdfstring{$\ast$}{*}value\+\_\+free, lv\+\_\+lru\+\_\+free\+\_\+t \texorpdfstring{$\ast$}{*}key\+\_\+free)
+\item 
+\Hypertarget{lv__lru_8h_a8fbde2c950663c579beba2c929c3a226}\label{lv__lru_8h_a8fbde2c950663c579beba2c929c3a226} 
+void {\bfseries lv\+\_\+lru\+\_\+del} (\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*}cache)
+\item 
+\Hypertarget{lv__lru_8h_a07ab90f9588d1943ed37827e81c9f0f4}\label{lv__lru_8h_a07ab90f9588d1943ed37827e81c9f0f4} 
+lv\+\_\+lru\+\_\+res\+\_\+t {\bfseries lv\+\_\+lru\+\_\+set} (\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t key\+\_\+length, void \texorpdfstring{$\ast$}{*}value, size\+\_\+t value\+\_\+length)
+\item 
+\Hypertarget{lv__lru_8h_a3e93f2a35e5ed31f486aca8b4c2869da}\label{lv__lru_8h_a3e93f2a35e5ed31f486aca8b4c2869da} 
+lv\+\_\+lru\+\_\+res\+\_\+t {\bfseries lv\+\_\+lru\+\_\+get} (\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t key\+\_\+size, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value)
+\item 
+\Hypertarget{lv__lru_8h_a6b88c627d0ced87bc504195dc046aa71}\label{lv__lru_8h_a6b88c627d0ced87bc504195dc046aa71} 
+lv\+\_\+lru\+\_\+res\+\_\+t {\bfseries lv\+\_\+lru\+\_\+remove} (\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t key\+\_\+size)
+\item 
+void \doxymbox{\hyperlink{lv__lru_8h_a9075eea287cbb4c74aefa191dba2f2b3}{lv\+\_\+lru\+\_\+remove\+\_\+lru\+\_\+item}} (\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*}cache)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__lru_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__lru_8h_a9075eea287cbb4c74aefa191dba2f2b3}\index{lv\_lru.h@{lv\_lru.h}!lv\_lru\_remove\_lru\_item@{lv\_lru\_remove\_lru\_item}}
+\index{lv\_lru\_remove\_lru\_item@{lv\_lru\_remove\_lru\_item}!lv\_lru.h@{lv\_lru.h}}
+\doxysubsubsection{\texorpdfstring{lv\_lru\_remove\_lru\_item()}{lv\_lru\_remove\_lru\_item()}}
+{\footnotesize\ttfamily \label{lv__lru_8h_a9075eea287cbb4c74aefa191dba2f2b3} 
+void lv\+\_\+lru\+\_\+remove\+\_\+lru\+\_\+item (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structlv__lru__t}{lv\+\_\+lru\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cache}{}\end{DoxyParamCaption})}
+
+remove the least recently used item
+
+\begin{DoxyRefDesc}{Todo}
+\item[\doxymbox{\hyperlink{todo__todo000001}{Todo}}]we can optimise this by finding the n lru items, where n = required\+\_\+space /\+ average\+\_\+length \end{DoxyRefDesc}

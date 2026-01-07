@@ -1,0 +1,399 @@
+.TH "include/liblvgl/lv_conf_checker.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/lv_conf_checker.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_MEM_CUSTOM\fP   0                /*1: use custom malloc/free, 0: use the built\-in \fBlv_mem_alloc\fP/\fBlv_mem_free\fP*/"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_SIZE\fP   (64U * 1024U)        /*Size memory used by `\fBlv_mem_alloc\fP` in bytes (>= 2kB)*/"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_ATTR\fP   /*Complier prefix for big array declaration*/"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_ADR\fP   0               /*Set an address for memory pool instead of allocation it as an array\&. Can be in external SRAM too\&.*/"
+.br
+.ti -1c
+.RI "#define \fBLV_MEM_AUTO_DEFRAG\fP   1               /*Automatically defrag on free*/"
+.br
+.ti -1c
+.RI "#define \fBLV_ENABLE_GC\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_HOR_RES\fP   (480)"
+.br
+.ti -1c
+.RI "#define \fBLV_VER_RES\fP   (320)"
+.br
+.ti -1c
+.RI "#define \fBLV_DPI\fP   100"
+.br
+.ti -1c
+.RI "#define \fBLV_ANTIALIAS\fP   1       /*1: Enable anti\-aliasing*/"
+.br
+.ti -1c
+.RI "#define \fBLV_REFR_PERIOD\fP   30"
+.br
+.ti -1c
+.RI "#define \fBLV_VDB_SIZE\fP   ((\fBLV_VER_RES\fP * \fBLV_HOR_RES\fP) / 10)"
+.br
+.ti -1c
+.RI "#define \fBLV_VDB_PX_BPP\fP   LV_COLOR_SIZE       /*LV_COLOR_SIZE comes from LV_COLOR_DEPTH below to set 8, 16 or 32 bit pixel size automatically */"
+.br
+.ti -1c
+.RI "#define \fBLV_VDB_ADR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_VDB_DOUBLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_VDB2_ADR\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_VDB_TRUE_DOUBLE_BUFFERED\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_READ_PERIOD\fP   50                     /*Input device read period in milliseconds*/"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_POINT_MARKER\fP   0                      /*Mark the pressed points  (required: USE_LV_REAL_DRAW = 1)*/"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DRAG_LIMIT\fP   10                     /*Drag threshold in pixels */"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_DRAG_THROW\fP   20                     /*Drag throw slow\-down in [%] (must be > 0)\&. Greater value means faster slow\-down */"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_LONG_PRESS_TIME\fP   400                    /*Long press time in milliseconds*/"
+.br
+.ti -1c
+.RI "#define \fBLV_INDEV_LONG_PRESS_REP_TIME\fP   100                    /*Repeated trigger period in long press [ms] */"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_DEPTH\fP   16                     /*Color depth: 1/8/16/32*/"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_16_SWAP\fP   0                      /*Swap the 2 bytes of RGB565 color\&. Useful if the display has a 8 bit interface (e\&.g\&. SPI)*/"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SCREEN_TRANSP\fP   0           /*1: Enable screen transparency\&. Useful for OSD or other overlapping GUIs\&. Requires ARGB8888 colors*/"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_TRANSP\fP   LV_COLOR_LIME          /*Images pixels with this color will not be drawn (with chroma keying)*/"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_UTF8\fP   1                /*Enable UTF\-8 coded Unicode character usage */"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_BREAK_CHARS\fP   ' ,\&.;:\-_'         /*Can break texts on these chars*/"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_LINE_BREAK_LONG_LEN\fP   12 /* If a character is at least this long, will break wherever 'prettiest' */"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_LINE_BREAK_LONG_PRE_MIN_LEN\fP   3 /* Minimum number of characters of a word to put on a line before a break */"
+.br
+.ti -1c
+.RI "#define \fBLV_TXT_LINE_BREAK_LONG_POST_MIN_LEN\fP   1 /* Minimum number of characters of a word to put on a line after a break */"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_ANIMATION\fP   1               /*1: Enable all animations*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_SHADOW\fP   1               /*1: Enable shadows*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_GROUP\fP   1               /*1: Enable object groups (for keyboards)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_GPU\fP   1               /*1: Enable GPU interface*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_REAL_DRAW\fP   1               /*1: Enable function which draw directly to the frame buffer instead of VDB (required if LV_VDB_SIZE = 0)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FILESYSTEM\fP   1               /*1: Enable file system (might be required for images*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_MULTI_LANG\fP   0               /* Number of languages for labels to store (0: to disable this feature)*/"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_TICK_INC\fP   /* Define a custom attribute to `lv_tick_inc` function */"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_TASK_HANDLER\fP   /* Define a custom attribute to `lv_task_handler` function */"
+.br
+.ti -1c
+.RI "#define \fBLV_ATTRIBUTE_MEM_ALIGN\fP   /* With size optimization (\-Os) the compiler might not align data to 4 or 8 byte boundary\&. This alignment will be explicitly applied where needed\&.*/"
+.br
+.ti -1c
+.RI "#define \fBLV_COMPILER_VLA_SUPPORTED\fP   1  /* 1: Variable length array is supported*/"
+.br
+.ti -1c
+.RI "#define \fBLV_COMPILER_NON_CONST_INIT_SUPPORTED\fP   1  /* 1: Initialization with non constant values are supported */"
+.br
+.ti -1c
+.RI "#define \fBLV_TICK_CUSTOM\fP   0                        /*1: use a custom tick source (removing the need to manually update the tick with `lv_tick_inc`) */"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_LOG\fP   1   /*Enable/disable the log module*/"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_LEVEL\fP   \fBLV_LOG_LEVEL_WARN\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_LOG_PRINTF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_THEME_LIVE_UPDATE\fP   1       /*1: Allow theme switching at run time\&. Uses 8\&.\&.10 kB of RAM*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_TEMPL\fP   0       /*Just for test*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_DEFAULT\fP   1       /*Built mainly from the built\-in styles\&. Consumes very few RAM*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_ALIEN\fP   1       /*Dark futuristic theme*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_NIGHT\fP   1       /*Dark elegant theme*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_MONO\fP   1       /*Mono color theme for monochrome displays*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_MATERIAL\fP   1       /*Flat theme with bold colors and light shadows*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_ZEN\fP   1       /*Peaceful, mainly light theme */"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_THEME_NEMO\fP   1       /*Water\-like theme based on the movie 'Finding Nemo'*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_10\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_10_LATIN_SUP\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_10_CYRILLIC\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_SYMBOL_10\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_20\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_20_LATIN_SUP\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_20_CYRILLIC\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_SYMBOL_20\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_30\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_30_LATIN_SUP\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_30_CYRILLIC\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_SYMBOL_30\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_40\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_40_LATIN_SUP\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_DEJAVU_40_CYRILLIC\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_SYMBOL_40\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_FONT_MONOSPACE_8\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_CUSTOM_DECLARE\fP"
+.br
+.ti -1c
+.RI "#define \fBLV_FONT_DEFAULT\fP   &lv_font_dejavu_20     /*Always set a default font from the built\-in fonts*/"
+.br
+.ti -1c
+.RI "#define \fBLV_OBJ_FREE_NUM_TYPE\fP   uint32_t    /*Type of free number attribute (comment out disable free number)*/"
+.br
+.ti -1c
+.RI "#define \fBLV_OBJ_FREE_PTR\fP   1           /*Enable the free pointer attribute*/"
+.br
+.ti -1c
+.RI "#define \fBLV_OBJ_REALIGN\fP   1           /*Enable `lv_obj_realaign()` based on `\fBlv_obj_align\fP()` parameters*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_LABEL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LABEL_SCROLL_SPEED\fP   25     /*Hor, or ver\&. scroll speed [px/sec] in '\fBLV_LABEL_LONG_SCROLL\fP/ROLL' mode*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_IMG\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_IMG_CF_INDEXED\fP   1       /*Enable indexed (palette) images*/"
+.br
+.ti -1c
+.RI "#define \fBLV_IMG_CF_ALPHA\fP   1       /*Enable alpha indexed images*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_LINE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_ARC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_CONT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_PAGE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_WIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_TABVIEW\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TABVIEW_ANIM_TIME\fP   300     /*Time of slide animation [ms] (0: no animation)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_TILEVIEW\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TILEVIEW_ANIM_TIME\fP   300     /*Time of slide animation [ms] (0: no animation)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_BAR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_LMETER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_GAUGE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_CHART\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_TABLE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TABLE_COL_MAX\fP   12"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_LED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_MBOX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_TA\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_TA_CURSOR_BLINK_TIME\fP   400     /*ms*/"
+.br
+.ti -1c
+.RI "#define \fBLV_TA_PWD_SHOW_TIME\fP   1500    /*ms*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_SPINBOX\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_CALENDAR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_PRELOAD\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_PRELOAD_DEF_ARC_LENGTH\fP   60      /*[deg]*/"
+.br
+.ti -1c
+.RI "#define \fBLV_PRELOAD_DEF_SPIN_TIME\fP   1000    /*[ms]*/"
+.br
+.ti -1c
+.RI "#define \fBLV_PRELOAD_DEF_ANIM\fP   LV_PRELOAD_TYPE_SPINNING_ARC"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_CANVAS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_BTN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_BTN_INK_EFFECT\fP   1       /*Enable button\-state animations \- draw a circle on click (dependencies: USE_LV_ANIMATION)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_IMGBTN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_IMGBTN_TILED\fP   0           /*1: The imgbtn requires left, mid and right parts and the width can be set freely*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_BTNM\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_KB\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_CB\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_LIST\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_LIST_FOCUS_TIME\fP   100 /*Default animation time of focusing to a list element [ms] (0: no animation)  */"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_DDLIST\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_DDLIST_ANIM_TIME\fP   200     /*Open and close default animation time [ms] (0: no animation)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_ROLLER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBLV_ROLLER_ANIM_TIME\fP   200     /*Focus animation time [ms] (0: no animation)*/"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_SLIDER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUSE_LV_SW\fP   1"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+GENERATED FILE, DO NOT EDIT IT!
+
+.PP
+Make sure all the defines of \fBlv_conf\&.h\fP have a default value 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

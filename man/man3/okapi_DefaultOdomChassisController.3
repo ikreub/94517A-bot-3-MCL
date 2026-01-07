@@ -1,0 +1,389 @@
+.TH "okapi::DefaultOdomChassisController" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::DefaultOdomChassisController
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::OdomChassisController\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDefaultOdomChassisController\fP (const \fBTimeUtil\fP &itimeUtil, std::shared_ptr< \fBOdometry\fP > iodometry, std::shared_ptr< \fBChassisController\fP > icontroller, const StateMode &imode=StateMode::FRAME_TRANSFORMATION, QLength imoveThreshold=0_mm, QAngle iturnThreshold=0_deg, std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBDefaultOdomChassisController\fP (const DefaultOdomChassisController &)=delete"
+.br
+.ti -1c
+.RI "\fBDefaultOdomChassisController\fP (DefaultOdomChassisController &&other)=delete"
+.br
+.ti -1c
+.RI "\fBDefaultOdomChassisController\fP & \fBoperator=\fP (const \fBDefaultOdomChassisController\fP &other)=delete"
+.br
+.ti -1c
+.RI "\fBDefaultOdomChassisController\fP & \fBoperator=\fP (\fBDefaultOdomChassisController\fP &&other)=delete"
+.br
+.ti -1c
+.RI "void \fBdriveToPoint\fP (const \fBPoint\fP &ipoint, bool ibackwards=false, const QLength &ioffset=0_mm) override"
+.br
+.ti -1c
+.RI "void \fBturnToPoint\fP (const \fBPoint\fP &ipoint) override"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBChassisController\fP > \fBgetChassisController\fP ()"
+.br
+.ti -1c
+.RI "\fBChassisController\fP & \fBchassisController\fP ()"
+.br
+.ti -1c
+.RI "void \fBturnToAngle\fP (const QAngle &iangle) override"
+.br
+.ti -1c
+.RI "void \fBmoveDistance\fP (QLength itarget) override"
+.br
+.ti -1c
+.RI "void \fBmoveRaw\fP (double itarget) override"
+.br
+.ti -1c
+.RI "void \fBmoveDistanceAsync\fP (QLength itarget) override"
+.br
+.ti -1c
+.RI "void \fBmoveRawAsync\fP (double itarget) override"
+.br
+.ti -1c
+.RI "void \fBturnAngle\fP (QAngle idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBturnRaw\fP (double idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBturnAngleAsync\fP (QAngle idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBturnRawAsync\fP (double idegTarget) override"
+.br
+.ti -1c
+.RI "void \fBsetTurnsMirrored\fP (bool ishouldMirror) override"
+.br
+.ti -1c
+.RI "bool \fBisSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBwaitUntilSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBstop\fP () override"
+.br
+.ti -1c
+.RI "void \fBsetMaxVelocity\fP (double imaxVelocity) override"
+.br
+.ti -1c
+.RI "double \fBgetMaxVelocity\fP () const override"
+.br
+.ti -1c
+.RI "\fBChassisScales\fP \fBgetChassisScales\fP () const override"
+.br
+.ti -1c
+.RI "\fBAbstractMotor::GearsetRatioPair\fP \fBgetGearsetRatioPair\fP () const override"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBChassisModel\fP > \fBgetModel\fP () override"
+.br
+.ti -1c
+.RI "\fBChassisModel\fP & \fBmodel\fP () override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::OdomChassisController\fP
+.in +1c
+.ti -1c
+.RI "\fBOdomChassisController\fP (\fBTimeUtil\fP itimeUtil, std::shared_ptr< \fBOdometry\fP > iodometry, const StateMode &imode=StateMode::FRAME_TRANSFORMATION, const QLength &imoveThreshold=0_mm, const QAngle &iturnThreshold=0_deg, std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBOdomChassisController\fP (const OdomChassisController &)=delete"
+.br
+.ti -1c
+.RI "\fBOdomChassisController\fP (OdomChassisController &&other)=delete"
+.br
+.ti -1c
+.RI "\fBOdomChassisController\fP & \fBoperator=\fP (const \fBOdomChassisController\fP &other)=delete"
+.br
+.ti -1c
+.RI "\fBOdomChassisController\fP & \fBoperator=\fP (\fBOdomChassisController\fP &&other)=delete"
+.br
+.ti -1c
+.RI "virtual \fBOdomState\fP \fBgetState\fP () const"
+.br
+.ti -1c
+.RI "virtual void \fBsetState\fP (const \fBOdomState\fP &istate)"
+.br
+.ti -1c
+.RI "void \fBsetDefaultStateMode\fP (const StateMode &imode)"
+.br
+.ti -1c
+.RI "virtual void \fBsetMoveThreshold\fP (const QLength &imoveThreshold)"
+.br
+.ti -1c
+.RI "virtual void \fBsetTurnThreshold\fP (const QAngle &iturnTreshold)"
+.br
+.ti -1c
+.RI "virtual QLength \fBgetMoveThreshold\fP () const"
+.br
+.ti -1c
+.RI "virtual QAngle \fBgetTurnThreshold\fP () const"
+.br
+.ti -1c
+.RI "void \fBstartOdomThread\fP ()"
+.br
+.ti -1c
+.RI "\fBCrossplatformThread\fP * \fBgetOdomThread\fP () const"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBOdometry\fP > \fBgetOdometry\fP ()"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ChassisController\fP
+.in +1c
+.ti -1c
+.RI "\fBChassisController\fP ()=default"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBwaitForOdomTask\fP ()"
+.br
+.in -1c
+
+Protected Member Functions inherited from \fBokapi::OdomChassisController\fP
+.in +1c
+.ti -1c
+.RI "void \fBloop\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBChassisController\fP > \fBcontroller\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBokapi::OdomChassisController\fP
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "\fBTimeUtil\fP \fBtimeUtil\fP"
+.br
+.ti -1c
+.RI "QLength \fBmoveThreshold\fP"
+.br
+.ti -1c
+.RI "QAngle \fBturnThreshold\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBOdometry\fP > \fBodom\fP"
+.br
+.ti -1c
+.RI "\fBCrossplatformThread\fP * \fBodomTask\fP {nullptr}"
+.br
+.ti -1c
+.RI "std::atomic_bool \fBdtorCalled\fP {false}"
+.br
+.ti -1c
+.RI "StateMode \fBdefaultStateMode\fP {StateMode::FRAME_TRANSFORMATION}"
+.br
+.ti -1c
+.RI "std::atomic_bool \fBodomTaskRunning\fP {false}"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Static Protected Member Functions inherited from \fBokapi::OdomChassisController\fP
+.in +1c
+.ti -1c
+.RI "static void \fBtrampoline\fP (void *context)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::DefaultOdomChassisController::DefaultOdomChassisController (const \fBTimeUtil\fP & itimeUtil, std::shared_ptr< \fBOdometry\fP > iodometry, std::shared_ptr< \fBChassisController\fP > icontroller, const StateMode & imode = \fRStateMode::FRAME_TRANSFORMATION\fP, QLength imoveThreshold = \fR0_mm\fP, QAngle iturnThreshold = \fR0_deg\fP, std::shared_ptr< \fBLogger\fP > ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+\fBOdometry\fP based chassis controller that moves using a separately constructed chassis controller\&. Spins up a task at the default priority plus 1 for odometry when constructed\&.
+
+.PP
+Moves the robot around in the odom frame\&. Instead of telling the robot to drive forward or turn some amount, you instead tell it to drive to a specific point on the field or turn to a specific angle, relative to its starting position\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimeUtil\fP The \fBTimeUtil\fP\&. 
+.br
+\fIiodometry\fP The odometry to read state estimates from\&. 
+.br
+\fIicontroller\fP The chassis controller to delegate to\&. 
+.br
+\fIimode\fP The new default StateMode used to interpret target points and query the \fBOdometry\fP state\&. 
+.br
+\fIimoveThreshold\fP minimum length movement (smaller movements will be skipped) 
+.br
+\fIiturnThreshold\fP minimum angle turn (smaller turns will be skipped) 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBChassisController\fP & okapi::DefaultOdomChassisController::chassisController ()"
+
+.PP
+\fBReturns\fP
+.RS 4
+The internal \fBChassisController\fP\&. 
+.RE
+.PP
+
+.SS "void okapi::DefaultOdomChassisController::driveToPoint (const \fBPoint\fP & ipoint, bool ibackwards = \fRfalse\fP, const QLength & ioffset = \fR0_mm\fP)\fR [override]\fP, \fR [virtual]\fP"
+Drives the robot straight to a point in the odom frame\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIipoint\fP The target point to navigate to\&. 
+.br
+\fIibackwards\fP Whether to drive to the target point backwards\&. 
+.br
+\fIioffset\fP An offset from the target point in the direction pointing towards the robot\&. The robot will stop this far away from the target point\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::OdomChassisController\fP\&.
+.SS "std::shared_ptr< \fBChassisController\fP > okapi::DefaultOdomChassisController::getChassisController ()"
+
+.PP
+\fBReturns\fP
+.RS 4
+The internal \fBChassisController\fP\&. 
+.RE
+.PP
+
+.SS "\fBChassisScales\fP okapi::DefaultOdomChassisController::getChassisScales () const\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "\fBAbstractMotor::GearsetRatioPair\fP okapi::DefaultOdomChassisController::getGearsetRatioPair () const\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "double okapi::DefaultOdomChassisController::getMaxVelocity () const\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "std::shared_ptr< \fBChassisModel\fP > okapi::DefaultOdomChassisController::getModel ()\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "bool okapi::DefaultOdomChassisController::isSettled ()\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "\fBChassisModel\fP & okapi::DefaultOdomChassisController::model ()\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::moveDistance (QLength itarget)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::moveDistanceAsync (QLength itarget)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::moveRaw (double itarget)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::moveRawAsync (double itarget)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::setMaxVelocity (double imaxVelocity)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::setTurnsMirrored (bool ishouldMirror)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::stop ()\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::turnAngle (QAngle idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+Turns chassis to desired angle (turns in the direction of smallest angle) (ex\&. If current angle is 0 and target is 270, the chassis will turn -90 degrees)
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidegTarget\fP target angle 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::turnAngleAsync (QAngle idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+Turns chassis to desired angle (turns in the direction of smallest angle) (ex\&. If current angle is 0 and target is 270, the chassis will turn -90 degrees)
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidegTarget\fP target angle 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::turnRaw (double idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::turnRawAsync (double idegTarget)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::turnToAngle (const QAngle & iangle)\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::OdomChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::turnToPoint (const \fBPoint\fP & ipoint)\fR [override]\fP, \fR [virtual]\fP"
+Turns the robot to face a point in the odom frame\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIipoint\fP The target point to turn to face\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::OdomChassisController\fP\&.
+.SS "void okapi::DefaultOdomChassisController::waitUntilSettled ()\fR [override]\fP, \fR [virtual]\fP"
+This delegates to the input \fBChassisController\fP\&. 
+.PP
+Implements \fBokapi::ChassisController\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

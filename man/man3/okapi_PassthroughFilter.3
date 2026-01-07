@@ -1,0 +1,69 @@
+.TH "okapi::PassthroughFilter" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::PassthroughFilter
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::Filter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPassthroughFilter\fP ()"
+.br
+.ti -1c
+.RI "double \fBfilter\fP (double ireading) override"
+.br
+.ti -1c
+.RI "double \fBgetOutput\fP () const override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBlastOutput\fP = 0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::PassthroughFilter::PassthroughFilter ()"
+A simple filter that does no filtering and just passes the input through\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "double okapi::PassthroughFilter::filter (double ireading)\fR [override]\fP, \fR [virtual]\fP"
+Filters a value, like a sensor reading\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireading\fP new measurement 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+filtered result 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+.SS "double okapi::PassthroughFilter::getOutput () const\fR [override]\fP, \fR [virtual]\fP"
+Returns the previous output from filter\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the previous output from filter 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

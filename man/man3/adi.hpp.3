@@ -1,0 +1,191 @@
+.TH "include/pros/adi.hpp" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/adi.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <cstdint>\fP
+.br
+\fR#include <vector>\fP
+.br
+\fR#include <tuple>\fP
+.br
+\fR#include <utility>\fP
+.br
+\fR#include <iostream>\fP
+.br
+\fR#include 'pros/adi\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::adi::Port\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::AnalogIn\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::AnalogOut\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::DigitalOut\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::DigitalIn\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Motor\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Encoder\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Ultrasonic\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Gyro\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Potentiometer\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Led\fP"
+.br
+.ti -1c
+.RI "class \fBpros::adi::Pneumatics\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBpros\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLEGACY_TYPEDEF\fP(old_name,  new_name)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBpros::adi::ext_adi_port_pair_t\fP = std::pair<std::uint8_t, std::uint8_t>"
+.br
+.ti -1c
+.RI "using \fBpros::adi::ext_adi_port_tuple_t\fP = std::tuple<std::uint8_t, std::uint8_t, std::uint8_t>"
+.br
+.ti -1c
+.RI "using \fBpros::adi::LineSensor\fP = \fBAnalogIn\fP"
+.br
+.ti -1c
+.RI "using \fBpros::adi::LightSensor\fP = \fBAnalogIn\fP"
+.br
+.ti -1c
+.RI "using \fBpros::adi::Accelerometer\fP = \fBAnalogIn\fP"
+.br
+.ti -1c
+.RI "using \fBpros::adi::Button\fP = \fBDigitalIn\fP"
+.br
+.ti -1c
+.RI "using \fBpros::adi::LED\fP = \fBLed\fP"
+.br
+.RI "Alias for ADILed\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIPort, \fBpros::adi::Port\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIAnalogIn, \fBpros::adi::AnalogIn\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIAnalogOut, \fBpros::adi::AnalogOut\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIDigitalIn, \fBpros::adi::DigitalIn\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIDigitalOut, \fBpros::adi::DigitalOut\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIMotor, \fBpros::adi::Motor\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIGyro, \fBpros::adi::Gyro\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIEncoder, \fBpros::adi::Encoder\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIUltrasonic, \fBpros::adi::Ultrasonic\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (LED, \fBpros::adi::Led\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIPotentiometer, \fBpros::adi::Potentiometer\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADILineSensor, pros::adi::LineSensor)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADILightSensor, pros::adi::LightSensor)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIAccelerometer, pros::adi::Accelerometer)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIButton, pros::adi::Button)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADIPneumatics, \fBpros::adi::Pneumatics\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADILED, \fBpros::adi::Led\fP)"
+.br
+.ti -1c
+.RI "\fBpros::LEGACY_TYPEDEF\fP (ADILed, \fBpros::adi::Led\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for interfacing with the ADI\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LEGACY_TYPEDEF( old_name,  new_name)"
+\fBValue:\fP
+.nf
+using old_name [[deprecated("use " #new_name " instead")]] = new_name
+.PP
+.fi
+
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBpros::adi::ext_adi_port_pair_t\fP = std::pair<std::uint8_t, std::uint8_t>"
+type definition for the pair of smart port and adi port for the basic adi devices 
+.SS "using \fBpros::adi::ext_adi_port_tuple_t\fP = std::tuple<std::uint8_t, std::uint8_t, std::uint8_t>"
+type definition for the triplet of smart port and two adi ports for the two wire adi devices 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

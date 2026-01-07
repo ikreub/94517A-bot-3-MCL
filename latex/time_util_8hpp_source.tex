@@ -1,0 +1,43 @@
+\doxysection{time\+Util.\+hpp}
+\hypertarget{time_util_8hpp_source}{}\label{time_util_8hpp_source}\index{include/okapi/api/util/timeUtil.hpp@{include/okapi/api/util/timeUtil.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/util/settledUtil.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/abstractRate.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/abstractTimer.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/supplier.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }TimeUtil\ \{}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ TimeUtil(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier}}<std::unique\_ptr<AbstractTimer>>\ \&itimerSupplier,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier}}<std::unique\_ptr<AbstractRate>>\ \&irateSupplier,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier}}<std::unique\_ptr<SettledUtil>>\ \&isettledUtilSupplier);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ std::unique\_ptr<AbstractTimer>\ getTimer()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ std::unique\_ptr<AbstractRate>\ getRate()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ std::unique\_ptr<SettledUtil>\ getSettledUtil()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<AbstractTimer>}}>\ getTimerSupplier()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<AbstractRate>}}>\ getRateSupplier()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<SettledUtil>}}>\ getSettledUtilSupplier()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<AbstractTimer>}}>\ timerSupplier;}
+\DoxyCodeLine{00038\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<AbstractRate>}}>\ rateSupplier;}
+\DoxyCodeLine{00039\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<SettledUtil>}}>\ settledUtilSupplier;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

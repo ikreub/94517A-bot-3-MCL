@@ -1,0 +1,102 @@
+\doxysection{dsr.\+hpp}
+\hypertarget{dsr_8hpp_source}{}\label{dsr_8hpp_source}\index{include/dsr.hpp@{include/dsr.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../include/EZ-\/Template/api.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}pros/distance.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum}\ Dir\{}
+\DoxyCodeLine{00014\ \ \ \ \ l\ =\ 1,}
+\DoxyCodeLine{00015\ \ \ \ \ r\ =\ 2,}
+\DoxyCodeLine{00016\ \ \ \ \ f\ =\ 3,}
+\DoxyCodeLine{00017\ \ \ \ \ b\ =\ 4,}
+\DoxyCodeLine{00018\ \ \ \ \ left\ =\ l,}
+\DoxyCodeLine{00019\ \ \ \ \ right\ =\ r,}
+\DoxyCodeLine{00020\ \ \ \ \ front\ =\ f,}
+\DoxyCodeLine{00021\ \ \ \ \ back\ =\ b,}
+\DoxyCodeLine{00022\ \ \ \ \ L\ =\ l,}
+\DoxyCodeLine{00023\ \ \ \ \ R\ =\ r,}
+\DoxyCodeLine{00024\ \ \ \ \ F\ =\ f,}
+\DoxyCodeLine{00025\ \ \ \ \ B\ =\ b,}
+\DoxyCodeLine{00026\ \ \ \ \ Left\ =\ l,}
+\DoxyCodeLine{00027\ \ \ \ \ Right\ =\ r,}
+\DoxyCodeLine{00028\ \ \ \ \ Front\ =\ f,}
+\DoxyCodeLine{00029\ \ \ \ \ Back\ =\ b,}
+\DoxyCodeLine{00030\ \ \ \ \ LEFT\ =\ l,}
+\DoxyCodeLine{00031\ \ \ \ \ RIGHT\ =\ r,}
+\DoxyCodeLine{00032\ \ \ \ \ FRONT\ =\ f,}
+\DoxyCodeLine{00033\ \ \ \ \ BACK\ =\ b}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_d_s_r_d_s_a79115c76f23537933237ffb73766188c}{DSRDS}}\{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00059\ \ \ \ \ \doxymbox{\hyperlink{class_d_s_r_d_s_a79115c76f23537933237ffb73766188c}{DSRDS}}(\textcolor{keywordtype}{int}\ port,\ Dir\ direction,\ \textcolor{keywordtype}{double}\ x\_offset,\ \textcolor{keywordtype}{double}\ y\_offset);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_d_s_r_d_s_ac888da7f0a961022d8ef7a72a18081c5}{read\_in}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a0f81062a18eaca6199759d072849b8fd}{set\_x\_offset}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a230b5f1b66876e0765b46881bcefb78d}{set\_y\_offset}}(\textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a2238e9b8980129f0c4d23445e0cfd2b1}{set\_offsets}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a9cba5ff9db5c9375c35630311d253778}{set\_dir}}(Dir\ direction);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a6c44e4d9a08c74ddbd04316368aa7f78}{get\_x\_offset}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a0aa3e02f605795b69d42bb9d400f5400}{get\_y\_offset}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00107\ \ \ \ \ ez::pose\ \doxymbox{\hyperlink{class_d_s_r_d_s_a938b5b8d6fb6571b8fd28e0d0717d3ff}{get\_offsets}}();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ Dir\ \doxymbox{\hyperlink{class_d_s_r_d_s_a5f920bdcf29ecb8e8414571da95203dc}{get\_dir}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ \ \ \ \ std::string\ \doxymbox{\hyperlink{class_d_s_r_d_s_a616d53f3d1eeef4ad48058fbb281e769}{get\_dir\_string}}();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_d_s_r_d_s_a6ce6980884be54b637bec6a6fc45fd77}{measure\_offsets}}(\textcolor{keywordtype}{double}\ read45,\ \textcolor{keywordtype}{double}\ read30,\ \textcolor{keywordtype}{double}\ read0);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \ \ ez::pose\ offsets\ =\ \{0,0\};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00142\ \ \ \ \ Dir\ dir;}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00147\ \ \ \ \ std::string\ dir\_string;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00152\ \ \ \ \ pros::Distance\ sensor;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::string\ dir\_to\_string(Dir\ direction)\{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}(\textcolor{keywordtype}{int}(direction))\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ int(l):}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{stringliteral}{"{}left"{}};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ int(r):}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{stringliteral}{"{}right"{}};}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ int(f):}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{stringliteral}{"{}front"{}};}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ int(b):}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ \textcolor{stringliteral}{"{}back"{}};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00189\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespace_d_s_r}{DSR}}\{}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_d_s_r_a7af800f623cb0d8c63bc43721f59061f}{set\_sensors}}(std::vector<DSRDS\&>\ \doxymbox{\hyperlink{namespace_d_s_r_a1d73402380031847f2bb6f1d449ba67d}{sensors}});}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_d_s_r_ac0bf7973506f7460576c3be7a93a07a5}{add\_sensor}}(\doxymbox{\hyperlink{class_d_s_r_d_s}{DSRDS}}\&\ sensor);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_d_s_r_a80361ec1fda85f151cdbddd03bcd8f86}{reset\_tracking}}(Dir\ sensorX\_dir,\ Dir\ sensorY\_dir,\textcolor{keywordtype}{int}\ sensorX\_specified\ =\ 1,\ \textcolor{keywordtype}{int}\ sensorY\_specified\ =\ 1\ );}
+\DoxyCodeLine{00213\ \ \ \ \ }
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{namespace_d_s_r_aee49789368c0c0a2cfc8955b3d646721}{measure\_offsets}}(\textcolor{keywordtype}{int}\ iterations);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{inline}\ std::vector<DSRDS>\ \doxymbox{\hyperlink{namespace_d_s_r_a1d73402380031847f2bb6f1d449ba67d}{sensors}}\ =\ \{\};}
+\DoxyCodeLine{00226\ \}}
+
+\end{DoxyCode}

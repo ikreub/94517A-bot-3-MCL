@@ -1,0 +1,219 @@
+.TH "okapi::OpticalSensor" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::OpticalSensor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ControllerInput< double >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOpticalSensor\fP (std::uint8_t iport, OpticalSensorOutput ioutput=OpticalSensorOutput::hue, bool idisableGestures=true, std::unique_ptr< \fBFilter\fP > ifilter=std::make_unique< \fBPassthroughFilter\fP >())"
+.br
+.ti -1c
+.RI "double \fBget\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetHue\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetBrightness\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetSaturation\fP () const"
+.br
+.ti -1c
+.RI "int32_t \fBgetLedPWM\fP () const"
+.br
+.ti -1c
+.RI "int32_t \fBsetLedPWM\fP (std::uint8_t ivalue) const"
+.br
+.ti -1c
+.RI "int32_t \fBgetProximity\fP () const"
+.br
+.ti -1c
+.RI "pros::c::optical_rgb_s_t \fBgetRGB\fP () const"
+.br
+.ti -1c
+.RI "double \fBcontrollerGet\fP () override"
+.br
+.ti -1c
+.RI "int32_t \fBenableGestures\fP () const"
+.br
+.ti -1c
+.RI "int32_t \fBdisableGestures\fP () const"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBgetSelectedOutput\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::uint8_t \fBport\fP"
+.br
+.ti -1c
+.RI "OpticalSensorOutput \fBoutput\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBFilter\fP > \fBfilter\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::OpticalSensor::OpticalSensor (std::uint8_t iport, OpticalSensorOutput ioutput = \fROpticalSensorOutput::hue\fP, bool idisableGestures = \fRtrue\fP, std::unique_ptr< \fBFilter\fP > ifilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP)"
+An optical sensor on a V5 port\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiport\fP The V5 port the device uses\&. 
+.br
+\fIioutput\fP Which sensor output to return from (\fBokapi::OpticalSensor::get\fP)\&. 
+.br
+\fIidisableGestures\fP Whether to automatically disable the gesture sensor\&. Typically, the gesture sensor should be disabled unless you are going to use gestures because the optical sensor does not update color information while detecting a gesture\&. 
+.br
+\fIifilter\fP The filter to use to filter the sensor output\&. Only the selected output (via \fRioutput\fP) is filtered; the other outputs are untouched\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double okapi::OpticalSensor::controllerGet ()\fR [override]\fP, \fR [virtual]\fP"
+Get the sensor value for use in a control loop\&. This method might be automatically called in another thread by the controller\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The same as \fBget\fP\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ControllerInput< double >\fP\&.
+.SS "int32_t okapi::OpticalSensor::disableGestures () const"
+Disable gestures\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+\fR1\fP if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting \fRerrno\fP\&. 
+.RE
+.PP
+
+.SS "int32_t okapi::OpticalSensor::enableGestures () const"
+Enable gestures\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+\fR1\fP if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting \fRerrno\fP\&. 
+.RE
+.PP
+
+.SS "double okapi::OpticalSensor::get ()"
+Get the current filtered value of the selected output (configured by the constructor)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current filtered value of the selected output (configured by the constructor)\&. 
+.RE
+.PP
+
+.SS "double okapi::OpticalSensor::getBrightness () const"
+Get the current brightness value in the range \fR[0, 1]\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current brightness value in the range \fR[0, 1]\fP\&. 
+.RE
+.PP
+
+.SS "double okapi::OpticalSensor::getHue () const"
+Get the current hue value in the range \fR[0, 360)\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current hue value in the range \fR[0, 360)\fP\&. 
+.RE
+.PP
+
+.SS "int32_t okapi::OpticalSensor::getLedPWM () const"
+Get the PWM value of the white LED in the range \fR[0, 100]\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The PWM value of the white LED in the range \fR[0, 100]\fP or \fRPROS_ERR\fP if the operation failed, setting \fRerrno\fP\&. 
+.RE
+.PP
+
+.SS "int32_t okapi::OpticalSensor::getProximity () const"
+Get the current proximity value in the range \fR[0, 255]\fP\&. This is not available if gestures are being detected\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current proximity value in the range \fR[0, 255]\fP\&. 
+.RE
+.PP
+
+.SS "pros::c::optical_rgb_s_t okapi::OpticalSensor::getRGB () const"
+Get the processed RGBC data from the sensor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The RGBC value if the operation was successful\&. If the operation failed, all field are set to \fRPROS_ERR\fP and \fRerrno\fP is set\&. 
+.RE
+.PP
+
+.SS "double okapi::OpticalSensor::getSaturation () const"
+Get the current saturation value in the range \fR[0, 1]\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current saturation value in the range \fR[0, 1]\fP\&. 
+.RE
+.PP
+
+.SS "double okapi::OpticalSensor::getSelectedOutput ()\fR [protected]\fP"
+Gets the output directly from the sensor using the selected output\&. 
+.SS "int32_t okapi::OpticalSensor::setLedPWM (std::uint8_t ivalue) const"
+Set the PWM value of the white LED in the range \fR[0, 100]\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP The PWM value in the range \fR[0, 100]\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fR1\fP if the operation was successful or \fRPROS_ERR\fP if the operation failed, setting \fRerrno\fP\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

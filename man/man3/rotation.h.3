@@ -1,0 +1,74 @@
+.TH "include/pros/rotation.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/rotation.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROTATION_MINIMUM_DATA_RATE\fP   5"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBrotation_reset\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_set_data_rate\fP (uint8_t port, uint32_t rate)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_set_position\fP (uint8_t port, uint32_t position)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_reset_position\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_get_position\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_get_velocity\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_get_angle\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_set_reversed\fP (uint8_t port, bool value)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_reverse\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_init_reverse\fP (uint8_t port, bool reverse_flag)"
+.br
+.ti -1c
+.RI "int32_t \fBrotation_get_reversed\fP (uint8_t port)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for functions related to the VEX Rotation Sensor\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

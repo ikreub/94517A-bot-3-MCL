@@ -1,0 +1,101 @@
+.TH "okapi::OdomState" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::OdomState
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBstr\fP (QLength idistanceUnit, QAngle iangleUnit) const"
+.br
+.ti -1c
+.RI "std::string \fBstr\fP (QLength idistanceUnit=meter, std::string distUnitName='_m', QAngle iangleUnit=degree, std::string angleUnitName='_deg') const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBOdomState\fP &rhs) const"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBOdomState\fP &rhs) const"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "QLength \fBx\fP {0_m}"
+.br
+.ti -1c
+.RI "QLength \fBy\fP {0_m}"
+.br
+.ti -1c
+.RI "QAngle \fBtheta\fP {0_deg}"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "std::string okapi::OdomState::str (QLength idistanceUnit, QAngle iangleUnit) const"
+Get a string for the current odometry state (optionally with the specified units)\&.
+
+.PP
+Examples:
+.IP "\(bu" 2
+\fROdomState::str(1_m, 1_deg)\fP: The default (no arguments specified)\&.
+.IP "\(bu" 2
+\fROdomState::str(1_tile, 1_radian)\fP: distance tiles and angle radians\&.
+.PP
+
+.PP
+Throws std::domain_error if the units passed are undefined\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidistanceUnit\fP The units you want your distance to be in\&. This must be an exact, predefined QLength (such as foot, meter, inch, tile etc\&.)\&. 
+.br
+\fIiangleUnit\fP The units you want your angle to be in\&. This must be an exact, predefined QAngle (degree or radian)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A string representing the state\&. 
+.RE
+.PP
+
+.SS "std::string okapi::OdomState::str (QLength idistanceUnit = \fRmeter\fP, std::string distUnitName = \fR'_m'\fP, QAngle iangleUnit = \fRdegree\fP, std::string angleUnitName = \fR'_deg'\fP) const"
+Get a string for the current odometry state (optionally with the specified units)\&.
+
+.PP
+Examples:
+.IP "\(bu" 2
+\fR\fBOdomState::str\fP(1_m, "_m", 1_deg, "_deg")\fP: The default (no arguments specified), prints in meters and degrees\&.
+.IP "\(bu" 2
+\fR\fBOdomState::str\fP(1_in, "_in", 1_deg, "_deg")\fP or \fR\fBOdomState::str\fP(1_in, "\\"\\", 1_deg, \\"°\\")</tt>: to print values in inches and degrees with different suffixes\&.
+  - <tt>OdomState::str(6_tile / 100, \\"%\\", 360_deg / 100, \\"%\\")\fP to get the distance values in % of the vex field, and angle values in % of a full rotation\&.
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIidistanceUnit\fP The units you want your distance to be in\&. The x or y position will be output in multiples of this length\&. 
+.br
+\fIdistUnitName\fP The suffix you as your distance unit\&. 
+.br
+\fIiangleUnit\fP The units you want your angle to be in\&. The angle will be output in multiples of this unit\&. 
+.br
+\fIangleUnitName\fP The suffix you want as your angle unit\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A string representing the state\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

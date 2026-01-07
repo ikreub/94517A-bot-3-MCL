@@ -1,0 +1,301 @@
+\doxysection{VEX Rotation Sensor C API }
+\hypertarget{group__c-rotation}{}\label{group__c-rotation}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{rotation_8h}{rotation.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-rotation_ga6eda4d88f03dc2cec837e48e06c925c2}\label{group__c-rotation_ga6eda4d88f03dc2cec837e48e06c925c2} 
+\+\#define {\bfseries ROTATION\+\_\+\+MINIMUM\+\_\+\+DATA\+\_\+\+RATE}~5
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_gaac5499a4e54505a0a8937acb24ca3fd5}{rotation\+\_\+reset}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_ga9f0a41ca569628ddf169c8f291bbe7aa}{rotation\+\_\+set\+\_\+data\+\_\+rate}} (uint8\+\_\+t port, uint32\+\_\+t rate)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_ga9f79fcc0279e97a9f1b1a2ec50d8b51f}{rotation\+\_\+set\+\_\+position}} (uint8\+\_\+t port, uint32\+\_\+t position)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_gaa12a861cf9a2a1c2871b96a725ad30d5}{rotation\+\_\+reset\+\_\+position}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_gaa66d368c26171470c3f4f32d62ec031d}{rotation\+\_\+get\+\_\+position}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_gaa914f24bc29697f98911bd950b689f0e}{rotation\+\_\+get\+\_\+velocity}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_ga5b4ce16ed5cf043020cff2dea54d0e6b}{rotation\+\_\+get\+\_\+angle}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_ga11726119db4e3dc2bb366b1add92412a}{rotation\+\_\+set\+\_\+reversed}} (uint8\+\_\+t port, bool value)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_ga5b265b5d95fe3d97796f53f0708db939}{rotation\+\_\+reverse}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_ga865c5b11bc107ca7500743050912c927}{rotation\+\_\+init\+\_\+reverse}} (uint8\+\_\+t port, bool reverse\+\_\+flag)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-rotation_gaecbcb18cdcc72c0b9a179fdc14161a24}{rotation\+\_\+get\+\_\+reversed}} (uint8\+\_\+t port)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group__c-rotation_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__c-rotation_ga5b4ce16ed5cf043020cff2dea54d0e6b}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_get\_angle@{rotation\_get\_angle}}
+\index{rotation\_get\_angle@{rotation\_get\_angle}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_get\_angle()}{rotation\_get\_angle()}}
+{\footnotesize\ttfamily \label{group__c-rotation_ga5b4ce16ed5cf043020cff2dea54d0e6b} 
+int32\+\_\+t rotation\+\_\+get\+\_\+angle (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the Rotation Sensor\textquotesingle{}s current angle in centidegrees (0-\/36000)
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle value (0-\/36000) or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_gaa66d368c26171470c3f4f32d62ec031d}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_get\_position@{rotation\_get\_position}}
+\index{rotation\_get\_position@{rotation\_get\_position}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_get\_position()}{rotation\_get\_position()}}
+{\footnotesize\ttfamily \label{group__c-rotation_gaa66d368c26171470c3f4f32d62ec031d} 
+int32\+\_\+t rotation\+\_\+get\+\_\+position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the Rotation Sensor\textquotesingle{}s current position in centidegrees
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The position value or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_gaecbcb18cdcc72c0b9a179fdc14161a24}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_get\_reversed@{rotation\_get\_reversed}}
+\index{rotation\_get\_reversed@{rotation\_get\_reversed}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_get\_reversed()}{rotation\_get\_reversed()}}
+{\footnotesize\ttfamily \label{group__c-rotation_gaecbcb18cdcc72c0b9a179fdc14161a24} 
+int32\+\_\+t rotation\+\_\+get\+\_\+reversed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the Rotation Sensor\textquotesingle{}s reversed flag
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value of if the Rotation Sensor\textquotesingle{}s direction is reversed or not or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_gaa914f24bc29697f98911bd950b689f0e}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_get\_velocity@{rotation\_get\_velocity}}
+\index{rotation\_get\_velocity@{rotation\_get\_velocity}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_get\_velocity()}{rotation\_get\_velocity()}}
+{\footnotesize\ttfamily \label{group__c-rotation_gaa914f24bc29697f98911bd950b689f0e} 
+int32\+\_\+t rotation\+\_\+get\+\_\+velocity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the Rotation Sensor\textquotesingle{}s current velocity in centidegrees per second
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The velocity value or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_ga865c5b11bc107ca7500743050912c927}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_init\_reverse@{rotation\_init\_reverse}}
+\index{rotation\_init\_reverse@{rotation\_init\_reverse}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_init\_reverse()}{rotation\_init\_reverse()}}
+{\footnotesize\ttfamily \label{group__c-rotation_ga865c5b11bc107ca7500743050912c927} 
+int32\+\_\+t rotation\+\_\+init\+\_\+reverse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{bool}]{reverse\+\_\+flag}{}\end{DoxyParamCaption})}
+
+Initialize the Rotation Sensor with a reverse flag
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+{\em reverse\+\_\+flag} & Determines if the Rotation Sensor is reversed or not.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_gaac5499a4e54505a0a8937acb24ca3fd5}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_reset@{rotation\_reset}}
+\index{rotation\_reset@{rotation\_reset}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_reset()}{rotation\_reset()}}
+{\footnotesize\ttfamily \label{group__c-rotation_gaac5499a4e54505a0a8937acb24ca3fd5} 
+int32\+\_\+t rotation\+\_\+reset (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Reset Rotation Sensor
+
+Reset the current absolute position to be the same as the Rotation Sensor angle.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_gaa12a861cf9a2a1c2871b96a725ad30d5}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_reset\_position@{rotation\_reset\_position}}
+\index{rotation\_reset\_position@{rotation\_reset\_position}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_reset\_position()}{rotation\_reset\_position()}}
+{\footnotesize\ttfamily \label{group__c-rotation_gaa12a861cf9a2a1c2871b96a725ad30d5} 
+int32\+\_\+t rotation\+\_\+reset\+\_\+position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Reset the Rotation Sensor position to 0
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_ga5b265b5d95fe3d97796f53f0708db939}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_reverse@{rotation\_reverse}}
+\index{rotation\_reverse@{rotation\_reverse}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_reverse()}{rotation\_reverse()}}
+{\footnotesize\ttfamily \label{group__c-rotation_ga5b265b5d95fe3d97796f53f0708db939} 
+int32\+\_\+t rotation\+\_\+reverse (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Reverse the Rotation Sensor\textquotesingle{}s direction
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_ga9f0a41ca569628ddf169c8f291bbe7aa}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_set\_data\_rate@{rotation\_set\_data\_rate}}
+\index{rotation\_set\_data\_rate@{rotation\_set\_data\_rate}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_set\_data\_rate()}{rotation\_set\_data\_rate()}}
+{\footnotesize\ttfamily \label{group__c-rotation_ga9f0a41ca569628ddf169c8f291bbe7aa} 
+int32\+\_\+t rotation\+\_\+set\+\_\+data\+\_\+rate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{uint32\+\_\+t}]{rate}{}\end{DoxyParamCaption})}
+
+Set the Rotation Sensor\textquotesingle{}s refresh interval in milliseconds.
+
+The rate may be specified in increments of 5ms, and will be rounded down to the nearest increment. The minimum allowable refresh rate is 5ms. The default rate is 10ms.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+{\em rate} & The data refresh interval in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_ga9f79fcc0279e97a9f1b1a2ec50d8b51f}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_set\_position@{rotation\_set\_position}}
+\index{rotation\_set\_position@{rotation\_set\_position}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_set\_position()}{rotation\_set\_position()}}
+{\footnotesize\ttfamily \label{group__c-rotation_ga9f79fcc0279e97a9f1b1a2ec50d8b51f} 
+int32\+\_\+t rotation\+\_\+set\+\_\+position (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{uint32\+\_\+t}]{position}{}\end{DoxyParamCaption})}
+
+Set the Rotation Sensor position reading to a desired rotation value
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+{\em position} & The position in terms of ticks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rotation_ga11726119db4e3dc2bb366b1add92412a}\index{VEX Rotation Sensor C API@{VEX Rotation Sensor C API}!rotation\_set\_reversed@{rotation\_set\_reversed}}
+\index{rotation\_set\_reversed@{rotation\_set\_reversed}!VEX Rotation Sensor C API@{VEX Rotation Sensor C API}}
+\doxysubsubsection{\texorpdfstring{rotation\_set\_reversed()}{rotation\_set\_reversed()}}
+{\footnotesize\ttfamily \label{group__c-rotation_ga11726119db4e3dc2bb366b1add92412a} 
+int32\+\_\+t rotation\+\_\+set\+\_\+reversed (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{bool}]{value}{}\end{DoxyParamCaption})}
+
+Set the Rotation Sensor\textquotesingle{}s direction reversed flag
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Rotation Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Rotation Sensor port number from 1-\/21 \\
+\hline
+{\em value} & Determines if the direction of the Rotation Sensor is reversed or not.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if operation succeeded or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

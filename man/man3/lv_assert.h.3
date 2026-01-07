@@ -1,0 +1,63 @@
+.TH "include/liblvgl/misc/lv_assert.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_assert.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include 'lv_log\&.h'\fP
+.br
+\fR#include 'lv_mem\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_ASSERT\fP(expr)"
+.br
+.ti -1c
+.RI "#define \fBLV_ASSERT_MSG\fP(expr,  msg)"
+.br
+.ti -1c
+.RI "#define \fBLV_ASSERT_NULL\fP(p)"
+.br
+.ti -1c
+.RI "#define \fBLV_ASSERT_MALLOC\fP(p)"
+.br
+.ti -1c
+.RI "#define \fBLV_ASSERT_MEM_INTEGRITY\fP()"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LV_ASSERT( expr)"
+\fBValue:\fP
+.nf
+do {                                                       \\
+    if(!(expr)) {                                          \\
+        LV_LOG_ERROR("Asserted at expression: %s", #expr); \\
+        LV_ASSERT_HANDLER                                  \\
+    }                                                      \\
+} while(0)
+.PP
+.fi
+
+.SS "#define LV_ASSERT_MSG( expr,  msg)"
+\fBValue:\fP
+.nf
+do {                                                                 \\
+    if(!(expr)) {                                                    \\
+        LV_LOG_ERROR("Asserted at expression: %s (%s)", #expr, msg); \\
+        LV_ASSERT_HANDLER                                            \\
+    }                                                                \\
+} while(0)
+.PP
+.fi
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

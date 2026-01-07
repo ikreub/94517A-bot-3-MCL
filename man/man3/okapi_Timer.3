@@ -1,0 +1,99 @@
+.TH "okapi::Timer" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::Timer
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::AbstractTimer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "QTime \fBmillis\fP () const override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::AbstractTimer\fP
+.in +1c
+.ti -1c
+.RI "\fBAbstractTimer\fP (QTime ifirstCalled)"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDt\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBreadDt\fP () const"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetStartingTime\fP () const"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDtFromStart\fP () const"
+.br
+.ti -1c
+.RI "virtual void \fBplaceMark\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBclearMark\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBplaceHardMark\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBclearHardMark\fP ()"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDtFromMark\fP () const"
+.br
+.ti -1c
+.RI "virtual QTime \fBgetDtFromHardMark\fP () const"
+.br
+.ti -1c
+.RI "virtual bool \fBrepeat\fP (QTime time)"
+.br
+.ti -1c
+.RI "virtual bool \fBrepeat\fP (QFrequency frequency)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Attributes inherited from \fBokapi::AbstractTimer\fP
+.in +1c
+.ti -1c
+.RI "QTime \fBfirstCalled\fP"
+.br
+.ti -1c
+.RI "QTime \fBlastCalled\fP"
+.br
+.ti -1c
+.RI "QTime \fBmark\fP"
+.br
+.ti -1c
+.RI "QTime \fBhardMark\fP"
+.br
+.ti -1c
+.RI "QTime \fBrepeatMark\fP"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "QTime okapi::Timer::millis () const\fR [override]\fP, \fR [virtual]\fP"
+Returns the current time in units of QTime\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current time 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::AbstractTimer\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

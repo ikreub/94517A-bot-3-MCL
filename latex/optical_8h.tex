@@ -1,0 +1,94 @@
+\doxysection{include/\+pros/\+optical.h File Reference}
+\hypertarget{optical_8h}{}\label{optical_8h}\index{include/pros/optical.h@{include/pros/optical.h}}
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include "{}error.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structoptical__rgb__s}{optical\+\_\+rgb\+\_\+s}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__raw__s}{optical\+\_\+raw\+\_\+s}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__gesture__s}{optical\+\_\+gesture\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{optical_8h_aab6cb3487966170cc22fde92d14d9038}\label{optical_8h_aab6cb3487966170cc22fde92d14d9038} 
+\+\#define {\bfseries OPT\+\_\+\+GESTURE\+\_\+\+ERR}~(INT8\+\_\+\+MAX)
+\item 
+\Hypertarget{optical_8h_ab88e357639799c76328d203e70790c93}\label{optical_8h_ab88e357639799c76328d203e70790c93} 
+\+\#define {\bfseries OPT\+\_\+\+COUNT\+\_\+\+ERR}~(INT16\+\_\+\+MAX)
+\item 
+\Hypertarget{optical_8h_aa823a64e7c6f53231133b91707813aee}\label{optical_8h_aa823a64e7c6f53231133b91707813aee} 
+\+\#define {\bfseries OPT\+\_\+\+TIME\+\_\+\+ERR}~PROS\+\_\+\+ERR
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \doxymbox{\hyperlink{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409}{optical\+\_\+direction\+\_\+e}} {\bfseries optical\+\_\+direction\+\_\+e\+\_\+t}
+\item 
+typedef struct \doxymbox{\hyperlink{structoptical__rgb__s}{optical\+\_\+rgb\+\_\+s}} {\bfseries optical\+\_\+rgb\+\_\+s\+\_\+t}
+\item 
+typedef struct \doxymbox{\hyperlink{structoptical__raw__s}{optical\+\_\+raw\+\_\+s}} {\bfseries optical\+\_\+raw\+\_\+s\+\_\+t}
+\item 
+typedef struct \doxymbox{\hyperlink{structoptical__gesture__s}{optical\+\_\+gesture\+\_\+s}} {\bfseries optical\+\_\+gesture\+\_\+s\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409}{optical\+\_\+direction\+\_\+e}} \{ \newline
+{\bfseries NO\+\_\+\+GESTURE} = 0
+, \doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aba595d8bca8bc5e67c37c0a9d89becfa}{UP}} = 1
+, \doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409a9b0b4a95b99523966e0e34ffdadac9da}{DOWN}} = 2
+, \doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aec8379af7490bb9eaaf579cf17876f38}{RIGHT}} = 3
+, \newline
+\doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409adb45120aafd37a973140edee24708065}{LEFT}} = 4
+, {\bfseries ERROR} = PROS\+\_\+\+ERR
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{Indent}\textbf{ Functions}\par
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{group__c-optical_ga7bc39359b98490f8beb85f9558045da3}{optical\+\_\+get\+\_\+hue}} (uint8\+\_\+t port)
+\item 
+double \doxymbox{\hyperlink{group__c-optical_gad6c4881f66bf8e11443960c80f5cd1a7}{optical\+\_\+get\+\_\+saturation}} (uint8\+\_\+t port)
+\item 
+double \doxymbox{\hyperlink{group__c-optical_ga0bd55d52ba8510b29a94798c6a822277}{optical\+\_\+get\+\_\+brightness}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_gae994d8927c55a38e28bad644162d023e}{optical\+\_\+get\+\_\+proximity}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga6940ebdc45c2ad8baeba8f3ed03a1c49}{optical\+\_\+set\+\_\+led\+\_\+pwm}} (uint8\+\_\+t port, uint8\+\_\+t value)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga0698dd880d93b1a0526c37b5fa1d821f}{optical\+\_\+get\+\_\+led\+\_\+pwm}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structoptical__rgb__s__t}{optical\+\_\+rgb\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-optical_gae4110d56540b4adab05035a1548006bc}{optical\+\_\+get\+\_\+rgb}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structoptical__raw__s__t}{optical\+\_\+raw\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-optical_ga6f5093964e9b3f9e54c0012ef00995d1}{optical\+\_\+get\+\_\+raw}} (uint8\+\_\+t port)
+\item 
+optical\+\_\+direction\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga7b21a7dd3160eb631a3d9ebf25665915}{optical\+\_\+get\+\_\+gesture}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structoptical__gesture__s__t}{optical\+\_\+gesture\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-optical_gae1733ccc289ade9fa245fb5c534c013e}{optical\+\_\+get\+\_\+gesture\+\_\+raw}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga324ddd80497cbe987d3949084ff4ddd3}{optical\+\_\+enable\+\_\+gesture}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga2c5b423cfe1d874793251c17e937ab61}{optical\+\_\+disable\+\_\+gesture}} (uint8\+\_\+t port)
+\item 
+double \doxymbox{\hyperlink{group__c-optical_ga3f220131e31e853ac60e8a2d538c1cd0}{optical\+\_\+get\+\_\+integration\+\_\+time}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga3324e1d905e563cbd353cc88ce5a4c8d}{optical\+\_\+set\+\_\+integration\+\_\+time}} (uint8\+\_\+t port, double time)
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Contains prototypes for functions related to the VEX Optical sensor.
+
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.
+
+\begin{DoxyCopyright}{Copyright}
+(c) 2017-\/2023, Purdue University ACM SIGBots.
+\end{DoxyCopyright}
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.\+0. If a copy of the MPL was not distributed with this file, You can obtain one at \href{http://mozilla.org/MPL/2.0/}{\texttt{http:\+/\+/\+mozilla.\+org/\+\+MPL/\+2.\+0/\+}}. 

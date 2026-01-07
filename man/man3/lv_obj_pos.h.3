@@ -1,0 +1,898 @@
+.TH "include/liblvgl/core/lv_obj_pos.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/core/lv_obj_pos.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/misc/lv_area\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlv_layout_dsc_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBlv_layout_update_cb_t\fP) (struct \fB_lv_obj_t\fP *, void *user_data)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlv_obj_set_pos\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t x, lv_coord_t y)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_x\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t x)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_y\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t y)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_size\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t w, lv_coord_t h)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_refr_size\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_width\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t w)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_height\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t h)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_content_width\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t w)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_content_height\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t h)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_layout\fP (struct \fB_lv_obj_t\fP *obj, uint32_t layout)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_is_layout_positioned\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_mark_layout_as_dirty\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_update_layout\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "uint32_t \fBlv_layout_register\fP (lv_layout_update_cb_t cb, void *user_data)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_align\fP (struct \fB_lv_obj_t\fP *obj, lv_align_t align)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_align\fP (struct \fB_lv_obj_t\fP *obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_align_to\fP (struct \fB_lv_obj_t\fP *obj, const struct \fB_lv_obj_t\fP *base, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_get_coords\fP (const struct \fB_lv_obj_t\fP *obj, \fBlv_area_t\fP *coords)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_x\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_x2\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_y\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_y2\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_x_aligned\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_y_aligned\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_width\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_height\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_content_width\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_content_height\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_get_content_coords\fP (const struct \fB_lv_obj_t\fP *obj, \fBlv_area_t\fP *area)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_self_width\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_obj_get_self_height\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_refresh_self_size\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_refr_pos\fP (struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_move_to\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t x, lv_coord_t y)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_move_children_by\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t x_diff, lv_coord_t y_diff, bool ignore_floating)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_transform_point\fP (const struct \fB_lv_obj_t\fP *obj, \fBlv_point_t\fP *p, bool recursive, bool inv)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_get_transformed_area\fP (const struct \fB_lv_obj_t\fP *obj, \fBlv_area_t\fP *area, bool recursive, bool inv)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_invalidate_area\fP (const struct \fB_lv_obj_t\fP *obj, const \fBlv_area_t\fP *area)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_invalidate\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_area_is_visible\fP (const struct \fB_lv_obj_t\fP *obj, \fBlv_area_t\fP *area)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_is_visible\fP (const struct \fB_lv_obj_t\fP *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_set_ext_click_area\fP (struct \fB_lv_obj_t\fP *obj, lv_coord_t size)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_get_click_area\fP (const struct \fB_lv_obj_t\fP *obj, \fBlv_area_t\fP *area)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_hit_test\fP (struct \fB_lv_obj_t\fP *obj, const \fBlv_point_t\fP *point)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_clamp_width\fP (lv_coord_t width, lv_coord_t min_width, lv_coord_t max_width, lv_coord_t ref_width)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_clamp_height\fP (lv_coord_t height, lv_coord_t min_height, lv_coord_t max_height, lv_coord_t ref_height)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "lv_coord_t lv_clamp_height (lv_coord_t height, lv_coord_t min_height, lv_coord_t max_height, lv_coord_t ref_height)"
+Clamp a height between min and max height\&. If the min/max height is in percentage value use the ref_height 
+.PP
+\fBParameters\fP
+.RS 4
+\fIheight\fP height to clamp 
+.br
+\fImin_height\fP the minimal height 
+.br
+\fImax_height\fP the maximal height 
+.br
+\fIref_height\fP the reference height used when min/max height is in percentage 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the clamped height 
+.RE
+.PP
+
+.SS "lv_coord_t lv_clamp_width (lv_coord_t width, lv_coord_t min_width, lv_coord_t max_width, lv_coord_t ref_width)"
+Clamp a width between min and max width\&. If the min/max width is in percentage value use the ref_width 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwidth\fP width to clamp 
+.br
+\fImin_width\fP the minimal width 
+.br
+\fImax_width\fP the maximal width 
+.br
+\fIref_width\fP the reference width used when min/max width is in percentage 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the clamped width 
+.RE
+.PP
+
+.SS "uint32_t lv_layout_register (lv_layout_update_cb_t cb, void * user_data)"
+Register a new layout 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcb\fP the layout update callback 
+.br
+\fIuser_data\fP custom data that will be passed to \fRcb\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the ID of the new layout 
+.RE
+.PP
+
+.SS "void lv_obj_align (struct \fB_lv_obj_t\fP * obj, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs)"
+Change the alignment of an object and set new coordinates\&. Equivalent to: lv_obj_set_align(obj, align); lv_obj_set_pos(obj, x_ofs, y_ofs); 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object to align 
+.br
+\fIalign\fP type of alignment (see 'lv_align_t' enum) \fRLV_ALIGN_OUT_\&.\&.\&.\fP can't be used\&. 
+.br
+\fIx_ofs\fP x coordinate offset after alignment 
+.br
+\fIy_ofs\fP y coordinate offset after alignment 
+.RE
+.PP
+
+.SS "void lv_obj_align_to (struct \fB_lv_obj_t\fP * obj, const struct \fB_lv_obj_t\fP * base, lv_align_t align, lv_coord_t x_ofs, lv_coord_t y_ofs)"
+Align an object to an other object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object to align 
+.br
+\fIbase\fP pointer to an other object (if NULL \fRobj\fPs parent is used)\&. 'obj' will be aligned to it\&. 
+.br
+\fIalign\fP type of alignment (see 'lv_align_t' enum) 
+.br
+\fIx_ofs\fP x coordinate offset after alignment 
+.br
+\fIy_ofs\fP y coordinate offset after alignment 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+if the position or size of \fRbase\fP changes \fRobj\fP needs to be aligned manually again 
+.RE
+.PP
+
+.SS "bool lv_obj_area_is_visible (const struct \fB_lv_obj_t\fP * obj, \fBlv_area_t\fP * area)"
+Tell whether an area of an object is visible (even partially) now or not 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIarea\fP the are to check\&. The visible part of the area will be written back here\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true visible; false not visible (hidden, out of parent, on other screen, etc) 
+.RE
+.PP
+
+.SS "void lv_obj_get_click_area (const struct \fB_lv_obj_t\fP * obj, \fBlv_area_t\fP * area)"
+Get the an area where to object can be clicked\&. It's the object's normal area plus the extended click area\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIarea\fP store the result area here 
+.RE
+.PP
+
+.SS "void lv_obj_get_content_coords (const struct \fB_lv_obj_t\fP * obj, \fBlv_area_t\fP * area)"
+Get the area reduced by the paddings and the border width\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIarea\fP the area which still fits into the parent without causing overflow (making the parent scrollable) 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_content_height (const struct \fB_lv_obj_t\fP * obj)"
+Get the height reduced by the top and bottom padding and the border width\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the height which still fits into the parent without causing overflow (making the parent scrollable) 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_content_width (const struct \fB_lv_obj_t\fP * obj)"
+Get the width reduced by the left and right padding and the border width\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the width which still fits into its parent without causing overflow (making the parent scrollable) 
+.RE
+.PP
+
+.SS "void lv_obj_get_coords (const struct \fB_lv_obj_t\fP * obj, \fBlv_area_t\fP * coords)"
+Copy the coordinates of an object to an area 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIcoords\fP pointer to an area to store the coordinates 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_height (const struct \fB_lv_obj_t\fP * obj)"
+Get the height of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the height in pixels 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_self_height (const struct \fB_lv_obj_t\fP * obj)"
+Get the height occupied by the "parts" of the widget\&. E\&.g\&. the height of all rows of a table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an objects 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the width of the virtually drawn content 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This size independent from the real size of the widget\&. It just tells how large the internal ("virtual") content is\&. 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_self_width (const struct \fB_lv_obj_t\fP * obj)"
+Get the width occupied by the "parts" of the widget\&. E\&.g\&. the width of all columns of a table\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an objects 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the width of the virtually drawn content 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This size independent from the real size of the widget\&. It just tells how large the internal ("virtual") content is\&. 
+.RE
+.PP
+
+.SS "void lv_obj_get_transformed_area (const struct \fB_lv_obj_t\fP * obj, \fBlv_area_t\fP * area, bool recursive, bool inv)"
+Transform an area using the angle and zoom style properties of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object whose style properties should be used 
+.br
+\fIarea\fP an area to transform, the result will be written back here too 
+.br
+\fIrecursive\fP consider the transformation properties of the parents too 
+.br
+\fIinv\fP do the inverse of the transformation (-angle and 1/zoom) 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_width (const struct \fB_lv_obj_t\fP * obj)"
+Get the width of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the width in pixels 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_x (const struct \fB_lv_obj_t\fP * obj)"
+Get the x coordinate of object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance of \fRobj\fP from the left side of its parent plus the parent's left padding 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+
+.PP
+Zero return value means the object is on the left padding of the parent, and not on the left edge\&. 
+
+.PP
+Scrolling of the parent doesn't change the returned value\&. 
+
+.PP
+The returned value is always the distance from the parent even if \fRobj\fP is positioned by a layout\&. 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_x2 (const struct \fB_lv_obj_t\fP * obj)"
+Get the x2 coordinate of object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance of \fRobj\fP from the right side of its parent plus the parent's right padding 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+
+.PP
+Zero return value means the object is on the right padding of the parent, and not on the right edge\&. 
+
+.PP
+Scrolling of the parent doesn't change the returned value\&. 
+
+.PP
+The returned value is always the distance from the parent even if \fRobj\fP is positioned by a layout\&. 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_x_aligned (const struct \fB_lv_obj_t\fP * obj)"
+Get the actually set x coordinate of object, i\&.e\&. the offset form the set alignment 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the set x coordinate 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_y (const struct \fB_lv_obj_t\fP * obj)"
+Get the y coordinate of object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance of \fRobj\fP from the top side of its parent plus the parent's top padding 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+
+.PP
+Zero return value means the object is on the top padding of the parent, and not on the top edge\&. 
+
+.PP
+Scrolling of the parent doesn't change the returned value\&. 
+
+.PP
+The returned value is always the distance from the parent even if \fRobj\fP is positioned by a layout\&. 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_y2 (const struct \fB_lv_obj_t\fP * obj)"
+Get the y2 coordinate of object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+distance of \fRobj\fP from the bottom side of its parent plus the parent's bottom padding 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The position of the object is recalculated only on the next redraw\&. To force coordinate recalculation call \fRlv_obj_update_layout(obj)\fP\&. 
+
+.PP
+Zero return value means the object is on the bottom padding of the parent, and not on the bottom edge\&. 
+
+.PP
+Scrolling of the parent doesn't change the returned value\&. 
+
+.PP
+The returned value is always the distance from the parent even if \fRobj\fP is positioned by a layout\&. 
+.RE
+.PP
+
+.SS "lv_coord_t lv_obj_get_y_aligned (const struct \fB_lv_obj_t\fP * obj)"
+Get the actually set y coordinate of object, i\&.e\&. the offset form the set alignment 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the set y coordinate 
+.RE
+.PP
+
+.SS "bool lv_obj_hit_test (struct \fB_lv_obj_t\fP * obj, const \fBlv_point_t\fP * point)"
+Hit-test an object given a particular point in screen space\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP object to hit-test 
+.br
+\fIpoint\fP screen-space point (absolute coordinate) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: if the object is considered under the point 
+.RE
+.PP
+
+.SS "void lv_obj_invalidate (const struct \fB_lv_obj_t\fP * obj)"
+Mark the object as invalid to redrawn its area 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+
+.SS "void lv_obj_invalidate_area (const struct \fB_lv_obj_t\fP * obj, const \fBlv_area_t\fP * area)"
+Mark an area of an object as invalid\&. The area will be truncated to the object's area and marked for redraw\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIarea\fP the area to redraw 
+.RE
+.PP
+
+.SS "bool lv_obj_is_layout_positioned (const struct \fB_lv_obj_t\fP * obj)"
+Test whether the and object is positioned by a layout or not 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object to test 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: positioned by a layout; false: not positioned by a layout 
+.RE
+.PP
+
+.SS "bool lv_obj_is_visible (const struct \fB_lv_obj_t\fP * obj)"
+Tell whether an object is visible (even partially) now or not 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: visible; false not visible (hidden, out of parent, on other screen, etc) 
+.RE
+.PP
+
+.SS "void lv_obj_mark_layout_as_dirty (struct \fB_lv_obj_t\fP * obj)"
+Mark the object for layout update\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object whose children needs to be updated 
+.RE
+.PP
+
+.SS "bool lv_obj_refr_size (struct \fB_lv_obj_t\fP * obj)"
+Recalculate the size of the object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: the size has been changed 
+.RE
+.PP
+
+.SS "bool lv_obj_refresh_self_size (struct \fB_lv_obj_t\fP * obj)"
+Handle if the size of the internal ("virtual") content of an object has changed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+false: nothing happened; true: refresh happened 
+.RE
+.PP
+
+.SS "void lv_obj_set_align (struct \fB_lv_obj_t\fP * obj, lv_align_t align)"
+Change the alignment of an object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object to align 
+.br
+\fIalign\fP type of alignment (see 'lv_align_t' enum) \fRLV_ALIGN_OUT_\&.\&.\&.\fP can't be used\&. 
+.RE
+.PP
+
+.SS "void lv_obj_set_content_height (struct \fB_lv_obj_t\fP * obj, lv_coord_t h)"
+Set the height reduced by the top and bottom padding and the border width\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIh\fP the height without paddings in pixels 
+.RE
+.PP
+
+.SS "void lv_obj_set_content_width (struct \fB_lv_obj_t\fP * obj, lv_coord_t w)"
+Set the width reduced by the left and right padding and the border width\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIw\fP the width without paddings in pixels 
+.RE
+.PP
+
+.SS "void lv_obj_set_ext_click_area (struct \fB_lv_obj_t\fP * obj, lv_coord_t size)"
+Set the size of an extended clickable area 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIsize\fP extended clickable area in all 4 directions [px] 
+.RE
+.PP
+
+.SS "void lv_obj_set_height (struct \fB_lv_obj_t\fP * obj, lv_coord_t h)"
+Set the height of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIh\fP the new height 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+possible values are: pixel simple set the size accordingly LV_SIZE_CONTENT set the size to involve all children in the given direction lv_pct(x) to set size in percentage of the parent's content area size (the size without paddings)\&. x should be in [0\&.\&.1000]% range 
+.RE
+.PP
+
+.SS "void lv_obj_set_layout (struct \fB_lv_obj_t\fP * obj, uint32_t layout)"
+Set a layout for an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIlayout\fP pointer to a layout descriptor to set 
+.RE
+.PP
+
+.SS "void lv_obj_set_pos (struct \fB_lv_obj_t\fP * obj, lv_coord_t x, lv_coord_t y)"
+Set the position of an object relative to the set alignment\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIx\fP new x coordinate 
+.br
+\fIy\fP new y coordinate 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+With default alignment it's the distance from the top left corner 
+
+.PP
+E\&.g\&. LV_ALIGN_CENTER alignment it's the offset from the center of the parent 
+
+.PP
+The position is interpreted on the content area of the parent 
+
+.PP
+The values can be set in pixel or in percentage of parent size with \fRlv_pct(v)\fP 
+.RE
+.PP
+
+.SS "void lv_obj_set_size (struct \fB_lv_obj_t\fP * obj, lv_coord_t w, lv_coord_t h)"
+Set the size of an object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIw\fP the new width 
+.br
+\fIh\fP the new height 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+possible values are: pixel simple set the size accordingly LV_SIZE_CONTENT set the size to involve all children in the given direction LV_SIZE_PCT(x) to set size in percentage of the parent's content area size (the size without paddings)\&. x should be in [0\&.\&.1000]% range 
+.RE
+.PP
+
+.SS "void lv_obj_set_width (struct \fB_lv_obj_t\fP * obj, lv_coord_t w)"
+Set the width of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIw\fP the new width 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+possible values are: pixel simple set the size accordingly LV_SIZE_CONTENT set the size to involve all children in the given direction lv_pct(x) to set size in percentage of the parent's content area size (the size without paddings)\&. x should be in [0\&.\&.1000]% range 
+.RE
+.PP
+
+.SS "void lv_obj_set_x (struct \fB_lv_obj_t\fP * obj, lv_coord_t x)"
+Set the x coordinate of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIx\fP new x coordinate 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+With default alignment it's the distance from the top left corner 
+
+.PP
+E\&.g\&. LV_ALIGN_CENTER alignment it's the offset from the center of the parent 
+
+.PP
+The position is interpreted on the content area of the parent 
+
+.PP
+The values can be set in pixel or in percentage of parent size with \fRlv_pct(v)\fP 
+.RE
+.PP
+
+.SS "void lv_obj_set_y (struct \fB_lv_obj_t\fP * obj, lv_coord_t y)"
+Set the y coordinate of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIy\fP new y coordinate 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+With default alignment it's the distance from the top left corner 
+
+.PP
+E\&.g\&. LV_ALIGN_CENTER alignment it's the offset from the center of the parent 
+
+.PP
+The position is interpreted on the content area of the parent 
+
+.PP
+The values can be set in pixel or in percentage of parent size with \fRlv_pct(v)\fP 
+.RE
+.PP
+
+.SS "void lv_obj_transform_point (const struct \fB_lv_obj_t\fP * obj, \fBlv_point_t\fP * p, bool recursive, bool inv)"
+Transform a point using the angle and zoom style properties of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object whose style properties should be used 
+.br
+\fIp\fP a point to transform, the result will be written back here too 
+.br
+\fIrecursive\fP consider the transformation properties of the parents too 
+.br
+\fIinv\fP do the inverse of the transformation (-angle and 1/zoom) 
+.RE
+.PP
+
+.SS "void lv_obj_update_layout (const struct \fB_lv_obj_t\fP * obj)"
+Update the layout of an object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object whose children needs to be updated 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

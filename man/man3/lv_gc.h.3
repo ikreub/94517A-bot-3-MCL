@@ -1,0 +1,154 @@
+.TH "include/liblvgl/misc/lv_gc.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_gc.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'lv_mem\&.h'\fP
+.br
+\fR#include 'lv_ll\&.h'\fP
+.br
+\fR#include 'lv_timer\&.h'\fP
+.br
+\fR#include 'lv_types\&.h'\fP
+.br
+\fR#include 'liblvgl/draw/lv_img_cache\&.h'\fP
+.br
+\fR#include 'liblvgl/draw/lv_draw_mask\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_obj_pos\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_IMG_CACHE_DEF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBLV_DISPATCH\fP(f,  t,  n)"
+.br
+.ti -1c
+.RI "#define \fBLV_DISPATCH_COND\fP(f,  t,  n,  m,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_DISPATCH00\fP(f,  t,  n)"
+.br
+.ti -1c
+.RI "#define \fBLV_DISPATCH01\fP(f,  t,  n)"
+.br
+.ti -1c
+.RI "#define \fBLV_DISPATCH10\fP(f,  t,  n)"
+.br
+.ti -1c
+.RI "#define \fBLV_DISPATCH11\fP(f,  t,  n)"
+.br
+.ti -1c
+.RI "#define \fBLV_ITERATE_ROOTS\fP(f)"
+.br
+.ti -1c
+.RI "#define \fBLV_DEFINE_ROOT\fP(root_type,  root_name)"
+.br
+.ti -1c
+.RI "#define \fBLV_ROOTS\fP   LV_ITERATE_ROOTS(LV_DEFINE_ROOT)"
+.br
+.ti -1c
+.RI "#define \fBLV_GC_ROOT\fP(x)"
+.br
+.ti -1c
+.RI "#define \fBLV_EXTERN_ROOT\fP(root_type,  root_name)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fB_lv_gc_clear_roots\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LV_DEFINE_ROOT( root_type,  root_name)"
+\fBValue:\fP
+.nf
+root_type root_name;
+.PP
+.fi
+
+.SS "#define LV_DISPATCH( f,  t,  n)"
+\fBValue:\fP
+.nf
+f(t, n)
+.PP
+.fi
+
+.SS "#define LV_DISPATCH00( f,  t,  n)"
+\fBValue:\fP
+.nf
+LV_DISPATCH(f, t, n)
+.PP
+.fi
+
+.SS "#define LV_DISPATCH11( f,  t,  n)"
+\fBValue:\fP
+.nf
+LV_DISPATCH(f, t, n)
+.PP
+.fi
+
+.SS "#define LV_DISPATCH_COND( f,  t,  n,  m,  v)"
+\fBValue:\fP
+.nf
+LV_CONCAT3(LV_DISPATCH, m, v)(f, t, n)
+.PP
+.fi
+
+.SS "#define LV_EXTERN_ROOT( root_type,  root_name)"
+\fBValue:\fP
+.nf
+extern root_type root_name;
+.PP
+.fi
+
+.SS "#define LV_GC_ROOT( x)"
+\fBValue:\fP
+.nf
+x
+.PP
+.fi
+
+.SS "#define LV_ITERATE_ROOTS( f)"
+\fBValue:\fP
+.nf
+LV_DISPATCH(f, lv_ll_t, _lv_timer_ll) /*Linked list to store the lv_timers*/                       \\
+LV_DISPATCH(f, lv_ll_t, _lv_disp_ll)  /*Linked list of display device*/                            \\
+LV_DISPATCH(f, lv_ll_t, _lv_indev_ll) /*Linked list of input device*/                              \\
+LV_DISPATCH(f, lv_ll_t, _lv_fsdrv_ll)                                                              \\
+LV_DISPATCH(f, lv_ll_t, _lv_anim_ll)                                                               \\
+LV_DISPATCH(f, lv_ll_t, _lv_group_ll)                                                              \\
+LV_DISPATCH(f, lv_ll_t, _lv_img_decoder_ll)                                                        \\
+LV_DISPATCH(f, lv_ll_t, _lv_obj_style_trans_ll)                                                    \\
+LV_DISPATCH(f, lv_layout_dsc_t *, _lv_layout_list)                                                 \\
+LV_DISPATCH_COND(f, _lv_img_cache_entry_t*, _lv_img_cache_array, LV_IMG_CACHE_DEF, 1)              \\
+LV_DISPATCH_COND(f, _lv_img_cache_entry_t, _lv_img_cache_single, LV_IMG_CACHE_DEF, 0)              \\
+LV_DISPATCH(f, lv_timer_t*, _lv_timer_act)                                                         \\
+LV_DISPATCH(f, lv_mem_buf_arr_t , lv_mem_buf)                                                      \\
+LV_DISPATCH_COND(f, _lv_draw_mask_radius_circle_dsc_arr_t , _lv_circle_cache, LV_DRAW_COMPLEX, 1)  \\
+LV_DISPATCH_COND(f, _lv_draw_mask_saved_arr_t , _lv_draw_mask_list, LV_DRAW_COMPLEX, 1)            \\
+LV_DISPATCH(f, void * , _lv_theme_default_styles)                                                  \\
+LV_DISPATCH(f, void * , _lv_theme_basic_styles)                                                  \\
+LV_DISPATCH_COND(f, uint8_t *, _lv_font_decompr_buf, LV_USE_FONT_COMPRESSED, 1)                    \\
+LV_DISPATCH(f, uint8_t * , _lv_grad_cache_mem)                                                     \\
+LV_DISPATCH(f, uint8_t * , _lv_style_custom_prop_flag_lookup_table)
+.PP
+.fi
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

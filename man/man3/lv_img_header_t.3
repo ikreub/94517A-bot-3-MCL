@@ -1,0 +1,36 @@
+.TH "lv_img_header_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lv_img_header_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_img_buf\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBcf\fP: 5"
+.br
+.ti -1c
+.RI "uint32_t \fBalways_zero\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBw\fP: 11"
+.br
+.ti -1c
+.RI "uint32_t \fBh\fP: 11"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The first 8 bit is very important to distinguish the different source types\&. For more info see \fRlv_img_get_src_type()\fP in lv_img\&.c On big endian systems the order is reversed so cf and always_zero must be at the end of the struct\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

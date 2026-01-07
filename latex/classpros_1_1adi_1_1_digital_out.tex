@@ -1,0 +1,82 @@
+\doxysection{pros::\+adi::\+Digital\+Out Class Reference}
+\hypertarget{classpros_1_1adi_1_1_digital_out}{}\label{classpros_1_1adi_1_1_digital_out}\index{pros::adi::DigitalOut@{pros::adi::DigitalOut}}
+
+
+Inherits \doxymbox{\hyperlink{classpros_1_1adi_1_1_port}{pros::\+adi::\+\+Port}}.
+
+
+
+Inherited by \doxymbox{\hyperlink{classpros_1_1adi_1_1_pneumatics}{pros::\+adi::\+\+Pneumatics}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_ga47e10f574fde55d8061c97630443b966}{Digital\+Out}} (std::\+uint8\+\_\+t adi\+\_\+port, bool init\+\_\+state=\doxymbox{\hyperlink{group__c-adi_gab811d8c6ff3a505312d3276590444289}{LOW}})
+\item 
+\doxymbox{\hyperlink{group__cpp-adi_gaae0fa73ea132352aae22262aad3e2aa3}{Digital\+Out}} (\doxymbox{\hyperlink{adi_8hpp_ab37033b41b12e194bac431882402e29e}{ext\+\_\+adi\+\_\+port\+\_\+pair\+\_\+t}} port\+\_\+pair, bool init\+\_\+state=\doxymbox{\hyperlink{group__c-adi_gab811d8c6ff3a505312d3276590444289}{LOW}})
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{classpros_1_1adi_1_1_digital_out_a597a9fbfbb21af10ce0947950cbc9003}{set\+\_\+value}} (std::\+int32\+\_\+t value) const
+\item 
+virtual \doxymbox{\hyperlink{adi_8hpp_aaf8032e34261234d519e439ef01ffd89}{ext\+\_\+adi\+\_\+port\+\_\+tuple\+\_\+t}} \doxymbox{\hyperlink{classpros_1_1adi_1_1_digital_out_a9a38443e7e91d87f9e56461cd8fd0440}{get\+\_\+port}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std::\+ostream \& \doxymbox{\hyperlink{group__cpp-adi_gae7ffd7cd24828c85360232f2513d4d51}{operator$<$$<$}} (std::\+ostream \&os, \doxymbox{\hyperlink{classpros_1_1adi_1_1_digital_out}{pros::\+adi::\+\+Digital\+Out}} \&digital\+\_\+out)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classpros_1_1adi_1_1_digital_out_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpros_1_1adi_1_1_digital_out_a9a38443e7e91d87f9e56461cd8fd0440}\index{pros::adi::DigitalOut@{pros::adi::DigitalOut}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!pros::adi::DigitalOut@{pros::adi::DigitalOut}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily \label{classpros_1_1adi_1_1_digital_out_a9a38443e7e91d87f9e56461cd8fd0440} 
+virtual \doxymbox{\hyperlink{adi_8hpp_aaf8032e34261234d519e439ef01ffd89}{ext\+\_\+adi\+\_\+port\+\_\+tuple\+\_\+t}} \doxymbox{\hyperlink{group__cpp-adi_ga9a38443e7e91d87f9e56461cd8fd0440}{pros::\+adi::\+\+Port::\+get\+\_\+port}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the port of the sensor.
+
+\begin{DoxyReturn}{Returns}
+returns a tuple of integer ports.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The parts of the tuple are \{smart port, adi port, second adi port (when applicable)\}.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Reimplemented from \doxymbox{\hyperlink{group__cpp-adi_ga9a38443e7e91d87f9e56461cd8fd0440}{pros::\+adi::\+\+Port}}.
+
+\Hypertarget{classpros_1_1adi_1_1_digital_out_a597a9fbfbb21af10ce0947950cbc9003}\index{pros::adi::DigitalOut@{pros::adi::DigitalOut}!set\_value@{set\_value}}
+\index{set\_value@{set\_value}!pros::adi::DigitalOut@{pros::adi::DigitalOut}}
+\doxysubsubsection{\texorpdfstring{set\_value()}{set\_value()}}
+{\footnotesize\ttfamily \label{classpros_1_1adi_1_1_digital_out_a597a9fbfbb21af10ce0947950cbc9003} 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-adi_ga597a9fbfbb21af10ce0947950cbc9003}{pros::\+adi::\+\+Port::\+set\+\_\+value}} (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{value}{}\end{DoxyParamCaption}) const}
+
+Sets the digital value (1 or 0) of a pin.
+
+Inherited from ADIPort::\+set\+\_\+value.
+
+This function uses the following values of errno when an error state is reached:\+ EADDRINUSE -\/ The port is not configured as a digital output (e.\+g. the port has been reconfigured)
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to set the ADI port to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+pros/\+\doxymbox{\hyperlink{adi_8hpp}{adi.\+hpp}}\end{DoxyCompactItemize}

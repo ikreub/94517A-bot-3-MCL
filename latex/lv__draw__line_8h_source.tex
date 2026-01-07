@@ -1,0 +1,63 @@
+\doxysection{lv\+\_\+draw\+\_\+line.\+h}
+\hypertarget{lv__draw__line_8h_source}{}\label{lv__draw__line_8h_source}\index{include/liblvgl/draw/lv\_draw\_line.h@{include/liblvgl/draw/lv\_draw\_line.h}}
+\doxymbox{\hyperlink{lv__draw__line_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_LINE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_LINE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__color_8h}{liblvgl/misc/lv\_color.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__area_8h}{liblvgl/misc/lv\_area.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__style_8h}{liblvgl/misc/lv\_style.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ lv\_color\_t\ color;}
+\DoxyCodeLine{00030\ \ \ \ \ lv\_coord\_t\ width;}
+\DoxyCodeLine{00031\ \ \ \ \ lv\_coord\_t\ dash\_width;}
+\DoxyCodeLine{00032\ \ \ \ \ lv\_coord\_t\ dash\_gap;}
+\DoxyCodeLine{00033\ \ \ \ \ lv\_opa\_t\ opa;}
+\DoxyCodeLine{00034\ \ \ \ \ lv\_blend\_mode\_t\ blend\_mode\ \ :\ 2;}
+\DoxyCodeLine{00035\ \ \ \ \ uint8\_t\ round\_start\ :\ 1;}
+\DoxyCodeLine{00036\ \ \ \ \ uint8\_t\ round\_end\ \ \ :\ 1;}
+\DoxyCodeLine{00037\ \ \ \ \ uint8\_t\ raw\_end\ \ \ \ \ :\ 1;\ \ \ \ \textcolor{comment}{/*Do\ not\ bother\ with\ perpendicular\ line\ ending\ if\ it's\ not\ visible\ for\ any\ reason*/}}
+\DoxyCodeLine{00038\ \}\ \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\_draw\_line\_dsc\_t}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keywordtype}{void}\ lv\_draw\_line\_dsc\_init(\doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\_draw\_line\_dsc\_t}}\ *\ dsc);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__draw__line_8h_a4b2ccf7a8813b32d649b444d25f6942e}{lv\_draw\_line}}(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\_draw\_line\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ point1,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ point2);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00064\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_LINE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

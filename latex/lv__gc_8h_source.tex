@@ -1,0 +1,100 @@
+\doxysection{lv\+\_\+gc.\+h}
+\hypertarget{lv__gc_8h_source}{}\label{lv__gc_8h_source}\index{include/liblvgl/misc/lv\_gc.h@{include/liblvgl/misc/lv\_gc.h}}
+\doxymbox{\hyperlink{lv__gc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_GC\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_GC\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__mem_8h}{lv\_mem.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__ll_8h}{lv\_ll.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__timer_8h}{lv\_timer.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__types_8h}{lv\_types.h}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__img__cache_8h}{liblvgl/draw/lv\_img\_cache.h}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__mask_8h}{liblvgl/draw/lv\_draw\_mask.h}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__obj__pos_8h}{liblvgl/core/lv\_obj\_pos.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#if\ LV\_IMG\_CACHE\_DEF\_SIZE}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#\ \ \ \ define\ LV\_IMG\_CACHE\_DEF\ \ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#\ \ \ \ define\ LV\_IMG\_CACHE\_DEF\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LV\_DISPATCH(f,\ t,\ n)\ \ \ \ \ \ \ \ \ \ \ \ f(t,\ n)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LV\_DISPATCH\_COND(f,\ t,\ n,\ m,\ v)\ LV\_CONCAT3(LV\_DISPATCH,\ m,\ v)(f,\ t,\ n)}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LV\_DISPATCH00(f,\ t,\ n)\ \ \ \ \ \ \ \ \ \ LV\_DISPATCH(f,\ t,\ n)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LV\_DISPATCH01(f,\ t,\ n)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LV\_DISPATCH10(f,\ t,\ n)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ LV\_DISPATCH11(f,\ t,\ n)\ \ \ \ \ \ \ \ \ \ LV\_DISPATCH(f,\ t,\ n)}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LV\_ITERATE\_ROOTS(f)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_timer\_ll)\ }\textcolor{comment}{/*Linked\ list\ to\ store\ the\ lv\_timers*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_disp\_ll)\ \ }\textcolor{comment}{/*Linked\ list\ of\ display\ device*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_indev\_ll)\ }\textcolor{comment}{/*Linked\ list\ of\ input\ device*/}\textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_fsdrv\_ll)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_anim\_ll)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_group\_ll)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_img\_decoder\_ll)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_ll\_t,\ \_lv\_obj\_style\_trans\_ll)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_layout\_dsc\_t\ *,\ \_lv\_layout\_list)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH\_COND(f,\ \_lv\_img\_cache\_entry\_t*,\ \_lv\_img\_cache\_array,\ LV\_IMG\_CACHE\_DEF,\ 1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH\_COND(f,\ \_lv\_img\_cache\_entry\_t,\ \_lv\_img\_cache\_single,\ LV\_IMG\_CACHE\_DEF,\ 0)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_timer\_t*,\ \_lv\_timer\_act)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ lv\_mem\_buf\_arr\_t\ ,\ lv\_mem\_buf)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH\_COND(f,\ \_lv\_draw\_mask\_radius\_circle\_dsc\_arr\_t\ ,\ \_lv\_circle\_cache,\ LV\_DRAW\_COMPLEX,\ 1)\ \ \(\backslash\)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH\_COND(f,\ \_lv\_draw\_mask\_saved\_arr\_t\ ,\ \_lv\_draw\_mask\_list,\ LV\_DRAW\_COMPLEX,\ 1)\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ void\ *\ ,\ \_lv\_theme\_default\_styles)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ void\ *\ ,\ \_lv\_theme\_basic\_styles)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH\_COND(f,\ uint8\_t\ *,\ \_lv\_font\_decompr\_buf,\ LV\_USE\_FONT\_COMPRESSED,\ 1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ uint8\_t\ *\ ,\ \_lv\_grad\_cache\_mem)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ LV\_DISPATCH(f,\ uint8\_t\ *\ ,\ \_lv\_style\_custom\_prop\_flag\_lookup\_table)}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ LV\_DEFINE\_ROOT(root\_type,\ root\_name)\ root\_type\ root\_name;}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ LV\_ROOTS\ LV\_ITERATE\_ROOTS(LV\_DEFINE\_ROOT)}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#if\ LV\_ENABLE\_GC\ ==\ 1}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#if\ LV\_MEM\_CUSTOM\ !=\ 1}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#error\ "{}GC\ requires\ CUSTOM\_MEM"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_MEM\_CUSTOM*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ LV\_GC\_INCLUDE}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#else\ \ }\textcolor{comment}{/*LV\_ENABLE\_GC*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ LV\_GC\_ROOT(x)\ x}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ LV\_EXTERN\_ROOT(root\_type,\ root\_name)\ extern\ root\_type\ root\_name;}}
+\DoxyCodeLine{00076\ LV\_ITERATE\_ROOTS(LV\_EXTERN\_ROOT)}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_ENABLE\_GC*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \_lv\_gc\_clear\_roots(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00094\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GC\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

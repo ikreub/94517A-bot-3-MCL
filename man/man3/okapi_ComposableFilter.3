@@ -1,0 +1,92 @@
+.TH "okapi::ComposableFilter" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ComposableFilter
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::Filter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBComposableFilter\fP (const std::initializer_list< std::shared_ptr< \fBFilter\fP > > &ilist)"
+.br
+.ti -1c
+.RI "double \fBfilter\fP (double ireading) override"
+.br
+.ti -1c
+.RI "double \fBgetOutput\fP () const override"
+.br
+.ti -1c
+.RI "virtual void \fBaddFilter\fP (std::shared_ptr< \fBFilter\fP > ifilter)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< std::shared_ptr< \fBFilter\fP > > \fBfilters\fP"
+.br
+.ti -1c
+.RI "double \fBoutput\fP = 0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ComposableFilter::ComposableFilter (const std::initializer_list< std::shared_ptr< \fBFilter\fP > > & ilist)"
+A composable filter is a filter that consists of other filters\&. The input signal is passed through each filter in sequence\&. The final output of this filter is the output of the last filter\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilist\fP The filters to use in sequence\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual void okapi::ComposableFilter::addFilter (std::shared_ptr< \fBFilter\fP > ifilter)\fR [virtual]\fP"
+Adds a filter to the end of the sequence\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIifilter\fP The filter to add\&. 
+.RE
+.PP
+
+.SS "double okapi::ComposableFilter::filter (double ireading)\fR [override]\fP, \fR [virtual]\fP"
+Filters a value\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireading\fP A new measurement\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The filtered result\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+.SS "double okapi::ComposableFilter::getOutput () const\fR [override]\fP, \fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The previous output from filter\&. 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

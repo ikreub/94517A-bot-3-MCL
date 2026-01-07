@@ -1,0 +1,245 @@
+.TH "squiggles::SplineGenerator" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+squiggles::SplineGenerator
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBGeneratedPoint\fP"
+.br
+.ti -1c
+.RI "struct \fBGeneratedVector\fP"
+.br
+.ti -1c
+.RI "struct \fBConstrainedState\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSplineGenerator\fP (\fBConstraints\fP iconstraints, std::shared_ptr< \fBPhysicalModel\fP > imodel=std::make_shared< \fBPassthroughModel\fP >(), double idt=0\&.1)"
+.br
+.ti -1c
+.RI "std::vector< \fBProfilePoint\fP > \fBgenerate\fP (std::vector< \fBPose\fP > iwaypoints, bool fast=false)"
+.br
+.ti -1c
+.RI "std::vector< \fBProfilePoint\fP > \fBgenerate\fP (std::initializer_list< \fBPose\fP > iwaypoints, bool fast=false)"
+.br
+.ti -1c
+.RI "std::vector< \fBProfilePoint\fP > \fBgenerate\fP (std::vector< \fBControlVector\fP > iwaypoints)"
+.br
+.ti -1c
+.RI "std::vector< \fBProfilePoint\fP > \fBgenerate\fP (std::initializer_list< \fBControlVector\fP > iwaypoints)"
+.br
+.ti -1c
+.RI "std::vector< \fBGeneratedVector\fP > \fBgen_single_raw_path\fP (\fBControlVector\fP start, \fBControlVector\fP end, int duration, double start_vel, double end_vel)"
+.br
+.ti -1c
+.RI "std::vector< \fBGeneratedPoint\fP > \fBgradient_descent\fP (\fBControlVector\fP &start, \fBControlVector\fP &end, bool fast)"
+.br
+.ti -1c
+.RI "template<class Iter> std::vector< \fBProfilePoint\fP > \fB_generate\fP (Iter start, Iter end, bool fast)"
+.br
+.ti -1c
+.RI "std::vector< \fBGeneratedPoint\fP > \fBgen_raw_path\fP (\fBControlVector\fP &start, \fBControlVector\fP &end, bool fast)"
+.br
+.ti -1c
+.RI "std::vector< \fBProfilePoint\fP > \fBparameterize\fP (const \fBControlVector\fP start, const \fBControlVector\fP end, const std::vector< \fBGeneratedPoint\fP > &raw_path, const double preferred_start_vel, const double preferred_end_vel, const double start_time)"
+.br
+.ti -1c
+.RI "std::vector< \fBProfilePoint\fP > \fBintegrate_constrained_states\fP (std::vector< \fBConstrainedState\fP > constrainedStates)"
+.br
+.ti -1c
+.RI "\fBProfilePoint\fP \fBget_point_at_time\fP (const \fBControlVector\fP start, const \fBControlVector\fP end, std::vector< \fBProfilePoint\fP > points, double t)"
+.br
+.ti -1c
+.RI "\fBProfilePoint\fP \fBlerp_point\fP (\fBQuinticPolynomial\fP x_qp, \fBQuinticPolynomial\fP y_qp, \fBProfilePoint\fP start, \fBProfilePoint\fP end, double i)"
+.br
+.ti -1c
+.RI "\fBQuinticPolynomial\fP \fBget_x_spline\fP (const \fBControlVector\fP start, const \fBControlVector\fP end, const double duration)"
+.br
+.ti -1c
+.RI "\fBQuinticPolynomial\fP \fBget_y_spline\fP (const \fBControlVector\fP start, const \fBControlVector\fP end, const double duration)"
+.br
+.ti -1c
+.RI "void \fBenforce_accel_lims\fP (\fBConstrainedState\fP *state)"
+.br
+.ti -1c
+.RI "void \fBforward_pass\fP (\fBConstrainedState\fP *predecessor, \fBConstrainedState\fP *successor)"
+.br
+.ti -1c
+.RI "void \fBbackward_pass\fP (\fBConstrainedState\fP *predecessor, \fBConstrainedState\fP *successor)"
+.br
+.ti -1c
+.RI "double \fBvf\fP (double vi, double a, double ds)"
+.br
+.ti -1c
+.RI "double \fBai\fP (double \fBvf\fP, double vi, double s)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const double \fBK_DEFAULT_VEL\fP = 1\&.0"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static constexpr double \fBK_EPSILON\fP = 1e\-5"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBConstraints\fP \fBconstraints\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBPhysicalModel\fP > \fBmodel\fP"
+.br
+.ti -1c
+.RI "double \fBdt\fP"
+.br
+.ti -1c
+.RI "const int \fBT_MIN\fP = 2"
+.br
+.ti -1c
+.RI "const int \fBT_MAX\fP = 15"
+.br
+.ti -1c
+.RI "const int \fBMAX_GRAD_DESCENT_ITERATIONS\fP = 10"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "squiggles::SplineGenerator::SplineGenerator (\fBConstraints\fP iconstraints, std::shared_ptr< \fBPhysicalModel\fP > imodel = \fRstd::make_shared< \fBPassthroughModel\fP >()\fP, double idt = \fR0\&.1\fP)"
+Generates curves that match the given motion constraints\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiconstraints\fP The maximum allowable values for the robot's motion\&. 
+.br
+\fIimodel\fP The robot's physical characteristics and constraints 
+.br
+\fIidt\fP The difference in time in seconds between each state for the generated paths\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<class Iter> std::vector< \fBProfilePoint\fP > squiggles::SplineGenerator::_generate (Iter start, Iter end, bool fast)"
+The actual function called by the "generate" functions\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart\fP An iterator pointing to the first \fBControlVector\fP in the path 
+.br
+\fIend\fP An iterator pointting to the last \fBControlVector\fP in the path
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The points from each path concatenated together 
+.RE
+.PP
+
+.SS "double squiggles::SplineGenerator::ai (double vf, double vi, double s)"
+Calculates the initial acceleration needed to match the segments' velocities\&. 
+.SS "void squiggles::SplineGenerator::backward_pass (\fBConstrainedState\fP * predecessor, \fBConstrainedState\fP * successor)"
+Imposes the motion profile constraints on a segment of the path from the perspective of iterating backwards through the path\&. 
+.SS "void squiggles::SplineGenerator::enforce_accel_lims (\fBConstrainedState\fP * state)"
+Applies the general constraints and model constraints to the given state\&. 
+.SS "void squiggles::SplineGenerator::forward_pass (\fBConstrainedState\fP * predecessor, \fBConstrainedState\fP * successor)"
+Imposes the motion profile constraints on a segment of the path from the perspective of iterating forwards through the path\&. 
+.SS "std::vector< \fBGeneratedPoint\fP > squiggles::SplineGenerator::gen_raw_path (\fBControlVector\fP & start, \fBControlVector\fP & end, bool fast)"
+Performs the "naive" generation step\&.
+
+.PP
+This step calculates the spline polynomials that fit within the \fBSplineGenerator\fP's acceleration and jerk constraints and returns the points that form the curve\&. 
+.SS "std::vector< \fBProfilePoint\fP > squiggles::SplineGenerator::generate (std::vector< \fBControlVector\fP > iwaypoints)"
+Creates a motion profiled path between the given waypoints\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiwaypoints\fP The list of vectors that the robot should reach along the path\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A series of robot states defining a path between the vectors\&. 
+.RE
+.PP
+
+.SS "std::vector< \fBProfilePoint\fP > squiggles::SplineGenerator::generate (std::vector< \fBPose\fP > iwaypoints, bool fast = \fRfalse\fP)"
+Creates a motion profiled path between the given waypoints\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiwaypoints\fP The list of poses that the robot should reach along the path\&. 
+.br
+\fIfast\fP If true, the path optimization process will stop as soon as the constraints are met\&. If false, the optimizer will find the smoothest possible path between the points\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A series of robot states defining a path between the poses\&. 
+.RE
+.PP
+
+.SS "\fBProfilePoint\fP squiggles::SplineGenerator::get_point_at_time (const \fBControlVector\fP start, const \fBControlVector\fP end, std::vector< \fBProfilePoint\fP > points, double t)"
+Finds the \fBProfilePoint\fP on the profiled curve for the given timestamp\&.
+
+.PP
+This with interpolate between points on the curve if a point with an exact matching timestamp is not found\&. 
+.SS "\fBQuinticPolynomial\fP squiggles::SplineGenerator::get_x_spline (const \fBControlVector\fP start, const \fBControlVector\fP end, const double duration)"
+Returns the spline curve for the given control vectors and path duration\&. 
+.SS "std::vector< \fBGeneratedPoint\fP > squiggles::SplineGenerator::gradient_descent (\fBControlVector\fP & start, \fBControlVector\fP & end, bool fast)"
+Runs a Gradient Descent algorithm to minimize the linear acceleration, linear jerk, and curvature for the generated path\&.
+
+.PP
+This is used when there is not a start/end velocity specified for a given path\&. 
+.SS "std::vector< \fBProfilePoint\fP > squiggles::SplineGenerator::integrate_constrained_states (std::vector< \fBConstrainedState\fP > constrainedStates)"
+Finds the new timestamps for each point along the curve based on the motion profile\&. 
+.SS "\fBProfilePoint\fP squiggles::SplineGenerator::lerp_point (\fBQuinticPolynomial\fP x_qp, \fBQuinticPolynomial\fP y_qp, \fBProfilePoint\fP start, \fBProfilePoint\fP end, double i)"
+Linearly interpolates between points along the profiled curve\&. 
+.SS "std::vector< \fBProfilePoint\fP > squiggles::SplineGenerator::parameterize (const \fBControlVector\fP start, const \fBControlVector\fP end, const std::vector< \fBGeneratedPoint\fP > & raw_path, const double preferred_start_vel, const double preferred_end_vel, const double start_time)"
+Imposes a linear motion profile on the raw path\&.
+
+.PP
+This step creates the velocity and acceleration values to command the robot at each point along the curve\&. 
+.SS "double squiggles::SplineGenerator::vf (double vi, double a, double ds)"
+Calculates the final velocity for a path segment\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBConstraints\fP squiggles::SplineGenerator::constraints\fR [protected]\fP"
+The maximum allowable values for the robot's motion\&. 
+.SS "double squiggles::SplineGenerator::dt\fR [protected]\fP"
+The time difference between each value in the generated path\&. 
+.SS "const double squiggles::SplineGenerator::K_DEFAULT_VEL = 1\&.0"
+This is factor is used to create a "dummy velocity" in the initial path generation step one or both of the preferred start or end velocities is zero\&. The velocity will be replaced with the preferred start/end velocity in parameterization but a nonzero velocity is needed for the spline calculation\&.
+
+.PP
+This was 1\&.2 in the WPILib example but that large of a value seems to create wild paths, 0\&.12 worked better in testing with VEX-sized paths\&. 
+.SS "double squiggles::SplineGenerator::K_EPSILON = 1e\-5\fR [static]\fP, \fR [constexpr]\fP"
+Values that are closer to each other than this value are considered equal\&. 
+.SS "std::shared_ptr<\fBPhysicalModel\fP> squiggles::SplineGenerator::model\fR [protected]\fP"
+Defines the physical structure of the robot and translates the linear kinematics to wheel velocities\&. 
+.SS "const int squiggles::SplineGenerator::T_MIN = 2\fR [protected]\fP"
+The minimum and maximum durations for a path to take\&. A larger range allows for longer possible paths at the expense of a longer path generation time\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

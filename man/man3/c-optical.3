@@ -1,0 +1,477 @@
+.TH "c-optical" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+c-optical \- VEX Optical Sensor C API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBoptical\&.h\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBoptical_rgb_s\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_raw_s\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_gesture_s\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_rgb_s_t\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_raw_s_t\fP"
+.br
+.ti -1c
+.RI "struct \fBoptical_gesture_s_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBoptical_direction_e\fP \fBoptical_direction_e_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBoptical_rgb_s\fP \fBoptical_rgb_s_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBoptical_raw_s\fP \fBoptical_raw_s_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBoptical_gesture_s\fP \fBoptical_gesture_s_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBoptical_direction_e\fP { \fBNO_GESTURE\fP = 0, \fBUP\fP = 1, \fBDOWN\fP = 2, \fBRIGHT\fP = 3, \fBLEFT\fP = 4, \fBERROR\fP = PROS_ERR }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fBoptical_get_hue\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBoptical_get_saturation\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBoptical_get_brightness\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_get_proximity\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_set_led_pwm\fP (uint8_t port, uint8_t value)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_get_led_pwm\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBoptical_rgb_s_t\fP \fBoptical_get_rgb\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBoptical_raw_s_t\fP \fBoptical_get_raw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "optical_direction_e_t \fBoptical_get_gesture\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBoptical_gesture_s_t\fP \fBoptical_get_gesture_raw\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_enable_gesture\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_disable_gesture\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "double \fBoptical_get_integration_time\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBoptical_set_integration_time\fP (uint8_t port, double time)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBoptical_direction_e\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIUP \fP
+The direction indicating an upward gesture\&. 
+.TP
+\f(BIDOWN \fP
+The direction indicating a downward gesture\&. 
+.TP
+\f(BIRIGHT \fP
+The direction indicating a rightward gesture\&. 
+.TP
+\f(BILEFT \fP
+The direction indicating a leftward gesture\&. 
+.SH "Function Documentation"
+.PP 
+.SS "int32_t optical_disable_gesture (uint8_t port)"
+Disable gesture detection on the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t optical_enable_gesture (uint8_t port)"
+Enable gesture detection on the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double optical_get_brightness (uint8_t port)"
+Get the detected color brightness
+
+.PP
+This is not available if gestures are being detected\&. Brightness has a range of 0 to 1\&.0
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+brightness value if the operation was successful or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "optical_direction_e_t optical_get_gesture (uint8_t port)"
+Get the most recent gesture data from the sensor
+
+.PP
+Gestures will be cleared after 500mS
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+gesture value if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBoptical_gesture_s_t\fP optical_get_gesture_raw (uint8_t port)"
+Get the most recent raw gesture data from the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+gesture value if the operation was successful or an \fBoptical_gesture_s_t\fP with all fields set to PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double optical_get_hue (uint8_t port)"
+Get the detected color hue
+
+.PP
+This is not available if gestures are being detected\&. Hue has a range of 0 to 359\&.999
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+hue value if the operation was successful or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double optical_get_integration_time (uint8_t port)"
+Get integration time (update rate) of the optical sensor in milliseconds, with minimum time being
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Integration time in milliseconds if the operation is successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "int32_t optical_get_led_pwm (uint8_t port)"
+Get the pwm value of the White LED
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+LED pwm value that ranges from 0 to 100 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t optical_get_proximity (uint8_t port)"
+Get the detected proximity value
+
+.PP
+This is not available if gestures are being detected\&. proximity has a range of 0 to 255\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+poximity value if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBoptical_raw_s_t\fP optical_get_raw (uint8_t port)"
+Get the raw, unprocessed RGBC data from the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+raw rgb value if the operation was successful or an \fBoptical_raw_s_t\fP with all fields set to PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "\fBoptical_rgb_s_t\fP optical_get_rgb (uint8_t port)"
+Get the processed RGBC data from the sensor
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+rgb value if the operation was successful or an \fBoptical_rgb_s_t\fP with all fields set to PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double optical_get_saturation (uint8_t port)"
+Get the detected color saturation
+
+.PP
+This is not available if gestures are being detected\&. Saturation has a range of 0 to 1\&.0
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+saturation value if the operation was successful or PROS_ERR_F if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t optical_set_integration_time (uint8_t port, double time)"
+Set integration time (update rate) of the optical sensor in milliseconds\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.br
+\fItime\fP The desired integration time in milliseconds 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR if the operation failed, setting errno\&. 
+.RE
+.PP
+
+.SS "int32_t optical_set_led_pwm (uint8_t port, uint8_t value)"
+Set the pwm value of the White LED
+
+.PP
+value that ranges from 0 to 100
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an Optical Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 Optical Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation is successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

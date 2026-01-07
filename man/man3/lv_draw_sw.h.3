@@ -1,0 +1,84 @@
+.TH "include/liblvgl/draw/sw/lv_draw_sw.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/draw/sw/lv_draw_sw.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'lv_draw_sw_blend\&.h'\fP
+.br
+\fR#include 'liblvgl/draw/lv_draw\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_area\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_color\&.h'\fP
+.br
+\fR#include 'liblvgl/hal/lv_hal_disp\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlv_draw_sw_ctx_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_draw_sw_layer_ctx_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlv_draw_sw_init_ctx\fP (struct \fB_lv_disp_drv_t\fP *drv, lv_draw_ctx_t *draw_ctx)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_deinit_ctx\fP (struct \fB_lv_disp_drv_t\fP *drv, lv_draw_ctx_t *draw_ctx)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_wait_for_finish\fP (lv_draw_ctx_t *draw_ctx)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_arc\fP (lv_draw_ctx_t *draw_ctx, const \fBlv_draw_arc_dsc_t\fP *dsc, const \fBlv_point_t\fP *center, uint16_t radius, uint16_t start_angle, uint16_t end_angle)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_rect\fP (lv_draw_ctx_t *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *dsc, const \fBlv_area_t\fP *coords)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_bg\fP (lv_draw_ctx_t *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *dsc, const \fBlv_area_t\fP *coords)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_letter\fP (lv_draw_ctx_t *draw_ctx, const \fBlv_draw_label_dsc_t\fP *dsc, const \fBlv_point_t\fP *pos_p, uint32_t letter)"
+.br
+.ti -1c
+.RI "LV_ATTRIBUTE_FAST_MEM void \fBlv_draw_sw_img_decoded\fP (struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_img_dsc_t\fP *draw_dsc, const \fBlv_area_t\fP *coords, const uint8_t *src_buf, lv_img_cf_t cf)"
+.br
+.ti -1c
+.RI "LV_ATTRIBUTE_FAST_MEM void \fBlv_draw_sw_line\fP (struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_line_dsc_t\fP *dsc, const \fBlv_point_t\fP *point1, const \fBlv_point_t\fP *point2)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_polygon\fP (struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *draw_dsc, const \fBlv_point_t\fP *points, uint16_t point_cnt)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_buffer_copy\fP (lv_draw_ctx_t *draw_ctx, void *dest_buf, lv_coord_t dest_stride, const \fBlv_area_t\fP *dest_area, void *src_buf, lv_coord_t src_stride, const \fBlv_area_t\fP *src_area)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_transform\fP (lv_draw_ctx_t *draw_ctx, const \fBlv_area_t\fP *dest_area, const void *src_buf, lv_coord_t src_w, lv_coord_t src_h, lv_coord_t src_stride, const \fBlv_draw_img_dsc_t\fP *draw_dsc, lv_img_cf_t cf, lv_color_t *cbuf, lv_opa_t *abuf)"
+.br
+.ti -1c
+.RI "struct \fB_lv_draw_layer_ctx_t\fP * \fBlv_draw_sw_layer_create\fP (struct \fB_lv_draw_ctx_t\fP *draw_ctx, lv_draw_layer_ctx_t *layer_ctx, lv_draw_layer_flags_t flags)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_layer_adjust\fP (struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, lv_draw_layer_flags_t flags)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_layer_blend\fP (struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, const \fBlv_draw_img_dsc_t\fP *draw_dsc)"
+.br
+.ti -1c
+.RI "void \fBlv_draw_sw_layer_destroy\fP (lv_draw_ctx_t *draw_ctx, lv_draw_layer_ctx_t *layer_ctx)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

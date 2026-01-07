@@ -1,0 +1,49 @@
+\doxysection{QTorque.\+hpp}
+\hypertarget{_q_torque_8hpp_source}{}\label{_q_torque_8hpp_source}\index{include/okapi/api/units/QTorque.hpp@{include/okapi/api/units/QTorque.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ code\ is\ a\ modified\ version\ of\ Benjamin\ Jurke's\ work\ in\ 2015.\ You\ can\ read\ his\ blog\ post}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ here:}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ https://benjaminjurke.com/content/articles/2015/compile-\/time-\/numerical-\/unit-\/dimension-\/checking/}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QForce.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QLength.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/RQuantity.hpp"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00017\ QUANTITY\_TYPE(1,\ 2,\ -\/2,\ 0,\ QTorque)}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{constexpr}\ QTorque\ newtonMeter\ =\ newton\ *\ meter;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{constexpr}\ QTorque\ footPound\ =\ 1.355817948\ *\ newtonMeter;}
+\DoxyCodeLine{00021\ \textcolor{keyword}{constexpr}\ QTorque\ inchPound\ =\ 0.083333333\ *\ footPound;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keyword}{namespace\ }literals\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{constexpr}\ QTorque\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_nM(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{return}\ QTorque(x);}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{constexpr}\ QTorque\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_nM(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ x)\ \{}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordflow}{return}\ QTorque(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(x));}
+\DoxyCodeLine{00029\ \}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{constexpr}\ QTorque\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_inLb(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(x)\ *\ inchPound;}
+\DoxyCodeLine{00032\ \}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{constexpr}\ QTorque\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_inLb(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ x)\ \{}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(x)\ *\ inchPound;}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{constexpr}\ QTorque\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_ftLb(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ x)\ \{}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(x)\ *\ footPound;}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{constexpr}\ QTorque\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_ftLb(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ x)\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(x)\ *\ footPound;}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ \}\ \textcolor{comment}{//\ namespace\ literals}}
+\DoxyCodeLine{00043\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

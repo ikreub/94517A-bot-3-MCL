@@ -1,0 +1,91 @@
+.TH "okapi::AverageFilter< n >" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AverageFilter< n >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <averageFilter\&.hpp>\fP
+.PP
+Inherits \fBokapi::Filter\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAverageFilter\fP ()=default"
+.br
+.ti -1c
+.RI "double \fBfilter\fP (const double ireading) override"
+.br
+.ti -1c
+.RI "double \fBgetOutput\fP () const override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::array< double, n > \fBdata\fP {0}"
+.br
+.ti -1c
+.RI "std::size_t \fBindex\fP = 0"
+.br
+.ti -1c
+.RI "double \fBoutput\fP = 0"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<std::size_t n>
+.br
+class okapi::AverageFilter< n >"A filter which returns the average of a list of values\&.
+
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIn\fP number of taps in the filter 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<std::size_t n> \fBokapi::AverageFilter\fP< n >::AverageFilter ()\fR [default]\fP"
+Averaging filter\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "template<std::size_t n> double \fBokapi::AverageFilter\fP< n >::filter (const double ireading)\fR [inline]\fP, \fR [override]\fP, \fR [virtual]\fP"
+Filters a value, like a sensor reading\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIireading\fP new measurement 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+filtered result 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+.SS "template<std::size_t n> double \fBokapi::AverageFilter\fP< n >::getOutput () const\fR [inline]\fP, \fR [override]\fP, \fR [virtual]\fP"
+Returns the previous output from filter\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the previous output from filter 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::Filter\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,111 @@
+\doxysection{okapi::\+Odom\+Math Class Reference}
+\hypertarget{classokapi_1_1_odom_math}{}\label{classokapi_1_1_odom_math}\index{okapi::OdomMath@{okapi::OdomMath}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static QLength \doxymbox{\hyperlink{classokapi_1_1_odom_math_af4c0b9754b7203779154942e3ba5fe84}{compute\+Distance\+To\+Point}} (const \doxymbox{\hyperlink{structokapi_1_1_point}{Point}} \&ipoint, const \doxymbox{\hyperlink{structokapi_1_1_odom_state}{Odom\+State}} \&istate)
+\item 
+static QAngle \doxymbox{\hyperlink{classokapi_1_1_odom_math_a9b15d46abbc87c2fa0b96f915d893b72}{compute\+Angle\+To\+Point}} (const \doxymbox{\hyperlink{structokapi_1_1_point}{Point}} \&ipoint, const \doxymbox{\hyperlink{structokapi_1_1_odom_state}{Odom\+State}} \&istate)
+\item 
+static std::\+pair$<$ QLength, QAngle $>$ \doxymbox{\hyperlink{classokapi_1_1_odom_math_a519f40c11e774ba15680879c23877f05}{compute\+Distance\+And\+Angle\+To\+Point}} (const \doxymbox{\hyperlink{structokapi_1_1_point}{Point}} \&ipoint, const \doxymbox{\hyperlink{structokapi_1_1_odom_state}{Odom\+State}} \&istate)
+\item 
+static QAngle \doxymbox{\hyperlink{classokapi_1_1_odom_math_a489d0b1dbb76e626ac66f9696c30b54b}{constrain\+Angle360}} (const QAngle \&angle)
+\item 
+static QAngle \doxymbox{\hyperlink{classokapi_1_1_odom_math_a353a68717ff506dd93165252c3b60617}{constrain\+Angle180}} (const QAngle \&angle)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_odom_math_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_odom_math_a9b15d46abbc87c2fa0b96f915d893b72}\index{okapi::OdomMath@{okapi::OdomMath}!computeAngleToPoint@{computeAngleToPoint}}
+\index{computeAngleToPoint@{computeAngleToPoint}!okapi::OdomMath@{okapi::OdomMath}}
+\doxysubsubsection{\texorpdfstring{computeAngleToPoint()}{computeAngleToPoint()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_odom_math_a9b15d46abbc87c2fa0b96f915d893b72} 
+QAngle okapi::\+\+Odom\+Math::\+compute\+Angle\+To\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structokapi_1_1_point}{Point}} \&}]{ipoint}{, }\item[{const \doxymbox{\hyperlink{structokapi_1_1_odom_state}{Odom\+State}} \&}]{istate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Computes the angle from the given \doxylink{classokapi_1_1_odometry}{Odometry} state to the given point. The point and the \doxylink{structokapi_1_1_odom_state}{Odom\+State} must be in {\ttfamily State\+Mode::\+\+FRAME\+\_\+\+TRANSFORMATION}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipoint} & The point. \\
+\hline
+{\em istate} & The \doxylink{classokapi_1_1_odometry}{Odometry} state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle between the \doxylink{classokapi_1_1_odometry}{Odometry} state and the point. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_odom_math_a519f40c11e774ba15680879c23877f05}\index{okapi::OdomMath@{okapi::OdomMath}!computeDistanceAndAngleToPoint@{computeDistanceAndAngleToPoint}}
+\index{computeDistanceAndAngleToPoint@{computeDistanceAndAngleToPoint}!okapi::OdomMath@{okapi::OdomMath}}
+\doxysubsubsection{\texorpdfstring{computeDistanceAndAngleToPoint()}{computeDistanceAndAngleToPoint()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_odom_math_a519f40c11e774ba15680879c23877f05} 
+std::\+pair$<$ QLength, QAngle $>$ okapi::\+\+Odom\+Math::\+compute\+Distance\+And\+Angle\+To\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structokapi_1_1_point}{Point}} \&}]{ipoint}{, }\item[{const \doxymbox{\hyperlink{structokapi_1_1_odom_state}{Odom\+State}} \&}]{istate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Computes the distance and angle from the given \doxylink{classokapi_1_1_odometry}{Odometry} state to the given point. The point and the \doxylink{structokapi_1_1_odom_state}{Odom\+State} must be in {\ttfamily State\+Mode::\+\+FRAME\+\_\+\+TRANSFORMATION}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipoint} & The point. \\
+\hline
+{\em istate} & The \doxylink{classokapi_1_1_odometry}{Odometry} state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance and angle between the \doxylink{classokapi_1_1_odometry}{Odometry} state and the point. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_odom_math_af4c0b9754b7203779154942e3ba5fe84}\index{okapi::OdomMath@{okapi::OdomMath}!computeDistanceToPoint@{computeDistanceToPoint}}
+\index{computeDistanceToPoint@{computeDistanceToPoint}!okapi::OdomMath@{okapi::OdomMath}}
+\doxysubsubsection{\texorpdfstring{computeDistanceToPoint()}{computeDistanceToPoint()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_odom_math_af4c0b9754b7203779154942e3ba5fe84} 
+QLength okapi::\+\+Odom\+Math::\+compute\+Distance\+To\+Point (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structokapi_1_1_point}{Point}} \&}]{ipoint}{, }\item[{const \doxymbox{\hyperlink{structokapi_1_1_odom_state}{Odom\+State}} \&}]{istate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Computes the distance from the given \doxylink{classokapi_1_1_odometry}{Odometry} state to the given point. The point and the \doxylink{structokapi_1_1_odom_state}{Odom\+State} must be in {\ttfamily State\+Mode::\+\+FRAME\+\_\+\+TRANSFORMATION}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ipoint} & The point. \\
+\hline
+{\em istate} & The \doxylink{classokapi_1_1_odometry}{Odometry} state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the \doxylink{classokapi_1_1_odometry}{Odometry} state and the point. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_odom_math_a353a68717ff506dd93165252c3b60617}\index{okapi::OdomMath@{okapi::OdomMath}!constrainAngle180@{constrainAngle180}}
+\index{constrainAngle180@{constrainAngle180}!okapi::OdomMath@{okapi::OdomMath}}
+\doxysubsubsection{\texorpdfstring{constrainAngle180()}{constrainAngle180()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_odom_math_a353a68717ff506dd93165252c3b60617} 
+QAngle okapi::\+\+Odom\+Math::\+constrain\+Angle180 (\begin{DoxyParamCaption}\item[{const QAngle \&}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constraints the angle to \+[-\/180,180) degrees.
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The input angle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle normalized to \+[-\/180,180) degrees. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_odom_math_a489d0b1dbb76e626ac66f9696c30b54b}\index{okapi::OdomMath@{okapi::OdomMath}!constrainAngle360@{constrainAngle360}}
+\index{constrainAngle360@{constrainAngle360}!okapi::OdomMath@{okapi::OdomMath}}
+\doxysubsubsection{\texorpdfstring{constrainAngle360()}{constrainAngle360()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_odom_math_a489d0b1dbb76e626ac66f9696c30b54b} 
+QAngle okapi::\+\+Odom\+Math::\+constrain\+Angle360 (\begin{DoxyParamCaption}\item[{const QAngle \&}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Constraints the angle to \+[0,360]\+ degrees.
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & The input angle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle normalized to \+[0,360]\+ degrees. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+api/\+odometry/\+odom\+Math.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,146 @@
+.TH "okapi::Logger" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::Logger
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBLogLevel\fP { \fBdebug\fP = 4, \fBinfo\fP = 3, \fBwarn\fP = 2, \fBerror\fP = 1, \fBoff\fP = 0 }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLogger\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBLogger\fP (std::unique_ptr< \fBAbstractTimer\fP > itimer, std::string_view ifileName, const \fBLogLevel\fP &ilevel) noexcept"
+.br
+.ti -1c
+.RI "\fBLogger\fP (std::unique_ptr< \fBAbstractTimer\fP > itimer, FILE *ifile, const \fBLogLevel\fP &ilevel) noexcept"
+.br
+.ti -1c
+.RI "constexpr bool \fBisDebugLevelEnabled\fP () const noexcept"
+.br
+.ti -1c
+.RI "template<typename T> void \fBdebug\fP (T ilazyMessage) noexcept"
+.br
+.ti -1c
+.RI "constexpr bool \fBisInfoLevelEnabled\fP () const noexcept"
+.br
+.ti -1c
+.RI "template<typename T> void \fBinfo\fP (T ilazyMessage) noexcept"
+.br
+.ti -1c
+.RI "constexpr bool \fBisWarnLevelEnabled\fP () const noexcept"
+.br
+.ti -1c
+.RI "template<typename T> void \fBwarn\fP (T ilazyMessage) noexcept"
+.br
+.ti -1c
+.RI "constexpr bool \fBisErrorLevelEnabled\fP () const noexcept"
+.br
+.ti -1c
+.RI "template<typename T> void \fBerror\fP (T ilazyMessage) noexcept"
+.br
+.ti -1c
+.RI "constexpr void \fBclose\fP () noexcept"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static std::shared_ptr< \fBLogger\fP > \fBgetDefaultLogger\fP ()"
+.br
+.ti -1c
+.RI "static void \fBsetDefaultLogger\fP (std::shared_ptr< \fBLogger\fP > ilogger)"
+.br
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum class \fBokapi::Logger::LogLevel\fP\fR [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIdebug \fP
+debug 
+.TP
+\f(BIinfo \fP
+info 
+.TP
+\f(BIwarn \fP
+warn 
+.TP
+\f(BIerror \fP
+error 
+.TP
+\f(BIoff \fP
+off 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::Logger::Logger ()\fR [noexcept]\fP"
+A logger that does nothing\&. 
+.SS "okapi::Logger::Logger (std::unique_ptr< \fBAbstractTimer\fP > itimer, std::string_view ifileName, const \fBLogLevel\fP & ilevel)\fR [noexcept]\fP"
+A logger that opens the input file by name\&. If the file contains \fR/ser/\fP, the file will be opened in write mode\&. Otherwise, the file will be opened in append mode\&. The file will be closed when the logger is destructed\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimer\fP A timer used to get the current time for log statements\&. 
+.br
+\fIifileName\fP The name of the log file to open\&. 
+.br
+\fIilevel\fP The log level\&. Log statements more verbose than this level will be disabled\&. 
+.RE
+.PP
+
+.SS "okapi::Logger::Logger (std::unique_ptr< \fBAbstractTimer\fP > itimer, FILE * ifile, const \fBLogLevel\fP & ilevel)\fR [noexcept]\fP"
+A logger that uses an existing file handle\&. The file will be closed when the logger is destructed\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIitimer\fP A timer used to get the current time for log statements\&. 
+.br
+\fIifile\fP The log file to open\&. Will be closed by the logger! 
+.br
+\fIilevel\fP The log level\&. Log statements more verbose than this level will be disabled\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void okapi::Logger::close ()\fR [inline]\fP, \fR [constexpr]\fP, \fR [noexcept]\fP"
+Closes the connection to the log file\&. 
+.SS "std::shared_ptr< \fBLogger\fP > okapi::Logger::getDefaultLogger ()\fR [static]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The default logger\&. 
+.RE
+.PP
+
+.SS "void okapi::Logger::setDefaultLogger (std::shared_ptr< \fBLogger\fP > ilogger)\fR [static]\fP"
+Sets a new default logger\&. OkapiLib classes use the default logger unless given another logger in their constructor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIilogger\fP The new logger instance\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,44 @@
+.TH "include/liblvgl/misc/lv_bidi.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_bidi.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'lv_txt\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_BIDI_LRO\fP   '\\xE2\\x80\\xAD' /*U+202D*/"
+.br
+.ti -1c
+.RI "#define \fBLV_BIDI_RLO\fP   '\\xE2\\x80\\xAE' /*U+202E*/"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint8_t \fBlv_base_dir_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBLV_BASE_DIR_LTR\fP = 0x00, \fBLV_BASE_DIR_RTL\fP = 0x01, \fBLV_BASE_DIR_AUTO\fP = 0x02, \fBLV_BASE_DIR_NEUTRAL\fP = 0x20, \fBLV_BASE_DIR_WEAK\fP = 0x21 }"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

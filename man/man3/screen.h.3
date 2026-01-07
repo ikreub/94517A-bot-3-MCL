@@ -1,0 +1,164 @@
+.TH "include/pros/screen.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/screen.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdarg\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'pros/colors\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBscreen_touch_status_s\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBscreen_touch_status_s\fP \fBscreen_touch_status_s_t\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBtouch_event_cb_fn_t\fP) ()"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBtext_format_e_t\fP { \fBE_TEXT_SMALL\fP = 0, \fBE_TEXT_MEDIUM\fP, \fBE_TEXT_LARGE\fP, \fBE_TEXT_MEDIUM_CENTER\fP, \fBE_TEXT_LARGE_CENTER\fP }"
+.br
+.ti -1c
+.RI "enum \fBlast_touch_e_t\fP { \fBE_TOUCH_RELEASED\fP = 0, \fBE_TOUCH_PRESSED\fP, \fBE_TOUCH_HELD\fP, \fBE_TOUCH_ERROR\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.PP
+.RI "\fBScreen Graphical Display Functions\fP"
+.br
+These functions allow programmers to display shapes on the v5 screen 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "uint32_t \fBscreen_set_pen\fP (uint32_t color)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_set_eraser\fP (uint32_t color)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_get_pen\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_get_eraser\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_scroll\fP (int16_t start_line, int16_t lines)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_scroll_area\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1, int16_t lines)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_copy_area\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint32_t *buf, int32_t stride)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_pixel\fP (int16_t x, int16_t y)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_pixel\fP (int16_t x, int16_t y)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_line\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_line\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_rect\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_rect\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_fill_rect\fP (int16_t x0, int16_t y0, int16_t x1, int16_t y1)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_draw_circle\fP (int16_t x, int16_t y, int16_t radius)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_erase_circle\fP (int16_t x, int16_t y, int16_t radius)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_fill_circle\fP (int16_t x, int16_t y, int16_t radius)"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBScreen Text Display Functions\fP"
+.br
+These functions allow programmers to display text on the v5 screen 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "uint32_t \fBscreen_print\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t line, const char *text,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_print_at\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t x, const int16_t y, const char *text,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_vprintf\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t line, const char *text, va_list args)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_vprintf_at\fP (\fBtext_format_e_t\fP txt_fmt, const int16_t x, const int16_t y, const char *text, va_list args)"
+.br
+.in -1c
+.in -1c
+.PP
+.RI "\fBScreen Touch Functions\fP"
+.br
+These functions allow programmers to access information about screen touches 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "\fBscreen_touch_status_s_t\fP \fBscreen_touch_status\fP (void)"
+.br
+.ti -1c
+.RI "uint32_t \fBscreen_touch_callback\fP (touch_event_cb_fn_t cb, \fBlast_touch_e_t\fP event_type)"
+.br
+.in -1c
+.in -1c
+.SH "Detailed Description"
+.PP 
+Brain screen display and touch functions\&.
+
+.PP
+Contains user calls to the v5 screen for touching and displaying graphics\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

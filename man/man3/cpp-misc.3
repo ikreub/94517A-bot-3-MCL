@@ -1,0 +1,464 @@
+.TH "cpp-misc" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-misc \- Miscellaneous C++ API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::v5::Controller\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::Controller::Controller\fP (controller_id_e_t id)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::is_connected\fP (void)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::get_analog\fP (controller_analog_e_t channel)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::get_battery_capacity\fP (void)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::get_battery_level\fP (void)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::get_digital\fP (controller_digital_e_t button)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::get_digital_new_press\fP (controller_digital_e_t button)"
+.br
+.ti -1c
+.RI "template<typename T> T \fBpros::v5::Controller::convert_args\fP (T arg)"
+.br
+.ti -1c
+.RI "const char * \fBpros::v5::Controller::convert_args\fP (const std::string &arg)"
+.br
+.ti -1c
+.RI "template<typename\&.\&.\&. Params> std::int32_t \fBpros::v5::Controller::print\fP (std::uint8_t line, std::uint8_t col, const char *fmt, Params\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::set_text\fP (std::uint8_t line, std::uint8_t col, const char *str)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::set_text\fP (std::uint8_t line, std::uint8_t col, const std::string &str)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::clear_line\fP (std::uint8_t line)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::rumble\fP (const char *rumble_pattern)"
+.br
+.ti -1c
+.RI "std::int32_t \fBpros::v5::Controller::clear\fP (void)"
+.br
+.ti -1c
+.RI "double \fBpros::battery::get_capacity\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBpros::battery::get_current\fP (void)"
+.br
+.ti -1c
+.RI "double \fBpros::battery::get_temperature\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBpros::battery::get_voltage\fP (void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBNote\fP
+.RS 4
+Additional example code for this module can be found in its \fBTutorial\&.\fP
+.RE
+.PP
+
+.PP
+///
+
+.PP
+/// 
+.SH "Function Documentation"
+.PP 
+.SS "std::int32_t pros::v5::Controller::clear (void )"
+Clears all of the lines on the controller screen\&.
+
+.PP
+\fBNote\fP
+.RS 4
+\fBController\fP text setting is currently in beta, so continuous, fast updates will not work well\&. On vexOS version 1\&.0\&.0 this function will block for 110ms\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::clear_line (std::uint8_t line)"
+Clears an individual line of the controller screen\&.
+
+.PP
+\fBNote\fP
+.RS 4
+\fBController\fP text setting is currently in beta, so continuous, fast updates will not work well\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP The line number to clear [0-2]
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Controller::Controller (controller_id_e_t id)\fR [explicit]\fP"
+Creates a controller object for the given controller id\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIid\fP The ID of the controller (e\&.g\&. the master or partner controller)\&. Must be one of CONTROLLER_MASTER or CONTROLLER_PARTNER 
+.RE
+.PP
+
+.SS "std::int32_t pros::v5::Controller::get_analog (controller_analog_e_t channel)"
+Gets the value of an analog channel (joystick) on a controller\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIchannel\fP The analog channel to get\&. Must be one of ANALOG_LEFT_X, ANALOG_LEFT_Y, ANALOG_RIGHT_X, ANALOG_RIGHT_Y
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The current reading of the analog channel: [-127, 127]\&. If the controller was not connected, then 0 is returned
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::get_battery_capacity (void )"
+Gets the battery capacity of the controller\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The controller's battery capacity
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::get_battery_level (void )"
+Gets the battery level of the controller\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The controller's battery level
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double pros::battery::get_capacity (void )"
+Gets the current voltage of the battery, as reported by VEXos\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current voltage of the battery
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t pros::battery::get_current (void )"
+Gets the current current of the battery in milliamps, as reported by VEXos\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current current of the battery
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::get_digital (controller_digital_e_t button)"
+Checks if a digital channel (button) on the controller is currently pressed\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIbutton\fP The button to read\&. Must be one of DIGITAL_{RIGHT,DOWN,LEFT,UP,A,B,Y,X,R1,R2,L1,L2}
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the button on the controller is pressed\&. If the controller was not connected, then 0 is returned
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::get_digital_new_press (controller_digital_e_t button)"
+Returns a rising-edge case for a controller button press\&.
+
+.PP
+This function is not thread-safe\&. Multiple tasks polling a single button may return different results under the same circumstances, so only one task should call this function for any given button\&. E\&.g\&., \fBTask\fP A calls this function for buttons 1 and 2\&. \fBTask\fP B may call this function for button 3, but should not for buttons 1 or 2\&. A typical use-case for this function is to call inside opcontrol to detect new button presses, and not in any other tasks\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIbutton\fP The button to read\&. Must be one of DIGITAL_{RIGHT,DOWN,LEFT,UP,A,B,Y,X,R1,R2,L1,L2}
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the button on the controller is pressed and had not been pressed the last time this function was called, 0 otherwise\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "double pros::battery::get_temperature (void )"
+Gets the current temperature of the battery, as reported by VEXos\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current temperature of the battery
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "int32_t pros::battery::get_voltage (void )"
+Gets the current capacity of the battery in millivolts, as reported by VEXos\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current capacity of the battery
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::is_connected (void )"
+Checks if the controller is connected\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the controller is connected, 0 otherwise
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "template<typename\&.\&.\&. Params> std::int32_t pros::v5::Controller::print (std::uint8_t line, std::uint8_t col, const char * fmt, Params\&.\&.\&. args)\fR [inline]\fP"
+Sets text to the controller LCD screen\&.
+
+.PP
+\fBNote\fP
+.RS 4
+\fBController\fP text setting is currently in beta, so continuous, fast updates will not work well\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP The line number at which the text will be displayed [0-2] 
+.br
+\fIcol\fP The column number at which the text will be displayed [0-14] 
+.br
+\fIfmt\fP The format string to print to the controller 
+.br
+\fI\&.\&.\&.\fP The argument list for the format string
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::rumble (const char * rumble_pattern)"
+Rumble the controller\&.
+
+.PP
+\fBNote\fP
+.RS 4
+\fBController\fP rumble activation is currently in beta, so continuous, fast updates will not work well\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIrumble_pattern\fP A string consisting of the characters '\&.', '-', and ' ', where dots are short rumbles, dashes are long rumbles, and spaces are pauses\&. Maximum supported length is 8 characters\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::int32_t pros::v5::Controller::set_text (std::uint8_t line, std::uint8_t col, const char * str)"
+Sets text to the controller LCD screen\&.
+
+.PP
+\fBNote\fP
+.RS 4
+\fBController\fP text setting is currently in beta, so continuous, fast updates will not work well\&.
+.RE
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP The line number at which the text will be displayed [0-2] 
+.br
+\fIcol\fP The column number at which the text will be displayed [0-14] 
+.br
+\fIstr\fP The pre-formatted string to print to the controller
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

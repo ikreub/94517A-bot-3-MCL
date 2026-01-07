@@ -1,0 +1,109 @@
+.TH "okapi::ADIMotor" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ADIMotor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ControllerOutput< double >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBADIMotor\fP (std::uint8_t iport, bool ireverse=false, const std::shared_ptr< \fBLogger\fP > &logger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBADIMotor\fP (std::pair< std::uint8_t, std::uint8_t > iports, bool ireverse=false, const std::shared_ptr< \fBLogger\fP > &logger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "virtual void \fBmoveVoltage\fP (std::int8_t ivoltage) const"
+.br
+.ti -1c
+.RI "void \fBcontrollerSet\fP (double ivalue) override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::uint8_t \fBsmartPort\fP"
+.br
+.ti -1c
+.RI "std::uint8_t \fBport\fP"
+.br
+.ti -1c
+.RI "std::int8_t \fBreversed\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ADIMotor::ADIMotor (std::uint8_t iport, bool ireverse = \fRfalse\fP, const std::shared_ptr< \fBLogger\fP > & logger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+A motor in an ADI port\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiport\fP The ADI port number (\fR[1, 8]\fP, \fR[a, h]\fP, \fR[A, H]\fP)\&. 
+.br
+\fIireverse\fP Whether the motor is reversed\&. 
+.br
+\fIlogger\fP The logger that initialization warnings will be logged to\&. 
+.RE
+.PP
+
+.SS "okapi::ADIMotor::ADIMotor (std::pair< std::uint8_t, std::uint8_t > iports, bool ireverse = \fRfalse\fP, const std::shared_ptr< \fBLogger\fP > & logger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+A motor in an ADI port\&.
+
+.PP
+.PP
+.nf
+.fi
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiports\fP The ports the motor is plugged in to in the order \fR{smart port, motor port}\fP\&. The smart port is the smart port number (\fR[1, 21]\fP)\&. The motor port is the ADI port number (\fR[1, 8]\fP, \fR[a, h]\fP, \fR[A, H]\fP)\&. 
+.br
+\fIireverse\fP Whether the motor is reversed\&. 
+.br
+\fIlogger\fP The logger that initialization warnings will be logged to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void okapi::ADIMotor::controllerSet (double ivalue)\fR [override]\fP, \fR [virtual]\fP"
+Writes the value of the controller output\&. This method might be automatically called in another thread by the controller\&. The range of input values is expected to be [-1, 1]\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivalue\fP the controller's output in the range [-1, 1] 
+.RE
+.PP
+
+.PP
+Implements \fBokapi::ControllerOutput< double >\fP\&.
+.SS "virtual void okapi::ADIMotor::moveVoltage (std::int8_t ivoltage) const\fR [virtual]\fP"
+Set the voltage to the motor\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIivoltage\fP voltage in the range [-127, 127]\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

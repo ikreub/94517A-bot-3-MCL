@@ -1,0 +1,167 @@
+.TH "pros::v5::Gps" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::v5::Gps
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::v5::Device\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGps\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "\fBGps\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "\fBGps\fP (const std::uint8_t port, double xInitial, double yInitial, double headingInitial)"
+.br
+.ti -1c
+.RI "\fBGps\fP (const std::uint8_t port, double xOffset, double yOffset)"
+.br
+.ti -1c
+.RI "\fBGps\fP (const std::uint8_t port, double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBinitialize_full\fP (double xInitial, double yInitial, double headingInitial, double xOffset, double yOffset) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBset_offset\fP (double xOffset, double yOffset) const"
+.br
+.ti -1c
+.RI "virtual pros::gps_position_s_t \fBget_offset\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBset_position\fP (double xInitial, double yInitial, double headingInitial) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBset_data_rate\fP (std::uint32_t rate) const"
+.br
+.ti -1c
+.RI "virtual double \fBget_error\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_status_s_t \fBget_position_and_orientation\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_position_s_t \fBget_position\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_position_x\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_position_y\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_orientation_s_t \fBget_orientation\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_pitch\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_roll\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_yaw\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_heading\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_heading_raw\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_gyro_s_t \fBget_gyro_rate\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_gyro_rate_x\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_gyro_rate_y\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_gyro_rate_z\fP () const"
+.br
+.ti -1c
+.RI "virtual pros::gps_accel_s_t \fBget_accel\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_accel_x\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_accel_y\fP () const"
+.br
+.ti -1c
+.RI "virtual double \fBget_accel_z\fP () const"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "std::uint8_t \fBget_port\fP (void) const"
+.br
+.ti -1c
+.RI "virtual bool \fBis_installed\fP ()"
+.br
+.ti -1c
+.RI "pros::DeviceType \fBget_plugged_type\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static std::vector< \fBGps\fP > \fBget_all_devices\fP ()"
+.br
+.ti -1c
+.RI "static \fBGps\fP \fBget_gps\fP ()"
+.br
+.in -1c
+
+Static Public Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "static pros::DeviceType \fBget_plugged_type\fP (std::uint8_t port)"
+.br
+.ti -1c
+.RI "static std::vector< \fBDevice\fP > \fBget_all_devices\fP (pros::DeviceType device_type=\fBpros::DeviceType::undefined\fP)"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBpros::Gps\fP &gps)"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "\fBDevice\fP (const std::uint8_t port, const enum \fBDeviceType\fP deviceType)"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBpros::v5::Device\fP
+.in +1c
+.ti -1c
+.RI "const std::uint8_t \fB_port\fP"
+.br
+.ti -1c
+.RI "enum \fBDeviceType\fP \fB_deviceType\fP = \fBpros::DeviceType::none\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

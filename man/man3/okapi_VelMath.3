@@ -1,0 +1,125 @@
+.TH "okapi::VelMath" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::VelMath
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVelMath\fP (double iticksPerRev, std::unique_ptr< \fBFilter\fP > ifilter, QTime isampleTime, std::unique_ptr< \fBAbstractTimer\fP > iloopDtTimer, std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "virtual QAngularSpeed \fBstep\fP (double inewPos)"
+.br
+.ti -1c
+.RI "virtual void \fBsetTicksPerRev\fP (double iTPR)"
+.br
+.ti -1c
+.RI "virtual QAngularSpeed \fBgetVelocity\fP () const"
+.br
+.ti -1c
+.RI "virtual QAngularAcceleration \fBgetAccel\fP () const"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "QAngularSpeed \fBvel\fP {0_rpm}"
+.br
+.ti -1c
+.RI "QAngularSpeed \fBlastVel\fP {0_rpm}"
+.br
+.ti -1c
+.RI "QAngularAcceleration \fBaccel\fP {0\&.0}"
+.br
+.ti -1c
+.RI "double \fBlastPos\fP {0}"
+.br
+.ti -1c
+.RI "double \fBticksPerRev\fP"
+.br
+.ti -1c
+.RI "QTime \fBsampleTime\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAbstractTimer\fP > \fBloopDtTimer\fP"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBFilter\fP > \fBfilter\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::VelMath::VelMath (double iticksPerRev, std::unique_ptr< \fBFilter\fP > ifilter, QTime isampleTime, std::unique_ptr< \fBAbstractTimer\fP > iloopDtTimer, std::shared_ptr< \fBLogger\fP > ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+Velocity math helper\&. Calculates filtered velocity\&. Throws a \fRstd::invalid_argument\fP exception if \fRiticksPerRev\fP is zero\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiticksPerRev\fP The number of ticks per revolution (or whatever units you are using)\&. 
+.br
+\fIifilter\fP The filter used for filtering the calculated velocity\&. 
+.br
+\fIisampleTime\fP The minimum time between velocity measurements\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual QAngularAcceleration okapi::VelMath::getAccel () const\fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The last calculated acceleration\&. 
+.RE
+.PP
+
+.SS "virtual QAngularSpeed okapi::VelMath::getVelocity () const\fR [virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The last calculated velocity\&. 
+.RE
+.PP
+
+.SS "virtual void okapi::VelMath::setTicksPerRev (double iTPR)\fR [virtual]\fP"
+Sets ticks per revolution (or whatever units you are using)\&. Throws a \fRstd::invalid_argument\fP exception if iticksPerRev is zero\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiTPR\fP The number of ticks per revolution\&. 
+.RE
+.PP
+
+.SS "virtual QAngularSpeed okapi::VelMath::step (double inewPos)\fR [virtual]\fP"
+Calculates the current velocity and acceleration\&. Returns the (filtered) velocity\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIinewPos\fP The new position measurement\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The new velocity estimate\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

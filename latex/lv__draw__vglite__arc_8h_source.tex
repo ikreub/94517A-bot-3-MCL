@@ -1,0 +1,59 @@
+\doxysection{lv\+\_\+draw\+\_\+vglite\+\_\+arc.\+h}
+\hypertarget{lv__draw__vglite__arc_8h_source}{}\label{lv__draw__vglite__arc_8h_source}\index{include/liblvgl/draw/nxp/vglite/lv\_draw\_vglite\_arc.h@{include/liblvgl/draw/nxp/vglite/lv\_draw\_vglite\_arc.h}}
+\doxymbox{\hyperlink{lv__draw__vglite__arc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_VGLITE\_ARC\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_VGLITE\_ARC\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ LV\_USE\_GPU\_NXP\_VG\_LITE}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__gpu__nxp__vglite_8h}{lv\_gpu\_nxp\_vglite.h}}"{}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/***}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ Draw\ arc\ shape\ with\ effects}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ @param\ draw\_ctx\ drawing\ context}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ @param\ dsc\ the\ arc\ description\ structure\ (width,\ rounded\ ending,\ opacity)}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ @param\ center\ the\ coordinates\ of\ the\ arc\ center}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ @param\ radius\ the\ radius\ of\ external\ arc}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ @param\ start\_angle\ the\ starting\ angle\ in\ degrees}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ @param\ end\_angle\ the\ ending\ angle\ in\ degrees}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00066\ lv\_res\_t\ lv\_gpu\_nxp\_vglite\_draw\_arc(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\_draw\_arc\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ center,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ radius,\ int32\_t\ start\_angle,\ int32\_t\ end\_angle);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GPU\_NXP\_VG\_LITE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00076\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_VGLITE\_ARC\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

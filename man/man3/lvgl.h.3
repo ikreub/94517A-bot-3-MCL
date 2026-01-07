@@ -1,0 +1,123 @@
+.TH "include/liblvgl/lvgl.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/lvgl.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/misc/lv_log\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_timer\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_math\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_mem\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_async\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_anim_timeline\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_printf\&.h'\fP
+.br
+\fR#include 'liblvgl/hal/lv_hal\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_obj\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_group\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_indev\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_refr\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_disp\&.h'\fP
+.br
+\fR#include 'liblvgl/core/lv_theme\&.h'\fP
+.br
+\fR#include 'liblvgl/font/lv_font\&.h'\fP
+.br
+\fR#include 'liblvgl/font/lv_font_loader\&.h'\fP
+.br
+\fR#include 'liblvgl/font/lv_font_fmt_txt\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_arc\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_btn\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_img\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_label\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_line\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_table\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_checkbox\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_bar\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_slider\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_btnmatrix\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_dropdown\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_roller\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_textarea\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_canvas\&.h'\fP
+.br
+\fR#include 'liblvgl/widgets/lv_switch\&.h'\fP
+.br
+\fR#include 'liblvgl/draw/lv_draw\&.h'\fP
+.br
+\fR#include 'liblvgl/lv_api_map\&.h'\fP
+.br
+\fR#include 'liblvgl/extra/lv_extra\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLVGL_VERSION_MAJOR\fP   8"
+.br
+.ti -1c
+.RI "#define \fBLVGL_VERSION_MINOR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBLVGL_VERSION_PATCH\fP   4"
+.br
+.ti -1c
+.RI "#define \fBLVGL_VERSION_INFO\fP   'dev'"
+.br
+.ti -1c
+.RI "#define \fBLV_VERSION_CHECK\fP(x,  y,  z)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Include all LVGL related headers 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LV_VERSION_CHECK( x,  y,  z)"
+\fBValue:\fP
+.nf
+(x == LVGL_VERSION_MAJOR && (y < LVGL_VERSION_MINOR || (y == LVGL_VERSION_MINOR && z <= LVGL_VERSION_PATCH)))
+.PP
+.fi
+Gives 1 if the x\&.y\&.z version is supported in the current version Usage:
+
+.PP
+.IP "\(bu" 2
+Require v6 #if \fBLV_VERSION_CHECK(6,0,0)\fP new_func_in_v6(); #endif
+.IP "\(bu" 2
+Require at least v5\&.3 #if \fBLV_VERSION_CHECK(5,3,0)\fP new_feature_from_v5_3(); #endif
+.IP "\(bu" 2
+Require v5\&.3\&.2 bugfixes #if \fBLV_VERSION_CHECK(5,3,2)\fP bugfix_in_v5_3_2(); #endif 
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

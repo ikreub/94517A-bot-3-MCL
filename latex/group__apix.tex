@@ -1,0 +1,744 @@
+\doxysection{Extended API }
+\hypertarget{group__apix}{}\label{group__apix}\index{Extended API@{Extended API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{apix_8h}{apix.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{RTOS Facilities}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__apix_ga2d363eefb03348f96e985eadcfb184ab}\label{group__apix_ga2d363eefb03348f96e985eadcfb184ab} 
+typedef void \texorpdfstring{$\ast$}{*} {\bfseries queue\+\_\+t}
+\item 
+\Hypertarget{group__apix_gabc53a59ab4c3c8f2d7660e63990be7a7}\label{group__apix_gabc53a59ab4c3c8f2d7660e63990be7a7} 
+typedef void \texorpdfstring{$\ast$}{*} {\bfseries sem\+\_\+t}
+\item 
+bool \doxymbox{\hyperlink{group__apix_ga038d6c9efb0a2295b0f2a55242b509f9}{task\+\_\+abort\+\_\+delay}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__apix_gac20573527d51718ab1f1189e69a5cd32}{task\+\_\+notify\+\_\+when\+\_\+deleting}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} target\+\_\+task, \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task\+\_\+to\+\_\+notify, uint32\+\_\+t value, \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}} notify\+\_\+action)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} \doxymbox{\hyperlink{group__apix_gab32c3cf41f7dbde49dfac10c279347f0}{mutex\+\_\+recursive\+\_\+create}} (void)
+\item 
+bool \doxymbox{\hyperlink{group__apix_ga67f8421ccecb58c807762494efe10c3a}{mutex\+\_\+recursive\+\_\+take}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaaf82d93cd652b6173372970018fdc02d}{mutex\+\_\+recursive\+\_\+give}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} \doxymbox{\hyperlink{group__apix_ga34a373877e556e8f6829a49eddb08673}{mutex\+\_\+get\+\_\+owner}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex)
+\item 
+sem\+\_\+t \doxymbox{\hyperlink{group__apix_ga382f9b5dc6ba96dcecffdbd7f41d29ac}{sem\+\_\+create}} (uint32\+\_\+t max\+\_\+count, uint32\+\_\+t init\+\_\+count)
+\item 
+void \doxymbox{\hyperlink{group__apix_ga0dfcd8007428b4249931d0d78157490b}{sem\+\_\+delete}} (sem\+\_\+t sem)
+\item 
+sem\+\_\+t \doxymbox{\hyperlink{group__apix_ga83c9a6c93e3bfce8f36e3f32a6dc8c4b}{sem\+\_\+binary\+\_\+create}} (void)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaee36a9729a21b6ad0de78985a16c4f03}{sem\+\_\+wait}} (sem\+\_\+t sem, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaa2048694c50246f193a40b7e00ed1756}{sem\+\_\+post}} (sem\+\_\+t sem)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__apix_ga5848486405814316a909912fa87f88dc}{sem\+\_\+get\+\_\+count}} (sem\+\_\+t sem)
+\item 
+queue\+\_\+t \doxymbox{\hyperlink{group__apix_ga552456842226c0ccf95e78907a3d6b2a}{queue\+\_\+create}} (uint32\+\_\+t length, uint32\+\_\+t item\+\_\+size)
+\item 
+bool \doxymbox{\hyperlink{group__apix_ga4519896ea7f4a5d2b3726fd172926a8f}{queue\+\_\+append}} (queue\+\_\+t queue, const void \texorpdfstring{$\ast$}{*}item, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gabb333bbc086fdac6213b34a2e019dde3}{queue\+\_\+peek}} (queue\+\_\+t queue, void \texorpdfstring{$\ast$}{*}const buffer, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__apix_gaca6420b7d656b9559a7d366eb58b8e57}{queue\+\_\+recv}} (queue\+\_\+t queue, void \texorpdfstring{$\ast$}{*}const buffer, uint32\+\_\+t timeout)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__apix_gadd6f8fb018cef82d19fb85425de0e0d2}{queue\+\_\+get\+\_\+waiting}} (const queue\+\_\+t queue)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__apix_gab6a0fede293e948f2a5b43a44238aab6}{queue\+\_\+get\+\_\+available}} (const queue\+\_\+t queue)
+\item 
+void \doxymbox{\hyperlink{group__apix_ga087fa58218ad877e85bcc2fe20b87595}{queue\+\_\+delete}} (queue\+\_\+t queue)
+\item 
+void \doxymbox{\hyperlink{group__apix_gae6146a3577b65ec02e78d0d9498db7e1}{queue\+\_\+reset}} (queue\+\_\+t queue)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Device Registration}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{group__apix_gafdda25e2647e8606131e35ced80de099}{registry\+\_\+bind\+\_\+port}} (uint8\+\_\+t port, v5\+\_\+device\+\_\+e\+\_\+t device\+\_\+type)
+\item 
+int \doxymbox{\hyperlink{group__apix_ga0092551f3eff99f31535a657d2832a86}{registry\+\_\+unbind\+\_\+port}} (uint8\+\_\+t port)
+\item 
+v5\+\_\+device\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__apix_gadd54c9e7c708eee228f2edf67dbe17cb}{registry\+\_\+get\+\_\+bound\+\_\+type}} (uint8\+\_\+t port)
+\item 
+v5\+\_\+device\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__apix_ga490c81f1c80b6655410f96a0a07f4b0b}{registry\+\_\+get\+\_\+plugged\+\_\+type}} (uint8\+\_\+t port)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Filesystem}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__apix_ga8287028141d5265105a25d899280a8e1}{fdctl}} (int file, const uint32\+\_\+t action, void \texorpdfstring{$\ast$}{*}const extra\+\_\+arg)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__apix_ga2fa32fc79e297f90fa08d22c381c2972}{motor\+\_\+set\+\_\+reversed}} (int8\+\_\+t port, const bool reverse)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__apix_gaa01b06cd1235f48a058a6dae6dc188c5}{motor\+\_\+is\+\_\+reversed}} (int8\+\_\+t port)
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga597a3aaaad99225156c5940db91ed7e7}{SERCTL\+\_\+\+ACTIVATE}}~10
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_gaa07c3d6750babcc306ece8dd1b18ec26}{SERCTL\+\_\+\+DEACTIVATE}}~11
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga487ad68591182ba67ceb987f59f31fab}{SERCTL\+\_\+\+BLKWRITE}}~12
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga48765184fb0f8084d9cebf9dcbc27da7}{SERCTL\+\_\+\+NOBLKWRITE}}~13
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga20c46bffd0ef8939413f671a5ac92252}{SERCTL\+\_\+\+ENABLE\+\_\+\+COBS}}~14
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga9a50f0ab303c00138f09df10358b01c4}{SERCTL\+\_\+\+DISABLE\+\_\+\+COBS}}~15
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_gad7e4ecbf8e36a784cdf4d245cd3c7d1d}{DEVCTL\+\_\+\+FIONREAD}}~16
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga0089c4b06b9b75f4995256ca740f8ee2}{DEVCTL\+\_\+\+FIONWRITE}}~18
+\item 
+\+\#define \doxymbox{\hyperlink{group__apix_ga5ac3b151b46b5bfce1ec424b5fdc773b}{DEVCTL\+\_\+\+SET\+\_\+\+BAUDRATE}}~17
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+Also included in the Extended API is \href{https://lvgl.io/}{\texttt{LVGL.}}
+\end{DoxyNote}
+
+
+\label{doc-define-members}
+\Hypertarget{group__apix_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{group__apix_gad7e4ecbf8e36a784cdf4d245cd3c7d1d}\index{Extended API@{Extended API}!DEVCTL\_FIONREAD@{DEVCTL\_FIONREAD}}
+\index{DEVCTL\_FIONREAD@{DEVCTL\_FIONREAD}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{DEVCTL\_FIONREAD}{DEVCTL\_FIONREAD}}
+{\footnotesize\ttfamily \label{group__apix_gad7e4ecbf8e36a784cdf4d245cd3c7d1d} 
+\+\#define DEVCTL\+\_\+\+FIONREAD~16}
+
+Action macro to check if there is data available from the Generic Serial Device \Hypertarget{group__apix_ga0089c4b06b9b75f4995256ca740f8ee2}\index{Extended API@{Extended API}!DEVCTL\_FIONWRITE@{DEVCTL\_FIONWRITE}}
+\index{DEVCTL\_FIONWRITE@{DEVCTL\_FIONWRITE}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{DEVCTL\_FIONWRITE}{DEVCTL\_FIONWRITE}}
+{\footnotesize\ttfamily \label{group__apix_ga0089c4b06b9b75f4995256ca740f8ee2} 
+\+\#define DEVCTL\+\_\+\+FIONWRITE~18}
+
+Action macro to check if there is space available in the Generic Serial Device\textquotesingle{}s output buffer \Hypertarget{group__apix_ga5ac3b151b46b5bfce1ec424b5fdc773b}\index{Extended API@{Extended API}!DEVCTL\_SET\_BAUDRATE@{DEVCTL\_SET\_BAUDRATE}}
+\index{DEVCTL\_SET\_BAUDRATE@{DEVCTL\_SET\_BAUDRATE}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{DEVCTL\_SET\_BAUDRATE}{DEVCTL\_SET\_BAUDRATE}}
+{\footnotesize\ttfamily \label{group__apix_ga5ac3b151b46b5bfce1ec424b5fdc773b} 
+\+\#define DEVCTL\+\_\+\+SET\+\_\+\+BAUDRATE~17}
+
+Action macro to set the Generic Serial Device\textquotesingle{}s baudrate.
+
+The extra argument is the baudrate. \Hypertarget{group__apix_ga597a3aaaad99225156c5940db91ed7e7}\index{Extended API@{Extended API}!SERCTL\_ACTIVATE@{SERCTL\_ACTIVATE}}
+\index{SERCTL\_ACTIVATE@{SERCTL\_ACTIVATE}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{SERCTL\_ACTIVATE}{SERCTL\_ACTIVATE}}
+{\footnotesize\ttfamily \label{group__apix_ga597a3aaaad99225156c5940db91ed7e7} 
+\+\#define SERCTL\+\_\+\+ACTIVATE~10}
+
+Action macro to pass into serctl or fdctl that activates the stream identifier.
+
+When used with serctl, the extra argument must be the little endian representation of the stream identifier (e.\+g. "{}sout"{} -\/\texorpdfstring{$>$}{>} 0x74756f73) \Hypertarget{group__apix_ga487ad68591182ba67ceb987f59f31fab}\index{Extended API@{Extended API}!SERCTL\_BLKWRITE@{SERCTL\_BLKWRITE}}
+\index{SERCTL\_BLKWRITE@{SERCTL\_BLKWRITE}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{SERCTL\_BLKWRITE}{SERCTL\_BLKWRITE}}
+{\footnotesize\ttfamily \label{group__apix_ga487ad68591182ba67ceb987f59f31fab} 
+\+\#define SERCTL\+\_\+\+BLKWRITE~12}
+
+Action macro to pass into fdctl that enables blocking writes for the file
+
+The extra argument is not used with this action, provide any value (e.\+g. NULL) instead \Hypertarget{group__apix_gaa07c3d6750babcc306ece8dd1b18ec26}\index{Extended API@{Extended API}!SERCTL\_DEACTIVATE@{SERCTL\_DEACTIVATE}}
+\index{SERCTL\_DEACTIVATE@{SERCTL\_DEACTIVATE}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{SERCTL\_DEACTIVATE}{SERCTL\_DEACTIVATE}}
+{\footnotesize\ttfamily \label{group__apix_gaa07c3d6750babcc306ece8dd1b18ec26} 
+\+\#define SERCTL\+\_\+\+DEACTIVATE~11}
+
+Action macro to pass into serctl or fdctl that deactivates the stream identifier.
+
+When used with serctl, the extra argument must be the little endian representation of the stream identifier (e.\+g. "{}sout"{} -\/\texorpdfstring{$>$}{>} 0x74756f73) \Hypertarget{group__apix_ga9a50f0ab303c00138f09df10358b01c4}\index{Extended API@{Extended API}!SERCTL\_DISABLE\_COBS@{SERCTL\_DISABLE\_COBS}}
+\index{SERCTL\_DISABLE\_COBS@{SERCTL\_DISABLE\_COBS}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{SERCTL\_DISABLE\_COBS}{SERCTL\_DISABLE\_COBS}}
+{\footnotesize\ttfamily \label{group__apix_ga9a50f0ab303c00138f09df10358b01c4} 
+\+\#define SERCTL\+\_\+\+DISABLE\+\_\+\+COBS~15}
+
+Action macro to pass into serctl that disables advanced stream multiplexing capabilities
+
+The extra argument is not used with this action, provide any value (e.\+g. NULL) instead \Hypertarget{group__apix_ga20c46bffd0ef8939413f671a5ac92252}\index{Extended API@{Extended API}!SERCTL\_ENABLE\_COBS@{SERCTL\_ENABLE\_COBS}}
+\index{SERCTL\_ENABLE\_COBS@{SERCTL\_ENABLE\_COBS}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{SERCTL\_ENABLE\_COBS}{SERCTL\_ENABLE\_COBS}}
+{\footnotesize\ttfamily \label{group__apix_ga20c46bffd0ef8939413f671a5ac92252} 
+\+\#define SERCTL\+\_\+\+ENABLE\+\_\+\+COBS~14}
+
+Action macro to pass into serctl that enables advanced stream multiplexing capabilities
+
+The extra argument is not used with this action, provide any value (e.\+g. NULL) instead \Hypertarget{group__apix_ga48765184fb0f8084d9cebf9dcbc27da7}\index{Extended API@{Extended API}!SERCTL\_NOBLKWRITE@{SERCTL\_NOBLKWRITE}}
+\index{SERCTL\_NOBLKWRITE@{SERCTL\_NOBLKWRITE}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{SERCTL\_NOBLKWRITE}{SERCTL\_NOBLKWRITE}}
+{\footnotesize\ttfamily \label{group__apix_ga48765184fb0f8084d9cebf9dcbc27da7} 
+\+\#define SERCTL\+\_\+\+NOBLKWRITE~13}
+
+Action macro to pass into fdctl that makes writes non-\/blocking for the file
+
+The extra argument is not used with this action, provide any value (e.\+g. NULL) instead 
+
+\label{doc-func-members}
+\Hypertarget{group__apix_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__apix_ga8287028141d5265105a25d899280a8e1}\index{Extended API@{Extended API}!fdctl@{fdctl}}
+\index{fdctl@{fdctl}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{fdctl()}{fdctl()}}
+{\footnotesize\ttfamily \label{group__apix_ga8287028141d5265105a25d899280a8e1} 
+int32\+\_\+t fdctl (\begin{DoxyParamCaption}\item[{int}]{file}{, }\item[{const uint32\+\_\+t}]{action}{, }\item[{void \texorpdfstring{$\ast$}{*}const}]{extra\+\_\+arg}{}\end{DoxyParamCaption})}
+
+Control settings of the serial driver.
+
+
+\begin{DoxyParams}{Parameters}
+{\em action} & An action to perform on the serial driver. See the SERCTL\+\_\+\texorpdfstring{$\ast$}{*} macros for details on the different actions. \\
+\hline
+{\em extra\+\_\+arg} & An argument to pass in based on the action\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gaa01b06cd1235f48a058a6dae6dc188c5}\index{Extended API@{Extended API}!motor\_is\_reversed@{motor\_is\_reversed}}
+\index{motor\_is\_reversed@{motor\_is\_reversed}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{motor\_is\_reversed()}{motor\_is\_reversed()}}
+{\footnotesize\ttfamily \label{group__apix_gaa01b06cd1235f48a058a6dae6dc188c5} 
+int32\+\_\+t motor\+\_\+is\+\_\+reversed (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Gets the operation direction of the motor as set by the user.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the motor has been reversed and 0 if the motor was not reversed, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga2fa32fc79e297f90fa08d22c381c2972}\index{Extended API@{Extended API}!motor\_set\_reversed@{motor\_set\_reversed}}
+\index{motor\_set\_reversed@{motor\_set\_reversed}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{motor\_set\_reversed()}{motor\_set\_reversed()}}
+{\footnotesize\ttfamily \label{group__apix_ga2fa32fc79e297f90fa08d22c381c2972} 
+int32\+\_\+t motor\+\_\+set\+\_\+reversed (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{port}{, }\item[{const bool}]{reverse}{}\end{DoxyParamCaption})}
+
+Sets the reverse flag for the motor.
+
+This will invert its movements and the values returned for its position.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em reverse} & True reverses the motor, false is default\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga34a373877e556e8f6829a49eddb08673}\index{Extended API@{Extended API}!mutex\_get\_owner@{mutex\_get\_owner}}
+\index{mutex\_get\_owner@{mutex\_get\_owner}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{mutex\_get\_owner()}{mutex\_get\_owner()}}
+{\footnotesize\ttfamily \label{group__apix_ga34a373877e556e8f6829a49eddb08673} 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} mutex\+\_\+get\+\_\+owner (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}]{mutex}{}\end{DoxyParamCaption})}
+
+Returns a handle to the current owner of a mutex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & A mutex handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A handle to the current task that owns the mutex, or NULL if the mutex isn\textquotesingle{}t owned.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gab32c3cf41f7dbde49dfac10c279347f0}\index{Extended API@{Extended API}!mutex\_recursive\_create@{mutex\_recursive\_create}}
+\index{mutex\_recursive\_create@{mutex\_recursive\_create}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{mutex\_recursive\_create()}{mutex\_recursive\_create()}}
+{\footnotesize\ttfamily \label{group__apix_gab32c3cf41f7dbde49dfac10c279347f0} 
+\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex\+\_\+recursive\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Creates a recursive mutex which can be locked recursively by the owner.
+
+\begin{DoxyReturn}{Returns}
+A newly created recursive mutex.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gaaf82d93cd652b6173372970018fdc02d}\index{Extended API@{Extended API}!mutex\_recursive\_give@{mutex\_recursive\_give}}
+\index{mutex\_recursive\_give@{mutex\_recursive\_give}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{mutex\_recursive\_give()}{mutex\_recursive\_give()}}
+{\footnotesize\ttfamily \label{group__apix_gaaf82d93cd652b6173372970018fdc02d} 
+bool mutex\+\_\+recursive\+\_\+give (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}]{mutex}{}\end{DoxyParamCaption})}
+
+Gives a recursive mutex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & A mutex handle created by mutex\+\_\+recursive\+\_\+create\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the mutex was obtained, 0 otherwise
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga67f8421ccecb58c807762494efe10c3a}\index{Extended API@{Extended API}!mutex\_recursive\_take@{mutex\_recursive\_take}}
+\index{mutex\_recursive\_take@{mutex\_recursive\_take}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{mutex\_recursive\_take()}{mutex\_recursive\_take()}}
+{\footnotesize\ttfamily \label{group__apix_ga67f8421ccecb58c807762494efe10c3a} 
+bool mutex\+\_\+recursive\+\_\+take (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}]{mutex}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Takes a recursive mutex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & A mutex handle created by mutex\+\_\+recursive\+\_\+create \\
+\hline
+{\em wait\+\_\+time} & Amount of time to wait before timing out\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the mutex was obtained, 0 otherwise
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga4519896ea7f4a5d2b3726fd172926a8f}\index{Extended API@{Extended API}!queue\_append@{queue\_append}}
+\index{queue\_append@{queue\_append}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_append()}{queue\_append()}}
+{\footnotesize\ttfamily \label{group__apix_ga4519896ea7f4a5d2b3726fd172926a8f} 
+bool queue\+\_\+append (\begin{DoxyParamCaption}\item[{queue\+\_\+t}]{queue}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{item}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Posts an item to the front of a queue. The item is queued by copy, not by reference.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & The queue handle \\
+\hline
+{\em item} & A pointer to the item that will be placed on the queue. \\
+\hline
+{\em timeout} & Time to wait for space to become available. A timeout of 0 can be used to attempt to post without blocking. TIMEOUT\+\_\+\+MAX can be used to block indefinitely.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the item was preprended, false otherwise.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga552456842226c0ccf95e78907a3d6b2a}\index{Extended API@{Extended API}!queue\_create@{queue\_create}}
+\index{queue\_create@{queue\_create}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_create()}{queue\_create()}}
+{\footnotesize\ttfamily \label{group__apix_ga552456842226c0ccf95e78907a3d6b2a} 
+queue\+\_\+t queue\+\_\+create (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{length}{, }\item[{uint32\+\_\+t}]{item\+\_\+size}{}\end{DoxyParamCaption})}
+
+Creates a queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & The maximum number of items that the queue can contain. \\
+\hline
+{\em item\+\_\+size} & The number of bytes each item in the queue will require.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A handle to a newly created queue, or NULL if the queue cannot be created.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga087fa58218ad877e85bcc2fe20b87595}\index{Extended API@{Extended API}!queue\_delete@{queue\_delete}}
+\index{queue\_delete@{queue\_delete}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_delete()}{queue\_delete()}}
+{\footnotesize\ttfamily \label{group__apix_ga087fa58218ad877e85bcc2fe20b87595} 
+void queue\+\_\+delete (\begin{DoxyParamCaption}\item[{queue\+\_\+t}]{queue}{}\end{DoxyParamCaption})}
+
+Delete a queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & Queue handle to delete\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gab6a0fede293e948f2a5b43a44238aab6}\index{Extended API@{Extended API}!queue\_get\_available@{queue\_get\_available}}
+\index{queue\_get\_available@{queue\_get\_available}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_get\_available()}{queue\_get\_available()}}
+{\footnotesize\ttfamily \label{group__apix_gab6a0fede293e948f2a5b43a44238aab6} 
+uint32\+\_\+t queue\+\_\+get\+\_\+available (\begin{DoxyParamCaption}\item[{const queue\+\_\+t}]{queue}{}\end{DoxyParamCaption})}
+
+Return the number of spaces left in a queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & The queue handle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of spaces available in the queue.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gadd6f8fb018cef82d19fb85425de0e0d2}\index{Extended API@{Extended API}!queue\_get\_waiting@{queue\_get\_waiting}}
+\index{queue\_get\_waiting@{queue\_get\_waiting}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_get\_waiting()}{queue\_get\_waiting()}}
+{\footnotesize\ttfamily \label{group__apix_gadd6f8fb018cef82d19fb85425de0e0d2} 
+uint32\+\_\+t queue\+\_\+get\+\_\+waiting (\begin{DoxyParamCaption}\item[{const queue\+\_\+t}]{queue}{}\end{DoxyParamCaption})}
+
+Return the number of messages stored in a queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & The queue handle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of messages available in the queue.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gabb333bbc086fdac6213b34a2e019dde3}\index{Extended API@{Extended API}!queue\_peek@{queue\_peek}}
+\index{queue\_peek@{queue\_peek}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_peek()}{queue\_peek()}}
+{\footnotesize\ttfamily \label{group__apix_gabb333bbc086fdac6213b34a2e019dde3} 
+bool queue\+\_\+peek (\begin{DoxyParamCaption}\item[{queue\+\_\+t}]{queue}{, }\item[{void \texorpdfstring{$\ast$}{*}const}]{buffer}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Receive an item from a queue without removing the item from the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & The queue handle \\
+\hline
+{\em buffer} & Pointer to a buffer to which the received item will be copied \\
+\hline
+{\em timeout} & The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call. TIMEOUT\+\_\+\+MAX can be used to block indefinitely.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if an item was copied into the buffer, false otherwise.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gaca6420b7d656b9559a7d366eb58b8e57}\index{Extended API@{Extended API}!queue\_recv@{queue\_recv}}
+\index{queue\_recv@{queue\_recv}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_recv()}{queue\_recv()}}
+{\footnotesize\ttfamily \label{group__apix_gaca6420b7d656b9559a7d366eb58b8e57} 
+bool queue\+\_\+recv (\begin{DoxyParamCaption}\item[{queue\+\_\+t}]{queue}{, }\item[{void \texorpdfstring{$\ast$}{*}const}]{buffer}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Receive an item from the queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & The queue handle \\
+\hline
+{\em buffer} & Pointer to a buffer to which the received item will be copied \\
+\hline
+{\em timeout} & The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call. \doxylink{group__apix_gaca6420b7d656b9559a7d366eb58b8e57}{queue\+\_\+recv()} will return immediately if timeout is zero and the queue is empty.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if an item was copied into the buffer, false otherwise.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gae6146a3577b65ec02e78d0d9498db7e1}\index{Extended API@{Extended API}!queue\_reset@{queue\_reset}}
+\index{queue\_reset@{queue\_reset}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{queue\_reset()}{queue\_reset()}}
+{\footnotesize\ttfamily \label{group__apix_gae6146a3577b65ec02e78d0d9498db7e1} 
+void queue\+\_\+reset (\begin{DoxyParamCaption}\item[{queue\+\_\+t}]{queue}{}\end{DoxyParamCaption})}
+
+Resets a queue to an empty state
+
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & Queue handle to reset\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gafdda25e2647e8606131e35ced80de099}\index{Extended API@{Extended API}!registry\_bind\_port@{registry\_bind\_port}}
+\index{registry\_bind\_port@{registry\_bind\_port}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{registry\_bind\_port()}{registry\_bind\_port()}}
+{\footnotesize\ttfamily \label{group__apix_gafdda25e2647e8606131e35ced80de099} 
+int registry\+\_\+bind\+\_\+port (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{v5\+\_\+device\+\_\+e\+\_\+t}]{device\+\_\+type}{}\end{DoxyParamCaption})}
+
+Registers a device in the given zero-\/indexed port
+
+Registers a device of the given type in the given port into the registry, if that type of device is detected to be plugged in to that port.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (0-\/20), or a a different device than specified is plugged in. EADDRINUSE -\/ The port is already registered to another device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number to register the device \\
+\hline
+{\em device} & The type of device to register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 upon success, PROS\+\_\+\+ERR upon failure
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gadd54c9e7c708eee228f2edf67dbe17cb}\index{Extended API@{Extended API}!registry\_get\_bound\_type@{registry\_get\_bound\_type}}
+\index{registry\_get\_bound\_type@{registry\_get\_bound\_type}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{registry\_get\_bound\_type()}{registry\_get\_bound\_type()}}
+{\footnotesize\ttfamily \label{group__apix_gadd54c9e7c708eee228f2edf67dbe17cb} 
+v5\+\_\+device\+\_\+e\+\_\+t registry\+\_\+get\+\_\+bound\+\_\+type (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Returns the type of device registered to the zero-\/indexed port.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (0-\/20).
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 0-\/20\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The type of device that is registered into the port (NOT what is plugged in)
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga490c81f1c80b6655410f96a0a07f4b0b}\index{Extended API@{Extended API}!registry\_get\_plugged\_type@{registry\_get\_plugged\_type}}
+\index{registry\_get\_plugged\_type@{registry\_get\_plugged\_type}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{registry\_get\_plugged\_type()}{registry\_get\_plugged\_type()}}
+{\footnotesize\ttfamily \label{group__apix_ga490c81f1c80b6655410f96a0a07f4b0b} 
+v5\+\_\+device\+\_\+e\+\_\+t registry\+\_\+get\+\_\+plugged\+\_\+type (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Returns the type of the device plugged into the zero-\/indexed port.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (0-\/20).
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 0-\/20\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The type of device that is plugged into the port (NOT what is registered)
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga0092551f3eff99f31535a657d2832a86}\index{Extended API@{Extended API}!registry\_unbind\_port@{registry\_unbind\_port}}
+\index{registry\_unbind\_port@{registry\_unbind\_port}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{registry\_unbind\_port()}{registry\_unbind\_port()}}
+{\footnotesize\ttfamily \label{group__apix_ga0092551f3eff99f31535a657d2832a86} 
+int registry\+\_\+unbind\+\_\+port (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Deregisters a devices from the given zero-\/indexed port
+
+Removes the device registed in the given port, if there is one.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (0-\/20).
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The port number to deregister\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 upon success, PROS\+\_\+\+ERR upon failure
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga83c9a6c93e3bfce8f36e3f32a6dc8c4b}\index{Extended API@{Extended API}!sem\_binary\_create@{sem\_binary\_create}}
+\index{sem\_binary\_create@{sem\_binary\_create}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{sem\_binary\_create()}{sem\_binary\_create()}}
+{\footnotesize\ttfamily \label{group__apix_ga83c9a6c93e3bfce8f36e3f32a6dc8c4b} 
+sem\+\_\+t sem\+\_\+binary\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Creates a binary semaphore.
+
+\begin{DoxyReturn}{Returns}
+A newly created semaphore.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga382f9b5dc6ba96dcecffdbd7f41d29ac}\index{Extended API@{Extended API}!sem\_create@{sem\_create}}
+\index{sem\_create@{sem\_create}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{sem\_create()}{sem\_create()}}
+{\footnotesize\ttfamily \label{group__apix_ga382f9b5dc6ba96dcecffdbd7f41d29ac} 
+sem\+\_\+t sem\+\_\+create (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+count}{, }\item[{uint32\+\_\+t}]{init\+\_\+count}{}\end{DoxyParamCaption})}
+
+Creates a counting sempahore.
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+count} & The maximum count value that can be reached. \\
+\hline
+{\em init\+\_\+count} & The initial count value assigned to the new semaphore.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A newly created semaphore. If an error occurred, NULL will be returned and errno can be checked for hints as to why sem\+\_\+create failed.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga0dfcd8007428b4249931d0d78157490b}\index{Extended API@{Extended API}!sem\_delete@{sem\_delete}}
+\index{sem\_delete@{sem\_delete}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{sem\_delete()}{sem\_delete()}}
+{\footnotesize\ttfamily \label{group__apix_ga0dfcd8007428b4249931d0d78157490b} 
+void sem\+\_\+delete (\begin{DoxyParamCaption}\item[{sem\+\_\+t}]{sem}{}\end{DoxyParamCaption})}
+
+Deletes a semaphore (or binary semaphore)
+
+
+\begin{DoxyParams}{Parameters}
+{\em sem} & Semaphore to delete\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga5848486405814316a909912fa87f88dc}\index{Extended API@{Extended API}!sem\_get\_count@{sem\_get\_count}}
+\index{sem\_get\_count@{sem\_get\_count}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{sem\_get\_count()}{sem\_get\_count()}}
+{\footnotesize\ttfamily \label{group__apix_ga5848486405814316a909912fa87f88dc} 
+uint32\+\_\+t sem\+\_\+get\+\_\+count (\begin{DoxyParamCaption}\item[{sem\+\_\+t}]{sem}{}\end{DoxyParamCaption})}
+
+Returns the current value of the semaphore.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sem} & A semaphore handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current value of the semaphore (e.\+g. the number of resources available)
+\end{DoxyReturn}
+{\bfseries{Example}} of sem\+\_\+get\+\_\+count:\+ 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gaa2048694c50246f193a40b7e00ed1756}\index{Extended API@{Extended API}!sem\_post@{sem\_post}}
+\index{sem\_post@{sem\_post}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{sem\_post()}{sem\_post()}}
+{\footnotesize\ttfamily \label{group__apix_gaa2048694c50246f193a40b7e00ed1756} 
+bool sem\+\_\+post (\begin{DoxyParamCaption}\item[{sem\+\_\+t}]{sem}{}\end{DoxyParamCaption})}
+
+Increments a semaphore\textquotesingle{}s value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sem} & Semaphore to post\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the value was incremented, false otherwise. If false is returned, then errno is set with a hint about why the semaphore couldn\textquotesingle{}t be taken.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gaee36a9729a21b6ad0de78985a16c4f03}\index{Extended API@{Extended API}!sem\_wait@{sem\_wait}}
+\index{sem\_wait@{sem\_wait}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{sem\_wait()}{sem\_wait()}}
+{\footnotesize\ttfamily \label{group__apix_gaee36a9729a21b6ad0de78985a16c4f03} 
+bool sem\+\_\+wait (\begin{DoxyParamCaption}\item[{sem\+\_\+t}]{sem}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Waits for the semaphore\textquotesingle{}s value to be greater than 0. If the value is already greater than 0, this function immediately returns.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sem} & Semaphore to wait on \\
+\hline
+{\em timeout} & Time to wait before the semaphore\textquotesingle{}s becomes available. A timeout of 0 can be used to poll the sempahore. TIMEOUT\+\_\+\+MAX can be used to block indefinitely.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the semaphore was successfully take, false otherwise. If false is returned, then errno is set with a hint about why the sempahore couldn\textquotesingle{}t be taken.
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_ga038d6c9efb0a2295b0f2a55242b509f9}\index{Extended API@{Extended API}!task\_abort\_delay@{task\_abort\_delay}}
+\index{task\_abort\_delay@{task\_abort\_delay}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{task\_abort\_delay()}{task\_abort\_delay()}}
+{\footnotesize\ttfamily \label{group__apix_ga038d6c9efb0a2295b0f2a55242b509f9} 
+bool task\+\_\+abort\+\_\+delay (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Unblocks a task in the Blocked state (e.\+g. waiting for a delay, on a semaphore, etc.).
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to unblock\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the task was unblocked, false otherwise
+\end{DoxyReturn}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__apix_gac20573527d51718ab1f1189e69a5cd32}\index{Extended API@{Extended API}!task\_notify\_when\_deleting@{task\_notify\_when\_deleting}}
+\index{task\_notify\_when\_deleting@{task\_notify\_when\_deleting}!Extended API@{Extended API}}
+\doxysubsubsection{\texorpdfstring{task\_notify\_when\_deleting()}{task\_notify\_when\_deleting()}}
+{\footnotesize\ttfamily \label{group__apix_gac20573527d51718ab1f1189e69a5cd32} 
+void task\+\_\+notify\+\_\+when\+\_\+deleting (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{target\+\_\+task}{, }\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task\+\_\+to\+\_\+notify}{, }\item[{uint32\+\_\+t}]{value}{, }\item[{\doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}}}]{notify\+\_\+action}{}\end{DoxyParamCaption})}
+
+Notify a task when a target task is being deleted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em target\+\_\+task} & The task being watched for deletion \\
+\hline
+{\em task\+\_\+to\+\_\+notify} & The task to notify when target\+\_\+task is deleted \\
+\hline
+{\em value} & The value to supply to task\+\_\+notify\+\_\+ext \\
+\hline
+{\em notify\+\_\+action} & The action to supply to task\+\_\+notify\+\_\+ext\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example:\+}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

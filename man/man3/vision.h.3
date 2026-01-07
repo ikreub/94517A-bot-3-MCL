@@ -1,0 +1,159 @@
+.TH "include/pros/vision.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/vision.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.PP
+.RI "\fBMacros\fP"
+.br
+Parameters given by VEX 
+.PP
+.in +1c
+.in +1c
+.ti -1c
+.RI "#define \fBVISION_OBJECT_ERR_SIG\fP   255"
+.br
+.ti -1c
+.RI "#define \fBVISION_FOV_WIDTH\fP   316"
+.br
+.ti -1c
+.RI "#define \fBVISION_FOV_HEIGHT\fP   212"
+.br
+.in -1c
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum vision_object_type \fBvision_object_type_e_t\fP"
+.br
+.ti -1c
+.RI "typedef uint16_t \fBvision_color_code_t\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBvision_zero\fP \fBvision_zero_e_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBvision_object_type\fP { \fBE_VISION_OBJECT_NORMAL\fP = 0, \fBE_VISION_OBJECT_COLOR_CODE\fP = 1, \fBE_VISION_OBJECT_LINE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBvision_zero\fP { \fBE_VISION_ZERO_TOPLEFT\fP = 0, \fBE_VISION_ZERO_CENTER\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "struct \fB__attribute__\fP ((__packed__)) vision_signature"
+.br
+.in -1c
+.PP
+.RI "\fBFunctions\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "int32_t \fBvision_clear_led\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "\fBvision_signature_s_t\fP \fBvision_signature_from_utility\fP (const int32_t id, const int32_t u_min, const int32_t u_max, const int32_t u_mean, const int32_t v_min, const int32_t v_max, const int32_t v_mean, const float range, const int32_t type)"
+.br
+.ti -1c
+.RI "\fBvision_color_code_t\fP \fBvision_create_color_code\fP (uint8_t port, const uint32_t sig_id1, const uint32_t sig_id2, const uint32_t sig_id3, const uint32_t sig_id4, const uint32_t sig_id5)"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP \fBvision_get_by_size\fP (uint8_t port, const uint32_t size_id)"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP \fBvision_get_by_sig\fP (uint8_t port, const uint32_t size_id, const uint32_t sig_id)"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP \fBvision_get_by_code\fP (uint8_t port, const uint32_t size_id, const \fBvision_color_code_t\fP color_code)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_get_exposure\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_get_object_count\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_get_white_balance\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_print_signature\fP (const \fBvision_signature_s_t\fP sig)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_read_by_size\fP (uint8_t port, const uint32_t size_id, const uint32_t object_count, \fBvision_object_s_t\fP *const object_arr)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_read_by_sig\fP (uint8_t port, const uint32_t size_id, const uint32_t sig_id, const uint32_t object_count, \fBvision_object_s_t\fP *const object_arr)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_read_by_code\fP (uint8_t port, const uint32_t size_id, const \fBvision_color_code_t\fP color_code, const uint32_t object_count, \fBvision_object_s_t\fP *const object_arr)"
+.br
+.ti -1c
+.RI "\fBvision_signature_s_t\fP \fBvision_get_signature\fP (uint8_t port, const uint8_t signature_id)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_signature\fP (uint8_t port, const uint8_t signature_id, \fBvision_signature_s_t\fP *const signature_ptr)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_auto_white_balance\fP (uint8_t port, const uint8_t enable)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_exposure\fP (uint8_t port, const uint8_t exposure)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_led\fP (uint8_t port, const int32_t rgb)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_white_balance\fP (uint8_t port, const int32_t rgb)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_zero_point\fP (uint8_t port, vision_zero_e_t zero_point)"
+.br
+.ti -1c
+.RI "int32_t \fBvision_set_wifi_mode\fP (uint8_t port, const uint8_t enable)"
+.br
+.in -1c
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBvision_signature_s_t\fP"
+.br
+.ti -1c
+.RI "\fBvision_object_s_t\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for the VEX Vision Sensor-related functions\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&. All rights reserved\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

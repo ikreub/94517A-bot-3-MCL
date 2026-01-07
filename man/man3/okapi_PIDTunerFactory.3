@@ -1,0 +1,22 @@
+.TH "okapi::PIDTunerFactory" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::PIDTunerFactory
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBPIDTuner\fP \fBcreate\fP (const std::shared_ptr< \fBControllerInput\fP< double > > &iinput, const std::shared_ptr< \fBControllerOutput\fP< double > > &ioutput, QTime itimeout, std::int32_t igoal, double ikPMin, double ikPMax, double ikIMin, double ikIMax, double ikDMin, double ikDMax, std::int32_t inumIterations=5, std::int32_t inumParticles=16, double ikSettle=1, double ikITAE=2, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static std::unique_ptr< \fBPIDTuner\fP > \fBcreatePtr\fP (const std::shared_ptr< \fBControllerInput\fP< double > > &iinput, const std::shared_ptr< \fBControllerOutput\fP< double > > &ioutput, QTime itimeout, std::int32_t igoal, double ikPMin, double ikPMax, double ikIMin, double ikIMax, double ikDMin, double ikDMax, std::int32_t inumIterations=5, std::int32_t inumParticles=16, double ikSettle=1, double ikITAE=2, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

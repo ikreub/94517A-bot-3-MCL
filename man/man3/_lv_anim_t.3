@@ -1,0 +1,123 @@
+.TH "_lv_anim_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_anim_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_anim\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void * \fBvar\fP"
+.br
+.ti -1c
+.RI "\fBlv_anim_exec_xcb_t\fP \fBexec_cb\fP"
+.br
+.ti -1c
+.RI "\fBlv_anim_start_cb_t\fP \fBstart_cb\fP"
+.br
+.ti -1c
+.RI "\fBlv_anim_ready_cb_t\fP \fBready_cb\fP"
+.br
+.ti -1c
+.RI "\fBlv_anim_deleted_cb_t\fP \fBdeleted_cb\fP"
+.br
+.ti -1c
+.RI "\fBlv_anim_get_value_cb_t\fP \fBget_value_cb\fP"
+.br
+.ti -1c
+.RI "\fBlv_anim_path_cb_t\fP \fBpath_cb\fP"
+.br
+.ti -1c
+.RI "int32_t \fBstart_value\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcurrent_value\fP"
+.br
+.ti -1c
+.RI "int32_t \fBend_value\fP"
+.br
+.ti -1c
+.RI "int32_t \fBtime\fP"
+.br
+.ti -1c
+.RI "int32_t \fBact_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBplayback_delay\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBplayback_time\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrepeat_delay\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBrepeat_cnt\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBearly_apply\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBplayback_now\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBrun_round\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBstart_cb_called\fP: 1"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Describes an animation 
+.SH "Member Data Documentation"
+.PP 
+.SS "int32_t _lv_anim_t::act_time"
+Current time in animation\&. Set to negative to make delay\&. 
+.SS "int32_t _lv_anim_t::current_value"
+Current value 
+.SS "\fBlv_anim_deleted_cb_t\fP _lv_anim_t::deleted_cb"
+Call it when the animation is deleted 
+.SS "uint8_t _lv_anim_t::early_apply"
+1: Apply start value immediately even is there is \fR\fBdelay\fP\fP 
+.SS "int32_t _lv_anim_t::end_value"
+End value 
+.SS "\fBlv_anim_exec_xcb_t\fP _lv_anim_t::exec_cb"
+Function to execute to animate 
+.SS "\fBlv_anim_get_value_cb_t\fP _lv_anim_t::get_value_cb"
+Get the current value in relative mode 
+.SS "\fBlv_anim_path_cb_t\fP _lv_anim_t::path_cb"
+Describe the path (curve) of animations 
+.SS "uint32_t _lv_anim_t::playback_delay"
+Wait before play back 
+.SS "uint8_t _lv_anim_t::playback_now"
+Play back is in progress 
+.SS "uint32_t _lv_anim_t::playback_time"
+Duration of playback animation 
+.SS "\fBlv_anim_ready_cb_t\fP _lv_anim_t::ready_cb"
+Call it when the animation is ready 
+.SS "uint16_t _lv_anim_t::repeat_cnt"
+Repeat count for the animation 
+.SS "uint32_t _lv_anim_t::repeat_delay"
+Wait before repeat 
+.SS "uint8_t _lv_anim_t::run_round"
+Indicates the animation has run in this round 
+.SS "\fBlv_anim_start_cb_t\fP _lv_anim_t::start_cb"
+Call it when the animation is starts (considering \fR\fBdelay\fP\fP) 
+.SS "uint8_t _lv_anim_t::start_cb_called"
+Indicates that the \fR\fBstart_cb\fP\fP was already called 
+.SS "int32_t _lv_anim_t::start_value"
+Start value 
+.SS "int32_t _lv_anim_t::time"
+Animation time in ms 
+.SS "void* _lv_anim_t::var"
+Variable to animate 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

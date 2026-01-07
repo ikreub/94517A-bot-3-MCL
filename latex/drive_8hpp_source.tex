@@ -1,0 +1,1030 @@
+\doxysection{drive.\+hpp}
+\hypertarget{drive_8hpp_source}{}\label{drive_8hpp_source}\index{include/EZ-\/Template/drive/drive.hpp@{include/EZ-\/Template/drive/drive.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}EZ-\/Template/PID.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}EZ-\/Template/slew.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}EZ-\/Template/tracking\_wheel.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}EZ-\/Template/util.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QAngle.hpp"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QLength.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}okapi/api/units/QTime.hpp"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{motor__group_8hpp}{pros/motor\_group.hpp}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{motors_8h}{pros/motors.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{using\ namespace\ }ez;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }ez\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classez_1_1_drive_a4deaa02a2ba7fb361fff5992a29493d4}{Drive}}\ \{}
+\DoxyCodeLine{00027\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_ac45f1319291b9860c88e1b926039888e}{JOYSTICK\_THRESHOLD}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ pros::motor\_brake\_mode\_e\_t\ \doxymbox{\hyperlink{classez_1_1_drive_a3ee408429f5ef1f0d63ca8ed8e0f1906}{CURRENT\_BRAKE}}\ =\ pros::E\_MOTOR\_BRAKE\_COAST;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_aa32c7a9ec05e19de5fac991ddd53a289}{CURRENT\_MA}}\ =\ 2500;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ e\_swing\ \doxymbox{\hyperlink{classez_1_1_drive_a95e8d31d9e65de2febe6231f43c00210}{current\_swing}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ std::vector<pros::Motor>\ \doxymbox{\hyperlink{classez_1_1_drive_af2ac053b967730ac06d3fc3232361dda}{left\_motors}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ std::vector<pros::Motor>\ \doxymbox{\hyperlink{classez_1_1_drive_a8a1c87cf2fcd5b8042fcf5a689c85c62}{right\_motors}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ std::vector<int>\ \doxymbox{\hyperlink{classez_1_1_drive_acf346e56320053f6c802d7a9c092d408}{pto\_active}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \doxymbox{\hyperlink{classpros_1_1v5_1_1_imu}{pros::Imu}}\ \doxymbox{\hyperlink{classez_1_1_drive_a97b489d9b2602607f916a215fe96f558}{imu}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \doxymbox{\hyperlink{classpros_1_1adi_1_1_encoder}{pros::adi::Encoder}}\ \doxymbox{\hyperlink{classez_1_1_drive_ad07e5e6061b546ff92f0fa2811feee0f}{left\_tracker}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \doxymbox{\hyperlink{classpros_1_1adi_1_1_encoder}{pros::adi::Encoder}}\ \doxymbox{\hyperlink{classez_1_1_drive_ae752b7ff3dd49a7493a63162c9527b84}{right\_tracker}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00083\ \ \ \doxymbox{\hyperlink{classpros_1_1v5_1_1_rotation}{pros::Rotation}}\ \doxymbox{\hyperlink{classez_1_1_drive_a9394e3124578a3d107b0cc0555f0a103}{left\_rotation}};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \doxymbox{\hyperlink{classpros_1_1v5_1_1_rotation}{pros::Rotation}}\ \doxymbox{\hyperlink{classez_1_1_drive_a7fb6e8f73d4881008a544a24ceea3846}{right\_rotation}};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ \doxymbox{\hyperlink{classez_1_1_drive_a67e2a34ef2a6a1b9fe871307387028a9}{odom\_tracker\_left}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ \doxymbox{\hyperlink{classez_1_1_drive_a01694dbc9f15b3d32ed4fd32a61d516c}{odom\_tracker\_right}};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ \doxymbox{\hyperlink{classez_1_1_drive_a7aa4692e37222c01a79dcb96c677dca0}{odom\_tracker\_front}};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ \doxymbox{\hyperlink{classez_1_1_drive_a9d12e205dd3a5b4fa807bf86521cf224}{odom\_tracker\_back}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ \doxymbox{\hyperlink{classez_1_1_drive_aa525bac7c1f6b6c49f6667d057bd8776}{headingPID}};}
+\DoxyCodeLine{00114\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ turnPID;}
+\DoxyCodeLine{00115\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ leftPID;}
+\DoxyCodeLine{00116\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ rightPID;}
+\DoxyCodeLine{00117\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ forward\_drivePID;}
+\DoxyCodeLine{00118\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ backward\_drivePID;}
+\DoxyCodeLine{00119\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ fwd\_rev\_drivePID;}
+\DoxyCodeLine{00120\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ swingPID;}
+\DoxyCodeLine{00121\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ forward\_swingPID;}
+\DoxyCodeLine{00122\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ backward\_swingPID;}
+\DoxyCodeLine{00123\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ fwd\_rev\_swingPID;}
+\DoxyCodeLine{00124\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ xyPID;}
+\DoxyCodeLine{00125\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ current\_a\_odomPID;}
+\DoxyCodeLine{00126\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ boomerangPID;}
+\DoxyCodeLine{00127\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ odom\_angularPID;}
+\DoxyCodeLine{00128\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ internal\_leftPID;}
+\DoxyCodeLine{00129\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ internal\_rightPID;}
+\DoxyCodeLine{00130\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ left\_activebrakePID;}
+\DoxyCodeLine{00131\ \ \ \doxymbox{\hyperlink{classez_1_1_p_i_d}{PID}}\ right\_activebrakePID;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00136\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ \doxymbox{\hyperlink{classez_1_1_drive_a1e78ba5942d36a78d7c49f9bbbf18710}{slew\_left}};}
+\DoxyCodeLine{00137\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_right;}
+\DoxyCodeLine{00138\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_forward;}
+\DoxyCodeLine{00139\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_backward;}
+\DoxyCodeLine{00140\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_turn;}
+\DoxyCodeLine{00141\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_swing\_forward;}
+\DoxyCodeLine{00142\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_swing\_backward;}
+\DoxyCodeLine{00143\ \ \ \doxymbox{\hyperlink{classez_1_1slew}{ez::slew}}\ slew\_swing;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a166c99214e95f1eb0320df8f23845292}{slew\_swing\_constants\_set}}(okapi::QLength\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a65d6e8fc98a305e29acf4e4d7bf23531}{slew\_swing\_constants\_forward\_set}}(okapi::QLength\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00179\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aaef8b6ccc83f4aea0b41661f6f8fa1f0}{slew\_swing\_constants\_backward\_set}}(okapi::QLength\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00191\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6fbd77c2f68d7a5ef7f56ec7d3f7d12e}{slew\_swing\_constants\_set}}(okapi::QAngle\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a76076bc5d59f20d742cbfefeb914f4a0}{slew\_swing\_constants\_forward\_set}}(okapi::QAngle\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae4455c7acbfcbeac851bc2b8f22124f6}{slew\_swing\_constants\_backward\_set}}(okapi::QAngle\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a591c6ae72d9ac8906eda50a150e74ed2}{slew\_turn\_constants\_set}}(okapi::QAngle\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00239\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afdecaaff93bd1f21e134f6c83519844b}{slew\_drive\_constants\_forward\_set}}(okapi::QLength\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3eaf68f825a6aeed85645919bb58b45c}{slew\_drive\_constants\_backward\_set}}(okapi::QLength\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00263\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad8edc76f8b5a6503a287b7d165ab2ccd}{slew\_drive\_constants\_set}}(okapi::QLength\ distance,\ \textcolor{keywordtype}{int}\ min\_speed);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00271\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a317de86cffd708c1c2b7231d73caec7f}{slew\_drive\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00279\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_affe42e11e1635b46190fa6d9fc3fcdd7}{slew\_drive\_forward\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00284\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_ad461dc91fc5b5fd39157d50d859a7160}{slew\_drive\_forward\_get}}();}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00292\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a7ed951d35aa3b2f0f1bf8fc25348f926}{slew\_drive\_backward\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00297\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_ad9233ec9828fb5c771f9c34a299c3584}{slew\_drive\_backward\_get}}();}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00305\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a27b3bc1e7f0d29b62f9053141ceb49df}{slew\_swing\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00313\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a768cf1072ebdbc8e3196d86818cbf32f}{slew\_swing\_forward\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00318\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a8259084405a2ef71fce89733e22fd0c6}{slew\_swing\_forward\_get}}();}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00326\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8e5a461a07626d62940b454c01f6b321}{slew\_swing\_backward\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00331\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a6f77335c01e9b43f7227cb3bc5bdeb98}{slew\_swing\_backward\_get}}();}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00339\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afc92c2cb62949e50b534b6dbfaca63e8}{slew\_turn\_set}}(\textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00344\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a61f946c65c9d746bbe12d1f0d8b9227d}{slew\_turn\_get}}();}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00352\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac2348e9333261b8790763f8757ff06cc}{slew\_odom\_reenable}}(\textcolor{keywordtype}{bool}\ reenable);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00357\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a98e0464446a166c40c1a03ccfce51204}{slew\_odom\_reenabled}}();}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00362\ \ \ e\_mode\ \doxymbox{\hyperlink{classez_1_1_drive_a035788f885233858a9561da968e6cca0}{mode}};}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00372\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac86028a12331637b3ae0e5548a1fad7e}{drive\_mode\_set}}(e\_mode\ p\_mode,\ \textcolor{keywordtype}{bool}\ stop\_drive\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00377\ \ \ e\_mode\ \doxymbox{\hyperlink{classez_1_1_drive_a866d89e430cb38fcff8fdf655905f71c}{drive\_mode\_get}}();}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00382\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3207fe3dfe2e6d38f596fa339d4242d9}{initialize}}();}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00387\ \ \ \doxymbox{\hyperlink{classpros_1_1rtos_1_1_task}{pros::Task}}\ \doxymbox{\hyperlink{classez_1_1_drive_a3ec9523b842e791f98c53f44356bea8e}{ez\_auto}};}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00405\ \ \ \doxymbox{\hyperlink{classez_1_1_drive_a4deaa02a2ba7fb361fff5992a29493d4}{Drive}}(std::vector<int>\ left\_motor\_ports,\ std::vector<int>\ right\_motor\_ports,\ \textcolor{keywordtype}{int}\ imu\_port,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ ticks,\ \textcolor{keywordtype}{double}\ ratio\ =\ 1.0);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00427\ \ \ \doxymbox{\hyperlink{classez_1_1_drive_ac9521b2d0a0f3213dbf5bf067c4e8f5c}{Drive}}(std::vector<int>\ left\_motor\_ports,\ std::vector<int>\ right\_motor\_ports,\ \textcolor{keywordtype}{int}\ imu\_port,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ ticks,\ \textcolor{keywordtype}{double}\ ratio,\ std::vector<int>\ left\_tracker\_ports,\ std::vector<int>\ right\_tracker\_ports)\ \_\_attribute\_\_((deprecated(\textcolor{stringliteral}{"{}Use\ the\ integrated\ encoder\ constructor\ with\ odom\_tracker\_left\_set()\ and\ odom\_tracker\_right\_set()\ instead!"{}})));}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00451\ \ \ \doxymbox{\hyperlink{classez_1_1_drive_a377e111482de723b21c912f02cc44a72}{Drive}}(std::vector<int>\ left\_motor\_ports,\ std::vector<int>\ right\_motor\_ports,\ \textcolor{keywordtype}{int}\ imu\_port,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ ticks,\ \textcolor{keywordtype}{double}\ ratio,\ std::vector<int>\ left\_tracker\_ports,\ std::vector<int>\ right\_tracker\_ports,\ \textcolor{keywordtype}{int}\ expander\_smart\_port)\ \_\_attribute\_\_((deprecated(\textcolor{stringliteral}{"{}Use\ the\ integrated\ encoder\ constructor\ with\ odom\_tracker\_left\_set()\ and\ odom\_tracker\_right\_set()\ instead!"{}})));}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00471\ \ \ \doxymbox{\hyperlink{classez_1_1_drive_aebee8daeec8ba426cd0d58f1f6877d66}{Drive}}(std::vector<int>\ left\_motor\_ports,\ std::vector<int>\ right\_motor\_ports,\ \textcolor{keywordtype}{int}\ imu\_port,\ \textcolor{keywordtype}{double}\ wheel\_diameter,\ \textcolor{keywordtype}{double}\ ratio,\ \textcolor{keywordtype}{int}\ left\_rotation\_port,\ \textcolor{keywordtype}{int}\ right\_rotation\_port)\ \_\_attribute\_\_((deprecated(\textcolor{stringliteral}{"{}Use\ the\ integrated\ encoder\ constructor\ with\ odom\_tracker\_left\_set()\ and\ odom\_tracker\_right\_set()\ instead!"{}})));}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00476\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6dbed9a9577b03ae699de11ff771e45a}{drive\_defaults\_set}}();}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00479\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00480\ \ \ \textcolor{comment}{//\ General\ Odometry}}
+\DoxyCodeLine{00481\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00487\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adf9807355c65faba4a15c431be85fb51}{ez\_tracking\_task}}();}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00495\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adec9a1e1bec9a1785638847b79eeb0ad}{odom\_enable}}(\textcolor{keywordtype}{bool}\ input);}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00502\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a15be1ed26fb9afab8f2b91d93598f768}{odom\_enabled}}();}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00512\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a0c5acf54349898503b6075e22d538ba0}{drive\_width\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00522\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8a6b34c9711bf493e26908a71faae9fb}{drive\_width\_set}}(okapi::QLength\ p\_input);}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00527\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a67abc19de7efe7ee9ada930715294d79}{drive\_width\_get}}();}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00535\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a4dd4669da55d20b04108f2daa14340e0}{odom\_x\_set}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00543\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a325ce5ea5afc52c6cf3f25fbd211c974}{odom\_x\_set}}(okapi::QLength\ p\_x);}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00548\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a70636ac7c71befd269e7f4887a0e784c}{odom\_x\_get}}();}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00556\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6472386325b2cbba79f848560483ddb7}{odom\_y\_set}}(\textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00564\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae628fe4f5caf9750d810682888bd96b0}{odom\_y\_set}}(okapi::QLength\ p\_y);}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00569\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ae32b613ce81d863ee4a2efe50bfeb759}{odom\_y\_get}}();}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00577\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a15dc6c5f699632ac146fff8bfa713513}{odom\_theta\_set}}(\textcolor{keywordtype}{double}\ a);}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00585\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9cd3be492e9e494aff17a8a3b695137e}{odom\_theta\_set}}(okapi::QAngle\ p\_a);}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00590\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ac96c0d961c98898c455906d9697fdd4b}{odom\_theta\_get}}();}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00598\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a241f714c80053fe838bec70b62f5f8f8}{odom\_pose\_set}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ itarget);}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00606\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a54c62d2cdb116d6ba97f0b8781eecaec}{odom\_pose\_set}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ itarget);}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00616\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ade0314107141a01726c0631a72827c32}{odom\_xy\_set}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00626\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abf845428d47824979d6c9eb07f59d379}{odom\_xy\_set}}(okapi::QLength\ p\_x,\ okapi::QLength\ p\_y);}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00638\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1db803482956506b3bbc5dbb5c7a822b}{odom\_xyt\_set}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00650\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6c74571f6cbebe60952b1732e09ba1b1}{odom\_xyt\_set}}(okapi::QLength\ p\_x,\ okapi::QLength\ p\_y,\ okapi::QAngle\ p\_t);}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00655\ \ \ \doxymbox{\hyperlink{structez_1_1pose}{pose}}\ \doxymbox{\hyperlink{classez_1_1_drive_a92cc9e91155d1895ace570e521510e4e}{odom\_pose\_get}}();}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00660\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab640c9b44c9302b06fa01de20210d87c}{odom\_reset}}();}
+\DoxyCodeLine{00661\ }
+\DoxyCodeLine{00668\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a79c23fbb99064b8d6b479a27ac93c589}{odom\_x\_flip}}(\textcolor{keywordtype}{bool}\ flip\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00675\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a31f28a721257c4aec85807db522fd2d3}{odom\_x\_direction\_get}}();}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00683\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afe82a9ee74c731abdf9566c5bef4483c}{odom\_y\_flip}}(\textcolor{keywordtype}{bool}\ flip\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00690\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a436249559bdb12e8b5d86e56606ee1d8}{odom\_y\_direction\_get}}();}
+\DoxyCodeLine{00691\ }
+\DoxyCodeLine{00698\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a14af39a32abe0a1f23d903dc6b2c247a}{odom\_theta\_flip}}(\textcolor{keywordtype}{bool}\ flip\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00705\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_ae0819a8f81c96757260700f12ab13fbd}{odom\_theta\_direction\_get}}();}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00715\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a15c2403a9dd72fa249d432674d0719ca}{odom\_boomerang\_dlead\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00720\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a1882b2d8b203bb18df024d548db33ce7}{odom\_boomerang\_dlead\_get}}();}
+\DoxyCodeLine{00721\ }
+\DoxyCodeLine{00728\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_acb7aede060c2c2d867b7898645c480a8}{odom\_boomerang\_distance\_set}}(\textcolor{keywordtype}{double}\ distance);}
+\DoxyCodeLine{00729\ }
+\DoxyCodeLine{00736\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9eb47655bdb680101e38740a5d199612}{odom\_boomerang\_distance\_set}}(okapi::QLength\ p\_distance);}
+\DoxyCodeLine{00737\ }
+\DoxyCodeLine{00741\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_af2a874207690a405a45408d96ddcba0a}{odom\_boomerang\_distance\_get}}();}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00751\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a03b22dc027f3e799e67f94e3f1e9901e}{odom\_turn\_bias\_set}}(\textcolor{keywordtype}{double}\ bias);}
+\DoxyCodeLine{00752\ }
+\DoxyCodeLine{00756\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a2b0ca4125d8c1c25450fb69c6acea2d2}{odom\_turn\_bias\_get}}();}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00764\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af6fe203728c7fbe27b1c4daa20cbc4f8}{odom\_path\_spacing\_set}}(\textcolor{keywordtype}{double}\ spacing);}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00772\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9431a06962c7cf9eb7afb62c18cf4e66}{odom\_path\_spacing\_set}}(okapi::QLength\ p\_spacing);}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00777\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a670b1e45bd18331d012970d070d5f3f4}{odom\_path\_spacing\_get}}();}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00791\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6ea5125a60128a4f3bc1880d0bf450e0}{odom\_path\_smooth\_constants\_set}}(\textcolor{keywordtype}{double}\ weight\_smooth,\ \textcolor{keywordtype}{double}\ weight\_data,\ \textcolor{keywordtype}{double}\ tolerance);}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00801\ \ \ std::vector<double>\ \doxymbox{\hyperlink{classez_1_1_drive_abcbbd083ba15bd39afafe08a5d34dd34}{odom\_path\_smooth\_constants\_get}}();}
+\DoxyCodeLine{00802\ }
+\DoxyCodeLine{00806\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8f66dfd3028e5253ebfbf3d7f1534ac7}{odom\_path\_print}}();}
+\DoxyCodeLine{00807\ }
+\DoxyCodeLine{00814\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aad50fbaef97a94b84afa4b5685457f91}{odom\_look\_ahead\_set}}(\textcolor{keywordtype}{double}\ distance);}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00822\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a180eb1b3dee1df21dccd460323c8a3af}{odom\_look\_ahead\_set}}(okapi::QLength\ p\_distance);}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00827\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_abdd45fc4a39977043bded68eb0534ebb}{odom\_look\_ahead\_get}}();}
+\DoxyCodeLine{00828\ }
+\DoxyCodeLine{00835\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a076c95624786d6a31185eaf987942b7a}{odom\_tracker\_left\_set}}(\doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ input);}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00843\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af231fabec26652a242958377e6700271}{odom\_tracker\_right\_set}}(\doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ input);}
+\DoxyCodeLine{00844\ }
+\DoxyCodeLine{00851\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1fe8d7e04053ba2b00aabdcbab061dcf}{odom\_tracker\_front\_set}}(\doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ input);}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00859\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3398354472aeb0635cb417d67315d2fc}{odom\_tracker\_back\_set}}(\doxymbox{\hyperlink{classez_1_1tracking__wheel}{tracking\_wheel}}*\ input);}
+\DoxyCodeLine{00860\ }
+\DoxyCodeLine{00867\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a13c0bb3b34baff7d62997ef66883fc55}{pid\_angle\_behavior\_set}}(e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{00868\ }
+\DoxyCodeLine{00875\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a5bd7b16074d4e47dfe4d1acdb02ea54d}{pid\_turn\_behavior\_set}}(e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{00876\ }
+\DoxyCodeLine{00883\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9ebc2a3838c7b7c48d0fdaa2c5cb8b99}{pid\_swing\_behavior\_set}}(e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00891\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab8c78173fdd3c1b919fa2ea6bfdba1fe}{pid\_odom\_behavior\_set}}(e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{00892\ }
+\DoxyCodeLine{00896\ \ \ e\_angle\_behavior\ \doxymbox{\hyperlink{classez_1_1_drive_a033829dd60f2a21499b52fcf9e0b98f6}{pid\_turn\_behavior\_get}}();}
+\DoxyCodeLine{00897\ }
+\DoxyCodeLine{00901\ \ \ e\_angle\_behavior\ \doxymbox{\hyperlink{classez_1_1_drive_a622807ba232e1cdbc1dfc81574c0c04f}{pid\_swing\_behavior\_get}}();}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00906\ \ \ e\_angle\_behavior\ \doxymbox{\hyperlink{classez_1_1_drive_a02ff41aa7953fa0f6c79680b23db4870}{pid\_odom\_behavior\_get}}();}
+\DoxyCodeLine{00907\ }
+\DoxyCodeLine{00914\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a50559771502e81bce1949f9bcded2a0b}{pid\_angle\_behavior\_tolerance\_set}}(okapi::QAngle\ p\_tolerance);}
+\DoxyCodeLine{00915\ }
+\DoxyCodeLine{00922\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aed9a3528e2e4b5fab0248c23b01f35e9}{pid\_angle\_behavior\_tolerance\_set}}(\textcolor{keywordtype}{double}\ tolerance);}
+\DoxyCodeLine{00923\ }
+\DoxyCodeLine{00927\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a46a3d259b1d574b60cdaf995d3a97329}{pid\_angle\_behavior\_tolerance\_get}}();}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00935\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abb2a25d9fd92c1f028334c4b0c779c09}{pid\_angle\_behavior\_bias\_set}}(e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{00936\ }
+\DoxyCodeLine{00940\ \ \ e\_angle\_behavior\ \doxymbox{\hyperlink{classez_1_1_drive_aadbed9f2d51f962567bdfda05b12263b}{pid\_angle\_behavior\_bias\_get}}();}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00943\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00944\ \ \ \textcolor{comment}{//\ User\ Control}}
+\DoxyCodeLine{00945\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00955\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a126079c1e670935635901f56b0b13fcf}{opcontrol\_tank}}();}
+\DoxyCodeLine{00956\ }
+\DoxyCodeLine{00967\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afcd6fca8c605245c61157ae0224b270f}{opcontrol\_arcade\_standard}}(e\_type\ stick\_type);}
+\DoxyCodeLine{00968\ }
+\DoxyCodeLine{00979\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1459d9dea29293249d24361b47e7a279}{opcontrol\_arcade\_flipped}}(e\_type\ stick\_type);}
+\DoxyCodeLine{00980\ }
+\DoxyCodeLine{00984\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a034817935081bfb227213372e90e79f7}{opcontrol\_curve\_sd\_initialize}}();}
+\DoxyCodeLine{00985\ }
+\DoxyCodeLine{00994\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9e49b3176aa1a440761fb0aee4fafe57}{opcontrol\_curve\_default\_set}}(\textcolor{keywordtype}{double}\ left,\ \textcolor{keywordtype}{double}\ right\ =\ 0);}
+\DoxyCodeLine{00995\ }
+\DoxyCodeLine{00999\ \ \ std::vector<double>\ \doxymbox{\hyperlink{classez_1_1_drive_adb6199c9ade97a7f7d80b5a1e154fe20}{opcontrol\_curve\_default\_get}}();}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01013\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1d47027439bff3bf31167f01bf7d7ea3}{opcontrol\_drive\_activebrake\_set}}(\textcolor{keywordtype}{double}\ kp,\ \textcolor{keywordtype}{double}\ ki\ =\ 0.0,\ \textcolor{keywordtype}{double}\ kd\ =\ 0.0,\ \textcolor{keywordtype}{double}\ start\_i\ =\ 0.0);}
+\DoxyCodeLine{01014\ }
+\DoxyCodeLine{01018\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_afe45b8b00345a211eaa0e5f6460aa44b}{opcontrol\_drive\_activebrake\_get}}();}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01023\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_abd77a1e9c70bc762305d50f57d843485}{opcontrol\_drive\_activebrake\_constants\_get}}();}
+\DoxyCodeLine{01024\ }
+\DoxyCodeLine{01031\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aebd474562c8a89f7937388f03f658086}{opcontrol\_curve\_buttons\_toggle}}(\textcolor{keywordtype}{bool}\ toggle);}
+\DoxyCodeLine{01032\ }
+\DoxyCodeLine{01038\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a38ddb4b5e2ce3927318f8a3036072620}{opcontrol\_curve\_buttons\_toggle\_get}}();}
+\DoxyCodeLine{01039\ }
+\DoxyCodeLine{01048\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae412f0042cf13f13a9fafd3e5cfbdabc}{opcontrol\_curve\_buttons\_left\_set}}(pros::controller\_digital\_e\_t\ decrease,\ pros::controller\_digital\_e\_t\ increase);}
+\DoxyCodeLine{01049\ }
+\DoxyCodeLine{01053\ \ \ std::vector<pros::controller\_digital\_e\_t>\ \doxymbox{\hyperlink{classez_1_1_drive_af2a7cd3b534cf72ff250ab0952505642}{opcontrol\_curve\_buttons\_left\_get}}();}
+\DoxyCodeLine{01054\ }
+\DoxyCodeLine{01063\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afff50b6e426fead5c73039dc4daf4f92}{opcontrol\_curve\_buttons\_right\_set}}(pros::controller\_digital\_e\_t\ decrease,\ pros::controller\_digital\_e\_t\ increase);}
+\DoxyCodeLine{01064\ }
+\DoxyCodeLine{01068\ \ \ std::vector<pros::controller\_digital\_e\_t>\ \doxymbox{\hyperlink{classez_1_1_drive_a16c68e8bc3223c6d9d660f2d1cbf9300}{opcontrol\_curve\_buttons\_right\_get}}();}
+\DoxyCodeLine{01069\ }
+\DoxyCodeLine{01078\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a31049afcaf7193366536fd4c08bffe7b}{opcontrol\_curve\_left}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{01079\ }
+\DoxyCodeLine{01088\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a19c0e6a7118fea9f90d3413b88f9a149}{opcontrol\_curve\_right}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{01089\ }
+\DoxyCodeLine{01098\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a122fbb20534723e0f73e6a5c9635c52a}{opcontrol\_joystick\_threshold\_set}}(\textcolor{keywordtype}{int}\ threshold);}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01103\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_ac0f794c6c66b2608ca5961a9dbbbc30c}{opcontrol\_joystick\_threshold\_get}}();}
+\DoxyCodeLine{01104\ }
+\DoxyCodeLine{01108\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad9bb1bc23ced867b658985da7ba157cd}{opcontrol\_drive\_sensors\_reset}}();}
+\DoxyCodeLine{01109\ }
+\DoxyCodeLine{01118\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aaea5e8421eaa7f76cdaba2bed7631f68}{opcontrol\_joystick\_threshold\_iterate}}(\textcolor{keywordtype}{int}\ l\_stick,\ \textcolor{keywordtype}{int}\ r\_stick);}
+\DoxyCodeLine{01119\ }
+\DoxyCodeLine{01121\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01122\ \ \ \textcolor{comment}{//\ PTO}}
+\DoxyCodeLine{01123\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01134\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_aa98003f67e936fb32d9790542be7a1d5}{pto\_check}}(\doxymbox{\hyperlink{classpros_1_1v5_1_1_motor}{pros::Motor}}\ check\_if\_pto);}
+\DoxyCodeLine{01135\ }
+\DoxyCodeLine{01144\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac3458d62c20f3d8c54e51fff5ffc942a}{pto\_add}}(std::vector<pros::Motor>\ pto\_list);}
+\DoxyCodeLine{01145\ }
+\DoxyCodeLine{01152\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac2b2e498fd3bc8d8d917de2b0465b418}{pto\_remove}}(std::vector<pros::Motor>\ pto\_list);}
+\DoxyCodeLine{01153\ }
+\DoxyCodeLine{01164\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae099be18af692a35f3aac7ffe4acd621}{pto\_toggle}}(std::vector<pros::Motor>\ pto\_list,\ \textcolor{keywordtype}{bool}\ toggle);}
+\DoxyCodeLine{01165\ }
+\DoxyCodeLine{01167\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01168\ \ \ \textcolor{comment}{//\ PROS\ Wrappers}}
+\DoxyCodeLine{01169\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01171\ }
+\DoxyCodeLine{01182\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a4875a24edf266765a04fdb182b471702}{drive\_set}}(\textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right);}
+\DoxyCodeLine{01183\ }
+\DoxyCodeLine{01187\ \ \ std::vector<int>\ \doxymbox{\hyperlink{classez_1_1_drive_a809cbb27f9fdb25d60765840b6e1acfa}{drive\_get}}();}
+\DoxyCodeLine{01188\ }
+\DoxyCodeLine{01195\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a140f37645557b9130cc03bcd02c2e98c}{drive\_brake\_set}}(pros::motor\_brake\_mode\_e\_t\ brake\_type);}
+\DoxyCodeLine{01196\ }
+\DoxyCodeLine{01200\ \ \ pros::motor\_brake\_mode\_e\_t\ \doxymbox{\hyperlink{classez_1_1_drive_abe640a0db1effab57e257e87f5ee9864}{drive\_brake\_get}}();}
+\DoxyCodeLine{01201\ }
+\DoxyCodeLine{01208\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a86b1510181ae64dba2e52406793d4fb0}{drive\_current\_limit\_set}}(\textcolor{keywordtype}{int}\ mA);}
+\DoxyCodeLine{01209\ }
+\DoxyCodeLine{01213\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_abe90680dab1c5f9779def3c0be1d7990}{drive\_current\_limit\_get}}();}
+\DoxyCodeLine{01214\ }
+\DoxyCodeLine{01221\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8fb9ca891185f326d6331258e1452f26}{pid\_drive\_toggle}}(\textcolor{keywordtype}{bool}\ toggle);}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01230\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a6a5d821ee98bbb7bf16a5915ef96f073}{pid\_drive\_toggle\_get}}();}
+\DoxyCodeLine{01231\ }
+\DoxyCodeLine{01238\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad08e4a586e2a94b9e2c2e3018c7f8323}{pid\_print\_toggle}}(\textcolor{keywordtype}{bool}\ toggle);}
+\DoxyCodeLine{01239\ }
+\DoxyCodeLine{01247\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a0b68949450fb51e87d199830d1f2a092}{pid\_print\_toggle\_get}}();}
+\DoxyCodeLine{01248\ }
+\DoxyCodeLine{01250\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01251\ \ \ \textcolor{comment}{//\ Telemetry}}
+\DoxyCodeLine{01252\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01254\ }
+\DoxyCodeLine{01260\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_aa99ca136470c05daec450fb40d8b453f}{drive\_sensor\_right}}();}
+\DoxyCodeLine{01261\ }
+\DoxyCodeLine{01267\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_ae9c568f7b9af0200edf53b9158118285}{drive\_sensor\_right\_raw}}();}
+\DoxyCodeLine{01268\ }
+\DoxyCodeLine{01272\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_ae78969aebf912d3ab755afbd2c531902}{drive\_velocity\_right}}();}
+\DoxyCodeLine{01273\ }
+\DoxyCodeLine{01277\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a91d37164b0bc6f5afa7d9c46b1aeea7c}{drive\_mA\_right}}();}
+\DoxyCodeLine{01278\ }
+\DoxyCodeLine{01282\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a1315331b503b38350fdc647808475ad2}{drive\_current\_right\_over}}();}
+\DoxyCodeLine{01283\ }
+\DoxyCodeLine{01289\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a427ac8be2703454cad91cb6dd3e098c1}{drive\_sensor\_left}}();}
+\DoxyCodeLine{01290\ }
+\DoxyCodeLine{01296\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_abad9ef80499b284c2825c52bea20421c}{drive\_sensor\_left\_raw}}();}
+\DoxyCodeLine{01297\ }
+\DoxyCodeLine{01301\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_a689ddfb5e965578f8995cabff7878d06}{drive\_velocity\_left}}();}
+\DoxyCodeLine{01302\ }
+\DoxyCodeLine{01306\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a1babdc709ddf438e25558924ba86ec54}{drive\_mA\_left}}();}
+\DoxyCodeLine{01307\ }
+\DoxyCodeLine{01311\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a0920a99f192fe463c2cdc6b288eab6e5}{drive\_current\_left\_over}}();}
+\DoxyCodeLine{01312\ }
+\DoxyCodeLine{01316\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a392b1579a518ef74722a3a1be15e7d7b}{drive\_sensor\_reset}}();}
+\DoxyCodeLine{01317\ }
+\DoxyCodeLine{01324\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab08cee1c1147a03077922f5904234f04}{drive\_imu\_reset}}(\textcolor{keywordtype}{double}\ new\_heading\ =\ 0);}
+\DoxyCodeLine{01325\ }
+\DoxyCodeLine{01329\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a91a99d2e58675502c0b5ea1749d5b5e8}{drive\_imu\_get}}();}
+\DoxyCodeLine{01330\ }
+\DoxyCodeLine{01334\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a704f40570df211a3a63466ed2858fec9}{drive\_imu\_accel\_get}}();}
+\DoxyCodeLine{01335\ }
+\DoxyCodeLine{01344\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab055e83f1d1d3a8cf865e0ca3db96207}{drive\_imu\_scaler\_set}}(\textcolor{keywordtype}{double}\ scaler);}
+\DoxyCodeLine{01345\ }
+\DoxyCodeLine{01349\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a7b0159135f3a2a55832dede3ac36fcea}{drive\_imu\_scaler\_get}}();}
+\DoxyCodeLine{01350\ }
+\DoxyCodeLine{01357\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a7893746ee2433fdd2bb693dbbc2f5644}{drive\_imu\_calibrate}}(\textcolor{keywordtype}{bool}\ run\_loading\_animation\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01358\ }
+\DoxyCodeLine{01364\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_afeaae51a4f6c92d10954033a12cd75a1}{drive\_imu\_calibrated}}();}
+\DoxyCodeLine{01365\ }
+\DoxyCodeLine{01369\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aef1e1f6dc14dae387adf7c5c675eecf9}{drive\_imu\_display\_loading}}(\textcolor{keywordtype}{int}\ iter);}
+\DoxyCodeLine{01370\ }
+\DoxyCodeLine{01377\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9c8960f790cd80515d2a7af1597d46d6}{opcontrol\_joystick\_practicemode\_toggle}}(\textcolor{keywordtype}{bool}\ toggle);}
+\DoxyCodeLine{01378\ }
+\DoxyCodeLine{01384\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a98b1e4799a88b14c37788726430c385c}{opcontrol\_joystick\_practicemode\_toggle\_get}}();}
+\DoxyCodeLine{01385\ }
+\DoxyCodeLine{01392\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a2ddd928f563e629915aa3f9e456344d0}{opcontrol\_drive\_reverse\_set}}(\textcolor{keywordtype}{bool}\ toggle);}
+\DoxyCodeLine{01393\ }
+\DoxyCodeLine{01399\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a1b3ea6693f3f441d99e735dd176784dd}{opcontrol\_drive\_reverse\_get}}();}
+\DoxyCodeLine{01400\ }
+\DoxyCodeLine{01402\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01403\ \ \ \textcolor{comment}{//\ Autonomous\ Functions}}
+\DoxyCodeLine{01404\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{01406\ }
+\DoxyCodeLine{01417\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a2e44a51d5901f7d10f431ba37af4ded4}{pid\_odom\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01418\ }
+\DoxyCodeLine{01431\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a51cb00cd1208f12922109fa2d71324f6}{pid\_odom\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01432\ }
+\DoxyCodeLine{01443\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aade19ef4b8a2aa802ef94377cabd4a6c}{pid\_odom\_set}}(okapi::QLength\ p\_target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01444\ }
+\DoxyCodeLine{01459\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af969dc4653266ff5271a43ea32307133}{pid\_odom\_set}}(okapi::QLength\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01460\ }
+\DoxyCodeLine{01467\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af2c39095d1bdbcb328219a7dde9abd1f}{pid\_odom\_set}}(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement);}
+\DoxyCodeLine{01468\ }
+\DoxyCodeLine{01477\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa554314c7c5e15cfc6d2717be8a5f3f0}{pid\_odom\_set}}(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01478\ }
+\DoxyCodeLine{01485\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aad9241501b090ee7a17340ed2241d810}{pid\_odom\_ptp\_set}}(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement);}
+\DoxyCodeLine{01486\ }
+\DoxyCodeLine{01495\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a54dde36adc9f7c83db9df3e851b08297}{pid\_odom\_ptp\_set}}(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01496\ }
+\DoxyCodeLine{01503\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a0b83071e9825000e70ba7f76650b1b36}{pid\_odom\_boomerang\_set}}(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement);}
+\DoxyCodeLine{01504\ }
+\DoxyCodeLine{01513\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a097022232c7393af12db484dac1dc6d7}{pid\_odom\_boomerang\_set}}(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01514\ }
+\DoxyCodeLine{01521\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3a41e698ec50a251deed5709fca936db}{pid\_odom\_boomerang\_set}}(\doxymbox{\hyperlink{structez_1_1united__odom}{united\_odom}}\ p\_imovement);}
+\DoxyCodeLine{01522\ }
+\DoxyCodeLine{01531\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a00bdd42bc52fdef1b2d22974cc227a89}{pid\_odom\_boomerang\_set}}(\doxymbox{\hyperlink{structez_1_1united__odom}{united\_odom}}\ p\_imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01532\ }
+\DoxyCodeLine{01539\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a26f8272e41d4f900ea93ad4b81849b1f}{pid\_odom\_ptp\_set}}(\doxymbox{\hyperlink{structez_1_1united__odom}{united\_odom}}\ p\_imovement);}
+\DoxyCodeLine{01540\ }
+\DoxyCodeLine{01549\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adbc94eceab723a9e6e4f88c758f6a0dc}{pid\_odom\_ptp\_set}}(\doxymbox{\hyperlink{structez_1_1united__odom}{united\_odom}}\ p\_imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01550\ }
+\DoxyCodeLine{01557\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a158dcbbeea3c06bae5925096913a39b9}{pid\_odom\_set}}(\doxymbox{\hyperlink{structez_1_1united__odom}{united\_odom}}\ p\_imovement);}
+\DoxyCodeLine{01558\ }
+\DoxyCodeLine{01567\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad2f4308a1faa34228cd096c7de0ef789}{pid\_odom\_set}}(\doxymbox{\hyperlink{structez_1_1united__odom}{united\_odom}}\ p\_imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01568\ }
+\DoxyCodeLine{01575\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af33c29dd3c56301095b9b187991c900b}{pid\_odom\_set}}(std::vector<odom>\ imovements);}
+\DoxyCodeLine{01576\ }
+\DoxyCodeLine{01585\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_acd5c23f719c304afacd087cc677390a2}{pid\_odom\_set}}(std::vector<odom>\ imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01586\ }
+\DoxyCodeLine{01593\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a5b37b709898efab8fe6edde25e527947}{pid\_odom\_pp\_set}}(std::vector<odom>\ imovements);}
+\DoxyCodeLine{01594\ }
+\DoxyCodeLine{01603\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a76c91770dfddadff64fccc38fb56a834}{pid\_odom\_pp\_set}}(std::vector<odom>\ imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01604\ }
+\DoxyCodeLine{01611\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_acdec3c04caa7018ef7bebb2bfda1a537}{pid\_odom\_injected\_pp\_set}}(std::vector<odom>\ imovements);}
+\DoxyCodeLine{01612\ }
+\DoxyCodeLine{01621\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abed029ad43b8946788c9aacfa39eb918}{pid\_odom\_injected\_pp\_set}}(std::vector<odom>\ imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01622\ }
+\DoxyCodeLine{01629\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a432d08cde86eb5a96258c514d0c99f71}{pid\_odom\_smooth\_pp\_set}}(std::vector<odom>\ imovements);}
+\DoxyCodeLine{01630\ }
+\DoxyCodeLine{01639\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a5b00152de31def1dc43e77e8e9151570}{pid\_odom\_smooth\_pp\_set}}(std::vector<odom>\ imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01640\ }
+\DoxyCodeLine{01647\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae4781118bcd49d9109af65893571af3c}{pid\_odom\_smooth\_pp\_set}}(std::vector<united\_odom>\ p\_imovements);}
+\DoxyCodeLine{01648\ }
+\DoxyCodeLine{01657\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3366268410d8f1a7573f391d2c6887c3}{pid\_odom\_smooth\_pp\_set}}(std::vector<united\_odom>\ p\_imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01658\ }
+\DoxyCodeLine{01665\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a20dd80103835d56616269c1da3b307e3}{pid\_odom\_injected\_pp\_set}}(std::vector<united\_odom>\ p\_imovements);}
+\DoxyCodeLine{01666\ }
+\DoxyCodeLine{01675\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac4d6888c78fdc94a0650d19fba9854b3}{pid\_odom\_injected\_pp\_set}}(std::vector<united\_odom>\ p\_imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01676\ }
+\DoxyCodeLine{01683\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa181789c68d1b9788b945d7ec047f490}{pid\_odom\_pp\_set}}(std::vector<united\_odom>\ p\_imovements);}
+\DoxyCodeLine{01684\ }
+\DoxyCodeLine{01693\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac01b87f95dc6a7c17a2b1cfcdd5fc76b}{pid\_odom\_pp\_set}}(std::vector<united\_odom>\ p\_imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01694\ }
+\DoxyCodeLine{01701\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aaee37fb1be47037948aaa05236ead8ea}{pid\_odom\_set}}(std::vector<united\_odom>\ p\_imovements);}
+\DoxyCodeLine{01702\ }
+\DoxyCodeLine{01711\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a80d6e211f422a66796e92e9b649e2168}{pid\_odom\_set}}(std::vector<united\_odom>\ p\_imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01712\ }
+\DoxyCodeLine{01721\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a573ec84dbf217d44762e3a3727610f0d}{pid\_drive\_set}}(okapi::QLength\ p\_target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01722\ }
+\DoxyCodeLine{01735\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8f3aef59a3386cebd4cc8c9b9997ea99}{pid\_drive\_set}}(okapi::QLength\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on,\ \textcolor{keywordtype}{bool}\ toggle\_heading\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01736\ }
+\DoxyCodeLine{01745\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa4f5423f51407793b6e06c89d31672ef}{pid\_drive\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01746\ }
+\DoxyCodeLine{01759\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8e63a02565fd73ab8e7a810f9d7d5b3f}{pid\_drive\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on,\ \textcolor{keywordtype}{bool}\ toggle\_heading\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01760\ }
+\DoxyCodeLine{01769\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8efd4024f75b8a0b9c7a4f2c8e822161}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01770\ }
+\DoxyCodeLine{01781\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a019f2cda3cfd98011d80f0fd90f05955}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01782\ }
+\DoxyCodeLine{01793\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a5a7dec95cb03b2023cf8e530824bb0e2}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{01794\ }
+\DoxyCodeLine{01807\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa5aa30a617a34db1ba2cbc88e12cc7a3}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01808\ }
+\DoxyCodeLine{01817\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a2f538f4475c83e7a4705c676a22d847f}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ p\_itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01818\ }
+\DoxyCodeLine{01829\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a48cfb14d1fda20ccdf6222de9fbee1ac}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ p\_itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01830\ }
+\DoxyCodeLine{01841\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aecaeb6055288666308352d7660cc85de}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ p\_itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{01842\ }
+\DoxyCodeLine{01855\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa0b71d60e7a0d93013e842fdedb391b6}{pid\_turn\_set}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ p\_itarget,\ drive\_directions\ dir,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01856\ }
+\DoxyCodeLine{01867\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8c43bb9aa64b0caaaeafd21d32adc7b4}{pid\_turn\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01868\ }
+\DoxyCodeLine{01879\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abfe00affcb4e4dba617b90515b55224a}{pid\_turn\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{01880\ }
+\DoxyCodeLine{01891\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad77fd54039bf8e2ebbe2bbf9e9890dae}{pid\_turn\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01892\ }
+\DoxyCodeLine{01905\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a20e65c2e95d266bd8d57d39acf874ff2}{pid\_turn\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01906\ }
+\DoxyCodeLine{01915\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_acd521f2c0886069eb5e772b04eb58c5e}{pid\_turn\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01916\ }
+\DoxyCodeLine{01927\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a45287bfca0f769d5957dcde1df93e347}{pid\_turn\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{01928\ }
+\DoxyCodeLine{01939\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae1859bd4df952fcc5265398af8d940d4}{pid\_turn\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01940\ }
+\DoxyCodeLine{01953\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab57dfe14260ca51b651bc9b351038b86}{pid\_turn\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01954\ }
+\DoxyCodeLine{01963\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1b5bbae5363c7a6fe5e2756125c13cab}{pid\_turn\_relative\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{01964\ }
+\DoxyCodeLine{01975\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad4d5f236afb30d5188b2f5ac4a981dff}{pid\_turn\_relative\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{01976\ }
+\DoxyCodeLine{01987\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a7fb1ce68dfa9f6da9c6fa5bb8e7f3ec5}{pid\_turn\_relative\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{01988\ }
+\DoxyCodeLine{02001\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a353c6354284939fa2e6c2de9dd091ae9}{pid\_turn\_relative\_set}}(okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02002\ }
+\DoxyCodeLine{02011\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9eb55bc5b6acda7d5068da451da891ff}{pid\_turn\_relative\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{02012\ }
+\DoxyCodeLine{02023\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a0873479d87faa60d6a452846a462f587}{pid\_turn\_relative\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02024\ }
+\DoxyCodeLine{02035\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a84b9f9cadb98f7095e9e6281fcb343af}{pid\_turn\_relative\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02036\ }
+\DoxyCodeLine{02049\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab5abaef7e6a62c5d2be601661bcdd1c3}{pid\_turn\_relative\_set}}(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02050\ }
+\DoxyCodeLine{02061\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad384a4fc00673eac3abebcb2ed6ee0a4}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{02062\ }
+\DoxyCodeLine{02075\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a53b03ad80ceac2af677c298e5f077f9b}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02076\ }
+\DoxyCodeLine{02089\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a25904acfe63013617418fb3076da4d63}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02090\ }
+\DoxyCodeLine{02103\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1715ad3ec4b6efb1a1fe7425fc9b52e7}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02104\ }
+\DoxyCodeLine{02117\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abfd6a22ba96a95d9c47e7f4a8d84412a}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed);}
+\DoxyCodeLine{02118\ }
+\DoxyCodeLine{02131\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3ee044078bb32358edb9396843e84814}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02132\ }
+\DoxyCodeLine{02147\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aeffb05307d5c20ad1e25a9b2f3b539f0}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02148\ }
+\DoxyCodeLine{02165\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a84077967f7c44b309b5379e9a6071db9}{pid\_swing\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02166\ }
+\DoxyCodeLine{02177\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab1416778a6d2f5b1a7132bba8fec8f10}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{02178\ }
+\DoxyCodeLine{02191\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a92db1d55c362250e0a2cf4c1eb6e23b5}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02192\ }
+\DoxyCodeLine{02205\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a88e4d6774f9735563be30730a23a435f}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02206\ }
+\DoxyCodeLine{02221\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adce83c63910042b114dde3d27b4d33b9}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02222\ }
+\DoxyCodeLine{02235\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a4346c4b4e9576a5014a42422e31228d1}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed);}
+\DoxyCodeLine{02236\ }
+\DoxyCodeLine{02251\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a13d4dc6f75c5bbab290b7957e41c0035}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02252\ }
+\DoxyCodeLine{02267\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae8f6d18e0aed9c3603ab235648b6f2d7}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02268\ }
+\DoxyCodeLine{02285\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a5ecc5ed5703f6ce86d8ab0679d536d4e}{pid\_swing\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02286\ }
+\DoxyCodeLine{02297\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a946cf96837a43ded328c1113c3f0e2be}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{02298\ }
+\DoxyCodeLine{02309\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8354c36acf41b1c89fd4eff599b734ee}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02310\ }
+\DoxyCodeLine{02321\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a9f94c34e188eacdb69b5f92dc72ad3a9}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02322\ }
+\DoxyCodeLine{02333\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa588b1c0a16d2c5596f4c787c981dc62}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02334\ }
+\DoxyCodeLine{02347\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3bd68a791854c36f2f0703515ab6108e}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed);}
+\DoxyCodeLine{02348\ }
+\DoxyCodeLine{02361\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac2645f6009c2e6c36f8bf9015c016dad}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02362\ }
+\DoxyCodeLine{02375\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1fecbbc17bb334722af928f0e0e29d4f}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02376\ }
+\DoxyCodeLine{02389\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af0e0f8df20d7aa7f64cdcb3b6a4438dc}{pid\_swing\_relative\_set}}(e\_swing\ type,\ okapi::QAngle\ p\_target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02390\ }
+\DoxyCodeLine{02401\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab24bd03d17dc790f71535ef58ef7e4fe}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{02402\ }
+\DoxyCodeLine{02413\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a309aadae5c3b767c64f7e52128643f30}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02414\ }
+\DoxyCodeLine{02425\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6dbb6e0d5bd427655b313dfdde6ce415}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02426\ }
+\DoxyCodeLine{02437\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a200e21e62ef354d6652b73357d17e747}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02438\ }
+\DoxyCodeLine{02451\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_acd89101333daa5cd8cb2a88483c9b398}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed);}
+\DoxyCodeLine{02452\ }
+\DoxyCodeLine{02465\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab12840ba8a33701955e4293651ea8df7}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{02466\ }
+\DoxyCodeLine{02479\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af262005cc11c9581e8ffb91b76fc8962}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02480\ }
+\DoxyCodeLine{02493\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a85b0c4aa6779c5be1e975e629b10efb5}{pid\_swing\_relative\_set}}(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{int}\ speed,\ \textcolor{keywordtype}{int}\ opposite\_speed,\ e\_angle\_behavior\ behavior,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{02494\ }
+\DoxyCodeLine{02498\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afc9fb7960e211013f9480f9bf4a74d1b}{pid\_targets\_reset}}();}
+\DoxyCodeLine{02499\ }
+\DoxyCodeLine{02503\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a87c3a1587c7507b4ae3764699b386e26}{drive\_angle\_set}}(okapi::QAngle\ p\_angle);}
+\DoxyCodeLine{02504\ }
+\DoxyCodeLine{02508\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afd624e91b7a69a807a33d4c46c0aea6f}{drive\_angle\_set}}(\textcolor{keywordtype}{double}\ angle);}
+\DoxyCodeLine{02509\ }
+\DoxyCodeLine{02513\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8f533b7c92ff6a0729db4a1323e2dd7e}{pid\_wait}}();}
+\DoxyCodeLine{02514\ }
+\DoxyCodeLine{02521\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a33d60f795775523d10878b46fed135ab}{pid\_wait\_until}}(okapi::QAngle\ target);}
+\DoxyCodeLine{02522\ }
+\DoxyCodeLine{02529\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a68fccce601a2efcf4789882de790fbc7}{pid\_wait\_until}}(okapi::QLength\ target);}
+\DoxyCodeLine{02530\ }
+\DoxyCodeLine{02537\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa30f3fa4c185cb4b0629f1c0c9d389cd}{pid\_wait\_until}}(\textcolor{keywordtype}{double}\ target);}
+\DoxyCodeLine{02538\ }
+\DoxyCodeLine{02544\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a96e79dbcbeec3e0b58b3644464b5ef1c}{pid\_wait\_quick}}();}
+\DoxyCodeLine{02545\ }
+\DoxyCodeLine{02553\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a07512ef2ba73e11aaa12d67a41c178ed}{pid\_wait\_quick\_chain}}();}
+\DoxyCodeLine{02554\ }
+\DoxyCodeLine{02561\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_acd02973655de88b188b5e8d23cf6fb69}{pid\_wait\_until\_index}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{02562\ }
+\DoxyCodeLine{02569\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a584b51f6f960d8a0ad255622747450f1}{pid\_wait\_until\_index\_started}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{02570\ }
+\DoxyCodeLine{02577\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a182854cc0ecd020b00a7a3da7cc8d083}{pid\_wait\_until\_point}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ target);}
+\DoxyCodeLine{02578\ }
+\DoxyCodeLine{02585\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abfbfce402474f87d42e5bbb985011ad2}{pid\_wait\_until\_point}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ target);}
+\DoxyCodeLine{02586\ }
+\DoxyCodeLine{02595\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a24c6e4fa96cdd23edfbbd6003c4c6055}{pid\_wait\_until}}(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ target);}
+\DoxyCodeLine{02596\ }
+\DoxyCodeLine{02605\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac511258ee16c41e5e7460a1042c31db1}{pid\_wait\_until}}(\doxymbox{\hyperlink{structez_1_1united__pose}{united\_pose}}\ target);}
+\DoxyCodeLine{02606\ }
+\DoxyCodeLine{02612\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_ae8f4d8adb117e01b37c162cd59f82679}{interfered}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02613\ }
+\DoxyCodeLine{02620\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a6a271b5f84520fe8c4ad4102ff1e4b97}{drive\_ratio\_set}}(\textcolor{keywordtype}{double}\ ratio);}
+\DoxyCodeLine{02621\ }
+\DoxyCodeLine{02628\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a27f76c918fbd8172c9606684dbb89971}{drive\_rpm\_set}}(\textcolor{keywordtype}{double}\ rpm);}
+\DoxyCodeLine{02629\ }
+\DoxyCodeLine{02633\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ac9efe1878adc7a9c15a97f49680259e4}{drive\_ratio\_get}}();}
+\DoxyCodeLine{02634\ }
+\DoxyCodeLine{02638\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a799f29e54ad318900db97445e9ffcb73}{drive\_rpm\_get}}();}
+\DoxyCodeLine{02639\ }
+\DoxyCodeLine{02646\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa92ee131ec111a026182f6786a0b355d}{pid\_speed\_max\_set}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{02647\ }
+\DoxyCodeLine{02651\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_a01d5b28e6d8d980aed3b724eec09f06b}{pid\_speed\_max\_get}}();}
+\DoxyCodeLine{02652\ }
+\DoxyCodeLine{02665\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af9fe106b3e110b20cf1b577b4407a362}{pid\_turn\_constants\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02666\ }
+\DoxyCodeLine{02670\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_a3400746af5b1a172716a5bcf3feeb193}{pid\_turn\_constants\_get}}();}
+\DoxyCodeLine{02671\ }
+\DoxyCodeLine{02680\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_abb5423a2c13861df121b52f8118df4e5}{pid\_turn\_chain\_constant\_set}}(okapi::QAngle\ input);}
+\DoxyCodeLine{02681\ }
+\DoxyCodeLine{02690\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a7f870a3ebcbec7669e19c528700e4c71}{pid\_turn\_chain\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02691\ }
+\DoxyCodeLine{02695\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ac525375a9ee12c2b936afe0ff7c5de70}{pid\_turn\_chain\_constant\_get}}();}
+\DoxyCodeLine{02696\ }
+\DoxyCodeLine{02709\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad50f2aeb73e158318b297c5bf9c66d02}{pid\_swing\_constants\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02710\ }
+\DoxyCodeLine{02716\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_aaea5a1d6687f9d9ab4340cadaa61b8ea}{pid\_swing\_constants\_get}}();}
+\DoxyCodeLine{02717\ }
+\DoxyCodeLine{02730\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a7113413ac918571b09d341127c553ff0}{pid\_swing\_constants\_forward\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02731\ }
+\DoxyCodeLine{02735\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_a5adbcff36be445aea93a44ee3ecee344}{pid\_swing\_constants\_forward\_get}}();}
+\DoxyCodeLine{02736\ }
+\DoxyCodeLine{02749\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a258a2ec4db945aa8b81ace237dd5cbe7}{pid\_swing\_constants\_backward\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02750\ }
+\DoxyCodeLine{02754\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_ad3721d39a1c0c720ae9b59a9b5ad8e95}{pid\_swing\_constants\_backward\_get}}();}
+\DoxyCodeLine{02755\ }
+\DoxyCodeLine{02764\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ad2293a4a8375574806bfccb69d022487}{pid\_swing\_chain\_constant\_set}}(okapi::QAngle\ input);}
+\DoxyCodeLine{02765\ }
+\DoxyCodeLine{02774\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a2a0f55f6e433175608daae0dcb0d9129}{pid\_swing\_chain\_forward\_constant\_set}}(okapi::QAngle\ input);}
+\DoxyCodeLine{02775\ }
+\DoxyCodeLine{02784\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a71a1aedd41173b8965757ffa07dff43b}{pid\_swing\_chain\_backward\_constant\_set}}(okapi::QAngle\ input);}
+\DoxyCodeLine{02785\ }
+\DoxyCodeLine{02794\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a7901ec704611297de4b065467d40cde3}{pid\_swing\_chain\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02795\ }
+\DoxyCodeLine{02804\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a2605958095280ff0361d52741370324b}{pid\_swing\_chain\_forward\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02805\ }
+\DoxyCodeLine{02809\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ac51da7c9475177c0eddf403c2a7a9064}{pid\_swing\_chain\_forward\_constant\_get}}();}
+\DoxyCodeLine{02810\ }
+\DoxyCodeLine{02819\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a7dbf78b53efa838f1adf561ea91f9a03}{pid\_swing\_chain\_backward\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02820\ }
+\DoxyCodeLine{02824\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a7b63fee400603e487d1dc0700cba40b3}{pid\_swing\_chain\_backward\_constant\_get}}();}
+\DoxyCodeLine{02825\ }
+\DoxyCodeLine{02838\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae1fcd31d75dda57bf8fd6bb251606ccb}{pid\_heading\_constants\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02839\ }
+\DoxyCodeLine{02843\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_a881f250f72e956ac88dadac99206111e}{pid\_heading\_constants\_get}}();}
+\DoxyCodeLine{02844\ }
+\DoxyCodeLine{02857\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a834bac833c5bc225364e6082994abcb5}{pid\_drive\_constants\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02858\ }
+\DoxyCodeLine{02864\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_aad5bf236b969f1dbcf7374fb92a0e01e}{pid\_drive\_constants\_get}}();}
+\DoxyCodeLine{02865\ }
+\DoxyCodeLine{02878\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_afc6b74179e99559f4ebcd81d3bcf39df}{pid\_drive\_constants\_forward\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02879\ }
+\DoxyCodeLine{02883\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_a252a7308edb2fc8b1a192f5c8db7c40e}{pid\_drive\_constants\_forward\_get}}();}
+\DoxyCodeLine{02884\ }
+\DoxyCodeLine{02897\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a429d73a2dddfe682f5f2125e9b402af9}{pid\_drive\_constants\_backward\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{02898\ }
+\DoxyCodeLine{02902\ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}\ \doxymbox{\hyperlink{classez_1_1_drive_a9ca3d4b9461b6d151d47bbb5e4c29f98}{pid\_drive\_constants\_backward\_get}}();}
+\DoxyCodeLine{02903\ }
+\DoxyCodeLine{02912\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1ee780a992dbc27997edf2d2bc241215}{pid\_drive\_chain\_constant\_set}}(okapi::QLength\ input);}
+\DoxyCodeLine{02913\ }
+\DoxyCodeLine{02922\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a060b833d5d4dbdb9c0e8b030346abe7a}{pid\_drive\_chain\_forward\_constant\_set}}(okapi::QLength\ input);}
+\DoxyCodeLine{02923\ }
+\DoxyCodeLine{02932\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a30cbb947a953f383ab2a63f7753b436d}{pid\_drive\_chain\_backward\_constant\_set}}(okapi::QLength\ input);}
+\DoxyCodeLine{02933\ }
+\DoxyCodeLine{02942\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a68f8ccb21d13fa59122de774018ff5cc}{pid\_drive\_chain\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02943\ }
+\DoxyCodeLine{02952\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a185c5062a305fb63aaae90e1062aae1f}{pid\_drive\_chain\_forward\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02953\ }
+\DoxyCodeLine{02957\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a1022e8149d5ac7395d4e0cace427f964}{pid\_drive\_chain\_forward\_constant\_get}}();}
+\DoxyCodeLine{02958\ }
+\DoxyCodeLine{02967\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a05669c97a7dca3746bc528d1f002dc06}{pid\_drive\_chain\_backward\_constant\_set}}(\textcolor{keywordtype}{double}\ input);}
+\DoxyCodeLine{02968\ }
+\DoxyCodeLine{02972\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ac1873300b0737dfbdc824b451fcb3d45}{pid\_drive\_chain\_backward\_constant\_get}}();}
+\DoxyCodeLine{02973\ }
+\DoxyCodeLine{02980\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ab850dac5e3be8fc3acf884b1cb54ddd9}{pid\_swing\_min\_set}}(\textcolor{keywordtype}{int}\ min);}
+\DoxyCodeLine{02981\ }
+\DoxyCodeLine{02988\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a166c2c83761e084b880e651dd1e1d242}{pid\_turn\_min\_set}}(\textcolor{keywordtype}{int}\ min);}
+\DoxyCodeLine{02989\ }
+\DoxyCodeLine{02993\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_ad6a55193c8c32a80b07bf6b6c191bd9e}{pid\_swing\_min\_get}}();}
+\DoxyCodeLine{02994\ }
+\DoxyCodeLine{02998\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_a3ec6e45797e36acb86293e6db526b631}{pid\_turn\_min\_get}}();}
+\DoxyCodeLine{02999\ }
+\DoxyCodeLine{03012\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a193d86f3951c3866a92c2d79abb5e3f9}{pid\_odom\_angular\_constants\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{03013\ }
+\DoxyCodeLine{03026\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a84f09d65a6a0fe2ecd5cca34461fa3fc}{pid\_odom\_boomerang\_constants\_set}}(\textcolor{keywordtype}{double}\ p,\ \textcolor{keywordtype}{double}\ i\ =\ 0.0,\ \textcolor{keywordtype}{double}\ d\ =\ 0.0,\ \textcolor{keywordtype}{double}\ p\_start\_i\ =\ 0.0);}
+\DoxyCodeLine{03027\ }
+\DoxyCodeLine{03046\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a826cc265a17329a4beaabefd44dcc783}{pid\_odom\_drive\_exit\_condition\_set}}(\textcolor{keywordtype}{int}\ p\_small\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_small\_error,\ \textcolor{keywordtype}{int}\ p\_big\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_big\_error,\ \textcolor{keywordtype}{int}\ p\_velocity\_exit\_time,\ \textcolor{keywordtype}{int}\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03047\ }
+\DoxyCodeLine{03066\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a88f80cc7a58a4a8685b5bd9b41fb2d97}{pid\_odom\_turn\_exit\_condition\_set}}(\textcolor{keywordtype}{int}\ p\_small\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_small\_error,\ \textcolor{keywordtype}{int}\ p\_big\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_big\_error,\ \textcolor{keywordtype}{int}\ p\_velocity\_exit\_time,\ \textcolor{keywordtype}{int}\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03067\ }
+\DoxyCodeLine{03086\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adf7befd38b2bd12fbb6fe422d6474ee6}{pid\_odom\_turn\_exit\_condition\_set}}(okapi::QTime\ p\_small\_exit\_time,\ okapi::QAngle\ p\_small\_error,\ okapi::QTime\ p\_big\_exit\_time,\ okapi::QAngle\ p\_big\_error,\ okapi::QTime\ p\_velocity\_exit\_time,\ okapi::QTime\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03087\ }
+\DoxyCodeLine{03106\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adeec40ddcb9067d380595cce8454ba04}{pid\_odom\_drive\_exit\_condition\_set}}(okapi::QTime\ p\_small\_exit\_time,\ okapi::QLength\ p\_small\_error,\ okapi::QTime\ p\_big\_exit\_time,\ okapi::QLength\ p\_big\_error,\ okapi::QTime\ p\_velocity\_exit\_time,\ okapi::QTime\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03107\ }
+\DoxyCodeLine{03126\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aae9c993cfc074ca2b78961cd5b4b1943}{pid\_drive\_exit\_condition\_set}}(okapi::QTime\ p\_small\_exit\_time,\ okapi::QLength\ p\_small\_error,\ okapi::QTime\ p\_big\_exit\_time,\ okapi::QLength\ p\_big\_error,\ okapi::QTime\ p\_velocity\_exit\_time,\ okapi::QTime\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03127\ }
+\DoxyCodeLine{03146\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ace9660d0ebfc6128ba538348875d10c7}{pid\_turn\_exit\_condition\_set}}(okapi::QTime\ p\_small\_exit\_time,\ okapi::QAngle\ p\_small\_error,\ okapi::QTime\ p\_big\_exit\_time,\ okapi::QAngle\ p\_big\_error,\ okapi::QTime\ p\_velocity\_exit\_time,\ okapi::QTime\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03147\ }
+\DoxyCodeLine{03166\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ade171ba70afaf559d4bde024388e2cfb}{pid\_swing\_exit\_condition\_set}}(okapi::QTime\ p\_small\_exit\_time,\ okapi::QAngle\ p\_small\_error,\ okapi::QTime\ p\_big\_exit\_time,\ okapi::QAngle\ p\_big\_error,\ okapi::QTime\ p\_velocity\_exit\_time,\ okapi::QTime\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03167\ }
+\DoxyCodeLine{03186\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af579a1215fa12a520a617287c6272978}{pid\_drive\_exit\_condition\_set}}(\textcolor{keywordtype}{int}\ p\_small\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_small\_error,\ \textcolor{keywordtype}{int}\ p\_big\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_big\_error,\ \textcolor{keywordtype}{int}\ p\_velocity\_exit\_time,\ \textcolor{keywordtype}{int}\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03187\ }
+\DoxyCodeLine{03206\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a3144ef76494060e958395b2ba6028369}{pid\_turn\_exit\_condition\_set}}(\textcolor{keywordtype}{int}\ p\_small\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_small\_error,\ \textcolor{keywordtype}{int}\ p\_big\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_big\_error,\ \textcolor{keywordtype}{int}\ p\_velocity\_exit\_time,\ \textcolor{keywordtype}{int}\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03207\ }
+\DoxyCodeLine{03226\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_af48239c4986b0b45403648964710ad99}{pid\_swing\_exit\_condition\_set}}(\textcolor{keywordtype}{int}\ p\_small\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_small\_error,\ \textcolor{keywordtype}{int}\ p\_big\_exit\_time,\ \textcolor{keywordtype}{double}\ p\_big\_error,\ \textcolor{keywordtype}{int}\ p\_velocity\_exit\_time,\ \textcolor{keywordtype}{int}\ p\_mA\_timeout,\ \textcolor{keywordtype}{bool}\ use\_imu\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{03227\ }
+\DoxyCodeLine{03231\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a95f7cacd2f8eefbaf3d846002788d336}{drive\_tick\_per\_inch}}();}
+\DoxyCodeLine{03232\ }
+\DoxyCodeLine{03236\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a2357a0b9bd4a50a7dea8f44beb38652d}{opcontrol\_curve\_buttons\_iterate}}();}
+\DoxyCodeLine{03237\ }
+\DoxyCodeLine{03241\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aa696ebc2829c994c0a8e6b4310f177e9}{pid\_tuner\_enable}}();}
+\DoxyCodeLine{03242\ }
+\DoxyCodeLine{03246\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a768f5c855e7ad653a6f4b43fa1917efb}{pid\_tuner\_disable}}();}
+\DoxyCodeLine{03247\ }
+\DoxyCodeLine{03251\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a858fb5337a60053ebdc197d16659c1b9}{pid\_tuner\_toggle}}();}
+\DoxyCodeLine{03252\ }
+\DoxyCodeLine{03258\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_ad86c105bffc80aac9a0975ceaf2213f4}{pid\_tuner\_enabled}}();}
+\DoxyCodeLine{03259\ }
+\DoxyCodeLine{03263\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a1d63aba0528315972ad85253436f99a5}{pid\_tuner\_iterate}}();}
+\DoxyCodeLine{03264\ }
+\DoxyCodeLine{03271\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a865c47220f647e80964e9b087d321f09}{pid\_tuner\_print\_brain\_set}}(\textcolor{keywordtype}{bool}\ input);}
+\DoxyCodeLine{03272\ }
+\DoxyCodeLine{03279\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a8067baa29358a44aeabf4b5b84baa749}{pid\_tuner\_print\_terminal\_set}}(\textcolor{keywordtype}{bool}\ input);}
+\DoxyCodeLine{03280\ }
+\DoxyCodeLine{03284\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a3cf10108ed87434c4773dfd60fa93de4}{pid\_tuner\_print\_terminal\_enabled}}();}
+\DoxyCodeLine{03285\ }
+\DoxyCodeLine{03289\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a8ce039d6a94cfd5fa3811f0bacec680c}{pid\_tuner\_print\_brain\_enabled}}();}
+\DoxyCodeLine{03290\ }
+\DoxyCodeLine{03297\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae6c0091aee4a0c82c521929962a8212c}{pid\_tuner\_increment\_p\_set}}(\textcolor{keywordtype}{double}\ p);}
+\DoxyCodeLine{03298\ }
+\DoxyCodeLine{03305\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_a4d0d68d4e521d7297dfe275bdcff9264}{pid\_tuner\_increment\_i\_set}}(\textcolor{keywordtype}{double}\ i);}
+\DoxyCodeLine{03306\ }
+\DoxyCodeLine{03313\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac1d710f9407c9a43dd9fdf9c859dc06e}{pid\_tuner\_increment\_d\_set}}(\textcolor{keywordtype}{double}\ d);}
+\DoxyCodeLine{03314\ }
+\DoxyCodeLine{03321\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_aed8bf7fb133b95d000317323c7051b61}{pid\_tuner\_increment\_start\_i\_set}}(\textcolor{keywordtype}{double}\ start\_i);}
+\DoxyCodeLine{03322\ }
+\DoxyCodeLine{03326\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a916c3e08f8d70ed028aa7e48724f02b2}{pid\_tuner\_increment\_p\_get}}();}
+\DoxyCodeLine{03327\ }
+\DoxyCodeLine{03331\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_ae6ef88ffc25c03939bcf0086cbc3eda8}{pid\_tuner\_increment\_i\_get}}();}
+\DoxyCodeLine{03332\ }
+\DoxyCodeLine{03336\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_af80478e4b385ffefb60157665748d316}{pid\_tuner\_increment\_d\_get}}();}
+\DoxyCodeLine{03337\ }
+\DoxyCodeLine{03341\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classez_1_1_drive_a2d0abcbdc27471c53d78505ecb517200}{pid\_tuner\_increment\_start\_i\_get}}();}
+\DoxyCodeLine{03342\ }
+\DoxyCodeLine{03349\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_adca713959ce0ae267c23e507289d7664}{pid\_tuner\_full\_enable}}(\textcolor{keywordtype}{bool}\ enable);}
+\DoxyCodeLine{03350\ }
+\DoxyCodeLine{03356\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a5bac86c6aa5564f1ea9d4e66bca4d491}{pid\_tuner\_full\_enabled}}();}
+\DoxyCodeLine{03357\ }
+\DoxyCodeLine{03358\ \ \ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structez_1_1_drive_1_1const__and__name}{const\_and\_name}}\ \{}
+\DoxyCodeLine{03359\ \ \ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{03360\ \ \ \ \ \doxymbox{\hyperlink{structez_1_1_p_i_d_1_1_constants}{PID::Constants}}*\ consts;}
+\DoxyCodeLine{03361\ \ \ \};}
+\DoxyCodeLine{03362\ }
+\DoxyCodeLine{03366\ \ \ std::vector<const\_and\_name>\ \doxymbox{\hyperlink{classez_1_1_drive_a0140423934cd99a04b3cd60ca6a21b51}{pid\_tuner\_pids}}\ =\ \{}
+\DoxyCodeLine{03367\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Drive\ PID\ Constants"{}},\ \&fwd\_rev\_drivePID.constants\},}
+\DoxyCodeLine{03368\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Odom\ Angular\ PID\ Constants"{}},\ \&odom\_angularPID.constants\},}
+\DoxyCodeLine{03369\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Boomerang\ Angular\ PID\ Constants"{}},\ \&boomerangPID.constants\},}
+\DoxyCodeLine{03370\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Heading\ PID\ Constants"{}},\ \&\doxymbox{\hyperlink{classez_1_1_drive_aa525bac7c1f6b6c49f6667d057bd8776}{headingPID}}.constants\},}
+\DoxyCodeLine{03371\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Turn\ PID\ Constants"{}},\ \&turnPID.constants\},}
+\DoxyCodeLine{03372\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Swing\ PID\ Constants"{}},\ \&fwd\_rev\_swingPID.constants\}\};}
+\DoxyCodeLine{03373\ }
+\DoxyCodeLine{03377\ \ \ std::vector<const\_and\_name>\ \doxymbox{\hyperlink{classez_1_1_drive_a84a240afb57662996f49c018aefdb436}{pid\_tuner\_full\_pids}}\ =\ \{}
+\DoxyCodeLine{03378\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Drive\ Forward\ PID\ Constants"{}},\ \&forward\_drivePID.constants\},}
+\DoxyCodeLine{03379\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Drive\ Backward\ PID\ Constants"{}},\ \&backward\_drivePID.constants\},}
+\DoxyCodeLine{03380\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Odom\ Angular\ PID\ Constants"{}},\ \&odom\_angularPID.constants\},}
+\DoxyCodeLine{03381\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Boomerang\ Angular\ PID\ Constants"{}},\ \&boomerangPID.constants\},}
+\DoxyCodeLine{03382\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Heading\ PID\ Constants"{}},\ \&\doxymbox{\hyperlink{classez_1_1_drive_aa525bac7c1f6b6c49f6667d057bd8776}{headingPID}}.constants\},}
+\DoxyCodeLine{03383\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Turn\ PID\ Constants"{}},\ \&turnPID.constants\},}
+\DoxyCodeLine{03384\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Swing\ Forward\ PID\ Constants"{}},\ \&forward\_swingPID.constants\},}
+\DoxyCodeLine{03385\ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Swing\ Backward\ PID\ Constants"{}},\ \&backward\_swingPID.constants\}\};}
+\DoxyCodeLine{03386\ }
+\DoxyCodeLine{03393\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ac5b2de7f8c81068c08925d9a628b4730}{opcontrol\_speed\_max\_set}}(\textcolor{keywordtype}{int}\ speed);}
+\DoxyCodeLine{03394\ }
+\DoxyCodeLine{03398\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classez_1_1_drive_a37f917a1e51f8579fa242ba256f62f5a}{opcontrol\_speed\_max\_get}}();}
+\DoxyCodeLine{03399\ }
+\DoxyCodeLine{03406\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classez_1_1_drive_ae779668c924af88b5f6436e6b2ef72e5}{opcontrol\_arcade\_scaling}}(\textcolor{keywordtype}{bool}\ enable);}
+\DoxyCodeLine{03407\ }
+\DoxyCodeLine{03411\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classez_1_1_drive_a6298a62e2bd5e7f5f3b73a29d5239f59}{opcontrol\_arcade\_scaling\_enabled}}();}
+\DoxyCodeLine{03412\ }
+\DoxyCodeLine{03413\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{03414\ \ \ \textcolor{keywordtype}{void}\ opcontrol\_drive\_activebrake\_targets\_set();}
+\DoxyCodeLine{03415\ \ \ \textcolor{keywordtype}{double}\ odom\_smooth\_weight\_smooth\ =\ 0.0;}
+\DoxyCodeLine{03416\ \ \ \textcolor{keywordtype}{double}\ odom\_smooth\_weight\_data\ =\ 0.0;}
+\DoxyCodeLine{03417\ \ \ \textcolor{keywordtype}{double}\ odom\_smooth\_tolerance\ =\ 0.0;}
+\DoxyCodeLine{03418\ \ \ \textcolor{keywordtype}{bool}\ odom\_use\_left\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03419\ \ \ \textcolor{keywordtype}{double}\ odom\_ime\_track\_width\_left\ =\ 0.0;}
+\DoxyCodeLine{03420\ \ \ \textcolor{keywordtype}{double}\ odom\_ime\_track\_width\_right\ =\ 0.0;}
+\DoxyCodeLine{03421\ \ \ \textcolor{keywordtype}{bool}\ imu\_calibrate\_took\_too\_long\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03422\ \ \ \textcolor{keywordtype}{bool}\ is\_full\_pid\_tuner\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03423\ \ \ std::vector<const\_and\_name>*\ used\_pid\_tuner\_pids;}
+\DoxyCodeLine{03424\ \ \ \textcolor{keywordtype}{double}\ opcontrol\_speed\_max\ =\ 127.0;}
+\DoxyCodeLine{03425\ \ \ \textcolor{keywordtype}{bool}\ arcade\_vector\_scaling\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03426\ \ \ \textcolor{comment}{//\ odom\ privates}}
+\DoxyCodeLine{03427\ \ \ std::vector<odom>\ pp\_movements;}
+\DoxyCodeLine{03428\ \ \ std::vector<int>\ injected\_pp\_index;}
+\DoxyCodeLine{03429\ \ \ \textcolor{keywordtype}{int}\ pp\_index\ =\ 0;}
+\DoxyCodeLine{03430\ \ \ std::vector<odom>\ smooth\_path(std::vector<odom>\ ipath,\ \textcolor{keywordtype}{double}\ weight\_smooth,\ \textcolor{keywordtype}{double}\ weight\_data,\ \textcolor{keywordtype}{double}\ tolerance);}
+\DoxyCodeLine{03431\ \ \ \textcolor{keywordtype}{double}\ is\_past\_target(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ target,\ \doxymbox{\hyperlink{structez_1_1pose}{pose}}\ current);}
+\DoxyCodeLine{03432\ \ \ \textcolor{keywordtype}{void}\ raw\_pid\_odom\_pp\_set(std::vector<odom>\ imovements,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{03433\ \ \ \textcolor{keywordtype}{bool}\ ptf1\_running\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03434\ \ \ std::vector<pose>\ find\_point\_to\_face(\doxymbox{\hyperlink{structez_1_1pose}{pose}}\ current,\ \doxymbox{\hyperlink{structez_1_1pose}{pose}}\ target,\ drive\_directions\ dir,\ \textcolor{keywordtype}{bool}\ set\_global);}
+\DoxyCodeLine{03435\ \ \ \textcolor{keywordtype}{void}\ raw\_pid\_odom\_ptp\_set(\doxymbox{\hyperlink{structez_1_1odom}{odom}}\ imovement,\ \textcolor{keywordtype}{bool}\ slew\_on);}
+\DoxyCodeLine{03436\ \ \ std::vector<odom>\ inject\_points(std::vector<odom>\ imovements);}
+\DoxyCodeLine{03437\ \ \ std::vector<pose>\ point\_to\_face\ =\ \{\{0,\ 0,\ 0\},\ \{0,\ 0,\ 0\}\};}
+\DoxyCodeLine{03438\ \ \ \textcolor{keywordtype}{double}\ turn\_is\_toleranced(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current,\ \textcolor{keywordtype}{double}\ input,\ \textcolor{keywordtype}{double}\ longest,\ \textcolor{keywordtype}{double}\ shortest);}
+\DoxyCodeLine{03439\ \ \ \textcolor{keywordtype}{double}\ turn\_short(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current,\ \textcolor{keywordtype}{bool}\ print\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{03440\ \ \ \textcolor{keywordtype}{double}\ turn\_long(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current,\ \textcolor{keywordtype}{bool}\ print\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{03441\ \ \ \textcolor{keywordtype}{double}\ new\_turn\_target\_compute(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current,\ ez::e\_angle\_behavior\ behavior);}
+\DoxyCodeLine{03442\ \ \ \textcolor{keywordtype}{double}\ turn\_left(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current,\ \textcolor{keywordtype}{bool}\ print\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{03443\ \ \ \textcolor{keywordtype}{double}\ turn\_right(\textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current,\ \textcolor{keywordtype}{bool}\ print\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{03444\ \ \ \textcolor{keywordtype}{bool}\ imu\_calibration\_complete\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03445\ \ \ \textcolor{keywordtype}{bool}\ is\_swing\_slew\_enabled(e\_swing\ type,\ \textcolor{keywordtype}{double}\ target,\ \textcolor{keywordtype}{double}\ current);}
+\DoxyCodeLine{03446\ \ \ \textcolor{keywordtype}{bool}\ slew\_reenables\_when\_max\_speed\_changes\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03447\ \ \ \textcolor{keywordtype}{int}\ slew\_min\_when\_it\_enabled\ =\ 0;}
+\DoxyCodeLine{03448\ \ \ \textcolor{keywordtype}{bool}\ slew\_will\_enable\_later\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03449\ \ \ \textcolor{keywordtype}{bool}\ current\_slew\_on\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03450\ \ \ \textcolor{keywordtype}{bool}\ is\_odom\_turn\_bias\_enabled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03451\ \ \ \textcolor{keywordtype}{bool}\ odom\_turn\_bias\_enabled();}
+\DoxyCodeLine{03452\ \ \ \textcolor{keywordtype}{void}\ odom\_turn\_bias\_enable(\textcolor{keywordtype}{bool}\ set);}
+\DoxyCodeLine{03453\ \ \ \textcolor{keywordtype}{double}\ angle\_rad\ =\ 0.0;}
+\DoxyCodeLine{03454\ \ \ \textcolor{keywordtype}{double}\ global\_track\_width\ =\ 0.0;}
+\DoxyCodeLine{03455\ \ \ \textcolor{keywordtype}{bool}\ odometry\_enabled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03456\ \ \ pose\ odom\_target\ =\ \{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03457\ \ \ pose\ odom\_current\ =\ \{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03458\ \ \ pose\ odom\_second\_to\_last\ =\ \{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03459\ \ \ pose\ odom\_start\ =\ \{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03460\ \ \ pose\ odom\_target\_start\ =\ \{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03461\ \ \ pose\ turn\_to\_point\_target\ =\ \{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03462\ \ \ \textcolor{keywordtype}{bool}\ y\_flipped\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03463\ \ \ \textcolor{keywordtype}{bool}\ x\_flipped\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03464\ \ \ \textcolor{keywordtype}{bool}\ theta\_flipped\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03465\ \ \ \textcolor{keywordtype}{double}\ flip\_angle\_target(\textcolor{keywordtype}{double}\ target);}
+\DoxyCodeLine{03466\ \ \ \textcolor{keywordtype}{double}\ odom\_imu\_start\ =\ 0.0;}
+\DoxyCodeLine{03467\ \ \ \textcolor{keywordtype}{int}\ past\_target\ =\ 0;}
+\DoxyCodeLine{03468\ \ \ \textcolor{keywordtype}{double}\ SPACING\ =\ 0.5;}
+\DoxyCodeLine{03469\ \ \ \textcolor{keywordtype}{double}\ LOOK\_AHEAD\ =\ 7.0;}
+\DoxyCodeLine{03470\ \ \ \textcolor{keywordtype}{double}\ dlead\ =\ 0.5;}
+\DoxyCodeLine{03471\ \ \ \textcolor{keywordtype}{double}\ max\_boomerang\_distance\ =\ 12.0;}
+\DoxyCodeLine{03472\ \ \ \textcolor{keywordtype}{double}\ odom\_turn\_bias\_amount\ =\ 1.375;}
+\DoxyCodeLine{03473\ \ \ drive\_directions\ current\_drive\_direction\ =\ fwd;}
+\DoxyCodeLine{03474\ \ \ \textcolor{keywordtype}{double}\ h\_last\ =\ 0.0,\ t\_last\ =\ 0.0,\ l\_last\ =\ 0.0,\ r\_last\ =\ 0.0;}
+\DoxyCodeLine{03475\ \ \ pose\ l\_pose\{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03476\ \ \ pose\ r\_pose\{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03477\ \ \ pose\ central\_pose\{0.0,\ 0.0,\ 0.0\};}
+\DoxyCodeLine{03478\ \ \ \textcolor{keywordtype}{double}\ xy\_current\_fake\ =\ 0.0;}
+\DoxyCodeLine{03479\ \ \ \textcolor{keywordtype}{double}\ xy\_last\_fake\ =\ 0.0;}
+\DoxyCodeLine{03480\ \ \ \textcolor{keywordtype}{double}\ xy\_delta\_fake\ =\ 0.0;}
+\DoxyCodeLine{03481\ \ \ \textcolor{keywordtype}{double}\ new\_current\_fake\ =\ 0.0;}
+\DoxyCodeLine{03482\ \ \ \textcolor{keywordtype}{bool}\ was\_odom\_just\_set\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03483\ \ \ std::pair<float,\ float>\ decide\_vert\_sensor(ez::tracking\_wheel*\ tracker,\ \textcolor{keywordtype}{bool}\ is\_tracker\_enabled,\ \textcolor{keywordtype}{float}\ ime\ =\ 0.0,\ \textcolor{keywordtype}{float}\ ime\_track\ =\ 0.0);}
+\DoxyCodeLine{03484\ \ \ pose\ solve\_xy\_vert(\textcolor{keywordtype}{float}\ p\_track\_width,\ \textcolor{keywordtype}{float}\ current\_t,\ \textcolor{keywordtype}{float}\ delta\_vert,\ \textcolor{keywordtype}{float}\ delta\_t);}
+\DoxyCodeLine{03485\ \ \ pose\ solve\_xy\_horiz(\textcolor{keywordtype}{float}\ p\_track\_width,\ \textcolor{keywordtype}{float}\ current\_t,\ \textcolor{keywordtype}{float}\ delta\_horiz,\ \textcolor{keywordtype}{float}\ delta\_t);}
+\DoxyCodeLine{03486\ \ \ \textcolor{keywordtype}{bool}\ was\_last\_pp\_mode\_boomerang\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03487\ \ \ \textcolor{keywordtype}{bool}\ global\_forward\_drive\_slew\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03488\ \ \ \textcolor{keywordtype}{bool}\ global\_backward\_drive\_slew\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03489\ \ \ \textcolor{keywordtype}{bool}\ global\_forward\_swing\_slew\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03490\ \ \ \textcolor{keywordtype}{bool}\ global\_backward\_swing\_slew\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03491\ \ \ \textcolor{keywordtype}{double}\ turn\_tolerance\ =\ 3.0;}
+\DoxyCodeLine{03492\ \ \ \textcolor{keywordtype}{bool}\ global\_turn\_slew\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03493\ \ \ e\_angle\_behavior\ current\_angle\_behavior\ =\ raw;}
+\DoxyCodeLine{03494\ \ \ e\_angle\_behavior\ default\_swing\_type\ =\ raw;}
+\DoxyCodeLine{03495\ \ \ e\_angle\_behavior\ default\_turn\_type\ =\ raw;}
+\DoxyCodeLine{03496\ \ \ e\_angle\_behavior\ default\_odom\_type\ =\ shortest;}
+\DoxyCodeLine{03497\ \ \ \textcolor{keywordtype}{bool}\ turn\_biased\_left\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03498\ \ \ std::vector<odom>\ set\_odoms\_direction(std::vector<odom>\ inputs);}
+\DoxyCodeLine{03499\ \ \ odom\ set\_odom\_direction(odom\ input);}
+\DoxyCodeLine{03500\ \ \ pose\ flip\_pose(pose\ input);}
+\DoxyCodeLine{03501\ \ \ \textcolor{keywordtype}{bool}\ odom\_tracker\_left\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03502\ \ \ \textcolor{keywordtype}{bool}\ odom\_tracker\_right\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03503\ \ \ \textcolor{keywordtype}{bool}\ odom\_tracker\_front\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03504\ \ \ \textcolor{keywordtype}{bool}\ odom\_tracker\_back\_enabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03505\ }
+\DoxyCodeLine{03506\ \ \ \textcolor{keywordtype}{double}\ chain\_target\_start\ =\ 0.0;}
+\DoxyCodeLine{03507\ \ \ \textcolor{keywordtype}{double}\ chain\_sensor\_start\ =\ 0.0;}
+\DoxyCodeLine{03508\ \ \ \textcolor{keywordtype}{double}\ drive\_forward\_motion\_chain\_scale\ =\ 0.0;}
+\DoxyCodeLine{03509\ \ \ \textcolor{keywordtype}{double}\ drive\_backward\_motion\_chain\_scale\ =\ 0.0;}
+\DoxyCodeLine{03510\ \ \ \textcolor{keywordtype}{double}\ swing\_forward\_motion\_chain\_scale\ =\ 0.0;}
+\DoxyCodeLine{03511\ \ \ \textcolor{keywordtype}{double}\ swing\_backward\_motion\_chain\_scale\ =\ 0.0;}
+\DoxyCodeLine{03512\ \ \ \textcolor{keywordtype}{double}\ turn\_motion\_chain\_scale\ =\ 0.0;}
+\DoxyCodeLine{03513\ \ \ \textcolor{keywordtype}{double}\ used\_motion\_chain\_scale\ =\ 0.0;}
+\DoxyCodeLine{03514\ \ \ \textcolor{keywordtype}{bool}\ motion\_chain\_backward\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03515\ }
+\DoxyCodeLine{03516\ \ \ \textcolor{keywordtype}{double}\ IMU\_SCALER\ =\ 1.0;}
+\DoxyCodeLine{03517\ }
+\DoxyCodeLine{03518\ \ \ \textcolor{keywordtype}{bool}\ drive\_toggle\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03519\ \ \ \textcolor{keywordtype}{bool}\ print\_toggle\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03520\ \ \ \textcolor{keywordtype}{int}\ swing\_min\ =\ 0;}
+\DoxyCodeLine{03521\ \ \ \textcolor{keywordtype}{int}\ turn\_min\ =\ 0;}
+\DoxyCodeLine{03522\ \ \ \textcolor{keywordtype}{bool}\ practice\_mode\_is\_on\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03523\ \ \ \textcolor{keywordtype}{int}\ swing\_opposite\_speed\ =\ 0;}
+\DoxyCodeLine{03524\ \ \ \textcolor{keywordtype}{bool}\ slew\_swing\_fwd\_using\_angle\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03525\ \ \ \textcolor{keywordtype}{bool}\ slew\_swing\_rev\_using\_angle\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03526\ \ \ \textcolor{keywordtype}{bool}\ slew\_swing\_using\_angle\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03527\ \ \ \textcolor{keywordtype}{bool}\ pid\_tuner\_terminal\_b\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03528\ \ \ \textcolor{keywordtype}{bool}\ pid\_tuner\_lcd\_b\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03529\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_print();}
+\DoxyCodeLine{03530\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_value\_modify(\textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ i,\ \textcolor{keywordtype}{float}\ d,\ \textcolor{keywordtype}{float}\ start);}
+\DoxyCodeLine{03531\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_value\_increase();}
+\DoxyCodeLine{03532\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_value\_decrease();}
+\DoxyCodeLine{03533\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_print\_brain();}
+\DoxyCodeLine{03534\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_print\_terminal();}
+\DoxyCodeLine{03535\ \ \ \textcolor{keywordtype}{void}\ pid\_tuner\_brain\_init();}
+\DoxyCodeLine{03536\ \ \ \textcolor{keywordtype}{int}\ column\ =\ 0;}
+\DoxyCodeLine{03537\ \ \ \textcolor{keywordtype}{int}\ row\ =\ 0;}
+\DoxyCodeLine{03538\ \ \ std::string\ arrow\ =\ \textcolor{stringliteral}{"{}\ <-\/-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{03539\ \ \ \textcolor{keywordtype}{bool}\ last\_controller\_curve\_state\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03540\ \ \ \textcolor{keywordtype}{bool}\ last\_auton\_selector\_state\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03541\ \ \ \textcolor{keywordtype}{bool}\ pid\_tuner\_on\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03542\ \ \ std::string\ complete\_pid\_tuner\_output\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{03543\ \ \ \textcolor{keywordtype}{float}\ p\_increment\ =\ 0.1,\ i\_increment\ =\ 0.001,\ d\_increment\ =\ 0.25,\ start\_i\_increment\ =\ 1.0;}
+\DoxyCodeLine{03544\ }
+\DoxyCodeLine{03548\ \ \ \textcolor{keywordtype}{void}\ wait\_until\_drive(\textcolor{keywordtype}{double}\ target);}
+\DoxyCodeLine{03549\ \ \ \textcolor{keywordtype}{void}\ wait\_until\_turn\_swing(\textcolor{keywordtype}{double}\ target);}
+\DoxyCodeLine{03550\ }
+\DoxyCodeLine{03559\ \ \ \textcolor{keywordtype}{void}\ private\_drive\_set(\textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right);}
+\DoxyCodeLine{03560\ }
+\DoxyCodeLine{03564\ \ \ \textcolor{keywordtype}{int}\ clipped\_joystick(\textcolor{keywordtype}{int}\ joystick);}
+\DoxyCodeLine{03565\ }
+\DoxyCodeLine{03569\ \ \ \textcolor{keywordtype}{bool}\ heading\_on\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03570\ }
+\DoxyCodeLine{03574\ \ \ \textcolor{keywordtype}{double}\ TICK\_PER\_REV;}
+\DoxyCodeLine{03575\ \ \ \textcolor{keywordtype}{double}\ TICK\_PER\_INCH;}
+\DoxyCodeLine{03576\ \ \ \textcolor{keywordtype}{double}\ CIRCUMFERENCE;}
+\DoxyCodeLine{03577\ }
+\DoxyCodeLine{03578\ \ \ \textcolor{keywordtype}{double}\ CARTRIDGE;}
+\DoxyCodeLine{03579\ \ \ \textcolor{keywordtype}{double}\ RATIO;}
+\DoxyCodeLine{03580\ \ \ \textcolor{keywordtype}{double}\ WHEEL\_DIAMETER;}
+\DoxyCodeLine{03581\ }
+\DoxyCodeLine{03585\ \ \ \textcolor{keywordtype}{int}\ max\_speed;}
+\DoxyCodeLine{03586\ }
+\DoxyCodeLine{03590\ \ \ \textcolor{keywordtype}{void}\ drive\_pid\_task();}
+\DoxyCodeLine{03591\ \ \ \textcolor{keywordtype}{void}\ swing\_pid\_task();}
+\DoxyCodeLine{03592\ \ \ \textcolor{keywordtype}{void}\ turn\_pid\_task();}
+\DoxyCodeLine{03593\ \ \ \textcolor{keywordtype}{void}\ ez\_auto\_task();}
+\DoxyCodeLine{03594\ \ \ \textcolor{keywordtype}{void}\ ptp\_task();}
+\DoxyCodeLine{03595\ \ \ \textcolor{keywordtype}{void}\ boomerang\_task();}
+\DoxyCodeLine{03596\ \ \ \textcolor{keywordtype}{void}\ pp\_task();}
+\DoxyCodeLine{03597\ }
+\DoxyCodeLine{03601\ \ \ \textcolor{keywordtype}{double}\ l\_start\ =\ 0;}
+\DoxyCodeLine{03602\ \ \ \textcolor{keywordtype}{double}\ r\_start\ =\ 0;}
+\DoxyCodeLine{03603\ }
+\DoxyCodeLine{03607\ \ \ \textcolor{keywordtype}{bool}\ disable\_controller\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ True\ enables,\ false\ disables.}}
+\DoxyCodeLine{03608\ }
+\DoxyCodeLine{03612\ \ \ \textcolor{keywordtype}{bool}\ is\_tank;}
+\DoxyCodeLine{03613\ }
+\DoxyCodeLine{03614\ \textcolor{preprocessor}{\#define\ DRIVE\_INTEGRATED\ 1}}
+\DoxyCodeLine{03615\ \textcolor{preprocessor}{\#define\ DRIVE\_ADI\_ENCODER\ 2}}
+\DoxyCodeLine{03616\ \textcolor{preprocessor}{\#define\ DRIVE\_ROTATION\ 3}}
+\DoxyCodeLine{03617\ \textcolor{preprocessor}{\#define\ ODOM\_TRACKER\ 4}}
+\DoxyCodeLine{03618\ }
+\DoxyCodeLine{03622\ \ \ \textcolor{keywordtype}{int}\ is\_tracker\ =\ DRIVE\_INTEGRATED;}
+\DoxyCodeLine{03623\ }
+\DoxyCodeLine{03627\ \ \ \textcolor{keywordtype}{void}\ save\_l\_curve\_sd();}
+\DoxyCodeLine{03628\ \ \ \textcolor{keywordtype}{void}\ save\_r\_curve\_sd();}
+\DoxyCodeLine{03629\ }
+\DoxyCodeLine{03633\ \ \ \textcolor{keyword}{struct\ }button\_\ \{}
+\DoxyCodeLine{03634\ \ \ \ \ \textcolor{keywordtype}{bool}\ lock\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03635\ \ \ \ \ \textcolor{keywordtype}{bool}\ release\_reset\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03636\ \ \ \ \ \textcolor{keywordtype}{int}\ release\_timer\ =\ 0;}
+\DoxyCodeLine{03637\ \ \ \ \ \textcolor{keywordtype}{int}\ hold\_timer\ =\ 0;}
+\DoxyCodeLine{03638\ \ \ \ \ \textcolor{keywordtype}{int}\ increase\_timer;}
+\DoxyCodeLine{03639\ \ \ \ \ pros::controller\_digital\_e\_t\ button;}
+\DoxyCodeLine{03640\ \ \ \};}
+\DoxyCodeLine{03641\ }
+\DoxyCodeLine{03642\ \ \ button\_\ l\_increase\_;}
+\DoxyCodeLine{03643\ \ \ button\_\ l\_decrease\_;}
+\DoxyCodeLine{03644\ \ \ button\_\ r\_increase\_;}
+\DoxyCodeLine{03645\ \ \ button\_\ r\_decrease\_;}
+\DoxyCodeLine{03646\ }
+\DoxyCodeLine{03650\ \ \ \textcolor{keywordtype}{void}\ button\_press(button\_*\ input\_name,\ \textcolor{keywordtype}{int}\ button,\ std::function<\textcolor{keywordtype}{void}()>\ changeCurve,\ std::function<\textcolor{keywordtype}{void}()>\ save);}
+\DoxyCodeLine{03651\ }
+\DoxyCodeLine{03655\ \ \ \textcolor{keywordtype}{double}\ left\_curve\_scale;}
+\DoxyCodeLine{03656\ \ \ \textcolor{keywordtype}{double}\ right\_curve\_scale;}
+\DoxyCodeLine{03657\ }
+\DoxyCodeLine{03661\ \ \ \textcolor{keywordtype}{void}\ l\_decrease();}
+\DoxyCodeLine{03662\ \ \ \textcolor{keywordtype}{void}\ l\_increase();}
+\DoxyCodeLine{03663\ \ \ \textcolor{keywordtype}{void}\ r\_decrease();}
+\DoxyCodeLine{03664\ \ \ \textcolor{keywordtype}{void}\ r\_increase();}
+\DoxyCodeLine{03665\ }
+\DoxyCodeLine{03669\ \ \ \textcolor{keywordtype}{bool}\ is\_reversed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{03670\ \};}
+\DoxyCodeLine{03671\ \};\ \ \textcolor{comment}{//\ namespace\ ez}}
+
+\end{DoxyCode}

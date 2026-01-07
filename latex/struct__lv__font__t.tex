@@ -1,0 +1,94 @@
+\doxysection{\+\_\+lv\+\_\+font\+\_\+t Struct Reference}
+\hypertarget{struct__lv__font__t}{}\label{struct__lv__font__t}\index{\_lv\_font\_t@{\_lv\_font\_t}}
+
+
+{\ttfamily \+\#include $<$lv\+\_\+font.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__font__t_aece216b8a527a9b02a4792c0969da627}{get\+\_\+glyph\+\_\+dsc}} )(const struct \doxymbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}, \doxymbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}, uint32\+\_\+t letter, uint32\+\_\+t letter\+\_\+next)
+\item 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__font__t_a2c13080524dce004b5f916224dee6bcd}{get\+\_\+glyph\+\_\+bitmap}} )(const struct \doxymbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}, uint32\+\_\+t)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__font__t_a8e44ee38f2e34a77a6284170d5ed9f97}{line\+\_\+height}}
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{struct__lv__font__t_a0f7f29ac4959ea5d56b9b14d039aad65}{base\+\_\+line}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{struct__lv__font__t_a62cac7b3459d7b6bd30dc6be36496d1a}{subpx}}:\+ 2
+\item 
+int8\+\_\+t \doxymbox{\hyperlink{struct__lv__font__t_ab2258a95078b11bdcf8b2d252bf672af}{underline\+\_\+position}}
+\item 
+int8\+\_\+t \doxymbox{\hyperlink{struct__lv__font__t_adea4d8eba7ab794c6f44a1968228a7b0}{underline\+\_\+thickness}}
+\item 
+const void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__font__t_aa5f86862e4ba544cb3ad4d5d247bcee8}{dsc}}
+\item 
+const struct \doxymbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct__lv__font__t_a7171c59d9b74c3b7526b78d8b6523f15}{fallback}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Describe the properties of a font 
+
+\label{doc-variable-members}
+\Hypertarget{struct__lv__font__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct__lv__font__t_a0f7f29ac4959ea5d56b9b14d039aad65}\index{\_lv\_font\_t@{\_lv\_font\_t}!base\_line@{base\_line}}
+\index{base\_line@{base\_line}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{base\_line}{base\_line}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_a0f7f29ac4959ea5d56b9b14d039aad65} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+font\+\_\+t::\+base\+\_\+line}
+
+Base line measured from the top of the line\+\_\+height \Hypertarget{struct__lv__font__t_aa5f86862e4ba544cb3ad4d5d247bcee8}\index{\_lv\_font\_t@{\_lv\_font\_t}!dsc@{dsc}}
+\index{dsc@{dsc}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{dsc}{dsc}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_aa5f86862e4ba544cb3ad4d5d247bcee8} 
+const void\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+font\+\_\+t::\+dsc}
+
+Store implementation specific or run\+\_\+time data or caching here \Hypertarget{struct__lv__font__t_a7171c59d9b74c3b7526b78d8b6523f15}\index{\_lv\_font\_t@{\_lv\_font\_t}!fallback@{fallback}}
+\index{fallback@{fallback}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{fallback}{fallback}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_a7171c59d9b74c3b7526b78d8b6523f15} 
+const struct \doxymbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+font\+\_\+t::\+fallback}
+
+Fallback font for missing glyph. Resolved recursively \Hypertarget{struct__lv__font__t_a2c13080524dce004b5f916224dee6bcd}\index{\_lv\_font\_t@{\_lv\_font\_t}!get\_glyph\_bitmap@{get\_glyph\_bitmap}}
+\index{get\_glyph\_bitmap@{get\_glyph\_bitmap}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{get\_glyph\_bitmap}{get\_glyph\_bitmap}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_a2c13080524dce004b5f916224dee6bcd} 
+const uint8\+\_\+t \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+font\+\_\+t::\+get\+\_\+glyph\+\_\+bitmap) (const struct \doxymbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}, uint32\+\_\+t)}
+
+Get a glyph\textquotesingle{}s bitmap from a font \Hypertarget{struct__lv__font__t_aece216b8a527a9b02a4792c0969da627}\index{\_lv\_font\_t@{\_lv\_font\_t}!get\_glyph\_dsc@{get\_glyph\_dsc}}
+\index{get\_glyph\_dsc@{get\_glyph\_dsc}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{get\_glyph\_dsc}{get\_glyph\_dsc}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_aece216b8a527a9b02a4792c0969da627} 
+bool(\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+font\+\_\+t::\+get\+\_\+glyph\+\_\+dsc) (const struct \doxymbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}, \doxymbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}, uint32\+\_\+t letter, uint32\+\_\+t letter\+\_\+next)}
+
+Get a glyph\textquotesingle{}s descriptor from a font \Hypertarget{struct__lv__font__t_a8e44ee38f2e34a77a6284170d5ed9f97}\index{\_lv\_font\_t@{\_lv\_font\_t}!line\_height@{line\_height}}
+\index{line\_height@{line\_height}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{line\_height}{line\_height}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_a8e44ee38f2e34a77a6284170d5ed9f97} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+font\+\_\+t::\+line\+\_\+height}
+
+The real line height where any text fits \Hypertarget{struct__lv__font__t_a62cac7b3459d7b6bd30dc6be36496d1a}\index{\_lv\_font\_t@{\_lv\_font\_t}!subpx@{subpx}}
+\index{subpx@{subpx}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{subpx}{subpx}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_a62cac7b3459d7b6bd30dc6be36496d1a} 
+uint8\+\_\+t \+\_\+lv\+\_\+font\+\_\+t::\+subpx}
+
+An element of {\ttfamily lv\+\_\+font\+\_\+subpx\+\_\+t} \Hypertarget{struct__lv__font__t_ab2258a95078b11bdcf8b2d252bf672af}\index{\_lv\_font\_t@{\_lv\_font\_t}!underline\_position@{underline\_position}}
+\index{underline\_position@{underline\_position}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{underline\_position}{underline\_position}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_ab2258a95078b11bdcf8b2d252bf672af} 
+int8\+\_\+t \+\_\+lv\+\_\+font\+\_\+t::\+underline\+\_\+position}
+
+Distance between the top of the underline and base line (\texorpdfstring{$<$}{<} 0 means below the base line) \Hypertarget{struct__lv__font__t_adea4d8eba7ab794c6f44a1968228a7b0}\index{\_lv\_font\_t@{\_lv\_font\_t}!underline\_thickness@{underline\_thickness}}
+\index{underline\_thickness@{underline\_thickness}!\_lv\_font\_t@{\_lv\_font\_t}}
+\doxysubsubsection{\texorpdfstring{underline\_thickness}{underline\_thickness}}
+{\footnotesize\ttfamily \label{struct__lv__font__t_adea4d8eba7ab794c6f44a1968228a7b0} 
+int8\+\_\+t \+\_\+lv\+\_\+font\+\_\+t::\+underline\+\_\+thickness}
+
+Thickness of the underline 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+liblvgl/\+font/\+\doxymbox{\hyperlink{lv__font_8h}{lv\+\_\+font.\+h}}\end{DoxyCompactItemize}

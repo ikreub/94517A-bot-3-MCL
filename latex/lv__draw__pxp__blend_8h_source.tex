@@ -1,0 +1,78 @@
+\doxysection{lv\+\_\+draw\+\_\+pxp\+\_\+blend.\+h}
+\hypertarget{lv__draw__pxp__blend_8h_source}{}\label{lv__draw__pxp__blend_8h_source}\index{include/liblvgl/draw/nxp/pxp/lv\_draw\_pxp\_blend.h@{include/liblvgl/draw/nxp/pxp/lv\_draw\_pxp\_blend.h}}
+\doxymbox{\hyperlink{lv__draw__pxp__blend_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_PXP\_BLEND\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_PXP\_BLEND\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#if\ LV\_USE\_GPU\_NXP\_PXP}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__gpu__nxp__pxp_8h}{lv\_gpu\_nxp\_pxp.h}}"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__sw_8h}{../../sw/lv\_draw\_sw.h}}"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_PXP\_BLIT\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_PXP\_BLIT\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_PXP\_BLIT\_OPA\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_PXP\_BLIT\_OPA\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_PXP\_BUFF\_SYNC\_BLIT\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_PXP\_BUFF\_SYNC\_BLIT\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_PXP\_FILL\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_PXP\_FILL\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_PXP\_FILL\_OPA\_SIZE\_LIMIT}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_PXP\_FILL\_OPA\_SIZE\_LIMIT\ 5000}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00095\ lv\_res\_t\ lv\_gpu\_nxp\_pxp\_fill(lv\_color\_t\ *\ dest\_buf,\ lv\_coord\_t\ dest\_stride,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ fill\_area,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_color\_t\ color,\ lv\_opa\_t\ opa);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00113\ lv\_res\_t\ lv\_gpu\_nxp\_pxp\_blit(lv\_color\_t\ *\ dest\_buf,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ dest\_area,\ lv\_coord\_t\ dest\_stride,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_color\_t\ *\ src\_buf,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ src\_area,\ lv\_opa\_t\ opa,\ lv\_disp\_rot\_t\ angle);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00130\ lv\_res\_t\ lv\_gpu\_nxp\_pxp\_blit\_transform(lv\_color\_t\ *\ dest\_buf,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ dest\_area,\ lv\_coord\_t\ dest\_stride,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_color\_t\ *\ src\_buf,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ src\_area,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\_draw\_img\_dsc\_t}}\ *\ dsc,\ lv\_img\_cf\_t\ cf);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GPU\_NXP\_PXP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00140\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_PXP\_BLEND\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

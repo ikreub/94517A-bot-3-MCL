@@ -1,0 +1,106 @@
+\doxysection{lv\+\_\+draw\+\_\+sw.\+h}
+\hypertarget{lv__draw__sw_8h_source}{}\label{lv__draw__sw_8h_source}\index{include/liblvgl/draw/sw/lv\_draw\_sw.h@{include/liblvgl/draw/sw/lv\_draw\_sw.h}}
+\doxymbox{\hyperlink{lv__draw__sw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__sw__blend_8h}{lv\_draw\_sw\_blend.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw_8h}{liblvgl/draw/lv\_draw.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__area_8h}{liblvgl/misc/lv\_area.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__color_8h}{liblvgl/misc/lv\_color.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__hal__disp_8h}{liblvgl/hal/lv\_hal\_disp.h}}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__disp__drv__t}{\_lv\_disp\_drv\_t}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ lv\_draw\_ctx\_t\ base\_draw;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ \ \ \ \ void\ (*\doxymbox{\hyperlink{structlv__draw__sw__ctx__t_a49e2500e1996fb9d78a6b8a1c4eacc4f}{blend}})(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__sw__blend__dsc__t}{lv\_draw\_sw\_blend\_dsc\_t}}\ *\ dsc);}
+\DoxyCodeLine{00037\ \}\ \doxymbox{\hyperlink{structlv__draw__sw__ctx__t}{lv\_draw\_sw\_ctx\_t}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ lv\_draw\_layer\_ctx\_t\ base\_draw;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ uint32\_t\ buf\_size\_bytes:\ 31;}
+\DoxyCodeLine{00043\ \ \ \ \ uint32\_t\ has\_alpha\ :\ 1;}
+\DoxyCodeLine{00044\ \}\ \doxymbox{\hyperlink{structlv__draw__sw__layer__ctx__t}{lv\_draw\_sw\_layer\_ctx\_t}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_init\_ctx(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\_lv\_disp\_drv\_t}}\ *\ drv,\ lv\_draw\_ctx\_t\ *\ draw\_ctx);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_deinit\_ctx(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__disp__drv__t}{\_lv\_disp\_drv\_t}}\ *\ drv,\ lv\_draw\_ctx\_t\ *\ draw\_ctx);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_wait\_for\_finish(lv\_draw\_ctx\_t\ *\ draw\_ctx);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_arc(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\_draw\_arc\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ center,\ uint16\_t\ radius,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ start\_angle,\ uint16\_t\ end\_angle);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_rect(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\_draw\_rect\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ coords);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_bg(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\_draw\_rect\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ coords);}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_letter(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__label__dsc__t}{lv\_draw\_label\_dsc\_t}}\ *\ dsc,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ pos\_p,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ letter);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_img\_decoded(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\_draw\_img\_dsc\_t}}\ *\ draw\_dsc,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ coords,\ \textcolor{keyword}{const}\ uint8\_t\ *\ src\_buf,\ lv\_img\_cf\_t\ cf);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ LV\_ATTRIBUTE\_FAST\_MEM\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_line(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\_draw\_line\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ point1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ point2);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_polygon(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\_draw\_rect\_dsc\_t}}\ *\ draw\_dsc,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ points,\ uint16\_t\ point\_cnt);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_buffer\_copy(lv\_draw\_ctx\_t\ *\ draw\_ctx,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ dest\_buf,\ lv\_coord\_t\ dest\_stride,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ dest\_area,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ src\_buf,\ lv\_coord\_t\ src\_stride,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ src\_area);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_transform(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ dest\_area,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ src\_buf,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_coord\_t\ src\_w,\ lv\_coord\_t\ src\_h,\ lv\_coord\_t\ src\_stride,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\_draw\_img\_dsc\_t}}\ *\ draw\_dsc,\ lv\_img\_cf\_t\ cf,\ lv\_color\_t\ *\ cbuf,\ lv\_opa\_t\ *\ abuf);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__draw__layer__ctx__t}{\_lv\_draw\_layer\_ctx\_t}}\ *\ lv\_draw\_sw\_layer\_create(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ lv\_draw\_layer\_ctx\_t\ *\ layer\_ctx,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_draw\_layer\_flags\_t\ flags);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_layer\_adjust(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__layer__ctx__t}{\_lv\_draw\_layer\_ctx\_t}}\ *\ layer\_ctx,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_draw\_layer\_flags\_t\ flags);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_layer\_blend(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\_lv\_draw\_ctx\_t}}\ *\ draw\_ctx,\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__draw__layer__ctx__t}{\_lv\_draw\_layer\_ctx\_t}}\ *\ layer\_ctx,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\_draw\_img\_dsc\_t}}\ *\ draw\_dsc);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ lv\_draw\_sw\_layer\_destroy(lv\_draw\_ctx\_t\ *\ draw\_ctx,\ lv\_draw\_layer\_ctx\_t\ *\ layer\_ctx);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{/***********************}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ *\ GLOBAL\ VARIABLES}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ ***********************/}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00101\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_SW\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

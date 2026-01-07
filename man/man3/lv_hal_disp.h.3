@@ -1,0 +1,386 @@
+.TH "include/liblvgl/hal/lv_hal_disp.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/hal/lv_hal_disp.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include 'lv_hal\&.h'\fP
+.br
+\fR#include 'liblvgl/draw/lv_draw\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_color\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_area\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_ll\&.h'\fP
+.br
+\fR#include 'liblvgl/misc/lv_timer\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_disp_draw_buf_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_disp_drv_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_disp_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_lv_disp_draw_buf_t\fP \fBlv_disp_draw_buf_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_disp_drv_t\fP \fBlv_disp_drv_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_disp_t\fP \fBlv_disp_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlv_disp_rot_t\fP { \fBLV_DISP_ROT_NONE\fP = 0, \fBLV_DISP_ROT_90\fP, \fBLV_DISP_ROT_180\fP, \fBLV_DISP_ROT_270\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlv_disp_drv_init\fP (\fBlv_disp_drv_t\fP *driver)"
+.br
+.ti -1c
+.RI "void \fBlv_disp_draw_buf_init\fP (\fBlv_disp_draw_buf_t\fP *draw_buf, void *buf1, void *buf2, uint32_t size_in_px_cnt)"
+.br
+.ti -1c
+.RI "\fBlv_disp_t\fP * \fBlv_disp_drv_register\fP (\fBlv_disp_drv_t\fP *driver)"
+.br
+.ti -1c
+.RI "void \fBlv_disp_drv_update\fP (\fBlv_disp_t\fP *disp, \fBlv_disp_drv_t\fP *new_drv)"
+.br
+.ti -1c
+.RI "void \fBlv_disp_remove\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "void \fBlv_disp_set_default\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "\fBlv_disp_t\fP * \fBlv_disp_get_default\fP (void)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_hor_res\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_ver_res\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_physical_hor_res\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_physical_ver_res\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_offset_x\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_offset_y\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "bool \fBlv_disp_get_antialiasing\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "lv_coord_t \fBlv_disp_get_dpi\fP (const \fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "void \fBlv_disp_set_rotation\fP (\fBlv_disp_t\fP *disp, lv_disp_rot_t rotation)"
+.br
+.ti -1c
+.RI "lv_disp_rot_t \fBlv_disp_get_rotation\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "\fBlv_disp_t\fP * \fBlv_disp_get_next\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "\fBlv_disp_draw_buf_t\fP * \fBlv_disp_get_draw_buf\fP (\fBlv_disp_t\fP *disp)"
+.br
+.ti -1c
+.RI "void \fBlv_disp_drv_use_generic_set_px_cb\fP (\fBlv_disp_drv_t\fP *disp_drv, lv_img_cf_t cf)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+@description Display Driver HAL interface header file 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_lv_disp_draw_buf_t\fP \fBlv_disp_draw_buf_t\fP"
+Structure for holding display buffer information\&. 
+.SS "typedef struct \fB_lv_disp_drv_t\fP \fBlv_disp_drv_t\fP"
+Display Driver structure to be registered by HAL\&. Only its pointer will be saved in \fR\fBlv_disp_t\fP\fP so it should be declared as \fRstatic \fBlv_disp_drv_t\fP my_drv\fP or allocated dynamically\&. 
+.SS "typedef struct \fB_lv_disp_t\fP \fBlv_disp_t\fP"
+Display structure\&. 
+.PP
+\fBNote\fP
+.RS 4
+\fR\fBlv_disp_drv_t\fP\fP should be the first member of the structure\&. 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void lv_disp_draw_buf_init (\fBlv_disp_draw_buf_t\fP * draw_buf, void * buf1, void * buf2, uint32_t size_in_px_cnt)"
+Initialize a display buffer 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_buf\fP pointer \fR\fBlv_disp_draw_buf_t\fP\fP variable to initialize 
+.br
+\fIbuf1\fP A buffer to be used by LVGL to draw the image\&. Always has to specified and can't be NULL\&. Can be an array allocated by the user\&. E\&.g\&. \fRstatic lv_color_t disp_buf1[1024 * 10]\fP Or a memory address e\&.g\&. in external SRAM 
+.br
+\fIbuf2\fP Optionally specify a second buffer to make image rendering and image flushing (sending to the display) parallel\&. In the \fRdisp_drv->flush\fP you should use DMA or similar hardware to send the image to the display in the background\&. It lets LVGL to render next frame into the other buffer while previous is being sent\&. Set to \fRNULL\fP if unused\&. 
+.br
+\fIsize_in_px_cnt\fP size of the \fRbuf1\fP and \fRbuf2\fP in pixel count\&. 
+.RE
+.PP
+
+.SS "void lv_disp_drv_init (\fBlv_disp_drv_t\fP * driver)"
+Initialize a display driver with default values\&. It is used to have known values in the fields and not junk in memory\&. After it you can safely set only the fields you need\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdriver\fP pointer to driver variable to initialize 
+.RE
+.PP
+
+.SS "\fBlv_disp_t\fP * lv_disp_drv_register (\fBlv_disp_drv_t\fP * driver)"
+Register an initialized display driver\&. Automatically set the first display as active\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdriver\fP pointer to an initialized '\fBlv_disp_drv_t\fP' variable\&. Only its pointer is saved! 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the new display or NULL on error 
+.RE
+.PP
+
+.SS "void lv_disp_drv_update (\fBlv_disp_t\fP * disp, \fBlv_disp_drv_t\fP * new_drv)"
+Update the driver in run time\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display\&. (return value of \fR\fBlv_disp_drv_register\fP\fP) 
+.br
+\fInew_drv\fP pointer to the new driver 
+.RE
+.PP
+
+.SS "bool lv_disp_get_antialiasing (\fBlv_disp_t\fP * disp)"
+Get if anti-aliasing is enabled for a display or not 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: anti-aliasing is enabled; false: disabled 
+.RE
+.PP
+
+.SS "\fBlv_disp_t\fP * lv_disp_get_default (void )"
+Get the default display 
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the default display 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_dpi (const \fBlv_disp_t\fP * disp)"
+Get the DPI of the display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+dpi of the display 
+.RE
+.PP
+
+.SS "\fBlv_disp_draw_buf_t\fP * lv_disp_get_draw_buf (\fBlv_disp_t\fP * disp)"
+Get the internal buffer of a display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the internal buffers 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_hor_res (\fBlv_disp_t\fP * disp)"
+Get the horizontal resolution of a display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the horizontal resolution of the display 
+.RE
+.PP
+
+.SS "\fBlv_disp_t\fP * lv_disp_get_next (\fBlv_disp_t\fP * disp)"
+Get the next display\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to the current display\&. NULL to initialize\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the next display or NULL if no more\&. Give the first display when the parameter is NULL 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_offset_x (\fBlv_disp_t\fP * disp)"
+Get the horizontal offset from the full / physical display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the horizontal offset from the full / physical display 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_offset_y (\fBlv_disp_t\fP * disp)"
+Get the vertical offset from the full / physical display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the horizontal offset from the full / physical display 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_physical_hor_res (\fBlv_disp_t\fP * disp)"
+Get the full / physical horizontal resolution of a display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the full / physical horizontal resolution of the display 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_physical_ver_res (\fBlv_disp_t\fP * disp)"
+Get the full / physical vertical resolution of a display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the full / physical vertical resolution of the display 
+.RE
+.PP
+
+.SS "lv_disp_rot_t lv_disp_get_rotation (\fBlv_disp_t\fP * disp)"
+Get the current rotation of this display\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+rotation angle 
+.RE
+.PP
+
+.SS "lv_coord_t lv_disp_get_ver_res (\fBlv_disp_t\fP * disp)"
+Get the vertical resolution of a display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the vertical resolution of the display 
+.RE
+.PP
+
+.SS "void lv_disp_remove (\fBlv_disp_t\fP * disp)"
+Remove a display 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to display 
+.RE
+.PP
+
+.SS "void lv_disp_set_default (\fBlv_disp_t\fP * disp)"
+Set a default display\&. The new screens will be created on it by default\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display 
+.RE
+.PP
+
+.SS "void lv_disp_set_rotation (\fBlv_disp_t\fP * disp, lv_disp_rot_t rotation)"
+Set the rotation of this display\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdisp\fP pointer to a display (NULL to use the default display) 
+.br
+\fIrotation\fP rotation angle 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

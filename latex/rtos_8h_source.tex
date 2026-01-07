@@ -1,0 +1,168 @@
+\doxysection{rtos.\+h}
+\hypertarget{rtos_8h_source}{}\label{rtos_8h_source}\index{include/pros/rtos.h@{include/pros/rtos.h}}
+\doxymbox{\hyperlink{rtos_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_RTOS\_H\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \_PROS\_RTOS\_H\_}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ TASK\_PRIORITY\_MAX\ 16}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ TASK\_PRIORITY\_MIN\ 1}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ TASK\_PRIORITY\_DEFAULT\ 8}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ TASK\_STACK\_DEPTH\_DEFAULT\ 0x2000}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ TASK\_STACK\_DEPTH\_MIN\ 0x200}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ TASK\_NAME\_MAX\_LEN\ 32}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ TIMEOUT\_MAX\ ((uint32\_t)0xffffffffUL)}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{typedef}\ void\ (*\doxymbox{\hyperlink{group__c-rtos_gaece0aa29b1f1538115228d2197239f98}{task\_fn\_t}})(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba3b7873566c73fb17191451f641f3f564}{E\_TASK\_STATE\_RUNNING}}\ =\ 0,\ }
+\DoxyCodeLine{00121\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba7a9b05db250161908d541259cc9b6c08}{E\_TASK\_STATE\_READY}},\ }
+\DoxyCodeLine{00122\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba833a2009d6613fe7f3357551c525e953}{E\_TASK\_STATE\_BLOCKED}},\ }
+\DoxyCodeLine{00123\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba1c6ab831f17838fb926088f3353cb13c}{E\_TASK\_STATE\_SUSPENDED}},\ }
+\DoxyCodeLine{00124\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba521c1585b4d885ca38cc463d74d1fa4d}{E\_TASK\_STATE\_DELETED}},\ }
+\DoxyCodeLine{00125\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba4b91d8b231764bb6556618bdb78c34a0}{E\_TASK\_STATE\_INVALID}}\ }
+\DoxyCodeLine{00126\ \}\ \doxymbox{\hyperlink{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}{task\_state\_e\_t}};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a8ef04ba61995d97d82fd7bf1ff4d772f}{E\_NOTIFY\_ACTION\_NONE}},\ }
+\DoxyCodeLine{00133\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570adc1fa6911e0d71db6404d3c8b7276e02}{E\_NOTIFY\_ACTION\_BITS}},\ }
+\DoxyCodeLine{00134\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570ab9b6a7e40e7b9553e8b1782b2c0bc155}{E\_NOTIFY\_ACTION\_INCR}},\ }
+\DoxyCodeLine{00135\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a11be52cd9271cd1504f7555b73e5bd89}{E\_NOTIFY\_ACTION\_OWRITE}},\ }
+\DoxyCodeLine{00136\ \ \ \ \ \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a735b4ce042c8998c9432449b5f7efdc5}{E\_NOTIFY\_ACTION\_NO\_OWRITE}}\ }
+\DoxyCodeLine{00137\ \}\ \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\_action\_e\_t}};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#ifdef\ PROS\_USE\_SIMPLE\_NAMES}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_RUNNING\ pros::E\_TASK\_STATE\_RUNNING}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_READY\ pros::E\_TASK\_STATE\_READY}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_BLOCKED\ pros::E\_TASK\_STATE\_BLOCKED}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_SUSPENDED\ pros::E\_TASK\_STATE\_SUSPENDED}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_DELETED\ pros::E\_TASK\_STATE\_DELETED}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_INVALID\ pros::E\_TASK\_STATE\_INVALID}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_NONE\ pros::E\_NOTIFY\_ACTION\_NONE}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_BITS\ pros::E\_NOTIFY\_ACTION\_BITS}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_INCR\ pros::E\_NOTIFY\_ACTION\_INCR}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_OWRITE\ pros::E\_NOTIFY\_ACTION\_OWRITE}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_NO\_OWRITE\ pros::E\_NOTIFY\_ACTION\_NO\_OWRITE}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_RUNNING\ E\_TASK\_STATE\_RUNNING}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_READY\ E\_TASK\_STATE\_READY}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_BLOCKED\ E\_TASK\_STATE\_BLOCKED}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_SUSPENDED\ E\_TASK\_STATE\_SUSPENDED}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_DELETED\ E\_TASK\_STATE\_DELETED}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ TASK\_STATE\_INVALID\ E\_TASK\_STATE\_INVALID}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_NONE\ E\_NOTIFY\_ACTION\_NONE}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_BITS\ E\_NOTIFY\_ACTION\_BITS}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_INCR\ E\_NOTIFY\_ACTION\_INCR}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_OWRITE\ E\_NOTIFY\_ACTION\_OWRITE}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ NOTIFY\_ACTION\_NO\_OWRITE\ E\_NOTIFY\_ACTION\_NO\_OWRITE}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00184\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\_t}};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ CURRENT\_TASK\ ((pros::task\_t)NULL)}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ CURRENT\_TASK\ ((task\_t)NULL)}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00200\ \textcolor{keyword}{namespace\ }c\ \{}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00223\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_gacd8d13c328bebdf9eddea27ff9448c2d}{millis}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00241\ uint64\_t\ \doxymbox{\hyperlink{group__c-rtos_ga19665f2a908fc943d11a231dcc910f4f}{micros}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00283\ \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ \doxymbox{\hyperlink{group__c-rtos_ga2e3ed8f26b8c1edcff493bc583f0a76a}{task\_create}}(\doxymbox{\hyperlink{group__c-rtos_gaece0aa29b1f1538115228d2197239f98}{task\_fn\_t}}\ function,\ \textcolor{keywordtype}{void}*\ \textcolor{keyword}{const}\ parameters,\ uint32\_t\ prio,\ \textcolor{keyword}{const}\ uint16\_t\ stack\_depth,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}\ name);}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00312\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_gacf328f16126485ade810e438db996180}{task\_delete}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00334\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_ga3658dea4dcc916f72d05bd6a05bf3d19}{task\_delay}}(\textcolor{keyword}{const}\ uint32\_t\ milliseconds);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00356\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_gab8c5a8048d5576a33d7f79b95a2fa0dd}{delay}}(\textcolor{keyword}{const}\ uint32\_t\ milliseconds);}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00382\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_ga61c8ccf83a0dc79fc0e9fde5e87a0329}{task\_delay\_until}}(uint32\_t*\ \textcolor{keyword}{const}\ prev\_time,\ \textcolor{keyword}{const}\ uint32\_t\ delta);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00406\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_ga8d6d1ffc897a069346a6a1ee5d3acf87}{task\_get\_priority}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00433\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_gaa906731a0dbda5c2382ca7e3cc32cc97}{task\_set\_priority}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task,\ uint32\_t\ prio);}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00457\ \doxymbox{\hyperlink{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}{task\_state\_e\_t}}\ \doxymbox{\hyperlink{group__c-rtos_ga5d094df87681d230ebffa2cee23d6f07}{task\_get\_state}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00493\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_ga50ab98e83c207eaab4c2b9eb56d9ba0c}{task\_suspend}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00534\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_ga58bdeeedfe2d98fa57721bb7dad16fee}{task\_resume}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00558\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_ga7c182e8b87526eb0e4b6ec5a4c858b4e}{task\_get\_count}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00582\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{group__c-rtos_gac9976fc1a763c7da08204139bc54c631}{task\_get\_name}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00609\ \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ \doxymbox{\hyperlink{group__c-rtos_gaad54400367541c9cf7f4eaaec235a9e9}{task\_get\_by\_name}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00610\ }
+\DoxyCodeLine{00633\ \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ \doxymbox{\hyperlink{group__c-rtos_gad8c64e24feaa08391eb61b62ea2cdbd5}{task\_get\_current}}();}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00663\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_ga19e1a0a068f9d5e8493065f6b7944a63}{task\_notify}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00692\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_gaf10b92a45faacf8e8337f20f698efa8a}{task\_join}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00746\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_ga81b5dad7acaef5dd60486ab85af5d54b}{task\_notify\_ext}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task,\ uint32\_t\ value,\ \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\_action\_e\_t}}\ action,\ uint32\_t*\ prev\_value);}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00784\ uint32\_t\ \doxymbox{\hyperlink{group__c-rtos_gaabfb0111c671a56176bc83bb1437635b}{task\_notify\_take}}(\textcolor{keywordtype}{bool}\ clear\_on\_exit,\ uint32\_t\ timeout);}
+\DoxyCodeLine{00785\ }
+\DoxyCodeLine{00823\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group__c-rtos_gae8697be0d552a81063536c88c0358f38}{task\_notify\_clear}}(\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\_t}}\ task);}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00903\ \doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\_t}}\ \doxymbox{\hyperlink{group__c-rtos_ga475d096afa3abcc9a276ca9fa54bafdf}{mutex\_create}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00904\ }
+\DoxyCodeLine{00992\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group__c-rtos_ga14452e92345bc1bab69e27f35c38e0f9}{mutex\_take}}(\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\_t}}\ mutex,\ uint32\_t\ timeout);}
+\DoxyCodeLine{00993\ }
+\DoxyCodeLine{01076\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group__c-rtos_ga600f042859f15dee6c34b236670ac3d9}{mutex\_give}}(\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\_t}}\ mutex);}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01098\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group__c-rtos_ga601a1d7f71d6bd5f2be0c10190ba2ec7}{mutex\_delete}}(\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\_t}}\ mutex);}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01101\ }
+\DoxyCodeLine{01102\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01103\ \}\ \ \textcolor{comment}{//\ namespace\ c}}
+\DoxyCodeLine{01104\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{01105\ \}}
+\DoxyCodeLine{01106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01107\ }
+\DoxyCodeLine{01108\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_PROS\_RTOS\_H\_}}
+
+\end{DoxyCode}

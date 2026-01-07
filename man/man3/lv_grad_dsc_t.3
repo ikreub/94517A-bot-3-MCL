@@ -1,0 +1,47 @@
+.TH "lv_grad_dsc_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lv_grad_dsc_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_style\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBlv_gradient_stop_t\fP \fBstops\fP [LV_GRADIENT_MAX_STOPS]"
+.br
+.ti -1c
+.RI "uint8_t \fBstops_count\fP"
+.br
+.ti -1c
+.RI "lv_grad_dir_t \fBdir\fP: 3"
+.br
+.ti -1c
+.RI "lv_dither_mode_t \fBdither\fP: 3"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A descriptor of a gradient\&. 
+.PP
+\fBExamples\fP
+.in +1c
+\fBC:/Users/Leon/OneDrive/robotics/94517A\-bot\-3\-MCL/include/liblvgl/misc/lv_style\&.h\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "lv_grad_dir_t lv_grad_dsc_t::dir"
+The gradient direction\&. Any of LV_GRAD_DIR_HOR, LV_GRAD_DIR_VER, LV_GRAD_DIR_NONE 
+.SS "lv_dither_mode_t lv_grad_dsc_t::dither"
+Whether to dither the gradient or not\&. Any of LV_DITHER_NONE, LV_DITHER_ORDERED, LV_DITHER_ERR_DIFF 
+.SS "\fBlv_gradient_stop_t\fP lv_grad_dsc_t::stops[LV_GRADIENT_MAX_STOPS]"
+A gradient stop array 
+.SS "uint8_t lv_grad_dsc_t::stops_count"
+The number of used stops in the array 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

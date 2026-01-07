@@ -1,0 +1,76 @@
+\doxysection{lv\+\_\+draw\+\_\+sw\+\_\+gradient.\+h}
+\hypertarget{lv__draw__sw__gradient_8h_source}{}\label{lv__draw__sw__gradient_8h_source}\index{include/liblvgl/draw/sw/lv\_draw\_sw\_gradient.h@{include/liblvgl/draw/sw/lv\_draw\_sw\_gradient.h}}
+\doxymbox{\hyperlink{lv__draw__sw__gradient_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_GRADIENT\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_GRADIENT\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__color_8h}{liblvgl/misc/lv\_color.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__style_8h}{liblvgl/misc/lv\_style.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__sw__dither_8h}{lv\_draw\_sw\_dither.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#if\ LV\_GRADIENT\_MAX\_STOPS\ <\ 2}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#error\ LVGL\ needs\ at\ least\ 2\ stops\ for\ gradients.\ Please\ increase\ the\ LV\_GRADIENT\_MAX\_STOPS}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#if\ \_DITHER\_GRADIENT}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \doxymbox{\hyperlink{unionlv__color32__t}{lv\_color32\_t}}\ lv\_grad\_color\_t;}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ lv\_color\_t\ lv\_grad\_color\_t;}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__gradient__cache__t}{\_lv\_gradient\_cache\_t}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_abb6f3d7d4a3fc7400065fa0e86835a42}{key}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a5d65025e7c6a6a81059563dfb8e91481}{life}}\ :\ 30;\ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a93928df034871640a5c42dccfc0c04ae}{filled}}\ :\ 1;\ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_ac8eec5eedc2f427ed08f2f2811819509}{not\_cached}}:\ 1;\ }
+\DoxyCodeLine{00047\ \ \ \ \ lv\_color\_t\ \ \ *\ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a3b37c404e032bdcb5246a0aff0a80c3a}{map}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ lv\_coord\_t\ \ \ \ \ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a4be546c87bb34c1d1c6439f25fc43dfc}{alloc\_size}};\ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ lv\_coord\_t\ \ \ \ \ \ \doxymbox{\hyperlink{struct__lv__gradient__cache__t_a3bbe46939f812638af0f2d52309827da}{size}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#if\ \_DITHER\_GRADIENT}}
+\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{unionlv__color32__t}{lv\_color32\_t}}\ \ *\ hmap;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#if\ LV\_DITHER\_ERROR\_DIFFUSION\ ==\ 1}}
+\DoxyCodeLine{00055\ \ \ \ \ lv\_scolor24\_t\ *\ error\_acc;\ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ lv\_coord\_t\ \ \ \ \ \ w;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ \}\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\_grad\_t}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ \ \ \ \ \ PROTOTYPES}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00072\ LV\_ATTRIBUTE\_FAST\_MEM\ lv\_grad\_color\_t\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a73a83965221fca65618f53ec44d9139e}{lv\_gradient\_calculate}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\_grad\_dsc\_t}}\ *\ dsc,\ lv\_coord\_t\ range,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_coord\_t\ frac);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_ad08efdbaed99b7b02a35ccbd360b3bc6}{lv\_gradient\_set\_cache\_size}}(\textcolor{keywordtype}{size\_t}\ max\_bytes);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a005ff1a4e9945250c7858fe1363a3b22}{lv\_gradient\_free\_cache}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\_grad\_t}}\ *\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a43b6557c75f5dfc957866ce503ae0b5c}{lv\_gradient\_get}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\_grad\_dsc\_t}}\ *\ gradient,\ lv\_coord\_t\ w,\ lv\_coord\_t\ h);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a4557f0a7346dafca4ad642478aa9d514}{lv\_gradient\_cleanup}}(\doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\_grad\_t}}\ *\ grad);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00094\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_GRADIENT\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

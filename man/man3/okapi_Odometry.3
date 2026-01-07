@@ -1,0 +1,106 @@
+.TH "okapi::Odometry" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::Odometry
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOdometry\fP ()=default"
+.br
+.ti -1c
+.RI "virtual void \fBsetScales\fP (const \fBChassisScales\fP &ichassisScales)=0"
+.br
+.ti -1c
+.RI "virtual void \fBstep\fP ()=0"
+.br
+.ti -1c
+.RI "virtual \fBOdomState\fP \fBgetState\fP (const StateMode &imode=StateMode::FRAME_TRANSFORMATION) const =0"
+.br
+.ti -1c
+.RI "virtual void \fBsetState\fP (const \fBOdomState\fP &istate, const StateMode &imode=StateMode::FRAME_TRANSFORMATION)=0"
+.br
+.ti -1c
+.RI "virtual std::shared_ptr< \fBReadOnlyChassisModel\fP > \fBgetModel\fP ()=0"
+.br
+.ti -1c
+.RI "virtual \fBChassisScales\fP \fBgetScales\fP ()=0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::Odometry::Odometry ()\fR [explicit]\fP, \fR [default]\fP"
+\fBOdometry\fP\&. Tracks the movement of the robot and estimates its position in coordinates relative to the start (assumed to be (0, 0, 0))\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual std::shared_ptr< \fBReadOnlyChassisModel\fP > okapi::Odometry::getModel ()\fR [pure virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The internal \fBChassisModel\fP\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "virtual \fBChassisScales\fP okapi::Odometry::getScales ()\fR [pure virtual]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+The internal \fBChassisScales\fP\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "virtual \fBOdomState\fP okapi::Odometry::getState (const StateMode & imode = \fRStateMode::FRAME_TRANSFORMATION\fP) const\fR [pure virtual]\fP"
+Returns the current state\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIimode\fP The mode to return the state in\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The current state in the given format\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "virtual void okapi::Odometry::setScales (const \fBChassisScales\fP & ichassisScales)\fR [pure virtual]\fP"
+Sets the drive and turn scales\&. 
+.PP
+Implemented in \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "virtual void okapi::Odometry::setState (const \fBOdomState\fP & istate, const StateMode & imode = \fRStateMode::FRAME_TRANSFORMATION\fP)\fR [pure virtual]\fP"
+Sets a new state to be the current state\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIistate\fP The new state in the given format\&. 
+.br
+\fIimode\fP The mode to treat the input state as\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::TwoEncoderOdometry\fP\&.
+.SS "virtual void okapi::Odometry::step ()\fR [pure virtual]\fP"
+Do one odometry step\&. 
+.PP
+Implemented in \fBokapi::TwoEncoderOdometry\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,51 @@
+.TH "okapi::AbstractMotor::GearsetRatioPair" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AbstractMotor::GearsetRatioPair
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <abstractMotor\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGearsetRatioPair\fP (const \fBgearset\fP igearset, const double iratio=1)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBgearset\fP \fBinternalGearset\fP"
+.br
+.ti -1c
+.RI "double \fBratio\fP = 1"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A simple structure representing the full ratio between motor and wheel\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::AbstractMotor::GearsetRatioPair::GearsetRatioPair (const \fBgearset\fP igearset, const double iratio = \fR1\fP)\fR [inline]\fP"
+A simple structure representing the full ratio between motor and wheel\&.
+
+.PP
+The ratio is \fRmotor rotation : wheel rotation\fP, e\&.x\&., if one motor rotation corresponds to two wheel rotations, the ratio is \fR1\&.0/2\&.0\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigearset\fP The gearset in the motor\&. 
+.br
+\fIiratio\fP The ratio of motor rotation to wheel rotation\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

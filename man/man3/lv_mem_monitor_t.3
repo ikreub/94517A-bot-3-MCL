@@ -1,0 +1,57 @@
+.TH "lv_mem_monitor_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lv_mem_monitor_t
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <lv_mem\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBtotal_size\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfree_cnt\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfree_size\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfree_biggest_size\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBused_cnt\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBmax_used\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBused_pct\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBfrag_pct\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Heap information structure\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "uint8_t lv_mem_monitor_t::frag_pct"
+Amount of fragmentation 
+.SS "uint32_t lv_mem_monitor_t::free_size"
+Size of available memory 
+.SS "uint32_t lv_mem_monitor_t::max_used"
+Max size of Heap memory used 
+.SS "uint32_t lv_mem_monitor_t::total_size"
+Total heap size 
+.SS "uint8_t lv_mem_monitor_t::used_pct"
+Percentage used 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

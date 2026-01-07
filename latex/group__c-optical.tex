@@ -1,0 +1,441 @@
+\doxysection{VEX Optical Sensor C API }
+\hypertarget{group__c-optical}{}\label{group__c-optical}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{optical_8h}{optical.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structoptical__rgb__s}{optical\+\_\+rgb\+\_\+s}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__raw__s}{optical\+\_\+raw\+\_\+s}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__gesture__s}{optical\+\_\+gesture\+\_\+s}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__rgb__s__t}{optical\+\_\+rgb\+\_\+s\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__raw__s__t}{optical\+\_\+raw\+\_\+s\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structoptical__gesture__s__t}{optical\+\_\+gesture\+\_\+s\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-optical_ga38b3e88bb4660691e969747e1b9a3aa1}\label{group__c-optical_ga38b3e88bb4660691e969747e1b9a3aa1} 
+typedef enum \doxymbox{\hyperlink{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409}{optical\+\_\+direction\+\_\+e}} {\bfseries optical\+\_\+direction\+\_\+e\+\_\+t}
+\item 
+\Hypertarget{group__c-optical_ga92ca285b24403c60629f59ac1d50f258}\label{group__c-optical_ga92ca285b24403c60629f59ac1d50f258} 
+typedef struct \doxymbox{\hyperlink{structoptical__rgb__s}{optical\+\_\+rgb\+\_\+s}} {\bfseries optical\+\_\+rgb\+\_\+s\+\_\+t}
+\item 
+\Hypertarget{group__c-optical_gaa67946ca1f0e8edbafb20138dcdc055a}\label{group__c-optical_gaa67946ca1f0e8edbafb20138dcdc055a} 
+typedef struct \doxymbox{\hyperlink{structoptical__raw__s}{optical\+\_\+raw\+\_\+s}} {\bfseries optical\+\_\+raw\+\_\+s\+\_\+t}
+\item 
+\Hypertarget{group__c-optical_gae21a91dcbc09885f53290bf0c6fce48a}\label{group__c-optical_gae21a91dcbc09885f53290bf0c6fce48a} 
+typedef struct \doxymbox{\hyperlink{structoptical__gesture__s}{optical\+\_\+gesture\+\_\+s}} {\bfseries optical\+\_\+gesture\+\_\+s\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409}{optical\+\_\+direction\+\_\+e}} \{ \newline
+{\bfseries NO\+\_\+\+GESTURE} = 0
+, \doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aba595d8bca8bc5e67c37c0a9d89becfa}{UP}} = 1
+, \doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409a9b0b4a95b99523966e0e34ffdadac9da}{DOWN}} = 2
+, \doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aec8379af7490bb9eaaf579cf17876f38}{RIGHT}} = 3
+, \newline
+\doxymbox{\hyperlink{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409adb45120aafd37a973140edee24708065}{LEFT}} = 4
+, {\bfseries ERROR} = PROS\+\_\+\+ERR
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{group__c-optical_ga7bc39359b98490f8beb85f9558045da3}{optical\+\_\+get\+\_\+hue}} (uint8\+\_\+t port)
+\item 
+double \doxymbox{\hyperlink{group__c-optical_gad6c4881f66bf8e11443960c80f5cd1a7}{optical\+\_\+get\+\_\+saturation}} (uint8\+\_\+t port)
+\item 
+double \doxymbox{\hyperlink{group__c-optical_ga0bd55d52ba8510b29a94798c6a822277}{optical\+\_\+get\+\_\+brightness}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_gae994d8927c55a38e28bad644162d023e}{optical\+\_\+get\+\_\+proximity}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga6940ebdc45c2ad8baeba8f3ed03a1c49}{optical\+\_\+set\+\_\+led\+\_\+pwm}} (uint8\+\_\+t port, uint8\+\_\+t value)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga0698dd880d93b1a0526c37b5fa1d821f}{optical\+\_\+get\+\_\+led\+\_\+pwm}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structoptical__rgb__s__t}{optical\+\_\+rgb\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-optical_gae4110d56540b4adab05035a1548006bc}{optical\+\_\+get\+\_\+rgb}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structoptical__raw__s__t}{optical\+\_\+raw\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-optical_ga6f5093964e9b3f9e54c0012ef00995d1}{optical\+\_\+get\+\_\+raw}} (uint8\+\_\+t port)
+\item 
+optical\+\_\+direction\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga7b21a7dd3160eb631a3d9ebf25665915}{optical\+\_\+get\+\_\+gesture}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structoptical__gesture__s__t}{optical\+\_\+gesture\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-optical_gae1733ccc289ade9fa245fb5c534c013e}{optical\+\_\+get\+\_\+gesture\+\_\+raw}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga324ddd80497cbe987d3949084ff4ddd3}{optical\+\_\+enable\+\_\+gesture}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga2c5b423cfe1d874793251c17e937ab61}{optical\+\_\+disable\+\_\+gesture}} (uint8\+\_\+t port)
+\item 
+double \doxymbox{\hyperlink{group__c-optical_ga3f220131e31e853ac60e8a2d538c1cd0}{optical\+\_\+get\+\_\+integration\+\_\+time}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-optical_ga3324e1d905e563cbd353cc88ce5a4c8d}{optical\+\_\+set\+\_\+integration\+\_\+time}} (uint8\+\_\+t port, double time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-enum-members}
+\Hypertarget{group__c-optical_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_direction\_e@{optical\_direction\_e}}
+\index{optical\_direction\_e@{optical\_direction\_e}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_direction\_e}{optical\_direction\_e}}
+{\footnotesize\ttfamily \label{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409} 
+enum \doxymbox{\hyperlink{group__c-optical_ga656ac13ffc5dd8f7289b47ac1a019409}{optical\+\_\+direction\+\_\+e}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!UP@{UP}}
+}\Hypertarget{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aba595d8bca8bc5e67c37c0a9d89becfa}\label{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aba595d8bca8bc5e67c37c0a9d89becfa} 
+UP&The direction indicating an upward gesture. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!DOWN@{DOWN}}
+}\Hypertarget{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409a9b0b4a95b99523966e0e34ffdadac9da}\label{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409a9b0b4a95b99523966e0e34ffdadac9da} 
+DOWN&The direction indicating a downward gesture. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!RIGHT@{RIGHT}}
+}\Hypertarget{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aec8379af7490bb9eaaf579cf17876f38}\label{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409aec8379af7490bb9eaaf579cf17876f38} 
+RIGHT&The direction indicating a rightward gesture. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!LEFT@{LEFT}}
+}\Hypertarget{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409adb45120aafd37a973140edee24708065}\label{group__c-optical_gga656ac13ffc5dd8f7289b47ac1a019409adb45120aafd37a973140edee24708065} 
+LEFT&The direction indicating a leftward gesture. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{group__c-optical_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__c-optical_ga2c5b423cfe1d874793251c17e937ab61}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_disable\_gesture@{optical\_disable\_gesture}}
+\index{optical\_disable\_gesture@{optical\_disable\_gesture}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_disable\_gesture()}{optical\_disable\_gesture()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga2c5b423cfe1d874793251c17e937ab61} 
+int32\+\_\+t optical\+\_\+disable\+\_\+gesture (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Disable gesture detection on the sensor
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation is successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga324ddd80497cbe987d3949084ff4ddd3}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_enable\_gesture@{optical\_enable\_gesture}}
+\index{optical\_enable\_gesture@{optical\_enable\_gesture}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_enable\_gesture()}{optical\_enable\_gesture()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga324ddd80497cbe987d3949084ff4ddd3} 
+int32\+\_\+t optical\+\_\+enable\+\_\+gesture (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Enable gesture detection on the sensor
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation is successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga0bd55d52ba8510b29a94798c6a822277}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_brightness@{optical\_get\_brightness}}
+\index{optical\_get\_brightness@{optical\_get\_brightness}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_brightness()}{optical\_get\_brightness()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga0bd55d52ba8510b29a94798c6a822277} 
+double optical\+\_\+get\+\_\+brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the detected color brightness
+
+This is not available if gestures are being detected. Brightness has a range of 0 to 1.\+0
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+brightness value if the operation was successful or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga7b21a7dd3160eb631a3d9ebf25665915}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_gesture@{optical\_get\_gesture}}
+\index{optical\_get\_gesture@{optical\_get\_gesture}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_gesture()}{optical\_get\_gesture()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga7b21a7dd3160eb631a3d9ebf25665915} 
+optical\+\_\+direction\+\_\+e\+\_\+t optical\+\_\+get\+\_\+gesture (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the most recent gesture data from the sensor
+
+Gestures will be cleared after 500mS
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gesture value if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_gae1733ccc289ade9fa245fb5c534c013e}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_gesture\_raw@{optical\_get\_gesture\_raw}}
+\index{optical\_get\_gesture\_raw@{optical\_get\_gesture\_raw}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_gesture\_raw()}{optical\_get\_gesture\_raw()}}
+{\footnotesize\ttfamily \label{group__c-optical_gae1733ccc289ade9fa245fb5c534c013e} 
+\doxymbox{\hyperlink{structoptical__gesture__s__t}{optical\+\_\+gesture\+\_\+s\+\_\+t}} optical\+\_\+get\+\_\+gesture\+\_\+raw (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the most recent raw gesture data from the sensor
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gesture value if the operation was successful or an \doxylink{structoptical__gesture__s__t}{optical\+\_\+gesture\+\_\+s\+\_\+t} with all fields set to PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga7bc39359b98490f8beb85f9558045da3}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_hue@{optical\_get\_hue}}
+\index{optical\_get\_hue@{optical\_get\_hue}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_hue()}{optical\_get\_hue()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga7bc39359b98490f8beb85f9558045da3} 
+double optical\+\_\+get\+\_\+hue (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the detected color hue
+
+This is not available if gestures are being detected. Hue has a range of 0 to 359.\+999
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hue value if the operation was successful or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga3f220131e31e853ac60e8a2d538c1cd0}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_integration\_time@{optical\_get\_integration\_time}}
+\index{optical\_get\_integration\_time@{optical\_get\_integration\_time}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_integration\_time()}{optical\_get\_integration\_time()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga3f220131e31e853ac60e8a2d538c1cd0} 
+double optical\+\_\+get\+\_\+integration\+\_\+time (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get integration time (update rate) of the optical sensor in milliseconds, with minimum time being
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integration time in milliseconds if the operation is successful or PROS\+\_\+\+ERR if the operation failed, setting errno. 
+\end{DoxyReturn}
+\Hypertarget{group__c-optical_ga0698dd880d93b1a0526c37b5fa1d821f}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_led\_pwm@{optical\_get\_led\_pwm}}
+\index{optical\_get\_led\_pwm@{optical\_get\_led\_pwm}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_led\_pwm()}{optical\_get\_led\_pwm()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga0698dd880d93b1a0526c37b5fa1d821f} 
+int32\+\_\+t optical\+\_\+get\+\_\+led\+\_\+pwm (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the pwm value of the White LED
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+LED pwm value that ranges from 0 to 100 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_gae994d8927c55a38e28bad644162d023e}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_proximity@{optical\_get\_proximity}}
+\index{optical\_get\_proximity@{optical\_get\_proximity}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_proximity()}{optical\_get\_proximity()}}
+{\footnotesize\ttfamily \label{group__c-optical_gae994d8927c55a38e28bad644162d023e} 
+int32\+\_\+t optical\+\_\+get\+\_\+proximity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the detected proximity value
+
+This is not available if gestures are being detected. proximity has a range of 0 to 255.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+poximity value if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga6f5093964e9b3f9e54c0012ef00995d1}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_raw@{optical\_get\_raw}}
+\index{optical\_get\_raw@{optical\_get\_raw}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_raw()}{optical\_get\_raw()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga6f5093964e9b3f9e54c0012ef00995d1} 
+\doxymbox{\hyperlink{structoptical__raw__s__t}{optical\+\_\+raw\+\_\+s\+\_\+t}} optical\+\_\+get\+\_\+raw (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the raw, unprocessed RGBC data from the sensor
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+raw rgb value if the operation was successful or an \doxylink{structoptical__raw__s__t}{optical\+\_\+raw\+\_\+s\+\_\+t} with all fields set to PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_gae4110d56540b4adab05035a1548006bc}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_rgb@{optical\_get\_rgb}}
+\index{optical\_get\_rgb@{optical\_get\_rgb}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_rgb()}{optical\_get\_rgb()}}
+{\footnotesize\ttfamily \label{group__c-optical_gae4110d56540b4adab05035a1548006bc} 
+\doxymbox{\hyperlink{structoptical__rgb__s__t}{optical\+\_\+rgb\+\_\+s\+\_\+t}} optical\+\_\+get\+\_\+rgb (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the processed RGBC data from the sensor
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rgb value if the operation was successful or an \doxylink{structoptical__rgb__s__t}{optical\+\_\+rgb\+\_\+s\+\_\+t} with all fields set to PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_gad6c4881f66bf8e11443960c80f5cd1a7}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_get\_saturation@{optical\_get\_saturation}}
+\index{optical\_get\_saturation@{optical\_get\_saturation}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_get\_saturation()}{optical\_get\_saturation()}}
+{\footnotesize\ttfamily \label{group__c-optical_gad6c4881f66bf8e11443960c80f5cd1a7} 
+double optical\+\_\+get\+\_\+saturation (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the detected color saturation
+
+This is not available if gestures are being detected. Saturation has a range of 0 to 1.\+0
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+saturation value if the operation was successful or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-optical_ga3324e1d905e563cbd353cc88ce5a4c8d}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_set\_integration\_time@{optical\_set\_integration\_time}}
+\index{optical\_set\_integration\_time@{optical\_set\_integration\_time}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_set\_integration\_time()}{optical\_set\_integration\_time()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga3324e1d905e563cbd353cc88ce5a4c8d} 
+int32\+\_\+t optical\+\_\+set\+\_\+integration\+\_\+time (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{double}]{time}{}\end{DoxyParamCaption})}
+
+Set integration time (update rate) of the optical sensor in milliseconds.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+{\em time} & The desired integration time in milliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation is successful or PROS\+\_\+\+ERR if the operation failed, setting errno. 
+\end{DoxyReturn}
+\Hypertarget{group__c-optical_ga6940ebdc45c2ad8baeba8f3ed03a1c49}\index{VEX Optical Sensor C API@{VEX Optical Sensor C API}!optical\_set\_led\_pwm@{optical\_set\_led\_pwm}}
+\index{optical\_set\_led\_pwm@{optical\_set\_led\_pwm}!VEX Optical Sensor C API@{VEX Optical Sensor C API}}
+\doxysubsubsection{\texorpdfstring{optical\_set\_led\_pwm()}{optical\_set\_led\_pwm()}}
+{\footnotesize\ttfamily \label{group__c-optical_ga6940ebdc45c2ad8baeba8f3ed03a1c49} 
+int32\+\_\+t optical\+\_\+set\+\_\+led\+\_\+pwm (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+Set the pwm value of the White LED
+
+value that ranges from 0 to 100
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as an Optical Sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 Optical Sensor port number from 1-\/21 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation is successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

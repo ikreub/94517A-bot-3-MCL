@@ -1,0 +1,52 @@
+.TH "include/pros/error.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/error.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'limits\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPROS_ERR_BYTE\fP   (INT8_MAX)"
+.br
+.RI "Return This on Byte Sized Return Error\&. "
+.ti -1c
+.RI "#define \fBPROS_ERR_2_BYTE\fP   (INT16_MAX)"
+.br
+.RI "Return This on 2 Byte Sized Return Error\&. "
+.ti -1c
+.RI "#define \fBPROS_ERR\fP   (INT32_MAX)"
+.br
+.RI "Return This on 4 Byte Sized Return Error\&. "
+.ti -1c
+.RI "#define \fBPROS_ERR_F\fP   (INFINITY)"
+.br
+.RI "Return This on 8 Byte Sized Return Error\&. "
+.ti -1c
+.RI "#define \fBPROS_SUCCESS\fP   (1)"
+.br
+.RI "Return This on Success (1)\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains macro definitions for return types, mostly errors
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+Copyright (c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

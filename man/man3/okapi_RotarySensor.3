@@ -1,0 +1,44 @@
+.TH "okapi::RotarySensor" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::RotarySensor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::ControllerInput< double >\fP\&.
+.PP
+Inherited by \fBokapi::ContinuousRotarySensor\fP, and \fBokapi::Potentiometer\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual double \fBget\fP () const =0"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::ControllerInput< double >\fP
+.in +1c
+.ti -1c
+.RI "virtual double \fBcontrollerGet\fP ()=0"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual double okapi::RotarySensor::get () const\fR [pure virtual]\fP"
+Get the current sensor value\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+the current sensor value, or \fRPROS_ERR\fP on a failure\&. 
+.RE
+.PP
+
+.PP
+Implemented in \fBokapi::ADIEncoder\fP, \fBokapi::ADIGyro\fP, \fBokapi::IMU\fP, \fBokapi::IntegratedEncoder\fP, \fBokapi::Potentiometer\fP, and \fBokapi::RotationSensor\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,71 @@
+\doxysection{lv\+\_\+mem\+\_\+monitor\+\_\+t Struct Reference}
+\hypertarget{structlv__mem__monitor__t}{}\label{structlv__mem__monitor__t}\index{lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}}
+
+
+{\ttfamily \+\#include $<$lv\+\_\+mem.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{structlv__mem__monitor__t_ae61235bccfb5119ca2fe58db1148f48b}{total\+\_\+size}}
+\item 
+\Hypertarget{structlv__mem__monitor__t_a46dc7a9d497afe396db3f3da455c15a1}\label{structlv__mem__monitor__t_a46dc7a9d497afe396db3f3da455c15a1} 
+uint32\+\_\+t {\bfseries free\+\_\+cnt}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{structlv__mem__monitor__t_a27adcfe2602ed3d9f91cab48e3b789fd}{free\+\_\+size}}
+\item 
+\Hypertarget{structlv__mem__monitor__t_a2e415ca957da17290eb8055dc0c89982}\label{structlv__mem__monitor__t_a2e415ca957da17290eb8055dc0c89982} 
+uint32\+\_\+t {\bfseries free\+\_\+biggest\+\_\+size}
+\item 
+\Hypertarget{structlv__mem__monitor__t_aa2404ca716ab5481106528be7925bff6}\label{structlv__mem__monitor__t_aa2404ca716ab5481106528be7925bff6} 
+uint32\+\_\+t {\bfseries used\+\_\+cnt}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{structlv__mem__monitor__t_ac6041d5c689cad8ba79a48fbf2f65fdb}{max\+\_\+used}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{structlv__mem__monitor__t_a729716db06d7a5ecb2fea65bdc29e6aa}{used\+\_\+pct}}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{structlv__mem__monitor__t_a68d42298e5029f634e5a19f27fa7da2e}{frag\+\_\+pct}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Heap information structure. 
+
+\label{doc-variable-members}
+\Hypertarget{structlv__mem__monitor__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structlv__mem__monitor__t_a68d42298e5029f634e5a19f27fa7da2e}\index{lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}!frag\_pct@{frag\_pct}}
+\index{frag\_pct@{frag\_pct}!lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}}
+\doxysubsubsection{\texorpdfstring{frag\_pct}{frag\_pct}}
+{\footnotesize\ttfamily \label{structlv__mem__monitor__t_a68d42298e5029f634e5a19f27fa7da2e} 
+uint8\+\_\+t lv\+\_\+mem\+\_\+monitor\+\_\+t::\+frag\+\_\+pct}
+
+Amount of fragmentation \Hypertarget{structlv__mem__monitor__t_a27adcfe2602ed3d9f91cab48e3b789fd}\index{lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}!free\_size@{free\_size}}
+\index{free\_size@{free\_size}!lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}}
+\doxysubsubsection{\texorpdfstring{free\_size}{free\_size}}
+{\footnotesize\ttfamily \label{structlv__mem__monitor__t_a27adcfe2602ed3d9f91cab48e3b789fd} 
+uint32\+\_\+t lv\+\_\+mem\+\_\+monitor\+\_\+t::\+free\+\_\+size}
+
+Size of available memory \Hypertarget{structlv__mem__monitor__t_ac6041d5c689cad8ba79a48fbf2f65fdb}\index{lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}!max\_used@{max\_used}}
+\index{max\_used@{max\_used}!lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}}
+\doxysubsubsection{\texorpdfstring{max\_used}{max\_used}}
+{\footnotesize\ttfamily \label{structlv__mem__monitor__t_ac6041d5c689cad8ba79a48fbf2f65fdb} 
+uint32\+\_\+t lv\+\_\+mem\+\_\+monitor\+\_\+t::\+max\+\_\+used}
+
+Max size of Heap memory used \Hypertarget{structlv__mem__monitor__t_ae61235bccfb5119ca2fe58db1148f48b}\index{lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}!total\_size@{total\_size}}
+\index{total\_size@{total\_size}!lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}}
+\doxysubsubsection{\texorpdfstring{total\_size}{total\_size}}
+{\footnotesize\ttfamily \label{structlv__mem__monitor__t_ae61235bccfb5119ca2fe58db1148f48b} 
+uint32\+\_\+t lv\+\_\+mem\+\_\+monitor\+\_\+t::\+total\+\_\+size}
+
+Total heap size \Hypertarget{structlv__mem__monitor__t_a729716db06d7a5ecb2fea65bdc29e6aa}\index{lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}!used\_pct@{used\_pct}}
+\index{used\_pct@{used\_pct}!lv\_mem\_monitor\_t@{lv\_mem\_monitor\_t}}
+\doxysubsubsection{\texorpdfstring{used\_pct}{used\_pct}}
+{\footnotesize\ttfamily \label{structlv__mem__monitor__t_a729716db06d7a5ecb2fea65bdc29e6aa} 
+uint8\+\_\+t lv\+\_\+mem\+\_\+monitor\+\_\+t::\+used\+\_\+pct}
+
+Percentage used 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+liblvgl/\+misc/\+\doxymbox{\hyperlink{lv__mem_8h}{lv\+\_\+mem.\+h}}\end{DoxyCompactItemize}

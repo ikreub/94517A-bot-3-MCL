@@ -1,0 +1,97 @@
+\doxysection{squiggles::\+Tank\+Model Class Reference}
+\hypertarget{classsquiggles_1_1_tank_model}{}\label{classsquiggles_1_1_tank_model}\index{squiggles::TankModel@{squiggles::TankModel}}
+
+
+Inherits \doxymbox{\hyperlink{classsquiggles_1_1_physical_model}{squiggles::\+\+Physical\+Model}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a9ca600d56e97fbf2f46dfe409708856b}{Tank\+Model}} (double itrack\+\_\+width, \doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}} ilinear\+\_\+constraints)
+\item 
+\doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}} \doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a228118a70bc48fcca6265fca42dc2efc}{constraints}} (const \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}} pose, double curvature, double vel) override
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a78da315edab044dfe4fe6c8a9ffd7fd7}{linear\+\_\+to\+\_\+wheel\+\_\+vels}} (double lin\+\_\+vel, double curvature) override
+\item 
+std::\+string \doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a10c913c5ac93113fcac61610cafff43c}{to\+\_\+string}} () const override
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classsquiggles_1_1_tank_model_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsquiggles_1_1_tank_model_a9ca600d56e97fbf2f46dfe409708856b}\index{squiggles::TankModel@{squiggles::TankModel}!TankModel@{TankModel}}
+\index{TankModel@{TankModel}!squiggles::TankModel@{squiggles::TankModel}}
+\doxysubsubsection{\texorpdfstring{TankModel()}{TankModel()}}
+{\footnotesize\ttfamily \label{classsquiggles_1_1_tank_model_a9ca600d56e97fbf2f46dfe409708856b} 
+squiggles::\+\+Tank\+Model::\+\+Tank\+Model (\begin{DoxyParamCaption}\item[{double}]{itrack\+\_\+width}{, }\item[{\doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}}}]{ilinear\+\_\+constraints}{}\end{DoxyParamCaption})}
+
+Defines a model of a tank drive or differential drive robot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em itrack\+\_\+width} & The distance between the the wheels on each side of the robot in meters. \\
+\hline
+{\em ilinear\+\_\+constraints} & The maximum values for the robot\textquotesingle{}s movement. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classsquiggles_1_1_tank_model_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsquiggles_1_1_tank_model_a228118a70bc48fcca6265fca42dc2efc}\index{squiggles::TankModel@{squiggles::TankModel}!constraints@{constraints}}
+\index{constraints@{constraints}!squiggles::TankModel@{squiggles::TankModel}}
+\doxysubsubsection{\texorpdfstring{constraints()}{constraints()}}
+{\footnotesize\ttfamily \label{classsquiggles_1_1_tank_model_a228118a70bc48fcca6265fca42dc2efc} 
+\doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}} squiggles::\+\+Tank\+Model::\+constraints (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}}]{pose}{, }\item[{double}]{curvature}{, }\item[{double}]{vel}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Calculate a set of stricter constraints for the path at the given state than the general constraints based on the robot\textquotesingle{}s kinematics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & The 2D pose for this state in the path. \\
+\hline
+{\em curvature} & The change in heading at this state in the path in 1 /\+ meters. \\
+\hline
+{\em vel} & The linear velocity at this state in the path in meters per second. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classsquiggles_1_1_physical_model_a39b09199c02fe508fc00f78e7b205302}{squiggles::\+\+Physical\+Model}}.
+
+\Hypertarget{classsquiggles_1_1_tank_model_a78da315edab044dfe4fe6c8a9ffd7fd7}\index{squiggles::TankModel@{squiggles::TankModel}!linear\_to\_wheel\_vels@{linear\_to\_wheel\_vels}}
+\index{linear\_to\_wheel\_vels@{linear\_to\_wheel\_vels}!squiggles::TankModel@{squiggles::TankModel}}
+\doxysubsubsection{\texorpdfstring{linear\_to\_wheel\_vels()}{linear\_to\_wheel\_vels()}}
+{\footnotesize\ttfamily \label{classsquiggles_1_1_tank_model_a78da315edab044dfe4fe6c8a9ffd7fd7} 
+std::\+vector$<$ double $>$ squiggles::\+\+Tank\+Model::\+linear\+\_\+to\+\_\+wheel\+\_\+vels (\begin{DoxyParamCaption}\item[{double}]{linear}{, }\item[{double}]{curvature}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Converts a linear velocity and desired curvature into the component for each wheel of the robot.
+
+
+\begin{DoxyParams}{Parameters}
+{\em linear} & The linear velocity for the robot in meters per second. \\
+\hline
+{\em curvature} & The change in heading for the robot in 1 /\+ meters. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \doxymbox{\hyperlink{classsquiggles_1_1_physical_model_a227380568400054713e62bc396b17422}{squiggles::\+\+Physical\+Model}}.
+
+\Hypertarget{classsquiggles_1_1_tank_model_a10c913c5ac93113fcac61610cafff43c}\index{squiggles::TankModel@{squiggles::TankModel}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!squiggles::TankModel@{squiggles::TankModel}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily \label{classsquiggles_1_1_tank_model_a10c913c5ac93113fcac61610cafff43c} 
+std::\+string squiggles::\+\+Tank\+Model::\+to\+\_\+string (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \doxymbox{\hyperlink{classsquiggles_1_1_physical_model}{squiggles::\+\+Physical\+Model}}.
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+squiggles/\+physicalmodel/\+tankmodel.\+hpp\end{DoxyCompactItemize}

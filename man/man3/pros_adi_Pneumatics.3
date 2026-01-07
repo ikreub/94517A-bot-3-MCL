@@ -1,0 +1,52 @@
+.TH "pros::adi::Pneumatics" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::adi::Pneumatics
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::adi::DigitalOut\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPneumatics\fP (std::uint8_t adi_port, bool start_extended, bool extended_is_low=false)"
+.br
+.ti -1c
+.RI "\fBPneumatics\fP (\fBext_adi_port_pair_t\fP port_pair, bool start_extended, bool extended_is_low=false)"
+.br
+.ti -1c
+.RI "std::int32_t \fBextend\fP ()"
+.br
+.ti -1c
+.RI "std::int32_t \fBretract\fP ()"
+.br
+.ti -1c
+.RI "std::int32_t \fBtoggle\fP ()"
+.br
+.ti -1c
+.RI "bool \fBis_extended\fP () const"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBpros::adi::DigitalOut\fP
+.in +1c
+.ti -1c
+.RI "\fBDigitalOut\fP (std::uint8_t adi_port, bool init_state=\fBLOW\fP)"
+.br
+.ti -1c
+.RI "\fBDigitalOut\fP (\fBext_adi_port_pair_t\fP port_pair, bool init_state=\fBLOW\fP)"
+.br
+.ti -1c
+.RI "std::int32_t \fBset_value\fP (std::int32_t value) const"
+.br
+.ti -1c
+.RI "virtual \fBext_adi_port_tuple_t\fP \fBget_port\fP () const"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

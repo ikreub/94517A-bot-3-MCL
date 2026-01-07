@@ -1,0 +1,139 @@
+\doxysection{lv\+\_\+gpu\+\_\+nxp\+\_\+vglite.\+h}
+\hypertarget{lv__gpu__nxp__vglite_8h_source}{}\label{lv__gpu__nxp__vglite_8h_source}\index{include/liblvgl/draw/nxp/vglite/lv\_gpu\_nxp\_vglite.h@{include/liblvgl/draw/nxp/vglite/lv\_gpu\_nxp\_vglite.h}}
+\doxymbox{\hyperlink{lv__gpu__nxp__vglite_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VGLITE\_H}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VGLITE\_H}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ LV\_USE\_GPU\_NXP\_VG\_LITE}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}vg\_lite.h"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__sw_8h}{../../sw/lv\_draw\_sw.h}}"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__log_8h}{../../../misc/lv\_log.h}}"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}fsl\_debug\_console.h"{}}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_FEATURE\_DISABLED\ (1920*1080+1)}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_STRIDE\_ALIGN\_PX\ 16U}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_LOG\_ERRORS}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_LOG\_ERRORS\ 1}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifndef\ LV\_GPU\_NXP\_VG\_LITE\_LOG\_TRACES}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ LV\_GPU\_NXP\_VG\_LITE\_LOG\_TRACES\ 0}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{/*\ Draw\ rectangles\ around\ BLIT\ tiles\ */}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ BLIT\_DBG\_AREAS\ \ \ 0}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/*\ Print\ detailed\ info\ to\ SDK\ console\ (NOT\ to\ LVGL\ log\ system)\ */}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ BLIT\_DBG\_VERBOSE\ 0}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{comment}{/*\ Verbose\ debug\ print\ */}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#if\ BLIT\_DBG\_VERBOSE}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ PRINT\_BLT\ PRINTF}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ PRINT\_BLT(...)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{/*\ The\ optimal\ Bezier\ control\ point\ offset\ for\ radial\ unit}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ see:\ https://spencermortensen.com/articles/bezier-\/circle/}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ **/}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ BEZIER\_OPTIM\_CIRCLE\ 0.551915024494f}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{/*\ Draw\ lines\ for\ control\ points\ of\ Bezier\ curves\ */}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ BEZIER\_DBG\_CONTROL\_POINTS\ \ \ 0}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00107\ lv\_res\_t\ lv\_vglite\_init\_buf(vg\_lite\_buffer\_t\ *\ vgbuf,\ uint32\_t\ width,\ uint32\_t\ height,\ uint32\_t\ stride,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_color\_t\ *\ ptr,\ \textcolor{keywordtype}{bool}\ source);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#if\ BLIT\_DBG\_AREAS}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ lv\_vglite\_dbg\_draw\_rectangle(lv\_color\_t\ *\ dest\_buf,\ lv\_coord\_t\ dest\_width,\ lv\_coord\_t\ dest\_height,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ fill\_area,\ lv\_color\_t\ color);}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ lv\_vglite\_invalidate\_cache(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ VG\_LITE\_COND\_STOP(cond,\ txt)\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if\ (cond)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_ERROR("{}\%s.\ STOP!"{},\ txt);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (\ ;\ ;\ );\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#if\ LV\_GPU\_NXP\_VG\_LITE\_LOG\_ERRORS}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ VG\_LITE\_ERR\_RETURN\_INV(err,\ fmt,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if(err\ !=\ VG\_LITE\_SUCCESS)\ \{\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_ERROR(fmt,\ \#\#\_\_VA\_ARGS\_\_);\ \(\backslash\)}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ return\ LV\_RES\_INV;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ VG\_LITE\_ERR\_RETURN\_INV(err,\ fmt,\ ...)\ \(\backslash\)}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if(err\ !=\ VG\_LITE\_SUCCESS)\ \{\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ return\ LV\_RES\_INV;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ \}while(0)}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GPU\_NXP\_VG\_LITE\_LOG\_ERRORS*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#if\ LV\_GPU\_NXP\_VG\_LITE\_LOG\_TRACES}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ VG\_LITE\_LOG\_TRACE(fmt,\ ...)\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ LV\_LOG\_ERROR(fmt,\ \#\#\_\_VA\_ARGS\_\_);\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ VG\_LITE\_RETURN\_INV(fmt,\ ...)\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ LV\_LOG\_ERROR(fmt,\ \#\#\_\_VA\_ARGS\_\_);\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ LV\_RES\_INV;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ VG\_LITE\_LOG\_TRACE(fmt,\ ...)\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (0)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ VG\_LITE\_RETURN\_INV(fmt,\ ...)\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ LV\_RES\_INV;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \}while(0)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GPU\_NXP\_VG\_LITE\_LOG\_TRACES*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GPU\_NXP\_VG\_LITE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00182\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GPU\_NXP\_VGLITE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

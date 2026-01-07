@@ -1,0 +1,76 @@
+\doxysection{link.\+h}
+\hypertarget{link_8h_source}{}\label{link_8h_source}\index{include/pros/link.h@{include/pros/link.h}}
+\doxymbox{\hyperlink{link_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_LINK\_H\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_PROS\_LINK\_H\_}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{group__c-link_gaeb9b97127da30edb91cc281b28f5e8df}{link\_type\_e}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \doxymbox{\hyperlink{group__c-link_ggaeb9b97127da30edb91cc281b28f5e8dfaab8163ecac2542f247939dae82071628}{E\_LINK\_RECIEVER}}\ =\ 0,\ }
+\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{group__c-link_ggaeb9b97127da30edb91cc281b28f5e8dfa959bf4f7005bdf46615e47d59b1b551e}{E\_LINK\_TRANSMITTER}},\ }
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{group__c-link_ggaeb9b97127da30edb91cc281b28f5e8dfabb07f278cb352fd102c4da036ea4a6e2}{E\_LINK\_RX}}\ =\ \doxymbox{\hyperlink{group__c-link_ggaeb9b97127da30edb91cc281b28f5e8dfaab8163ecac2542f247939dae82071628}{E\_LINK\_RECIEVER}},\ }
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{group__c-link_ggaeb9b97127da30edb91cc281b28f5e8dfab0ef9c35843cf88823e252745aaac1bd}{E\_LINK\_TX}}\ =\ \doxymbox{\hyperlink{group__c-link_ggaeb9b97127da30edb91cc281b28f5e8dfa959bf4f7005bdf46615e47d59b1b551e}{E\_LINK\_TRANSMITTER}}\ }
+\DoxyCodeLine{00048\ \}\ link\_type\_e\_t;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifdef\ PROS\_USE\_SIMPLE\_NAMES}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ LINK\_RECEIVER\ pros::E\_LINK\_RECEIVER}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LINK\_TRANSMITTER\ pros::E\_LINK\_TRANSMITTER}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ LINK\_RX\ pros::E\_LINK\_RX}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ LINK\_TX\ pros::E\_LINK\_TX}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ LINK\_RECEIVER\ E\_LINK\_RECEIVER}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ LINK\_TRANSMITTER\ E\_LINK\_TRANSMITTER}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ LINK\_RX\ E\_LINK\_RX}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ LINK\_TX\ E\_LINK\_TX}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ LINK\_BUFFER\_SIZE\ 512}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{namespace\ }c\ \{}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00105\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_ga96130006a3d2dd4ea7935d90525b40cc}{link\_init}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ link\_id,\ link\_type\_e\_t\ type);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00142\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_ga62ba3655861bf1d739897100d62bc9e2}{link\_init\_override}}(uint8\_t\ port,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ link\_id,\ link\_type\_e\_t\ type);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{group__c-link_gaf35198b0d94685c25800a8ccd03e9087}{link\_connected}}(uint8\_t\ port);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00202\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_gad93e824e70f80bf0275efc2a00d2c8da}{link\_raw\_receivable\_size}}(uint8\_t\ port);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00231\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_gaf41c5046b1bcac9952310eef92a79611}{link\_raw\_transmittable\_size}}(uint8\_t\ port);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00268\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_ga5dfdea4d57445877ce1ff36560ad7010}{link\_transmit\_raw}}(uint8\_t\ port,\ \textcolor{keywordtype}{void}*\ data,\ uint16\_t\ data\_size);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00305\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_ga7e8fafa4f335bed613f59bbc49d30e5e}{link\_receive\_raw}}(uint8\_t\ port,\ \textcolor{keywordtype}{void}*\ dest,\ uint16\_t\ data\_size);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00342\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_gac7fe2288263fb6e76652b87507b2b41d}{link\_transmit}}(uint8\_t\ port,\ \textcolor{keywordtype}{void}*\ data,\ uint16\_t\ data\_size);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00380\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_gadcc5e8c69eb2b0bb65078d7d9f94d9e3}{link\_receive}}(uint8\_t\ port,\ \textcolor{keywordtype}{void}*\ dest,\ uint16\_t\ data\_size);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00411\ uint32\_t\ \doxymbox{\hyperlink{group__c-link_ga911f9321b7ed3b1df907fe0f4a5a7b71}{link\_clear\_receive\_buf}}(uint8\_t\ port);}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00416\ \}}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ \}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

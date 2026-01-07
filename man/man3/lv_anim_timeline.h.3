@@ -1,0 +1,158 @@
+.TH "include/liblvgl/misc/lv_anim_timeline.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_anim_timeline.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'lv_anim\&.h'\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _lv_anim_timeline_t \fBlv_anim_timeline_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "lv_anim_timeline_t * \fBlv_anim_timeline_create\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_timeline_del\fP (lv_anim_timeline_t *at)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_timeline_add\fP (lv_anim_timeline_t *at, uint32_t start_time, \fBlv_anim_t\fP *a)"
+.br
+.ti -1c
+.RI "uint32_t \fBlv_anim_timeline_start\fP (lv_anim_timeline_t *at)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_timeline_stop\fP (lv_anim_timeline_t *at)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_timeline_set_reverse\fP (lv_anim_timeline_t *at, bool reverse)"
+.br
+.ti -1c
+.RI "void \fBlv_anim_timeline_set_progress\fP (lv_anim_timeline_t *at, uint16_t progress)"
+.br
+.ti -1c
+.RI "uint32_t \fBlv_anim_timeline_get_playtime\fP (lv_anim_timeline_t *at)"
+.br
+.ti -1c
+.RI "bool \fBlv_anim_timeline_get_reverse\fP (lv_anim_timeline_t *at)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void lv_anim_timeline_add (lv_anim_timeline_t * at, uint32_t start_time, \fBlv_anim_t\fP * a)"
+Add animation to the animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.br
+\fIstart_time\fP the time the animation started on the timeline, note that start_time will override the value of delay\&. 
+.br
+\fIa\fP pointer to an animation\&. 
+.RE
+.PP
+
+.SS "lv_anim_timeline_t * lv_anim_timeline_create (void )"
+Create an animation timeline\&. 
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the animation timeline\&. 
+.RE
+.PP
+
+.SS "void lv_anim_timeline_del (lv_anim_timeline_t * at)"
+Delete animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.RE
+.PP
+
+.SS "uint32_t lv_anim_timeline_get_playtime (lv_anim_timeline_t * at)"
+Get the time used to play the animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+total time spent in animation timeline\&. 
+.RE
+.PP
+
+.SS "bool lv_anim_timeline_get_reverse (lv_anim_timeline_t * at)"
+Get whether the animation timeline is played in reverse\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+return true if it is reverse playback\&. 
+.RE
+.PP
+
+.SS "void lv_anim_timeline_set_progress (lv_anim_timeline_t * at, uint16_t progress)"
+Set the progress of the animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.br
+\fIprogress\fP set value 0~65535 to map 0~100% animation progress\&. 
+.RE
+.PP
+
+.SS "void lv_anim_timeline_set_reverse (lv_anim_timeline_t * at, bool reverse)"
+Set the playback direction of the animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.br
+\fIreverse\fP whether to play in reverse\&. 
+.RE
+.PP
+
+.SS "uint32_t lv_anim_timeline_start (lv_anim_timeline_t * at)"
+Start the animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+total time spent in animation timeline\&. 
+.RE
+.PP
+
+.SS "void lv_anim_timeline_stop (lv_anim_timeline_t * at)"
+Stop the animation timeline\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIat\fP pointer to the animation timeline\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

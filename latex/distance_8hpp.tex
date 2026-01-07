@@ -1,0 +1,56 @@
+\doxysection{include/\+pros/\+distance.hpp File Reference}
+\hypertarget{distance_8hpp}{}\label{distance_8hpp}\index{include/pros/distance.hpp@{include/pros/distance.hpp}}
+{\ttfamily \+\#include $<$cstdint$>$}\newline
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include "{}pros/\+device.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}pros/\+distance.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::\+v5::\+\+Distance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \doxymbox{\hyperlink{namespacepros}{pros}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::\+\+Distance}} \doxymbox{\hyperlink{distance_8hpp_a6fceebddd1a7c879ccb8ca876c8a8d03}{pros::\+v5::\+literals::\+operator"{}"{}\+\_\+dist}} (const unsigned long long int d)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains prototypes for the V5 Distance Sensor-\/related functions.
+
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.
+
+\begin{DoxyCopyright}{Copyright}
+(c) 2017-\/2023, Purdue University ACM SIGBots.
+\end{DoxyCopyright}
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.\+0. If a copy of the MPL was not distributed with this file, You can obtain one at \href{http://mozilla.org/MPL/2.0/}{\texttt{http:\+/\+/\+mozilla.\+org/\+\+MPL/\+2.\+0/\+}}. 
+
+\label{doc-func-members}
+\Hypertarget{distance_8hpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{distance_8hpp_a6fceebddd1a7c879ccb8ca876c8a8d03}\index{distance.hpp@{distance.hpp}!operator"{}"{}\_dist@{operator""""\_dist}}
+\index{operator"{}"{}\_dist@{operator""""\_dist}!distance.hpp@{distance.hpp}}
+\doxysubsubsection{\texorpdfstring{operator""""\_dist()}{operator""\_dist()}}
+{\footnotesize\ttfamily \label{distance_8hpp_a6fceebddd1a7c879ccb8ca876c8a8d03} 
+const \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::\+\+Distance}} pros::\+v5::\+literals::\+operator"{}"{}\+\_\+dist (\begin{DoxyParamCaption}\item[{const unsigned long long int}]{d}{}\end{DoxyParamCaption})}
+
+Constructs a Distance sensor object from a literal ending in \+\_\+dist via calling the constructor
+
+\begin{DoxyReturn}{Returns}
+a \doxylink{classpros_1_1v5_1_1_distance}{pros::\+\+Distance} for the corresponding port
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }pros::literals;}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ opcontrol()\ \{}
+\DoxyCodeLine{\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_distance}{pros::Distance}}\ dist\ =\ 2\_dist;\ \textcolor{comment}{//Makes\ an\ dist\ object\ on\ port\ 2}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

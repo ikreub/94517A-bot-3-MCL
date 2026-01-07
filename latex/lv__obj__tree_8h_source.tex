@@ -1,0 +1,85 @@
+\doxysection{lv\+\_\+obj\+\_\+tree.\+h}
+\hypertarget{lv__obj__tree_8h_source}{}\label{lv__obj__tree_8h_source}\index{include/liblvgl/core/lv\_obj\_tree.h@{include/liblvgl/core/lv\_obj\_tree.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_OBJ\_TREE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_OBJ\_TREE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__class__t}{\_lv\_obj\_class\_t}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ LV\_OBJ\_TREE\_WALK\_NEXT,}
+\DoxyCodeLine{00033\ \ \ \ \ LV\_OBJ\_TREE\_WALK\_SKIP\_CHILDREN,}
+\DoxyCodeLine{00034\ \ \ \ \ LV\_OBJ\_TREE\_WALK\_END,}
+\DoxyCodeLine{00035\ \}\ lv\_obj\_tree\_walk\_res\_t;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ lv\_obj\_tree\_walk\_res\_t\ (*lv\_obj\_tree\_walk\_cb\_t)(\textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *,\ \textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ lv\_obj\_del(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ lv\_obj\_clean(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ lv\_obj\_del\_delayed(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ uint32\_t\ delay\_ms);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ lv\_obj\_del\_anim\_ready\_cb(\doxymbox{\hyperlink{lv__anim_8h_a94df93c022dc57ee917b4757e50ebe22}{lv\_anim\_t}}\ *\ a);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ lv\_obj\_del\_async(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ lv\_obj\_set\_parent(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ parent);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ lv\_obj\_swap(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj1,\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj2);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ lv\_obj\_move\_to\_index(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ int32\_t\ index);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ lv\_obj\_get\_screen(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00118\ \doxymbox{\hyperlink{lv__hal__disp_8h_a38e817df2a5f77f36d3fe4975cf58129}{lv\_disp\_t}}\ *\ lv\_obj\_get\_disp(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ lv\_obj\_get\_parent(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00138\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ lv\_obj\_get\_child(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj,\ int32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ uint32\_t\ lv\_obj\_get\_child\_cnt(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00153\ uint32\_t\ lv\_obj\_get\_index(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ lv\_obj\_tree\_walk(\textcolor{keyword}{struct}\ \doxymbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ *\ start\_obj,\ lv\_obj\_tree\_walk\_cb\_t\ cb,\ \textcolor{keywordtype}{void}\ *\ user\_data);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00169\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_OBJ\_TREE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

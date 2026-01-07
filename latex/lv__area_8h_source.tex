@@ -1,0 +1,192 @@
+\doxysection{lv\+\_\+area.\+h}
+\hypertarget{lv__area_8h_source}{}\label{lv__area_8h_source}\index{include/liblvgl/misc/lv\_area.h@{include/liblvgl/misc/lv\_area.h}}
+\doxymbox{\hyperlink{lv__area_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_AREA\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_AREA\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#if\ LV\_USE\_LARGE\_COORD}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ int32\_t\ lv\_coord\_t;}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ int16\_t\ lv\_coord\_t;}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ lv\_coord\_t\ x;}
+\DoxyCodeLine{00039\ \ \ \ \ lv\_coord\_t\ y;}
+\DoxyCodeLine{00040\ \}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ lv\_coord\_t\ x1;}
+\DoxyCodeLine{00045\ \ \ \ \ lv\_coord\_t\ y1;}
+\DoxyCodeLine{00046\ \ \ \ \ lv\_coord\_t\ x2;}
+\DoxyCodeLine{00047\ \ \ \ \ lv\_coord\_t\ y2;}
+\DoxyCodeLine{00048\ \}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ LV\_ALIGN\_DEFAULT\ =\ 0,}
+\DoxyCodeLine{00053\ \ \ \ \ LV\_ALIGN\_TOP\_LEFT,}
+\DoxyCodeLine{00054\ \ \ \ \ LV\_ALIGN\_TOP\_MID,}
+\DoxyCodeLine{00055\ \ \ \ \ LV\_ALIGN\_TOP\_RIGHT,}
+\DoxyCodeLine{00056\ \ \ \ \ LV\_ALIGN\_BOTTOM\_LEFT,}
+\DoxyCodeLine{00057\ \ \ \ \ LV\_ALIGN\_BOTTOM\_MID,}
+\DoxyCodeLine{00058\ \ \ \ \ LV\_ALIGN\_BOTTOM\_RIGHT,}
+\DoxyCodeLine{00059\ \ \ \ \ LV\_ALIGN\_LEFT\_MID,}
+\DoxyCodeLine{00060\ \ \ \ \ LV\_ALIGN\_RIGHT\_MID,}
+\DoxyCodeLine{00061\ \ \ \ \ LV\_ALIGN\_CENTER,}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ LV\_ALIGN\_OUT\_TOP\_LEFT,}
+\DoxyCodeLine{00064\ \ \ \ \ LV\_ALIGN\_OUT\_TOP\_MID,}
+\DoxyCodeLine{00065\ \ \ \ \ LV\_ALIGN\_OUT\_TOP\_RIGHT,}
+\DoxyCodeLine{00066\ \ \ \ \ LV\_ALIGN\_OUT\_BOTTOM\_LEFT,}
+\DoxyCodeLine{00067\ \ \ \ \ LV\_ALIGN\_OUT\_BOTTOM\_MID,}
+\DoxyCodeLine{00068\ \ \ \ \ LV\_ALIGN\_OUT\_BOTTOM\_RIGHT,}
+\DoxyCodeLine{00069\ \ \ \ \ LV\_ALIGN\_OUT\_LEFT\_TOP,}
+\DoxyCodeLine{00070\ \ \ \ \ LV\_ALIGN\_OUT\_LEFT\_MID,}
+\DoxyCodeLine{00071\ \ \ \ \ LV\_ALIGN\_OUT\_LEFT\_BOTTOM,}
+\DoxyCodeLine{00072\ \ \ \ \ LV\_ALIGN\_OUT\_RIGHT\_TOP,}
+\DoxyCodeLine{00073\ \ \ \ \ LV\_ALIGN\_OUT\_RIGHT\_MID,}
+\DoxyCodeLine{00074\ \ \ \ \ LV\_ALIGN\_OUT\_RIGHT\_BOTTOM,}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_align\_t;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ LV\_DIR\_NONE\ \ \ \ \ =\ 0x00,}
+\DoxyCodeLine{00080\ \ \ \ \ LV\_DIR\_LEFT\ \ \ \ \ =\ (1\ <<\ 0),}
+\DoxyCodeLine{00081\ \ \ \ \ LV\_DIR\_RIGHT\ \ \ \ =\ (1\ <<\ 1),}
+\DoxyCodeLine{00082\ \ \ \ \ LV\_DIR\_TOP\ \ \ \ \ \ =\ (1\ <<\ 2),}
+\DoxyCodeLine{00083\ \ \ \ \ LV\_DIR\_BOTTOM\ \ \ =\ (1\ <<\ 3),}
+\DoxyCodeLine{00084\ \ \ \ \ LV\_DIR\_HOR\ \ \ \ \ \ =\ LV\_DIR\_LEFT\ |\ LV\_DIR\_RIGHT,}
+\DoxyCodeLine{00085\ \ \ \ \ LV\_DIR\_VER\ \ \ \ \ \ =\ LV\_DIR\_TOP\ |\ LV\_DIR\_BOTTOM,}
+\DoxyCodeLine{00086\ \ \ \ \ LV\_DIR\_ALL\ \ \ \ \ \ =\ LV\_DIR\_HOR\ |\ LV\_DIR\_VER,}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_dir\_t;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__area_8h_a8a6f63df40693641307a31d39f44101d}{lv\_area\_set}}(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p,\ lv\_coord\_t\ x1,\ lv\_coord\_t\ y1,\ lv\_coord\_t\ x2,\ lv\_coord\_t\ y2);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ lv\_area\_copy(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ dest,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ src)}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ dest-\/>x1\ =\ src-\/>x1;}
+\DoxyCodeLine{00113\ \ \ \ \ dest-\/>y1\ =\ src-\/>y1;}
+\DoxyCodeLine{00114\ \ \ \ \ dest-\/>x2\ =\ src-\/>x2;}
+\DoxyCodeLine{00115\ \ \ \ \ dest-\/>y2\ =\ src-\/>y2;}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_coord\_t\ lv\_area\_get\_width(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p)}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ (lv\_coord\_t)(area\_p-\/>x2\ -\/\ area\_p-\/>x1\ +\ 1);}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_coord\_t\ lv\_area\_get\_height(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p)}
+\DoxyCodeLine{00134\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ (lv\_coord\_t)(area\_p-\/>y2\ -\/\ area\_p-\/>y1\ +\ 1);}
+\DoxyCodeLine{00136\ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__area_8h_a7cd8866c2312050e4541d5cdd862ed4a}{lv\_area\_set\_width}}(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p,\ lv\_coord\_t\ w);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__area_8h_a092d265b43760f45dded850e64c175c7}{lv\_area\_set\_height}}(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p,\ lv\_coord\_t\ h);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__area_8h_a93c17d195ae8ee121b4f1c5511c083c4}{\_lv\_area\_set\_pos}}(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p,\ lv\_coord\_t\ x,\ lv\_coord\_t\ y);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ uint32\_t\ \doxymbox{\hyperlink{lv__area_8h_a71b2b35191f41ba629245399ce5aaf39}{lv\_area\_get\_size}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area\_p);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ lv\_area\_increase(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area,\ lv\_coord\_t\ w\_extra,\ lv\_coord\_t\ h\_extra);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ lv\_area\_move(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area,\ lv\_coord\_t\ x\_ofs,\ lv\_coord\_t\ y\_ofs);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00178\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__area_8h_a4d3f162819f5c73af3f8db373bd760a1}{\_lv\_area\_intersect}}(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ res\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a1\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a2\_p);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__area_8h_a5bd88e6608979c209bdfedbd69c6ef96}{\_lv\_area\_join}}(\doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a\_res\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a1\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a2\_p);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00195\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__area_8h_a30c4474631d2c3cd2933816181c71aa1}{\_lv\_area\_is\_point\_on}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ p\_p,\ lv\_coord\_t\ radius);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00203\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__area_8h_a587e67744f4705f9f0304770338c8739}{\_lv\_area\_is\_on}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a1\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a2\_p);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00212\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__area_8h_a1b2cb8180bd2812620c2845a32ebaecb}{\_lv\_area\_is\_in}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ ain\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ aholder\_p,\ lv\_coord\_t\ radius);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__area_8h_adc8ea659f79162a37ecbe55835fc5f82}{\_lv\_area\_is\_out}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ aout\_p,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ aholder\_p,\ lv\_coord\_t\ radius);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__area_8h_a1eab73ae1279a70fbfd7c96a9a5c8261}{\_lv\_area\_is\_equal}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ a,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ b);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00237\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__area_8h_a6433dbbcdabe73292bc4ae28105cd4dd}{lv\_area\_align}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ base,\ \doxymbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ to\_align,\ lv\_align\_t\ align,\ lv\_coord\_t\ ofs\_x,\ lv\_coord\_t\ ofs\_y);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{void}\ lv\_point\_transform(\doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ p,\ int32\_t\ angle,\ int32\_t\ zoom,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ pivot);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#if\ LV\_USE\_LARGE\_COORD}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE\_SHIFT\ \ \ \ (29U)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE\_SHIFT\ \ \ \ (13U)}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE\_MASK\ \ \ \ \ (3\ <<\ \_LV\_COORD\_TYPE\_SHIFT)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE(x)\ \ \ \ \ \ \ ((x)\ \&\ \_LV\_COORD\_TYPE\_MASK)\ \ }\textcolor{comment}{/*Extract\ type\ specifiers*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_PLAIN(x)\ \ \ \ \ \ ((x)\ \&\ \string~\_LV\_COORD\_TYPE\_MASK)\ }\textcolor{comment}{/*Remove\ type\ specifiers*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE\_PX\ \ \ \ \ \ \ (0\ <<\ \_LV\_COORD\_TYPE\_SHIFT)}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE\_SPEC\ \ \ \ \ (1\ <<\ \_LV\_COORD\_TYPE\_SHIFT)}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ \_LV\_COORD\_TYPE\_PX\_NEG\ \ \ (3\ <<\ \_LV\_COORD\_TYPE\_SHIFT)}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ LV\_COORD\_IS\_PX(x)\ \ \ \ \ \ \ (\_LV\_COORD\_TYPE(x)\ ==\ \_LV\_COORD\_TYPE\_PX\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_LV\_COORD\_TYPE(x)\ ==\ \_LV\_COORD\_TYPE\_PX\_NEG\ ?\ true\ :\ false)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ LV\_COORD\_IS\_SPEC(x)\ \ \ \ \ (\_LV\_COORD\_TYPE(x)\ ==\ \_LV\_COORD\_TYPE\_SPEC\ ?\ true\ :\ false)}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ LV\_COORD\_SET\_SPEC(x)\ \ \ \ ((x)\ |\ \_LV\_COORD\_TYPE\_SPEC)}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{comment}{/*Special\ coordinates*/}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ LV\_PCT(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (x\ <\ 0\ ?\ LV\_COORD\_SET\_SPEC(1000\ -\/\ (x))\ :\ LV\_COORD\_SET\_SPEC(x))}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ LV\_COORD\_IS\_PCT(x)\ \ \ \ \ \ ((LV\_COORD\_IS\_SPEC(x)\ \&\&\ \_LV\_COORD\_PLAIN(x)\ <=\ 2000)\ ?\ true\ :\ false)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ LV\_COORD\_GET\_PCT(x)\ \ \ \ \ (\_LV\_COORD\_PLAIN(x)\ >\ 1000\ ?\ 1000\ -\/\ \_LV\_COORD\_PLAIN(x)\ :\ \_LV\_COORD\_PLAIN(x))}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ LV\_SIZE\_CONTENT\ \ \ \ \ \ \ \ \ LV\_COORD\_SET\_SPEC(2001)}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ LV\_EXPORT\_CONST\_INT(LV\_SIZE\_CONTENT);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{comment}{/*Max\ coordinate\ value*/}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ LV\_COORD\_MAX\ \ \ \ \ \ \ \ \ \ \ \ ((1\ <<\ \_LV\_COORD\_TYPE\_SHIFT)\ -\/\ 1)}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ LV\_COORD\_MIN\ \ \ \ \ \ \ \ \ \ \ \ (-\/LV\_COORD\_MAX)}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ LV\_EXPORT\_CONST\_INT(LV\_COORD\_MAX);}
+\DoxyCodeLine{00278\ LV\_EXPORT\_CONST\_INT(LV\_COORD\_MIN);}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00286\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ lv\_coord\_t\ lv\_pct(lv\_coord\_t\ x)}
+\DoxyCodeLine{00287\ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordflow}{return}\ LV\_PCT(x);}
+\DoxyCodeLine{00289\ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00292\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

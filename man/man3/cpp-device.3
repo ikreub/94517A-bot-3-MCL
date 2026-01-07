@@ -1,0 +1,240 @@
+.TH "cpp-device" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-device \- VEX Generic Device C++ API (For Advanced Users)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::v5::Device\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBpros::DeviceType\fP { \fBpros::DeviceType::none\fP = 0, \fBpros::DeviceType::motor\fP = 2, \fBpros::DeviceType::rotation\fP = 4, \fBpros::DeviceType::imu\fP = 6, \fBpros::DeviceType::distance\fP = 7, \fBpros::DeviceType::radio\fP = 8, \fBpros::DeviceType::vision\fP = 11, \fBpros::DeviceType::adi\fP = 12, \fBpros::DeviceType::optical\fP = 16, \fBpros::DeviceType::gps\fP = 20, \fBpros::DeviceType::serial\fP = 129, \fBpros::DeviceType::undefined\fP = 255 }"
+.br
+.RI "Enum of possible v5 devices\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::Device::Device\fP (const std::uint8_t port)"
+.br
+.ti -1c
+.RI "std::uint8_t \fBpros::v5::Device::get_port\fP (void) const"
+.br
+.ti -1c
+.RI "virtual bool \fBpros::v5::Device::is_installed\fP ()"
+.br
+.ti -1c
+.RI "pros::DeviceType \fBpros::v5::Device::get_plugged_type\fP () const"
+.br
+.ti -1c
+.RI "static pros::DeviceType \fBpros::v5::Device::get_plugged_type\fP (std::uint8_t port)"
+.br
+.ti -1c
+.RI "static std::vector< \fBDevice\fP > \fBpros::v5::Device::get_all_devices\fP (pros::DeviceType device_type=\fBpros::DeviceType::undefined\fP)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Device::Device\fP (const std::uint8_t port, const enum \fBDeviceType\fP deviceType)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const std::uint8_t \fBpros::v5::Device::_port\fP"
+.br
+.ti -1c
+.RI "enum \fBDeviceType\fP \fBpros::v5::Device::_deviceType\fP = \fBpros::DeviceType::none\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBNote\fP
+.RS 4
+These functions can be used for dynamic device instantiation\&.   
+.RE
+.PP
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum class \fBpros::v5::DeviceType\fP\fR [strong]\fP"
+
+.PP
+Enum of possible v5 devices\&. Contains all current V5 Devices\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BInone \fP
+No device is plugged into the port\&. 
+.TP
+\f(BImotor \fP
+A motor is plugged into the port\&. 
+.TP
+\f(BIrotation \fP
+A rotation sensor is plugged into the port\&. 
+.TP
+\f(BIimu \fP
+An inertial sensor is plugged into the port\&. 
+.TP
+\f(BIdistance \fP
+A distance sensor is plugged into the port\&. 
+.TP
+\f(BIradio \fP
+A radio is plugged into the port\&. 
+.TP
+\f(BIvision \fP
+A vision sensor is plugged into the port\&. 
+.TP
+\f(BIadi \fP
+This port is an ADI expander\&. 
+.TP
+\f(BIoptical \fP
+An optical sensor is plugged into the port\&. 
+.TP
+\f(BIgps \fP
+A \fBGPS\fP sensor is plugged into the port\&. 
+.TP
+\f(BIserial \fP
+A serial device is plugged into the port\&. 
+.TP
+\f(BIundefined \fP
+The device type is not defined, or is not a valid device\&. 
+.SH "Function Documentation"
+.PP 
+.SS "pros::v5::Device::Device (const std::uint8_t port)\fR [explicit]\fP"
+Creates a \fBDevice\fP object\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Device::Device (const std::uint8_t port, const enum \fBDeviceType\fP deviceType)\fR [inline]\fP, \fR [protected]\fP"
+Creates a \fBDevice\fP object\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.br
+\fIdeviceType\fP The type of the constructed device 
+.RE
+.PP
+
+.SS "std::vector< \fBDevice\fP > pros::v5::Device::get_all_devices (pros::DeviceType device_type = \fR\fBpros::DeviceType::undefined\fP\fP)\fR [static]\fP"
+Gets all devices of a given device type\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIdevice_type\fP The pros::DeviceType enum that matches the type of device desired\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+A vector of \fBDevice\fP objects for the given device type\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::DeviceType pros::v5::Device::get_plugged_type () const"
+Gets the type of device\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - \fBMutex\fP of port cannot be taken (access denied)\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The device type as an enum\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::DeviceType pros::v5::Device::get_plugged_type (std::uint8_t port)\fR [static]\fP"
+Gets the type of device on a given port\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: EACCES - \fBMutex\fP of port cannot be taken (access denied)\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1-21
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The device type as an enum\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "std::uint8_t pros::v5::Device::get_port (void ) const"
+Gets the port number of the Smart \fBDevice\fP\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The smart device's port number\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual bool pros::v5::Device::is_installed ()\fR [virtual]\fP"
+Checks if the device is installed\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+true if the corresponding device is installed, false otherwise\&. \fBExample\fP 
+.RE
+.PP
+.PP
+.nf
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

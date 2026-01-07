@@ -1,0 +1,198 @@
+.TH "_lv_draw_ctx_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_lv_draw_ctx_t
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void * \fBbuf\fP"
+.br
+.ti -1c
+.RI "\fBlv_area_t\fP * \fBbuf_area\fP"
+.br
+.ti -1c
+.RI "const \fBlv_area_t\fP * \fBclip_area\fP"
+.br
+.ti -1c
+.RI "void(* \fBdraw_rect\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *dsc, const \fBlv_area_t\fP *coords)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_arc\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_arc_dsc_t\fP *dsc, const \fBlv_point_t\fP *center, uint16_t radius, uint16_t start_angle, uint16_t end_angle)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_img_decoded\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_img_dsc_t\fP *dsc, const \fBlv_area_t\fP *coords, const uint8_t *map_p, lv_img_cf_t color_format)"
+.br
+.ti -1c
+.RI "lv_res_t(* \fBdraw_img\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_img_dsc_t\fP *draw_dsc, const \fBlv_area_t\fP *coords, const void *src)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_letter\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_label_dsc_t\fP *dsc, const \fBlv_point_t\fP *pos_p, uint32_t letter)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_line\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_line_dsc_t\fP *dsc, const \fBlv_point_t\fP *point1, const \fBlv_point_t\fP *point2)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_polygon\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *draw_dsc, const \fBlv_point_t\fP *points, uint16_t point_cnt)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_transform\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_area_t\fP *dest_area, const void *src_buf, lv_coord_t src_w, lv_coord_t src_h, lv_coord_t src_stride, const \fBlv_draw_img_dsc_t\fP *draw_dsc, lv_img_cf_t cf, lv_color_t *cbuf, lv_opa_t *abuf)"
+.br
+.ti -1c
+.RI "void(* \fBdraw_bg\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *draw_dsc, const \fBlv_area_t\fP *coords)"
+.br
+.ti -1c
+.RI "void(* \fBwait_for_finish\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx)"
+.br
+.ti -1c
+.RI "void(* \fBbuffer_copy\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, void *dest_buf, lv_coord_t dest_stride, const \fBlv_area_t\fP *dest_area, void *src_buf, lv_coord_t src_stride, const \fBlv_area_t\fP *src_area)"
+.br
+.ti -1c
+.RI "struct \fB_lv_draw_layer_ctx_t\fP *(* \fBlayer_init\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, lv_draw_layer_flags_t flags)"
+.br
+.ti -1c
+.RI "void(* \fBlayer_adjust\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, lv_draw_layer_flags_t flags)"
+.br
+.ti -1c
+.RI "void(* \fBlayer_blend\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, const \fBlv_draw_img_dsc_t\fP *draw_dsc)"
+.br
+.ti -1c
+.RI "void(* \fBlayer_destroy\fP )(struct \fB_lv_draw_ctx_t\fP *draw_ctx, lv_draw_layer_ctx_t *layer_ctx)"
+.br
+.ti -1c
+.RI "size_t \fBlayer_instance_size\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "void* _lv_draw_ctx_t::buf"
+Pointer to a buffer to draw into 
+.SS "\fBlv_area_t\fP* _lv_draw_ctx_t::buf_area"
+The position and size of \fR\fBbuf\fP\fP (absolute coordinates) 
+.SS "void(* _lv_draw_ctx_t::buffer_copy) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, void *dest_buf, lv_coord_t dest_stride, const \fBlv_area_t\fP *dest_area, void *src_buf, lv_coord_t src_stride, const \fBlv_area_t\fP *src_area)"
+Copy an area from buffer to an other 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_ctx\fP pointer to a draw context 
+.br
+\fIdest_buf\fP copy the buffer into this buffer 
+.br
+\fIdest_stride\fP the width of the dest_buf in pixels 
+.br
+\fIdest_area\fP the destination area 
+.br
+\fIsrc_buf\fP copy from this buffer 
+.br
+\fIsrc_stride\fP the width of src_buf in pixels 
+.br
+\fIsrc_area\fP the source area\&.
+.RE
+.PP
+\fBNote\fP
+.RS 4
+dest_area and src_area must have the same width and height but can have different x and y position\&. 
+
+.PP
+dest_area and src_area must be clipped to the real dimensions of the buffers 
+.RE
+.PP
+
+.SS "const \fBlv_area_t\fP* _lv_draw_ctx_t::clip_area"
+The current clip area with absolute coordinates, always the same or smaller than \fR\fBbuf_area\fP\fP 
+.SS "void(* _lv_draw_ctx_t::draw_bg) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_draw_rect_dsc_t\fP *draw_dsc, const \fBlv_area_t\fP *coords)"
+Replace the buffer with a rect without decoration like radius or borders 
+.SS "void(* _lv_draw_ctx_t::draw_transform) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, const \fBlv_area_t\fP *dest_area, const void *src_buf, lv_coord_t src_w, lv_coord_t src_h, lv_coord_t src_stride, const \fBlv_draw_img_dsc_t\fP *draw_dsc, lv_img_cf_t cf, lv_color_t *cbuf, lv_opa_t *abuf)"
+Get an area of a transformed image (zoomed and/or rotated) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_ctx\fP pointer to a draw context 
+.br
+\fIdest_area\fP get this area of the result image\&. It assumes that the original image is placed to the 0;0 position\&. 
+.br
+\fIsrc_buf\fP the source image 
+.br
+\fIsrc_w\fP width of the source image in [px] 
+.br
+\fIsrc_h\fP height of the source image in [px] 
+.br
+\fIsrc_stride\fP the stride in [px]\&. 
+.br
+\fIdraw_dsc\fP an \fR\fBlv_draw_img_dsc_t\fP\fP descriptor containing the transformation parameters 
+.br
+\fIcf\fP the color format of \fRsrc_buf\fP 
+.br
+\fIcbuf\fP place the colors of the pixels on \fRdest_area\fP here in RGB format 
+.br
+\fIabuf\fP place the opacity of the pixels on \fRdest_area\fP here 
+.RE
+.PP
+
+.SS "void(* _lv_draw_ctx_t::layer_adjust) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, lv_draw_layer_flags_t flags)"
+Adjust the layer_ctx and/or draw_ctx based on the \fRlayer_ctx->area_act\fP\&. It's called only if flags has \fRLV_DRAW_LAYER_FLAG_CAN_SUBDIVIDE\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_ctx\fP pointer to the current draw context 
+.br
+\fIlayer_ctx\fP pointer to a layer context 
+.br
+\fIflags\fP OR-ed flags from @lv_draw_layer_flags_t 
+.RE
+.PP
+
+.SS "void(* _lv_draw_ctx_t::layer_blend) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, const \fBlv_draw_img_dsc_t\fP *draw_dsc)"
+Blend a rendered layer to \fRlayer_ctx->area_act\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_ctx\fP pointer to the current draw context 
+.br
+\fIlayer_ctx\fP pointer to a layer context 
+.br
+\fIdraw_dsc\fP pointer to an image draw descriptor 
+.RE
+.PP
+
+.SS "void(* _lv_draw_ctx_t::layer_destroy) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, lv_draw_layer_ctx_t *layer_ctx)"
+Destroy a layer context\&. The original buffer and area data of the \fRdraw_ctx\fP will be restored and the \fRlayer_ctx\fP itself will be freed automatically\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_ctx\fP pointer to the current draw context 
+.br
+\fIlayer_ctx\fP pointer to a layer context 
+.RE
+.PP
+
+.SS "struct \fB_lv_draw_layer_ctx_t\fP *(* _lv_draw_ctx_t::layer_init) (struct \fB_lv_draw_ctx_t\fP *draw_ctx, struct \fB_lv_draw_layer_ctx_t\fP *layer_ctx, lv_draw_layer_flags_t flags)"
+Initialize a new layer context\&. The original buffer and area data are already saved from \fRdraw_ctx\fP to \fRlayer_ctx\fP 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdraw_ctx\fP pointer to the current draw context 
+.br
+\fIlayer_area\fP the coordinates of the layer 
+.br
+\fIflags\fP OR-ed flags from @lv_draw_layer_flags_t 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the layer context, or NULL on error 
+.RE
+.PP
+
+.SS "size_t _lv_draw_ctx_t::layer_instance_size"
+Size of a layer context in bytes\&. 
+.SS "void(* _lv_draw_ctx_t::wait_for_finish) (struct \fB_lv_draw_ctx_t\fP *draw_ctx)"
+Wait until all background operations are finished\&. (E\&.g\&. GPU operations) 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

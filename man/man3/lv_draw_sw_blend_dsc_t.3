@@ -1,0 +1,58 @@
+.TH "lv_draw_sw_blend_dsc_t" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+lv_draw_sw_blend_dsc_t
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "const \fBlv_area_t\fP * \fBblend_area\fP"
+.br
+.ti -1c
+.RI "const lv_color_t * \fBsrc_buf\fP"
+.br
+.ti -1c
+.RI "lv_color_t \fBcolor\fP"
+.br
+.ti -1c
+.RI "lv_opa_t * \fBmask_buf\fP"
+.br
+.ti -1c
+.RI "lv_draw_mask_res_t \fBmask_res\fP"
+.br
+.ti -1c
+.RI "const \fBlv_area_t\fP * \fBmask_area\fP"
+.br
+.ti -1c
+.RI "lv_opa_t \fBopa\fP"
+.br
+.ti -1c
+.RI "lv_blend_mode_t \fBblend_mode\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "const \fBlv_area_t\fP* lv_draw_sw_blend_dsc_t::blend_area"
+The area with absolute coordinates to draw on \fRdraw_ctx->buf\fP will be clipped to \fRdraw_ctx->clip_area\fP 
+.SS "lv_blend_mode_t lv_draw_sw_blend_dsc_t::blend_mode"
+E\&.g\&. LV_BLEND_MODE_ADDITIVE 
+.SS "lv_color_t lv_draw_sw_blend_dsc_t::color"
+Fill color 
+.SS "const \fBlv_area_t\fP* lv_draw_sw_blend_dsc_t::mask_area"
+The area of \fR\fBmask_buf\fP\fP with absolute coordinates 
+.SS "lv_opa_t* lv_draw_sw_blend_dsc_t::mask_buf"
+NULL if ignored, or an alpha mask to apply on \fR\fBblend_area\fP\fP 
+.SS "lv_draw_mask_res_t lv_draw_sw_blend_dsc_t::mask_res"
+The result of the previous mask operation 
+.SS "lv_opa_t lv_draw_sw_blend_dsc_t::opa"
+The overall opacity 
+.SS "const lv_color_t* lv_draw_sw_blend_dsc_t::src_buf"
+Pointer to an image to blend\&. If set \fRfill_color\fP is ignored 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

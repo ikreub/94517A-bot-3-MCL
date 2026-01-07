@@ -1,0 +1,81 @@
+.TH "okapi::SettledUtil" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::SettledUtil
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSettledUtil\fP (std::unique_ptr< \fBAbstractTimer\fP > iatTargetTimer, double iatTargetError=50, double iatTargetDerivative=5, QTime iatTargetTime=250_ms)"
+.br
+.ti -1c
+.RI "virtual bool \fBisSettled\fP (double ierror)"
+.br
+.ti -1c
+.RI "virtual void \fBreset\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBatTargetError\fP = 50"
+.br
+.ti -1c
+.RI "double \fBatTargetDerivative\fP = 5"
+.br
+.ti -1c
+.RI "QTime \fBatTargetTime\fP = 250_ms"
+.br
+.ti -1c
+.RI "std::unique_ptr< \fBAbstractTimer\fP > \fBatTargetTimer\fP"
+.br
+.ti -1c
+.RI "double \fBlastError\fP = 0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::SettledUtil::SettledUtil (std::unique_ptr< \fBAbstractTimer\fP > iatTargetTimer, double iatTargetError = \fR50\fP, double iatTargetDerivative = \fR5\fP, QTime iatTargetTime = \fR250_ms\fP)\fR [explicit]\fP"
+A utility class to determine if a control loop has settled based on error\&. A control loop is settled if the error is within \fRiatTargetError\fP and \fRiatTargetDerivative\fP for \fRiatTargetTime\fP\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiatTargetTimer\fP A timer used to track \fRiatTargetTime\fP\&. 
+.br
+\fIiatTargetError\fP The minimum error to be considered settled\&. 
+.br
+\fIiatTargetDerivative\fP The minimum error derivative to be considered settled\&. 
+.br
+\fIiatTargetTime\fP The minimum time within atTargetError to be considered settled\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual bool okapi::SettledUtil::isSettled (double ierror)\fR [virtual]\fP"
+Returns whether the controller is settled\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIierror\fP The current error\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Whether the controller is settled\&. 
+.RE
+.PP
+
+.SS "virtual void okapi::SettledUtil::reset ()\fR [virtual]\fP"
+Resets the "at target" timer and clears the previous error\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

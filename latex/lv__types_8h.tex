@@ -1,0 +1,105 @@
+\doxysection{include/\+liblvgl/\+misc/\+lv\+\_\+types.h File Reference}
+\hypertarget{lv__types_8h}{}\label{lv__types_8h}\index{include/liblvgl/misc/lv\_types.h@{include/liblvgl/misc/lv\_types.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{lv__types_8h_ad07f3715eae2cfee3d5e0000edb150d7}{LV\+\_\+\+UNUSED}}(x)
+\item 
+\+\#define \doxymbox{\hyperlink{lv__types_8h_a90402ffaf707eb13f751b8986a853787}{\+\_\+\+LV\+\_\+\+CONCAT}}(x,  y)
+\item 
+\+\#define \doxymbox{\hyperlink{lv__types_8h_a8bd914f1aed4043a7bce9f18d07d970e}{LV\+\_\+\+CONCAT}}(x,  y)
+\item 
+\+\#define \doxymbox{\hyperlink{lv__types_8h_a8cefabc0f9ff1163b943b18dc9f710df}{\+\_\+\+LV\+\_\+\+CONCAT3}}(x,  y,  z)
+\item 
+\+\#define \doxymbox{\hyperlink{lv__types_8h_ab53dc15751d2a7143271b44db65eddf2}{LV\+\_\+\+CONCAT3}}(x,  y,  z)
+\item 
+\Hypertarget{lv__types_8h_a7f9cd8663554d2d676fde390bb00bcd6}\label{lv__types_8h_a7f9cd8663554d2d676fde390bb00bcd6} 
+\+\#define {\bfseries LV\+\_\+\+FORMAT\+\_\+\+ATTRIBUTE}(fmtstr,  vararg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__types_8h_a5c71f43250ed3699f40a8b634e342228}\label{lv__types_8h_a5c71f43250ed3699f40a8b634e342228} 
+typedef uint8\+\_\+t {\bfseries lv\+\_\+res\+\_\+t}
+\item 
+\Hypertarget{lv__types_8h_a7a3b1e9f6778da30d47b93a630e83458}\label{lv__types_8h_a7a3b1e9f6778da30d47b93a630e83458} 
+typedef uint32\+\_\+t {\bfseries lv\+\_\+uintptr\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ {\bfseries LV\+\_\+\+RES\+\_\+\+INV} = 0
+, {\bfseries LV\+\_\+\+RES\+\_\+\+OK}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{lv__types_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lv__types_8h_a90402ffaf707eb13f751b8986a853787}\index{lv\_types.h@{lv\_types.h}!\_LV\_CONCAT@{\_LV\_CONCAT}}
+\index{\_LV\_CONCAT@{\_LV\_CONCAT}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{\_LV\_CONCAT}{\_LV\_CONCAT}}
+{\footnotesize\ttfamily \label{lv__types_8h_a90402ffaf707eb13f751b8986a853787} 
+\+\#define \+\_\+\+LV\+\_\+\+CONCAT(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{x\ \#\#\ y}
+
+\end{DoxyCode}
+\Hypertarget{lv__types_8h_a8cefabc0f9ff1163b943b18dc9f710df}\index{lv\_types.h@{lv\_types.h}!\_LV\_CONCAT3@{\_LV\_CONCAT3}}
+\index{\_LV\_CONCAT3@{\_LV\_CONCAT3}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{\_LV\_CONCAT3}{\_LV\_CONCAT3}}
+{\footnotesize\ttfamily \label{lv__types_8h_a8cefabc0f9ff1163b943b18dc9f710df} 
+\+\#define \+\_\+\+LV\+\_\+\+CONCAT3(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{, }\item[{}]{z}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{x\ \#\#\ y\ \#\#\ z}
+
+\end{DoxyCode}
+\Hypertarget{lv__types_8h_a8bd914f1aed4043a7bce9f18d07d970e}\index{lv\_types.h@{lv\_types.h}!LV\_CONCAT@{LV\_CONCAT}}
+\index{LV\_CONCAT@{LV\_CONCAT}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{LV\_CONCAT}{LV\_CONCAT}}
+{\footnotesize\ttfamily \label{lv__types_8h_a8bd914f1aed4043a7bce9f18d07d970e} 
+\+\#define LV\+\_\+\+CONCAT(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\_LV\_CONCAT(x,\ y)}
+
+\end{DoxyCode}
+\Hypertarget{lv__types_8h_ab53dc15751d2a7143271b44db65eddf2}\index{lv\_types.h@{lv\_types.h}!LV\_CONCAT3@{LV\_CONCAT3}}
+\index{LV\_CONCAT3@{LV\_CONCAT3}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{LV\_CONCAT3}{LV\_CONCAT3}}
+{\footnotesize\ttfamily \label{lv__types_8h_ab53dc15751d2a7143271b44db65eddf2} 
+\+\#define LV\+\_\+\+CONCAT3(\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{, }\item[{}]{z}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\_LV\_CONCAT3(x,\ y,\ z)}
+
+\end{DoxyCode}
+\Hypertarget{lv__types_8h_ad07f3715eae2cfee3d5e0000edb150d7}\index{lv\_types.h@{lv\_types.h}!LV\_UNUSED@{LV\_UNUSED}}
+\index{LV\_UNUSED@{LV\_UNUSED}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{LV\_UNUSED}{LV\_UNUSED}}
+{\footnotesize\ttfamily \label{lv__types_8h_ad07f3715eae2cfee3d5e0000edb150d7} 
+\+\#define LV\+\_\+\+UNUSED(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((void)x)}
+
+\end{DoxyCode}
+
+
+\label{doc-enum-members}
+\Hypertarget{lv__types_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{lv__types_8h_a615ddcdaa157363e8cc5456dea9a94c5}\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily \label{lv__types_8h_a615ddcdaa157363e8cc5456dea9a94c5} 
+anonymous enum}
+
+LVGL error codes. 

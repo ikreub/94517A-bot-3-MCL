@@ -1,0 +1,162 @@
+.TH "include/pros/ext_adi.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/ext_adi.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include 'adi\&.h'\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int32_t \fBext_adi_encoder_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBext_adi_ultrasonic_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBext_adi_gyro_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBext_adi_potentiometer_t\fP"
+.br
+.ti -1c
+.RI "typedef int32_t \fBext_adi_led_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "adi_port_config_e_t \fBext_adi_port_get_config\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_port_get_value\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_port_set_config\fP (uint8_t smart_port, uint8_t adi_port, adi_port_config_e_t type)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_port_set_value\fP (uint8_t smart_port, uint8_t adi_port, int32_t value)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_analog_calibrate\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_analog_read\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_analog_read_calibrated\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_analog_read_calibrated_HR\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_digital_read\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_digital_get_new_press\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_digital_write\fP (uint8_t smart_port, uint8_t adi_port, bool value)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_pin_mode\fP (uint8_t smart_port, uint8_t adi_port, uint8_t mode)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_motor_set\fP (uint8_t smart_port, uint8_t adi_port, int8_t speed)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_motor_get\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_motor_stop\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_encoder_get\fP (\fBext_adi_encoder_t\fP enc)"
+.br
+.ti -1c
+.RI "\fBext_adi_encoder_t\fP \fBext_adi_encoder_init\fP (uint8_t smart_port, uint8_t adi_port_top, uint8_t adi_port_bottom, bool reverse)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_encoder_reset\fP (\fBext_adi_encoder_t\fP enc)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_encoder_shutdown\fP (\fBext_adi_encoder_t\fP enc)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_ultrasonic_get\fP (\fBext_adi_ultrasonic_t\fP ult)"
+.br
+.ti -1c
+.RI "\fBext_adi_ultrasonic_t\fP \fBext_adi_ultrasonic_init\fP (uint8_t smart_port, uint8_t adi_port_ping, uint8_t adi_port_echo)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_ultrasonic_shutdown\fP (\fBext_adi_ultrasonic_t\fP ult)"
+.br
+.ti -1c
+.RI "double \fBext_adi_gyro_get\fP (\fBext_adi_gyro_t\fP gyro)"
+.br
+.ti -1c
+.RI "\fBext_adi_gyro_t\fP \fBext_adi_gyro_init\fP (uint8_t smart_port, uint8_t adi_port, double multiplier)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_gyro_reset\fP (\fBext_adi_gyro_t\fP gyro)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_gyro_shutdown\fP (\fBext_adi_gyro_t\fP gyro)"
+.br
+.ti -1c
+.RI "\fBext_adi_potentiometer_t\fP \fBext_adi_potentiometer_init\fP (uint8_t smart_port, uint8_t adi_port, adi_potentiometer_type_e_t potentiometer_type)"
+.br
+.ti -1c
+.RI "double \fBext_adi_potentiometer_get_angle\fP (\fBext_adi_potentiometer_t\fP potentiometer)"
+.br
+.ti -1c
+.RI "\fBext_adi_led_t\fP \fBext_adi_led_init\fP (uint8_t smart_port, uint8_t adi_port)"
+.br
+.ti -1c
+.RI "int32_t \fBext_adi_led_clear_all\fP (\fBext_adi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length)"
+.br
+.RI "Clear the entire led strip of color\&. "
+.ti -1c
+.RI "int32_t \fBext_adi_led_set\fP (\fBext_adi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length)"
+.br
+.RI "Set the entire led strip using the colors contained in the buffer\&. "
+.ti -1c
+.RI "int32_t \fBext_adi_led_set_all\fP (\fBext_adi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length, uint32_t color)"
+.br
+.RI "Set the entire led strip to one color\&. "
+.ti -1c
+.RI "int32_t \fBext_adi_led_set_pixel\fP (\fBext_adi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length, uint32_t color, uint32_t pixel_position)"
+.br
+.RI "Set one pixel on the led strip\&. "
+.ti -1c
+.RI "int32_t \fBext_adi_led_clear_pixel\fP (\fBext_adi_led_t\fP led, uint32_t *buffer, uint32_t buffer_length, uint32_t pixel_position)"
+.br
+.RI "Clear one pixel on the led strip\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for interfacing with the 3-Wire Expander\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

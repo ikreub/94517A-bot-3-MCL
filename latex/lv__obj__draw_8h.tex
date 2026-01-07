@@ -1,0 +1,217 @@
+\doxysection{include/\+liblvgl/\+core/\+lv\+\_\+obj\+\_\+draw.h File Reference}
+\hypertarget{lv__obj__draw_8h}{}\label{lv__obj__draw_8h}\index{include/liblvgl/core/lv\_obj\_draw.h@{include/liblvgl/core/lv\_obj\_draw.h}}
+{\ttfamily \+\#include "{}liblvgl/\+draw/\+lv\+\_\+draw.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__obj__draw__part__dsc__t}{lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{lv__obj__draw_8h_ab574311d5f23b50737c863f8c6259a41}{lv\+\_\+cover\+\_\+res\+\_\+t}} \{ {\bfseries LV\+\_\+\+COVER\+\_\+\+RES\+\_\+\+COVER} = 0
+, {\bfseries LV\+\_\+\+COVER\+\_\+\+RES\+\_\+\+NOT\+\_\+\+COVER} = 1
+, {\bfseries LV\+\_\+\+COVER\+\_\+\+RES\+\_\+\+MASKED} = 2
+ \}
+\item 
+\Hypertarget{lv__obj__draw_8h_aaeb21c6eea41dba9d1140ace157efce8}\label{lv__obj__draw_8h_aaeb21c6eea41dba9d1140ace157efce8} 
+enum {\bfseries lv\+\_\+layer\+\_\+type\+\_\+t} \{ {\bfseries LV\+\_\+\+LAYER\+\_\+\+TYPE\+\_\+\+NONE}
+, {\bfseries LV\+\_\+\+LAYER\+\_\+\+TYPE\+\_\+\+SIMPLE}
+, {\bfseries LV\+\_\+\+LAYER\+\_\+\+TYPE\+\_\+\+TRANSFORM}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_a656a13bab9a5d209572609ed9c09fb42}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+rect\+\_\+dsc}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t part, \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_ad41e98adf6695ca75c8fde9a621a4f9b}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+label\+\_\+dsc}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t part, \doxymbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_aad7230198aeea78f88670d3a84855bb5}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+img\+\_\+dsc}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t part, \doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_a42ff732c89b7f469b8c69fb3a0f16fe5}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+line\+\_\+dsc}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t part, \doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_a5c040db5e36c48ca477fa9cda3f870fc}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+arc\+\_\+dsc}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t part, \doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__obj__draw_8h_a15944f73f804f4b8897c80bb833a5ff8}{lv\+\_\+obj\+\_\+calculate\+\_\+ext\+\_\+draw\+\_\+size}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t part)
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_a575e3726e6d30791f0aa9d63767e80f0}{lv\+\_\+obj\+\_\+draw\+\_\+dsc\+\_\+init}} (\doxymbox{\hyperlink{structlv__obj__draw__part__dsc__t}{lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}draw\+\_\+ctx)
+\item 
+bool \doxymbox{\hyperlink{lv__obj__draw_8h_adeb10dad1f684d965ecdc4ad934bf2f4}{lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+check\+\_\+type}} (\doxymbox{\hyperlink{structlv__obj__draw__part__dsc__t}{lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}class\+\_\+p, uint32\+\_\+t type)
+\item 
+void \doxymbox{\hyperlink{lv__obj__draw_8h_a43bac59e1dcdc1c83ceb23df161d984a}{lv\+\_\+obj\+\_\+refresh\+\_\+ext\+\_\+draw\+\_\+size}} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+coord\+\_\+t \doxymbox{\hyperlink{lv__obj__draw_8h_aeca31fdd018d4f7d948546b753266a4b}{\+\_\+lv\+\_\+obj\+\_\+get\+\_\+ext\+\_\+draw\+\_\+size}} (const struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\Hypertarget{lv__obj__draw_8h_a53ed2d21ab5038b6fa5312fec1d61404}\label{lv__obj__draw_8h_a53ed2d21ab5038b6fa5312fec1d61404} 
+lv\+\_\+layer\+\_\+type\+\_\+t {\bfseries \+\_\+lv\+\_\+obj\+\_\+get\+\_\+layer\+\_\+type} (const struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+
+
+\label{doc-enum-members}
+\Hypertarget{lv__obj__draw_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{lv__obj__draw_8h_ab574311d5f23b50737c863f8c6259a41}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_cover\_res\_t@{lv\_cover\_res\_t}}
+\index{lv\_cover\_res\_t@{lv\_cover\_res\_t}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cover\_res\_t}{lv\_cover\_res\_t}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_ab574311d5f23b50737c863f8c6259a41} 
+enum \doxymbox{\hyperlink{lv__obj__draw_8h_ab574311d5f23b50737c863f8c6259a41}{lv\+\_\+cover\+\_\+res\+\_\+t}}}
+
+Cover check results. \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2_leon_2_one_drive_2robotics_294517_a-bot-3-_m_c_l_2include_2liblvgl_2core_2lv_event_8h-example}{C:\+/\+\+Users/\+\+Leon/\+\+One\+Drive/\+robotics/\+94517\+A-\/bot-\/3-\/\+MCL/\+include/\+liblvgl/\+core/\+lv\+\_\+event.\+h}}.\end{Desc}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__obj__draw_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__obj__draw_8h_aeca31fdd018d4f7d948546b753266a4b}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!\_lv\_obj\_get\_ext\_draw\_size@{\_lv\_obj\_get\_ext\_draw\_size}}
+\index{\_lv\_obj\_get\_ext\_draw\_size@{\_lv\_obj\_get\_ext\_draw\_size}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{\_lv\_obj\_get\_ext\_draw\_size()}{\_lv\_obj\_get\_ext\_draw\_size()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_aeca31fdd018d4f7d948546b753266a4b} 
+lv\+\_\+coord\+\_\+t \+\_\+lv\+\_\+obj\+\_\+get\+\_\+ext\+\_\+draw\+\_\+size (\begin{DoxyParamCaption}\item[{const struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{}\end{DoxyParamCaption})}
+
+Get the extended draw area of an object. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the size extended draw area around the real coordinates 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__draw_8h_a15944f73f804f4b8897c80bb833a5ff8}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_calculate\_ext\_draw\_size@{lv\_obj\_calculate\_ext\_draw\_size}}
+\index{lv\_obj\_calculate\_ext\_draw\_size@{lv\_obj\_calculate\_ext\_draw\_size}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_calculate\_ext\_draw\_size()}{lv\_obj\_calculate\_ext\_draw\_size()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_a15944f73f804f4b8897c80bb833a5ff8} 
+lv\+\_\+coord\+\_\+t lv\+\_\+obj\+\_\+calculate\+\_\+ext\+\_\+draw\+\_\+size (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{uint32\+\_\+t}]{part}{}\end{DoxyParamCaption})}
+
+Get the required extra size (around the object\textquotesingle{}s part) to draw shadow, outline, value etc. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+{\em part} & part of the object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the extra size required around the object 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__draw_8h_a575e3726e6d30791f0aa9d63767e80f0}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_draw\_dsc\_init@{lv\_obj\_draw\_dsc\_init}}
+\index{lv\_obj\_draw\_dsc\_init@{lv\_obj\_draw\_dsc\_init}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_draw\_dsc\_init()}{lv\_obj\_draw\_dsc\_init()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_a575e3726e6d30791f0aa9d63767e80f0} 
+void lv\+\_\+obj\+\_\+draw\+\_\+dsc\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structlv__obj__draw__part__dsc__t}{lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{lv\+\_\+draw\+\_\+ctx\+\_\+t \texorpdfstring{$\ast$}{*}}]{draw\+\_\+ctx}{}\end{DoxyParamCaption})}
+
+Initialize a draw descriptor used in events. 
+\begin{DoxyParams}{Parameters}
+{\em dsc} & pointer to a descriptor. Later it should be passed as parameter to an {\ttfamily LV\+\_\+\+EVENT\+\_\+\+DRAW\+\_\+\+PART\+\_\+\+BEGIN/\+\+END} event. \\
+\hline
+{\em draw} & the current draw context. (usually returned by {\ttfamily lv\+\_\+event\+\_\+get\+\_\+draw\+\_\+ctx(e)}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__draw_8h_adeb10dad1f684d965ecdc4ad934bf2f4}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_draw\_part\_check\_type@{lv\_obj\_draw\_part\_check\_type}}
+\index{lv\_obj\_draw\_part\_check\_type@{lv\_obj\_draw\_part\_check\_type}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_draw\_part\_check\_type()}{lv\_obj\_draw\_part\_check\_type()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_adeb10dad1f684d965ecdc4ad934bf2f4} 
+bool lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+check\+\_\+type (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structlv__obj__draw__part__dsc__t}{lv\+\_\+obj\+\_\+draw\+\_\+part\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{const struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{class\+\_\+p}{, }\item[{uint32\+\_\+t}]{type}{}\end{DoxyParamCaption})}
+
+Check the type obj a part draw descriptor 
+\begin{DoxyParams}{Parameters}
+{\em dsc} & the descriptor (normally the event parameter) \\
+\hline
+{\em class\+\_\+p} & pointer to class to which {\ttfamily type} is related \\
+\hline
+{\em type} & element of {\ttfamily lv\+\_\+\texorpdfstring{$<$}{<}name\texorpdfstring{$>$}{>}\+\_\+draw\+\_\+part\+\_\+type\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if ::\+dsc is related to ::\+class\+\_\+p and ::\+type 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__draw_8h_a5c040db5e36c48ca477fa9cda3f870fc}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_init\_draw\_arc\_dsc@{lv\_obj\_init\_draw\_arc\_dsc}}
+\index{lv\_obj\_init\_draw\_arc\_dsc@{lv\_obj\_init\_draw\_arc\_dsc}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_init\_draw\_arc\_dsc()}{lv\_obj\_init\_draw\_arc\_dsc()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_a5c040db5e36c48ca477fa9cda3f870fc} 
+void lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+arc\+\_\+dsc (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{uint32\+\_\+t}]{part}{, }\item[{\doxymbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc}{}\end{DoxyParamCaption})}
+
+Initialize an arc draw descriptor from an object\textquotesingle{}s styles in its current state 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+{\em part} & part of the object, e.\+g. {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a1bb7ac56fc509fb459eb8c6ef66ba103}{LV\+\_\+\+PART\+\_\+\+MAIN}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a48a8e6955fcde2f7679f5a8f6eb698b9}{LV\+\_\+\+PART\+\_\+\+SCROLLBAR}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870ac6ba6af416d9846b75ddc8b6be6192a5}{LV\+\_\+\+PART\+\_\+\+KNOB}}, etc \\
+\hline
+{\em draw\+\_\+dsc} & the descriptor to initialize. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__draw_8h_aad7230198aeea78f88670d3a84855bb5}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_init\_draw\_img\_dsc@{lv\_obj\_init\_draw\_img\_dsc}}
+\index{lv\_obj\_init\_draw\_img\_dsc@{lv\_obj\_init\_draw\_img\_dsc}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_init\_draw\_img\_dsc()}{lv\_obj\_init\_draw\_img\_dsc()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_aad7230198aeea78f88670d3a84855bb5} 
+void lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+img\+\_\+dsc (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{uint32\+\_\+t}]{part}{, }\item[{\doxymbox{\hyperlink{structlv__draw__img__dsc__t}{lv\+\_\+draw\+\_\+img\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc}{}\end{DoxyParamCaption})}
+
+Initialize an image draw descriptor from an object\textquotesingle{}s styles in its current state 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+{\em part} & part of the object, e.\+g. {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a1bb7ac56fc509fb459eb8c6ef66ba103}{LV\+\_\+\+PART\+\_\+\+MAIN}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a48a8e6955fcde2f7679f5a8f6eb698b9}{LV\+\_\+\+PART\+\_\+\+SCROLLBAR}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870ac6ba6af416d9846b75ddc8b6be6192a5}{LV\+\_\+\+PART\+\_\+\+KNOB}}, etc \\
+\hline
+{\em draw\+\_\+dsc} & the descriptor to initialize. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__draw_8h_ad41e98adf6695ca75c8fde9a621a4f9b}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_init\_draw\_label\_dsc@{lv\_obj\_init\_draw\_label\_dsc}}
+\index{lv\_obj\_init\_draw\_label\_dsc@{lv\_obj\_init\_draw\_label\_dsc}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_init\_draw\_label\_dsc()}{lv\_obj\_init\_draw\_label\_dsc()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_ad41e98adf6695ca75c8fde9a621a4f9b} 
+void lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+label\+\_\+dsc (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{uint32\+\_\+t}]{part}{, }\item[{\doxymbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc}{}\end{DoxyParamCaption})}
+
+Initialize a label draw descriptor from an object\textquotesingle{}s styles in its current state 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+{\em part} & part of the object, e.\+g. {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a1bb7ac56fc509fb459eb8c6ef66ba103}{LV\+\_\+\+PART\+\_\+\+MAIN}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a48a8e6955fcde2f7679f5a8f6eb698b9}{LV\+\_\+\+PART\+\_\+\+SCROLLBAR}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870ac6ba6af416d9846b75ddc8b6be6192a5}{LV\+\_\+\+PART\+\_\+\+KNOB}}, etc \\
+\hline
+{\em draw\+\_\+dsc} & the descriptor to initialize. If the {\ttfamily opa} field is set to or the property is equal to {\ttfamily LV\+\_\+\+OPA\+\_\+\+TRANSP} the rest won\textquotesingle{}t be initialized. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__draw_8h_a42ff732c89b7f469b8c69fb3a0f16fe5}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_init\_draw\_line\_dsc@{lv\_obj\_init\_draw\_line\_dsc}}
+\index{lv\_obj\_init\_draw\_line\_dsc@{lv\_obj\_init\_draw\_line\_dsc}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_init\_draw\_line\_dsc()}{lv\_obj\_init\_draw\_line\_dsc()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_a42ff732c89b7f469b8c69fb3a0f16fe5} 
+void lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+line\+\_\+dsc (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{uint32\+\_\+t}]{part}{, }\item[{\doxymbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc}{}\end{DoxyParamCaption})}
+
+Initialize a line draw descriptor from an object\textquotesingle{}s styles in its current state 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+{\em part} & part of the object, e.\+g. {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a1bb7ac56fc509fb459eb8c6ef66ba103}{LV\+\_\+\+PART\+\_\+\+MAIN}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a48a8e6955fcde2f7679f5a8f6eb698b9}{LV\+\_\+\+PART\+\_\+\+SCROLLBAR}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870ac6ba6af416d9846b75ddc8b6be6192a5}{LV\+\_\+\+PART\+\_\+\+KNOB}}, etc \\
+\hline
+{\em draw\+\_\+dsc} & the descriptor to initialize. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__draw_8h_a656a13bab9a5d209572609ed9c09fb42}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_init\_draw\_rect\_dsc@{lv\_obj\_init\_draw\_rect\_dsc}}
+\index{lv\_obj\_init\_draw\_rect\_dsc@{lv\_obj\_init\_draw\_rect\_dsc}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_init\_draw\_rect\_dsc()}{lv\_obj\_init\_draw\_rect\_dsc()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_a656a13bab9a5d209572609ed9c09fb42} 
+void lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+rect\+\_\+dsc (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{uint32\+\_\+t}]{part}{, }\item[{\doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc}{}\end{DoxyParamCaption})}
+
+Initialize a rectangle draw descriptor from an object\textquotesingle{}s styles in its current state 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+{\em part} & part of the object, e.\+g. {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a1bb7ac56fc509fb459eb8c6ef66ba103}{LV\+\_\+\+PART\+\_\+\+MAIN}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870a48a8e6955fcde2f7679f5a8f6eb698b9}{LV\+\_\+\+PART\+\_\+\+SCROLLBAR}}, {\ttfamily \doxylink{lv__obj_8h_aa84002a3690a0d04c3ba75695eadb870ac6ba6af416d9846b75ddc8b6be6192a5}{LV\+\_\+\+PART\+\_\+\+KNOB}}, etc \\
+\hline
+{\em draw\+\_\+dsc} & the descriptor to initialize. If an {\ttfamily ...\+\_\+opa} field is set to {\ttfamily LV\+\_\+\+OPA\+\_\+\+TRANSP} the related properties won\textquotesingle{}t be initialized. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Only the relevant fields will be set. E.\+g. if {\ttfamily border width == 0} the other border properties won\textquotesingle{}t be evaluated. 
+\end{DoxyNote}
+\Hypertarget{lv__obj__draw_8h_a43bac59e1dcdc1c83ceb23df161d984a}\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_refresh\_ext\_draw\_size@{lv\_obj\_refresh\_ext\_draw\_size}}
+\index{lv\_obj\_refresh\_ext\_draw\_size@{lv\_obj\_refresh\_ext\_draw\_size}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_refresh\_ext\_draw\_size()}{lv\_obj\_refresh\_ext\_draw\_size()}}
+{\footnotesize\ttfamily \label{lv__obj__draw_8h_a43bac59e1dcdc1c83ceb23df161d984a} 
+void lv\+\_\+obj\+\_\+refresh\+\_\+ext\+\_\+draw\+\_\+size (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj}{}\end{DoxyParamCaption})}
+
+Send a \textquotesingle{}LV\+\_\+\+EVENT\+\_\+\+REFR\+\_\+\+EXT\+\_\+\+DRAW\+\_\+\+SIZE\textquotesingle{} Call the ancestor\textquotesingle{}s event handler to the object to refresh the value of the extended draw size. The result will be saved in {\ttfamily obj}. 
+\begin{DoxyParams}{Parameters}
+{\em obj} & pointer to an object \\
+\hline
+\end{DoxyParams}

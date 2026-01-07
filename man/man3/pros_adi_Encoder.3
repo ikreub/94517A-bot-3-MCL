@@ -1,0 +1,40 @@
+.TH "pros::adi::Encoder" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::adi::Encoder
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::adi::Port\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEncoder\fP (std::uint8_t adi_port_top, std::uint8_t adi_port_bottom, bool reversed=false)"
+.br
+.ti -1c
+.RI "\fBEncoder\fP (\fBext_adi_port_tuple_t\fP port_tuple, bool reversed=false)"
+.br
+.ti -1c
+.RI "std::int32_t \fBreset\fP () const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_value\fP () const"
+.br
+.ti -1c
+.RI "\fBext_adi_port_tuple_t\fP \fBget_port\fP () const override"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, \fBpros::adi::Encoder\fP &encoder)"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

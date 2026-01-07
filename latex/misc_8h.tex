@@ -1,0 +1,85 @@
+\doxysection{include/\+pros/\+misc.h File Reference}
+\hypertarget{misc_8h}{}\label{misc_8h}\index{include/pros/misc.h@{include/pros/misc.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structdate__s__t}{date\+\_\+s\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structtime__s__t}{time\+\_\+s\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{misc_8h_acceaccd4cf9a93ef86e8f21206a6645a}\label{misc_8h_acceaccd4cf9a93ef86e8f21206a6645a} 
+\+\#define {\bfseries NUM\+\_\+\+V5\+\_\+\+PORTS}~(22)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{V5 Competition}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-misc_gabb339fb59d7bc35709f8e58f39fc6740}\label{group__c-misc_gabb339fb59d7bc35709f8e58f39fc6740} 
+enum {\bfseries competition\+\_\+status} \{ {\bfseries COMPETITION\+\_\+\+DISABLED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries COMPETITION\+\_\+\+CONNECTED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, {\bfseries COMPETITION\+\_\+\+AUTONOMOUS} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries COMPETITION\+\_\+\+SYSTEM} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+ \}
+\item 
+const char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-misc_ga53280163169348b8429c14c340a7c2b3}{baked\+\_\+date}}
+\item 
+const char \texorpdfstring{$\ast$}{*} {\bfseries baked\+\_\+time}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga71a09bfc4dbfb9c07c917c701dc3e994}{competition\+\_\+get\+\_\+status}} (void)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga61c606d7f3c52e88d2e1a192fce950b0}{competition\+\_\+is\+\_\+disabled}} (void)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga048efc863026021d9710441065ecb359}{competition\+\_\+is\+\_\+connected}} (void)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group__c-misc_gabefe28014a85f9c430468c6ca944dd5a}{competition\+\_\+is\+\_\+autonomous}} (void)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group__c-misc_gab32495bd9fafc0ee5238704ff95817eb}{competition\+\_\+is\+\_\+field}} (void)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gafd1e850bd6613e2fb01960dc0cebb2ef}{controller\+\_\+is\+\_\+connected}} (controller\+\_\+id\+\_\+e\+\_\+t id)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gaed67feb70cbdb115e9ec2c7cc28a5da8}{controller\+\_\+get\+\_\+analog}} (controller\+\_\+id\+\_\+e\+\_\+t id, controller\+\_\+analog\+\_\+e\+\_\+t channel)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga54033388f5d4e3f8b291d5a6f2122f5e}{controller\+\_\+get\+\_\+battery\+\_\+capacity}} (controller\+\_\+id\+\_\+e\+\_\+t id)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gaeab690f86735cb6685f3c3184c54ba2d}{controller\+\_\+get\+\_\+battery\+\_\+level}} (controller\+\_\+id\+\_\+e\+\_\+t id)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gaf01b9e0d93d55a50b09c24f7ad5900fc}{controller\+\_\+get\+\_\+digital}} (controller\+\_\+id\+\_\+e\+\_\+t id, controller\+\_\+digital\+\_\+e\+\_\+t button)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga89d292cfe75a2abac6673a965697ac8c}{controller\+\_\+get\+\_\+digital\+\_\+new\+\_\+press}} (controller\+\_\+id\+\_\+e\+\_\+t id, controller\+\_\+digital\+\_\+e\+\_\+t button)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gaf7c72fcad599c9c0517ef22e6e813ae8}{controller\+\_\+print}} (controller\+\_\+id\+\_\+e\+\_\+t id, uint8\+\_\+t line, uint8\+\_\+t col, const char \texorpdfstring{$\ast$}{*}fmt,...)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga311402c942d9497ccb67e63ee2fa31a4}{controller\+\_\+set\+\_\+text}} (controller\+\_\+id\+\_\+e\+\_\+t id, uint8\+\_\+t line, uint8\+\_\+t col, const char \texorpdfstring{$\ast$}{*}str)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga22499128069a56f2ff041c11a9a33da7}{controller\+\_\+clear\+\_\+line}} (controller\+\_\+id\+\_\+e\+\_\+t id, uint8\+\_\+t line)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga730715344d091ed017894cf907e9c3ab}{controller\+\_\+clear}} (controller\+\_\+id\+\_\+e\+\_\+t id)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gaced0f39c3b2206489d1cc4bf97b91a82}{controller\+\_\+rumble}} (controller\+\_\+id\+\_\+e\+\_\+t id, const char \texorpdfstring{$\ast$}{*}rumble\+\_\+pattern)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga3e2a84e664eb602bd21a481259a94f56}{battery\+\_\+get\+\_\+voltage}} (void)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga20e84af87727a57282efd63cf76c8e78}{battery\+\_\+get\+\_\+current}} (void)
+\item 
+double \doxymbox{\hyperlink{group__c-misc_ga60d32e15ea7ab1b2d7fa6b63c44a5027}{battery\+\_\+get\+\_\+temperature}} (void)
+\item 
+double \doxymbox{\hyperlink{group__c-misc_gae692171cfb44885421dc1ef873701e05}{battery\+\_\+get\+\_\+capacity}} (void)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_gab70622da49049f2ea3b0bc4d517f051d}{usd\+\_\+is\+\_\+installed}} (void)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-misc_ga5c6bf0895e550a60960f96a8826967a3}{usd\+\_\+list\+\_\+files}} (const char \texorpdfstring{$\ast$}{*}path, char \texorpdfstring{$\ast$}{*}buffer, int32\+\_\+t len)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains prototypes for miscellaneous functions pertaining to the controller, battery, and competition control.
+
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.
+
+\begin{DoxyCopyright}{Copyright}
+(c) 2017-\/2023, Purdue University ACM SIGBots. All rights reservered.
+\end{DoxyCopyright}
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.\+0. If a copy of the MPL was not distributed with this file, You can obtain one at \href{http://mozilla.org/MPL/2.0/}{\texttt{http:\+/\+/\+mozilla.\+org/\+\+MPL/\+2.\+0/\+}}. 

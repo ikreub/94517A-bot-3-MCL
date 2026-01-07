@@ -1,0 +1,226 @@
+\doxysection{okapi::\+Optical\+Sensor Class Reference}
+\hypertarget{classokapi_1_1_optical_sensor}{}\label{classokapi_1_1_optical_sensor}\index{okapi::OpticalSensor@{okapi::OpticalSensor}}
+
+
+Inherits \doxymbox{\hyperlink{classokapi_1_1_controller_input}{okapi::\+\+Controller\+Input$<$ double $>$}}.
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a1f7a1f6e671b504228cc18d807c54984}{Optical\+Sensor}} (std::\+uint8\+\_\+t iport, Optical\+Sensor\+Output ioutput=Optical\+Sensor\+Output::\+hue, bool idisable\+Gestures=true, std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ ifilter=std::\+make\+\_\+unique$<$ \doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}} $>$())
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ab2991c6035f0bcdf4aa411ab50a5fe6f}{get}} ()
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a38bc1d6af3146d2f861999fe19499718}{get\+Hue}} () const
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a5f258946dc01cc980ce9120c068797ce}{get\+Brightness}} () const
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a3ab8069f903227f3b8caacde42616d02}{get\+Saturation}} () const
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ab263e8901c03b42689647014848f267c}{get\+Led\+PWM}} () const
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a4afe032f06720560768afc25b818a564}{set\+Led\+PWM}} (std::\+uint8\+\_\+t ivalue) const
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_adccbc413af8f6f5c6791d9fc487414a4}{get\+Proximity}} () const
+\item 
+pros::\+c::\+optical\+\_\+rgb\+\_\+s\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ac927b353f819cd88cf7e26fb01f505fe}{get\+RGB}} () const
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a0fc24da8154265d53064909a83af75ff}{controller\+Get}} () override
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_aeaf5067360016d5185002381a4762e52}{enable\+Gestures}} () const
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_ae1fce3fe4113b583b3c45feef2e126a5}{disable\+Gestures}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{classokapi_1_1_optical_sensor_a0b9a599c904bf82a5ef152b33460e08e}{get\+Selected\+Output}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classokapi_1_1_optical_sensor_a7cc960db35d659d06885119b28f630eb}\label{classokapi_1_1_optical_sensor_a7cc960db35d659d06885119b28f630eb} 
+std::\+uint8\+\_\+t {\bfseries port}
+\item 
+\Hypertarget{classokapi_1_1_optical_sensor_af58965ee7e12e9dbf267c52ff89669a2}\label{classokapi_1_1_optical_sensor_af58965ee7e12e9dbf267c52ff89669a2} 
+Optical\+Sensor\+Output {\bfseries output}
+\item 
+\Hypertarget{classokapi_1_1_optical_sensor_a0967cfc6dc3536b8b42550891447b6c6}\label{classokapi_1_1_optical_sensor_a0967cfc6dc3536b8b42550891447b6c6} 
+std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$ {\bfseries filter}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{classokapi_1_1_optical_sensor_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classokapi_1_1_optical_sensor_a1f7a1f6e671b504228cc18d807c54984}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!OpticalSensor@{OpticalSensor}}
+\index{OpticalSensor@{OpticalSensor}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{OpticalSensor()}{OpticalSensor()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a1f7a1f6e671b504228cc18d807c54984} 
+okapi::\+\+Optical\+Sensor::\+\+Optical\+Sensor (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t}]{iport}{, }\item[{Optical\+Sensor\+Output}]{ioutput}{ = {\ttfamily OpticalSensorOutput:\+:\+hue}, }\item[{bool}]{idisable\+Gestures}{ = {\ttfamily true}, }\item[{std::\+unique\+\_\+ptr$<$ \doxymbox{\hyperlink{classokapi_1_1_filter}{Filter}} $>$}]{ifilter}{ = {\ttfamily std:\+:\+make\+\_\+unique$<$~\doxymbox{\hyperlink{classokapi_1_1_passthrough_filter}{Passthrough\+Filter}}~$>$()}}\end{DoxyParamCaption})}
+
+An optical sensor on a V5 port.
+
+
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em iport} & The V5 port the device uses. \\
+\hline
+{\em ioutput} & Which sensor output to return from (\doxylink{classokapi_1_1_optical_sensor_ab2991c6035f0bcdf4aa411ab50a5fe6f}{okapi::\+\+Optical\+Sensor::\+get}). \\
+\hline
+{\em idisable\+Gestures} & Whether to automatically disable the gesture sensor. Typically, the gesture sensor should be disabled unless you are going to use gestures because the optical sensor does not update color information while detecting a gesture. \\
+\hline
+{\em ifilter} & The filter to use to filter the sensor output. Only the selected output (via {\ttfamily ioutput}) is filtered; the other outputs are untouched. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classokapi_1_1_optical_sensor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classokapi_1_1_optical_sensor_a0fc24da8154265d53064909a83af75ff}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!controllerGet@{controllerGet}}
+\index{controllerGet@{controllerGet}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{controllerGet()}{controllerGet()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a0fc24da8154265d53064909a83af75ff} 
+double okapi::\+\+Optical\+Sensor::\+controller\+Get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the sensor value for use in a control loop. This method might be automatically called in another thread by the controller.
+
+\begin{DoxyReturn}{Returns}
+The same as \doxylink{classokapi_1_1_optical_sensor_ab2991c6035f0bcdf4aa411ab50a5fe6f}{get}. 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classokapi_1_1_controller_input_a3c6c86d897983f367928a93890551e17}{okapi::\+\+Controller\+Input$<$ double $>$}}.
+
+\Hypertarget{classokapi_1_1_optical_sensor_ae1fce3fe4113b583b3c45feef2e126a5}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!disableGestures@{disableGestures}}
+\index{disableGestures@{disableGestures}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{disableGestures()}{disableGestures()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_ae1fce3fe4113b583b3c45feef2e126a5} 
+int32\+\_\+t okapi::\+\+Optical\+Sensor::\+disable\+Gestures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Disable gestures.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily 1} if the operation was successful or {\ttfamily PROS\+\_\+\+ERR} if the operation failed, setting {\ttfamily errno}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_aeaf5067360016d5185002381a4762e52}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!enableGestures@{enableGestures}}
+\index{enableGestures@{enableGestures}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{enableGestures()}{enableGestures()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_aeaf5067360016d5185002381a4762e52} 
+int32\+\_\+t okapi::\+\+Optical\+Sensor::\+enable\+Gestures (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Enable gestures.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily 1} if the operation was successful or {\ttfamily PROS\+\_\+\+ERR} if the operation failed, setting {\ttfamily errno}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_ab2991c6035f0bcdf4aa411ab50a5fe6f}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!get@{get}}
+\index{get@{get}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_ab2991c6035f0bcdf4aa411ab50a5fe6f} 
+double okapi::\+\+Optical\+Sensor::\+get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the current filtered value of the selected output (configured by the constructor).
+
+\begin{DoxyReturn}{Returns}
+The current filtered value of the selected output (configured by the constructor). 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_a5f258946dc01cc980ce9120c068797ce}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getBrightness@{getBrightness}}
+\index{getBrightness@{getBrightness}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getBrightness()}{getBrightness()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a5f258946dc01cc980ce9120c068797ce} 
+double okapi::\+\+Optical\+Sensor::\+get\+Brightness (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the current brightness value in the range {\ttfamily \+[0, 1]\+}.
+
+\begin{DoxyReturn}{Returns}
+The current brightness value in the range {\ttfamily \+[0, 1]\+}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_a38bc1d6af3146d2f861999fe19499718}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getHue@{getHue}}
+\index{getHue@{getHue}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getHue()}{getHue()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a38bc1d6af3146d2f861999fe19499718} 
+double okapi::\+\+Optical\+Sensor::\+get\+Hue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the current hue value in the range {\ttfamily \+[0, 360)}.
+
+\begin{DoxyReturn}{Returns}
+The current hue value in the range {\ttfamily \+[0, 360)}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_ab263e8901c03b42689647014848f267c}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getLedPWM@{getLedPWM}}
+\index{getLedPWM@{getLedPWM}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getLedPWM()}{getLedPWM()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_ab263e8901c03b42689647014848f267c} 
+int32\+\_\+t okapi::\+\+Optical\+Sensor::\+get\+Led\+PWM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the PWM value of the white LED in the range {\ttfamily \+[0, 100]\+}.
+
+\begin{DoxyReturn}{Returns}
+The PWM value of the white LED in the range {\ttfamily \+[0, 100]\+} or {\ttfamily PROS\+\_\+\+ERR} if the operation failed, setting {\ttfamily errno}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_adccbc413af8f6f5c6791d9fc487414a4}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getProximity@{getProximity}}
+\index{getProximity@{getProximity}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getProximity()}{getProximity()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_adccbc413af8f6f5c6791d9fc487414a4} 
+int32\+\_\+t okapi::\+\+Optical\+Sensor::\+get\+Proximity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the current proximity value in the range {\ttfamily \+[0, 255]\+}. This is not available if gestures are being detected.
+
+\begin{DoxyReturn}{Returns}
+The current proximity value in the range {\ttfamily \+[0, 255]\+}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_ac927b353f819cd88cf7e26fb01f505fe}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getRGB@{getRGB}}
+\index{getRGB@{getRGB}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getRGB()}{getRGB()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_ac927b353f819cd88cf7e26fb01f505fe} 
+pros::\+c::\+optical\+\_\+rgb\+\_\+s\+\_\+t okapi::\+\+Optical\+Sensor::\+get\+RGB (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the processed RGBC data from the sensor.
+
+\begin{DoxyReturn}{Returns}
+The RGBC value if the operation was successful. If the operation failed, all field are set to {\ttfamily PROS\+\_\+\+ERR} and {\ttfamily errno} is set. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_a3ab8069f903227f3b8caacde42616d02}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getSaturation@{getSaturation}}
+\index{getSaturation@{getSaturation}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getSaturation()}{getSaturation()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a3ab8069f903227f3b8caacde42616d02} 
+double okapi::\+\+Optical\+Sensor::\+get\+Saturation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the current saturation value in the range {\ttfamily \+[0, 1]\+}.
+
+\begin{DoxyReturn}{Returns}
+The current saturation value in the range {\ttfamily \+[0, 1]\+}. 
+\end{DoxyReturn}
+\Hypertarget{classokapi_1_1_optical_sensor_a0b9a599c904bf82a5ef152b33460e08e}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!getSelectedOutput@{getSelectedOutput}}
+\index{getSelectedOutput@{getSelectedOutput}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{getSelectedOutput()}{getSelectedOutput()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a0b9a599c904bf82a5ef152b33460e08e} 
+double okapi::\+\+Optical\+Sensor::\+get\+Selected\+Output (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Gets the output directly from the sensor using the selected output. \Hypertarget{classokapi_1_1_optical_sensor_a4afe032f06720560768afc25b818a564}\index{okapi::OpticalSensor@{okapi::OpticalSensor}!setLedPWM@{setLedPWM}}
+\index{setLedPWM@{setLedPWM}!okapi::OpticalSensor@{okapi::OpticalSensor}}
+\doxysubsubsection{\texorpdfstring{setLedPWM()}{setLedPWM()}}
+{\footnotesize\ttfamily \label{classokapi_1_1_optical_sensor_a4afe032f06720560768afc25b818a564} 
+int32\+\_\+t okapi::\+\+Optical\+Sensor::\+set\+Led\+PWM (\begin{DoxyParamCaption}\item[{std::\+uint8\+\_\+t}]{ivalue}{}\end{DoxyParamCaption}) const}
+
+Set the PWM value of the white LED in the range {\ttfamily \+[0, 100]\+}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The PWM value in the range {\ttfamily \+[0, 100]\+}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily 1} if the operation was successful or {\ttfamily PROS\+\_\+\+ERR} if the operation failed, setting {\ttfamily errno}. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+include/\+okapi/\+impl/\+device/\+optical\+Sensor.\+hpp\end{DoxyCompactItemize}

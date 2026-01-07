@@ -1,0 +1,124 @@
+.TH "include/pros/misc.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/misc.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBdate_s_t\fP"
+.br
+.ti -1c
+.RI "struct \fBtime_s_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNUM_V5_PORTS\fP   (22)"
+.br
+.in -1c
+.SS "V5 Competition"
+
+.in +1c
+.ti -1c
+.RI "enum \fBcompetition_status\fP { \fBCOMPETITION_DISABLED\fP = 1 << 0, \fBCOMPETITION_CONNECTED\fP = 1 << 2, \fBCOMPETITION_AUTONOMOUS\fP = 1 << 1, \fBCOMPETITION_SYSTEM\fP = 1 << 3 }"
+.br
+.ti -1c
+.RI "const char * \fBbaked_date\fP"
+.br
+.ti -1c
+.RI "const char * \fBbaked_time\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBcompetition_get_status\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBcompetition_is_disabled\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBcompetition_is_connected\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBcompetition_is_autonomous\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBcompetition_is_field\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_is_connected\fP (controller_id_e_t id)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_get_analog\fP (controller_id_e_t id, controller_analog_e_t channel)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_get_battery_capacity\fP (controller_id_e_t id)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_get_battery_level\fP (controller_id_e_t id)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_get_digital\fP (controller_id_e_t id, controller_digital_e_t button)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_get_digital_new_press\fP (controller_id_e_t id, controller_digital_e_t button)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_print\fP (controller_id_e_t id, uint8_t line, uint8_t col, const char *fmt,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_set_text\fP (controller_id_e_t id, uint8_t line, uint8_t col, const char *str)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_clear_line\fP (controller_id_e_t id, uint8_t line)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_clear\fP (controller_id_e_t id)"
+.br
+.ti -1c
+.RI "int32_t \fBcontroller_rumble\fP (controller_id_e_t id, const char *rumble_pattern)"
+.br
+.ti -1c
+.RI "int32_t \fBbattery_get_voltage\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBbattery_get_current\fP (void)"
+.br
+.ti -1c
+.RI "double \fBbattery_get_temperature\fP (void)"
+.br
+.ti -1c
+.RI "double \fBbattery_get_capacity\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBusd_is_installed\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBusd_list_files\fP (const char *path, char *buffer, int32_t len)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for miscellaneous functions pertaining to the controller, battery, and competition control\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&. All rights reservered\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

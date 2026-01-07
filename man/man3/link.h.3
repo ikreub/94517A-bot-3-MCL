@@ -1,0 +1,86 @@
+.TH "include/pros/link.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/pros/link.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLINK_BUFFER_SIZE\fP   512"
+.br
+.RI "The maximum size of a link buffer\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBlink_type_e\fP \fBlink_type_e_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBlink_type_e\fP { \fBE_LINK_RECIEVER\fP = 0, \fBE_LINK_TRANSMITTER\fP, \fBE_LINK_RX\fP = E_LINK_RECIEVER, \fBE_LINK_TX\fP = E_LINK_TRANSMITTER }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBlink_init\fP (uint8_t port, const char *link_id, link_type_e_t type)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_init_override\fP (uint8_t port, const char *link_id, link_type_e_t type)"
+.br
+.ti -1c
+.RI "bool \fBlink_connected\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_raw_receivable_size\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_raw_transmittable_size\fP (uint8_t port)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_transmit_raw\fP (uint8_t port, void *data, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_receive_raw\fP (uint8_t port, void *dest, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_transmit\fP (uint8_t port, void *data, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_receive\fP (uint8_t port, void *dest, uint16_t data_size)"
+.br
+.ti -1c
+.RI "uint32_t \fBlink_clear_receive_buf\fP (uint8_t port)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains prototypes for functions related to the robot to robot communications\&.
+
+.PP
+This file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs\&.
+
+.PP
+\fBCopyright\fP
+.RS 4
+(c) 2017-2023, Purdue University ACM SIGBots\&.
+.RE
+.PP
+This Source Code Form is subject to the terms of the Mozilla Public License, v\&. 2\&.0\&. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

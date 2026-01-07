@@ -1,0 +1,61 @@
+\doxysection{lv\+\_\+gif.\+h}
+\hypertarget{lv__gif_8h_source}{}\label{lv__gif_8h_source}\index{include/liblvgl/extra/libs/gif/lv\_gif.h@{include/liblvgl/extra/libs/gif/lv\_gif.h}}
+\doxymbox{\hyperlink{lv__gif_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_GIF\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_GIF\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lvgl_8h}{liblvgl/lvgl.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_GIF}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}gifdec.h"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ lv\_img\_t\ img;}
+\DoxyCodeLine{00032\ \ \ \ \ gd\_GIF\ *\ gif;}
+\DoxyCodeLine{00033\ \ \ \ \ \doxymbox{\hyperlink{lv__timer_8h_aab341e84d977d67aec9b766ccd6d3173}{lv\_timer\_t}}\ *\ timer;}
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{structlv__img__dsc__t}{lv\_img\_dsc\_t}}\ imgdsc;}
+\DoxyCodeLine{00035\ \ \ \ \ uint32\_t\ last\_call;}
+\DoxyCodeLine{00036\ \}\ lv\_gif\_t;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_gif\_class;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ lv\_obj\_t\ *\ lv\_gif\_create(lv\_obj\_t\ *\ parent);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ lv\_gif\_set\_src(lv\_obj\_t\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ src);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ lv\_gif\_restart(lv\_obj\_t\ *\ gif);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GIF*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00055\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GIF\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

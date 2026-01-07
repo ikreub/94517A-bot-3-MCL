@@ -1,0 +1,535 @@
+.TH "include/liblvgl/core/lv_obj.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/core/lv_obj.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include '\&.\&./lv_conf_internal\&.h'\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include '\&.\&./misc/lv_style\&.h'\fP
+.br
+\fR#include '\&.\&./misc/lv_types\&.h'\fP
+.br
+\fR#include '\&.\&./misc/lv_area\&.h'\fP
+.br
+\fR#include '\&.\&./misc/lv_color\&.h'\fP
+.br
+\fR#include '\&.\&./misc/lv_assert\&.h'\fP
+.br
+\fR#include '\&.\&./hal/lv_hal\&.h'\fP
+.br
+\fR#include 'lv_obj_tree\&.h'\fP
+.br
+\fR#include 'lv_obj_pos\&.h'\fP
+.br
+\fR#include 'lv_obj_scroll\&.h'\fP
+.br
+\fR#include 'lv_obj_style\&.h'\fP
+.br
+\fR#include 'lv_obj_draw\&.h'\fP
+.br
+\fR#include 'lv_obj_class\&.h'\fP
+.br
+\fR#include 'lv_event\&.h'\fP
+.br
+\fR#include 'lv_group\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_lv_obj_spec_attr_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_obj_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_ASSERT_OBJ\fP(obj_p,  obj_class)"
+.br
+.ti -1c
+.RI "#define \fBLV_TRACE_OBJ_CREATE\fP(\&.\&.\&.)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint16_t \fBlv_state_t\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBlv_part_t\fP"
+.br
+.ti -1c
+.RI "typedef uint32_t \fBlv_obj_flag_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_obj_t\fP \fBlv_obj_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBLV_STATE_DEFAULT\fP = 0x0000, \fBLV_STATE_CHECKED\fP = 0x0001, \fBLV_STATE_FOCUSED\fP = 0x0002, \fBLV_STATE_FOCUS_KEY\fP = 0x0004, \fBLV_STATE_EDITED\fP = 0x0008, \fBLV_STATE_HOVERED\fP = 0x0010, \fBLV_STATE_PRESSED\fP = 0x0020, \fBLV_STATE_SCROLLED\fP = 0x0040, \fBLV_STATE_DISABLED\fP = 0x0080, \fBLV_STATE_USER_1\fP = 0x1000, \fBLV_STATE_USER_2\fP = 0x2000, \fBLV_STATE_USER_3\fP = 0x4000, \fBLV_STATE_USER_4\fP = 0x8000, \fBLV_STATE_ANY\fP = 0xFFFF }"
+.br
+.ti -1c
+.RI "enum { \fBLV_PART_MAIN\fP = 0x000000, \fBLV_PART_SCROLLBAR\fP = 0x010000, \fBLV_PART_INDICATOR\fP = 0x020000, \fBLV_PART_KNOB\fP = 0x030000, \fBLV_PART_SELECTED\fP = 0x040000, \fBLV_PART_ITEMS\fP = 0x050000, \fBLV_PART_TICKS\fP = 0x060000, \fBLV_PART_CURSOR\fP = 0x070000, \fBLV_PART_CUSTOM_FIRST\fP = 0x080000, \fBLV_PART_ANY\fP = 0x0F0000 }"
+.br
+.ti -1c
+.RI "enum { \fBLV_OBJ_FLAG_HIDDEN\fP = (1L << 0), \fBLV_OBJ_FLAG_CLICKABLE\fP = (1L << 1), \fBLV_OBJ_FLAG_CLICK_FOCUSABLE\fP = (1L << 2), \fBLV_OBJ_FLAG_CHECKABLE\fP = (1L << 3), \fBLV_OBJ_FLAG_SCROLLABLE\fP = (1L << 4), \fBLV_OBJ_FLAG_SCROLL_ELASTIC\fP = (1L << 5), \fBLV_OBJ_FLAG_SCROLL_MOMENTUM\fP = (1L << 6), \fBLV_OBJ_FLAG_SCROLL_ONE\fP = (1L << 7), \fBLV_OBJ_FLAG_SCROLL_CHAIN_HOR\fP = (1L << 8), \fBLV_OBJ_FLAG_SCROLL_CHAIN_VER\fP = (1L << 9), \fBLV_OBJ_FLAG_SCROLL_CHAIN\fP = (LV_OBJ_FLAG_SCROLL_CHAIN_HOR | LV_OBJ_FLAG_SCROLL_CHAIN_VER), \fBLV_OBJ_FLAG_SCROLL_ON_FOCUS\fP = (1L << 10), \fBLV_OBJ_FLAG_SCROLL_WITH_ARROW\fP = (1L << 11), \fBLV_OBJ_FLAG_SNAPPABLE\fP = (1L << 12), \fBLV_OBJ_FLAG_PRESS_LOCK\fP = (1L << 13), \fBLV_OBJ_FLAG_EVENT_BUBBLE\fP = (1L << 14), \fBLV_OBJ_FLAG_GESTURE_BUBBLE\fP = (1L << 15), \fBLV_OBJ_FLAG_ADV_HITTEST\fP = (1L << 16), \fBLV_OBJ_FLAG_IGNORE_LAYOUT\fP = (1L << 17), \fBLV_OBJ_FLAG_FLOATING\fP = (1L << 18), \fBLV_OBJ_FLAG_OVERFLOW_VISIBLE\fP = (1L << 19), \fBLV_OBJ_FLAG_LAYOUT_1\fP = (1L << 23), \fBLV_OBJ_FLAG_LAYOUT_2\fP = (1L << 24), \fBLV_OBJ_FLAG_WIDGET_1\fP = (1L << 25), \fBLV_OBJ_FLAG_WIDGET_2\fP = (1L << 26), \fBLV_OBJ_FLAG_USER_1\fP = (1L << 27), \fBLV_OBJ_FLAG_USER_2\fP = (1L << 28), \fBLV_OBJ_FLAG_USER_3\fP = (1L << 29), \fBLV_OBJ_FLAG_USER_4\fP = (1L << 30) }"
+.br
+.ti -1c
+.RI "enum \fBlv_obj_draw_part_type_t\fP { \fBLV_OBJ_DRAW_PART_RECTANGLE\fP, \fBLV_OBJ_DRAW_PART_BORDER_POST\fP, \fBLV_OBJ_DRAW_PART_SCROLLBAR\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlv_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_deinit\fP (void)"
+.br
+.ti -1c
+.RI "bool \fBlv_is_initialized\fP (void)"
+.br
+.ti -1c
+.RI "lv_obj_t * \fBlv_obj_create\fP (lv_obj_t *parent)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_add_flag\fP (lv_obj_t *obj, lv_obj_flag_t f)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_clear_flag\fP (lv_obj_t *obj, lv_obj_flag_t f)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_add_state\fP (lv_obj_t *obj, lv_state_t state)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_clear_state\fP (lv_obj_t *obj, lv_state_t state)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_has_flag\fP (const lv_obj_t *obj, lv_obj_flag_t f)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_has_flag_any\fP (const lv_obj_t *obj, lv_obj_flag_t f)"
+.br
+.ti -1c
+.RI "lv_state_t \fBlv_obj_get_state\fP (const lv_obj_t *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_has_state\fP (const lv_obj_t *obj, lv_state_t state)"
+.br
+.ti -1c
+.RI "void * \fBlv_obj_get_group\fP (const lv_obj_t *obj)"
+.br
+.ti -1c
+.RI "void \fBlv_obj_allocate_spec_attr\fP (lv_obj_t *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_check_type\fP (const lv_obj_t *obj, const \fBlv_obj_class_t\fP *class_p)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_has_class\fP (const lv_obj_t *obj, const \fBlv_obj_class_t\fP *class_p)"
+.br
+.ti -1c
+.RI "const \fBlv_obj_class_t\fP * \fBlv_obj_get_class\fP (const lv_obj_t *obj)"
+.br
+.ti -1c
+.RI "bool \fBlv_obj_is_valid\fP (const lv_obj_t *obj)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBlv_obj_class_t\fP \fBlv_obj_class\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LV_ASSERT_OBJ( obj_p,  obj_class)"
+\fBValue:\fP
+.nf
+do{}while(0)
+.PP
+.fi
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+Possible states of a widget\&. OR-ed values are possible 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_STATE_ANY \fP
+Special value can be used in some functions to target all states 
+.SS "anonymous enum"
+The possible parts of widgets\&. The parts can be considered as the internal building block of the widgets\&. E\&.g\&. slider = background + indicator + knob Not all parts are used by every widget 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_PART_MAIN \fP
+A background like rectangle 
+.TP
+\f(BILV_PART_SCROLLBAR \fP
+The scrollbar(s) 
+.TP
+\f(BILV_PART_INDICATOR \fP
+Indicator, e\&.g\&. for slider, bar, switch, or the tick box of the checkbox 
+.TP
+\f(BILV_PART_KNOB \fP
+Like handle to grab to adjust the value 
+.TP
+\f(BILV_PART_SELECTED \fP
+Indicate the currently selected option or section 
+.TP
+\f(BILV_PART_ITEMS \fP
+Used if the widget has multiple similar elements (e\&.g\&. table cells) 
+.TP
+\f(BILV_PART_TICKS \fP
+Ticks on scale e\&.g\&. for a chart or meter 
+.TP
+\f(BILV_PART_CURSOR \fP
+Mark a specific place e\&.g\&. for text area's cursor or on a chart 
+.TP
+\f(BILV_PART_CUSTOM_FIRST \fP
+Extension point for custom widgets 
+.TP
+\f(BILV_PART_ANY \fP
+Special value can be used in some functions to target all parts 
+.SS "anonymous enum"
+On/Off features controlling the object's behavior\&. OR-ed values are possible 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_OBJ_FLAG_HIDDEN \fP
+Make the object hidden\&. (Like it wasn't there at all) 
+.TP
+\f(BILV_OBJ_FLAG_CLICKABLE \fP
+Make the object clickable by the input devices 
+.TP
+\f(BILV_OBJ_FLAG_CLICK_FOCUSABLE \fP
+Add focused state to the object when clicked 
+.TP
+\f(BILV_OBJ_FLAG_CHECKABLE \fP
+Toggle checked state when the object is clicked 
+.TP
+\f(BILV_OBJ_FLAG_SCROLLABLE \fP
+Make the object scrollable 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_ELASTIC \fP
+Allow scrolling inside but with slower speed 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_MOMENTUM \fP
+Make the object scroll further when "thrown" 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_ONE \fP
+Allow scrolling only one snappable children 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_CHAIN_HOR \fP
+Allow propagating the horizontal scroll to a parent 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_CHAIN_VER \fP
+Allow propagating the vertical scroll to a parent 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_ON_FOCUS \fP
+Automatically scroll object to make it visible when focused 
+.TP
+\f(BILV_OBJ_FLAG_SCROLL_WITH_ARROW \fP
+Allow scrolling the focused object with arrow keys 
+.TP
+\f(BILV_OBJ_FLAG_SNAPPABLE \fP
+If scroll snap is enabled on the parent it can snap to this object 
+.TP
+\f(BILV_OBJ_FLAG_PRESS_LOCK \fP
+Keep the object pressed even if the press slid from the object 
+.TP
+\f(BILV_OBJ_FLAG_EVENT_BUBBLE \fP
+Propagate the events to the parent too 
+.TP
+\f(BILV_OBJ_FLAG_GESTURE_BUBBLE \fP
+Propagate the gestures to the parent 
+.TP
+\f(BILV_OBJ_FLAG_ADV_HITTEST \fP
+Allow performing more accurate hit (click) test\&. E\&.g\&. consider rounded corners\&. 
+.TP
+\f(BILV_OBJ_FLAG_IGNORE_LAYOUT \fP
+Make the object position-able by the layouts 
+.TP
+\f(BILV_OBJ_FLAG_FLOATING \fP
+Do not scroll the object when the parent scrolls and ignore layout 
+.TP
+\f(BILV_OBJ_FLAG_OVERFLOW_VISIBLE \fP
+Do not clip the children's content to the parent's boundary 
+.TP
+\f(BILV_OBJ_FLAG_LAYOUT_1 \fP
+Custom flag, free to use by layouts 
+.TP
+\f(BILV_OBJ_FLAG_LAYOUT_2 \fP
+Custom flag, free to use by layouts 
+.TP
+\f(BILV_OBJ_FLAG_WIDGET_1 \fP
+Custom flag, free to use by widget 
+.TP
+\f(BILV_OBJ_FLAG_WIDGET_2 \fP
+Custom flag, free to use by widget 
+.TP
+\f(BILV_OBJ_FLAG_USER_1 \fP
+Custom flag, free to use by user 
+.TP
+\f(BILV_OBJ_FLAG_USER_2 \fP
+Custom flag, free to use by user 
+.TP
+\f(BILV_OBJ_FLAG_USER_3 \fP
+Custom flag, free to use by user 
+.TP
+\f(BILV_OBJ_FLAG_USER_4 \fP
+Custom flag, free to use by user 
+.SS "enum \fBlv_obj_draw_part_type_t\fP"
+\fRtype\fP field in \fR\fBlv_obj_draw_part_dsc_t\fP\fP if \fRclass_p = \fBlv_obj_class\fP\fP Used in \fR\fBLV_EVENT_DRAW_PART_BEGIN\fP\fP and \fR\fBLV_EVENT_DRAW_PART_END\fP\fP 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BILV_OBJ_DRAW_PART_RECTANGLE \fP
+The main rectangle 
+.TP
+\f(BILV_OBJ_DRAW_PART_BORDER_POST \fP
+The border if style_border_post = true 
+.TP
+\f(BILV_OBJ_DRAW_PART_SCROLLBAR \fP
+The scrollbar 
+.SH "Function Documentation"
+.PP 
+.SS "void lv_deinit (void )"
+Deinit the 'lv' library Currently only implemented when not using custom allocators, or GC is enabled\&. 
+.SS "void lv_init (void )"
+Initialize LVGL library\&. Should be called before any other LVGL related function\&. 
+.SS "bool lv_is_initialized (void )"
+Returns whether the 'lv' library is currently initialized 
+.SS "void lv_obj_add_flag (lv_obj_t * obj, lv_obj_flag_t f)"
+Set one or more flags 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIf\fP R-ed values from \fRlv_obj_flag_t\fP to set\&. 
+.RE
+.PP
+
+.SS "void lv_obj_add_state (lv_obj_t * obj, lv_state_t state)"
+Add one or more states to the object\&. The other state bits will remain unchanged\&. If specified in the styles, transition animation will be started from the previous state to the current\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIstate\fP the states to add\&. E\&.g \fRLV_STATE_PRESSED | LV_STATE_FOCUSED\fP 
+.RE
+.PP
+
+.SS "void lv_obj_allocate_spec_attr (lv_obj_t * obj)"
+Allocate special data for an object if not allocated yet\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+
+.SS "bool lv_obj_check_type (const lv_obj_t * obj, const \fBlv_obj_class_t\fP * class_p)"
+Check the type of obj\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIclass_p\fP a class to check (e\&.g\&. \fRlv_slider_class\fP) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: \fRclass_p\fP is the \fRobj\fP class\&. 
+.RE
+.PP
+
+.SS "void lv_obj_clear_flag (lv_obj_t * obj, lv_obj_flag_t f)"
+Clear one or more flags 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIf\fP OR-ed values from \fRlv_obj_flag_t\fP to set\&. 
+.RE
+.PP
+
+.SS "void lv_obj_clear_state (lv_obj_t * obj, lv_state_t state)"
+Remove one or more states to the object\&. The other state bits will remain unchanged\&. If specified in the styles, transition animation will be started from the previous state to the current\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIstate\fP the states to add\&. E\&.g \fRLV_STATE_PRESSED | LV_STATE_FOCUSED\fP 
+.RE
+.PP
+
+.SS "lv_obj_t * lv_obj_create (lv_obj_t * parent)"
+Create a base object (a rectangle) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIparent\fP pointer to a parent object\&. If NULL then a screen will be created\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the new object 
+.RE
+.PP
+
+.SS "const \fBlv_obj_class_t\fP * lv_obj_get_class (const lv_obj_t * obj)"
+Get the class (type) of the object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the class (type) of the object 
+.RE
+.PP
+
+.SS "void * lv_obj_get_group (const lv_obj_t * obj)"
+Get the group of the object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the pointer to group of the object 
+.RE
+.PP
+
+.SS "lv_state_t lv_obj_get_state (const lv_obj_t * obj)"
+Get the state of an object 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the state (OR-ed values from \fRlv_state_t\fP) 
+.RE
+.PP
+
+.SS "bool lv_obj_has_class (const lv_obj_t * obj, const \fBlv_obj_class_t\fP * class_p)"
+Check if any object has a given class (type)\&. It checks the ancestor classes too\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIclass_p\fP a class to check (e\&.g\&. \fRlv_slider_class\fP) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: \fRobj\fP has the given class 
+.RE
+.PP
+
+.SS "bool lv_obj_has_flag (const lv_obj_t * obj, lv_obj_flag_t f)"
+Check if a given flag or all the given flags are set on an object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIf\fP the flag(s) to check (OR-ed values can be used) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: all flags are set; false: not all flags are set 
+.RE
+.PP
+
+.SS "bool lv_obj_has_flag_any (const lv_obj_t * obj, lv_obj_flag_t f)"
+Check if a given flag or any of the flags are set on an object\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIf\fP the flag(s) to check (OR-ed values can be used) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: at lest one flag flag is set; false: none of the flags are set 
+.RE
+.PP
+
+.SS "bool lv_obj_has_state (const lv_obj_t * obj, lv_state_t state)"
+Check if the object is in a given state or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.br
+\fIstate\fP a state or combination of states to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: \fRobj\fP is in \fRstate\fP; false: \fRobj\fP is not in \fRstate\fP 
+.RE
+.PP
+
+.SS "bool lv_obj_is_valid (const lv_obj_t * obj)"
+Check if any object is still "alive"\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobj\fP pointer to an object 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: valid 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const \fBlv_obj_class_t\fP lv_obj_class\fR [extern]\fP"
+Make the base object's class publicly available\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

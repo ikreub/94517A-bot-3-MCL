@@ -1,0 +1,87 @@
+\doxysection{vision.\+hpp}
+\hypertarget{vision_8hpp_source}{}\label{vision_8hpp_source}\index{include/pros/vision.hpp@{include/pros/vision.hpp}}
+\doxymbox{\hyperlink{vision_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_VISION\_HPP\_}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \_PROS\_VISION\_HPP\_}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{device_8hpp}{pros/device.hpp}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{vision_8h}{pros/vision.h}}"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{inline}\ \textcolor{keyword}{namespace\ }v5\ \{}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{group__cpp-vision_gad10a269848460be7d54e88545d80bcaa}{Vision}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-vision_gad10a269848460be7d54e88545d80bcaa}{Vision}}(std::uint8\_t\ port,\ vision\_zero\_e\_t\ zero\_point\ =\ \doxymbox{\hyperlink{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5a0ff244c5f3e9771f962986e25b00ff3d}{E\_VISION\_ZERO\_TOPLEFT}});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-vision_gad10a269848460be7d54e88545d80bcaa}{Vision}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\&\ device)\ :\ \doxymbox{\hyperlink{group__cpp-vision_gad10a269848460be7d54e88545d80bcaa}{Vision}}(device.\doxymbox{\hyperlink{group__cpp-device_ga59f09e1fcc8c968254ac974fc62ca9f3}{get\_port}}())\{\};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00083\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga52274d20177dc15d0dcfb9117b866e5a}{clear\_led}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}\ \doxymbox{\hyperlink{group__cpp-vision_ga32e4d72f1b7a8a4071fe3ba026582803}{signature\_from\_utility}}(\textcolor{keyword}{const}\ std::int32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::int32\_t\ u\_min,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ u\_max,\ \textcolor{keyword}{const}\ std::int32\_t\ u\_mean,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ v\_min,\ \textcolor{keyword}{const}\ std::int32\_t\ v\_max,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ v\_mean,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ range,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ type);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00170\ \ \ \ \ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}}\ \doxymbox{\hyperlink{group__cpp-vision_gaa452fc648958ed7b18cd8de81d30d67f}{create\_color\_code}}(\textcolor{keyword}{const}\ std::uint32\_t\ sig\_id1,\ \textcolor{keyword}{const}\ std::uint32\_t\ sig\_id2,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint32\_t\ sig\_id3\ =\ 0,\ \textcolor{keyword}{const}\ std::uint32\_t\ sig\_id4\ =\ 0,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint32\_t\ sig\_id5\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<Vision>\ \doxymbox{\hyperlink{group__cpp-vision_gab4fadad423fe779ecf373798fb3c8fea}{get\_all\_devices}}();}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00219\ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}\ \doxymbox{\hyperlink{group__cpp-vision_ga3f981f3b1c0dfc380657e9b1960b9527}{get\_by\_size}}(\textcolor{keyword}{const}\ std::uint32\_t\ size\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00258\ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}\ \doxymbox{\hyperlink{group__cpp-vision_ga5eed578472623b93eac6e9cd0dc1e70d}{get\_by\_sig}}(\textcolor{keyword}{const}\ std::uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ std::uint32\_t\ sig\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00295\ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}\ \doxymbox{\hyperlink{group__cpp-vision_gacd12fea0f57fcb1d2fe060b96af159e3}{get\_by\_code}}(\textcolor{keyword}{const}\ std::uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}}\ color\_code)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00318\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_gafd7d647549297dd7b08be4c21ee32ed3}{get\_exposure}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00343\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga70bc35cf8d41beb230e66e519423bb20}{get\_object\_count}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00369\ \ \ \ \ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}\ \doxymbox{\hyperlink{group__cpp-vision_ga22f1bf52460f94cb3932efba64aa3c5a}{get\_signature}}(\textcolor{keyword}{const}\ std::uint8\_t\ signature\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00392\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga92af8f3809b2427e8666e371065b5a82}{get\_white\_balance}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00434\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_gabe34add78df1016d3db04b79d13bbb5f}{read\_by\_size}}(\textcolor{keyword}{const}\ std::uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ std::uint32\_t\ object\_count,}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}*\ \textcolor{keyword}{const}\ object\_arr)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00482\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga998b4fd68cf955ccf4dbdc2c06c5aa50}{read\_by\_sig}}(\textcolor{keyword}{const}\ std::uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ std::uint32\_t\ sig\_id,\ \textcolor{keyword}{const}\ std::uint32\_t\ object\_count,}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}*\ \textcolor{keyword}{const}\ object\_arr)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00530\ \ \ \ \ int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_gacea292b4d1fd800b07f2b3bf2cd124e6}{read\_by\_code}}(\textcolor{keyword}{const}\ std::uint32\_t\ size\_id,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\_color\_code\_t}}\ color\_code,}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint32\_t\ object\_count,\ \doxymbox{\hyperlink{structvision__object__s__t}{vision\_object\_s\_t}}*\ \textcolor{keyword}{const}\ object\_arr)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00553\ \ \ \ \ \textcolor{keyword}{static}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_gac2868840ce816cd8ea7723f164dabc7c}{print\_signature}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}\ sig);}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00578\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga83b53ae3c3f260f96735da8611240142}{set\_auto\_white\_balance}}(\textcolor{keyword}{const}\ std::uint8\_t\ enable)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00604\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga320da155660e19f7c82855cb4fa6ee00}{set\_exposure}}(\textcolor{keyword}{const}\ std::uint8\_t\ exposure)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00629\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga4f84317f990caced52d344a72c52fe52}{set\_led}}(\textcolor{keyword}{const}\ std::int32\_t\ rgb)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00662\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga40fffce0e77de3e19dbd40e4e6995383}{set\_signature}}(\textcolor{keyword}{const}\ std::uint8\_t\ signature\_id,\ \doxymbox{\hyperlink{structvision__signature__s__t}{vision\_signature\_s\_t}}*\ \textcolor{keyword}{const}\ signature\_ptr)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00663\ }
+\DoxyCodeLine{00688\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga26cacb0a96591dce38c00846d94389bd}{set\_white\_balance}}(\textcolor{keyword}{const}\ std::int32\_t\ rgb)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00717\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga28495a9894cc0264952abde2ebf0c2af}{set\_zero\_point}}(vision\_zero\_e\_t\ zero\_point)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00742\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-vision_ga67e7eaa8366b13a02a5500db190c7b2a}{set\_wifi\_mode}}(\textcolor{keyword}{const}\ std::uint8\_t\ enable)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00743\ }
+\DoxyCodeLine{00764\ \ \ \ \ \textcolor{keyword}{static}\ \doxymbox{\hyperlink{group__cpp-vision_gad10a269848460be7d54e88545d80bcaa}{Vision}}\ \doxymbox{\hyperlink{group__cpp-vision_ga5e00457bb7f3df9fbd446a00f0fde0f9}{get\_vision}}();}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00768\ \};}
+\DoxyCodeLine{00769\ \}\ \ \textcolor{comment}{//\ namespace\ v5}}
+\DoxyCodeLine{00770\ \textcolor{keyword}{namespace\ }literals\ \{}
+\DoxyCodeLine{00784\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_vision}{pros::Vision}}\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_vis(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ m);}
+\DoxyCodeLine{00785\ \}\ \ \textcolor{comment}{//\ namespace\ literals}}
+\DoxyCodeLine{00786\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{00787\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_PROS\_VISION\_HPP\_}}
+
+\end{DoxyCode}

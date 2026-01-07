@@ -1,0 +1,510 @@
+\doxysection{lv\+\_\+style\+\_\+gen.\+h}
+\hypertarget{lv__style__gen_8h_source}{}\label{lv__style__gen_8h_source}\index{include/liblvgl/misc/lv\_style\_gen.h@{include/liblvgl/misc/lv\_style\_gen.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keywordtype}{void}\ lv\_style\_set\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00002\ \textcolor{keywordtype}{void}\ lv\_style\_set\_min\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00003\ \textcolor{keywordtype}{void}\ lv\_style\_set\_max\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00004\ \textcolor{keywordtype}{void}\ lv\_style\_set\_height(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00005\ \textcolor{keywordtype}{void}\ lv\_style\_set\_min\_height(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00006\ \textcolor{keywordtype}{void}\ lv\_style\_set\_max\_height(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ lv\_style\_set\_x(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00008\ \textcolor{keywordtype}{void}\ lv\_style\_set\_y(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00009\ \textcolor{keywordtype}{void}\ lv\_style\_set\_align(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_align\_t\ value);}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transform\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00011\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transform\_height(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00012\ \textcolor{keywordtype}{void}\ lv\_style\_set\_translate\_x(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ lv\_style\_set\_translate\_y(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00014\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transform\_zoom(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00015\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transform\_angle(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transform\_pivot\_x(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transform\_pivot\_y(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ lv\_style\_set\_pad\_top(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ lv\_style\_set\_pad\_bottom(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ lv\_style\_set\_pad\_left(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ lv\_style\_set\_pad\_right(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ lv\_style\_set\_pad\_row(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ lv\_style\_set\_pad\_column(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_grad\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_grad\_dir(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_grad\_dir\_t\ value);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_main\_stop(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_grad\_stop(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_grad(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\_grad\_dsc\_t}}\ *\ value);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_dither\_mode(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_dither\_mode\_t\ value);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_img\_src(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ value);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_img\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_img\_recolor(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_img\_recolor\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ lv\_style\_set\_bg\_img\_tiled(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ lv\_style\_set\_border\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ lv\_style\_set\_border\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ lv\_style\_set\_border\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ lv\_style\_set\_border\_side(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_border\_side\_t\ value);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ lv\_style\_set\_border\_post(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ lv\_style\_set\_outline\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ lv\_style\_set\_outline\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ lv\_style\_set\_outline\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ lv\_style\_set\_outline\_pad(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ lv\_style\_set\_shadow\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ lv\_style\_set\_shadow\_ofs\_x(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ lv\_style\_set\_shadow\_ofs\_y(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ lv\_style\_set\_shadow\_spread(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ lv\_style\_set\_shadow\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ lv\_style\_set\_shadow\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ lv\_style\_set\_img\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ lv\_style\_set\_img\_recolor(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ lv\_style\_set\_img\_recolor\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ lv\_style\_set\_line\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ lv\_style\_set\_line\_dash\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ lv\_style\_set\_line\_dash\_gap(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ lv\_style\_set\_line\_rounded(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ lv\_style\_set\_line\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ lv\_style\_set\_line\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ lv\_style\_set\_arc\_width(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ lv\_style\_set\_arc\_rounded(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ lv\_style\_set\_arc\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ lv\_style\_set\_arc\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ lv\_style\_set\_arc\_img\_src(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ value);}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_color(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_color\_t\ value);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_font(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__font_8h_a11e3396cab33231964d98046c4e436af}{lv\_font\_t}}\ *\ value);}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_letter\_space(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_line\_space(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_decor(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_text\_decor\_t\ value);}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ lv\_style\_set\_text\_align(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_text\_align\_t\ value);}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ lv\_style\_set\_radius(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_coord\_t\ value);}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ lv\_style\_set\_clip\_corner(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ lv\_style\_set\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ lv\_style\_set\_color\_filter\_dsc(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ lv\_color\_filter\_dsc\_t\ *\ value);}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ lv\_style\_set\_color\_filter\_opa(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_opa\_t\ value);}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ lv\_style\_set\_anim(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__anim_8h_a94df93c022dc57ee917b4757e50ebe22}{lv\_anim\_t}}\ *\ value);}
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ lv\_style\_set\_anim\_time(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ uint32\_t\ value);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ lv\_style\_set\_anim\_speed(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ uint32\_t\ value);}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ lv\_style\_set\_transition(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structlv__style__transition__dsc__t}{lv\_style\_transition\_dsc\_t}}\ *\ value);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ lv\_style\_set\_blend\_mode(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_blend\_mode\_t\ value);}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ lv\_style\_set\_layout(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ uint16\_t\ value);}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ lv\_style\_set\_base\_dir(\doxymbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ lv\_base\_dir\_t\ value);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_MIN\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_MIN\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_MAX\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_MAX\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_HEIGHT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_HEIGHT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_MIN\_HEIGHT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_MIN\_HEIGHT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_MAX\_HEIGHT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_MAX\_HEIGHT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_X(val)\ \(\backslash\)}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_X,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_Y(val)\ \(\backslash\)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_Y,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ALIGN(val)\ \(\backslash\)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ALIGN,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSFORM\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSFORM\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSFORM\_HEIGHT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSFORM\_HEIGHT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSLATE\_X(val)\ \(\backslash\)}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSLATE\_X,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSLATE\_Y(val)\ \(\backslash\)}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSLATE\_Y,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSFORM\_ZOOM(val)\ \(\backslash\)}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSFORM\_ZOOM,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSFORM\_ANGLE(val)\ \(\backslash\)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSFORM\_ANGLE,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSFORM\_PIVOT\_X(val)\ \(\backslash\)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSFORM\_PIVOT\_X,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSFORM\_PIVOT\_Y(val)\ \(\backslash\)}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSFORM\_PIVOT\_Y,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_PAD\_TOP(val)\ \(\backslash\)}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_PAD\_TOP,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_PAD\_BOTTOM(val)\ \(\backslash\)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_PAD\_BOTTOM,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_PAD\_LEFT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_PAD\_LEFT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_PAD\_RIGHT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_PAD\_RIGHT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_PAD\_ROW(val)\ \(\backslash\)}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_PAD\_ROW,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_PAD\_COLUMN(val)\ \(\backslash\)}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_PAD\_COLUMN,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_GRAD\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_GRAD\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_GRAD\_DIR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_GRAD\_DIR,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_MAIN\_STOP(val)\ \(\backslash\)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_MAIN\_STOP,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_GRAD\_STOP(val)\ \(\backslash\)}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_GRAD\_STOP,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_GRAD(val)\ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_GRAD,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_DITHER\_MODE(val)\ \(\backslash\)}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_DITHER\_MODE,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_IMG\_SRC(val)\ \(\backslash\)}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_IMG\_SRC,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_IMG\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_IMG\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_IMG\_RECOLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_IMG\_RECOLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_IMG\_RECOLOR\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_IMG\_RECOLOR\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BG\_IMG\_TILED(val)\ \(\backslash\)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BG\_IMG\_TILED,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BORDER\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BORDER\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BORDER\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BORDER\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BORDER\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BORDER\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BORDER\_SIDE(val)\ \(\backslash\)}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BORDER\_SIDE,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BORDER\_POST(val)\ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BORDER\_POST,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_OUTLINE\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_OUTLINE\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_OUTLINE\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_OUTLINE\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_OUTLINE\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_OUTLINE\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_OUTLINE\_PAD(val)\ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_OUTLINE\_PAD,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_SHADOW\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_SHADOW\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_SHADOW\_OFS\_X(val)\ \(\backslash\)}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_SHADOW\_OFS\_X,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_SHADOW\_OFS\_Y(val)\ \(\backslash\)}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_SHADOW\_OFS\_Y,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_SHADOW\_SPREAD(val)\ \(\backslash\)}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_SHADOW\_SPREAD,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_SHADOW\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_SHADOW\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_SHADOW\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_SHADOW\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_IMG\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_IMG\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_IMG\_RECOLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_IMG\_RECOLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_IMG\_RECOLOR\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_IMG\_RECOLOR\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LINE\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LINE\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LINE\_DASH\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LINE\_DASH\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LINE\_DASH\_GAP(val)\ \(\backslash\)}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LINE\_DASH\_GAP,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LINE\_ROUNDED(val)\ \(\backslash\)}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LINE\_ROUNDED,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LINE\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LINE\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LINE\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LINE\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ARC\_WIDTH(val)\ \(\backslash\)}}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ARC\_WIDTH,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ARC\_ROUNDED(val)\ \(\backslash\)}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ARC\_ROUNDED,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ARC\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ARC\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ARC\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ARC\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ARC\_IMG\_SRC(val)\ \(\backslash\)}}
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ARC\_IMG\_SRC,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_COLOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_COLOR,\ .value\ =\ \{\ .color\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_FONT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_FONT,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_LETTER\_SPACE(val)\ \(\backslash\)}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_LETTER\_SPACE,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_LINE\_SPACE(val)\ \(\backslash\)}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_LINE\_SPACE,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_DECOR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_DECOR,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TEXT\_ALIGN(val)\ \(\backslash\)}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TEXT\_ALIGN,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_RADIUS(val)\ \(\backslash\)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_RADIUS,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_CLIP\_CORNER(val)\ \(\backslash\)}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_CLIP\_CORNER,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_COLOR\_FILTER\_DSC(val)\ \(\backslash\)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_COLOR\_FILTER\_DSC,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_COLOR\_FILTER\_OPA(val)\ \(\backslash\)}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_COLOR\_FILTER\_OPA,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ANIM(val)\ \(\backslash\)}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ANIM,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ANIM\_TIME(val)\ \(\backslash\)}}
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ANIM\_TIME,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_ANIM\_SPEED(val)\ \(\backslash\)}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_ANIM\_SPEED,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_TRANSITION(val)\ \(\backslash\)}}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_TRANSITION,\ .value\ =\ \{\ .ptr\ =\ val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BLEND\_MODE(val)\ \(\backslash\)}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BLEND\_MODE,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_LAYOUT(val)\ \(\backslash\)}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_LAYOUT,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#define\ LV\_STYLE\_CONST\_BASE\_DIR(val)\ \(\backslash\)}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\ \ \ \ \{\ \(\backslash\)}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .prop\ =\ LV\_STYLE\_BASE\_DIR,\ .value\ =\ \{\ .num\ =\ (int32\_t)val\ \}\ \(\backslash\)}}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\ \ \ \ \}}}
+
+\end{DoxyCode}

@@ -1,0 +1,203 @@
+.TH "okapi::AsyncVelPIDController" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::AsyncVelPIDController
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::AsyncWrapper< double, double >\fP, and \fBokapi::AsyncVelocityController< double, double >\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAsyncVelPIDController\fP (const std::shared_ptr< \fBControllerInput\fP< double > > &iinput, const std::shared_ptr< \fBControllerOutput\fP< double > > &ioutput, const \fBTimeUtil\fP &itimeUtil, double ikP, double ikD, double ikF, double ikSF, std::unique_ptr< \fBVelMath\fP > ivelMath, double iratio=1, std::unique_ptr< \fBFilter\fP > iderivativeFilter=std::make_unique< \fBPassthroughFilter\fP >(), const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "void \fBsetGains\fP (const \fBIterativeVelPIDController::Gains\fP &igains)"
+.br
+.ti -1c
+.RI "\fBIterativeVelPIDController::Gains\fP \fBgetGains\fP () const"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::AsyncWrapper< double, double >\fP
+.in +1c
+.ti -1c
+.RI "\fBAsyncWrapper\fP (const std::shared_ptr< \fBControllerInput\fP< double > > &iinput, const std::shared_ptr< \fBControllerOutput\fP< double > > &ioutput, const std::shared_ptr< \fBIterativeController\fP< double, double > > &icontroller, const \fBSupplier\fP< std::unique_ptr< \fBAbstractRate\fP > > &irateSupplier, const double iratio=1, std::shared_ptr< \fBLogger\fP > ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "\fBAsyncWrapper\fP< double, double > & \fBoperator=\fP (\fBAsyncWrapper\fP< double, double > &&other)=delete"
+.br
+.ti -1c
+.RI "void \fBsetTarget\fP (const double itarget) override"
+.br
+.ti -1c
+.RI "void \fBcontrollerSet\fP (const double ivalue) override"
+.br
+.ti -1c
+.RI "double \fBgetTarget\fP () override"
+.br
+.ti -1c
+.RI "double \fBgetProcessValue\fP () const override"
+.br
+.ti -1c
+.RI "double \fBgetOutput\fP () const"
+.br
+.ti -1c
+.RI "double \fBgetError\fP () const override"
+.br
+.ti -1c
+.RI "bool \fBisSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBsetSampleTime\fP (const QTime &isampleTime)"
+.br
+.ti -1c
+.RI "void \fBsetOutputLimits\fP (const double imax, const double imin)"
+.br
+.ti -1c
+.RI "void \fBsetControllerSetTargetLimits\fP (double itargetMax, double itargetMin)"
+.br
+.ti -1c
+.RI "double \fBgetMaxOutput\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetMinOutput\fP ()"
+.br
+.ti -1c
+.RI "void \fBreset\fP () override"
+.br
+.ti -1c
+.RI "void \fBflipDisable\fP () override"
+.br
+.ti -1c
+.RI "bool \fBisDisabled\fP () const override"
+.br
+.ti -1c
+.RI "void \fBwaitUntilSettled\fP () override"
+.br
+.ti -1c
+.RI "void \fBstartThread\fP ()"
+.br
+.ti -1c
+.RI "\fBCrossplatformThread\fP * \fBgetThread\fP () const"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBIterativeVelPIDController\fP > \fBinternalController\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBokapi::AsyncWrapper< double, double >\fP
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBLogger\fP > \fBlogger\fP"
+.br
+.ti -1c
+.RI "\fBSupplier\fP< std::unique_ptr< \fBAbstractRate\fP > > \fBrateSupplier\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBControllerInput\fP< double > > \fBinput\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBControllerOutput\fP< double > > \fBoutput\fP"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBIterativeController\fP< double, double > > \fBcontroller\fP"
+.br
+.ti -1c
+.RI "bool \fBhasFirstTarget\fP"
+.br
+.ti -1c
+.RI "double \fBlastTarget\fP"
+.br
+.ti -1c
+.RI "double \fBratio\fP"
+.br
+.ti -1c
+.RI "std::atomic_bool \fBdtorCalled\fP"
+.br
+.ti -1c
+.RI "\fBCrossplatformThread\fP * \fBtask\fP"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Protected Member Functions inherited from \fBokapi::AsyncWrapper< double, double >\fP
+.in +1c
+.ti -1c
+.RI "void \fBloop\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBresumeMovement\fP ()"
+.br
+.in -1c
+
+Static Protected Member Functions inherited from \fBokapi::AsyncWrapper< double, double >\fP
+.in +1c
+.ti -1c
+.RI "static void \fBtrampoline\fP (void *context)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::AsyncVelPIDController::AsyncVelPIDController (const std::shared_ptr< \fBControllerInput\fP< double > > & iinput, const std::shared_ptr< \fBControllerOutput\fP< double > > & ioutput, const \fBTimeUtil\fP & itimeUtil, double ikP, double ikD, double ikF, double ikSF, std::unique_ptr< \fBVelMath\fP > ivelMath, double iratio = \fR1\fP, std::unique_ptr< \fBFilter\fP > iderivativeFilter = \fRstd::make_unique< \fBPassthroughFilter\fP >()\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)"
+An async velocity PID controller\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiinput\fP The controller input\&. 
+.br
+\fIioutput\fP The controller output\&. 
+.br
+\fIitimeUtil\fP The \fBTimeUtil\fP\&. 
+.br
+\fIikP\fP The proportional gain\&. 
+.br
+\fIikD\fP The derivative gain\&. 
+.br
+\fIikF\fP The feed-forward gain\&. 
+.br
+\fIikSF\fP A feed-forward gain to counteract static friction\&. 
+.br
+\fIivelMath\fP The \fBVelMath\fP used for calculating velocity\&. 
+.br
+\fIiratio\fP Any external gear ratio\&. 
+.br
+\fIiderivativeFilter\fP The derivative filter\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIterativeVelPIDController::Gains\fP okapi::AsyncVelPIDController::getGains () const"
+Gets the current gains\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The current gains\&. 
+.RE
+.PP
+
+.SS "void okapi::AsyncVelPIDController::setGains (const \fBIterativeVelPIDController::Gains\fP & igains)"
+Set controller gains\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIigains\fP The new gains\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

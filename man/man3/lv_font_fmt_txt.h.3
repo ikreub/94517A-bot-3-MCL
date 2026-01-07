@@ -1,0 +1,116 @@
+.TH "include/liblvgl/font/lv_font_fmt_txt.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/font/lv_font_fmt_txt.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include 'lv_font\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlv_font_fmt_txt_glyph_dsc_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_font_fmt_txt_cmap_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_font_fmt_txt_kern_pair_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_font_fmt_txt_kern_classes_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_font_fmt_txt_glyph_cache_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_font_fmt_txt_dsc_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint8_t \fBlv_font_fmt_txt_cmap_type_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBLV_FONT_FMT_TXT_CMAP_FORMAT0_FULL\fP, \fBLV_FONT_FMT_TXT_CMAP_SPARSE_FULL\fP, \fBLV_FONT_FMT_TXT_CMAP_FORMAT0_TINY\fP, \fBLV_FONT_FMT_TXT_CMAP_SPARSE_TINY\fP }"
+.br
+.ti -1c
+.RI "enum \fBlv_font_fmt_txt_bitmap_format_t\fP { \fBLV_FONT_FMT_TXT_PLAIN\fP = 0, \fBLV_FONT_FMT_TXT_COMPRESSED\fP = 1, \fBLV_FONT_FMT_TXT_COMPRESSED_NO_PREFILTER\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "const uint8_t * \fBlv_font_get_bitmap_fmt_txt\fP (const \fBlv_font_t\fP *font, uint32_t letter)"
+.br
+.ti -1c
+.RI "bool \fBlv_font_get_glyph_dsc_fmt_txt\fP (const \fBlv_font_t\fP *font, \fBlv_font_glyph_dsc_t\fP *dsc_out, uint32_t unicode_letter, uint32_t unicode_letter_next)"
+.br
+.ti -1c
+.RI "void \fB_lv_font_clean_up_fmt_txt\fP (void)"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+Format of font character map\&. 
+.SS "enum \fBlv_font_fmt_txt_bitmap_format_t\fP"
+Bitmap formats 
+.SH "Function Documentation"
+.PP 
+.SS "void _lv_font_clean_up_fmt_txt (void )"
+Free the allocated memories\&. 
+.SS "const uint8_t * lv_font_get_bitmap_fmt_txt (const \fBlv_font_t\fP * font, uint32_t letter)"
+Used as \fRget_glyph_bitmap\fP callback in LittelvGL's native font format if the font is uncompressed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfont\fP pointer to font 
+.br
+\fIunicode_letter\fP a unicode letter which bitmap should be get 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the bitmap or NULL if not found 
+.RE
+.PP
+
+.SS "bool lv_font_get_glyph_dsc_fmt_txt (const \fBlv_font_t\fP * font, \fBlv_font_glyph_dsc_t\fP * dsc_out, uint32_t unicode_letter, uint32_t unicode_letter_next)"
+Used as \fRget_glyph_dsc\fP callback in LittelvGL's native font format if the font is uncompressed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfont_p\fP pointer to font 
+.br
+\fIdsc_out\fP store the result descriptor here 
+.br
+\fIletter\fP a UNICODE letter code 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true: descriptor is successfully loaded into \fRdsc_out\fP\&. false: the letter was not found, no data is loaded to \fRdsc_out\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

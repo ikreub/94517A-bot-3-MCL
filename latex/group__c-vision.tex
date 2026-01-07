@@ -1,0 +1,729 @@
+\doxysection{Vision Sensor C API }
+\hypertarget{group__c-vision}{}\label{group__c-vision}\index{Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{vision_8h}{vision.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-vision_ga150e79f93365d00b079130bcfbe181ad}\label{group__c-vision_ga150e79f93365d00b079130bcfbe181ad} 
+typedef enum vision\+\_\+object\+\_\+type {\bfseries vision\+\_\+object\+\_\+type\+\_\+e\+\_\+t}
+\item 
+typedef uint16\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}}
+\item 
+\Hypertarget{group__c-vision_gabac8bfe6003650c52be72f914bb203d0}\label{group__c-vision_gabac8bfe6003650c52be72f914bb203d0} 
+typedef enum \doxymbox{\hyperlink{group__c-vision_gaef7c8269b3fb0dfbf4e597b2d8dd7af5}{vision\+\_\+zero}} {\bfseries vision\+\_\+zero\+\_\+e\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-vision_ga23584b6ec115e81fd6c715c462683970}\label{group__c-vision_ga23584b6ec115e81fd6c715c462683970} 
+enum {\bfseries vision\+\_\+object\+\_\+type} \{ {\bfseries E\+\_\+\+VISION\+\_\+\+OBJECT\+\_\+\+NORMAL} = 0
+, {\bfseries E\+\_\+\+VISION\+\_\+\+OBJECT\+\_\+\+COLOR\+\_\+\+CODE} = 1
+, {\bfseries E\+\_\+\+VISION\+\_\+\+OBJECT\+\_\+\+LINE} = 2
+ \}
+\item 
+enum \doxymbox{\hyperlink{group__c-vision_gaef7c8269b3fb0dfbf4e597b2d8dd7af5}{vision\+\_\+zero}} \{ \doxymbox{\hyperlink{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5a0ff244c5f3e9771f962986e25b00ff3d}{E\+\_\+\+VISION\+\_\+\+ZERO\+\_\+\+TOPLEFT}} = 0
+, \doxymbox{\hyperlink{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5ac4bfba95a9c18805da897280e18387c1}{E\+\_\+\+VISION\+\_\+\+ZERO\+\_\+\+CENTER}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{group__c-vision_gae55a6efc231c3cf6ab009c08ae920a8b}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((\+\_\+\+\_\+packed\+\_\+\+\_\+)) vision\+\_\+signature
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-vision_ga135c729c7277f6cc019c2924088a5fd5}\label{group__c-vision_ga135c729c7277f6cc019c2924088a5fd5} 
+{\bfseries vision\+\_\+signature\+\_\+s\+\_\+t}
+\item 
+\Hypertarget{group__c-vision_gae619120558539c13e53b5a6f42fb4375}\label{group__c-vision_gae619120558539c13e53b5a6f42fb4375} 
+{\bfseries vision\+\_\+object\+\_\+s\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga92834afc57fa21039a4221608e01e592}{vision\+\_\+clear\+\_\+led}} (uint8\+\_\+t port)
+\item 
+\doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-vision_ga452a6732e27d1496360f69b84af7609f}{vision\+\_\+signature\+\_\+from\+\_\+utility}} (const int32\+\_\+t id, const int32\+\_\+t u\+\_\+min, const int32\+\_\+t u\+\_\+max, const int32\+\_\+t u\+\_\+mean, const int32\+\_\+t v\+\_\+min, const int32\+\_\+t v\+\_\+max, const int32\+\_\+t v\+\_\+mean, const float range, const int32\+\_\+t type)
+\item 
+\doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}} \doxymbox{\hyperlink{group__c-vision_ga675146281c6f575b3b95e1b20fb16a6a}{vision\+\_\+create\+\_\+color\+\_\+code}} (uint8\+\_\+t port, const uint32\+\_\+t sig\+\_\+id1, const uint32\+\_\+t sig\+\_\+id2, const uint32\+\_\+t sig\+\_\+id3, const uint32\+\_\+t sig\+\_\+id4, const uint32\+\_\+t sig\+\_\+id5)
+\item 
+\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-vision_ga89cf079d79ec4b805b2baec609e810ee}{vision\+\_\+get\+\_\+by\+\_\+size}} (uint8\+\_\+t port, const uint32\+\_\+t size\+\_\+id)
+\item 
+\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-vision_gae7d3f64f0a84d842e1c07c83cbbc1318}{vision\+\_\+get\+\_\+by\+\_\+sig}} (uint8\+\_\+t port, const uint32\+\_\+t size\+\_\+id, const uint32\+\_\+t sig\+\_\+id)
+\item 
+\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-vision_gacd5c817b31e522688e6f661246a374f5}{vision\+\_\+get\+\_\+by\+\_\+code}} (uint8\+\_\+t port, const uint32\+\_\+t size\+\_\+id, const \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}} color\+\_\+code)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_gaf23dbc1294b67885665c7c1e81780a1f}{vision\+\_\+get\+\_\+exposure}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_gac50ece961223bd8ff99f513543d2323c}{vision\+\_\+get\+\_\+object\+\_\+count}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga21a5a2aa09cf4d16021120ce0325eac1}{vision\+\_\+get\+\_\+white\+\_\+balance}} (uint8\+\_\+t port)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga2fc1d334e9d0a312a5d07378d4a95f18}{vision\+\_\+print\+\_\+signature}} (const \doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} sig)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga5091bfb5dadeb9a5a854c13d684f3f23}{vision\+\_\+read\+\_\+by\+\_\+size}} (uint8\+\_\+t port, const uint32\+\_\+t size\+\_\+id, const uint32\+\_\+t object\+\_\+count, \doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const object\+\_\+arr)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_gadfb6fcb835556086acfa82b23c3c6683}{vision\+\_\+read\+\_\+by\+\_\+sig}} (uint8\+\_\+t port, const uint32\+\_\+t size\+\_\+id, const uint32\+\_\+t sig\+\_\+id, const uint32\+\_\+t object\+\_\+count, \doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const object\+\_\+arr)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga4b4978438d0d0e0173a05122ea7b205e}{vision\+\_\+read\+\_\+by\+\_\+code}} (uint8\+\_\+t port, const uint32\+\_\+t size\+\_\+id, const \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}} color\+\_\+code, const uint32\+\_\+t object\+\_\+count, \doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const object\+\_\+arr)
+\item 
+\doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} \doxymbox{\hyperlink{group__c-vision_ga4e530910b0cf333cfaad20509ed88c9b}{vision\+\_\+get\+\_\+signature}} (uint8\+\_\+t port, const uint8\+\_\+t signature\+\_\+id)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga16cf475074058c13bba0fcea12906d82}{vision\+\_\+set\+\_\+signature}} (uint8\+\_\+t port, const uint8\+\_\+t signature\+\_\+id, \doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const signature\+\_\+ptr)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga842a2758f2cf0964a91e376061380122}{vision\+\_\+set\+\_\+auto\+\_\+white\+\_\+balance}} (uint8\+\_\+t port, const uint8\+\_\+t enable)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_gaa16405c90b21955c47960d814c9f8ef4}{vision\+\_\+set\+\_\+exposure}} (uint8\+\_\+t port, const uint8\+\_\+t exposure)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga115ef040c736971c180c812932d97dc7}{vision\+\_\+set\+\_\+led}} (uint8\+\_\+t port, const int32\+\_\+t rgb)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_gafe156ff40f90b71ef5bb1ce49d056d08}{vision\+\_\+set\+\_\+white\+\_\+balance}} (uint8\+\_\+t port, const int32\+\_\+t rgb)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga17ba398060da4cff1dda541fde50773c}{vision\+\_\+set\+\_\+zero\+\_\+point}} (uint8\+\_\+t port, vision\+\_\+zero\+\_\+e\+\_\+t zero\+\_\+point)
+\item 
+int32\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga446d8d1600570e573eb7afa9f0377e49}{vision\+\_\+set\+\_\+wifi\+\_\+mode}} (uint8\+\_\+t port, const uint8\+\_\+t enable)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+Parameters given by VEX \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-vision_gabe53b5e2ba20b09f7f5c7173021d02f0}\label{group__c-vision_gabe53b5e2ba20b09f7f5c7173021d02f0} 
+\+\#define {\bfseries VISION\+\_\+\+OBJECT\+\_\+\+ERR\+\_\+\+SIG}~255
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-vision_ga7dd7d66361f62ce2ca94e21bb4779962}{VISION\+\_\+\+FOV\+\_\+\+WIDTH}}~316
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-vision_ga8e72354ed1150786745094bbd1c0ae00}{VISION\+\_\+\+FOV\+\_\+\+HEIGHT}}~212
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+Additional example code for this module can be found in its Tutorial.
+\end{DoxyNote}
+
+
+\label{doc-define-members}
+\Hypertarget{group__c-vision_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{group__c-vision_ga8e72354ed1150786745094bbd1c0ae00}\index{Vision Sensor C API@{Vision Sensor C API}!VISION\_FOV\_HEIGHT@{VISION\_FOV\_HEIGHT}}
+\index{VISION\_FOV\_HEIGHT@{VISION\_FOV\_HEIGHT}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{VISION\_FOV\_HEIGHT}{VISION\_FOV\_HEIGHT}}
+{\footnotesize\ttfamily \label{group__c-vision_ga8e72354ed1150786745094bbd1c0ae00} 
+\+\#define VISION\+\_\+\+FOV\+\_\+\+HEIGHT~212}
+
+The height of the Vision Sensor’s field of view. \Hypertarget{group__c-vision_ga7dd7d66361f62ce2ca94e21bb4779962}\index{Vision Sensor C API@{Vision Sensor C API}!VISION\_FOV\_WIDTH@{VISION\_FOV\_WIDTH}}
+\index{VISION\_FOV\_WIDTH@{VISION\_FOV\_WIDTH}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{VISION\_FOV\_WIDTH}{VISION\_FOV\_WIDTH}}
+{\footnotesize\ttfamily \label{group__c-vision_ga7dd7d66361f62ce2ca94e21bb4779962} 
+\+\#define VISION\+\_\+\+FOV\+\_\+\+WIDTH~316}
+
+The width of the Vision Sensor’s field of view. 
+
+\label{doc-typedef-members}
+\Hypertarget{group__c-vision_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_color\_code\_t@{vision\_color\_code\_t}}
+\index{vision\_color\_code\_t@{vision\_color\_code\_t}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_color\_code\_t}{vision\_color\_code\_t}}
+{\footnotesize\ttfamily \label{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b} 
+typedef uint16\+\_\+t \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}}}
+
+Color codes are just signatures with multiple IDs and a different type. 
+
+\label{doc-enum-members}
+\Hypertarget{group__c-vision_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{group__c-vision_gaef7c8269b3fb0dfbf4e597b2d8dd7af5}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_zero@{vision\_zero}}
+\index{vision\_zero@{vision\_zero}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_zero}{vision\_zero}}
+{\footnotesize\ttfamily \label{group__c-vision_gaef7c8269b3fb0dfbf4e597b2d8dd7af5} 
+enum \doxymbox{\hyperlink{group__c-vision_gaef7c8269b3fb0dfbf4e597b2d8dd7af5}{vision\+\_\+zero}}}
+
+This enumeration defines different zero points for returned vision objects. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_VISION\_ZERO\_TOPLEFT@{E\_VISION\_ZERO\_TOPLEFT}!Vision Sensor C API@{Vision Sensor C API}}
+\index{Vision Sensor C API@{Vision Sensor C API}!E\_VISION\_ZERO\_TOPLEFT@{E\_VISION\_ZERO\_TOPLEFT}}
+}\Hypertarget{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5a0ff244c5f3e9771f962986e25b00ff3d}\label{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5a0ff244c5f3e9771f962986e25b00ff3d} 
+E\+\_\+\+VISION\+\_\+\+ZERO\+\_\+\+TOPLEFT&(0,0) coordinate is the top left of the FOV \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_VISION\_ZERO\_CENTER@{E\_VISION\_ZERO\_CENTER}!Vision Sensor C API@{Vision Sensor C API}}
+\index{Vision Sensor C API@{Vision Sensor C API}!E\_VISION\_ZERO\_CENTER@{E\_VISION\_ZERO\_CENTER}}
+}\Hypertarget{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5ac4bfba95a9c18805da897280e18387c1}\label{group__c-vision_ggaef7c8269b3fb0dfbf4e597b2d8dd7af5ac4bfba95a9c18805da897280e18387c1} 
+E\+\_\+\+VISION\+\_\+\+ZERO\+\_\+\+CENTER&(0,0) coordinate is the center of the FOV \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{group__c-vision_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__c-vision_gae55a6efc231c3cf6ab009c08ae920a8b}\index{Vision Sensor C API@{Vision Sensor C API}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{group__c-vision_gae55a6efc231c3cf6ab009c08ae920a8b} 
+struct \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(\+\_\+\+\_\+packed\+\_\+\+\_\+)}]{}{}\end{DoxyParamCaption})}
+
+Object signature
+
+Object type, e.\+g. normal, color code, or line detection
+
+Left boundary coordinate of the object
+
+Top boundary coordinate of the object
+
+Width of the object
+
+Height of the object
+
+Angle of a color code object in 0.\+1 degree units (e.\+g. 10 -\/\texorpdfstring{$>$}{>} 1 degree, 155 -\/\texorpdfstring{$>$}{>} 15.\+5 degrees)
+
+Coordinates of the middle of the object (computed from the values above)
+
+Coordinates of the middle of the object (computed from the values above)\Hypertarget{group__c-vision_ga92834afc57fa21039a4221608e01e592}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_clear\_led@{vision\_clear\_led}}
+\index{vision\_clear\_led@{vision\_clear\_led}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_clear\_led()}{vision\_clear\_led()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga92834afc57fa21039a4221608e01e592} 
+int32\+\_\+t vision\+\_\+clear\+\_\+led (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Clears the vision sensor LED color, reseting it back to its default behavior, displaying the most prominent object signature color.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga675146281c6f575b3b95e1b20fb16a6a}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_create\_color\_code@{vision\_create\_color\_code}}
+\index{vision\_create\_color\_code@{vision\_create\_color\_code}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_create\_color\_code()}{vision\_create\_color\_code()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga675146281c6f575b3b95e1b20fb16a6a} 
+\doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}} vision\+\_\+create\+\_\+color\+\_\+code (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id1}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id2}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id3}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id4}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id5}{}\end{DoxyParamCaption})}
+
+Creates a color code that represents a combination of the given signature IDs. If fewer than 5 signatures are to be a part of the color code, pass 0 for the additional function parameters.
+
+This function uses the following values of errno when an error state is reached:\+ EINVAL -\/ Fewer than two signatures have been provided or one of the signatures is out of its \+[1-\/7]\+ range (or 0 when omitted).
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em sig\+\_\+id1} & The first signature id \+[1-\/7]\+ to add to the color code \\
+\hline
+{\em sig\+\_\+id2} & The second signature id \+[1-\/7]\+ to add to the color code \\
+\hline
+{\em sig\+\_\+id3} & The third signature id \+[1-\/7]\+ to add to the color code \\
+\hline
+{\em sig\+\_\+id4} & The fourth signature id \+[1-\/7]\+ to add to the color code \\
+\hline
+{\em sig\+\_\+id5} & The fifth signature id \+[1-\/7]\+ to add to the color code\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t} object containing the color code information.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gacd5c817b31e522688e6f661246a374f5}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_by\_code@{vision\_get\_by\_code}}
+\index{vision\_get\_by\_code@{vision\_get\_by\_code}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_by\_code()}{vision\_get\_by\_code()}}
+{\footnotesize\ttfamily \label{group__c-vision_gacd5c817b31e522688e6f661246a374f5} 
+\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} vision\+\_\+get\+\_\+by\+\_\+code (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{size\+\_\+id}{, }\item[{const \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}}}]{color\+\_\+code}{}\end{DoxyParamCaption})}
+
+Gets the nth largest object of the given color code according to size\+\_\+id.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor EAGAIN -\/ Reading the vision sensor failed for an unknown reason.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em size\+\_\+id} & The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) \\
+\hline
+{\em color\+\_\+code} & The \doxylink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t} for which an object will be returned\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t} object corresponding to the given color code and size\+\_\+id, or PROS\+\_\+\+ERR if an error occurred.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gae7d3f64f0a84d842e1c07c83cbbc1318}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_by\_sig@{vision\_get\_by\_sig}}
+\index{vision\_get\_by\_sig@{vision\_get\_by\_sig}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_by\_sig()}{vision\_get\_by\_sig()}}
+{\footnotesize\ttfamily \label{group__c-vision_gae7d3f64f0a84d842e1c07c83cbbc1318} 
+\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} vision\+\_\+get\+\_\+by\+\_\+sig (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{size\+\_\+id}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id}{}\end{DoxyParamCaption})}
+
+Gets the nth largest object of the given signature according to size\+\_\+id.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor EINVAL -\/ sig\+\_\+id is outside the range \+[1-\/8]\+ EDOM -\/ size\+\_\+id is greater than the number of available objects. EAGAIN -\/ Reading the vision sensor failed for an unknown reason.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em size\+\_\+id} & The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) \\
+\hline
+{\em signature} & The signature ID \+[1-\/7]\+ for which an object will be returned.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t} object corresponding to the given signature and size\+\_\+id, or PROS\+\_\+\+ERR if an error occurred.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga89cf079d79ec4b805b2baec609e810ee}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_by\_size@{vision\_get\_by\_size}}
+\index{vision\_get\_by\_size@{vision\_get\_by\_size}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_by\_size()}{vision\_get\_by\_size()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga89cf079d79ec4b805b2baec609e810ee} 
+\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} vision\+\_\+get\+\_\+by\+\_\+size (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{size\+\_\+id}{}\end{DoxyParamCaption})}
+
+Gets the nth largest object according to size\+\_\+id.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor EDOM -\/ size\+\_\+id is greater than the number of available objects. EHOSTDOWN -\/ Reading the vision sensor failed for an unknown reason.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em size\+\_\+id} & The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t} object corresponding to the given size id, or PROS\+\_\+\+ERR if an error occurred.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gaf23dbc1294b67885665c7c1e81780a1f}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_exposure@{vision\_get\_exposure}}
+\index{vision\_get\_exposure@{vision\_get\_exposure}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_exposure()}{vision\_get\_exposure()}}
+{\footnotesize\ttfamily \label{group__c-vision_gaf23dbc1294b67885665c7c1e81780a1f} 
+int32\+\_\+t vision\+\_\+get\+\_\+exposure (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Gets the exposure parameter of the Vision Sensor.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current exposure setting from \+[0,150]\+, PROS\+\_\+\+ERR if an error occurred
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gac50ece961223bd8ff99f513543d2323c}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_object\_count@{vision\_get\_object\_count}}
+\index{vision\_get\_object\_count@{vision\_get\_object\_count}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_object\_count()}{vision\_get\_object\_count()}}
+{\footnotesize\ttfamily \label{group__c-vision_gac50ece961223bd8ff99f513543d2323c} 
+int32\+\_\+t vision\+\_\+get\+\_\+object\+\_\+count (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Gets the number of objects currently detected by the Vision Sensor.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of objects detected on the specified vision sensor. Returns PROS\+\_\+\+ERR if the port was invalid or an error occurred.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga4e530910b0cf333cfaad20509ed88c9b}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_signature@{vision\_get\_signature}}
+\index{vision\_get\_signature@{vision\_get\_signature}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_signature()}{vision\_get\_signature()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga4e530910b0cf333cfaad20509ed88c9b} 
+\doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} vision\+\_\+get\+\_\+signature (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint8\+\_\+t}]{signature\+\_\+id}{}\end{DoxyParamCaption})}
+
+Gets the object detection signature with the given id number.
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em signature\+\_\+id} & The signature id to read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t} containing information about the signature.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga21a5a2aa09cf4d16021120ce0325eac1}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_get\_white\_balance@{vision\_get\_white\_balance}}
+\index{vision\_get\_white\_balance@{vision\_get\_white\_balance}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_get\_white\_balance()}{vision\_get\_white\_balance()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga21a5a2aa09cf4d16021120ce0325eac1} 
+int32\+\_\+t vision\+\_\+get\+\_\+white\+\_\+balance (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Get the white balance parameter of the Vision Sensor.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current RGB white balance setting of the sensor
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga2fc1d334e9d0a312a5d07378d4a95f18}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_print\_signature@{vision\_print\_signature}}
+\index{vision\_print\_signature@{vision\_print\_signature}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_print\_signature()}{vision\_print\_signature()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga2fc1d334e9d0a312a5d07378d4a95f18} 
+int32\+\_\+t vision\+\_\+print\+\_\+signature (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}}}]{sig}{}\end{DoxyParamCaption})}
+
+Prints the contents of the signature as an initializer list to the terminal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sig} & The signature for which the contents will be printed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if no errors occured, PROS\+\_\+\+ERR otherwise
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga4b4978438d0d0e0173a05122ea7b205e}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_read\_by\_code@{vision\_read\_by\_code}}
+\index{vision\_read\_by\_code@{vision\_read\_by\_code}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_read\_by\_code()}{vision\_read\_by\_code()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga4b4978438d0d0e0173a05122ea7b205e} 
+int32\+\_\+t vision\+\_\+read\+\_\+by\+\_\+code (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{size\+\_\+id}{, }\item[{const \doxymbox{\hyperlink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t}}}]{color\+\_\+code}{, }\item[{const uint32\+\_\+t}]{object\+\_\+count}{, }\item[{\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{object\+\_\+arr}{}\end{DoxyParamCaption})}
+
+Reads up to object\+\_\+count object descriptors into object\+\_\+arr.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21), or fewer than object\+\_\+count number of objects were found. ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em port} & The V5 port number from 1-\/21 \\
+\hline
+ & {\em object\+\_\+count} & The number of objects to read \\
+\hline
+ & {\em size\+\_\+id} & The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) \\
+\hline
+ & {\em color\+\_\+code} & The \doxylink{group__c-vision_ga71f2011a47e95558bb534b05c16c7f2b}{vision\+\_\+color\+\_\+code\+\_\+t} for which objects will be returned \\
+\hline
+\doxymbox{\texttt{out}}  & {\em object\+\_\+arr} & A pointer to copy the objects into\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of object signatures copied. This number will be less than object\+\_\+count if there are fewer objects detected by the vision sensor. Returns PROS\+\_\+\+ERR if the port was invalid, an error occurred, or fewer objects than size\+\_\+id were found. All objects in object\+\_\+arr that were not found are given VISION\+\_\+\+OBJECT\+\_\+\+ERR\+\_\+\+SIG as their signature.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gadfb6fcb835556086acfa82b23c3c6683}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_read\_by\_sig@{vision\_read\_by\_sig}}
+\index{vision\_read\_by\_sig@{vision\_read\_by\_sig}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_read\_by\_sig()}{vision\_read\_by\_sig()}}
+{\footnotesize\ttfamily \label{group__c-vision_gadfb6fcb835556086acfa82b23c3c6683} 
+int32\+\_\+t vision\+\_\+read\+\_\+by\+\_\+sig (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{size\+\_\+id}{, }\item[{const uint32\+\_\+t}]{sig\+\_\+id}{, }\item[{const uint32\+\_\+t}]{object\+\_\+count}{, }\item[{\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{object\+\_\+arr}{}\end{DoxyParamCaption})}
+
+Reads up to object\+\_\+count object descriptors into object\+\_\+arr.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21), or fewer than object\+\_\+count number of objects were found. ENODEV -\/ The port cannot be configured as a vision sensor EDOM -\/ size\+\_\+id is greater than the number of available objects.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em port} & The V5 port number from 1-\/21 \\
+\hline
+ & {\em object\+\_\+count} & The number of objects to read \\
+\hline
+ & {\em size\+\_\+id} & The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) \\
+\hline
+ & {\em signature} & The signature ID \+[1-\/7]\+ for which objects will be returned. \\
+\hline
+\doxymbox{\texttt{out}}  & {\em object\+\_\+arr} & A pointer to copy the objects into\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of object signatures copied. This number will be less than object\+\_\+count if there are fewer objects detected by the vision sensor. Returns PROS\+\_\+\+ERR if the port was invalid, an error occurred, or fewer objects than size\+\_\+id were found. All objects in object\+\_\+arr that were not found are given VISION\+\_\+\+OBJECT\+\_\+\+ERR\+\_\+\+SIG as their signature.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga5091bfb5dadeb9a5a854c13d684f3f23}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_read\_by\_size@{vision\_read\_by\_size}}
+\index{vision\_read\_by\_size@{vision\_read\_by\_size}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_read\_by\_size()}{vision\_read\_by\_size()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga5091bfb5dadeb9a5a854c13d684f3f23} 
+int32\+\_\+t vision\+\_\+read\+\_\+by\+\_\+size (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint32\+\_\+t}]{size\+\_\+id}{, }\item[{const uint32\+\_\+t}]{object\+\_\+count}{, }\item[{\doxymbox{\hyperlink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{object\+\_\+arr}{}\end{DoxyParamCaption})}
+
+Reads up to object\+\_\+count object descriptors into object\+\_\+arr.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21), or fewer than object\+\_\+count number of objects were found. ENODEV -\/ The port cannot be configured as a vision sensor EDOM -\/ size\+\_\+id is greater than the number of available objects.
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em port} & The V5 port number from 1-\/21 \\
+\hline
+ & {\em size\+\_\+id} & The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) \\
+\hline
+ & {\em object\+\_\+count} & The number of objects to read \\
+\hline
+\doxymbox{\texttt{out}}  & {\em object\+\_\+arr} & A pointer to copy the objects into\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of object signatures copied. This number will be less than object\+\_\+count if there are fewer objects detected by the vision sensor. Returns PROS\+\_\+\+ERR if the port was invalid, an error occurred, or fewer objects than size\+\_\+id were found. All objects in object\+\_\+arr that were not found are given VISION\+\_\+\+OBJECT\+\_\+\+ERR\+\_\+\+SIG as their signature.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga842a2758f2cf0964a91e376061380122}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_auto\_white\_balance@{vision\_set\_auto\_white\_balance}}
+\index{vision\_set\_auto\_white\_balance@{vision\_set\_auto\_white\_balance}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_auto\_white\_balance()}{vision\_set\_auto\_white\_balance()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga842a2758f2cf0964a91e376061380122} 
+int32\+\_\+t vision\+\_\+set\+\_\+auto\+\_\+white\+\_\+balance (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+
+Enables/\+disables auto white-\/balancing on the Vision Sensor.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor EINVAL -\/ enable was not 0 or 1
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em enabled} & Pass 0 to disable, 1 to enable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gaa16405c90b21955c47960d814c9f8ef4}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_exposure@{vision\_set\_exposure}}
+\index{vision\_set\_exposure@{vision\_set\_exposure}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_exposure()}{vision\_set\_exposure()}}
+{\footnotesize\ttfamily \label{group__c-vision_gaa16405c90b21955c47960d814c9f8ef4} 
+int32\+\_\+t vision\+\_\+set\+\_\+exposure (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint8\+\_\+t}]{exposure}{}\end{DoxyParamCaption})}
+
+Sets the exposure parameter of the Vision Sensor.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em percent} & The new exposure setting from \+[0,150]\+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga115ef040c736971c180c812932d97dc7}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_led@{vision\_set\_led}}
+\index{vision\_set\_led@{vision\_set\_led}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_led()}{vision\_set\_led()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga115ef040c736971c180c812932d97dc7} 
+int32\+\_\+t vision\+\_\+set\+\_\+led (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const int32\+\_\+t}]{rgb}{}\end{DoxyParamCaption})}
+
+Sets the vision sensor LED color, overriding the automatic behavior.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em rgb} & An RGB code to set the LED to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga16cf475074058c13bba0fcea12906d82}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_signature@{vision\_set\_signature}}
+\index{vision\_set\_signature@{vision\_set\_signature}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_signature()}{vision\_set\_signature()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga16cf475074058c13bba0fcea12906d82} 
+int32\+\_\+t vision\+\_\+set\+\_\+signature (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint8\+\_\+t}]{signature\+\_\+id}{, }\item[{\doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{signature\+\_\+ptr}{}\end{DoxyParamCaption})}
+
+Stores the supplied object detection signature onto the vision sensor.
+
+\begin{DoxyNote}{Note}
+This saves the signature in volatile memory, and the signature will be lost as soon as the sensor is powered down.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em port} & The V5 port number from 1-\/21 \\
+\hline
+ & {\em signature\+\_\+id} & The signature id to store into \\
+\hline
+\doxymbox{\texttt{in}}  & {\em signature\+\_\+ptr} & A pointer to the signature to save\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if no errors occured, PROS\+\_\+\+ERR otherwise
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_gafe156ff40f90b71ef5bb1ce49d056d08}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_white\_balance@{vision\_set\_white\_balance}}
+\index{vision\_set\_white\_balance@{vision\_set\_white\_balance}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_white\_balance()}{vision\_set\_white\_balance()}}
+{\footnotesize\ttfamily \label{group__c-vision_gafe156ff40f90b71ef5bb1ce49d056d08} 
+int32\+\_\+t vision\+\_\+set\+\_\+white\+\_\+balance (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const int32\+\_\+t}]{rgb}{}\end{DoxyParamCaption})}
+
+Sets the white balance parameter of the Vision Sensor.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em rgb} & The new RGB white balance setting of the sensor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga446d8d1600570e573eb7afa9f0377e49}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_wifi\_mode@{vision\_set\_wifi\_mode}}
+\index{vision\_set\_wifi\_mode@{vision\_set\_wifi\_mode}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_wifi\_mode()}{vision\_set\_wifi\_mode()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga446d8d1600570e573eb7afa9f0377e49} 
+int32\+\_\+t vision\+\_\+set\+\_\+wifi\+\_\+mode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{const uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+
+Sets the Wi-\/\+Fi mode of the Vision sensor
+
+This functions uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given port is not within the range of V5 ports (1-\/21) EACCESS -\/ Anothe resources is currently trying to access the port
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em enable} & Disable Wi-\/\+Fi on the Vision sensor if 0, enable otherwise (e.\+g. 1)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga17ba398060da4cff1dda541fde50773c}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_set\_zero\_point@{vision\_set\_zero\_point}}
+\index{vision\_set\_zero\_point@{vision\_set\_zero\_point}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_set\_zero\_point()}{vision\_set\_zero\_point()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga17ba398060da4cff1dda541fde50773c} 
+int32\+\_\+t vision\+\_\+set\+\_\+zero\+\_\+point (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{, }\item[{vision\+\_\+zero\+\_\+e\+\_\+t}]{zero\+\_\+point}{}\end{DoxyParamCaption})}
+
+Sets the (0,0) coordinate for the Field of View.
+
+This will affect the coordinates returned for each request for a \doxylink{structvision__object__s__t}{vision\+\_\+object\+\_\+s\+\_\+t} from the sensor, so it is recommended that this function only be used to configure the sensor at the beginning of its use.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports (1-\/21). ENODEV -\/ The port cannot be configured as a vision sensor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em zero\+\_\+point} & One of vision\+\_\+zero\+\_\+e\+\_\+t to set the (0,0) coordinate for the FOV\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-vision_ga452a6732e27d1496360f69b84af7609f}\index{Vision Sensor C API@{Vision Sensor C API}!vision\_signature\_from\_utility@{vision\_signature\_from\_utility}}
+\index{vision\_signature\_from\_utility@{vision\_signature\_from\_utility}!Vision Sensor C API@{Vision Sensor C API}}
+\doxysubsubsection{\texorpdfstring{vision\_signature\_from\_utility()}{vision\_signature\_from\_utility()}}
+{\footnotesize\ttfamily \label{group__c-vision_ga452a6732e27d1496360f69b84af7609f} 
+\doxymbox{\hyperlink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t}} vision\+\_\+signature\+\_\+from\+\_\+utility (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{id}{, }\item[{const int32\+\_\+t}]{u\+\_\+min}{, }\item[{const int32\+\_\+t}]{u\+\_\+max}{, }\item[{const int32\+\_\+t}]{u\+\_\+mean}{, }\item[{const int32\+\_\+t}]{v\+\_\+min}{, }\item[{const int32\+\_\+t}]{v\+\_\+max}{, }\item[{const int32\+\_\+t}]{v\+\_\+mean}{, }\item[{const float}]{range}{, }\item[{const int32\+\_\+t}]{type}{}\end{DoxyParamCaption})}
+
+Creates a signature from the vision sensor utility
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The signature ID \\
+\hline
+{\em u\+\_\+min} & Minimum value on U axis \\
+\hline
+{\em u\+\_\+max} & Maximum value on U axis \\
+\hline
+{\em u\+\_\+mean} & Mean value on U axis \\
+\hline
+{\em v\+\_\+min} & Minimum value on V axis \\
+\hline
+{\em v\+\_\+max} & Maximum value on V axis \\
+\hline
+{\em v\+\_\+mean} & Mean value on V axis \\
+\hline
+{\em range} & Scale factor \\
+\hline
+{\em type} & Signature type\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{structvision__signature__s__t}{vision\+\_\+signature\+\_\+s\+\_\+t} that can be set using vision\+\_\+set\+\_\+signature
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

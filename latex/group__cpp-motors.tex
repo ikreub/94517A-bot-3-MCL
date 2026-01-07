@@ -1,0 +1,2391 @@
+\doxysection{Motors C++ API }
+\hypertarget{group__cpp-motors}{}\label{group__cpp-motors}\index{Motors C++ API@{Motors C++ API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{motors_8hpp}{motors.\+hpp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a}{pros::\+v5::\+\+Motor::\+\+Motor}} (const std::\+int8\+\_\+t port, const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{pros::\+v5::\+\+Motor\+Gears}} gearset=pros::\+v5::\+\+Motor\+Gears::\+invalid, const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{pros::\+v5::\+\+Motor\+Units}} encoder\+\_\+units=pros::\+v5::\+\+Motor\+Units::\+invalid)
+\item 
+\Hypertarget{group__cpp-motors_ga735bc1ba82e8494051d0a450302f80c1}\label{group__cpp-motors_ga735bc1ba82e8494051d0a450302f80c1} 
+{\bfseries pros::\+v5::\+\+Motor::\+\+Motor} (const \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}} \&device)
+\item 
+const \doxymbox{\hyperlink{classpros_1_1v5_1_1_motor}{pros::\+\+Motor}} \doxymbox{\hyperlink{group__cpp-motors_ga68d85bff75a4da45a9019e0449e1703b}{pros::\+v5::\+literals::\+operator"{}"{}\+\_\+mtr}} (const unsigned long long int m)
+\item 
+const \doxymbox{\hyperlink{classpros_1_1v5_1_1_motor}{pros::\+\+Motor}} \doxymbox{\hyperlink{group__cpp-motors_gada0f69d38dd1f1e8af907dccaf48afb7}{pros::\+v5::\+literals::\+operator"{}"{}\+\_\+rmtr}} (const unsigned long long int m)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Motor movement functions}
+These functions allow programmers to make motors move \begin{DoxyCompactItemize}
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga73c3d1ed05efeee76ba13ab4236aa26f}{pros::\+v5::\+\+Motor::\+move}} (std::\+int32\+\_\+t voltage) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gacc8345014ebfae0936bb175ca315f378}{pros::\+v5::\+\+Motor::\+move\+\_\+absolute}} (const double position, const std::\+int32\+\_\+t velocity) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga6e9b21dfbd6d6065f56615351589540b}{pros::\+v5::\+\+Motor::\+move\+\_\+relative}} (const double position, const std::\+int32\+\_\+t velocity) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gab4e59fa2f764f6b54a0343e799dbb381}{pros::\+v5::\+\+Motor::\+move\+\_\+velocity}} (const std::\+int32\+\_\+t velocity) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga8b51645eff3c373926152976826944dc}{pros::\+v5::\+\+Motor::\+move\+\_\+voltage}} (const std::\+int32\+\_\+t voltage) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga1bba4ab70560af1e4e98e373f79dd5c8}{pros::\+v5::\+\+Motor::\+brake}} (void) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga90153729de78b74e23d59cfdf2fcdead}{pros::\+v5::\+\+Motor::\+modify\+\_\+profiled\+\_\+velocity}} (const std::\+int32\+\_\+t velocity) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Motor telemetry functions}
+These functions allow programmers to collect telemetry from motors \begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga924a787549945a4cc27dcebc3b8c078f}{pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+position}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga48ee6d108706749a3ed9a17276e92d5c}{pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+velocity}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_gac11cfa395c7cb1895adb2f269513762a}{pros::\+v5::\+\+Motor::\+get\+\_\+actual\+\_\+velocity}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaf4fd828e65850413f8c1f2e0044f4fb4}{pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+draw}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga95b22eb681685034e181628d21492324}{pros::\+v5::\+\+Motor::\+get\+\_\+direction}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga9fbe92c743f3c2e9f0829108fc3744ed}{pros::\+v5::\+\+Motor::\+get\+\_\+efficiency}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+uint32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaf47e03332fe5f2832e4a9254de7cc73a}{pros::\+v5::\+\+Motor::\+get\+\_\+faults}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+uint32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga29a0f5d145a9878c8ae607659b468cfb}{pros::\+v5::\+\+Motor::\+get\+\_\+flags}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_gaf7ad2ce04c707f8b9546f99e21f44d73}{pros::\+v5::\+\+Motor::\+get\+\_\+position}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_gad2a9349eeba882e234ae9fdd788a13b3}{pros::\+v5::\+\+Motor::\+get\+\_\+power}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga24e7c37e75126a7c26ea92ba1e54e3f5}{pros::\+v5::\+\+Motor::\+get\+\_\+raw\+\_\+position}} (std::\+uint32\+\_\+t \texorpdfstring{$\ast$}{*}const timestamp, const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga83f44378bb40f4bf868982df837d1680}{pros::\+v5::\+\+Motor::\+get\+\_\+temperature}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+double \doxymbox{\hyperlink{group__cpp-motors_ga579944bc16904e46b4992b9021edf6c6}{pros::\+v5::\+\+Motor::\+get\+\_\+torque}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaf9bf5ad44d6a6d2212ca69b9226e5793}{pros::\+v5::\+\+Motor::\+get\+\_\+voltage}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga2c1a1a3e77eca5080bf2703968258b53}{pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+current}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga69381dc6326003da0fe87c33aa2352ee}{pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+temp}} (const std::\+uint8\+\_\+t index=0) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Motor configuration functions}
+These functions allow programmers to configure the behavior of motors \begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} \doxymbox{\hyperlink{group__cpp-motors_gab76ee6d29b0edfdd62f2f7079d7d70cd}{pros::\+v5::\+\+Motor::\+get\+\_\+brake\+\_\+mode}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae0b708e0976b3b0542b8fd753662f33a}{pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+limit}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+\doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} \doxymbox{\hyperlink{group__cpp-motors_gaa361dbc6aeb7810b255b75493a74a905}{pros::\+v5::\+\+Motor::\+get\+\_\+encoder\+\_\+units}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+\doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} \doxymbox{\hyperlink{group__cpp-motors_ga7708eccb7adeb58941f1aa34f8c8c876}{pros::\+v5::\+\+Motor::\+get\+\_\+gearing}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga219a52f874ad570bb8755be8e72bae8d}{pros::\+v5::\+\+Motor::\+get\+\_\+voltage\+\_\+limit}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae58e0ba260104982fdb9583139ba0609}{pros::\+v5::\+\+Motor::\+is\+\_\+reversed}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gacb8d2f518f2788bb05cb714534491458}{pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode}} (const \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} mode, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga3c80c84f6319d0b096b52a2ea10bd0b6}{pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode}} (const pros::\+motor\+\_\+brake\+\_\+mode\+\_\+e\+\_\+t mode, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gac36974069ae8581a9944a439c8e3fa92}{pros::\+v5::\+\+Motor::\+set\+\_\+current\+\_\+limit}} (const std::\+int32\+\_\+t limit, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga694102afd4c591c0d94dad5efbe7bea3}{pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units}} (const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} units, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gab7ba616a29ea7f511cc0f0cb226e448f}{pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units}} (const pros::\+motor\+\_\+encoder\+\_\+units\+\_\+e\+\_\+t units, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaa29f7c743af261895a91562bd746aa0f}{pros::\+v5::\+\+Motor::\+set\+\_\+gearing}} (const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} gearset, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gafc40159400f09f8aa44b5db420d64376}{pros::\+v5::\+\+Motor::\+set\+\_\+gearing}} (const pros::\+motor\+\_\+gearset\+\_\+e\+\_\+t gearset, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaa18f4304efd9d681edf1196347ce0e7b}{pros::\+v5::\+\+Motor::\+set\+\_\+reversed}} (const bool reverse, const std::\+uint8\+\_\+t index=0)
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga91fcd566fe69325e9bfa232a9e3c46ae}{pros::\+v5::\+\+Motor::\+set\+\_\+voltage\+\_\+limit}} (const std::\+int32\+\_\+t limit, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga99595f4b9744d8ca6f3949ec10a01c3c}{pros::\+v5::\+\+Motor::\+set\+\_\+zero\+\_\+position}} (const double position, const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gabc3147bc4c20cd07d35fed30c6badd9f}{pros::\+v5::\+\+Motor::\+tare\+\_\+position}} (const std::\+uint8\+\_\+t index=0) const
+\item 
+std::\+int8\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga0ece07fb8db217583926b601194f20a6}{pros::\+v5::\+\+Motor::\+size}} (void) const
+\item 
+static std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a}{Motor}} $>$ \doxymbox{\hyperlink{group__cpp-motors_gacb54fb8189a13f0e4c565eff910d4970}{pros::\+v5::\+\+Motor::\+get\+\_\+all\+\_\+devices}} ()
+\item 
+std::\+int8\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae5a5b32625e0e12d863b7f61faefdaf2}{pros::\+v5::\+\+Motor::\+get\+\_\+port}} (const std::\+uint8\+\_\+t index=0) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional motor functions}
+These functions allow for motors and motor groups to be used interchangeably \begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga727cc598acc2caa7790b56ef612aac47}{pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+position\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_gaeafa3d747ff879cb468fd7bfbd8b6e4f}{pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+velocity\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga3737662dff2536f8fb9a3dfdcb10840c}{pros::\+v5::\+\+Motor::\+get\+\_\+actual\+\_\+velocity\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga9de2541513957ce781c5c8ca0879777c}{pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+draw\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga645330f28a1c874244f28730891f5dbe}{pros::\+v5::\+\+Motor::\+get\+\_\+direction\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_gaeb2d3024cee9aa5e037961a44a2b5911}{pros::\+v5::\+\+Motor::\+get\+\_\+efficiency\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+uint32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga2bc8d94717c378b1372fad1bdeac2f24}{pros::\+v5::\+\+Motor::\+get\+\_\+faults\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+uint32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga2f5686184d9363fa36a58397e85aab8a}{pros::\+v5::\+\+Motor::\+get\+\_\+flags\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga023ca0cad162b5083e57389d3557d7a6}{pros::\+v5::\+\+Motor::\+get\+\_\+position\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga646f71cd9718074ceebaed30fd823516}{pros::\+v5::\+\+Motor::\+get\+\_\+power\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga55b91871ad9f31cdac410675bddf8b3b}{pros::\+v5::\+\+Motor::\+get\+\_\+raw\+\_\+position\+\_\+all}} (std::\+uint32\+\_\+t \texorpdfstring{$\ast$}{*}const timestamp) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga70ead149e5040d5207050f0eee6e072a}{pros::\+v5::\+\+Motor::\+get\+\_\+temperature\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group__cpp-motors_ga41f1d25ac15a26ce7d0c8bb379a4ccd0}{pros::\+v5::\+\+Motor::\+get\+\_\+torque\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_gab504ec9ec6598f0c37cd6a3f0aad2b56}{pros::\+v5::\+\+Motor::\+get\+\_\+voltage\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga21f6957de6036ea796485d27aa9a4900}{pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+current\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_gadf83a1157e3cc4ef65145a660ac8c0c2}{pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+temp\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} $>$ \doxymbox{\hyperlink{group__cpp-motors_ga758a7f0b109dd3fa2debe02c580cb61f}{pros::\+v5::\+\+Motor::\+get\+\_\+brake\+\_\+mode\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga5c607ca01eabdeba5c6b3f1be6459f47}{pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+limit\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} $>$ \doxymbox{\hyperlink{group__cpp-motors_gaeb81f949c2f821a36082b64e3a65130f}{pros::\+v5::\+\+Motor::\+get\+\_\+encoder\+\_\+units\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} $>$ \doxymbox{\hyperlink{group__cpp-motors_ga6f5d9411a27adc3b777320bab70390a5}{pros::\+v5::\+\+Motor::\+get\+\_\+gearing\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int8\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga0f034cb9e4132b3508ff4ce84ae96eb0}{pros::\+v5::\+\+Motor::\+get\+\_\+port\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga21f30c44dd7b517cb40ab5cc3fb1b65d}{pros::\+v5::\+\+Motor::\+get\+\_\+voltage\+\_\+limit\+\_\+all}} (void) const
+\item 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ \doxymbox{\hyperlink{group__cpp-motors_ga611d8ae7d96095498c3575e41a5d4984}{pros::\+v5::\+\+Motor::\+is\+\_\+reversed\+\_\+all}} (void) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gae33e1f68baf93ccaf1dc063ebe42c8a2}{pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode\+\_\+all}} (const \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} mode) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga608d95d3d2b3d03944ba30774f63b164}{pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode\+\_\+all}} (const pros::\+motor\+\_\+brake\+\_\+mode\+\_\+e\+\_\+t mode) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga18bff592d6229a43f23e06d8923c00f0}{pros::\+v5::\+\+Motor::\+set\+\_\+current\+\_\+limit\+\_\+all}} (const std::\+int32\+\_\+t limit) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga28e859c3edb1a32ab807fec37e16bc2e}{pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units\+\_\+all}} (const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} units) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga748ca54df8a11278bd2163072dc3379f}{pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units\+\_\+all}} (const pros::\+motor\+\_\+encoder\+\_\+units\+\_\+e\+\_\+t units) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga6be8007efca4c4faa7622b9da7899f37}{pros::\+v5::\+\+Motor::\+set\+\_\+gearing\+\_\+all}} (const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} gearset) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga56a90e2693e962b9630d35d4023fc548}{pros::\+v5::\+\+Motor::\+set\+\_\+gearing\+\_\+all}} (const pros::\+motor\+\_\+gearset\+\_\+e\+\_\+t gearset) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga6c705be89b0c9af22710877030d8cd9c}{pros::\+v5::\+\+Motor::\+set\+\_\+reversed\+\_\+all}} (const bool reverse)
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga656af4c546675cecda942f56f427c85a}{pros::\+v5::\+\+Motor::\+set\+\_\+voltage\+\_\+limit\+\_\+all}} (const std::\+int32\+\_\+t limit) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_ga62d7601bcdeb1c2424cc58c5ec37d1d3}{pros::\+v5::\+\+Motor::\+set\+\_\+zero\+\_\+position\+\_\+all}} (const double position) const
+\item 
+std::\+int32\+\_\+t \doxymbox{\hyperlink{group__cpp-motors_gaa1a5efbd55cdea690cef2bab6891b97d}{pros::\+v5::\+\+Motor::\+tare\+\_\+position\+\_\+all}} (void) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+Additional example code for this module can be found in its Tutorial.
+\end{DoxyNote}
+
+
+\label{doc-func-members}
+\Hypertarget{group__cpp-motors_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__cpp-motors_ga1bba4ab70560af1e4e98e373f79dd5c8}\index{Motors C++ API@{Motors C++ API}!brake@{brake}}
+\index{brake@{brake}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{brake()}{brake()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga1bba4ab70560af1e4e98e373f79dd5c8} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+brake (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Stops the motor using the currently configured brake mode.
+
+This function sets motor velocity to zero, which will cause it to act according to the set brake mode. If brake mode is set to MOTOR\+\_\+\+BRAKE\+\_\+\+HOLD, this function may behave differently than calling move\+\_\+absolute(0) or motor\+\_\+move\+\_\+relative(0).
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_gae09915ddb101c8b67f7a8dc2a360006c}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gac11cfa395c7cb1895adb2f269513762a}\index{Motors C++ API@{Motors C++ API}!get\_actual\_velocity@{get\_actual\_velocity}}
+\index{get\_actual\_velocity@{get\_actual\_velocity}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_actual\_velocity()}{get\_actual\_velocity()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gac11cfa395c7cb1895adb2f269513762a} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+actual\+\_\+velocity (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the actual velocity of the motor.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s actual velocity in RPM or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga24c533df70f750cbc4fe7d75784ec3a3}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga3737662dff2536f8fb9a3dfdcb10840c}\index{Motors C++ API@{Motors C++ API}!get\_actual\_velocity\_all@{get\_actual\_velocity\_all}}
+\index{get\_actual\_velocity\_all@{get\_actual\_velocity\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_actual\_velocity\_all()}{get\_actual\_velocity\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga3737662dff2536f8fb9a3dfdcb10840c} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+actual\+\_\+velocity\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the actual velocity commanded of the motor
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s actual velocity in RPM or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gadf03de076ea2b2e6f9e63e72155d96db}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gacb54fb8189a13f0e4c565eff910d4970}\index{Motors C++ API@{Motors C++ API}!get\_all\_devices@{get\_all\_devices}}
+\index{get\_all\_devices@{get\_all\_devices}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_all\_devices()}{get\_all\_devices()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gacb54fb8189a13f0e4c565eff910d4970} 
+std::\+vector$<$ \doxymbox{\hyperlink{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a}{Motor}} $>$ pros::\+v5::\+\+Motor::\+get\+\_\+all\+\_\+devices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets all motors.
+
+\begin{DoxyReturn}{Returns}
+A vector of \doxylink{classpros_1_1v5_1_1_motor}{Motor} objects.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-motors_gab76ee6d29b0edfdd62f2f7079d7d70cd}\index{Motors C++ API@{Motors C++ API}!get\_brake\_mode@{get\_brake\_mode}}
+\index{get\_brake\_mode@{get\_brake\_mode}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_brake\_mode()}{get\_brake\_mode()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gab76ee6d29b0edfdd62f2f7079d7d70cd} 
+\doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} pros::\+v5::\+\+Motor::\+get\+\_\+brake\+\_\+mode (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the brake mode that was set for the motor.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One of \doxylink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}, according to what was set for the motor, or E\+\_\+\+MOTOR\+\_\+\+BRAKE\+\_\+\+INVALID if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga2e096d274cd5834ca1e8fcf2dbfec2ba}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga758a7f0b109dd3fa2debe02c580cb61f}\index{Motors C++ API@{Motors C++ API}!get\_brake\_mode\_all@{get\_brake\_mode\_all}}
+\index{get\_brake\_mode\_all@{get\_brake\_mode\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_brake\_mode\_all()}{get\_brake\_mode\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga758a7f0b109dd3fa2debe02c580cb61f} 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}} $>$ pros::\+v5::\+\+Motor::\+get\+\_\+brake\+\_\+mode\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the brake mode that was set for the motor.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+One of Motor\+\_\+\+Brake, according to what was set for the motor, or E\+\_\+\+MOTOR\+\_\+\+BRAKE\+\_\+\+INVALID if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gae3b9fcfae4e50eb954263858578d0499}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaf4fd828e65850413f8c1f2e0044f4fb4}\index{Motors C++ API@{Motors C++ API}!get\_current\_draw@{get\_current\_draw}}
+\index{get\_current\_draw@{get\_current\_draw}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_current\_draw()}{get\_current\_draw()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaf4fd828e65850413f8c1f2e0044f4fb4} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+draw (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the current drawn by the motor in mA.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s current in mA or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gac1dce9c327e37f440c05c2dfa5eccaa4}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga9de2541513957ce781c5c8ca0879777c}\index{Motors C++ API@{Motors C++ API}!get\_current\_draw\_all@{get\_current\_draw\_all}}
+\index{get\_current\_draw\_all@{get\_current\_draw\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_current\_draw\_all()}{get\_current\_draw\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga9de2541513957ce781c5c8ca0879777c} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+draw\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the current drawn by the motor in mA.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s current in mA or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gac0d083e403b8b77844aceaf9c271741c}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gae0b708e0976b3b0542b8fd753662f33a}\index{Motors C++ API@{Motors C++ API}!get\_current\_limit@{get\_current\_limit}}
+\index{get\_current\_limit@{get\_current\_limit}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_current\_limit()}{get\_current\_limit()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gae0b708e0976b3b0542b8fd753662f33a} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+limit (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the current limit for the motor in mA.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s current limit in mA or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga3dc0f0e7adec867c59685fd06a9d81e1}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga5c607ca01eabdeba5c6b3f1be6459f47}\index{Motors C++ API@{Motors C++ API}!get\_current\_limit\_all@{get\_current\_limit\_all}}
+\index{get\_current\_limit\_all@{get\_current\_limit\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_current\_limit\_all()}{get\_current\_limit\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga5c607ca01eabdeba5c6b3f1be6459f47} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+current\+\_\+limit\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the current limit for the motor in mA.
+
+The default value is 2500 mA.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s current limit in mA or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga281f60c0a237188a8e64d7771b2b00ab}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga95b22eb681685034e181628d21492324}\index{Motors C++ API@{Motors C++ API}!get\_direction@{get\_direction}}
+\index{get\_direction@{get\_direction}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_direction()}{get\_direction()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga95b22eb681685034e181628d21492324} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+direction (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the direction of movement for the motor.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 for moving in the positive direction, -\/1 for moving in the negative direction, and PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga76379b1b375d3a99d0a6dc02798d2f26}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga645330f28a1c874244f28730891f5dbe}\index{Motors C++ API@{Motors C++ API}!get\_direction\_all@{get\_direction\_all}}
+\index{get\_direction\_all@{get\_direction\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_direction\_all()}{get\_direction\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga645330f28a1c874244f28730891f5dbe} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+direction\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the direction of movement for the motor.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing 1 for moving in the positive direction, -\/1 for moving in the negative direction, and PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga1eba3733a0830ca8b79aca41831b5440}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga9fbe92c743f3c2e9f0829108fc3744ed}\index{Motors C++ API@{Motors C++ API}!get\_efficiency@{get\_efficiency}}
+\index{get\_efficiency@{get\_efficiency}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_efficiency()}{get\_efficiency()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga9fbe92c743f3c2e9f0829108fc3744ed} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+efficiency (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the efficiency of the motor in percent.
+
+An efficiency of 100\% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0\% means that the motor is drawing power but not moving.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s efficiency in percent or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga1754513245417c70ba5a0a46d9d7f94a}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaeb2d3024cee9aa5e037961a44a2b5911}\index{Motors C++ API@{Motors C++ API}!get\_efficiency\_all@{get\_efficiency\_all}}
+\index{get\_efficiency\_all@{get\_efficiency\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_efficiency\_all()}{get\_efficiency\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaeb2d3024cee9aa5e037961a44a2b5911} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+efficiency\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the efficiency of the motor in percent.
+
+An efficiency of 100\% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0\% means that the motor is drawing power but not moving.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing The motor\textquotesingle{}s efficiency in percent or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gac4556df897062063ffd681578215bdfc}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaa361dbc6aeb7810b255b75493a74a905}\index{Motors C++ API@{Motors C++ API}!get\_encoder\_units@{get\_encoder\_units}}
+\index{get\_encoder\_units@{get\_encoder\_units}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_encoder\_units()}{get\_encoder\_units()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaa361dbc6aeb7810b255b75493a74a905} 
+\doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} pros::\+v5::\+\+Motor::\+get\+\_\+encoder\+\_\+units (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the encoder units that were set for the motor.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One of Motor\+Units according to what is set for the motor or E\+\_\+\+MOTOR\+\_\+\+ENCODER\+\_\+\+INVALID if the operation failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga53130a6ece0061481f7e9bf95cffc41b}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaeb81f949c2f821a36082b64e3a65130f}\index{Motors C++ API@{Motors C++ API}!get\_encoder\_units\_all@{get\_encoder\_units\_all}}
+\index{get\_encoder\_units\_all@{get\_encoder\_units\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_encoder\_units\_all()}{get\_encoder\_units\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaeb81f949c2f821a36082b64e3a65130f} 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}} $>$ pros::\+v5::\+\+Motor::\+get\+\_\+encoder\+\_\+units\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the encoder units that were set for the motor.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing One of Motor\+\_\+\+Units according to what is set for the motor or E\+\_\+\+MOTOR\+\_\+\+ENCODER\+\_\+\+INVALID if the operation failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga504d6cc6a9e6539aa343b506f9da8e56}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaf47e03332fe5f2832e4a9254de7cc73a}\index{Motors C++ API@{Motors C++ API}!get\_faults@{get\_faults}}
+\index{get\_faults@{get\_faults}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_faults()}{get\_faults()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaf47e03332fe5f2832e4a9254de7cc73a} 
+std::\+uint32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+faults (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the faults experienced by the motor.
+
+Compare this bitfield to the bitmasks in pros::\+motor\+\_\+fault\+\_\+e\+\_\+t.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bitfield containing the motor\textquotesingle{}s faults.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gabbf5b0ca2b75e6945cf71c66d5bba505}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga2bc8d94717c378b1372fad1bdeac2f24}\index{Motors C++ API@{Motors C++ API}!get\_faults\_all@{get\_faults\_all}}
+\index{get\_faults\_all@{get\_faults\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_faults\_all()}{get\_faults\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga2bc8d94717c378b1372fad1bdeac2f24} 
+std::\+vector$<$ std::\+uint32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+faults\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the faults experienced by the motor.
+
+Compare this bitfield to the bitmasks in pros::\+motor\+\_\+fault\+\_\+e\+\_\+t.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A bitfield containing the motor\textquotesingle{}s faults.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gaf98308568bafd02b284de749d6a15877}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga29a0f5d145a9878c8ae607659b468cfb}\index{Motors C++ API@{Motors C++ API}!get\_flags@{get\_flags}}
+\index{get\_flags@{get\_flags}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_flags()}{get\_flags()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga29a0f5d145a9878c8ae607659b468cfb} 
+std::\+uint32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+flags (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the flags set by the motor\textquotesingle{}s operation.
+
+Compare this bitfield to the bitmasks in pros::\+motor\+\_\+flag\+\_\+e\+\_\+t.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bitfield containing the motor\textquotesingle{}s flags.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gacc2f3f0066930632603d7ce5dbadc554}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga2f5686184d9363fa36a58397e85aab8a}\index{Motors C++ API@{Motors C++ API}!get\_flags\_all@{get\_flags\_all}}
+\index{get\_flags\_all@{get\_flags\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_flags\_all()}{get\_flags\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga2f5686184d9363fa36a58397e85aab8a} 
+std::\+vector$<$ std::\+uint32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+flags\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the flags set by the motor\textquotesingle{}s operation.
+
+Compare this bitfield to the bitmasks in pros::\+motor\+\_\+flag\+\_\+e\+\_\+t.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A bitfield containing the motor\textquotesingle{}s flags.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gaa9a361793bd19b77061fabd5d9b06d9a}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga7708eccb7adeb58941f1aa34f8c8c876}\index{Motors C++ API@{Motors C++ API}!get\_gearing@{get\_gearing}}
+\index{get\_gearing@{get\_gearing}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_gearing()}{get\_gearing()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga7708eccb7adeb58941f1aa34f8c8c876} 
+\doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} pros::\+v5::\+\+Motor::\+get\+\_\+gearing (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the gearset that was set for the motor.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+One of \doxylink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears} according to what is set for the motor, or \doxylink{namespacepros_a8ca3c52973478c29cde514b34fc8f24eafedb2d84cafe20862cb4399751a8a7e3}{pros::\+\+Motor\+Gears::\+invalid} if the operation failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gaf6e29c0ef02cafe2fa95f8c2ba776df2}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga6f5d9411a27adc3b777320bab70390a5}\index{Motors C++ API@{Motors C++ API}!get\_gearing\_all@{get\_gearing\_all}}
+\index{get\_gearing\_all@{get\_gearing\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_gearing\_all()}{get\_gearing\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga6f5d9411a27adc3b777320bab70390a5} 
+std::\+vector$<$ \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}} $>$ pros::\+v5::\+\+Motor::\+get\+\_\+gearing\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the gearset that was set for the motor.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing one of Motor\+\_\+\+Gears according to what is set for the motor, or pros::\+\+Motor\+\_\+\+Gears::\+invalid if the operation failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gaefe72a077fbeaa19598953035087a27e}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gae5a5b32625e0e12d863b7f61faefdaf2}\index{Motors C++ API@{Motors C++ API}!get\_port@{get\_port}}
+\index{get\_port@{get\_port}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_port()}{get\_port()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gae5a5b32625e0e12d863b7f61faefdaf2} 
+std::\+int8\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+port (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+gets the port number of the motor
+
+\begin{DoxyReturn}{Returns}
+The signed port of the motor. (negative if the motor is reversed) 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga0f034cb9e4132b3508ff4ce84ae96eb0}\index{Motors C++ API@{Motors C++ API}!get\_port\_all@{get\_port\_all}}
+\index{get\_port\_all@{get\_port\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_port\_all()}{get\_port\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga0f034cb9e4132b3508ff4ce84ae96eb0} 
+std::\+vector$<$ std::\+int8\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+port\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets returns a vector with all the port numbers in the motor group.
+
+\begin{DoxyReturn}{Returns}
+A vector containing the signed port of the motor. (negative if the motor is reversed) 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga1ec880e00b43c61aa2ce72804e391f87}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaf7ad2ce04c707f8b9546f99e21f44d73}\index{Motors C++ API@{Motors C++ API}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaf7ad2ce04c707f8b9546f99e21f44d73} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+position (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the absolute position of the motor in its encoder units.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s absolute position in its encoder units or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gad9fe87d31c5f5015295285cf782e9882}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga023ca0cad162b5083e57389d3557d7a6}\index{Motors C++ API@{Motors C++ API}!get\_position\_all@{get\_position\_all}}
+\index{get\_position\_all@{get\_position\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_position\_all()}{get\_position\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga023ca0cad162b5083e57389d3557d7a6} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+position\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the absolute position of the motor in its encoder units.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s absolute position in its encoder units or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gab99c893a74ec8b14f5379c7828c1fbec}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gad2a9349eeba882e234ae9fdd788a13b3}\index{Motors C++ API@{Motors C++ API}!get\_power@{get\_power}}
+\index{get\_power@{get\_power}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_power()}{get\_power()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gad2a9349eeba882e234ae9fdd788a13b3} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+power (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the power drawn by the motor in Watts.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s power draw in Watts or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga8c0e05eb6948cc666d4d92c43b3e578c}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga646f71cd9718074ceebaed30fd823516}\index{Motors C++ API@{Motors C++ API}!get\_power\_all@{get\_power\_all}}
+\index{get\_power\_all@{get\_power\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_power\_all()}{get\_power\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga646f71cd9718074ceebaed30fd823516} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+power\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the power drawn by the motor in Watts.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s power draw in Watts or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gab45f53c170c8328a9c980b7340e4c29c}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga24e7c37e75126a7c26ea92ba1e54e3f5}\index{Motors C++ API@{Motors C++ API}!get\_raw\_position@{get\_raw\_position}}
+\index{get\_raw\_position@{get\_raw\_position}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_raw\_position()}{get\_raw\_position()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga24e7c37e75126a7c26ea92ba1e54e3f5} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+raw\+\_\+position (\begin{DoxyParamCaption}\item[{std::\+uint32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{timestamp}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the raw encoder count of the motor at a given timestamp.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & A pointer to a time in milliseconds for which the encoder count will be returned. If NULL, the timestamp at which the encoder count was read will not be supplied\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The raw encoder count at the given timestamp or PROS\+\_\+\+ERR if the operation failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga5317afa42fbc441af3569b8433a398f8}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga55b91871ad9f31cdac410675bddf8b3b}\index{Motors C++ API@{Motors C++ API}!get\_raw\_position\_all@{get\_raw\_position\_all}}
+\index{get\_raw\_position\_all@{get\_raw\_position\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_raw\_position\_all()}{get\_raw\_position\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga55b91871ad9f31cdac410675bddf8b3b} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+raw\+\_\+position\+\_\+all (\begin{DoxyParamCaption}\item[{std::\+uint32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{timestamp}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the raw encoder count of the motor at a given timestamp.
+
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & A pointer to a time in milliseconds for which the encoder count will be returned. If NULL, the timestamp at which the encoder count was read will not be supplied\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing the raw encoder count at the given timestamp or PROS\+\_\+\+ERR if the operation failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga7a4328eea01e74dcdeaccc4b809cec69}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga924a787549945a4cc27dcebc3b8c078f}\index{Motors C++ API@{Motors C++ API}!get\_target\_position@{get\_target\_position}}
+\index{get\_target\_position@{get\_target\_position}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_target\_position()}{get\_target\_position()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga924a787549945a4cc27dcebc3b8c078f} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+position (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the target position set for the motor by the user
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The target position in its encoder units or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga37e118a21583be83aae7ee7e3b857b3f}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga727cc598acc2caa7790b56ef612aac47}\index{Motors C++ API@{Motors C++ API}!get\_target\_position\_all@{get\_target\_position\_all}}
+\index{get\_target\_position\_all@{get\_target\_position\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_target\_position\_all()}{get\_target\_position\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga727cc598acc2caa7790b56ef612aac47} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+position\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the target position set for the motor by the user
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the target position in its encoder units or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga9d30d5e5cfab74cefc34a9bd9cdd0f21}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga48ee6d108706749a3ed9a17276e92d5c}\index{Motors C++ API@{Motors C++ API}!get\_target\_velocity@{get\_target\_velocity}}
+\index{get\_target\_velocity@{get\_target\_velocity}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_target\_velocity()}{get\_target\_velocity()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga48ee6d108706749a3ed9a17276e92d5c} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+velocity (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the velocity commanded to the motor by the user at the index specified.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The commanded motor velocity from +-\/100, +-\/200, or +-\/600, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga12553236aac830e334b5ab160b198554}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaeafa3d747ff879cb468fd7bfbd8b6e4f}\index{Motors C++ API@{Motors C++ API}!get\_target\_velocity\_all@{get\_target\_velocity\_all}}
+\index{get\_target\_velocity\_all@{get\_target\_velocity\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_target\_velocity\_all()}{get\_target\_velocity\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaeafa3d747ff879cb468fd7bfbd8b6e4f} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+target\+\_\+velocity\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containing the velocity commanded to the motor by the user
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the commanded motor velocity from +-\/100, +-\/200, or +-\/600, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga67be86a4c4ad4d257d0fbbe1e4a3984a}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga83f44378bb40f4bf868982df837d1680}\index{Motors C++ API@{Motors C++ API}!get\_temperature@{get\_temperature}}
+\index{get\_temperature@{get\_temperature}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_temperature()}{get\_temperature()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga83f44378bb40f4bf868982df837d1680} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+temperature (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the temperature of the motor in degrees Celsius.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s temperature in degrees Celsius or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gaa1fa1c22a72dc8dc608db8e6ac75d7d7}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga70ead149e5040d5207050f0eee6e072a}\index{Motors C++ API@{Motors C++ API}!get\_temperature\_all@{get\_temperature\_all}}
+\index{get\_temperature\_all@{get\_temperature\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_temperature\_all()}{get\_temperature\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga70ead149e5040d5207050f0eee6e072a} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+temperature\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the temperature of the motor in degrees Celsius.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector contaioning the motor\textquotesingle{}s temperature in degrees Celsius or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga51ec8e1537b10cc3e4dfccb571a3e00a}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga579944bc16904e46b4992b9021edf6c6}\index{Motors C++ API@{Motors C++ API}!get\_torque@{get\_torque}}
+\index{get\_torque@{get\_torque}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_torque()}{get\_torque()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga579944bc16904e46b4992b9021edf6c6} 
+double pros::\+v5::\+\+Motor::\+get\+\_\+torque (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the torque generated by the motor in Newton Meters (Nm).
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s torque in Nm or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga32a4489f56b907bb61c64ea906bf48a8}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga41f1d25ac15a26ce7d0c8bb379a4ccd0}\index{Motors C++ API@{Motors C++ API}!get\_torque\_all@{get\_torque\_all}}
+\index{get\_torque\_all@{get\_torque\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_torque\_all()}{get\_torque\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga41f1d25ac15a26ce7d0c8bb379a4ccd0} 
+std::\+vector$<$ double $>$ pros::\+v5::\+\+Motor::\+get\+\_\+torque\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the torque generated by the motor in Newton Meters (Nm).
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s torque in Nm or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gab739c01bf7517b23ba615ad080e452ab}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaf9bf5ad44d6a6d2212ca69b9226e5793}\index{Motors C++ API@{Motors C++ API}!get\_voltage@{get\_voltage}}
+\index{get\_voltage@{get\_voltage}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_voltage()}{get\_voltage()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaf9bf5ad44d6a6d2212ca69b9226e5793} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+voltage (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the voltage delivered to the motor in millivolts.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The motor\textquotesingle{}s voltage in mV or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gad723b42015e981c91c759c15080a02a1}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gab504ec9ec6598f0c37cd6a3f0aad2b56}\index{Motors C++ API@{Motors C++ API}!get\_voltage\_all@{get\_voltage\_all}}
+\index{get\_voltage\_all@{get\_voltage\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_voltage\_all()}{get\_voltage\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gab504ec9ec6598f0c37cd6a3f0aad2b56} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+voltage\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the voltage delivered to the motor in millivolts.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector of the motor\textquotesingle{}s voltage in mV or PROS\+\_\+\+ERR\+\_\+F if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_ga87cf8f0c1498b3c13d1018a2863f91ec}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga219a52f874ad570bb8755be8e72bae8d}\index{Motors C++ API@{Motors C++ API}!get\_voltage\_limit@{get\_voltage\_limit}}
+\index{get\_voltage\_limit@{get\_voltage\_limit}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_voltage\_limit()}{get\_voltage\_limit()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga219a52f874ad570bb8755be8e72bae8d} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+get\+\_\+voltage\+\_\+limit (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the voltage limit set by the user.
+
+Default value is 0V, which means that there is no software limitation imposed on the voltage.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga4f009a967b462c564cb084fcc8aa39ac}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga21f30c44dd7b517cb40ab5cc3fb1b65d}\index{Motors C++ API@{Motors C++ API}!get\_voltage\_limit\_all@{get\_voltage\_limit\_all}}
+\index{get\_voltage\_limit\_all@{get\_voltage\_limit\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{get\_voltage\_limit\_all()}{get\_voltage\_limit\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga21f30c44dd7b517cb40ab5cc3fb1b65d} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+get\+\_\+voltage\+\_\+limit\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector of the voltage limit set by the user.
+
+Default value is 0V, which means that there is no software limitation imposed on the voltage.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing the motor\textquotesingle{}s voltage limit in V or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga948e31ec5d1577573ec138b24b77d12d}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga2c1a1a3e77eca5080bf2703968258b53}\index{Motors C++ API@{Motors C++ API}!is\_over\_current@{is\_over\_current}}
+\index{is\_over\_current@{is\_over\_current}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{is\_over\_current()}{is\_over\_current()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga2c1a1a3e77eca5080bf2703968258b53} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+current (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if the motor is drawing over its current limit.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the motor\textquotesingle{}s current limit is being exceeded and 0 if the current limit is not exceeded, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gadf40686434a6523193a031d9f1d745b9}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga21f6957de6036ea796485d27aa9a4900}\index{Motors C++ API@{Motors C++ API}!is\_over\_current\_all@{is\_over\_current\_all}}
+\index{is\_over\_current\_all@{is\_over\_current\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{is\_over\_current\_all()}{is\_over\_current\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga21f6957de6036ea796485d27aa9a4900} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+current\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if the motor is drawing over its current limit.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing 1 if the motor\textquotesingle{}s current limit is being exceeded and 0 if the current limit is not exceeded, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gadcfa3dbf1fa1cb97fd0ccde234712414}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga69381dc6326003da0fe87c33aa2352ee}\index{Motors C++ API@{Motors C++ API}!is\_over\_temp@{is\_over\_temp}}
+\index{is\_over\_temp@{is\_over\_temp}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{is\_over\_temp()}{is\_over\_temp()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga69381dc6326003da0fe87c33aa2352ee} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+temp (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the temperature limit flag for the motor.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the temperature limit is exceeded and 0 if the temperature is below the limit, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gabf2cc1edfd7c6ec8c8c514c8ef514ffe}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gadf83a1157e3cc4ef65145a660ac8c0c2}\index{Motors C++ API@{Motors C++ API}!is\_over\_temp\_all@{is\_over\_temp\_all}}
+\index{is\_over\_temp\_all@{is\_over\_temp\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{is\_over\_temp\_all()}{is\_over\_temp\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gadf83a1157e3cc4ef65145a660ac8c0c2} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+is\+\_\+over\+\_\+temp\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the temperature limit flag for the motor.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+A vector containing 1 if the temperature limit is exceeded and 0 if the temperature is below the limit, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-telemetry_gaca0d891dafc2de5cf848f856ecfe9015}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gae58e0ba260104982fdb9583139ba0609}\index{Motors C++ API@{Motors C++ API}!is\_reversed@{is\_reversed}}
+\index{is\_reversed@{is\_reversed}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{is\_reversed()}{is\_reversed()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gae58e0ba260104982fdb9583139ba0609} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+is\+\_\+reversed (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets whether the motor is reversed or not
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the motor has been reversed and 0 if the motor was not reversed, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gae4d3bb40a935f65e1315cb3493134a9a}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga611d8ae7d96095498c3575e41a5d4984}\index{Motors C++ API@{Motors C++ API}!is\_reversed\_all@{is\_reversed\_all}}
+\index{is\_reversed\_all@{is\_reversed\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{is\_reversed\_all()}{is\_reversed\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga611d8ae7d96095498c3575e41a5d4984} 
+std::\+vector$<$ std::\+int32\+\_\+t $>$ pros::\+v5::\+\+Motor::\+is\+\_\+reversed\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets a vector containg whether the motor is reversed or not
+
+\begin{DoxyReturn}{Returns}
+A vector containing 1 if the motor has been reversed and 0 if the motor was not reversed, or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga39b5cb33c5209825c829c56f3de84f06}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga90153729de78b74e23d59cfdf2fcdead}\index{Motors C++ API@{Motors C++ API}!modify\_profiled\_velocity@{modify\_profiled\_velocity}}
+\index{modify\_profiled\_velocity@{modify\_profiled\_velocity}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{modify\_profiled\_velocity()}{modify\_profiled\_velocity()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga90153729de78b74e23d59cfdf2fcdead} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+modify\+\_\+profiled\+\_\+velocity (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{velocity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Changes the output velocity for a profiled movement (motor\+\_\+move\+\_\+absolute or motor\+\_\+move\+\_\+relative). This will have no effect if the motor is not following a profiled movement.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity} & The new motor velocity from +-\/100, +-\/200, or +-\/600 depending on the motor\textquotesingle{}s gearset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga7d8629733472ac56d54efa990d5c2fd7}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a}\index{Motors C++ API@{Motors C++ API}!Motor@{Motor}}
+\index{Motor@{Motor}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{Motor()}{Motor()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga224f5c7f390db0e9b75fb96d541b2a1a} 
+pros::\+v5::\+\+Motor::\+\+Motor (\begin{DoxyParamCaption}\item[{const std::\+int8\+\_\+t}]{port}{, }\item[{const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{pros::\+v5::\+\+Motor\+Gears}}}]{gearset}{ = {\ttfamily pros:\+:\+v5:\+:\+MotorGears:\+:\+invalid}, }\item[{const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{pros::\+v5::\+\+Motor\+Units}}}]{encoder\+\_\+units}{ = {\ttfamily pros:\+:\+v5:\+:\+MotorUnits:\+:\+invalid}}\end{DoxyParamCaption})}
+
+Constructs a new \doxylink{classpros_1_1v5_1_1_motor}{Motor} object.
+
+This function uses the following values of errno when an error state is reached:\+ ENXIO -\/ The given value is not within the range of V5 ports \texorpdfstring{$\vert$}{|}1-\/21\texorpdfstring{$\vert$}{|}. ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1 to 21, or from -\/21 to -\/1 for reversed motors. A reversed motor will reverse the input or output movement functions and movement related telemetry in order to produce consistant behavior with non-\/reversed motors\\
+\hline
+{\em gearset} & = pros::\+v5::\+\+Motor\+Gears::\+green Optional parameter for the gearset for the motor. Does not explicitly set the gearset if not specified or if the gearset is invalid\\
+\hline
+{\em encoder\+\_\+units} & = pros::\+v5::\+\+Motor\+Units::\+degrees Optional parameter for the encoder units of the motor Does not explicitly set the gearset if not specified or if the gearset is invalid\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-motors_ga73c3d1ed05efeee76ba13ab4236aa26f}\index{Motors C++ API@{Motors C++ API}!move@{move}}
+\index{move@{move}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga73c3d1ed05efeee76ba13ab4236aa26f} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+move (\begin{DoxyParamCaption}\item[{std::\+int32\+\_\+t}]{voltage}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the voltage for the motor from -\/127 to 127.
+
+This is designed to map easily to the input from the controller\textquotesingle{}s analog stick for simple opcontrol use. The actual behavior of the motor is analogous to use of \doxylink{group__c-motors_ga4599c4456e8c9ffeeb5e920d58ad1688}{motor\+\_\+move()}.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em voltage} & The new motor voltage from -\/127 to 127\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga6a207250783ab90bf65bec0d50ea9082}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gacc8345014ebfae0936bb175ca315f378}\index{Motors C++ API@{Motors C++ API}!move\_absolute@{move\_absolute}}
+\index{move\_absolute@{move\_absolute}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{move\_absolute()}{move\_absolute()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gacc8345014ebfae0936bb175ca315f378} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+move\+\_\+absolute (\begin{DoxyParamCaption}\item[{const double}]{position}{, }\item[{const std::\+int32\+\_\+t}]{velocity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the target absolute position for the motor to move to.
+
+This movement is relative to the position of the motor when initialized or the position when it was most recently reset with \doxylink{group__cpp-motor-configuration_ga7f43155e5702e311fc9c909d5e4b15e3}{pros::\+\+Motor::\+set\+\_\+zero\+\_\+position()}.
+
+\begin{DoxyNote}{Note}
+This function simply sets the target for the motor, it does not block program execution until the movement finishes.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The absolute position to move to in the motor\textquotesingle{}s encoder units \\
+\hline
+{\em velocity} & The maximum allowable velocity for the movement in RPM\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_gade7cffd4fd435614a42e61d3c9a475a9}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga6e9b21dfbd6d6065f56615351589540b}\index{Motors C++ API@{Motors C++ API}!move\_relative@{move\_relative}}
+\index{move\_relative@{move\_relative}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{move\_relative()}{move\_relative()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga6e9b21dfbd6d6065f56615351589540b} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+move\+\_\+relative (\begin{DoxyParamCaption}\item[{const double}]{position}{, }\item[{const std::\+int32\+\_\+t}]{velocity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the relative target position for the motor to move to.
+
+This movement is relative to the current position of the motor as given in pros::\+\+Motor::\+motor\+\_\+get\+\_\+position(). Providing 10.\+0 as the position parameter would result in the motor moving clockwise 10 units (counter clockwise if reversed), no matter what the current position is.
+
+\begin{DoxyNote}{Note}
+This function simply sets the target for the motor, it does not block program execution until the movement finishes.
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The relative position to move to in the motor\textquotesingle{}s encoder units \\
+\hline
+{\em velocity} & The maximum allowable velocity for the movement in RPM\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga83aa693ba90e3b6b8a845fda45dab4af}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gab4e59fa2f764f6b54a0343e799dbb381}\index{Motors C++ API@{Motors C++ API}!move\_velocity@{move\_velocity}}
+\index{move\_velocity@{move\_velocity}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{move\_velocity()}{move\_velocity()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gab4e59fa2f764f6b54a0343e799dbb381} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+move\+\_\+velocity (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{velocity}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the velocity for the motor.
+
+This velocity corresponds to different actual speeds depending on the gearset used for the motor. This results in a range of +-\/100 for E\+\_\+\+MOTOR\+\_\+\+GEARSET\+\_\+36, +-\/200 for E\+\_\+\+MOTOR\+\_\+\+GEARSET\+\_\+18, and +-\/600 for E\+\_\+\+MOTOR\+\_\+\+GEARSET\+\_\+6. The velocity is held with PID to ensure consistent speed, as opposed to setting the motor\textquotesingle{}s voltage.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity} & The new motor velocity from -\/+-\/100, +-\/200, or +-\/600 depending on the motor\textquotesingle{}s gearset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga1d5fcffe6783b6503a0d8896d1af3306}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga8b51645eff3c373926152976826944dc}\index{Motors C++ API@{Motors C++ API}!move\_voltage@{move\_voltage}}
+\index{move\_voltage@{move\_voltage}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{move\_voltage()}{move\_voltage()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga8b51645eff3c373926152976826944dc} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+move\+\_\+voltage (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{voltage}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the output voltage for the motor from -\/12000 to 12000 in millivolts.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & The V5 port number from 1-\/21 \\
+\hline
+{\em voltage} & The new voltage value from -\/12000 to 12000\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-abstract-motor_ga3424a23c48a68b9df9662b280689f57b}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga68d85bff75a4da45a9019e0449e1703b}\index{Motors C++ API@{Motors C++ API}!operator"{}"{}\_mtr@{operator""""\_mtr}}
+\index{operator"{}"{}\_mtr@{operator""""\_mtr}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{operator""""\_mtr()}{operator""\_mtr()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga68d85bff75a4da45a9019e0449e1703b} 
+const \doxymbox{\hyperlink{classpros_1_1v5_1_1_motor}{pros::\+\+Motor}} pros::\+v5::\+literals::\+operator"{}"{}\+\_\+mtr (\begin{DoxyParamCaption}\item[{const unsigned long long int}]{m}{}\end{DoxyParamCaption})}
+
+Constructs a \doxylink{classpros_1_1v5_1_1_motor}{Motor} from a literal ending in \+\_\+mtr
+
+\begin{DoxyReturn}{Returns}
+a \doxylink{classpros_1_1v5_1_1_motor}{pros::\+\+Motor} for the corresponding port
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-motors_gada0f69d38dd1f1e8af907dccaf48afb7}\index{Motors C++ API@{Motors C++ API}!operator"{}"{}\_rmtr@{operator""""\_rmtr}}
+\index{operator"{}"{}\_rmtr@{operator""""\_rmtr}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{operator""""\_rmtr()}{operator""\_rmtr()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gada0f69d38dd1f1e8af907dccaf48afb7} 
+const \doxymbox{\hyperlink{classpros_1_1v5_1_1_motor}{pros::\+\+Motor}} pros::\+v5::\+literals::\+operator"{}"{}\+\_\+rmtr (\begin{DoxyParamCaption}\item[{const unsigned long long int}]{m}{}\end{DoxyParamCaption})}
+
+Constructs a reversed \doxylink{classpros_1_1v5_1_1_motor}{Motor} from a literal ending in \+\_\+rmtr
+
+\begin{DoxyReturn}{Returns}
+a \doxylink{classpros_1_1v5_1_1_motor}{pros::\+\+Motor} for the corresponding port that is reversed
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__cpp-motors_gacb8d2f518f2788bb05cb714534491458}\index{Motors C++ API@{Motors C++ API}!set\_brake\_mode@{set\_brake\_mode}}
+\index{set\_brake\_mode@{set\_brake\_mode}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_brake\_mode()}{set\_brake\_mode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gacb8d2f518f2788bb05cb714534491458} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}}}]{mode}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+\_\+\+Brake to the motor. \begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The \doxylink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake} to set for the motor\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga5872ea79f6fba0612dd3bfd2a9ae4fea}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga3c80c84f6319d0b096b52a2ea10bd0b6}\index{Motors C++ API@{Motors C++ API}!set\_brake\_mode@{set\_brake\_mode}}
+\index{set\_brake\_mode@{set\_brake\_mode}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_brake\_mode()}{set\_brake\_mode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga3c80c84f6319d0b096b52a2ea10bd0b6} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode (\begin{DoxyParamCaption}\item[{const pros::\+motor\+\_\+brake\+\_\+mode\+\_\+e\+\_\+t}]{mode}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of \doxylink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake} to the motor. \begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The \doxylink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake} to set for the motor\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gae33e1f68baf93ccaf1dc063ebe42c8a2}\index{Motors C++ API@{Motors C++ API}!set\_brake\_mode\_all@{set\_brake\_mode\_all}}
+\index{set\_brake\_mode\_all@{set\_brake\_mode\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_brake\_mode\_all()}{set\_brake\_mode\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gae33e1f68baf93ccaf1dc063ebe42c8a2} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode\+\_\+all (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacepros_aab8bc95b5a648f3f53437bb9b2734a91}{Motor\+Brake}}}]{mode}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+\_\+\+Brake to the motor.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The Motor\+\_\+\+Brake to set for the motor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga608d95d3d2b3d03944ba30774f63b164}\index{Motors C++ API@{Motors C++ API}!set\_brake\_mode\_all@{set\_brake\_mode\_all}}
+\index{set\_brake\_mode\_all@{set\_brake\_mode\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_brake\_mode\_all()}{set\_brake\_mode\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga608d95d3d2b3d03944ba30774f63b164} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+brake\+\_\+mode\+\_\+all (\begin{DoxyParamCaption}\item[{const pros::\+motor\+\_\+brake\+\_\+mode\+\_\+e\+\_\+t}]{mode}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+\_\+\+Brake to the motor.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The Motor\+\_\+\+Brake to set for the motor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gac36974069ae8581a9944a439c8e3fa92}\index{Motors C++ API@{Motors C++ API}!set\_current\_limit@{set\_current\_limit}}
+\index{set\_current\_limit@{set\_current\_limit}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_current\_limit()}{set\_current\_limit()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gac36974069ae8581a9944a439c8e3fa92} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+current\+\_\+limit (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{limit}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the current limit for the motor in mA.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The new current limit in mA\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga0b1c7e60e6a7719874597acd2bf7c8bd}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga18bff592d6229a43f23e06d8923c00f0}\index{Motors C++ API@{Motors C++ API}!set\_current\_limit\_all@{set\_current\_limit\_all}}
+\index{set\_current\_limit\_all@{set\_current\_limit\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_current\_limit\_all()}{set\_current\_limit\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga18bff592d6229a43f23e06d8923c00f0} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+current\+\_\+limit\+\_\+all (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{limit}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the current limit for the motor in mA.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The new current limit in mA\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga694102afd4c591c0d94dad5efbe7bea3}\index{Motors C++ API@{Motors C++ API}!set\_encoder\_units@{set\_encoder\_units}}
+\index{set\_encoder\_units@{set\_encoder\_units}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_encoder\_units()}{set\_encoder\_units()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga694102afd4c591c0d94dad5efbe7bea3} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}}}]{units}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+Units for the motor encoder. Works with the C enum and the C++ enum class.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em units} & The new motor encoder units\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gab92a30f1941aa684ffeff99f19d77739}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gab7ba616a29ea7f511cc0f0cb226e448f}\index{Motors C++ API@{Motors C++ API}!set\_encoder\_units@{set\_encoder\_units}}
+\index{set\_encoder\_units@{set\_encoder\_units}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_encoder\_units()}{set\_encoder\_units()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gab7ba616a29ea7f511cc0f0cb226e448f} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units (\begin{DoxyParamCaption}\item[{const pros::\+motor\+\_\+encoder\+\_\+units\+\_\+e\+\_\+t}]{units}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+Units for the motor encoder. Works with the C enum and the C++ enum class.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em units} & The new motor encoder units\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga28e859c3edb1a32ab807fec37e16bc2e}\index{Motors C++ API@{Motors C++ API}!set\_encoder\_units\_all@{set\_encoder\_units\_all}}
+\index{set\_encoder\_units\_all@{set\_encoder\_units\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_encoder\_units\_all()}{set\_encoder\_units\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga28e859c3edb1a32ab807fec37e16bc2e} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units\+\_\+all (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacepros_a5d68f6e831b560a0beb982fd45159261}{Motor\+Units}}}]{units}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+\_\+\+Units for the motor encoder. Works with the C enum and the C++ enum class.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyItemize}
+\item 
+\begin{DoxyParams}{Parameters}
+{\em units} & The new motor encoder units\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+\end{DoxyItemize}
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga748ca54df8a11278bd2163072dc3379f}\index{Motors C++ API@{Motors C++ API}!set\_encoder\_units\_all@{set\_encoder\_units\_all}}
+\index{set\_encoder\_units\_all@{set\_encoder\_units\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_encoder\_units\_all()}{set\_encoder\_units\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga748ca54df8a11278bd2163072dc3379f} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+encoder\+\_\+units\+\_\+all (\begin{DoxyParamCaption}\item[{const pros::\+motor\+\_\+encoder\+\_\+units\+\_\+e\+\_\+t}]{units}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of Motor\+\_\+\+Units for the motor encoder. Works with the C enum and the C++ enum class.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em units} & The new motor encoder units\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaa29f7c743af261895a91562bd746aa0f}\index{Motors C++ API@{Motors C++ API}!set\_gearing@{set\_gearing}}
+\index{set\_gearing@{set\_gearing}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_gearing()}{set\_gearing()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaa29f7c743af261895a91562bd746aa0f} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+gearing (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}}}]{gearset}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of the gear cartridge (red, green, blue) for the motor. Usable with the C++ enum class and the C enum.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index \\
+\hline
+{\em gearset} & The new motor gearset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gac3b52a283dbc354e038f7da4d53d1c45}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gafc40159400f09f8aa44b5db420d64376}\index{Motors C++ API@{Motors C++ API}!set\_gearing@{set\_gearing}}
+\index{set\_gearing@{set\_gearing}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_gearing()}{set\_gearing()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gafc40159400f09f8aa44b5db420d64376} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+gearing (\begin{DoxyParamCaption}\item[{const pros::\+motor\+\_\+gearset\+\_\+e\+\_\+t}]{gearset}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of the gear cartridge (red, green, blue) for the motor. Usable with the C++ enum class and the C enum.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em gearset} & The new motor gearset\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga6be8007efca4c4faa7622b9da7899f37}\index{Motors C++ API@{Motors C++ API}!set\_gearing\_all@{set\_gearing\_all}}
+\index{set\_gearing\_all@{set\_gearing\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_gearing\_all()}{set\_gearing\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga6be8007efca4c4faa7622b9da7899f37} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+gearing\+\_\+all (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{namespacepros_a8ca3c52973478c29cde514b34fc8f24e}{Motor\+Gears}}}]{gearset}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of the gear cartridge (red, green, blue) for the motor. Usable with the C++ enum class and the C enum.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em gearset} & The new motor gearset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga56a90e2693e962b9630d35d4023fc548}\index{Motors C++ API@{Motors C++ API}!set\_gearing\_all@{set\_gearing\_all}}
+\index{set\_gearing\_all@{set\_gearing\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_gearing\_all()}{set\_gearing\_all()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga56a90e2693e962b9630d35d4023fc548} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+gearing\+\_\+all (\begin{DoxyParamCaption}\item[{const pros::\+motor\+\_\+gearset\+\_\+e\+\_\+t}]{gearset}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets one of the gear cartridge (red, green, blue) for the motor. Usable with the C++ enum class and the C enum.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em gearset} & The new motor gearset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaa18f4304efd9d681edf1196347ce0e7b}\index{Motors C++ API@{Motors C++ API}!set\_reversed@{set\_reversed}}
+\index{set\_reversed@{set\_reversed}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_reversed()}{set\_reversed()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaa18f4304efd9d681edf1196347ce0e7b} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+reversed (\begin{DoxyParamCaption}\item[{const bool}]{reverse}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the reverse flag for the motor.
+
+This will invert its movements and the values returned for its position.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em reverse} & True reverses the motor, false is default direction\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga668545767bdf491b5ae0ccfe3b2ade34}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga6c705be89b0c9af22710877030d8cd9c}\index{Motors C++ API@{Motors C++ API}!set\_reversed\_all@{set\_reversed\_all}}
+\index{set\_reversed\_all@{set\_reversed\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_reversed\_all()}{set\_reversed\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga6c705be89b0c9af22710877030d8cd9c} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+reversed\+\_\+all (\begin{DoxyParamCaption}\item[{const bool}]{reverse}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the reverse flag for the motor.
+
+This will invert its movements and the values returned for its position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em reverse} & True reverses the motor, false is default direction\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga91fcd566fe69325e9bfa232a9e3c46ae}\index{Motors C++ API@{Motors C++ API}!set\_voltage\_limit@{set\_voltage\_limit}}
+\index{set\_voltage\_limit@{set\_voltage\_limit}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_voltage\_limit()}{set\_voltage\_limit()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga91fcd566fe69325e9bfa232a9e3c46ae} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+voltage\+\_\+limit (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{limit}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the voltage limit for the motor in Volts.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The new voltage limit in Volts\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gaa802c898f1cfa7ef7ff0c66d387d6935}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga656af4c546675cecda942f56f427c85a}\index{Motors C++ API@{Motors C++ API}!set\_voltage\_limit\_all@{set\_voltage\_limit\_all}}
+\index{set\_voltage\_limit\_all@{set\_voltage\_limit\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_voltage\_limit\_all()}{set\_voltage\_limit\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga656af4c546675cecda942f56f427c85a} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+voltage\+\_\+limit\+\_\+all (\begin{DoxyParamCaption}\item[{const std::\+int32\+\_\+t}]{limit}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the voltage limit for the motor in Volts.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em limit} & The new voltage limit in Volts\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga99595f4b9744d8ca6f3949ec10a01c3c}\index{Motors C++ API@{Motors C++ API}!set\_zero\_position@{set\_zero\_position}}
+\index{set\_zero\_position@{set\_zero\_position}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_zero\_position()}{set\_zero\_position()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga99595f4b9744d8ca6f3949ec10a01c3c} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+zero\+\_\+position (\begin{DoxyParamCaption}\item[{const double}]{position}{, }\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the position for the motor in its encoder units.
+
+This will be the future reference point for the motor\textquotesingle{}s "{}absolute"{} position.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The new reference position in its encoder units\\
+\hline
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga7f43155e5702e311fc9c909d5e4b15e3}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga62d7601bcdeb1c2424cc58c5ec37d1d3}\index{Motors C++ API@{Motors C++ API}!set\_zero\_position\_all@{set\_zero\_position\_all}}
+\index{set\_zero\_position\_all@{set\_zero\_position\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{set\_zero\_position\_all()}{set\_zero\_position\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga62d7601bcdeb1c2424cc58c5ec37d1d3} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+set\+\_\+zero\+\_\+position\+\_\+all (\begin{DoxyParamCaption}\item[{const double}]{position}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the position for the motor in its encoder units.
+
+This will be the future reference point for the motor\textquotesingle{}s "{}absolute"{} position.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The new reference position in its encoder units\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_ga0ece07fb8db217583926b601194f20a6}\index{Motors C++ API@{Motors C++ API}!size@{size}}
+\index{size@{size}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_ga0ece07fb8db217583926b601194f20a6} 
+std::\+int8\+\_\+t pros::\+v5::\+\+Motor::\+size (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the number of motors.
+
+\begin{DoxyReturn}{Returns}
+Always returns 1 
+\end{DoxyReturn}
+
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_gad1b493574d455de8552ae223400bf51d}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gabc3147bc4c20cd07d35fed30c6badd9f}\index{Motors C++ API@{Motors C++ API}!tare\_position@{tare\_position}}
+\index{tare\_position@{tare\_position}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{tare\_position()}{tare\_position()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gabc3147bc4c20cd07d35fed30c6badd9f} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+tare\+\_\+position (\begin{DoxyParamCaption}\item[{const std::\+uint8\+\_\+t}]{index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the "{}absolute"{} zero position of the motor to its current position.
+
+\begin{DoxyNote}{Note}
+This is one of many \doxylink{classpros_1_1v5_1_1_motor}{Motor} functions that takes in an optional index parameter. This parameter can be ignored by most users but exists to give a shared base class for motors and motor groups
+\end{DoxyNote}
+This function uses the following values of errno when an error state is reached:\+
+
+ENODEV -\/ The port cannot be configured as a motor
+
+EOVERFLOW -\/ The index is non 0
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Optional parameter. The zero-\/indexed index of the motor to get the target position of. By default index is 0, and will return an error for a non-\/zero index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{group__cpp-motor-configuration_ga94567bf6ad9150abbc0f7efa25bf46e3}{pros::\+v5::\+\+Abstract\+Motor}}.
+
+\Hypertarget{group__cpp-motors_gaa1a5efbd55cdea690cef2bab6891b97d}\index{Motors C++ API@{Motors C++ API}!tare\_position\_all@{tare\_position\_all}}
+\index{tare\_position\_all@{tare\_position\_all}!Motors C++ API@{Motors C++ API}}
+\doxysubsubsection{\texorpdfstring{tare\_position\_all()}{tare\_position\_all()}}
+{\footnotesize\ttfamily \label{group__cpp-motors_gaa1a5efbd55cdea690cef2bab6891b97d} 
+std::\+int32\+\_\+t pros::\+v5::\+\+Motor::\+tare\+\_\+position\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the "{}absolute"{} zero position of the motor to its current position.
+
+This function uses the following values of errno when an error state is reached:\+ ENODEV -\/ The port cannot be configured as a motor
+
+\begin{DoxyReturn}{Returns}
+1 if the operation was successful or PROS\+\_\+\+ERR if the operation failed, setting errno.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 
+
+Implements \doxymbox{\hyperlink{classpros_1_1v5_1_1_abstract_motor}{pros::\+v5::\+\+Abstract\+Motor}}.
+

@@ -1,0 +1,90 @@
+.TH "okapi::VelMathFactory" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::VelMathFactory
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBVelMath\fP \fBcreate\fP (double iticksPerRev, QTime isampleTime=0_ms, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static std::unique_ptr< \fBVelMath\fP > \fBcreatePtr\fP (double iticksPerRev, QTime isampleTime=0_ms, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static \fBVelMath\fP \fBcreate\fP (double iticksPerRev, std::unique_ptr< \fBFilter\fP > ifilter, QTime isampleTime=0_ms, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.ti -1c
+.RI "static std::unique_ptr< \fBVelMath\fP > \fBcreatePtr\fP (double iticksPerRev, std::unique_ptr< \fBFilter\fP > ifilter, QTime isampleTime=0_ms, const std::shared_ptr< \fBLogger\fP > &ilogger=\fBLogger::getDefaultLogger\fP())"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBVelMath\fP okapi::VelMathFactory::create (double iticksPerRev, QTime isampleTime = \fR0_ms\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity math helper\&. Calculates filtered velocity\&. Throws a std::invalid_argument exception if iticksPerRev is zero\&. Averages the last two readings\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiticksPerRev\fP The number of ticks per revolution\&. 
+.br
+\fIisampleTime\fP The minimum time between samples\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "\fBVelMath\fP okapi::VelMathFactory::create (double iticksPerRev, std::unique_ptr< \fBFilter\fP > ifilter, QTime isampleTime = \fR0_ms\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity math helper\&. Calculates filtered velocity\&. Throws a std::invalid_argument exception if iticksPerRev is zero\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiticksPerRev\fP The number of ticks per revolution\&. 
+.br
+\fIifilter\fP The filter used for filtering the calculated velocity\&. 
+.br
+\fIisampleTime\fP The minimum time between samples\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "std::unique_ptr< \fBVelMath\fP > okapi::VelMathFactory::createPtr (double iticksPerRev, QTime isampleTime = \fR0_ms\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity math helper\&. Calculates filtered velocity\&. Throws a std::invalid_argument exception if iticksPerRev is zero\&. Averages the last two readings\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiticksPerRev\fP The number of ticks per revolution\&. 
+.br
+\fIisampleTime\fP The minimum time between samples\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+.SS "std::unique_ptr< \fBVelMath\fP > okapi::VelMathFactory::createPtr (double iticksPerRev, std::unique_ptr< \fBFilter\fP > ifilter, QTime isampleTime = \fR0_ms\fP, const std::shared_ptr< \fBLogger\fP > & ilogger = \fR\fBLogger::getDefaultLogger\fP()\fP)\fR [static]\fP"
+Velocity math helper\&. Calculates filtered velocity\&. Throws a std::invalid_argument exception if iticksPerRev is zero\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiticksPerRev\fP The number of ticks per revolution\&. 
+.br
+\fIifilter\fP The filter used for filtering the calculated velocity\&. 
+.br
+\fIisampleTime\fP The minimum time between samples\&. 
+.br
+\fIilogger\fP The logger this instance will log to\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

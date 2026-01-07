@@ -1,0 +1,163 @@
+.TH "include/liblvgl/misc/lv_mem.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_mem.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+\fR#include 'lv_types\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlv_mem_monitor_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_mem_buf_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBlv_mem_buf_t\fP \fBlv_mem_buf_arr_t\fP[LV_MEM_BUF_MAX_NUM]"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlv_mem_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_mem_deinit\fP (void)"
+.br
+.ti -1c
+.RI "void * \fBlv_mem_alloc\fP (size_t size)"
+.br
+.ti -1c
+.RI "void \fBlv_mem_free\fP (void *data)"
+.br
+.ti -1c
+.RI "void * \fBlv_mem_realloc\fP (void *data_p, size_t new_size)"
+.br
+.ti -1c
+.RI "lv_res_t \fBlv_mem_test\fP (void)"
+.br
+.ti -1c
+.RI "void \fBlv_mem_monitor\fP (\fBlv_mem_monitor_t\fP *mon_p)"
+.br
+.ti -1c
+.RI "void * \fBlv_mem_buf_get\fP (uint32_t size)"
+.br
+.ti -1c
+.RI "void \fBlv_mem_buf_release\fP (void *p)"
+.br
+.ti -1c
+.RI "void \fBlv_mem_buf_free_all\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void * lv_mem_alloc (size_t size)"
+Allocate a memory dynamically 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP size of the memory to allocate in bytes 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the allocated memory 
+.RE
+.PP
+
+.SS "void lv_mem_buf_free_all (void )"
+Free all memory buffers 
+.SS "void * lv_mem_buf_get (uint32_t size)"
+Get a temporal buffer with the given size\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP the required size 
+.RE
+.PP
+
+.SS "void lv_mem_buf_release (void * p)"
+Release a memory buffer 
+.PP
+\fBParameters\fP
+.RS 4
+\fIp\fP buffer to release 
+.RE
+.PP
+
+.SS "void lv_mem_deinit (void )"
+Clean up the memory buffer which frees all the allocated memories\&. 
+.PP
+\fBNote\fP
+.RS 4
+It work only if \fRLV_MEM_CUSTOM == 0\fP 
+.RE
+.PP
+
+.SS "void lv_mem_free (void * data)"
+Free an allocated data 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP pointer to an allocated memory 
+.RE
+.PP
+
+.SS "void lv_mem_init (void )"
+Initialize the dyn_mem module (work memory and other variables) 
+.SS "void lv_mem_monitor (\fBlv_mem_monitor_t\fP * mon_p)"
+Give information about the work memory of dynamic allocation 
+.PP
+\fBParameters\fP
+.RS 4
+\fImon_p\fP pointer to a \fBlv_mem_monitor_t\fP variable, the result of the analysis will be stored here 
+.RE
+.PP
+
+.SS "void * lv_mem_realloc (void * data_p, size_t new_size)"
+Reallocate a memory with a new size\&. The old content will be kept\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP pointer to an allocated memory\&. Its content will be copied to the new memory block and freed 
+.br
+\fInew_size\fP the desired new size in byte 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+pointer to the new memory, NULL on failure 
+.RE
+.PP
+
+.SS "lv_res_t lv_mem_test (void )"
+
+.PP
+\fBReturns\fP
+.RS 4
+
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

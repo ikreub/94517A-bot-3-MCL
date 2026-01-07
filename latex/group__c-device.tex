@@ -1,0 +1,151 @@
+\doxysection{VEX Generic Device C API (For Advanced Users) }
+\hypertarget{group__c-device}{}\label{group__c-device}\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__c-device_ga411015851cfc982d345c3447edd2c468}\label{group__c-device_ga411015851cfc982d345c3447edd2c468} 
+typedef enum \doxymbox{\hyperlink{group__c-device_gaaba853cd2f7eed658c07dafd7cc41a45}{v5\+\_\+device\+\_\+e}} {\bfseries v5\+\_\+device\+\_\+e\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group__c-device_gaaba853cd2f7eed658c07dafd7cc41a45}{v5\+\_\+device\+\_\+e}} \{ \newline
+\doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a929153c5f75689b1d957d06074b5fae8}{E\+\_\+\+DEVICE\+\_\+\+NONE}} = 0
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a467b42f234e0a690ffe8cb36136afd8a}{E\+\_\+\+DEVICE\+\_\+\+MOTOR}} = 2
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45ae9951d109e5a13e91fa928aca02b8882}{E\+\_\+\+DEVICE\+\_\+\+ROTATION}} = 4
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a3eb6fb1ce8dc100664a443aab43a8a45}{E\+\_\+\+DEVICE\+\_\+\+IMU}} = 6
+, \newline
+\doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45acb1d4484e6d3c426554103850ffd0558}{E\+\_\+\+DEVICE\+\_\+\+DISTANCE}} = 7
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a42aa9d24679cd762cb25dea691bac391}{E\+\_\+\+DEVICE\+\_\+\+RADIO}} = 8
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a32cb9f019c5d7a71a891efd00382f223}{E\+\_\+\+DEVICE\+\_\+\+VISION}} = 11
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45aaf0a34b25623b86363823c284133b1e1}{E\+\_\+\+DEVICE\+\_\+\+ADI}} = 12
+, \newline
+\doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45af335796b1126951c9fa1aba19987b0b9}{E\+\_\+\+DEVICE\+\_\+\+OPTICAL}} = 16
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a1188eeeddb1369a5b208366aeb612ee5}{E\+\_\+\+DEVICE\+\_\+\+GPS}} = 20
+, \doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a9512b3799968456e47dfa3e8c8957094}{E\+\_\+\+DEVICE\+\_\+\+SERIAL}} = 129
+, {\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} =((deprecated("{}use E\+\_\+\+DEVICE\+\_\+\+SERIAL instead"{}))) = E\+\_\+\+DEVICE\+\_\+\+SERIAL
+, \newline
+\doxymbox{\hyperlink{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a4a089975a8d1abaaf4c4bf0c35512cd3}{E\+\_\+\+DEVICE\+\_\+\+UNDEFINED}} = 255
+ \}
+\begin{DoxyCompactList}\small\item\em List of possible v5 devices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+v5\+\_\+device\+\_\+e\+\_\+t \doxymbox{\hyperlink{group__c-device_ga915ac926e9e0175e5024f4cc2073034e}{get\+\_\+plugged\+\_\+type}} (uint8\+\_\+t port)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+These functions can be used for dynamic device instantiation.   
+\end{DoxyNote}
+
+
+\label{doc-enum-members}
+\Hypertarget{group__c-device_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{group__c-device_gaaba853cd2f7eed658c07dafd7cc41a45}\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!v5\_device\_e@{v5\_device\_e}}
+\index{v5\_device\_e@{v5\_device\_e}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\doxysubsubsection{\texorpdfstring{v5\_device\_e}{v5\_device\_e}}
+{\footnotesize\ttfamily \label{group__c-device_gaaba853cd2f7eed658c07dafd7cc41a45} 
+enum \doxymbox{\hyperlink{group__c-device_gaaba853cd2f7eed658c07dafd7cc41a45}{v5\+\_\+device\+\_\+e}}}
+
+
+
+List of possible v5 devices. 
+
+This list contains all current V5 Devices, and mirrors V5\+\_\+\+Device\+Type from the api. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_NONE@{E\_DEVICE\_NONE}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_NONE@{E\_DEVICE\_NONE}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a929153c5f75689b1d957d06074b5fae8}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a929153c5f75689b1d957d06074b5fae8} 
+E\+\_\+\+DEVICE\+\_\+\+NONE&No device is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_MOTOR@{E\_DEVICE\_MOTOR}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_MOTOR@{E\_DEVICE\_MOTOR}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a467b42f234e0a690ffe8cb36136afd8a}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a467b42f234e0a690ffe8cb36136afd8a} 
+E\+\_\+\+DEVICE\+\_\+\+MOTOR&A motor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_ROTATION@{E\_DEVICE\_ROTATION}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_ROTATION@{E\_DEVICE\_ROTATION}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45ae9951d109e5a13e91fa928aca02b8882}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45ae9951d109e5a13e91fa928aca02b8882} 
+E\+\_\+\+DEVICE\+\_\+\+ROTATION&A rotation sensor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_IMU@{E\_DEVICE\_IMU}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_IMU@{E\_DEVICE\_IMU}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a3eb6fb1ce8dc100664a443aab43a8a45}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a3eb6fb1ce8dc100664a443aab43a8a45} 
+E\+\_\+\+DEVICE\+\_\+\+IMU&An inertial sensor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_DISTANCE@{E\_DEVICE\_DISTANCE}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_DISTANCE@{E\_DEVICE\_DISTANCE}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45acb1d4484e6d3c426554103850ffd0558}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45acb1d4484e6d3c426554103850ffd0558} 
+E\+\_\+\+DEVICE\+\_\+\+DISTANCE&A distance sensor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_RADIO@{E\_DEVICE\_RADIO}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_RADIO@{E\_DEVICE\_RADIO}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a42aa9d24679cd762cb25dea691bac391}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a42aa9d24679cd762cb25dea691bac391} 
+E\+\_\+\+DEVICE\+\_\+\+RADIO&A radio is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_VISION@{E\_DEVICE\_VISION}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_VISION@{E\_DEVICE\_VISION}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a32cb9f019c5d7a71a891efd00382f223}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a32cb9f019c5d7a71a891efd00382f223} 
+E\+\_\+\+DEVICE\+\_\+\+VISION&A vision sensor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_ADI@{E\_DEVICE\_ADI}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_ADI@{E\_DEVICE\_ADI}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45aaf0a34b25623b86363823c284133b1e1}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45aaf0a34b25623b86363823c284133b1e1} 
+E\+\_\+\+DEVICE\+\_\+\+ADI&This port is an ADI expander. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_OPTICAL@{E\_DEVICE\_OPTICAL}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_OPTICAL@{E\_DEVICE\_OPTICAL}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45af335796b1126951c9fa1aba19987b0b9}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45af335796b1126951c9fa1aba19987b0b9} 
+E\+\_\+\+DEVICE\+\_\+\+OPTICAL&An optical sensor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_GPS@{E\_DEVICE\_GPS}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_GPS@{E\_DEVICE\_GPS}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a1188eeeddb1369a5b208366aeb612ee5}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a1188eeeddb1369a5b208366aeb612ee5} 
+E\+\_\+\+DEVICE\+\_\+\+GPS&A GPS sensor is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_SERIAL@{E\_DEVICE\_SERIAL}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_SERIAL@{E\_DEVICE\_SERIAL}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a9512b3799968456e47dfa3e8c8957094}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a9512b3799968456e47dfa3e8c8957094} 
+E\+\_\+\+DEVICE\+\_\+\+SERIAL&A serial device is plugged into the port. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_DEVICE\_UNDEFINED@{E\_DEVICE\_UNDEFINED}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!E\_DEVICE\_UNDEFINED@{E\_DEVICE\_UNDEFINED}}
+}\Hypertarget{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a4a089975a8d1abaaf4c4bf0c35512cd3}\label{group__c-device_ggaaba853cd2f7eed658c07dafd7cc41a45a4a089975a8d1abaaf4c4bf0c35512cd3} 
+E\+\_\+\+DEVICE\+\_\+\+UNDEFINED&The device type is not defined, or is not a valid device. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{group__c-device_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__c-device_ga915ac926e9e0175e5024f4cc2073034e}\index{VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}!get\_plugged\_type@{get\_plugged\_type}}
+\index{get\_plugged\_type@{get\_plugged\_type}!VEX Generic Device C API (For Advanced Users)@{VEX Generic Device C API (For Advanced Users)}}
+\doxysubsubsection{\texorpdfstring{get\_plugged\_type()}{get\_plugged\_type()}}
+{\footnotesize\ttfamily \label{group__c-device_ga915ac926e9e0175e5024f4cc2073034e} 
+v5\+\_\+device\+\_\+e\+\_\+t get\+\_\+plugged\+\_\+type (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port}{}\end{DoxyParamCaption})}
+
+Gets the type of device on given port.
+
+\begin{DoxyReturn}{Returns}
+The device type as an enum.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

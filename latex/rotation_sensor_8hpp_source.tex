@@ -1,0 +1,34 @@
+\doxysection{rotation\+Sensor.\+hpp}
+\hypertarget{rotation_sensor_8hpp_source}{}\label{rotation_sensor_8hpp_source}\index{include/okapi/impl/device/rotarysensor/rotationSensor.hpp@{include/okapi/impl/device/rotarysensor/rotationSensor.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{api_8h}{api.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/device/rotarysensor/continuousRotarySensor.hpp"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_rotation_sensor_a0a34fce7801cfc24478854fda9523e44}{RotationSensor}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_continuous_rotary_sensor}{ContinuousRotarySensor}}\ \{}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor_a0a34fce7801cfc24478854fda9523e44}{RotationSensor}}(std::uint8\_t\ iport,\ \textcolor{keywordtype}{bool}\ ireversed\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor_a01823ab418bf4cea2b41064f39c7a1b4}{get}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ std::int32\_t\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor_af2898478ce400a3494d3e280eabce7c1}{reset}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor_aaac443359907fd6a3af02f6ef2dac0c5}{controllerGet}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_rotation_sensor_a60a5b2fad0011d5946af93a6a0fa6ede}{getVelocity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00061\ \ \ std::uint8\_t\ port;}
+\DoxyCodeLine{00062\ \ \ std::int8\_t\ reversed\{1\};}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

@@ -1,0 +1,70 @@
+\doxysection{async\+Pos\+Integrated\+Controller.\+hpp}
+\hypertarget{async_pos_integrated_controller_8hpp_source}{}\label{async_pos_integrated_controller_8hpp_source}\index{include/okapi/api/control/async/asyncPosIntegratedController.hpp@{include/okapi/api/control/async/asyncPosIntegratedController.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/async/asyncPositionController.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/device/motor/abstractMotor.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/logging.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/timeUtil.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a6017c7eeed0e2054ff325582c404de60}{AsyncPosIntegratedController}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_async_position_controller}{AsyncPositionController}}<double,\ double>\ \{}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a6017c7eeed0e2054ff325582c404de60}{AsyncPosIntegratedController}}(\textcolor{keyword}{const}\ std::shared\_ptr<AbstractMotor>\ \&imotor,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{AbstractMotor::GearsetRatioPair}}\ \&ipair,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::int32\_t\ imaxVelocity,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_time_util}{TimeUtil}}\ \&itimeUtil,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<Logger>\ \&ilogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_ae5cb385dc40c2c183266a3fa4aed7cac}{setTarget}}(\textcolor{keywordtype}{double}\ itarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8d09fefb4a02fcb9d0352b4aa68821e3}{getTarget}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a674042fa5e7f75363169e389e64d3772}{getProcessValue}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a82aeb0cb2d1aab524b9a79a249260e11}{getError}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a21b7ee29d335ee33aed1c41969a27f62}{isSettled}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a5858445747fe5a03f17f6fd83ee9aaaa}{reset}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a95c0b1350a2287e72d6517acdb8082b1}{flipDisable}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a6476dde71ef77fceb1c461b4f0ebe62b}{flipDisable}}(\textcolor{keywordtype}{bool}\ iisDisabled)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8774fe656abb2cf72d046b40ba3572a9}{isDisabled}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a9f03807433a02bcbee583c1d85eaf55a}{waitUntilSettled}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_aaa8d694c814e7b419dfb55b3e3a1d72e}{controllerSet}}(\textcolor{keywordtype}{double}\ ivalue)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a5fa801adbb46287423c5baae82f75924}{tarePosition}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a8559a6aa43c74f5caf1a6839d1a2224a}{setMaxVelocity}}(std::int32\_t\ imaxVelocity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a0bf08ade0fdf74555a1aaa21152884f2}{stop}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00128\ \ \ std::shared\_ptr<Logger>\ logger;}
+\DoxyCodeLine{00129\ \ \ \doxymbox{\hyperlink{classokapi_1_1_time_util}{TimeUtil}}\ timeUtil;}
+\DoxyCodeLine{00130\ \ \ std::shared\_ptr<AbstractMotor>\ motor;}
+\DoxyCodeLine{00131\ \ \ \doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{AbstractMotor::GearsetRatioPair}}\ pair;}
+\DoxyCodeLine{00132\ \ \ std::int32\_t\ maxVelocity;}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{double}\ lastTarget\{0\};}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{double}\ offset\{0\};}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{bool}\ controllerIsDisabled\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{bool}\ hasFirstTarget\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00137\ \ \ std::unique\_ptr<SettledUtil>\ settledUtil;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_pos_integrated_controller_a20e951832cc1b7e622ca481a1664f0f8}{resumeMovement}}();}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

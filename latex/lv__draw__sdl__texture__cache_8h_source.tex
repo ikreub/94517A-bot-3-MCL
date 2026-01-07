@@ -1,0 +1,102 @@
+\doxysection{lv\+\_\+draw\+\_\+sdl\+\_\+texture\+\_\+cache.\+h}
+\hypertarget{lv__draw__sdl__texture__cache_8h_source}{}\label{lv__draw__sdl__texture__cache_8h_source}\index{include/liblvgl/draw/sdl/lv\_draw\_sdl\_texture\_cache.h@{include/liblvgl/draw/sdl/lv\_draw\_sdl\_texture\_cache.h}}
+\doxymbox{\hyperlink{lv__draw__sdl__texture__cache_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SDL\_TEXTURE\_CACHE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SDL\_TEXTURE\_CACHE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_GPU\_SDL}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ LV\_GPU\_SDL\_INCLUDE\_PATH}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__sdl_8h}{lv\_draw\_sdl.h}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__draw__sdl__priv_8h}{lv\_draw\_sdl\_priv.h}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__img__decoder_8h}{../../draw/lv\_img\_decoder.h}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__area_8h}{../../misc/lv\_area.h}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SDL\_DEC\_DSC\_TEXTURE\_HEAD\ "{}@LVSDLTex"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{char}\ head[8];}
+\DoxyCodeLine{00039\ \ \ \ \ SDL\_Texture\ *\ texture;}
+\DoxyCodeLine{00040\ \ \ \ \ SDL\_Rect\ rect;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ texture\_managed;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ texture\_referenced;}
+\DoxyCodeLine{00043\ \}\ lv\_draw\_sdl\_dec\_dsc\_userdata\_t;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_ARC\ =\ 0x01,}
+\DoxyCodeLine{00047\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_IMG\ =\ 0x11,}
+\DoxyCodeLine{00048\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_IMG\_ROUNDED\_CORNERS\ =\ 0x12,}
+\DoxyCodeLine{00049\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_LINE\ =\ 0x21,}
+\DoxyCodeLine{00050\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_RECT\_BG\ =\ 0x31,}
+\DoxyCodeLine{00051\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_RECT\_SHADOW\ =\ 0x32,}
+\DoxyCodeLine{00052\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_RECT\_BORDER\ =\ 0x33,}
+\DoxyCodeLine{00053\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_FONT\_GLYPH\ =\ 0x41,}
+\DoxyCodeLine{00054\ \ \ \ \ LV\_GPU\_CACHE\_KEY\_MAGIC\_MASK\ =\ 0x51,}
+\DoxyCodeLine{00055\ \}\ lv\_sdl\_cache\_key\_magic\_t;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ LV\_DRAW\_SDL\_CACHE\_FLAG\_NONE\ =\ 0,}
+\DoxyCodeLine{00059\ \ \ \ \ LV\_DRAW\_SDL\_CACHE\_FLAG\_MANAGED\ =\ 1,}
+\DoxyCodeLine{00060\ \}\ lv\_draw\_sdl\_cache\_flag\_t;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ lv\_sdl\_cache\_key\_magic\_t\ magic;}
+\DoxyCodeLine{00064\ \ \ \ \ lv\_img\_src\_t\ type;}
+\DoxyCodeLine{00065\ \ \ \ \ int32\_t\ frame\_id;}
+\DoxyCodeLine{00066\ \}\ lv\_draw\_sdl\_cache\_key\_head\_img\_t;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ lv\_draw\_sdl\_texture\_cache\_init(lv\_draw\_sdl\_ctx\_t\ *\ ctx);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ lv\_draw\_sdl\_texture\_cache\_deinit(lv\_draw\_sdl\_ctx\_t\ *\ ctx);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ SDL\_Texture\ *\ lv\_draw\_sdl\_texture\_cache\_get(lv\_draw\_sdl\_ctx\_t\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_length,\ \textcolor{keywordtype}{bool}\ *\ found);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ SDL\_Texture\ *\ lv\_draw\_sdl\_texture\_cache\_get\_with\_userdata(lv\_draw\_sdl\_ctx\_t\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_length,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ *\ found,\ \textcolor{keywordtype}{void}\ **\ userdata);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ lv\_draw\_sdl\_texture\_cache\_put(lv\_draw\_sdl\_ctx\_t\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_length,\ SDL\_Texture\ *\ texture);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ lv\_draw\_sdl\_texture\_cache\_put\_advanced(lv\_draw\_sdl\_ctx\_t\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_length,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Texture\ *\ texture,\ \textcolor{keywordtype}{void}\ *\ userdata,\ \textcolor{keywordtype}{void}\ userdata\_free(\textcolor{keywordtype}{void}\ *),}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_draw\_sdl\_cache\_flag\_t\ flags);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ lv\_draw\_sdl\_cache\_key\_head\_img\_t\ *\ lv\_draw\_sdl\_texture\_img\_key\_create(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ src,\ int32\_t\ frame\_id,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ *\ size);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GPU\_SDL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00099\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_SDL\_TEXTURE\_CACHE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

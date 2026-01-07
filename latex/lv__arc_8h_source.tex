@@ -1,0 +1,140 @@
+\doxysection{lv\+\_\+arc.\+h}
+\hypertarget{lv__arc_8h_source}{}\label{lv__arc_8h_source}\index{include/liblvgl/widgets/lv\_arc.h@{include/liblvgl/widgets/lv\_arc.h}}
+\doxymbox{\hyperlink{lv__arc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_ARC\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_ARC\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__conf__internal_8h}{liblvgl/lv\_conf\_internal.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_ARC\ !=\ 0}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__obj_8h}{liblvgl/core/lv\_obj.h}}"{}}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ LV\_ARC\_MODE\_NORMAL,}
+\DoxyCodeLine{00032\ \ \ \ \ LV\_ARC\_MODE\_SYMMETRICAL,}
+\DoxyCodeLine{00033\ \ \ \ \ LV\_ARC\_MODE\_REVERSE}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_arc\_mode\_t;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ lv\_obj\_t\ obj;}
+\DoxyCodeLine{00039\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9aa5c02a3b57a78ef78fbca4f650029323}{rotation}};}
+\DoxyCodeLine{00040\ \ \ \ \ uint16\_t\ indic\_angle\_start;}
+\DoxyCodeLine{00041\ \ \ \ \ uint16\_t\ indic\_angle\_end;}
+\DoxyCodeLine{00042\ \ \ \ \ uint16\_t\ bg\_angle\_start;}
+\DoxyCodeLine{00043\ \ \ \ \ uint16\_t\ bg\_angle\_end;}
+\DoxyCodeLine{00044\ \ \ \ \ int16\_t\ value;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Current\ value\ of\ the\ arc*/}}
+\DoxyCodeLine{00045\ \ \ \ \ int16\_t\ min\_value;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Minimum\ value\ of\ the\ arc*/}}
+\DoxyCodeLine{00046\ \ \ \ \ int16\_t\ max\_value;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Maximum\ value\ of\ the\ arc*/}}
+\DoxyCodeLine{00047\ \ \ \ \ uint16\_t\ dragging\ \ \ \ :\ 1;}
+\DoxyCodeLine{00048\ \ \ \ \ uint16\_t\ type\ \ \ \ \ \ \ \ :\ 2;}
+\DoxyCodeLine{00049\ \ \ \ \ uint16\_t\ min\_close\ \ \ :\ 1;\ \ \ \textcolor{comment}{/*1:\ the\ last\ pressed\ angle\ was\ closer\ to\ minimum\ end*/}}
+\DoxyCodeLine{00050\ \ \ \ \ uint16\_t\ chg\_rate;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Drag\ angle\ rate\ of\ change\ of\ the\ arc\ (degrees/sec)*/}}
+\DoxyCodeLine{00051\ \ \ \ \ uint32\_t\ last\_tick;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Last\ dragging\ event\ timestamp\ of\ the\ arc*/}}
+\DoxyCodeLine{00052\ \ \ \ \ int16\_t\ last\_angle;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Last\ dragging\ angle\ of\ the\ arc*/}}
+\DoxyCodeLine{00053\ \}\ lv\_arc\_t;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\_obj\_class\_t}}\ lv\_arc\_class;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ LV\_ARC\_DRAW\_PART\_BACKGROUND,\ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ LV\_ARC\_DRAW\_PART\_FOREGROUND,\ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ LV\_ARC\_DRAW\_PART\_KNOB,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \}\ lv\_arc\_draw\_part\_type\_t;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ lv\_obj\_t\ *\ lv\_arc\_create(lv\_obj\_t\ *\ parent);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{/*======================}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ Add/remove\ functions}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *=====================*/}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_start\_angle(lv\_obj\_t\ *\ obj,\ uint16\_t\ start);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_end\_angle(lv\_obj\_t\ *\ obj,\ uint16\_t\ end);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_angles(lv\_obj\_t\ *\ obj,\ uint16\_t\ start,\ uint16\_t\ end);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_bg\_start\_angle(lv\_obj\_t\ *\ obj,\ uint16\_t\ start);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_bg\_end\_angle(lv\_obj\_t\ *\ obj,\ uint16\_t\ end);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_bg\_angles(lv\_obj\_t\ *\ obj,\ uint16\_t\ start,\ uint16\_t\ end);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_rotation(lv\_obj\_t\ *\ obj,\ uint16\_t\ rotation);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_mode(lv\_obj\_t\ *\ obj,\ lv\_arc\_mode\_t\ type);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_value(lv\_obj\_t\ *\ obj,\ int16\_t\ value);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_range(lv\_obj\_t\ *\ obj,\ int16\_t\ min,\ int16\_t\ max);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ lv\_arc\_set\_change\_rate(lv\_obj\_t\ *\ obj,\ uint16\_t\ rate);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00175\ uint16\_t\ lv\_arc\_get\_angle\_start(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00182\ uint16\_t\ lv\_arc\_get\_angle\_end(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00189\ uint16\_t\ lv\_arc\_get\_bg\_angle\_start(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00196\ uint16\_t\ lv\_arc\_get\_bg\_angle\_end(lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00203\ int16\_t\ lv\_arc\_get\_value(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00210\ int16\_t\ lv\_arc\_get\_min\_value(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00217\ int16\_t\ lv\_arc\_get\_max\_value(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00224\ lv\_arc\_mode\_t\ lv\_arc\_get\_mode(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ *\ Other\ functions}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00236\ \textcolor{keywordtype}{void}\ lv\_arc\_align\_obj\_to\_angle(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj,\ lv\_obj\_t\ *\ obj\_to\_align,\ lv\_coord\_t\ r\_offset);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00244\ \textcolor{keywordtype}{void}\ lv\_arc\_rotate\_obj\_to\_angle(\textcolor{keyword}{const}\ lv\_obj\_t\ *\ obj,\ lv\_obj\_t\ *\ obj\_to\_rotate,\ lv\_coord\_t\ r\_offset);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00247\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_ARC*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00253\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_ARC\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

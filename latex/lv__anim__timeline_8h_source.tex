@@ -1,0 +1,63 @@
+\doxysection{lv\+\_\+anim\+\_\+timeline.\+h}
+\hypertarget{lv__anim__timeline_8h_source}{}\label{lv__anim__timeline_8h_source}\index{include/liblvgl/misc/lv\_anim\_timeline.h@{include/liblvgl/misc/lv\_anim\_timeline.h}}
+\doxymbox{\hyperlink{lv__anim__timeline_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_ANIM\_TIMELINE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_ANIM\_TIMELINE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{lv__anim_8h}{lv\_anim.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\_lv\_anim\_timeline\_t;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_anim\_timeline\_t\ lv\_anim\_timeline\_t;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00031\ \textcolor{comment}{*\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00032\ \textcolor{comment}{**********************/}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ lv\_anim\_timeline\_t\ *\ \doxymbox{\hyperlink{lv__anim__timeline_8h_afe22742e57b02478ee9ede8bf55b910d}{lv\_anim\_timeline\_create}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__anim__timeline_8h_a78b4f60993bb068391993b9b47547631}{lv\_anim\_timeline\_del}}(lv\_anim\_timeline\_t\ *\ at);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__anim__timeline_8h_a23e09991b7db860e10df90ed8d7f30e7}{lv\_anim\_timeline\_add}}(lv\_anim\_timeline\_t\ *\ at,\ uint32\_t\ start\_time,\ \doxymbox{\hyperlink{lv__anim_8h_a94df93c022dc57ee917b4757e50ebe22}{lv\_anim\_t}}\ *\ a);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ uint32\_t\ \doxymbox{\hyperlink{lv__anim__timeline_8h_a631773d63194f6443cb4fa2b80a6f055}{lv\_anim\_timeline\_start}}(lv\_anim\_timeline\_t\ *\ at);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__anim__timeline_8h_a2b7ddd637862b8b7b4543f3cd29624a9}{lv\_anim\_timeline\_stop}}(lv\_anim\_timeline\_t\ *\ at);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__anim__timeline_8h_ad8a2f74c2b88b4cd70a9b20d8f27190e}{lv\_anim\_timeline\_set\_reverse}}(lv\_anim\_timeline\_t\ *\ at,\ \textcolor{keywordtype}{bool}\ reverse);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{lv__anim__timeline_8h_a220b311c65a98b559ec4ba5d2b597650}{lv\_anim\_timeline\_set\_progress}}(lv\_anim\_timeline\_t\ *\ at,\ uint16\_t\ progress);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ uint32\_t\ \doxymbox{\hyperlink{lv__anim__timeline_8h_aefa7a248ae35b30bcbe6773fbe5c508d}{lv\_anim\_timeline\_get\_playtime}}(lv\_anim\_timeline\_t\ *\ at);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{lv__anim__timeline_8h_aabc8223c96f7f777898dfbf1463f6fdd}{lv\_anim\_timeline\_get\_reverse}}(lv\_anim\_timeline\_t\ *\ at);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00100\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_ANIM\_TIMELINE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

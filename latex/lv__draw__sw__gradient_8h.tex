@@ -1,0 +1,96 @@
+\doxysection{include/\+liblvgl/\+draw/\+sw/\+lv\+\_\+draw\+\_\+sw\+\_\+gradient.h File Reference}
+\hypertarget{lv__draw__sw__gradient_8h}{}\label{lv__draw__sw__gradient_8h}\index{include/liblvgl/draw/sw/lv\_draw\_sw\_gradient.h@{include/liblvgl/draw/sw/lv\_draw\_sw\_gradient.h}}
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+style.\+h"{}}\newline
+{\ttfamily \+\#include "{}lv\+\_\+draw\+\_\+sw\+\_\+dither.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct__lv__gradient__cache__t}{\+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__sw__gradient_8h_aa08c4c5336d3aca4754470b147f1060c}\label{lv__draw__sw__gradient_8h_aa08c4c5336d3aca4754470b147f1060c} 
+typedef lv\+\_\+color\+\_\+t {\bfseries lv\+\_\+grad\+\_\+color\+\_\+t}
+\item 
+typedef struct \doxymbox{\hyperlink{struct__lv__gradient__cache__t}{\+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t}} \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\+\_\+grad\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM lv\+\_\+grad\+\_\+color\+\_\+t \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a73a83965221fca65618f53ec44d9139e}{lv\+\_\+gradient\+\_\+calculate}} (const \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, lv\+\_\+coord\+\_\+t range, lv\+\_\+coord\+\_\+t frac)
+\item 
+void \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_ad08efdbaed99b7b02a35ccbd360b3bc6}{lv\+\_\+gradient\+\_\+set\+\_\+cache\+\_\+size}} (size\+\_\+t max\+\_\+bytes)
+\item 
+void \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a005ff1a4e9945250c7858fe1363a3b22}{lv\+\_\+gradient\+\_\+free\+\_\+cache}} (void)
+\item 
+\doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\+\_\+grad\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a43b6557c75f5dfc957866ce503ae0b5c}{lv\+\_\+gradient\+\_\+get}} (const \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}gradient, lv\+\_\+coord\+\_\+t w, lv\+\_\+coord\+\_\+t h)
+\item 
+void \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a4557f0a7346dafca4ad642478aa9d514}{lv\+\_\+gradient\+\_\+cleanup}} (\doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\+\_\+grad\+\_\+t}} \texorpdfstring{$\ast$}{*}grad)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{lv__draw__sw__gradient_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}\index{lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}!lv\_grad\_t@{lv\_grad\_t}}
+\index{lv\_grad\_t@{lv\_grad\_t}!lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}}
+\doxysubsubsection{\texorpdfstring{lv\_grad\_t}{lv\_grad\_t}}
+{\footnotesize\ttfamily \label{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50} 
+typedef struct \doxymbox{\hyperlink{struct__lv__gradient__cache__t}{\+\_\+lv\+\_\+gradient\+\_\+cache\+\_\+t}} \doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\+\_\+grad\+\_\+t}}}
+
+To avoid recomputing gradient for each draw operation, it\textquotesingle{}s possible to cache the computation in this structure instance. Whenever possible, this structure is reused instead of recomputing the gradient map 
+
+\label{doc-func-members}
+\Hypertarget{lv__draw__sw__gradient_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__draw__sw__gradient_8h_a73a83965221fca65618f53ec44d9139e}\index{lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}!lv\_gradient\_calculate@{lv\_gradient\_calculate}}
+\index{lv\_gradient\_calculate@{lv\_gradient\_calculate}!lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}}
+\doxysubsubsection{\texorpdfstring{lv\_gradient\_calculate()}{lv\_gradient\_calculate()}}
+{\footnotesize\ttfamily \label{lv__draw__sw__gradient_8h_a73a83965221fca65618f53ec44d9139e} 
+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM lv\+\_\+grad\+\_\+color\+\_\+t lv\+\_\+gradient\+\_\+calculate (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{lv\+\_\+coord\+\_\+t}]{range}{, }\item[{lv\+\_\+coord\+\_\+t}]{frac}{}\end{DoxyParamCaption})}
+
+Compute the color in the given gradient and fraction Gradient are specified in a virtual \+[0-\/255]\+ range, so this function scales the virtual range to the given range 
+\begin{DoxyParams}{Parameters}
+{\em dsc} & The gradient descriptor to use \\
+\hline
+{\em range} & The range to use in computation. \\
+\hline
+{\em frac} & The current part used in the range. frac is in \+[0; range]\+ \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__sw__gradient_8h_a4557f0a7346dafca4ad642478aa9d514}\index{lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}!lv\_gradient\_cleanup@{lv\_gradient\_cleanup}}
+\index{lv\_gradient\_cleanup@{lv\_gradient\_cleanup}!lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}}
+\doxysubsubsection{\texorpdfstring{lv\_gradient\_cleanup()}{lv\_gradient\_cleanup()}}
+{\footnotesize\ttfamily \label{lv__draw__sw__gradient_8h_a4557f0a7346dafca4ad642478aa9d514} 
+void lv\+\_\+gradient\+\_\+cleanup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\+\_\+grad\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{grad}{}\end{DoxyParamCaption})}
+
+Clean up the gradient item after it was get with {\ttfamily lv\+\_\+grad\+\_\+get\+\_\+from\+\_\+cache}. 
+\begin{DoxyParams}{Parameters}
+{\em grad} & pointer to a gradient \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__sw__gradient_8h_a005ff1a4e9945250c7858fe1363a3b22}\index{lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}!lv\_gradient\_free\_cache@{lv\_gradient\_free\_cache}}
+\index{lv\_gradient\_free\_cache@{lv\_gradient\_free\_cache}!lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}}
+\doxysubsubsection{\texorpdfstring{lv\_gradient\_free\_cache()}{lv\_gradient\_free\_cache()}}
+{\footnotesize\ttfamily \label{lv__draw__sw__gradient_8h_a005ff1a4e9945250c7858fe1363a3b22} 
+void lv\+\_\+gradient\+\_\+free\+\_\+cache (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Free the gradient cache \Hypertarget{lv__draw__sw__gradient_8h_a43b6557c75f5dfc957866ce503ae0b5c}\index{lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}!lv\_gradient\_get@{lv\_gradient\_get}}
+\index{lv\_gradient\_get@{lv\_gradient\_get}!lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}}
+\doxysubsubsection{\texorpdfstring{lv\_gradient\_get()}{lv\_gradient\_get()}}
+{\footnotesize\ttfamily \label{lv__draw__sw__gradient_8h_a43b6557c75f5dfc957866ce503ae0b5c} 
+\doxymbox{\hyperlink{lv__draw__sw__gradient_8h_a2e8780dfd212edf21ea518874a60bf50}{lv\+\_\+grad\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+gradient\+\_\+get (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gradient}{, }\item[{lv\+\_\+coord\+\_\+t}]{w}{, }\item[{lv\+\_\+coord\+\_\+t}]{h}{}\end{DoxyParamCaption})}
+
+Get a gradient cache from the given parameters \Hypertarget{lv__draw__sw__gradient_8h_ad08efdbaed99b7b02a35ccbd360b3bc6}\index{lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}!lv\_gradient\_set\_cache\_size@{lv\_gradient\_set\_cache\_size}}
+\index{lv\_gradient\_set\_cache\_size@{lv\_gradient\_set\_cache\_size}!lv\_draw\_sw\_gradient.h@{lv\_draw\_sw\_gradient.h}}
+\doxysubsubsection{\texorpdfstring{lv\_gradient\_set\_cache\_size()}{lv\_gradient\_set\_cache\_size()}}
+{\footnotesize\ttfamily \label{lv__draw__sw__gradient_8h_ad08efdbaed99b7b02a35ccbd360b3bc6} 
+void lv\+\_\+gradient\+\_\+set\+\_\+cache\+\_\+size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{max\+\_\+bytes}{}\end{DoxyParamCaption})}
+
+Set the gradient cache size 
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+bytes} & Max cahce size \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,70 @@
+\doxysection{optical.\+hpp}
+\hypertarget{optical_8hpp_source}{}\label{optical_8hpp_source}\index{include/pros/optical.hpp@{include/pros/optical.hpp}}
+\doxymbox{\hyperlink{optical_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_OPTICAL\_HPP\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_PROS\_OPTICAL\_HPP\_}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{device_8hpp}{pros/device.hpp}}"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{optical_8h}{pros/optical.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{inline}\ \textcolor{keyword}{namespace\ }v5\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classpros_1_1v5_1_1_optical}{Optical}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-optical_gaf57deadd74b68d304c8da03f8b83bb1f}{Optical}}(\textcolor{keyword}{const}\ std::uint8\_t\ port);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \doxymbox{\hyperlink{group__cpp-optical_gaf57deadd74b68d304c8da03f8b83bb1f}{Optical}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{group__cpp-device_gabb7f0ac5811cc2750bdfb1d23ddd8279}{Device}}\&\ device)\ :\ \doxymbox{\hyperlink{group__cpp-optical_gaf57deadd74b68d304c8da03f8b83bb1f}{Optical}}(device.\doxymbox{\hyperlink{group__cpp-device_ga59f09e1fcc8c968254ac974fc62ca9f3}{get\_port}}())\{\};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<Optical>\ \doxymbox{\hyperlink{group__cpp-optical_ga6d6f064a875e562d47ef7c578030dd55}{get\_all\_devices}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-optical_ga93563f29a3b47c07bb20f1d613392fa2}{get\_hue}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-optical_ga052f06c1448f09701d528315f2617340}{get\_saturation}}();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-optical_ga5fa0954388d12c148b4f6bc048e5908c}{get\_brightness}}();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-optical_gaf49b80524bcf20a84149c0e49d49454f}{get\_proximity}}();}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga79ce4d162a2ee22b8f375ff97e407f25}{set\_led\_pwm}}(uint8\_t\ value);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga1eb573b3f997e3b0cca923465b007fcf}{get\_led\_pwm}}();}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::c::optical\_rgb\_s\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga65853e52f310b7389a157e9917e0c0d4}{get\_rgb}}();}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::c::optical\_raw\_s\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga2d84c64ef3dbe5bc8d658b12019ecfb6}{get\_raw}}();}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::c::optical\_direction\_e\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga6dd5eb7fb9630f614518f63ab2a3debb}{get\_gesture}}();}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keyword}{virtual}\ pros::c::optical\_gesture\_s\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga80948cd81bda0f963735f8c51ef19698}{get\_gesture\_raw}}();}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-optical_gaaeb79dcde9cc3570a6ae541a8d4cb00b}{enable\_gesture}}();}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{virtual}\ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-optical_ga30be9abb744f8480896076eeb86f134e}{disable\_gesture}}();}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__cpp-optical_ga72e93b6b8f78afeb928c7f4702d498cb}{get\_integration\_time}}();}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00429\ \ \ \ \ std::int32\_t\ \doxymbox{\hyperlink{group__cpp-optical_gaf056c8bdafdd519611cb99e480c82549}{set\_integration\_time}}(\textcolor{keywordtype}{double}\ time);}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \doxymbox{\hyperlink{group__cpp-optical_ga5a0bbbbae18dc2c024465bb9dab9f628}{operator<<}}(std::ostream\&\ os,\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_optical}{pros::Optical}}\&\ \doxymbox{\hyperlink{group__cpp-device_gga0a7387ba6156c831ba1e61d75a04c3d9a4313277ed1d56c552d84008ff59b3d64}{optical}});}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00448\ \};}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{keyword}{namespace\ }literals\ \{}
+\DoxyCodeLine{00464\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classpros_1_1v5_1_1_optical}{pros::Optical}}\ \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}}\ \_opt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ o);}
+\DoxyCodeLine{00465\ \}\ \ \textcolor{comment}{//\ namespace\ literals}}
+\DoxyCodeLine{00466\ \}\ \ \textcolor{comment}{//\ namespace\ v5}}
+\DoxyCodeLine{00467\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

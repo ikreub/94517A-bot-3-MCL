@@ -1,0 +1,187 @@
+\doxysection{async\+Wrapper.\+hpp}
+\hypertarget{async_wrapper_8hpp_source}{}\label{async_wrapper_8hpp_source}\index{include/okapi/api/control/async/asyncWrapper.hpp@{include/okapi/api/control/async/asyncWrapper.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/async/asyncController.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/controllerInput.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/iterative/iterativeController.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}okapi/api/control/util/settledUtil.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}okapi/api/coreProsAPI.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/abstractRate.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/logging.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/mathUtil.hpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}okapi/api/util/supplier.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Input,\ \textcolor{keyword}{typename}\ Output>}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{AsyncWrapper}}\ :\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_async_controller}{AsyncController}}<Input,\ Output>\ \{}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{AsyncWrapper}}(\textcolor{keyword}{const}\ std::shared\_ptr<\doxymbox{\hyperlink{classokapi_1_1_controller_input}{ControllerInput<Input>}}>\ \&iinput,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<\doxymbox{\hyperlink{classokapi_1_1_controller_output}{ControllerOutput<Output>}}>\ \&ioutput,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::shared\_ptr<\doxymbox{\hyperlink{classokapi_1_1_iterative_controller}{IterativeController<Input,\ Output>}}>\ \&icontroller,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier}}<std::unique\_ptr<AbstractRate>>\ \&irateSupplier,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ iratio\ =\ 1,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Logger>\ ilogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}())}
+\DoxyCodeLine{00041\ \ \ \ \ :\ logger(std::move(ilogger)),}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ rateSupplier(irateSupplier),}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ input(iinput),}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ output(ioutput),}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ controller(icontroller),}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ ratio(iratio)\ \{}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{AsyncWrapper}}(\doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{AsyncWrapper<Input,\ Output>}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{AsyncWrapper<Input,\ Output>}}\ \&operator=(\doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{AsyncWrapper<Input,\ Output>}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper}{\string~AsyncWrapper}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00054\ \ \ \ \ dtorCalled.store(\textcolor{keyword}{true},\ std::memory\_order\_release);}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{delete}\ task;}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_aa4b9a4ff29aff5047425e239b574c3c6}{setTarget}}(\textcolor{keyword}{const}\ Input\ itarget)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}AsyncWrapper:\ Set\ target\ to\ "{}}\ +\ std::to\_string(itarget));}
+\DoxyCodeLine{00063\ \ \ \ \ hasFirstTarget\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00064\ \ \ \ \ controller-\/>setTarget(itarget\ *\ ratio);}
+\DoxyCodeLine{00065\ \ \ \ \ lastTarget\ =\ itarget;}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_aec6d1a4214bad2151bee23dc5e8076e7}{controllerSet}}(\textcolor{keyword}{const}\ Input\ ivalue)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00075\ \ \ \ \ controller-\/>controllerSet(ivalue);}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ Input\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a2471c7b5f388d441db77fa9199db7b83}{getTarget}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>getTarget();}
+\DoxyCodeLine{00085\ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ Input\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad1c7a4258eb5ad5127fe12d7b78ddb15}{getProcessValue}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>getProcessValue();}
+\DoxyCodeLine{00092\ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ Output\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a6f3859f212f0348e73df98c83208f3c4}{getOutput}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>getOutput();}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ Output\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a64b690883ff7475375a6d08ad3fb62f9}{getError}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>getError();}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a93343937a8bbe762aeb6460197a22dfe}{isSettled}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a83d411851373f0483b5ae392560a180a}{isDisabled}}()\ ||\ controller-\/>isSettled();}
+\DoxyCodeLine{00118\ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_afe14fb6e7727c313bd40cf74d28f0a14}{setSampleTime}}(\textcolor{keyword}{const}\ QTime\ \&isampleTime)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ controller-\/>setSampleTime(isampleTime);}
+\DoxyCodeLine{00127\ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a668c83b4a2b5bee7f2d072b57157d19a}{setOutputLimits}}(\textcolor{keyword}{const}\ Output\ imax,\ \textcolor{keyword}{const}\ Output\ imin)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ controller-\/>setOutputLimits(imax,\ imin);}
+\DoxyCodeLine{00137\ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a9cb3a50a27e7d3e1263ed3aa6c57bb82}{setControllerSetTargetLimits}}(\textcolor{keywordtype}{double}\ itargetMax,\ \textcolor{keywordtype}{double}\ itargetMin)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ controller-\/>setControllerSetTargetLimits(itargetMax,\ itargetMin);}
+\DoxyCodeLine{00148\ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00155\ \ \ Output\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a95112bac1792ef04010cd97efa135998}{getMaxOutput}}()\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>getMaxOutput();}
+\DoxyCodeLine{00157\ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00164\ \ \ Output\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a41ccefbf1da06cca1ec525d0ad80fa00}{getMinOutput}}()\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>getMinOutput();}
+\DoxyCodeLine{00166\ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00172\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a9372a74580e5be429ecd65ec0e110c23}{reset}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00173\ \ \ \ \ LOG\_INFO\_S(\textcolor{stringliteral}{"{}AsyncWrapper:\ Reset"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ controller-\/>reset();}
+\DoxyCodeLine{00175\ \ \ \ \ hasFirstTarget\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00176\ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00182\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_afdf4d80b0f3eec3d77280a561b24f0b0}{flipDisable}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00183\ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}AsyncWrapper:\ flipDisable\ "{}}\ +\ std::to\_string(!controller-\/>isDisabled()));}
+\DoxyCodeLine{00184\ \ \ \ \ controller-\/>flipDisable();}
+\DoxyCodeLine{00185\ \ \ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a67fa1bf10df9b8f3c280d8f2b136038a}{resumeMovement}}();}
+\DoxyCodeLine{00186\ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ab47f9a7ee52a5d699cb39b21b0926981}{flipDisable}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ iisDisabled)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00195\ \ \ \ \ LOG\_INFO(\textcolor{stringliteral}{"{}AsyncWrapper:\ flipDisable\ "{}}\ +\ std::to\_string(iisDisabled));}
+\DoxyCodeLine{00196\ \ \ \ \ controller-\/>flipDisable(iisDisabled);}
+\DoxyCodeLine{00197\ \ \ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a67fa1bf10df9b8f3c280d8f2b136038a}{resumeMovement}}();}
+\DoxyCodeLine{00198\ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00205\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a83d411851373f0483b5ae392560a180a}{isDisabled}}()\textcolor{keyword}{\ const\ override\ }\{}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{return}\ controller-\/>isDisabled();}
+\DoxyCodeLine{00207\ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a23435c257ac2d6df59ab5d96408e608a}{waitUntilSettled}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00214\ \ \ \ \ LOG\_INFO\_S(\textcolor{stringliteral}{"{}AsyncWrapper:\ Waiting\ to\ settle"{}});}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{auto}\ rate\ =\ rateSupplier.get();}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a93343937a8bbe762aeb6460197a22dfe}{isSettled}}())\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ rate-\/>delayUntil(motorUpdateRate);}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ LOG\_INFO\_S(\textcolor{stringliteral}{"{}AsyncWrapper:\ Done\ waiting\ to\ settle"{}});}
+\DoxyCodeLine{00222\ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00228\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a5225a6b4748da30bf17ddbda692cbf4a}{startThread}}()\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}\ (!task)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ task\ =\ \textcolor{keyword}{new}\ \doxymbox{\hyperlink{class_crossplatform_thread}{CrossplatformThread}}(trampoline,\ \textcolor{keyword}{this},\ \textcolor{stringliteral}{"{}AsyncWrapper"{}});}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00239\ \ \ \doxymbox{\hyperlink{class_crossplatform_thread}{CrossplatformThread}}\ *\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a41b7503e92a977d8daaf4c191e9aec77}{getThread}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{return}\ task;}
+\DoxyCodeLine{00241\ \ \ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00244\ \ \ std::shared\_ptr<Logger>\ logger;}
+\DoxyCodeLine{00245\ \ \ \doxymbox{\hyperlink{classokapi_1_1_supplier}{Supplier<std::unique\_ptr<AbstractRate>}}>\ rateSupplier;}
+\DoxyCodeLine{00246\ \ \ std::shared\_ptr<ControllerInput<Input>>\ input;}
+\DoxyCodeLine{00247\ \ \ std::shared\_ptr<ControllerOutput<Output>>\ output;}
+\DoxyCodeLine{00248\ \ \ std::shared\_ptr<IterativeController<Input,\ Output>>\ controller;}
+\DoxyCodeLine{00249\ \ \ \textcolor{keywordtype}{bool}\ hasFirstTarget\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00250\ \ \ Input\ lastTarget;}
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordtype}{double}\ ratio;}
+\DoxyCodeLine{00252\ \ \ std::atomic\_bool\ dtorCalled\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00253\ \ \ CrossplatformThread\ *task\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ trampoline(\textcolor{keywordtype}{void}\ *context)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{if}\ (context)\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_ad5c4f7f5cb696854d97b915086f53db5}{AsyncWrapper}}\ *\textcolor{keyword}{>}(context)-\/>loop();}
+\DoxyCodeLine{00258\ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordtype}{void}\ loop()\ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{auto}\ rate\ =\ rateSupplier.\doxymbox{\hyperlink{classokapi_1_1_supplier_a38d76d4c3dcc19fd74f5349660199efe}{get}}();}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{while}\ (!dtorCalled.load(std::memory\_order\_acquire)\ \&\&\ !task-\/>notifyTake(0))\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a83d411851373f0483b5ae392560a180a}{isDisabled}}())\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ output-\/>controllerSet(controller-\/>step(input-\/>controllerGet()));}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ rate-\/>delayUntil(controller-\/>getSampleTime());}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00276\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a67fa1bf10df9b8f3c280d8f2b136038a}{resumeMovement}}()\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{classokapi_1_1_async_wrapper_a83d411851373f0483b5ae392560a180a}{isDisabled}}())\ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \textcolor{comment}{//\ This\ will\ grab\ the\ output\ *when\ disabled*}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ output-\/>controllerSet(controller-\/>getOutput());}
+\DoxyCodeLine{00280\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasFirstTarget)\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{classokapi_1_1_async_wrapper_aa4b9a4ff29aff5047425e239b574c3c6}{setTarget}}(lastTarget);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \}}
+\DoxyCodeLine{00286\ \};}
+\DoxyCodeLine{00287\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

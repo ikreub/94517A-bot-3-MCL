@@ -1,0 +1,95 @@
+.TH "pros::rtos::Task" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::rtos::Task
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTask\fP (\fBtask_fn_t\fP function, void *parameters=nullptr, std::uint32_t prio=\fBTASK_PRIORITY_DEFAULT\fP, std::uint16_t stack_depth=\fBTASK_STACK_DEPTH_DEFAULT\fP, const char *name='')"
+.br
+.ti -1c
+.RI "\fBTask\fP (\fBtask_fn_t\fP function, void *parameters, const char *name)"
+.br
+.ti -1c
+.RI "template<class F> \fBTask\fP (F &&function, std::uint32_t prio=\fBTASK_PRIORITY_DEFAULT\fP, std::uint16_t stack_depth=\fBTASK_STACK_DEPTH_DEFAULT\fP, const char *name='')"
+.br
+.ti -1c
+.RI "template<class F> \fBTask\fP (F &&function, const char *name)"
+.br
+.ti -1c
+.RI "\fBTask\fP (\fBtask_t\fP task)"
+.br
+.ti -1c
+.RI "\fBTask\fP & \fBoperator=\fP (\fBtask_t\fP in)"
+.br
+.ti -1c
+.RI "void \fBremove\fP ()"
+.br
+.ti -1c
+.RI "std::uint32_t \fBget_priority\fP ()"
+.br
+.ti -1c
+.RI "void \fBset_priority\fP (std::uint32_t prio)"
+.br
+.ti -1c
+.RI "std::uint32_t \fBget_state\fP ()"
+.br
+.ti -1c
+.RI "void \fBsuspend\fP ()"
+.br
+.ti -1c
+.RI "void \fBresume\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBget_name\fP ()"
+.br
+.ti -1c
+.RI "\fBoperator task_t\fP ()"
+.br
+.ti -1c
+.RI "std::uint32_t \fBnotify\fP ()"
+.br
+.ti -1c
+.RI "void \fBjoin\fP ()"
+.br
+.ti -1c
+.RI "std::uint32_t \fBnotify_ext\fP (std::uint32_t value, \fBnotify_action_e_t\fP action, std::uint32_t *prev_value)"
+.br
+.ti -1c
+.RI "bool \fBnotify_clear\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<class F> static \fBtask_t\fP \fBcreate\fP (F &&function, std::uint32_t prio=\fBTASK_PRIORITY_DEFAULT\fP, std::uint16_t stack_depth=\fBTASK_STACK_DEPTH_DEFAULT\fP, const char *name='')"
+.br
+.ti -1c
+.RI "template<class F> static \fBtask_t\fP \fBcreate\fP (F &&function, const char *name)"
+.br
+.ti -1c
+.RI "static \fBTask\fP \fBcurrent\fP ()"
+.br
+.ti -1c
+.RI "static std::uint32_t \fBnotify_take\fP (bool clear_on_exit, std::uint32_t timeout)"
+.br
+.ti -1c
+.RI "static void \fBdelay\fP (const std::uint32_t milliseconds)"
+.br
+.ti -1c
+.RI "static void \fBdelay_until\fP (std::uint32_t *const prev_time, const std::uint32_t delta)"
+.br
+.ti -1c
+.RI "static std::uint32_t \fBget_count\fP ()"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

@@ -1,0 +1,59 @@
+\doxysection{include/\+liblvgl/\+draw/\+lv\+\_\+draw\+\_\+rect.h File Reference}
+\hypertarget{lv__draw__rect_8h}{}\label{lv__draw__rect_8h}\index{include/liblvgl/draw/lv\_draw\_rect.h@{include/liblvgl/draw/lv\_draw\_rect.h}}
+{\ttfamily \+\#include "{}liblvgl/\+lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \+\#include "{}liblvgl/\+misc/\+lv\+\_\+style.\+h"{}}\newline
+{\ttfamily \+\#include "{}sw/\+lv\+\_\+draw\+\_\+sw\+\_\+gradient.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{lv__draw__rect_8h_a426785bea126345f648486e35e940ad9}{LV\+\_\+\+RADIUS\+\_\+\+CIRCLE}}~0x7\+FFF
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__rect_8h_ac7d084ab50047987b24b60de9534eb83}\label{lv__draw__rect_8h_ac7d084ab50047987b24b60de9534eb83} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\doxymbox{\hyperlink{lv__draw__rect_8h_a426785bea126345f648486e35e940ad9}{LV\+\_\+\+RADIUS\+\_\+\+CIRCLE}})
+\item 
+\Hypertarget{lv__draw__rect_8h_a57595d73becca8430194f018bcc227a6}\label{lv__draw__rect_8h_a57595d73becca8430194f018bcc227a6} 
+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM void {\bfseries lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+init} (\doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \doxymbox{\hyperlink{lv__draw__rect_8h_aa53deeece2bf1328240f8bb70312fb9b}{lv\+\_\+draw\+\_\+rect}} (struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+ctx, const \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{lv__draw__rect_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{lv__draw__rect_8h_a426785bea126345f648486e35e940ad9}\index{lv\_draw\_rect.h@{lv\_draw\_rect.h}!LV\_RADIUS\_CIRCLE@{LV\_RADIUS\_CIRCLE}}
+\index{LV\_RADIUS\_CIRCLE@{LV\_RADIUS\_CIRCLE}!lv\_draw\_rect.h@{lv\_draw\_rect.h}}
+\doxysubsubsection{\texorpdfstring{LV\_RADIUS\_CIRCLE}{LV\_RADIUS\_CIRCLE}}
+{\footnotesize\ttfamily \label{lv__draw__rect_8h_a426785bea126345f648486e35e940ad9} 
+\+\#define LV\+\_\+\+RADIUS\+\_\+\+CIRCLE~0x7\+FFF}
+
+A very big radius to always draw as circle 
+
+\label{doc-func-members}
+\Hypertarget{lv__draw__rect_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__draw__rect_8h_aa53deeece2bf1328240f8bb70312fb9b}\index{lv\_draw\_rect.h@{lv\_draw\_rect.h}!lv\_draw\_rect@{lv\_draw\_rect}}
+\index{lv\_draw\_rect@{lv\_draw\_rect}!lv\_draw\_rect.h@{lv\_draw\_rect.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_rect()}{lv\_draw\_rect()}}
+{\footnotesize\ttfamily \label{lv__draw__rect_8h_aa53deeece2bf1328240f8bb70312fb9b} 
+void lv\+\_\+draw\+\_\+rect (\begin{DoxyParamCaption}\item[{struct \doxymbox{\hyperlink{struct__lv__draw__ctx__t}{\+\_\+lv\+\_\+draw\+\_\+ctx\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+ctx}{, }\item[{const \doxymbox{\hyperlink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc}{, }\item[{const \doxymbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords}{}\end{DoxyParamCaption})}
+
+Draw a rectangle 
+\begin{DoxyParams}{Parameters}
+{\em coords} & the coordinates of the rectangle \\
+\hline
+{\em clip} & the rectangle will be drawn only in this area \\
+\hline
+{\em dsc} & pointer to an initialized {\ttfamily \doxylink{structlv__draw__rect__dsc__t}{lv\+\_\+draw\+\_\+rect\+\_\+dsc\+\_\+t}} variable \\
+\hline
+\end{DoxyParams}

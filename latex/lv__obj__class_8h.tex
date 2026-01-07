@@ -1,0 +1,115 @@
+\doxysection{include/\+liblvgl/\+core/\+lv\+\_\+obj\+\_\+class.h File Reference}
+\hypertarget{lv__obj__class_8h}{}\label{lv__obj__class_8h}\index{include/liblvgl/core/lv\_obj\_class.h@{include/liblvgl/core/lv\_obj\_class.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__obj__class_8h_a7a2969c72c8f1ed02af4c9880d5ba2df}\label{lv__obj__class_8h_a7a2969c72c8f1ed02af4c9880d5ba2df} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+obj\+\_\+class\+\_\+event\+\_\+cb\+\_\+t}) (struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}class\+\_\+p, struct \doxymbox{\hyperlink{struct__lv__event__t}{\+\_\+lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+typedef struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\+\_\+obj\+\_\+class\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82}{lv\+\_\+obj\+\_\+class\+\_\+editable\+\_\+t}} \{ \doxymbox{\hyperlink{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82a5d9524139b9c78df1dfbe044d3ecc6f6}{LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+EDITABLE\+\_\+\+INHERIT}}
+, {\bfseries LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+EDITABLE\+\_\+\+TRUE}
+, {\bfseries LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+EDITABLE\+\_\+\+FALSE}
+ \}
+\item 
+enum \doxymbox{\hyperlink{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871d}{lv\+\_\+obj\+\_\+class\+\_\+group\+\_\+def\+\_\+t}} \{ \doxymbox{\hyperlink{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871da993e81ae5ce013fb2df968aab3cb7b6f}{LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+GROUP\+\_\+\+DEF\+\_\+\+INHERIT}}
+, {\bfseries LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+GROUP\+\_\+\+DEF\+\_\+\+TRUE}
+, {\bfseries LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+GROUP\+\_\+\+DEF\+\_\+\+FALSE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{lv__obj__class_8h_a0a84761a1b5115ad2d10e7efdea04fc2}{lv\+\_\+obj\+\_\+class\+\_\+create\+\_\+obj}} (const struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}class\+\_\+p, struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\Hypertarget{lv__obj__class_8h_a4d3e27b70ff6c214ddb264a5174df962}\label{lv__obj__class_8h_a4d3e27b70ff6c214ddb264a5174df962} 
+void {\bfseries lv\+\_\+obj\+\_\+class\+\_\+init\+\_\+obj} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\Hypertarget{lv__obj__class_8h_a1275f23c9ecab9ce9f018db0eade4257}\label{lv__obj__class_8h_a1275f23c9ecab9ce9f018db0eade4257} 
+void {\bfseries \+\_\+lv\+\_\+obj\+\_\+destruct} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\Hypertarget{lv__obj__class_8h_aa0f150acb149397491b4b2f0eb1069a2}\label{lv__obj__class_8h_aa0f150acb149397491b4b2f0eb1069a2} 
+bool {\bfseries lv\+\_\+obj\+\_\+is\+\_\+editable} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\Hypertarget{lv__obj__class_8h_afd6a013d4838fe4d8f6db6dd8a8cc8ef}\label{lv__obj__class_8h_afd6a013d4838fe4d8f6db6dd8a8cc8ef} 
+bool {\bfseries lv\+\_\+obj\+\_\+is\+\_\+group\+\_\+def} (struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{lv__obj__class_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}\index{lv\_obj\_class.h@{lv\_obj\_class.h}!lv\_obj\_class\_t@{lv\_obj\_class\_t}}
+\index{lv\_obj\_class\_t@{lv\_obj\_class\_t}!lv\_obj\_class.h@{lv\_obj\_class.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_class\_t}{lv\_obj\_class\_t}}
+{\footnotesize\ttfamily \label{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168} 
+typedef struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \doxymbox{\hyperlink{lv__obj__class_8h_a45f1eead6ce2fb12e215ea3e0558f168}{lv\+\_\+obj\+\_\+class\+\_\+t}}}
+
+Describe the common methods of every object. Similar to a C++ class. \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2_leon_2_one_drive_2robotics_294517_a-bot-3-_m_c_l_2include_2liblvgl_2core_2lv_event_8h-example}{C:\+/\+\+Users/\+\+Leon/\+\+One\+Drive/\+robotics/\+94517\+A-\/bot-\/3-\/\+MCL/\+include/\+liblvgl/\+core/\+lv\+\_\+event.\+h}}.\end{Desc}
+
+
+\label{doc-enum-members}
+\Hypertarget{lv__obj__class_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82}\index{lv\_obj\_class.h@{lv\_obj\_class.h}!lv\_obj\_class\_editable\_t@{lv\_obj\_class\_editable\_t}}
+\index{lv\_obj\_class\_editable\_t@{lv\_obj\_class\_editable\_t}!lv\_obj\_class.h@{lv\_obj\_class.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_class\_editable\_t}{lv\_obj\_class\_editable\_t}}
+{\footnotesize\ttfamily \label{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82} 
+enum \doxymbox{\hyperlink{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82}{lv\+\_\+obj\+\_\+class\+\_\+editable\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_OBJ\_CLASS\_EDITABLE\_INHERIT@{LV\_OBJ\_CLASS\_EDITABLE\_INHERIT}!lv\_obj\_class.h@{lv\_obj\_class.h}}
+\index{lv\_obj\_class.h@{lv\_obj\_class.h}!LV\_OBJ\_CLASS\_EDITABLE\_INHERIT@{LV\_OBJ\_CLASS\_EDITABLE\_INHERIT}}
+}\Hypertarget{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82a5d9524139b9c78df1dfbe044d3ecc6f6}\label{lv__obj__class_8h_a86f3f042b274542776ab1a066cfe7c82a5d9524139b9c78df1dfbe044d3ecc6f6} 
+LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+EDITABLE\+\_\+\+INHERIT&Check the base class. Must have 0 value to let zero initialized class inherit \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871d}\index{lv\_obj\_class.h@{lv\_obj\_class.h}!lv\_obj\_class\_group\_def\_t@{lv\_obj\_class\_group\_def\_t}}
+\index{lv\_obj\_class\_group\_def\_t@{lv\_obj\_class\_group\_def\_t}!lv\_obj\_class.h@{lv\_obj\_class.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_class\_group\_def\_t}{lv\_obj\_class\_group\_def\_t}}
+{\footnotesize\ttfamily \label{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871d} 
+enum \doxymbox{\hyperlink{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871d}{lv\+\_\+obj\+\_\+class\+\_\+group\+\_\+def\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_OBJ\_CLASS\_GROUP\_DEF\_INHERIT@{LV\_OBJ\_CLASS\_GROUP\_DEF\_INHERIT}!lv\_obj\_class.h@{lv\_obj\_class.h}}
+\index{lv\_obj\_class.h@{lv\_obj\_class.h}!LV\_OBJ\_CLASS\_GROUP\_DEF\_INHERIT@{LV\_OBJ\_CLASS\_GROUP\_DEF\_INHERIT}}
+}\Hypertarget{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871da993e81ae5ce013fb2df968aab3cb7b6f}\label{lv__obj__class_8h_aebc1dfe87bf60e09142aea1746c6871da993e81ae5ce013fb2df968aab3cb7b6f} 
+LV\+\_\+\+OBJ\+\_\+\+CLASS\+\_\+\+GROUP\+\_\+\+DEF\+\_\+\+INHERIT&Check the base class. Must have 0 value to let zero initialized class inherit \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{lv__obj__class_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{lv__obj__class_8h_a0a84761a1b5115ad2d10e7efdea04fc2}\index{lv\_obj\_class.h@{lv\_obj\_class.h}!lv\_obj\_class\_create\_obj@{lv\_obj\_class\_create\_obj}}
+\index{lv\_obj\_class\_create\_obj@{lv\_obj\_class\_create\_obj}!lv\_obj\_class.h@{lv\_obj\_class.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_class\_create\_obj()}{lv\_obj\_class\_create\_obj()}}
+{\footnotesize\ttfamily \label{lv__obj__class_8h_a0a84761a1b5115ad2d10e7efdea04fc2} 
+struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+obj\+\_\+class\+\_\+create\+\_\+obj (\begin{DoxyParamCaption}\item[{const struct \doxymbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{class\+\_\+p}{, }\item[{struct \doxymbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent}{}\end{DoxyParamCaption})}
+
+Create an object form a class descriptor 
+\begin{DoxyParams}{Parameters}
+{\em class\+\_\+p} & pointer to a class \\
+\hline
+{\em parent} & pointer to an object where the new object should be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the created object 
+\end{DoxyReturn}

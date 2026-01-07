@@ -1,0 +1,90 @@
+\doxysection{default\+Odom\+Chassis\+Controller.\+hpp}
+\hypertarget{default_odom_chassis_controller_8hpp_source}{}\label{default_odom_chassis_controller_8hpp_source}\index{include/okapi/api/chassis/controller/defaultOdomChassisController.hpp@{include/okapi/api/chassis/controller/defaultOdomChassisController.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/controller/chassisControllerIntegrated.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/controller/odomChassisController.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}okapi/api/chassis/model/skidSteerModel.hpp"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}okapi/api/odometry/odometry.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }okapi\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classokapi_1_1_odom_chassis_controller_ae637214075365e3b1316abacea499175}{OdomChassisController}}\ \{}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_time_util}{TimeUtil}}\ \&itimeUtil,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Odometry>\ iodometry,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<ChassisController>\ icontroller,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ StateMode\ \&imode\ =\ StateMode::FRAME\_TRANSFORMATION,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QLength\ imoveThreshold\ =\ 0\_mm,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QAngle\ iturnThreshold\ =\ 0\_deg,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Logger>\ ilogger\ =\ \doxymbox{\hyperlink{classokapi_1_1_logger_ac9dd2e38a412a692816f150b0ac3f0b4}{Logger::getDefaultLogger}}());}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00043\ \ \ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}(\doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00044\ \ \ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ \&operator=(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ \&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00045\ \ \ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ \&operator=(\doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a5eb5652ea501347355af3f1aa2206514}{DefaultOdomChassisController}}\ \&\&other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_ad89098abcab5e9f333cb3c70c9e8299f}{driveToPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_point}{Point}}\ \&ipoint,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ibackwards\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QLength\ \&ioffset\ =\ 0\_mm)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a6692219d4f4c264346c5c8096be41610}{turnToPoint}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structokapi_1_1_point}{Point}}\ \&ipoint)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ std::shared\_ptr<ChassisController>\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a2b5fc33c7fbe8d6fd49f4fd46fb84a2d}{getChassisController}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_controller}{ChassisController}}\ \&\doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_add1bed5d02d3da37306ef0016b7ad8a2}{chassisController}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_aaf6e4d74384b87510d35b639e45f9dc2}{turnToAngle}}(\textcolor{keyword}{const}\ QAngle\ \&iangle)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a3143bc60f72ab8ff8f63aad9a810a1c6}{moveDistance}}(QLength\ itarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a21123336d2f2cb2fcd8c42db309c9f6c}{moveRaw}}(\textcolor{keywordtype}{double}\ itarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a61ca0d303fcbfd08932157af9adbbb12}{moveDistanceAsync}}(QLength\ itarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_aec3f30b75ae403601de320a5b376ef0a}{moveRawAsync}}(\textcolor{keywordtype}{double}\ itarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a4ba07ac4bea9ff2d8aea30be72f6a0ea}{turnAngle}}(QAngle\ idegTarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a2546087ed9bf13794235509bc8a2503f}{turnRaw}}(\textcolor{keywordtype}{double}\ idegTarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a18d748097a7938e3102638d17be54c76}{turnAngleAsync}}(QAngle\ idegTarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a3a69b57e67a178c2fdafbe31f64e44b4}{turnRawAsync}}(\textcolor{keywordtype}{double}\ idegTarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_aed92ba0b7a9fc15bf645f3789e8598ae}{setTurnsMirrored}}(\textcolor{keywordtype}{bool}\ ishouldMirror)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_ab6ddd200dc7a08a8e0dc95826ee9c36e}{isSettled}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a44599379129060bdb44e6f603ee5777b}{waitUntilSettled}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_af6a98415e2c4e17dfec77e215efb1a41}{stop}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_affec1fead5eb3f3f2da197ecb72243fd}{setMaxVelocity}}(\textcolor{keywordtype}{double}\ imaxVelocity)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a92b9ca10cd10b8b41904a2bcab7e88e5}{getMaxVelocity}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00160\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_scales}{ChassisScales}}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_afa07913b30d47c790fcdce8c2b85a468}{getChassisScales}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \doxymbox{\hyperlink{structokapi_1_1_abstract_motor_1_1_gearset_ratio_pair}{AbstractMotor::GearsetRatioPair}}\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a6912dbe99776f79fb3a6990e2fbea2ff}{getGearsetRatioPair}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \ \ std::shared\_ptr<ChassisModel>\ \doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_a83e8bf7115086c331ada990ceb872bf1}{getModel}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00175\ \ \ \doxymbox{\hyperlink{classokapi_1_1_chassis_model}{ChassisModel}}\ \&\doxymbox{\hyperlink{classokapi_1_1_default_odom_chassis_controller_aa917086153b6298bf7792fd3b31ac240}{model}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00178\ \ \ std::shared\_ptr<Logger>\ logger;}
+\DoxyCodeLine{00179\ \ \ std::shared\_ptr<ChassisController>\ controller;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \textcolor{keywordtype}{void}\ waitForOdomTask();}
+\DoxyCodeLine{00182\ \};}
+\DoxyCodeLine{00183\ \}\ \textcolor{comment}{//\ namespace\ okapi}}
+
+\end{DoxyCode}

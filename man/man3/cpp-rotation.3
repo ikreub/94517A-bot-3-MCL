@@ -1,0 +1,355 @@
+.TH "cpp-rotation" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cpp-rotation \- VEX Rotation Sensor C++ API
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBrotation\&.hpp\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBpros::v5::Rotation\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBpros::v5::Rotation::Rotation\fP (const std::int8_t port)"
+.br
+.ti -1c
+.RI "\fBpros::v5::Rotation::Rotation\fP (const \fBDevice\fP &device)"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::reset\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::set_data_rate\fP (std::uint32_t rate) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::set_position\fP (std::uint32_t position) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::reset_position\fP (void) const"
+.br
+.ti -1c
+.RI "static std::vector< \fBRotation\fP > \fBpros::v5::Rotation::get_all_devices\fP ()"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::get_position\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::get_velocity\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::get_angle\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::set_reversed\fP (bool value) const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::reverse\fP () const"
+.br
+.ti -1c
+.RI "virtual std::int32_t \fBpros::v5::Rotation::get_reversed\fP () const"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBpros::v5::Rotation::operator<<\fP (std::ostream &os, const \fBpros::Rotation\fP &rotation)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "std::vector< \fBRotation\fP > pros::v5::Rotation::get_all_devices ()\fR [static]\fP"
+Gets all rotation sensors\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+A vector of \fBRotation\fP sensor objects\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::get_angle () const\fR [virtual]\fP"
+Get the \fBRotation\fP Sensor's current position in centidegrees
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+The angle value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::get_position () const\fR [virtual]\fP"
+Get the \fBRotation\fP Sensor's current position in centidegrees
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+The position value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::get_reversed () const\fR [virtual]\fP"
+Get the \fBRotation\fP Sensor's reversed flag
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+Reversed value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::get_velocity () const\fR [virtual]\fP"
+Get the \fBRotation\fP Sensor's current velocity in centidegrees per second
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 \fBRotation\fP Sensor port number from 1-21 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The velocity value or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::reset ()\fR [virtual]\fP"
+Reset the \fBRotation\fP Sensor
+
+.PP
+Reset the current absolute position to be the same as the \fBRotation\fP Sensor angle\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::reset_position (void ) const\fR [virtual]\fP"
+Reset the \fBRotation\fP Sensor position to 0
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The position in terms of ticks 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::reverse () const\fR [virtual]\fP"
+Reverse the \fBRotation\fP Sensor's direction\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "pros::v5::Rotation::Rotation (const std::int8_t port)"
+Constructs a new \fBRotation\fP Sensor object
+
+.PP
+ENXIO - The given value is not within the range of V5 ports |1-21|\&. ENODEV - The port cannot be configured as a \fBRotation\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIport\fP The V5 port number from 1 to 21, or from -21 to -1 for reversed \fBRotation\fP Sensors\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::set_data_rate (std::uint32_t rate) const\fR [virtual]\fP"
+Set the \fBRotation\fP Sensor's refresh interval in milliseconds\&.
+
+.PP
+The rate may be specified in increments of 5ms, and will be rounded down to the nearest increment\&. The minimum allowable refresh rate is 5ms\&. The default rate is 10ms\&.
+
+.PP
+As values are copied into the shared memory buffer only at 10ms intervals, setting this value to less than 10ms does not mean that you can poll the sensor's values any faster\&. However, it will guarantee that the data is as recent as possible\&.
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIrate\fP The data refresh interval in milliseconds 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::set_position (std::uint32_t position) const\fR [virtual]\fP"
+Set the \fBRotation\fP Sensor position reading to a desired rotation value
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP The position in terms of ticks 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SS "virtual std::int32_t pros::v5::Rotation::set_reversed (bool value) const\fR [virtual]\fP"
+Set the \fBRotation\fP Sensor's direction reversed flag
+
+.PP
+This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21)\&. ENODEV - The port cannot be configured as an \fBRotation\fP Sensor
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvalue\fP Determines if the direction of the rotational sensor is reversed or not\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if the operation was successful or PROS_ERR if the operation failed, setting errno\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Friends"
+.PP 
+.SS "std::ostream & operator<< (std::ostream & os, const \fBpros::Rotation\fP & rotation)\fR [friend]\fP"
+This is the overload for the << operator for printing to streams
+
+.PP
+Prints in format(this below is all in one line with no new line): \fBRotation\fP [port: rotation\&._port, position: (rotation position), velocity: (rotation velocity), angle: (rotation angle), reversed: (reversed boolean)]
+
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

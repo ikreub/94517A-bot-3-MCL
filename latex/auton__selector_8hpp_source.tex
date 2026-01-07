@@ -1,0 +1,33 @@
+\doxysection{auton\+\_\+selector.\+hpp}
+\hypertarget{auton__selector_8hpp_source}{}\label{auton__selector_8hpp_source}\index{include/EZ-\/Template/auton\_selector.hpp@{include/EZ-\/Template/auton\_selector.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00003\ \textcolor{comment}{License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00004\ \textcolor{comment}{file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}EZ-\/Template/auton.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }ez\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }AutonSelector\ \{}
+\DoxyCodeLine{00016\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ std::vector<Auton>\ Autons;}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{int}\ auton\_page\_current;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{int}\ auton\_count;}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{int}\ last\_auton\_page\_current;}
+\DoxyCodeLine{00021\ \ \ AutonSelector();}
+\DoxyCodeLine{00022\ \ \ AutonSelector(std::vector<Auton>\ autons);}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ selected\_auton\_call();}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ selected\_auton\_print();}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ autons\_add(std::vector<Auton>\ autons);}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ \}\ \ \textcolor{comment}{//\ namespace\ ez}}
+
+\end{DoxyCode}

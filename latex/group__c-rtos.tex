@@ -1,0 +1,802 @@
+\doxysection{RTOS Facilities C API }
+\hypertarget{group__c-rtos}{}\label{group__c-rtos}\index{RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \doxymbox{\hyperlink{rtos_8h}{rtos.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_gad028cb03c935557184a71a6c53915065}{CURRENT\+\_\+\+TASK}}~((\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}})NULL)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__c-rtos_gacd8d13c328bebdf9eddea27ff9448c2d}{millis}} (void)
+\item 
+uint64\+\_\+t \doxymbox{\hyperlink{group__c-rtos_ga19665f2a908fc943d11a231dcc910f4f}{micros}} (void)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} \doxymbox{\hyperlink{group__c-rtos_ga2e3ed8f26b8c1edcff493bc583f0a76a}{task\+\_\+create}} (\doxymbox{\hyperlink{group__c-rtos_gaece0aa29b1f1538115228d2197239f98}{task\+\_\+fn\+\_\+t}} function, void \texorpdfstring{$\ast$}{*}const parameters, uint32\+\_\+t prio, const uint16\+\_\+t stack\+\_\+depth, const char \texorpdfstring{$\ast$}{*}const name)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_gacf328f16126485ade810e438db996180}{task\+\_\+delete}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_ga3658dea4dcc916f72d05bd6a05bf3d19}{task\+\_\+delay}} (const uint32\+\_\+t milliseconds)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_gab8c5a8048d5576a33d7f79b95a2fa0dd}{delay}} (const uint32\+\_\+t milliseconds)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_ga61c8ccf83a0dc79fc0e9fde5e87a0329}{task\+\_\+delay\+\_\+until}} (uint32\+\_\+t \texorpdfstring{$\ast$}{*}const prev\+\_\+time, const uint32\+\_\+t delta)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__c-rtos_ga8d6d1ffc897a069346a6a1ee5d3acf87}{task\+\_\+get\+\_\+priority}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_gaa906731a0dbda5c2382ca7e3cc32cc97}{task\+\_\+set\+\_\+priority}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task, uint32\+\_\+t prio)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}{task\+\_\+state\+\_\+e\+\_\+t}} \doxymbox{\hyperlink{group__c-rtos_ga5d094df87681d230ebffa2cee23d6f07}{task\+\_\+get\+\_\+state}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_ga50ab98e83c207eaab4c2b9eb56d9ba0c}{task\+\_\+suspend}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_ga58bdeeedfe2d98fa57721bb7dad16fee}{task\+\_\+resume}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__c-rtos_ga7c182e8b87526eb0e4b6ec5a4c858b4e}{task\+\_\+get\+\_\+count}} (void)
+\item 
+char \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-rtos_gac9976fc1a763c7da08204139bc54c631}{task\+\_\+get\+\_\+name}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} \doxymbox{\hyperlink{group__c-rtos_gaad54400367541c9cf7f4eaaec235a9e9}{task\+\_\+get\+\_\+by\+\_\+name}} (const char \texorpdfstring{$\ast$}{*}name)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} \doxymbox{\hyperlink{group__c-rtos_gad8c64e24feaa08391eb61b62ea2cdbd5}{task\+\_\+get\+\_\+current}} ()
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__c-rtos_ga19e1a0a068f9d5e8493065f6b7944a63}{task\+\_\+notify}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_gaf10b92a45faacf8e8337f20f698efa8a}{task\+\_\+join}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__c-rtos_ga81b5dad7acaef5dd60486ab85af5d54b}{task\+\_\+notify\+\_\+ext}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task, uint32\+\_\+t value, \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}} action, uint32\+\_\+t \texorpdfstring{$\ast$}{*}prev\+\_\+value)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group__c-rtos_gaabfb0111c671a56176bc83bb1437635b}{task\+\_\+notify\+\_\+take}} (bool clear\+\_\+on\+\_\+exit, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__c-rtos_gae8697be0d552a81063536c88c0358f38}{task\+\_\+notify\+\_\+clear}} (\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task)
+\item 
+\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} \doxymbox{\hyperlink{group__c-rtos_ga475d096afa3abcc9a276ca9fa54bafdf}{mutex\+\_\+create}} (void)
+\item 
+bool \doxymbox{\hyperlink{group__c-rtos_ga14452e92345bc1bab69e27f35c38e0f9}{mutex\+\_\+take}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex, uint32\+\_\+t timeout)
+\item 
+bool \doxymbox{\hyperlink{group__c-rtos_ga600f042859f15dee6c34b236670ac3d9}{mutex\+\_\+give}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex)
+\item 
+void \doxymbox{\hyperlink{group__c-rtos_ga601a1d7f71d6bd5f2be0c10190ba2ec7}{mutex\+\_\+delete}} (\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}{task\+\_\+state\+\_\+e\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba3b7873566c73fb17191451f641f3f564}{E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+RUNNING}} = 0
+, \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba7a9b05db250161908d541259cc9b6c08}{E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+READY}}
+, \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba833a2009d6613fe7f3357551c525e953}{E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+BLOCKED}}
+, \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba1c6ab831f17838fb926088f3353cb13c}{E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+SUSPENDED}}
+, \newline
+\doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba521c1585b4d885ca38cc463d74d1fa4d}{E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+DELETED}}
+, \doxymbox{\hyperlink{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba4b91d8b231764bb6556618bdb78c34a0}{E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+INVALID}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a8ef04ba61995d97d82fd7bf1ff4d772f}{E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+NONE}}
+, \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570adc1fa6911e0d71db6404d3c8b7276e02}{E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+BITS}}
+, \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570ab9b6a7e40e7b9553e8b1782b2c0bc155}{E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+INCR}}
+, \doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a11be52cd9271cd1504f7555b73e5bd89}{E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+OWRITE}}
+, \newline
+\doxymbox{\hyperlink{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a735b4ce042c8998c9432449b5f7efdc5}{E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+NO\+\_\+\+OWRITE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-rtos_gaece0aa29b1f1538115228d2197239f98}{task\+\_\+fn\+\_\+t}}) (void \texorpdfstring{$\ast$}{*})
+\item 
+typedef void \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_ga87892f18571e88eba7fbe758759cac05}{TASK\+\_\+\+PRIORITY\+\_\+\+MAX}}~16
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_gae35baef65db45cef90a74266acb31b10}{TASK\+\_\+\+PRIORITY\+\_\+\+MIN}}~1
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_ga3082a7e8f15691441dba683711bb823f}{TASK\+\_\+\+PRIORITY\+\_\+\+DEFAULT}}~8
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_ga9ffb33b9e3714ca949d9f45dde3cbf8f}{TASK\+\_\+\+STACK\+\_\+\+DEPTH\+\_\+\+DEFAULT}}~0x2000
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_gafa551bbf9a2333b9241b2e99530a8767}{TASK\+\_\+\+STACK\+\_\+\+DEPTH\+\_\+\+MIN}}~0x200
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_ga6d22565b4bdfe36c8f8a0a376e565460}{TASK\+\_\+\+NAME\+\_\+\+MAX\+\_\+\+LEN}}~32
+\item 
+\+\#define \doxymbox{\hyperlink{group__c-rtos_ga9146d5b264ff64b573607d62fc479c3f}{TIMEOUT\+\_\+\+MAX}}~((uint32\+\_\+t)0xffffffff\+UL)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyNote}{Note}
+Additional example code for this module can be found in its Tutorial.
+\end{DoxyNote}
+
+
+\label{doc-define-members}
+\Hypertarget{group__c-rtos_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{group__c-rtos_gad028cb03c935557184a71a6c53915065}\index{RTOS Facilities C API@{RTOS Facilities C API}!CURRENT\_TASK@{CURRENT\_TASK}}
+\index{CURRENT\_TASK@{CURRENT\_TASK}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{CURRENT\_TASK}{CURRENT\_TASK}}
+{\footnotesize\ttfamily \label{group__c-rtos_gad028cb03c935557184a71a6c53915065} 
+\+\#define CURRENT\+\_\+\+TASK~((\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}})NULL)}
+
+The task handle of the currently running task. \Hypertarget{group__c-rtos_ga6d22565b4bdfe36c8f8a0a376e565460}\index{RTOS Facilities C API@{RTOS Facilities C API}!TASK\_NAME\_MAX\_LEN@{TASK\_NAME\_MAX\_LEN}}
+\index{TASK\_NAME\_MAX\_LEN@{TASK\_NAME\_MAX\_LEN}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TASK\_NAME\_MAX\_LEN}{TASK\_NAME\_MAX\_LEN}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga6d22565b4bdfe36c8f8a0a376e565460} 
+\+\#define TASK\+\_\+\+NAME\+\_\+\+MAX\+\_\+\+LEN~32}
+
+The maximum number of characters allowed in a task\textquotesingle{}s name. \Hypertarget{group__c-rtos_ga3082a7e8f15691441dba683711bb823f}\index{RTOS Facilities C API@{RTOS Facilities C API}!TASK\_PRIORITY\_DEFAULT@{TASK\_PRIORITY\_DEFAULT}}
+\index{TASK\_PRIORITY\_DEFAULT@{TASK\_PRIORITY\_DEFAULT}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TASK\_PRIORITY\_DEFAULT}{TASK\_PRIORITY\_DEFAULT}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga3082a7e8f15691441dba683711bb823f} 
+\+\#define TASK\+\_\+\+PRIORITY\+\_\+\+DEFAULT~8}
+
+The default task priority, which should be used for most tasks unless you have a specific need for a higher or lower priority task.
+
+The default tasks, such as \doxylink{main_8h_a2df3d06bc5bced154da27fce393f991f}{autonomous()}, are run with this priority \Hypertarget{group__c-rtos_ga87892f18571e88eba7fbe758759cac05}\index{RTOS Facilities C API@{RTOS Facilities C API}!TASK\_PRIORITY\_MAX@{TASK\_PRIORITY\_MAX}}
+\index{TASK\_PRIORITY\_MAX@{TASK\_PRIORITY\_MAX}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TASK\_PRIORITY\_MAX}{TASK\_PRIORITY\_MAX}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga87892f18571e88eba7fbe758759cac05} 
+\+\#define TASK\+\_\+\+PRIORITY\+\_\+\+MAX~16}
+
+The highest priority that can be assigned to a task.
+
+A task with this priority will always run if it is available to. Beware of deadlocks when using this priority. \Hypertarget{group__c-rtos_gae35baef65db45cef90a74266acb31b10}\index{RTOS Facilities C API@{RTOS Facilities C API}!TASK\_PRIORITY\_MIN@{TASK\_PRIORITY\_MIN}}
+\index{TASK\_PRIORITY\_MIN@{TASK\_PRIORITY\_MIN}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TASK\_PRIORITY\_MIN}{TASK\_PRIORITY\_MIN}}
+{\footnotesize\ttfamily \label{group__c-rtos_gae35baef65db45cef90a74266acb31b10} 
+\+\#define TASK\+\_\+\+PRIORITY\+\_\+\+MIN~1}
+
+The lowest priority that can be assigned to a task.
+
+This can cause severe performance problems and is generally not recommended that users use this priority. \Hypertarget{group__c-rtos_ga9ffb33b9e3714ca949d9f45dde3cbf8f}\index{RTOS Facilities C API@{RTOS Facilities C API}!TASK\_STACK\_DEPTH\_DEFAULT@{TASK\_STACK\_DEPTH\_DEFAULT}}
+\index{TASK\_STACK\_DEPTH\_DEFAULT@{TASK\_STACK\_DEPTH\_DEFAULT}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TASK\_STACK\_DEPTH\_DEFAULT}{TASK\_STACK\_DEPTH\_DEFAULT}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga9ffb33b9e3714ca949d9f45dde3cbf8f} 
+\+\#define TASK\+\_\+\+STACK\+\_\+\+DEPTH\+\_\+\+DEFAULT~0x2000}
+
+The recommended stack size for a new task.
+
+This stack size is used for the default tasks such as \doxylink{main_8h_a2df3d06bc5bced154da27fce393f991f}{autonomous()}. This size is 8,192 words, or 32,768 bytes. This should be enough for the majority of tasks \Hypertarget{group__c-rtos_gafa551bbf9a2333b9241b2e99530a8767}\index{RTOS Facilities C API@{RTOS Facilities C API}!TASK\_STACK\_DEPTH\_MIN@{TASK\_STACK\_DEPTH\_MIN}}
+\index{TASK\_STACK\_DEPTH\_MIN@{TASK\_STACK\_DEPTH\_MIN}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TASK\_STACK\_DEPTH\_MIN}{TASK\_STACK\_DEPTH\_MIN}}
+{\footnotesize\ttfamily \label{group__c-rtos_gafa551bbf9a2333b9241b2e99530a8767} 
+\+\#define TASK\+\_\+\+STACK\+\_\+\+DEPTH\+\_\+\+MIN~0x200}
+
+The minimal stack size for a task.
+
+This equates to 512 words, or 2,048 bytes. \Hypertarget{group__c-rtos_ga9146d5b264ff64b573607d62fc479c3f}\index{RTOS Facilities C API@{RTOS Facilities C API}!TIMEOUT\_MAX@{TIMEOUT\_MAX}}
+\index{TIMEOUT\_MAX@{TIMEOUT\_MAX}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{TIMEOUT\_MAX}{TIMEOUT\_MAX}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga9146d5b264ff64b573607d62fc479c3f} 
+\+\#define TIMEOUT\+\_\+\+MAX~((uint32\+\_\+t)0xffffffff\+UL)}
+
+The maximum timeout value that can be given to, for instance, a mutex grab. 
+
+\label{doc-typedef-members}
+\Hypertarget{group__c-rtos_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}\index{RTOS Facilities C API@{RTOS Facilities C API}!mutex\_t@{mutex\_t}}
+\index{mutex\_t@{mutex\_t}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{mutex\_t}{mutex\_t}}
+{\footnotesize\ttfamily \label{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2} 
+typedef void\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}
+
+A mutex.
+
+A mutex is a synchronization object that can be used to protect a shared resource from being accessed by multiple tasks at the same time. A mutex can be claimed by a task, which will prevent other tasks from claiming it until that task releases it. \Hypertarget{group__c-rtos_gaece0aa29b1f1538115228d2197239f98}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_fn\_t@{task\_fn\_t}}
+\index{task\_fn\_t@{task\_fn\_t}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_fn\_t}{task\_fn\_t}}
+{\footnotesize\ttfamily \label{group__c-rtos_gaece0aa29b1f1538115228d2197239f98} 
+typedef void(\texorpdfstring{$\ast$}{*} task\+\_\+fn\+\_\+t) (void \texorpdfstring{$\ast$}{*})}
+
+A pointer to a task\textquotesingle{}s function.
+
+Such a function is called when a task starts, and exiting said function will terminate the task. \Hypertarget{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_t@{task\_t}}
+\index{task\_t@{task\_t}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_t}{task\_t}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293} 
+typedef void\texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}
+
+An opaque type that pontis to a task handle. This is used for referencing a task. 
+
+\label{doc-enum-members}
+\Hypertarget{group__c-rtos_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}\index{RTOS Facilities C API@{RTOS Facilities C API}!notify\_action\_e\_t@{notify\_action\_e\_t}}
+\index{notify\_action\_e\_t@{notify\_action\_e\_t}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{notify\_action\_e\_t}{notify\_action\_e\_t}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570} 
+enum \doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}}}
+
+brief The action to take when a task is notified. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_NOTIFY\_ACTION\_NONE@{E\_NOTIFY\_ACTION\_NONE}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_NOTIFY\_ACTION\_NONE@{E\_NOTIFY\_ACTION\_NONE}}
+}\Hypertarget{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a8ef04ba61995d97d82fd7bf1ff4d772f}\label{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a8ef04ba61995d97d82fd7bf1ff4d772f} 
+E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+NONE&The task’s notification value will not be touched. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_NOTIFY\_ACTION\_BITS@{E\_NOTIFY\_ACTION\_BITS}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_NOTIFY\_ACTION\_BITS@{E\_NOTIFY\_ACTION\_BITS}}
+}\Hypertarget{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570adc1fa6911e0d71db6404d3c8b7276e02}\label{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570adc1fa6911e0d71db6404d3c8b7276e02} 
+E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+BITS&The task’s notification value will be bitwise ORed with the new value. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_NOTIFY\_ACTION\_INCR@{E\_NOTIFY\_ACTION\_INCR}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_NOTIFY\_ACTION\_INCR@{E\_NOTIFY\_ACTION\_INCR}}
+}\Hypertarget{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570ab9b6a7e40e7b9553e8b1782b2c0bc155}\label{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570ab9b6a7e40e7b9553e8b1782b2c0bc155} 
+E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+INCR&The task’s notification value will be incremented by one, effectively using it as a notification counter. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_NOTIFY\_ACTION\_OWRITE@{E\_NOTIFY\_ACTION\_OWRITE}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_NOTIFY\_ACTION\_OWRITE@{E\_NOTIFY\_ACTION\_OWRITE}}
+}\Hypertarget{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a11be52cd9271cd1504f7555b73e5bd89}\label{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a11be52cd9271cd1504f7555b73e5bd89} 
+E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+OWRITE&The task’s notification value will be unconditionally set to the new value. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_NOTIFY\_ACTION\_NO\_OWRITE@{E\_NOTIFY\_ACTION\_NO\_OWRITE}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_NOTIFY\_ACTION\_NO\_OWRITE@{E\_NOTIFY\_ACTION\_NO\_OWRITE}}
+}\Hypertarget{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a735b4ce042c8998c9432449b5f7efdc5}\label{group__c-rtos_gga42ea99b5e5d38da0b98154609cf6c570a735b4ce042c8998c9432449b5f7efdc5} 
+E\+\_\+\+NOTIFY\+\_\+\+ACTION\+\_\+\+NO\+\_\+\+OWRITE&The task’s notification value will be set to the new value if the task does not already have a pending notification. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_state\_e\_t@{task\_state\_e\_t}}
+\index{task\_state\_e\_t@{task\_state\_e\_t}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_state\_e\_t}{task\_state\_e\_t}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b} 
+enum \doxymbox{\hyperlink{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}{task\+\_\+state\+\_\+e\+\_\+t}}}
+
+The state of a task. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_TASK\_STATE\_RUNNING@{E\_TASK\_STATE\_RUNNING}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_TASK\_STATE\_RUNNING@{E\_TASK\_STATE\_RUNNING}}
+}\Hypertarget{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba3b7873566c73fb17191451f641f3f564}\label{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba3b7873566c73fb17191451f641f3f564} 
+E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+RUNNING&The task is actively executing. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_TASK\_STATE\_READY@{E\_TASK\_STATE\_READY}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_TASK\_STATE\_READY@{E\_TASK\_STATE\_READY}}
+}\Hypertarget{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba7a9b05db250161908d541259cc9b6c08}\label{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba7a9b05db250161908d541259cc9b6c08} 
+E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+READY&The task exists and is available to run, but is not currently running. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_TASK\_STATE\_BLOCKED@{E\_TASK\_STATE\_BLOCKED}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_TASK\_STATE\_BLOCKED@{E\_TASK\_STATE\_BLOCKED}}
+}\Hypertarget{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba833a2009d6613fe7f3357551c525e953}\label{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba833a2009d6613fe7f3357551c525e953} 
+E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+BLOCKED&The task is delayed or blocked by a mutex, semaphore, or I/\+O operation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_TASK\_STATE\_SUSPENDED@{E\_TASK\_STATE\_SUSPENDED}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_TASK\_STATE\_SUSPENDED@{E\_TASK\_STATE\_SUSPENDED}}
+}\Hypertarget{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba1c6ab831f17838fb926088f3353cb13c}\label{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba1c6ab831f17838fb926088f3353cb13c} 
+E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+SUSPENDED&The task is supended using task\+\_\+suspend. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_TASK\_STATE\_DELETED@{E\_TASK\_STATE\_DELETED}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_TASK\_STATE\_DELETED@{E\_TASK\_STATE\_DELETED}}
+}\Hypertarget{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba521c1585b4d885ca38cc463d74d1fa4d}\label{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba521c1585b4d885ca38cc463d74d1fa4d} 
+E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+DELETED&The task has been deleted using task\+\_\+delete. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{E\_TASK\_STATE\_INVALID@{E\_TASK\_STATE\_INVALID}!RTOS Facilities C API@{RTOS Facilities C API}}
+\index{RTOS Facilities C API@{RTOS Facilities C API}!E\_TASK\_STATE\_INVALID@{E\_TASK\_STATE\_INVALID}}
+}\Hypertarget{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba4b91d8b231764bb6556618bdb78c34a0}\label{group__c-rtos_gga23d5ffd47ed255206f177fe9d891335ba4b91d8b231764bb6556618bdb78c34a0} 
+E\+\_\+\+TASK\+\_\+\+STATE\+\_\+\+INVALID&The task handle does not point to a current or past task. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{group__c-rtos_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__c-rtos_gab8c5a8048d5576a33d7f79b95a2fa0dd}\index{RTOS Facilities C API@{RTOS Facilities C API}!delay@{delay}}
+\index{delay@{delay}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{delay()}{delay()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gab8c5a8048d5576a33d7f79b95a2fa0dd} 
+void delay (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{milliseconds}{}\end{DoxyParamCaption})}
+
+Delays the current task for a given number of milliseconds.
+
+This is not the best method to have a task execute code at predefined intervals, as the delay time is measured from when the delay is requested. To delay cyclically, use \doxylink{group__c-rtos_ga61c8ccf83a0dc79fc0e9fde5e87a0329}{task\+\_\+delay\+\_\+until()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The number of milliseconds to wait (1000 milliseconds per second)\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_c_1_2_users_2_leon_2_one_drive_2robotics_294517_a-bot-3-_m_c_l_2include_2liblvgl_2misc_2lv_style_8h-example}{C:\+/\+\+Users/\+\+Leon/\+\+One\+Drive/\+robotics/\+94517\+A-\/bot-\/3-\/\+MCL/\+include/\+liblvgl/\+misc/\+lv\+\_\+style.\+h}}.\end{Desc}
+\Hypertarget{group__c-rtos_ga19665f2a908fc943d11a231dcc910f4f}\index{RTOS Facilities C API@{RTOS Facilities C API}!micros@{micros}}
+\index{micros@{micros}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{micros()}{micros()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga19665f2a908fc943d11a231dcc910f4f} 
+uint64\+\_\+t micros (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Gets the number of microseconds since PROS initialized,
+
+\begin{DoxyReturn}{Returns}
+The number of microseconds since PROS initialized
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gacd8d13c328bebdf9eddea27ff9448c2d}\index{RTOS Facilities C API@{RTOS Facilities C API}!millis@{millis}}
+\index{millis@{millis}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{millis()}{millis()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gacd8d13c328bebdf9eddea27ff9448c2d} 
+uint32\+\_\+t millis (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Gets the number of milliseconds since PROS initialized.
+
+\begin{DoxyReturn}{Returns}
+The number of milliseconds since PROS initialized
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga475d096afa3abcc9a276ca9fa54bafdf}\index{RTOS Facilities C API@{RTOS Facilities C API}!mutex\_create@{mutex\_create}}
+\index{mutex\_create@{mutex\_create}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{mutex\_create()}{mutex\_create()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga475d096afa3abcc9a276ca9fa54bafdf} 
+\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}} mutex\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Creates a mutex.
+
+See \href{https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html\#mutexes}{\texttt{https:\+/\+/\+pros.\+cs.\+purdue.\+edu/\+v5/\+tutorials/\+topical/\+multitasking.\+html\+\#mutexes}} for details.
+
+\begin{DoxyReturn}{Returns}
+A handle to a newly created mutex. If an error occurred, NULL will be returned and errno can be checked for hints as to why mutex\+\_\+create failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga601a1d7f71d6bd5f2be0c10190ba2ec7}\index{RTOS Facilities C API@{RTOS Facilities C API}!mutex\_delete@{mutex\_delete}}
+\index{mutex\_delete@{mutex\_delete}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{mutex\_delete()}{mutex\_delete()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga601a1d7f71d6bd5f2be0c10190ba2ec7} 
+void mutex\+\_\+delete (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}]{mutex}{}\end{DoxyParamCaption})}
+
+Deletes a mutex
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Mutex to unlock.\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga600f042859f15dee6c34b236670ac3d9}\index{RTOS Facilities C API@{RTOS Facilities C API}!mutex\_give@{mutex\_give}}
+\index{mutex\_give@{mutex\_give}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{mutex\_give()}{mutex\_give()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga600f042859f15dee6c34b236670ac3d9} 
+bool mutex\+\_\+give (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}]{mutex}{}\end{DoxyParamCaption})}
+
+Unlocks a mutex.
+
+See \href{https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html\#mutexes}{\texttt{https:\+/\+/\+pros.\+cs.\+purdue.\+edu/\+v5/\+tutorials/\+topical/\+multitasking.\+html\+\#mutexes}} for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Mutex to unlock.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the mutex was successfully returned, false otherwise. If false is returned, then errno is set with a hint about why the mutex couldn\textquotesingle{}t be returned.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga14452e92345bc1bab69e27f35c38e0f9}\index{RTOS Facilities C API@{RTOS Facilities C API}!mutex\_take@{mutex\_take}}
+\index{mutex\_take@{mutex\_take}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{mutex\_take()}{mutex\_take()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga14452e92345bc1bab69e27f35c38e0f9} 
+bool mutex\+\_\+take (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gab15ea84d90257d70b44e8e04519864d2}{mutex\+\_\+t}}}]{mutex}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Takes and locks a mutex, waiting for up to a certain number of milliseconds before timing out.
+
+See \href{https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html\#mutexes}{\texttt{https:\+/\+/\+pros.\+cs.\+purdue.\+edu/\+v5/\+tutorials/\+topical/\+multitasking.\+html\+\#mutexes}} for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mutex} & Mutex to attempt to lock. \\
+\hline
+{\em timeout} & Time to wait before the mutex becomes available. A timeout of 0 can be used to poll the mutex. TIMEOUT\+\_\+\+MAX can be used to block indefinitely.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the mutex was successfully taken, false otherwise. If false is returned, then errno is set with a hint about why the the mutex couldn\textquotesingle{}t be taken.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga2e3ed8f26b8c1edcff493bc583f0a76a}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_create@{task\_create}}
+\index{task\_create@{task\_create}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_create()}{task\_create()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga2e3ed8f26b8c1edcff493bc583f0a76a} 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task\+\_\+create (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_gaece0aa29b1f1538115228d2197239f98}{task\+\_\+fn\+\_\+t}}}]{function}{, }\item[{void \texorpdfstring{$\ast$}{*}const}]{parameters}{, }\item[{uint32\+\_\+t}]{prio}{, }\item[{const uint16\+\_\+t}]{stack\+\_\+depth}{, }\item[{const char \texorpdfstring{$\ast$}{*}const}]{name}{}\end{DoxyParamCaption})}
+
+Creates a new task and add it to the list of tasks that are ready to run.
+
+This function uses the following values of errno when an error state is reached:\+ ENOMEM -\/ The stack cannot be used as the TCB was not created.
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & Pointer to the task entry function \\
+\hline
+{\em parameters} & Pointer to memory that will be used as a parameter for the task being created. This memory should not typically come from stack, but rather from dynamically (i.\+e., malloc\textquotesingle{}d) or statically allocated memory. \\
+\hline
+{\em prio} & The priority at which the task should run. TASK\+\_\+\+PRIO\+\_\+\+DEFAULT plus/\+minus 1 or 2 is typically used. \\
+\hline
+{\em stack\+\_\+depth} & The number of words (i.\+e. 4 \texorpdfstring{$\ast$}{*} stack\+\_\+depth) available on the task\textquotesingle{}s stack. TASK\+\_\+\+STACK\+\_\+\+DEPTH\+\_\+\+DEFAULT is typically sufficienct. \\
+\hline
+{\em name} & A descriptive name for the task. This is mainly used to facilitate debugging. The name may be up to 32 characters long.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A handle by which the newly created task can be referenced. If an error occurred, NULL will be returned and errno can be checked for hints as to why task\+\_\+create failed.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga3658dea4dcc916f72d05bd6a05bf3d19}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_delay@{task\_delay}}
+\index{task\_delay@{task\_delay}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_delay()}{task\_delay()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga3658dea4dcc916f72d05bd6a05bf3d19} 
+void task\+\_\+delay (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{milliseconds}{}\end{DoxyParamCaption})}
+
+Delays the current task for a given number of milliseconds.
+
+This is not the best method to have a task execute code at predefined intervals, as the delay time is measured from when the delay is requested. To delay cyclically, use \doxylink{group__c-rtos_ga61c8ccf83a0dc79fc0e9fde5e87a0329}{task\+\_\+delay\+\_\+until()}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em milliseconds} & The number of milliseconds to wait (1000 milliseconds per second)\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga61c8ccf83a0dc79fc0e9fde5e87a0329}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_delay\_until@{task\_delay\_until}}
+\index{task\_delay\_until@{task\_delay\_until}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_delay\_until()}{task\_delay\_until()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga61c8ccf83a0dc79fc0e9fde5e87a0329} 
+void task\+\_\+delay\+\_\+until (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}const}]{prev\+\_\+time}{, }\item[{const uint32\+\_\+t}]{delta}{}\end{DoxyParamCaption})}
+
+Delays the current task until a specified time. This function can be used by periodic tasks to ensure a constant execution frequency.
+
+The task will be woken up at the time \texorpdfstring{$\ast$}{*}prev\+\_\+time + delta, and \texorpdfstring{$\ast$}{*}prev\+\_\+time will be updated to reflect the time at which the task will unblock.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prev\+\_\+time} & A pointer to the location storing the setpoint time. This should typically be initialized to the return value of \doxylink{group__c-rtos_gacd8d13c328bebdf9eddea27ff9448c2d}{millis()}. \\
+\hline
+{\em delta} & The number of milliseconds to wait (1000 milliseconds per second)\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gacf328f16126485ade810e438db996180}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_delete@{task\_delete}}
+\index{task\_delete@{task\_delete}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_delete()}{task\_delete()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gacf328f16126485ade810e438db996180} 
+void task\+\_\+delete (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Removes a task from the RTOS real time kernel\textquotesingle{}s management. The task being deleted will be removed from all ready, blocked, suspended and event lists.
+
+Memory dynamically allocated by the task is not automatically freed, and should be freed before the task is deleted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The handle of the task to be deleted. Passing NULL will cause the calling task to be deleted.\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gaad54400367541c9cf7f4eaaec235a9e9}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_get\_by\_name@{task\_get\_by\_name}}
+\index{task\_get\_by\_name@{task\_get\_by\_name}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_get\_by\_name()}{task\_get\_by\_name()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gaad54400367541c9cf7f4eaaec235a9e9} 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task\+\_\+get\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{name}{}\end{DoxyParamCaption})}
+
+Gets a task handle from the specified name
+
+The operation takes a relatively long time and should be used sparingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to query\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A task handle with a matching name, or NULL if none were found.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga7c182e8b87526eb0e4b6ec5a4c858b4e}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_get\_count@{task\_get\_count}}
+\index{task\_get\_count@{task\_get\_count}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_get\_count()}{task\_get\_count()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga7c182e8b87526eb0e4b6ec5a4c858b4e} 
+uint32\+\_\+t task\+\_\+get\+\_\+count (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Gets the number of tasks the kernel is currently managing, including all ready, blocked, or suspended tasks. A task that has been deleted, but not yet reaped by the idle task will also be included in the count. Tasks recently created may take one context switch to be counted.
+
+\begin{DoxyReturn}{Returns}
+The number of tasks that are currently being managed by the kernel.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gad8c64e24feaa08391eb61b62ea2cdbd5}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_get\_current@{task\_get\_current}}
+\index{task\_get\_current@{task\_get\_current}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_get\_current()}{task\_get\_current()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gad8c64e24feaa08391eb61b62ea2cdbd5} 
+\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}} task\+\_\+get\+\_\+current (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the currently running task handle. This could be useful if a task wants to tell another task about itself.
+
+\begin{DoxyReturn}{Returns}
+The currently running task handle.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gac9976fc1a763c7da08204139bc54c631}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_get\_name@{task\_get\_name}}
+\index{task\_get\_name@{task\_get\_name}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_get\_name()}{task\_get\_name()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gac9976fc1a763c7da08204139bc54c631} 
+char \texorpdfstring{$\ast$}{*} task\+\_\+get\+\_\+name (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Gets the name of the specified task.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the name of the task
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga8d6d1ffc897a069346a6a1ee5d3acf87}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_get\_priority@{task\_get\_priority}}
+\index{task\_get\_priority@{task\_get\_priority}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_get\_priority()}{task\_get\_priority()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga8d6d1ffc897a069346a6a1ee5d3acf87} 
+uint32\+\_\+t task\+\_\+get\+\_\+priority (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Gets the priority of the specified task.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The priority of the task
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga5d094df87681d230ebffa2cee23d6f07}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_get\_state@{task\_get\_state}}
+\index{task\_get\_state@{task\_get\_state}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_get\_state()}{task\_get\_state()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga5d094df87681d230ebffa2cee23d6f07} 
+\doxymbox{\hyperlink{group__c-rtos_ga23d5ffd47ed255206f177fe9d891335b}{task\+\_\+state\+\_\+e\+\_\+t}} task\+\_\+get\+\_\+state (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Gets the state of the specified task.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to check\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state of the task
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gaf10b92a45faacf8e8337f20f698efa8a}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_join@{task\_join}}
+\index{task\_join@{task\_join}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_join()}{task\_join()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gaf10b92a45faacf8e8337f20f698efa8a} 
+void task\+\_\+join (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Utilizes task notifications to wait until specified task is complete and deleted, then continues to execute the program. Analogous to std::\+thread::\+join in C++.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The handle of the task to wait on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga19e1a0a068f9d5e8493065f6b7944a63}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_notify@{task\_notify}}
+\index{task\_notify@{task\_notify}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_notify()}{task\_notify()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga19e1a0a068f9d5e8493065f6b7944a63} 
+uint32\+\_\+t task\+\_\+notify (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Sends a simple notification to task and increments the notification counter.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to notify\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always returns true.
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gae8697be0d552a81063536c88c0358f38}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_notify\_clear@{task\_notify\_clear}}
+\index{task\_notify\_clear@{task\_notify\_clear}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_notify\_clear()}{task\_notify\_clear()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gae8697be0d552a81063536c88c0358f38} 
+bool task\+\_\+notify\+\_\+clear (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Clears the notification for a task.
+
+See \href{https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html}{\texttt{https:\+/\+/\+pros.\+cs.\+purdue.\+edu/\+v5/\+tutorials/\+topical/\+notifications.\+html}} for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to clear\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if there was not a notification waiting, true if there was
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga81b5dad7acaef5dd60486ab85af5d54b}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_notify\_ext@{task\_notify\_ext}}
+\index{task\_notify\_ext@{task\_notify\_ext}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_notify\_ext()}{task\_notify\_ext()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga81b5dad7acaef5dd60486ab85af5d54b} 
+uint32\+\_\+t task\+\_\+notify\+\_\+ext (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{, }\item[{uint32\+\_\+t}]{value}{, }\item[{\doxymbox{\hyperlink{group__c-rtos_ga42ea99b5e5d38da0b98154609cf6c570}{notify\+\_\+action\+\_\+e\+\_\+t}}}]{action}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{prev\+\_\+value}{}\end{DoxyParamCaption})}
+
+Sends a notification to a task, optionally performing some action. Will also retrieve the value of the notification in the target task before modifying the notification value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to notify \\
+\hline
+{\em value} & The value used in performing the action \\
+\hline
+{\em action} & An action to optionally perform on the receiving task\textquotesingle{}s notification value \\
+\hline
+{\em prev\+\_\+value} & A pointer to store the previous value of the target task\textquotesingle{}s notification, may be NULL\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dependent on the notification action. For NOTIFY\+\_\+\+ACTION\+\_\+\+NO\+\_\+\+WRITE:\+ return 0 if the value could be written without needing to overwrite, 1 otherwise. For all other NOTIFY\+\_\+\+ACTION values:\+ always return 0
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gaabfb0111c671a56176bc83bb1437635b}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_notify\_take@{task\_notify\_take}}
+\index{task\_notify\_take@{task\_notify\_take}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_notify\_take()}{task\_notify\_take()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gaabfb0111c671a56176bc83bb1437635b} 
+uint32\+\_\+t task\+\_\+notify\+\_\+take (\begin{DoxyParamCaption}\item[{bool}]{clear\+\_\+on\+\_\+exit}{, }\item[{uint32\+\_\+t}]{timeout}{}\end{DoxyParamCaption})}
+
+Waits for a notification to be nonzero.
+
+See \href{https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html}{\texttt{https:\+/\+/\+pros.\+cs.\+purdue.\+edu/\+v5/\+tutorials/\+topical/\+notifications.\+html}} for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em clear\+\_\+on\+\_\+exit} & If true (1), then the notification value is cleared. If false (0), then the notification value is decremented. \\
+\hline
+{\em timeout} & Specifies the amount of time to be spent waiting for a notification to occur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the task\textquotesingle{}s notification value before it is decremented or cleared
+\end{DoxyReturn}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga58bdeeedfe2d98fa57721bb7dad16fee}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_resume@{task\_resume}}
+\index{task\_resume@{task\_resume}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_resume()}{task\_resume()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga58bdeeedfe2d98fa57721bb7dad16fee} 
+void task\+\_\+resume (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Resumes the specified task, making it eligible to be scheduled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to resume\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_gaa906731a0dbda5c2382ca7e3cc32cc97}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_set\_priority@{task\_set\_priority}}
+\index{task\_set\_priority@{task\_set\_priority}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_set\_priority()}{task\_set\_priority()}}
+{\footnotesize\ttfamily \label{group__c-rtos_gaa906731a0dbda5c2382ca7e3cc32cc97} 
+void task\+\_\+set\+\_\+priority (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{, }\item[{uint32\+\_\+t}]{prio}{}\end{DoxyParamCaption})}
+
+Sets the priority of the specified task.
+
+If the specified task\textquotesingle{}s state is available to be scheduled (e.\+g. not blocked) and new priority is higher than the currently running task, a context switch may occur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to set \\
+\hline
+{\em prio} & The new priority of the task\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ \Hypertarget{group__c-rtos_ga50ab98e83c207eaab4c2b9eb56d9ba0c}\index{RTOS Facilities C API@{RTOS Facilities C API}!task\_suspend@{task\_suspend}}
+\index{task\_suspend@{task\_suspend}!RTOS Facilities C API@{RTOS Facilities C API}}
+\doxysubsubsection{\texorpdfstring{task\_suspend()}{task\_suspend()}}
+{\footnotesize\ttfamily \label{group__c-rtos_ga50ab98e83c207eaab4c2b9eb56d9ba0c} 
+void task\+\_\+suspend (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group__c-rtos_ga1d7e0825b8d8876e8cd8ece3f9115293}{task\+\_\+t}}}]{task}{}\end{DoxyParamCaption})}
+
+Suspends the specified task, making it ineligible to be scheduled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em task} & The task to suspend\\
+\hline
+\end{DoxyParams}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+
+\end{DoxyCode}
+ 

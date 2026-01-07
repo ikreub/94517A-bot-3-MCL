@@ -1,0 +1,93 @@
+.TH "pros::adi::DigitalIn" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pros::adi::DigitalIn
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBpros::adi::Port\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDigitalIn\fP (std::uint8_t adi_port)"
+.br
+.ti -1c
+.RI "\fBDigitalIn\fP (\fBext_adi_port_pair_t\fP port_pair)"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_new_press\fP () const"
+.br
+.ti -1c
+.RI "std::int32_t \fBget_value\fP () const"
+.br
+.ti -1c
+.RI "virtual \fBext_adi_port_tuple_t\fP \fBget_port\fP () const"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, \fBpros::adi::DigitalIn\fP &digital_in)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBext_adi_port_tuple_t\fP \fBpros::adi::Port::get_port\fP () const\fR [virtual]\fP"
+Gets the port of the sensor\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+returns a tuple of integer ports\&.
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The parts of the tuple are {smart port, adi port, second adi port (when applicable)}\&.
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+.PP
+Reimplemented from \fBpros::adi::Port\fP\&.
+.SS "std::int32_t \fBpros::adi::Port::get_value\fP () const"
+Gets the digital value (1 or 0) of a pin\&.
+
+.PP
+Inherited from ADIPort::get_value\&.
+
+.PP
+This function uses the following values of errno when an error state is reached:
+
+.PP
+EADDRINUSE - The port is not configured as a digital input (e\&.g\&. the port has been reconfigured)
+
+.PP
+Analogous to adi_digital_read\&.
+
+.PP
+\fBReturns\fP
+.RS 4
+The value stored for the given port
+.RE
+.PP
+\fBExample\fP 
+.PP
+.nf
+
+.fi
+.PP
+ 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

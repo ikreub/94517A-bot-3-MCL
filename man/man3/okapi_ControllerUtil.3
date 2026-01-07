@@ -1,0 +1,33 @@
+.TH "okapi::ControllerUtil" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ControllerUtil
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static pros::controller_id_e_t \fBidToProsEnum\fP (ControllerId in)"
+.br
+.ti -1c
+.RI "static pros::controller_analog_e_t \fBanalogToProsEnum\fP (ControllerAnalog in)"
+.br
+.ti -1c
+.RI "static pros::controller_digital_e_t \fBdigitalToProsEnum\fP (ControllerDigital in)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "pros::controller_analog_e_t okapi::ControllerUtil::analogToProsEnum (ControllerAnalog in)\fR [static]\fP"
+Maps an \fRanalog\fP to the PROS enum equivalent\&. 
+.SS "pros::controller_digital_e_t okapi::ControllerUtil::digitalToProsEnum (ControllerDigital in)\fR [static]\fP"
+Maps a \fRdigital\fP to the PROS enum equivalent\&. 
+.SS "pros::controller_id_e_t okapi::ControllerUtil::idToProsEnum (ControllerId in)\fR [static]\fP"
+Maps an \fRid\fP to the PROS enum equivalent\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

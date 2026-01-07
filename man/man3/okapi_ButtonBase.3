@@ -1,0 +1,94 @@
+.TH "okapi::ButtonBase" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+okapi::ButtonBase
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBokapi::AbstractButton\fP\&.
+.PP
+Inherited by \fBokapi::ADIButton\fP, and \fBokapi::ControllerButton\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBButtonBase\fP (bool iinverted=false)"
+.br
+.ti -1c
+.RI "bool \fBisPressed\fP () override"
+.br
+.ti -1c
+.RI "bool \fBchanged\fP () override"
+.br
+.ti -1c
+.RI "bool \fBchangedToPressed\fP () override"
+.br
+.ti -1c
+.RI "bool \fBchangedToReleased\fP () override"
+.br
+.in -1c
+
+Public Member Functions inherited from \fBokapi::AbstractButton\fP
+.in +1c
+.ti -1c
+.RI "virtual bool \fBcontrollerGet\fP () override"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual bool \fBcurrentlyPressed\fP ()=0"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBinverted\fP {false}"
+.br
+.ti -1c
+.RI "bool \fBwasPressedLast_c\fP {false}"
+.br
+.ti -1c
+.RI "bool \fBwasPressedLast_ctp\fP {false}"
+.br
+.ti -1c
+.RI "bool \fBwasPressedLast_ctr\fP {false}"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "okapi::ButtonBase::ButtonBase (bool iinverted = \fRfalse\fP)\fR [explicit]\fP"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIiinverted\fP Whether the button is inverted (\fRtrue\fP meaning default pressed and \fRfalse\fP meaning default not pressed)\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool okapi::ButtonBase::changed ()\fR [override]\fP, \fR [virtual]\fP"
+Return whether the state of the button changed since the last time this method was called\&. 
+.PP
+Implements \fBokapi::AbstractButton\fP\&.
+.SS "bool okapi::ButtonBase::changedToPressed ()\fR [override]\fP, \fR [virtual]\fP"
+Return whether the state of the button changed to pressed since the last time this method was called\&. 
+.PP
+Implements \fBokapi::AbstractButton\fP\&.
+.SS "bool okapi::ButtonBase::changedToReleased ()\fR [override]\fP, \fR [virtual]\fP"
+Return whether the state of the button to not pressed since the last time this method was called\&. 
+.PP
+Implements \fBokapi::AbstractButton\fP\&.
+.SS "bool okapi::ButtonBase::isPressed ()\fR [override]\fP, \fR [virtual]\fP"
+Return whether the button is currently pressed\&. 
+.PP
+Implements \fBokapi::AbstractButton\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

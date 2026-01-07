@@ -1,0 +1,646 @@
+.TH "include/liblvgl/misc/lv_color.h" 3 "Version 1.0" "94517A bot #3 with DSR" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/liblvgl/misc/lv_color.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'liblvgl/lv_conf_internal\&.h'\fP
+.br
+\fR#include 'lv_assert\&.h'\fP
+.br
+\fR#include 'lv_math\&.h'\fP
+.br
+\fR#include 'lv_types\&.h'\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "union \fBlv_color1_t\fP"
+.br
+.ti -1c
+.RI "union \fBlv_color8_t\fP"
+.br
+.ti -1c
+.RI "union \fBlv_color16_t\fP"
+.br
+.ti -1c
+.RI "union \fBlv_color32_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlv_color_hsv_t\fP"
+.br
+.ti -1c
+.RI "struct \fB_lv_color_filter_dsc_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLV_OPA_MIN\fP   2    /*Opacities below this will be transparent*/"
+.br
+.ti -1c
+.RI "#define \fBLV_OPA_MAX\fP   253  /*Opacities above this will fully cover*/"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_HAS_MODERN_CPP\fP   0"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_MAKE_TYPE_HELPER\fP   (lv_color_t)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_R1\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_G1\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_B1\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_A1\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_R1\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_G1\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_B1\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_A1\fP(c)"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_ZERO_INITIALIZER1\fP   {0x00}"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_MAKE1\fP(r8,  g8,  b8)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_R8\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_G8\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_B8\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_A8\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_R8\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_G8\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_B8\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_A8\fP(c)"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_ZERO_INITIALIZER8\fP   {{0x00, 0x00, 0x00}}"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_MAKE8\fP(r8,  g8,  b8)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_R16\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_G16\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_B16\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_A16\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_R16\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_G16\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_B16\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_A16\fP(c)"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_ZERO_INITIALIZER16\fP   {{0x00, 0x00, 0x00}}"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_MAKE16\fP(r8,  g8,  b8)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_R32\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_G32\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_B32\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_A32\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_R32\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_G32\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_B32\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_A32\fP(c)"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_ZERO_INITIALIZER32\fP   {{0x00, 0x00, 0x00, 0x00}}"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_MAKE32\fP(r8,  g8,  b8)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_R\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_G\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_B\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_SET_A\fP(c,  v)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_R\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_G\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_B\fP(c)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_GET_A\fP(c)"
+.br
+.ti -1c
+.RI "#define \fB_LV_COLOR_ZERO_INITIALIZER\fP   LV_CONCAT(_LV_COLOR_ZERO_INITIALIZER, LV_COLOR_DEPTH)"
+.br
+.ti -1c
+.RI "#define \fBLV_COLOR_MAKE\fP(r8,  g8,  b8)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef lv_color_t(* \fBlv_color_filter_cb_t\fP) (const struct \fB_lv_color_filter_dsc_t\fP *, lv_color_t, lv_opa_t)"
+.br
+.ti -1c
+.RI "typedef struct \fB_lv_color_filter_dsc_t\fP \fBlv_color_filter_dsc_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum { \fBLV_OPA_TRANSP\fP = 0, \fBLV_OPA_0\fP = 0, \fBLV_OPA_10\fP = 25, \fBLV_OPA_20\fP = 51, \fBLV_OPA_30\fP = 76, \fBLV_OPA_40\fP = 102, \fBLV_OPA_50\fP = 127, \fBLV_OPA_60\fP = 153, \fBLV_OPA_70\fP = 178, \fBLV_OPA_80\fP = 204, \fBLV_OPA_90\fP = 229, \fBLV_OPA_100\fP = 255, \fBLV_OPA_COVER\fP = 255 }"
+.br
+.ti -1c
+.RI "enum \fBlv_palette_t\fP { \fBLV_PALETTE_RED\fP, \fBLV_PALETTE_PINK\fP, \fBLV_PALETTE_PURPLE\fP, \fBLV_PALETTE_DEEP_PURPLE\fP, \fBLV_PALETTE_INDIGO\fP, \fBLV_PALETTE_BLUE\fP, \fBLV_PALETTE_LIGHT_BLUE\fP, \fBLV_PALETTE_CYAN\fP, \fBLV_PALETTE_TEAL\fP, \fBLV_PALETTE_GREEN\fP, \fBLV_PALETTE_LIGHT_GREEN\fP, \fBLV_PALETTE_LIME\fP, \fBLV_PALETTE_YELLOW\fP, \fBLV_PALETTE_AMBER\fP, \fBLV_PALETTE_ORANGE\fP, \fBLV_PALETTE_DEEP_ORANGE\fP, \fBLV_PALETTE_BROWN\fP, \fBLV_PALETTE_BLUE_GREY\fP, \fBLV_PALETTE_GREY\fP, \fB_LV_PALETTE_LAST\fP, \fBLV_PALETTE_NONE\fP = 0xff }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (LV_COLOR_DEPTH)"
+.br
+.ti -1c
+.RI "\fBLV_EXPORT_CONST_INT\fP (LV_COLOR_16_SWAP)"
+.br
+.ti -1c
+.RI "typedef \fBLV_CONCAT3\fP (uint, LV_COLOR_SIZE, _t) lv_color_int_t"
+.br
+.ti -1c
+.RI "typedef \fBLV_CONCAT3\fP (lv_color, LV_COLOR_DEPTH, _t) lv_color_t"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_color_lighten\fP (lv_color_t c, lv_opa_t lvl)"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_color_darken\fP (lv_color_t c, lv_opa_t lvl)"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_color_change_lightness\fP (lv_color_t c, lv_opa_t lvl)"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_color_hsv_to_rgb\fP (uint16_t h, uint8_t s, uint8_t v)"
+.br
+.ti -1c
+.RI "\fBlv_color_hsv_t\fP \fBlv_color_rgb_to_hsv\fP (uint8_t r8, uint8_t g8, uint8_t b8)"
+.br
+.ti -1c
+.RI "\fBlv_color_hsv_t\fP \fBlv_color_to_hsv\fP (lv_color_t color)"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_palette_main\fP (lv_palette_t p)"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_palette_lighten\fP (lv_palette_t p, uint8_t lvl)"
+.br
+.ti -1c
+.RI "lv_color_t \fBlv_palette_darken\fP (lv_palette_t p, uint8_t lvl)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LV_COLOR_GET_A( c)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_GET_A, LV_COLOR_DEPTH)(c)
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_A1( c)"
+\fBValue:\fP
+.nf
+0xFF
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_A16( c)"
+\fBValue:\fP
+.nf
+0xFF
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_A32( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.alpha
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_A8( c)"
+\fBValue:\fP
+.nf
+0xFF
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_B( c)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_GET_B, LV_COLOR_DEPTH)(c)
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_B1( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_B16( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_B32( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_B8( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_G( c)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_GET_G, LV_COLOR_DEPTH)(c)
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_G1( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_G16( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_G32( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_G8( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_R( c)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_GET_R, LV_COLOR_DEPTH)(c)
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_R1( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_R16( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_R32( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red
+.PP
+.fi
+
+.SS "#define LV_COLOR_GET_R8( c)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red
+.PP
+.fi
+
+.SS "#define LV_COLOR_MAKE( r8,  g8,  b8)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_MAKE, LV_COLOR_DEPTH)(r8, g8, b8)
+.PP
+.fi
+
+.SS "#define LV_COLOR_MAKE1( r8,  g8,  b8)"
+\fBValue:\fP
+.nf
+{(uint8_t)((b8 >> 7) | (g8 >> 7) | (r8 >> 7))}
+.PP
+.fi
+
+.SS "#define LV_COLOR_MAKE16( r8,  g8,  b8)"
+\fBValue:\fP
+.nf
+{{(uint8_t)((b8 >> 3) & 0x1FU), (uint8_t)((g8 >> 2) & 0x3FU), (uint8_t)((r8 >> 3) & 0x1FU)}}
+.PP
+.fi
+
+.SS "#define LV_COLOR_MAKE32( r8,  g8,  b8)"
+\fBValue:\fP
+.nf
+{{b8, g8, r8, 0xff}} /*Fix 0xff alpha*/
+.PP
+.fi
+
+.SS "#define LV_COLOR_MAKE8( r8,  g8,  b8)"
+\fBValue:\fP
+.nf
+{{(uint8_t)((b8 >> 6) & 0x3U), (uint8_t)((g8 >> 5) & 0x7U), (uint8_t)((r8 >> 5) & 0x7U)}}
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_A( c,  v)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_SET_A, LV_COLOR_DEPTH)(c, v)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_A1( c,  v)"
+\fBValue:\fP
+.nf
+do {} while(0)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_A16( c,  v)"
+\fBValue:\fP
+.nf
+do {} while(0)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_A32( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.alpha = (uint8_t)((v) & 0xFF)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_A8( c,  v)"
+\fBValue:\fP
+.nf
+do {} while(0)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_B( c,  v)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_SET_B, LV_COLOR_DEPTH)(c, v)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_B1( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue = (uint8_t)((v) & 0x1)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_B16( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue = (uint8_t)((v) & 0x1FU)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_B32( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue = (uint8_t)((v) & 0xFF)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_B8( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.blue = (uint8_t)((v) & 0x3U)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_G( c,  v)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_SET_G, LV_COLOR_DEPTH)(c, v)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_G1( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green = (uint8_t)((v) & 0x1)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_G16( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green = (uint8_t)((v) & 0x3FU)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_G32( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green = (uint8_t)((v) & 0xFF)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_G8( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.green = (uint8_t)((v) & 0x7U)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_R( c,  v)"
+\fBValue:\fP
+.nf
+LV_CONCAT(LV_COLOR_SET_R, LV_COLOR_DEPTH)(c, v)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_R1( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red = (uint8_t)((v) & 0x1)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_R16( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red = (uint8_t)((v) & 0x1FU)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_R32( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red = (uint8_t)((v) & 0xFF)
+.PP
+.fi
+
+.SS "#define LV_COLOR_SET_R8( c,  v)"
+\fBValue:\fP
+.nf
+(c)\&.ch\&.red = (uint8_t)((v) & 0x7U)
+.PP
+.fi
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "anonymous enum"
+Opacity percentages\&. 
+.SH "Function Documentation"
+.PP 
+.SS "lv_color_t lv_color_hsv_to_rgb (uint16_t h, uint8_t s, uint8_t v)"
+Convert a HSV color to RGB 
+.PP
+\fBParameters\fP
+.RS 4
+\fIh\fP hue [0\&.\&.359] 
+.br
+\fIs\fP saturation [0\&.\&.100] 
+.br
+\fIv\fP value [0\&.\&.100] 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the given RGB color in RGB (with LV_COLOR_DEPTH depth) 
+.RE
+.PP
+
+.SS "\fBlv_color_hsv_t\fP lv_color_rgb_to_hsv (uint8_t r8, uint8_t g8, uint8_t b8)"
+Convert a 32-bit RGB color to HSV 
+.PP
+\fBParameters\fP
+.RS 4
+\fIr8\fP 8-bit red 
+.br
+\fIg8\fP 8-bit green 
+.br
+\fIb8\fP 8-bit blue 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the given RGB color in HSV 
+.RE
+.PP
+
+.SS "\fBlv_color_hsv_t\fP lv_color_to_hsv (lv_color_t color)"
+Convert a color to HSV 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolor\fP color 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the given color in HSV 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for 94517A bot #3 with DSR from the source code\&.

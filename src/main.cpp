@@ -272,7 +272,8 @@ void opcontrol() {
     IntakeRaise.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y));
     MatchLoad.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2));
     DoublePark.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT));
-    Wing.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1));
+    (IntakeRaise.get() == false) ? Wing.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) : void();
+    master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y) ? (IntakeRaise.get() == false) ? Wing.set(false) : void() : void();
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

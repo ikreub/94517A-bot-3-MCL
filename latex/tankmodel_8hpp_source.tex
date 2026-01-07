@@ -1,0 +1,39 @@
+\doxysection{tankmodel.\+hpp}
+\hypertarget{tankmodel_8hpp_source}{}\label{tankmodel_8hpp_source}\index{include/okapi/squiggles/physicalmodel/tankmodel.hpp@{include/okapi/squiggles/physicalmodel/tankmodel.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_PHYSICAL\_MODEL\_TANK\_MODEL\_HPP\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_PHYSICAL\_MODEL\_TANK\_MODEL\_HPP\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}physicalmodel/physicalmodel.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacesquiggles}{squiggles}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a9ca600d56e97fbf2f46dfe409708856b}{TankModel}}\ :\ \textcolor{keyword}{public}\ \doxymbox{\hyperlink{classsquiggles_1_1_physical_model}{PhysicalModel}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a9ca600d56e97fbf2f46dfe409708856b}{TankModel}}(\textcolor{keywordtype}{double}\ itrack\_width,\ \doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}}\ ilinear\_constraints);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}}}
+\DoxyCodeLine{00028\ \ \ \doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a228118a70bc48fcca6265fca42dc2efc}{constraints}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ pose,\ \textcolor{keywordtype}{double}\ curvature,\ \textcolor{keywordtype}{double}\ vel)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ std::vector<double>\ \doxymbox{\hyperlink{classsquiggles_1_1_tank_model_a78da315edab044dfe4fe6c8a9ffd7fd7}{linear\_to\_wheel\_vels}}(\textcolor{keywordtype}{double}\ lin\_vel,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ curvature)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ std::string\ to\_string()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{double}\ vel\_constraint(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ pose,\ \textcolor{keywordtype}{double}\ curvature,\ \textcolor{keywordtype}{double}\ vel);}
+\DoxyCodeLine{00037\ \ \ std::tuple<double,\ double>}
+\DoxyCodeLine{00038\ \ \ accel\_constraint(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classsquiggles_1_1_pose}{Pose}}\ pose,\ \textcolor{keywordtype}{double}\ curvature,\ \textcolor{keywordtype}{double}\ vel)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{double}\ track\_width;}
+\DoxyCodeLine{00041\ \ \ \doxymbox{\hyperlink{structsquiggles_1_1_constraints}{Constraints}}\ linear\_constraints;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ \}\ \textcolor{comment}{//\ namespace\ squiggles}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

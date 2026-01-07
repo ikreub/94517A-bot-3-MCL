@@ -1,0 +1,211 @@
+\doxysection{misc.\+h}
+\hypertarget{misc_8h_source}{}\label{misc_8h_source}\index{include/pros/misc.h@{include/pros/misc.h}}
+\doxymbox{\hyperlink{misc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_PROS\_MISC\_H\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \_PROS\_MISC\_H\_}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ NUM\_V5\_PORTS\ (22)}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{/*\#define\ COMPETITION\_DISABLED\ (1\ <<\ 0)}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\#define\ COMPETITION\_AUTONOMOUS\ (1\ <<\ 1)}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\#define\ COMPETITION\_CONNECTED\ (1\ <<\ 2)}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\#define\ COMPETITION\_SYSTEM\ (1\ <<\ 3)*/}}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ COMPETITION\_DISABLED\ =\ 1\ <<\ 0,}
+\DoxyCodeLine{00047\ \ \ \ \ COMPETITION\_CONNECTED\ =\ 1\ <<\ 2,}
+\DoxyCodeLine{00048\ \ \ \ \ COMPETITION\_AUTONOMOUS\ =\ 1\ <<\ 1,}
+\DoxyCodeLine{00049\ \ \ \ \ COMPETITION\_SYSTEM\ =\ 1\ <<\ 3,}
+\DoxyCodeLine{00050\ \}\ competition\_status;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00054\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{namespace\ }c\ \{}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00075\ uint8\_t\ \doxymbox{\hyperlink{group__c-misc_ga71a09bfc4dbfb9c07c917c701dc3e994}{competition\_get\_status}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00095\ uint8\_t\ \doxymbox{\hyperlink{group__c-misc_ga61c606d7f3c52e88d2e1a192fce950b0}{competition\_is\_disabled}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00110\ uint8\_t\ \doxymbox{\hyperlink{group__c-misc_ga048efc863026021d9710441065ecb359}{competition\_is\_connected}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00132\ uint8\_t\ \doxymbox{\hyperlink{group__c-misc_gabefe28014a85f9c430468c6ca944dd5a}{competition\_is\_autonomous}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00146\ uint8\_t\ \doxymbox{\hyperlink{group__c-misc_gab32495bd9fafc0ee5238704ff95817eb}{competition\_is\_field}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00159\ uint8\_t\ competition\_is\_switch(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00164\ \}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00171\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00172\ \textcolor{keyword}{namespace\ }\doxymbox{\hyperlink{namespacepros}{pros}}\ \{}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ E\_CONTROLLER\_MASTER\ =\ 0,}
+\DoxyCodeLine{00182\ \ \ \ \ E\_CONTROLLER\_PARTNER}
+\DoxyCodeLine{00183\ \}\ controller\_id\_e\_t;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00188\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ E\_CONTROLLER\_ANALOG\_LEFT\_X\ =\ 0,}
+\DoxyCodeLine{00192\ \ \ \ \ E\_CONTROLLER\_ANALOG\_LEFT\_Y,}
+\DoxyCodeLine{00194\ \ \ \ \ E\_CONTROLLER\_ANALOG\_RIGHT\_X,}
+\DoxyCodeLine{00196\ \ \ \ \ E\_CONTROLLER\_ANALOG\_RIGHT\_Y}
+\DoxyCodeLine{00197\ \}\ controller\_analog\_e\_t;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00202\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_L1\ =\ 6,}
+\DoxyCodeLine{00206\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_L2,}
+\DoxyCodeLine{00208\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_R1,}
+\DoxyCodeLine{00210\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_R2,}
+\DoxyCodeLine{00212\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_UP,}
+\DoxyCodeLine{00214\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_DOWN,}
+\DoxyCodeLine{00216\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_LEFT,}
+\DoxyCodeLine{00218\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_RIGHT,}
+\DoxyCodeLine{00220\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_X,}
+\DoxyCodeLine{00222\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_B,}
+\DoxyCodeLine{00224\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_Y,}
+\DoxyCodeLine{00226\ \ \ \ \ E\_CONTROLLER\_DIGITAL\_A}
+\DoxyCodeLine{00227\ \}\ controller\_digital\_e\_t;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#ifdef\ PROS\_USE\_SIMPLE\_NAMES}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ CONTROLLER\_MASTER\ pros::E\_CONTROLLER\_MASTER}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ CONTROLLER\_PARTNER\ pros::E\_CONTROLLER\_PARTNER}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ ANALOG\_LEFT\_X\ pros::E\_CONTROLLER\_ANALOG\_LEFT\_X}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ ANALOG\_LEFT\_Y\ pros::E\_CONTROLLER\_ANALOG\_LEFT\_Y}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ ANALOG\_RIGHT\_X\ pros::E\_CONTROLLER\_ANALOG\_RIGHT\_X}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ ANALOG\_RIGHT\_Y\ pros::E\_CONTROLLER\_ANALOG\_RIGHT\_Y}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ DIGITAL\_L1\ pros::E\_CONTROLLER\_DIGITAL\_L1}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ DIGITAL\_L2\ pros::E\_CONTROLLER\_DIGITAL\_L2}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ DIGITAL\_R1\ pros::E\_CONTROLLER\_DIGITAL\_R1}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#define\ DIGITAL\_R2\ pros::E\_CONTROLLER\_DIGITAL\_R2}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ DIGITAL\_UP\ pros::E\_CONTROLLER\_DIGITAL\_UP}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#define\ DIGITAL\_DOWN\ pros::E\_CONTROLLER\_DIGITAL\_DOWN}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#define\ DIGITAL\_LEFT\ pros::E\_CONTROLLER\_DIGITAL\_LEFT}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ DIGITAL\_RIGHT\ pros::E\_CONTROLLER\_DIGITAL\_RIGHT}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ DIGITAL\_X\ pros::E\_CONTROLLER\_DIGITAL\_X}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ DIGITAL\_B\ pros::E\_CONTROLLER\_DIGITAL\_B}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ DIGITAL\_Y\ pros::E\_CONTROLLER\_DIGITAL\_Y}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ DIGITAL\_A\ pros::E\_CONTROLLER\_DIGITAL\_A}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ CONTROLLER\_MASTER\ E\_CONTROLLER\_MASTER}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ CONTROLLER\_PARTNER\ E\_CONTROLLER\_PARTNER}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ ANALOG\_LEFT\_X\ E\_CONTROLLER\_ANALOG\_LEFT\_X}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ ANALOG\_LEFT\_Y\ E\_CONTROLLER\_ANALOG\_LEFT\_Y}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ ANALOG\_RIGHT\_X\ E\_CONTROLLER\_ANALOG\_RIGHT\_X}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ ANALOG\_RIGHT\_Y\ E\_CONTROLLER\_ANALOG\_RIGHT\_Y}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ DIGITAL\_L1\ E\_CONTROLLER\_DIGITAL\_L1}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ DIGITAL\_L2\ E\_CONTROLLER\_DIGITAL\_L2}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ DIGITAL\_R1\ E\_CONTROLLER\_DIGITAL\_R1}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ DIGITAL\_R2\ E\_CONTROLLER\_DIGITAL\_R2}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ DIGITAL\_UP\ E\_CONTROLLER\_DIGITAL\_UP}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ DIGITAL\_DOWN\ E\_CONTROLLER\_DIGITAL\_DOWN}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ DIGITAL\_LEFT\ E\_CONTROLLER\_DIGITAL\_LEFT}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ DIGITAL\_RIGHT\ E\_CONTROLLER\_DIGITAL\_RIGHT}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ DIGITAL\_X\ E\_CONTROLLER\_DIGITAL\_X}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ DIGITAL\_B\ E\_CONTROLLER\_DIGITAL\_B}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ DIGITAL\_Y\ E\_CONTROLLER\_DIGITAL\_Y}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ DIGITAL\_A\ E\_CONTROLLER\_DIGITAL\_A}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#define\ CONTROLLER\_PORT\_MUTEX\_TAKE(id,\ port)\ \(\backslash\)}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \ \ switch\ (id)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ case\ E\_CONTROLLER\_MASTER:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ port\ =\ V5\_PORT\_CONTROLLER\_1;\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ break;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ case\ E\_CONTROLLER\_PARTNER:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ port\ =\ V5\_PORT\_CONTROLLER\_2;\ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ break;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ default:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ errno\ =\ EINVAL;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ return\ PROS\_ERR;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ if\ (!internal\_port\_mutex\_take(port))\ \{\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ errno\ =\ EACCES;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ PROS\_ERR;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00295\ \textcolor{keyword}{namespace\ }c\ \{}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00323\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gafd1e850bd6613e2fb01960dc0cebb2ef}{controller\_is\_connected}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00355\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gaed67feb70cbdb115e9ec2c7cc28a5da8}{controller\_get\_analog}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ controller\_analog\_e\_t\ channel);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00379\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga54033388f5d4e3f8b291d5a6f2122f5e}{controller\_get\_battery\_capacity}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00403\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gaeab690f86735cb6685f3c3184c54ba2d}{controller\_get\_battery\_level}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00440\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gaf01b9e0d93d55a50b09c24f7ad5900fc}{controller\_get\_digital}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ controller\_digital\_e\_t\ button);}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00482\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga89d292cfe75a2abac6673a965697ac8c}{controller\_get\_digital\_new\_press}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ controller\_digital\_e\_t\ button);}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00527\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gaf7c72fcad599c9c0517ef22e6e813ae8}{controller\_print}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ uint8\_t\ line,\ uint8\_t\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fmt,\ ...);}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00570\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga311402c942d9497ccb67e63ee2fa31a4}{controller\_set\_text}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ uint8\_t\ line,\ uint8\_t\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str);}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00602\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga22499128069a56f2ff041c11a9a33da7}{controller\_clear\_line}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ uint8\_t\ line);}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00633\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga730715344d091ed017894cf907e9c3ab}{controller\_clear}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00673\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gaced0f39c3b2206489d1cc4bf97b91a82}{controller\_rumble}}(controller\_id\_e\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ rumble\_pattern);}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00691\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga3e2a84e664eb602bd21a481259a94f56}{battery\_get\_voltage}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00709\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga20e84af87727a57282efd63cf76c8e78}{battery\_get\_current}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00727\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__c-misc_ga60d32e15ea7ab1b2d7fa6b63c44a5027}{battery\_get\_temperature}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00745\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{group__c-misc_gae692171cfb44885421dc1ef873701e05}{battery\_get\_capacity}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00746\ }
+\DoxyCodeLine{00759\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_gab70622da49049f2ea3b0bc4d517f051d}{usd\_is\_installed}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00802\ int32\_t\ \doxymbox{\hyperlink{group__c-misc_ga5c6bf0895e550a60960f96a8826967a3}{usd\_list\_files}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path,\ \textcolor{keywordtype}{char}*\ buffer,\ int32\_t\ len);}
+\DoxyCodeLine{00803\ }
+\DoxyCodeLine{00804\ \textcolor{comment}{/******************************************************************************/}}
+\DoxyCodeLine{00806\ \textcolor{comment}{/******************************************************************************/}}
+\DoxyCodeLine{00807\ }
+\DoxyCodeLine{00808\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \doxymbox{\hyperlink{group__c-misc_ga53280163169348b8429c14c340a7c2b3}{baked\_date}};}
+\DoxyCodeLine{00809\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ baked\_time;}
+\DoxyCodeLine{00810\ }
+\DoxyCodeLine{00811\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00812\ \ \ \ \ uint16\_t\ year;\ \ \textcolor{comment}{//\ Year\ -\/\ 1980}}
+\DoxyCodeLine{00813\ \ \ \ \ uint8\_t\ day;}
+\DoxyCodeLine{00814\ \ \ \ \ uint8\_t\ month;\ \ \textcolor{comment}{//\ 1\ =\ January}}
+\DoxyCodeLine{00815\ \}\ \doxymbox{\hyperlink{structdate__s__t}{date\_s\_t}};}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00818\ \ \ \ \ uint8\_t\ hour;}
+\DoxyCodeLine{00819\ \ \ \ \ uint8\_t\ min;}
+\DoxyCodeLine{00820\ \ \ \ \ uint8\_t\ sec;}
+\DoxyCodeLine{00821\ \ \ \ \ uint8\_t\ sec\_hund;\ \ \textcolor{comment}{//\ hundredths\ of\ a\ second}}
+\DoxyCodeLine{00822\ \}\ \doxymbox{\hyperlink{structtime__s__t}{time\_s\_t}};}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00825\ }
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00829\ \}}
+\DoxyCodeLine{00830\ \}\ \ \textcolor{comment}{//\ namespace\ pros}}
+\DoxyCodeLine{00831\ \}}
+\DoxyCodeLine{00832\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00833\ }
+\DoxyCodeLine{00834\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_PROS\_MISC\_H\_}}
+
+\end{DoxyCode}
