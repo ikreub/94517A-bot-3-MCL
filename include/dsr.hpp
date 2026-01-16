@@ -56,7 +56,7 @@ class DSRDS{
     * \param x_offset the x offset of the sensor in inches, used for odom resets, calculated by offset measurements
     * \param y_offset the y offset of the sensor in inches, used for odom resets, calculated by offset measurements
     */
-    DSRDS(int port, Dir direction, double x_offset, double y_offset);
+    DSRDS(int port, Dir direction, double offset = 0);
 
     /*!
     * \brief read from the sensor in inches
@@ -89,6 +89,12 @@ class DSRDS{
     void set_dir(Dir direction);
 
     /*!
+    * \brief set the offset in the direction of the sensor
+    * \param offset the direction of the sensor
+    */
+    void set_dir_offset(double offset);
+
+    /*!
     * \brief get the x offset
     * \return the x offset in inches
     */
@@ -113,6 +119,12 @@ class DSRDS{
     Dir get_dir();
 
     /*!
+    * \brief get the offset in the direction of the sensor
+    * \return the offset in the direction of the sensor
+    */
+    double get_dir_offset();
+
+    /*!
     * \brief get the direction of the sensor as a string (for debugging purposes)
     * \return the direction of the sensor as a string
     */
@@ -132,9 +144,19 @@ class DSRDS{
     private:
 
     /*!
-    * \brief the x and y offsets of the sensor in inches, used for odom resets, calculated by offset measurements
+    * \brief the offsets of the sensor in inches, used for odom resets, calculated by offset measurements
     */
-    ez::pose offsets = {0,0};
+    double x_offset;
+
+    /*!
+    * \brief the y offsets of the sensor in inches, used for odom resets, calculated by offset measurements
+    */
+    double y_offset;
+
+    /*!
+    * \brief the offset in thee direction the sensor is facing.
+    */
+    double dir_offset;
 
     /*!
     * \brief the direction of the sensor, used for determining how to measure offsets and reset odom tracking
@@ -159,13 +181,13 @@ class DSRDS{
     std::string dir_to_string(Dir direction){
         switch(int(direction)){
             case int(l):
-                return "left";
+                return "L";
             case int(r):
-                return "right";
+                return "R";
             case int(f):
-                return "front";
+                return "F";
             case int(b):
-                return "back";
+                return "B";
             default:
                 return "";
         }

@@ -49,15 +49,15 @@ void odom_reset(Dir senX_dir, Dir Xdir, int Xsen, Dir senY_dir, Dir Ydir, int Ys
     
     //reset the tracking values based on the sensor readings and the direction of the sensors
     if(int(senX_dir) == int(Xdir)){
-        chassis.odom_x_set(DSR::sensors[Xsen].read_in());
+        chassis.odom_x_set(DSR::sensors[Xsen].read_in() - DSR::sensors[Xsen].get_dir_offset());
     }else{
-        chassis.odom_x_set(144 - DSR::sensors[Xsen].read_in());
+        chassis.odom_x_set(144 - DSR::sensors[Xsen].read_in() + DSR::sensors[Xsen].get_dir_offset());
     }
 
     if(int(senY_dir) == int(Ydir)){
-        chassis.odom_y_set(DSR::sensors[Ysen].read_in());
+        chassis.odom_y_set(DSR::sensors[Ysen].read_in() - DSR::sensors[Ysen].get_dir_offset());
     }else{
-        chassis.odom_y_set(144 - DSR::sensors[Ysen].read_in());
+        chassis.odom_y_set(144 - DSR::sensors[Ysen].read_in() + DSR::sensors[Ysen].get_dir_offset());
     }
 }
 

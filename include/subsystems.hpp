@@ -12,12 +12,12 @@ inline pros::Motor intake_1(4);
 inline pros::Motor intake_2(-6);
 // inline pros::adi::DigitalIn limit_switch('A');
 
-inline ez::Piston MatchLoad('F', true);
-inline ez::Piston IntakeRaise('H');
+inline ez::Piston MatchLoad('F');
+inline ez::Piston IntakeRaise('H', true);
 inline ez::Piston DoublePark('G', true);
 inline ez::Piston Wing('E', true);
 
-enum class Rtype{
+enum Rtype{
     Full,
     P_1,
     P_2,

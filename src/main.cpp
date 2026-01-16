@@ -1,6 +1,9 @@
 #include "main.h"
 #include "EZ-Template/sdcard.hpp"
 #include "EZ-Template/util.hpp"
+#include "antiJam.hpp"
+#include "antijam.hpp"
+#include "autons.hpp"
 #include "dsr.hpp"
 #include "pros/misc.h"
 #include "subsystems.hpp"
@@ -28,10 +31,11 @@ ez::Drive chassis(
 // - `2.75` is the wheel diameter
 // - `4.0` is the distance from the center of the wheel to the center of the robot
 ez::tracking_wheel horiz_tracker(10, 2, 0.03);  // This tracking wheel is perpendicular to the drive wheels
-ez::tracking_wheel vert_tracker(9, 2.75, 1.88);   // This tracking wheel is parallel to the drive wheels
-
-
-
+ez::tracking_wheel vert_tracker(-15, 2.75, 1.88);   // This tracking wheel is parallel to the drive wheels
+DSRDS front_sensor(17, Front, 9.68);
+DSRDS Left_sensor(16, Left, 2.35);
+DSRDS back_sensor(13, Back, -3.19);
+DSRDS right_sensor(7, Right, -1.4);
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -53,6 +57,11 @@ void initialize() {
   //  - ignore this if you aren't using a vertical tracker
   chassis.odom_tracker_right_set(&vert_tracker);
 
+  DSR::add_sensor(front_sensor);
+  DSR::add_sensor(Left_sensor);
+  DSR::add_sensor(back_sensor);
+  DSR::add_sensor(right_sensor);
+
   // Configure your chassis controls
   chassis.opcontrol_curve_buttons_toggle(true);   // Enables modifying the controller curve with buttons on the joysticks
   chassis.opcontrol_drive_activebrake_set(0.0);   // Sets the active brake kP. We recommend ~2.  0 will disable.
@@ -69,20 +78,11 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive\n\nDrive forward and come back", drive_example},
-      {"Turn\n\nTurn 3 times.", turn_example},
-      {"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
-      {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
-      {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
-      {"Motion Chaining\n\nDrive forward, turn, and come back, but blend everything together :D", motion_chaining},
-      {"Combine all 3 movements", combining_movements},
-      {"Interference\n\nAfter driving forward, robot performs differently if interfered or not", interfered_example},
-      {"Simple Odom\n\nThis is the same as the drive example, but it uses odom instead!", odom_drive_example},
-      {"Pure Pursuit\n\nGo to (0, 30) and pass through (6, 10) on the way.  Come back to (0, 0)", odom_pure_pursuit_example},
-      {"Pure Pursuit Wait Until\n\nGo to (24, 24) but start running an intake once the robot passes (12, 24)", odom_pure_pursuit_wait_until_example},
-      {"Boomerang\n\nGo to (0, 24, 45) then come back to (0, 0, 0)", odom_boomerang_example},
-      {"Boomerang Pure Pursuit\n\nGo to (0, 24, 45) on the way to (24, 24) then come back to (0, 0, 0)", odom_boomerang_injected_pure_pursuit_example},
+      {"little fix", small_fix},
+      {"Right side", right_auton},
+      {"Left side", left_auton},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
+      {"Measure DSRDS offsets", measure_DSRDS_offsets},
   });
 
   // Initialize chassis and auton selector
@@ -90,6 +90,8 @@ void initialize() {
   ez::as::initialize();
   master.rumble(chassis.drive_imu_calibrated() ? "." : "---");
 }
+
+pros::Task aniJammer(antiJam::Task);
 
 /**
  * Runs while the robot is in the disabled state of Field Management System or
@@ -185,6 +187,18 @@ void ez_screen_task() {
           screen_print_tracker(chassis.odom_tracker_back, "b", 6);
           screen_print_tracker(chassis.odom_tracker_front, "f", 7);
         }
+        if(ez::as::page_blank_is_on(1)){
+            for(unsigned int i = 0; i < DSR::sensors.size(); i++){
+            ez::screen_print(DSR::sensors[i].get_dir_string() + " sensor: " + util::to_string_with_precision(DSR::sensors[i].read_in()), 1 + int(i));
+          }
+        }
+        if(ez::as::page_blank_is_on(2)){
+          for(unsigned int i = 0; i < DSR::sensors.size(); i++){
+            ez::screen_print(util::to_string_with_precision(antiJam::disable), 5);
+            ez::screen_print(util::to_string_with_precision(intake_1.get_efficiency()), 6);
+            ez::screen_print(DSR::sensors[i].get_dir_string() +  "offset: " + util::to_string_with_precision(DSR::sensors[int(i)].get_dir_offset()), 1 + int(i));
+          }
+        }
       }
     }
 
@@ -220,7 +234,7 @@ void ez_template_extras() {
       chassis.pid_tuner_toggle();
 
     // Trigger the selected autonomous routine
-    if (master.get_digital(DIGITAL_B) && master.get_digital(DIGITAL_DOWN)) {
+    if (master.get_digital(DIGITAL_A) && master.get_digital(DIGITAL_LEFT)) {
       pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
       autonomous();
       chassis.drive_brake_set(preference);
@@ -269,11 +283,11 @@ void opcontrol() {
     // . . .
     intake::opcontrol();
 
-    IntakeRaise.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y));
-    MatchLoad.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2));
+    IntakeRaise.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN));
+    (IntakeRaise.get() == true) ? MatchLoad.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L2)) : MatchLoad.set(false);
     DoublePark.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT));
-    (IntakeRaise.get() == false) ? Wing.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) : void();
-    master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y) ? (IntakeRaise.get() == false) ? Wing.set(false) : void() : void();
+    (IntakeRaise.get() == true) ? Wing.button_toggle(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_L1)) : Wing.set(false);
+
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

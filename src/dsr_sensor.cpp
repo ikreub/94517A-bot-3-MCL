@@ -2,18 +2,19 @@
 
 //https://www.desmos.com/calculator/f8689a01ef
 //this explains the numbers below, which are used to measure the offsets of the sensors from the center of the robot.
+//(these numbers are converted specifically for the way i coded it so 25.4 times what the graph has)
 
-const double Xa = 0.0721240641761;
-const double Xb = 0.193113520277;
-const double Xc = 0.120989456101;
-const double Ya = 0.269170671954;
-const double Yb = 0.466217279731;
-const double Yc = 0.157676529037;
+const double Xa = 1.83195123007;
+const double Xb = 4.90508341504;
+const double Xc = 3.07313218497;
+const double Ya = 6.83693506762;
+const double Yb = 11.8419189052;
+const double Yc = 4.00498383755;
 
-DSRDS::DSRDS(int port, Dir direction, double x_offset, double y_offset) : sensor(port){
-    this->dir = direction;
-    this->dir_string = dir_to_string(direction);
-    this->offsets = {x_offset, y_offset};
+DSRDS::DSRDS(int port, Dir direction, double offset) : sensor(port){
+    dir = direction;
+    dir_string = dir_to_string(direction);
+    dir_offset = offset;
 }
 
 double DSRDS::read_in(){
@@ -21,59 +22,74 @@ double DSRDS::read_in(){
 }
 
 void DSRDS::set_x_offset(double x){
-    this->offsets.x = x;
+    x_offset = x;
 }
 
 void DSRDS::set_y_offset(double y){
-    this->offsets.y = y;
+    y_offset = y;
 }
 
 void DSRDS::set_offsets(double x, double y){
-    this->offsets = {x, y};
+    x_offset = x;
+    y_offset = y;
+}
+
+
+void DSRDS::set_dir_offset(double offset){
+    dir_offset = offset;
 }
 
 void DSRDS::set_dir(Dir direction){
-    this->dir = direction;
-    this->dir_string = dir_to_string(direction);
+    dir = direction;
+    dir_string = dir_to_string(direction);
 }
 
 double DSRDS::get_x_offset(){
-    return this->offsets.x;
+    return x_offset;
 }
 
 double DSRDS::get_y_offset(){
-    return this->offsets.y;
+    return y_offset;
 }
 
 ez::pose DSRDS::get_offsets(){
-    return this->offsets;
+    return {x_offset, y_offset};
 }
 
 Dir DSRDS::get_dir(){
-    return this->dir;
+    return dir;
+}
+
+
+double DSRDS::get_dir_offset(){
+    return dir_offset;
 }
 
 std::string DSRDS::get_dir_string(){
-    return this->dir_string;
+    return dir_string;
 }
 
 void DSRDS::measure_offsets(double read45, double read30, double read0){
     switch(dir){
         case Left:
-        offsets.x = -Ya * read45 + Yb * read30 - Yc * read0;
-        offsets.y = Xa * read45 - Xb * read30 + Xc * read0;
+        x_offset = -Ya * read45 + Yb * read30 - Yc * read0;
+        y_offset = Xa * read45 - Xb * read30 + Xc * read0;
+        dir_offset = -x_offset;
         break;
         case Right:
-        offsets.x = Ya * read45 - Yb * read30 + Yc * read0;
-        offsets.y = -Xa * read45 + Xb * read30 - Xc * read0;
+        x_offset = Ya * read45 - Yb * read30 + Yc * read0;
+        y_offset = -Xa * read45 + Xb * read30 - Xc * read0;
+        dir_offset = x_offset;
         break;
         case Front:
-        offsets.x = Xa * read45 - Xb * read30 + Xc * read0;
-        offsets.y = Ya * read45 - Yb * read30 + Yc * read0;
+        x_offset = Xa * read45 - Xb * read30 + Xc * read0;
+        y_offset = Ya * read45 - Yb * read30 + Yc * read0;
+        dir_offset = y_offset;
         break;
         case Back:
-        offsets.x = -Xa * read45 + Xb * read30 - Xc * read0;
-        offsets.y = -Ya * read45 + Yb * read30 - Yc * read0;
+        x_offset = -Xa * read45 + Xb * read30 - Xc * read0;
+        y_offset = -Ya * read45 + Yb * read30 - Yc * read0;
+        dir_offset = -y_offset;
         break;
     }
 }

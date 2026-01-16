@@ -6,5 +6,8 @@ namespace intake{
     void stop(int motor);
     void move(Rtype type, double speed);
     void opcontrol();
+    inline bool intake_middle_speed = false;
+    inline double speed;
+    inline Rtype type;
     inline bool toggle = true;
 }
