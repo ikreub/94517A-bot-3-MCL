@@ -20,3 +20,6 @@ void measure_DSRDS_offsets();
 void small_fix();
 void right_auton();
 void left_auton();
+void left_rush_auton();
+void skills_auton();
+void skills_auton_fix();

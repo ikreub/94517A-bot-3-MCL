@@ -81,6 +81,9 @@ void initialize() {
       {"little fix", small_fix},
       {"Right side", right_auton},
       {"Left side", left_auton},
+      {"Left rush", left_rush_auton},
+      {"Skills fix", skills_auton_fix},
+      {"Skills", skills_auton},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
       {"Measure DSRDS offsets", measure_DSRDS_offsets},
   });

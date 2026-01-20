@@ -393,6 +393,7 @@ void small_fix(){
 }
 
 void right_auton(){
+  antiJam::disabled = false;
   ez::screen_print("Running Right Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 6);
   DSR::reset_tracking(Right, Back);
   ez::screen_print("Running Right Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
@@ -466,7 +467,47 @@ void right_auton(){
 }
 
 void left_auton(){
-  ez::screen_print("Running Left Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 6);
+  antiJam::disabled = false;
+  IntakeRaise.set(true);
+  intake::move(P_1,127);
+  chassis.pid_odom_set({{{-3_in, 24_in},fwd, DRIVE_SPEED},
+    {{-20_in, 34_in},fwd, DRIVE_SPEED},
+  {{-33_in, 35_in},fwd, DRIVE_SPEED}});
+  chassis.pid_wait_until_index_started(0);
+  MatchLoad.set(true);
+  pros::delay(300);
+  MatchLoad.set(false);
+  chassis.pid_wait_quick();
+  MatchLoad.set(true);
+  pros::delay(100);
+  chassis.pid_odom_set({{-13_in, 28_in},rev, DRIVE_SPEED});
+  chassis.pid_wait();
+  chassis.pid_turn_set(-135_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  IntakeRaise.set(false);
+  MatchLoad.set(false);
+  chassis.pid_drive_set(-4_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  intake::move(Full, 127);
+  pros::delay(1000);
+  chassis.pid_odom_set({{-43_in, 0_in}, fwd, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  MatchLoad.set(true);
+  IntakeRaise.set(true);
+  chassis.pid_odom_set({{-43_in, -13_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick();
+  chassis.drive_set(60,60);
+  intake::move(P_1, 127);
+  pros::delay(1000);
+  chassis.pid_odom_set({{-43_in, 11_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.drive_set(-60,-60);
+  intake::move(Full, 127);
+  pros::delay(2000);
+  
+  /**ez::screen_print("Running Left Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 6);
   DSR::reset_tracking(Left, Back);
   ez::screen_print("Running Left Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
   if(chassis.odom_y_get() > 72){
@@ -486,14 +527,14 @@ void left_auton(){
   pros::delay(300);
   MatchLoad.set(true);
   chassis.pid_wait();
-  chassis.pid_odom_set({{39_in, 46_in}, rev, DRIVE_SPEED}, true);
+  chassis.pid_odom_set({{40_in, 46_in}, rev, DRIVE_SPEED}, true);
   chassis.pid_wait();
   antiJam::disabled = true;
   intake::stop();
   MatchLoad.set(false);
   chassis.pid_turn_set(-135_deg,TURN_SPEED);
   chassis.pid_wait_quick();
-  chassis.pid_drive_set(-6_in, 3 * DRIVE_SPEED / 4);
+  chassis.pid_drive_set(-7_in, 3 * DRIVE_SPEED / 4);
   chassis.pid_wait_quick();
   intake::move(Full, 127);
   antiJam::disabled = false;
@@ -502,7 +543,7 @@ void left_auton(){
   pros::delay(1000);
   antiJam::disabled = true;
   intake::stop();
-  chassis.pid_odom_set({{14_in, 20_in}, fwd, DRIVE_SPEED}, true);
+  chassis.pid_odom_set({{13_in, 20_in}, fwd, DRIVE_SPEED}, true);
   chassis.pid_wait();
   IntakeRaise.set(true);
   MatchLoad.set(true);
@@ -520,7 +561,7 @@ void left_auton(){
   chassis.pid_wait_quick_chain();
   chassis.drive_set(-60,-60);
   intake::move(Full, 127);
-  pros::delay(1500);
+  pros::delay(2000);
   antiJam::disabled = true;
   intake::stop();
   chassis.pid_drive_set(10_in, DRIVE_SPEED);
@@ -536,5 +577,134 @@ void left_auton(){
   chassis.pid_drive_set(21_in, DRIVE_SPEED);
   antiJam::disabled = false;
   pros::delay(5000);
+  chassis.pid_wait();**/
+}
+
+void skills_auton(){
+  chassis.odom_theta_set(90);
+  DSR::reset_tracking(F, R);
+  pros::delay(50);
+  chassis.pid_odom_set({{125.5_in, 22_in}, fwd, DRIVE_SPEED});
+  chassis.pid_wait_quick_chain();
+  MatchLoad.set(true);
+  IntakeRaise.set(true);
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_odom_set({{128_in,10_in}, fwd, DRIVE_SPEED / 2});
+  intake::move(P_1, 127);
+  chassis.pid_wait_quick();
+  chassis.drive_set(60,60);
+  antiJam::disabled = false;
+  pros::delay(2000);
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{128_in, 35_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.drive_set(-50,-50);
+  intake::stop();
+  intake::move(P_2, 127);
+  pros::delay(500);
+  intake::move(P_1, 127);
+  pros::delay(2000);
+  intake::stop();
+  intake::move(P_1, 127);
+  chassis.pid_odom_set({{128_in,10_in}, fwd, DRIVE_SPEED / 2});
+  intake::move(P_1, 127);
+  chassis.pid_wait_quick();
+  chassis.drive_set(60,60);
+  antiJam::disabled = false;
+  pros::delay(2000);
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{128_in, 35_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.drive_set(-50,-50);
+  intake::stop();
+  intake::move(P_2, 127);
+  pros::delay(500);
+  intake::move(P_1, 127);
+  pros::delay(2000);
+  chassis.pid_odom_set({{119_in, 25_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  Wing.set(true);
+  chassis.pid_odom_set({{118.5_in,48_in}, rev,DRIVE_SPEED / 2});
+  pros::delay(700);
+  Wing.set(false);
+  MatchLoad.set(false);
+  chassis.pid_wait();
+  Wing.set(true);
+  chassis.pid_odom_set({{{118.5_in, 25_in}, fwd, DRIVE_SPEED},{{130_in, 20_in}, fwd, DRIVE_SPEED}});
+  chassis.pid_wait();
+  chassis.pid_odom_set({{{115_in, 5_in}, fwd, DRIVE_SPEED},
+    {{105_in, 5_in}, fwd, DRIVE_SPEED / 2}});
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(-90_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_drive_set(21_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.drive_set(60,60);
+  pros::delay(300);
+  chassis.drive_set(0,0);
+  pros::delay(500);
+
+}
+void skills_auton_fix(){
+  chassis.odom_theta_set(90);
+  DSR::reset_tracking(F, R);
+  pros::delay(50);
+  chassis.pid_odom_set({{126_in, 22_in}, fwd, DRIVE_SPEED});
+  chassis.pid_wait_quick_chain();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
   chassis.pid_wait();
 }
+
+void left_rush_auton(){
+  antiJam::disabled = false;
+  IntakeRaise.set(true);
+  intake::move(P_1,127);
+  chassis.pid_odom_set({{{-3_in, 24_in},fwd, DRIVE_SPEED},
+    {{-20_in, 34_in},fwd, DRIVE_SPEED},
+  {{-33_in, 36_in},fwd, DRIVE_SPEED}});
+  chassis.pid_wait_until_index_started(0);
+  MatchLoad.set(true);
+  pros::delay(300);
+  MatchLoad.set(false);
+  chassis.pid_wait_until_index_started(1);
+  MatchLoad.set(true);
+  chassis.pid_wait();
+  chassis.pid_odom_set({{{-18_in, 20_in},rev, DRIVE_SPEED},
+  {{-43_in, 0_in},rev, DRIVE_SPEED}});
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{-43_in, 11_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.drive_set(-60,-60);
+  intake::move(Full, 127);
+  pros::delay(1500);
+  chassis.pid_odom_set({{{-43_in, 0_in}, fwd, DRIVE_SPEED},
+  {{-43_in, -13_in}, fwd, DRIVE_SPEED}});
+  chassis.pid_wait_quick();
+  chassis.drive_set(60,60);
+  intake::move(P_1, 127);
+  pros::delay(1000);
+  chassis.pid_odom_set({{-43_in, 11_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.drive_set(-60,-60);
+  intake::move(Full, 127);
+  pros::delay(1000);
+  chassis.pid_drive_set(10_in, DRIVE_SPEED);
+  chassis.pid_wait_quick_chain();
+  Wing.set(true);
+  chassis.pid_turn_set({-38_in, 11_in}, fwd, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{{-38_in, 11_in}, fwd, DRIVE_SPEED},
+  {{-38_in, 21_in}, fwd, TURN_SPEED}});
+  chassis.pid_wait_until_index_started(0);
+  Wing.set(false);
+  pros::delay(5000);
+  chassis.pid_wait();
+}
+
