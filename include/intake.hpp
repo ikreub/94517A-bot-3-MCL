@@ -9,5 +9,5 @@ namespace intake{
     inline bool intake_middle_speed = false;
     inline double speed;
     inline Rtype type;
-    inline bool toggle = true;
+    inline bool toggle = false;
 }

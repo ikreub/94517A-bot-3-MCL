@@ -1,5 +1,6 @@
 #include "../include/dsr.hpp"
 #include <cmath>
+#include "EZ-Template/util.hpp"
 #include "main.h"
 #include "subsystems.hpp"
 
@@ -14,8 +15,8 @@ void read_sensor_measure(double& read, DSRDS& sensor){
     //make sure the sensor is reading something valid, and if it is, add it to the total
     for(int p = 0; p < 20; p++){
         readt = sensor.read_in();
-        if(readt < 9999){
-            read = read + readt;
+        if(readt < 9999 / 25.4){
+            read = readt;
             break;
         }
     }
@@ -46,18 +47,24 @@ void triple_read(int angle, int iterations, int i){
 }
 
 void odom_reset(Dir senX_dir, Dir Xdir, int Xsen, Dir senY_dir, Dir Ydir, int Ysen){
-    
+    double read;
     //reset the tracking values based on the sensor readings and the direction of the sensors
-    if(int(senX_dir) == int(Xdir)){
-        chassis.odom_x_set(DSR::sensors[Xsen].read_in() - DSR::sensors[Xsen].get_dir_offset());
-    }else{
-        chassis.odom_x_set(144 - DSR::sensors[Xsen].read_in() + DSR::sensors[Xsen].get_dir_offset());
+    read = DSR::sensors[Xsen].read_in();
+    if(read < 9999 / 25.4){
+        if(int(senX_dir) == int(Xdir)){
+                chassis.odom_x_set(read + DSR::sensors[Xsen].get_dir_offset());
+        }else{
+            chassis.odom_x_set(144 - read - DSR::sensors[Xsen].get_dir_offset());
+        }
     }
 
-    if(int(senY_dir) == int(Ydir)){
-        chassis.odom_y_set(DSR::sensors[Ysen].read_in() - DSR::sensors[Ysen].get_dir_offset());
-    }else{
-        chassis.odom_y_set(144 - DSR::sensors[Ysen].read_in() + DSR::sensors[Ysen].get_dir_offset());
+    read = DSR::sensors[Ysen].read_in();
+    if(read < 9999 / 25.4){
+        if(int(senY_dir) == int(Ydir)){
+                chassis.odom_y_set(read + DSR::sensors[Ysen].get_dir_offset());
+        }else{
+            chassis.odom_y_set(144 - read - DSR::sensors[Ysen].get_dir_offset());
+        }
     }
 }
 
@@ -142,5 +149,9 @@ namespace DSR{
 
             odom_reset(sensorX_dir, Front, Xsen, sensorY_dir, Left, Ysen);
         }
+        /**ez::screen_print("pose: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
+        while(!master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+            pros::delay(10);
+        }*/
     }
 }

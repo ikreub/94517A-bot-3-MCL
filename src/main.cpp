@@ -32,10 +32,10 @@ ez::Drive chassis(
 // - `4.0` is the distance from the center of the wheel to the center of the robot
 ez::tracking_wheel horiz_tracker(10, 2, 0.03);  // This tracking wheel is perpendicular to the drive wheels
 ez::tracking_wheel vert_tracker(-15, 2.75, 1.88);   // This tracking wheel is parallel to the drive wheels
-DSRDS front_sensor(17, Front, 9.68);
-DSRDS Left_sensor(16, Left, 2.35);
-DSRDS back_sensor(13, Back, -3.19);
-DSRDS right_sensor(7, Right, -1.4);
+DSRDS front_sensor(17, Front, 9.83);
+DSRDS Left_sensor(16, Left, 2.87);
+DSRDS back_sensor(13, Back, 1.1);
+DSRDS right_sensor(7, Right, 3.16);
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -78,11 +78,10 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"little fix", small_fix},
+      {"move", mover},
+      {"set auton", set_auton},
       {"Right side", right_auton},
       {"Left side", left_auton},
-      {"Left rush", left_rush_auton},
-      {"Skills fix", skills_auton_fix},
       {"Skills", skills_auton},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
       {"Measure DSRDS offsets", measure_DSRDS_offsets},
@@ -223,6 +222,9 @@ pros::Task ezScreenTask(ez_screen_task);
  *     is only enabled when you're not connected to competition control.
  * - gives you a GUI to change your PID values live by pressing X
  */
+bool done = false;
+Dir X;
+Dir Y;
 void ez_template_extras() {
   // Only run this when not connected to a competition switch
   if (!pros::competition::is_connected()) {
@@ -241,6 +243,44 @@ void ez_template_extras() {
       pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
       autonomous();
       chassis.drive_brake_set(preference);
+    }
+
+    if(master.get_digital(DIGITAL_A) &&  master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+      pros::delay(500);
+      done = false;
+      while(!done){
+        if(master.get_digital_new_press(DIGITAL_UP)){
+          X = F;
+          done = true;
+        }else if(master.get_digital_new_press(DIGITAL_LEFT)){
+          X = L;
+          done = true;
+        }else if(master.get_digital_new_press(DIGITAL_DOWN)){
+          X = B;
+          done = true;
+        }else if(master.get_digital_new_press(DIGITAL_RIGHT)){
+          X = R;
+          done = true;
+        }
+      }
+      pros::delay(500);
+      done = false;
+      while(!done){
+        if(master.get_digital_new_press(DIGITAL_UP)){
+          Y = F;
+          done = true;
+        }else if(master.get_digital_new_press(DIGITAL_LEFT)){
+          Y = L;
+          done = true;
+        }else if(master.get_digital_new_press(DIGITAL_DOWN)){
+          Y = B;
+          done = true;
+        }else if(master.get_digital_new_press(DIGITAL_RIGHT)){
+          Y = R;
+          done = true;
+        }
+      }
+      DSR::reset_tracking(X, Y);
     }
 
     // Allow PID Tuner to iterate
@@ -270,7 +310,7 @@ void ez_template_extras() {
 void opcontrol() {
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
-
+  IntakeRaise.set(true);
   while (true) {
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();

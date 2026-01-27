@@ -17,8 +17,17 @@ DSRDS::DSRDS(int port, Dir direction, double offset) : sensor(port){
     dir_offset = offset;
 }
 
+double DSRDS::read(){
+    return sensor.get_distance();
+}
+
 double DSRDS::read_in(){
-    return sensor.get_distance() / 25.4;
+    double reading = 9999;
+    for(int i = 0; reading == 9999; i++){
+        reading = read();
+        pros::delay(10);
+    }
+    return reading / 25.4;
 }
 
 void DSRDS::set_x_offset(double x){
@@ -74,7 +83,7 @@ void DSRDS::measure_offsets(double read45, double read30, double read0){
         case Left:
         x_offset = -Ya * read45 + Yb * read30 - Yc * read0;
         y_offset = Xa * read45 - Xb * read30 + Xc * read0;
-        dir_offset = -x_offset;
+        dir_offset = x_offset;
         break;
         case Right:
         x_offset = Ya * read45 - Yb * read30 + Yc * read0;
@@ -89,7 +98,7 @@ void DSRDS::measure_offsets(double read45, double read30, double read0){
         case Back:
         x_offset = -Xa * read45 + Xb * read30 - Xc * read0;
         y_offset = -Ya * read45 + Yb * read30 - Yc * read0;
-        dir_offset = -y_offset;
+        dir_offset = y_offset;
         break;
     }
 }

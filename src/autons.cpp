@@ -4,6 +4,7 @@
 #include "dsr.hpp"
 #include "intake.hpp"
 #include "main.h"
+#include "pros/misc.h"
 #include "pros/rtos.hpp"
 #include "subsystems.hpp"
 
@@ -22,12 +23,12 @@ const int SWING_SPEED = 110;
 ///
 void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(31.0, 0.0, 187);         // Fwd/rev constants, used for odom and non odom motions
-  chassis.pid_heading_constants_set(5.0, 0.0, 22.8);        // Holds the robot straight while going forward without odom
-  chassis.pid_turn_constants_set(3.8, 0.05, 28.5, 15.0);     // Turn in place constants
+  chassis.pid_drive_constants_set(30.2, 0.0, 225.25);         // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_heading_constants_set(5.4, 0.0, 40.8);        // Holds the robot straight while going forward without odom
+  chassis.pid_turn_constants_set(5.4, 0.05, 44.5, 15.0);     // Turn in place constants
   chassis.pid_swing_constants_set(6.0, 0.0, 65.0);           // Swing constants
-  chassis.pid_odom_angular_constants_set(5.5, 0.0, 74.25);    // Angular control for odom motions
-  chassis.pid_odom_boomerang_constants_set(6.5, 0.0, 80);  // Angular control for boomerang motions
+  chassis.pid_odom_angular_constants_set(9.3, 0.0, 99.75);    // Angular control for odom motions
+  chassis.pid_odom_boomerang_constants_set(10, 0.0, 150);  // Angular control for boomerang motions
 
   // Exit conditions
   chassis.pid_turn_exit_condition_set(90_ms, 3_deg, 250_ms, 7_deg, 500_ms, 500_ms);
@@ -65,10 +66,10 @@ void drive_example() {
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater than the slew distance + a few inches
 
-  chassis.pid_drive_set(72_in, DRIVE_SPEED / 2, true);
+  chassis.pid_drive_set(72_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-72_in, DRIVE_SPEED / 2);
+  chassis.pid_drive_set(-72_in, DRIVE_SPEED);
   chassis.pid_wait();
 }
 
@@ -79,7 +80,7 @@ void turn_example() {
   // The first parameter is the target in degrees
   // The second parameter is max speed the robot will drive at
 
-  chassis.pid_turn_set(3600_deg, 40 , ez::raw);
+  chassis.pid_turn_set(90_deg, DRIVE_SPEED);
   chassis.pid_wait();
 }
 
@@ -265,7 +266,7 @@ void odom_pure_pursuit_example() {
 
   // Drive to 0, 0 backwards
   chassis.pid_odom_set(
-                      {{0_in, 0_in,180_deg}, fwd, DRIVE_SPEED},
+                      {{0_in, 0_in,0_deg}, rev, DRIVE_SPEED},
                        true);
   chassis.pid_wait();
 }
@@ -380,90 +381,61 @@ void measure_DSRDS_offsets(){
 // Make your own autonomous functions here!
 // . . .
 
-void small_fix(){
-  DSR::reset_tracking(Right, Back);
-  DSR::reset_tracking(Right, Front);
-  DSR::reset_tracking(l, Back);
-  DSR::reset_tracking(l, f);
-  DSR::reset_tracking(f, r);
-  DSR::reset_tracking(f, l);
-  DSR::reset_tracking(b, r);
-  DSR::reset_tracking(b, l);
-  pros::delay(1000);
+void set_auton(){
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  bool not_done = true;
+  while(not_done){
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+      not_done = false;
+    }
+    pros::delay(10);
+  }
 }
 
 void right_auton(){
-  antiJam::disabled = false;
-  ez::screen_print("Running Right Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 6);
-  DSR::reset_tracking(Right, Back);
-  ez::screen_print("Running Right Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
-  if(chassis.odom_y_get() > 72){
-    DSR::reset_tracking(Right, Back);
-    ez::screen_print("Running Right Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
-  }
-  pros::delay(50);
   intake::move(P_1, 127);
-  chassis.pid_odom_set({{{90_in, 32_in}, fwd, DRIVE_SPEED}, 
-                                      {{101_in, 43_in}, fwd, DRIVE_SPEED}, 
-                                      {{110_in, 57_in}, fwd, DRIVE_SPEED}, 
-                                      {{123_in, 56_in}, fwd, DRIVE_SPEED}}, true);
-  pros::delay(600);
+  antiJam::disabled = false;
+  DSR::reset_tracking(R, B);
+  chassis.pid_odom_set({{{92_in, 40_in}, fwd, DRIVE_SPEED},
+  {{102_in, 62_in}, fwd, DRIVE_SPEED},
+  {{111_in, 64_in}, fwd, DRIVE_SPEED}});
+  chassis.pid_wait_until_index(0);
   MatchLoad.set(true);
-  pros::delay(600);
+  chassis.pid_wait_until_index(1);
   MatchLoad.set(false);
-  pros::delay(300);
+  chassis.pid_wait_quick();
   MatchLoad.set(true);
-  chassis.pid_wait();
-  chassis.pid_odom_set({{100_in, 42_in}, rev, DRIVE_SPEED}, true);
+  pros::delay(100);
+  chassis.pid_odom_set({{94_in, 50_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  MatchLoad.set(false);
+  chassis.pid_turn_set(-45_deg, TURN_SPEED);
   chassis.pid_wait();
   antiJam::disabled = true;
-  intake::stop();
-  MatchLoad.set(false);
-  chassis.pid_turn_set(-45_deg,TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_drive_set(9_in, 3 * DRIVE_SPEED / 4);
-  chassis.pid_wait_quick();
-  intake::move(Full, -127);
-  antiJam::disabled = false;
-  pros::delay(2000);
-  chassis.drive_set(90,90);
-  pros::delay(200);
-  antiJam::disabled = true;
-  intake::stop();
-  chassis.pid_odom_set({{123_in, 20_in}, rev, DRIVE_SPEED}, true);
+  chassis.pid_odom_set({{90_in, 54_in}, fwd, DRIVE_SPEED});
   chassis.pid_wait();
-  IntakeRaise.set(true);
+  intake_1.move(-127);
+  intake_2.move(-127);
+  pros::delay(1500);
+  intake::stop();
+  chassis.pid_odom_set({{120_in, 24_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(L, F);
   MatchLoad.set(true);
-  chassis.pid_turn_set(180_deg, TURN_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_drive_set(3_in, DRIVE_SPEED / 2);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_set(70,70);
-  antiJam::disabled = false;
   intake::move(P_1, 127);
-  pros::delay(1100);
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(-20_in, 3 * DRIVE_SPEED / 4);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_set(-60,-60);
-  intake::move(Full, 127);
-  pros::delay(2000);
-  antiJam::disabled = true;
-  intake::stop();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick();
-  intake::stop();
-  chassis.pid_turn_set(-90_deg, TURN_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_drive_set(6_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait();
-  chassis.pid_drive_set(-27_in, DRIVE_SPEED);
   antiJam::disabled = false;
-  pros::delay(5000);
-  chassis.pid_wait();
+  chassis.pid_odom_set({{120_in, 19_in}, fwd, DRIVE_SPEED});
+  chassis.pid_wait_quick_chain();
+  chassis.drive_set(60,60);
+  pros::delay(1000);
+  chassis.pid_odom_set({{120_in, 40_in}, rev, DRIVE_SPEED});
+  chassis.pid_wait_quick_chain();
+  chassis.pid_drive_set(-50,-50);
+  intake_2.move(127);
+  pros::delay(2000);
 }
 
 void left_auton(){
@@ -506,205 +478,264 @@ void left_auton(){
   chassis.drive_set(-60,-60);
   intake::move(Full, 127);
   pros::delay(2000);
-  
-  /**ez::screen_print("Running Left Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 6);
-  DSR::reset_tracking(Left, Back);
-  ez::screen_print("Running Left Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
-  if(chassis.odom_y_get() > 72){
-    DSR::reset_tracking(Right, Back);
-    ez::screen_print("Running Left Auton: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
-  }
-  pros::delay(50);
-  intake::move(P_1, 127);
-  chassis.pid_odom_set({{{54_in, 32_in}, fwd, DRIVE_SPEED}, 
-                                      {{43_in, 43_in}, fwd, DRIVE_SPEED}, 
-                                      {{34_in, 57_in}, fwd, DRIVE_SPEED}, 
-                                      {{19_in, 56_in}, fwd, DRIVE_SPEED}}, true);
-  pros::delay(600);
-  MatchLoad.set(true);
-  pros::delay(800);
-  MatchLoad.set(false);
-  pros::delay(300);
-  MatchLoad.set(true);
-  chassis.pid_wait();
-  chassis.pid_odom_set({{40_in, 46_in}, rev, DRIVE_SPEED}, true);
-  chassis.pid_wait();
-  antiJam::disabled = true;
-  intake::stop();
-  MatchLoad.set(false);
-  chassis.pid_turn_set(-135_deg,TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_drive_set(-7_in, 3 * DRIVE_SPEED / 4);
-  chassis.pid_wait_quick();
-  intake::move(Full, 127);
-  antiJam::disabled = false;
-  pros::delay(500);
-  intake::move(Full, 80);
-  pros::delay(1000);
-  antiJam::disabled = true;
-  intake::stop();
-  chassis.pid_odom_set({{13_in, 20_in}, fwd, DRIVE_SPEED}, true);
-  chassis.pid_wait();
-  IntakeRaise.set(true);
-  MatchLoad.set(true);
-  chassis.pid_turn_set(180_deg, TURN_SPEED, true);
-  chassis.pid_wait();
-  chassis.pid_drive_set(3_in, DRIVE_SPEED / 2);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_set(70,70);
-  antiJam::disabled = false;
-  intake::move(P_1, 127);
-  pros::delay(1100);
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick_chain();
-  chassis.pid_drive_set(-20_in, 3 * DRIVE_SPEED / 4);
-  chassis.pid_wait_quick_chain();
-  chassis.drive_set(-60,-60);
-  intake::move(Full, 127);
-  pros::delay(2000);
-  antiJam::disabled = true;
-  intake::stop();
-  chassis.pid_drive_set(10_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  chassis.pid_turn_set(90_deg, TURN_SPEED);
-  chassis.pid_wait();
-  intake::stop();
-  chassis.pid_drive_set(11.25_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  chassis.pid_turn_set(0_deg, TURN_SPEED);
-  chassis.pid_wait();
-  MatchLoad.set(false);
-  chassis.pid_drive_set(21_in, DRIVE_SPEED);
-  antiJam::disabled = false;
-  pros::delay(5000);
-  chassis.pid_wait();**/
 }
 
 void skills_auton(){
-  chassis.odom_theta_set(90);
-  DSR::reset_tracking(F, R);
-  pros::delay(50);
-  chassis.pid_odom_set({{125.5_in, 22_in}, fwd, DRIVE_SPEED});
-  chassis.pid_wait_quick_chain();
+  antiJam::disabled = false;
+  intake::move(P_1, 127);
+  intake_1.move(0);
+  chassis.odom_theta_set(90_deg);
+  chassis.pid_odom_set({{{20_in, 10_in}, fwd, DRIVE_SPEED},
+  {{30_in, 0_in}, fwd, DRIVE_SPEED},
+  {{32_in, -8_in}, fwd, DRIVE_SPEED / 2}});
+  chassis.pid_wait_until(1);
   MatchLoad.set(true);
-  IntakeRaise.set(true);
+  intake_1.move(127);
+  chassis.pid_wait_quick_chain();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait_quick_chain();
+  chassis.drive_set(60,60);
+  pros::delay(2000);
+  chassis.pid_drive_set(-5_in, DRIVE_SPEED);
+  chassis.pid_wait_quick();
   chassis.pid_turn_set(180_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_odom_set({{128_in,10_in}, fwd, DRIVE_SPEED / 2});
-  intake::move(P_1, 127);
-  chassis.pid_wait_quick();
-  chassis.drive_set(60,60);
-  antiJam::disabled = false;
-  pros::delay(2000);
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_odom_set({{128_in, 35_in}, rev, DRIVE_SPEED});
-  chassis.pid_wait_quick();
+  pros::delay(100);
+  DSR::reset_tracking(L, F);
+  chassis.pid_odom_set({{{136_in, 38_in}, rev, DRIVE_SPEED / 2},
+  {{136_in, 108_in}, rev, DRIVE_SPEED},
+  {{122_in, 120_in}, rev, DRIVE_SPEED / 2}});
+  chassis.pid_wait();
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{122.5_in,107_in}, rev, DRIVE_SPEED / 2});
+  chassis.pid_wait();
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait();
   chassis.drive_set(-50,-50);
-  intake::stop();
-  intake::move(P_2, 127);
-  pros::delay(500);
-  intake::move(P_1, 127);
+  intake_2.move(127);
   pros::delay(2000);
-  intake::stop();
-  intake::move(P_1, 127);
-  chassis.pid_odom_set({{128_in,10_in}, fwd, DRIVE_SPEED / 2});
-  intake::move(P_1, 127);
-  chassis.pid_wait_quick();
+  intake_2.move(0);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{123_in, 125_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick_chain();
   chassis.drive_set(60,60);
-  antiJam::disabled = false;
   pros::delay(2000);
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_odom_set({{128_in, 35_in}, rev, DRIVE_SPEED});
-  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{123.5_in,104_in}, rev, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick_chain();
   chassis.drive_set(-50,-50);
-  intake::stop();
-  intake::move(P_2, 127);
-  pros::delay(500);
-  intake::move(P_1, 127);
+  intake_2.move(127);
   pros::delay(2000);
-  chassis.pid_odom_set({{119_in, 25_in}, fwd, DRIVE_SPEED / 2});
+  intake_2.move(0);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick();
-  Wing.set(true);
-  chassis.pid_odom_set({{118.5_in,48_in}, rev,DRIVE_SPEED / 2});
-  pros::delay(700);
-  Wing.set(false);
-  MatchLoad.set(false);
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{32_in, 115_in}, fwd, DRIVE_SPEED});
   chassis.pid_wait();
-  Wing.set(true);
-  chassis.pid_odom_set({{{118.5_in, 25_in}, fwd, DRIVE_SPEED},{{130_in, 20_in}, fwd, DRIVE_SPEED}});
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
   chassis.pid_wait();
-  chassis.pid_odom_set({{{115_in, 5_in}, fwd, DRIVE_SPEED},
-    {{105_in, 5_in}, fwd, DRIVE_SPEED / 2}});
-  chassis.pid_wait_quick();
-  chassis.pid_turn_set(-90_deg, TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_drive_set(21_in, DRIVE_SPEED);
+  pros::delay(100);
+  DSR::reset_tracking(L, F);
+  chassis.pid_odom_set({{20_in, 120_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait();
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
   chassis.pid_wait();
   chassis.drive_set(60,60);
-  pros::delay(300);
-  chassis.drive_set(0,0);
-  pros::delay(500);
-
-}
-void skills_auton_fix(){
-  chassis.odom_theta_set(90);
-  DSR::reset_tracking(F, R);
-  pros::delay(50);
-  chassis.pid_odom_set({{126_in, 22_in}, fwd, DRIVE_SPEED});
+  pros::delay(2000);
+  chassis.pid_odom_set({{{10_in, 106_in}, rev, DRIVE_SPEED / 2},
+  {{10_in, 38_in}, rev, DRIVE_SPEED},
+  {{18_in, 24_in}, rev, DRIVE_SPEED / 2}});
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{21.5_in, 38_in}, rev, DRIVE_SPEED / 2});
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.drive_set(-50,-50);
+  intake_2.move(127);
+  pros::delay(2000);
+  intake_2.move(0);
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{22_in, 19_in}, fwd, DRIVE_SPEED / 2});
   chassis.pid_wait_quick_chain();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait();
-}
-
-void left_rush_auton(){
-  antiJam::disabled = false;
-  IntakeRaise.set(true);
-  intake::move(P_1,127);
-  chassis.pid_odom_set({{{-3_in, 24_in},fwd, DRIVE_SPEED},
-    {{-20_in, 34_in},fwd, DRIVE_SPEED},
-  {{-33_in, 36_in},fwd, DRIVE_SPEED}});
-  chassis.pid_wait_until_index_started(0);
-  MatchLoad.set(true);
-  pros::delay(300);
-  MatchLoad.set(false);
-  chassis.pid_wait_until_index_started(1);
-  MatchLoad.set(true);
-  chassis.pid_wait();
-  chassis.pid_odom_set({{{-18_in, 20_in},rev, DRIVE_SPEED},
-  {{-43_in, 0_in},rev, DRIVE_SPEED}});
-  chassis.pid_wait();
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_odom_set({{-43_in, 11_in}, rev, DRIVE_SPEED});
-  chassis.pid_wait_quick();
-  chassis.drive_set(-60,-60);
-  intake::move(Full, 127);
-  pros::delay(1500);
-  chassis.pid_odom_set({{{-43_in, 0_in}, fwd, DRIVE_SPEED},
-  {{-43_in, -13_in}, fwd, DRIVE_SPEED}});
-  chassis.pid_wait_quick();
   chassis.drive_set(60,60);
-  intake::move(P_1, 127);
-  pros::delay(1000);
-  chassis.pid_odom_set({{-43_in, 11_in}, rev, DRIVE_SPEED});
-  chassis.pid_wait_quick();
-  chassis.drive_set(-60,-60);
-  intake::move(Full, 127);
-  pros::delay(1000);
-  chassis.pid_drive_set(10_in, DRIVE_SPEED);
+  pros::delay(2000);
+  chassis.pid_odom_set({{21.5_in, 40_in}, rev, DRIVE_SPEED / 2});
   chassis.pid_wait_quick_chain();
-  Wing.set(true);
-  chassis.pid_turn_set({-38_in, 11_in}, fwd, TURN_SPEED);
-  chassis.pid_wait_quick();
-  chassis.pid_odom_set({{{-38_in, 11_in}, fwd, DRIVE_SPEED},
-  {{-38_in, 21_in}, fwd, TURN_SPEED}});
-  chassis.pid_wait_until_index_started(0);
-  Wing.set(false);
+  chassis.drive_set(-50,-50);
+  intake_2.move(127);
+  pros::delay(2000);
+  MatchLoad.set(false);
+  intake_1.move(0);
+  intake_2.move(0);
+  antiJam::disabled = true;
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{{20_in, 30_in}, fwd, DRIVE_SPEED / 2},
+  {{24_in, 20_in}, fwd, DRIVE_SPEED / 2},
+  {{48_in, 7_in}, fwd, DRIVE_SPEED / 2}});
+  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(26_in, 100);
+  intake_1.move(127);
   pros::delay(5000);
+  /**chassis.pid_drive_set(60_in, 80);
+  intake::move(P_1, 127);
+  antiJam::disabled = false;
+  pros::delay(2000);
+  MatchLoad.set(true);
+  IntakeRaise.set(true);
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(200);
+  DSR::reset_tracking(R, B);
+  pros::delay(100);
+  MatchLoad.set(false);
+  chassis.pid_odom_set({{87_in, 30_in}, fwd, DRIVE_SPEED});
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set({94_in, 37_in}, fwd, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{94_in, 37_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait();
+  antiJam::disabled = true;
+  pros::delay(300);
+  intake::stop();
+  chassis.pid_odom_set({{101_in, 43_in}, fwd, DRIVE_SPEED});
+  MatchLoad.set(true);
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(135_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(10_in, DRIVE_SPEED);
+  pros::delay(300);
+  MatchLoad.set(false);
+  pros::delay(200);
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED / 2);
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set({72_in, 72_in}, fwd, TURN_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_odom_set({{92_in, 49_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(-45_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  intake::move(Full, -80);
+  antiJam::disabled = false;
+  pros::delay(3000);
+  antiJam::disabled = true;
+  chassis.pid_drive_set(-8_in, DRIVE_SPEED);
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(135_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  intake::move(P_1, 127);
+  antiJam::disabled = false;
+  chassis.pid_odom_set({{{111_in, 30_in}, fwd, DRIVE_SPEED},
+                        {{121_in, 18_in}, fwd, DRIVE_SPEED},});
+  chassis.pid_wait_until_index_started(0);
+  MatchLoad.set(true);
+  chassis.pid_wait_quick();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(F, L);
+  chassis.pid_odom_set({{121_in, 36_in}, rev, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick_chain();
+  antiJam::disabled = true;
+  chassis.drive_set(-30,-30);
+  intake::move(Full, 127);
+  antiJam::disabled = false;
+  pros::delay(1000);
+  antiJam::disabled = true;
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(200);
+  DSR::reset_tracking(L, F);
+  pros::delay(200);
+  intake_2.move(0);
+  antiJam::disabled = false;
+  chassis.pid_odom_set({{121_in, 12_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait();
+  chassis.drive_set(60, 60);
+  pros::delay(2000);
+  chassis.pid_odom_set({
+                        {{134_in, 32_in}, rev, DRIVE_SPEED / 2},
+                        {{136_in, 95_in}, rev, DRIVE_SPEED / 2},
+                        {{125_in, 104_in}, rev, DRIVE_SPEED / 2}});
+  chassis.pid_wait();
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  chassis.pid_odom_set({{125.5_in, 100_in}, rev, DRIVE_SPEED / 2});
+  antiJam::disabled = true;
+  chassis.pid_wait_quick_chain();
+  chassis.drive_set(-60,-60);
+  intake_2.move(127);
+  antiJam::disabled = false;
+  pros::delay(2000);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait_quick();
+  antiJam::disabled = true;
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  intake_2.move(0);
+  antiJam::disabled = false;
+  chassis.pid_odom_set({{125.5_in, 134_in}, fwd, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick_chain();
+  chassis.drive_set(60,60);
+  pros::delay(2000);
+  chassis.pid_odom_set({{125.5_in, 100_in}, rev, DRIVE_SPEED / 2});
+  chassis.pid_wait_quick_chain();
+  antiJam::disabled = true;
+  chassis.drive_set(-30,-30);
+  intake_2.move(127);
+  antiJam::disabled = false;
+  pros::delay(2000);
+  intake_2.move(0);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
+  chassis.pid_wait();
+  pros::delay(100);
+  DSR::reset_tracking(R, F);
+  MatchLoad.set(false);
+  chassis.pid_odom_set({{{128_in, 117_in}, fwd, DRIVE_SPEED / 2},
+  {{115_in, 120_in}, fwd, DRIVE_SPEED / 2},
+  {{100_in, 131_in}, fwd, DRIVE_SPEED / 2}});
+  chassis.pid_wait();
+  chassis.pid_turn_set(-90_deg, TURN_SPEED);
+  chassis.pid_wait();
+  intake_2.move(0);
+  chassis.pid_drive_set(60_in,80);
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(96_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(29_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+  chassis.pid_drive_set(20,80);
+  chassis.pid_wait();*/
+}
+
+void mover(){
+  chassis.pid_drive_set(5_in, DRIVE_SPEED);
   chassis.pid_wait();
 }
 

@@ -11,10 +11,10 @@
 * \brief The direction of the sensor, used for determining how to measure offsets and reset odom tracking
 */
 enum Dir{
-    l = 1,
+    f = 1,
     r = 2,
-    f = 3,
-    b = 4,
+    b = 3,
+    l = 4,
     left = l,
     right = r,
     front = f,
@@ -57,6 +57,11 @@ class DSRDS{
     * \param y_offset the y offset of the sensor in inches, used for odom resets, calculated by offset measurements
     */
     DSRDS(int port, Dir direction, double offset = 0);
+
+    /*!
+    * \brief helper function for read_in
+    */
+    double read();
 
     /*!
     * \brief read from the sensor in inches
