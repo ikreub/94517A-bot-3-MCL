@@ -17,10 +17,16 @@ void odom_boomerang_example();
 void odom_boomerang_injected_pure_pursuit_example();
 void measure_offsets();
 void measure_DSRDS_offsets();
+
 void set_auton();
 void right_auton();
+void safe_left_auton();
+void safe_right_auton();
 void left_auton();
 void left_rush_auton();
 void right_rush_auton();
 void skills_auton();
+void skills_but_better();
 void mover();
+
+void SAWP();

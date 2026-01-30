@@ -3,6 +3,11 @@
 #include "subsystems.hpp"
 #include "antijam.hpp"
 
+#define blue_min 220
+#define blue_max 230
+#define red_min 350
+#define red_max 10
+
 void intake::stop(){
     intake::speed = 0;
     if(!antiJam::disable){
@@ -62,5 +67,40 @@ void intake::opcontrol(){
     }
     if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_Y)){
         intake_middle_speed = !intake_middle_speed;
+    }
+}
+
+void intake::wait_until_color(bool color, int timeout){
+    bool is_true = false;
+    int time = 0;
+    int hue;
+    while(!is_true){
+        hue = colorStop.get_hue();
+        if(colorStop.get_proximity() == 255){
+            if(color){
+                if(red_min < hue || red_max > hue ){
+                    is_true = true;
+                }
+            }else{
+                if(blue_min < hue && hue < blue_max){
+                    is_true = true;
+                }
+            }
+        }
+        if(time >= timeout){
+            is_true =  true;
+        }
+        time += 10;
+        pros::delay(10);
+    }
+    pros::delay(50);
+}
+
+bool intake::get_color(){
+    int hue = colorStop.get_hue();
+    if(blue_min < hue && hue < blue_max){
+        return false;
+    }else{
+        return true;
     }
 }

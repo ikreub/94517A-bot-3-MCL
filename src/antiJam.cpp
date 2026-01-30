@@ -11,10 +11,10 @@ namespace antiJam{
                 Last_speed = intake::speed;
                 if(abs(Last_speed) > 0){
                     pros::delay(100);
-                    if((intake_1.get_efficiency() < 7)){
+                    if((intake_1.get_efficiency() == 0)){
                         disable = true;
-                        intake_1.move(-Last_speed);
-                        pros::delay(100);
+                        intake_1.move(-127);
+                        pros::delay(150);
                         intake_1.move(Last_speed);
                         disable = false;
                     }

@@ -17,6 +17,8 @@ inline ez::Piston IntakeRaise('H', true);
 inline ez::Piston DoublePark('G', true);
 inline ez::Piston Wing('E', true);
 
+inline pros::Optical colorStop(14);
+
 enum Rtype{
     Full,
     P_1,

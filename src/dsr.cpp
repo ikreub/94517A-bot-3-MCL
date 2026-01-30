@@ -9,6 +9,8 @@ int Xsen;
 int Ysen;
 double robot_angle;
 
+const bool debug = true;
+
 void read_sensor_measure(double& read, DSRDS& sensor){
     double readt;
 
@@ -52,18 +54,30 @@ void odom_reset(Dir senX_dir, Dir Xdir, int Xsen, Dir senY_dir, Dir Ydir, int Ys
     read = DSR::sensors[Xsen].read_in();
     if(read < 9999 / 25.4){
         if(int(senX_dir) == int(Xdir)){
-                chassis.odom_x_set(read + DSR::sensors[Xsen].get_dir_offset());
+            chassis.odom_x_set(read + DSR::sensors[Xsen].get_dir_offset());
+            if(debug){
+                ez::screen_print("X: true     Raw: " + util::to_string_with_precision(read + DSR::sensors[Xsen].get_dir_offset(), 5));
+            }
         }else{
             chassis.odom_x_set(144 - read - DSR::sensors[Xsen].get_dir_offset());
+            if(debug){
+                ez::screen_print("X: false     Raw: " + util::to_string_with_precision(read + DSR::sensors[Xsen].get_dir_offset()), 5);
+            }
         }
     }
 
     read = DSR::sensors[Ysen].read_in();
     if(read < 9999 / 25.4){
         if(int(senY_dir) == int(Ydir)){
-                chassis.odom_y_set(read + DSR::sensors[Ysen].get_dir_offset());
+            chassis.odom_y_set(read + DSR::sensors[Ysen].get_dir_offset());
+            if(debug){
+                ez::screen_print("Y: true     Raw: " + util::to_string_with_precision(read + DSR::sensors[Ysen].get_dir_offset()), 6);
+            }
         }else{
             chassis.odom_y_set(144 - read - DSR::sensors[Ysen].get_dir_offset());
+            if(debug){
+                ez::screen_print("Y: false     Raw: " + util::to_string_with_precision(read + DSR::sensors[Ysen].get_dir_offset()), 6);
+            }
         }
     }
 }
@@ -108,6 +122,9 @@ namespace DSR{
 
     void reset_tracking(Dir sensorX_dir, Dir sensorY_dir, int sensorX_specified, int sensorY_specified){
         
+        if(debug){
+            ez::screen_print(util::to_string_with_precision(chassis.odom_theta_get()), 3);
+        }
         //figure out which sensors are being used for x and y semi efficiently by counting down the number of specified sensors until we find the one we want
         for(unsigned int i = 0; i < sensors.size(); i++){
             if(sensors[i].get_dir() == sensorX_dir){
@@ -134,24 +151,37 @@ namespace DSR{
         //find direction
         if(-45 <= robot_angle && robot_angle < 45){
 
+            if(debug){
+                ez::screen_print("Front", 4);
+            }
             //the actual alg
             odom_reset(sensorX_dir, Left, Xsen, sensorY_dir, Back, Ysen);
         }//same thing for all other cases, just different angles
         else if(45 <= robot_angle && robot_angle < 135){
 
+            if(debug){
+                ez::screen_print("Right", 4);
+            }
             odom_reset(sensorX_dir, Back, Xsen, sensorY_dir, Right, Ysen);
         }
         else if((135 <= robot_angle && robot_angle < 180) || (-180 <= robot_angle && robot_angle < -135)){
             
+            if(debug){
+                ez::screen_print("Back", 4);
+            }
             odom_reset(sensorX_dir, Right, Xsen, sensorY_dir, Front, Ysen);
         }
         else if(-135 <= robot_angle && robot_angle < -45){
-
+            if(debug){
+                ez::screen_print("Left", 4);
+            }
             odom_reset(sensorX_dir, Front, Xsen, sensorY_dir, Left, Ysen);
         }
-        /**ez::screen_print("pose: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
-        while(!master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
-            pros::delay(10);
-        }*/
+        if(debug){
+            ez::screen_print("pose: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
+            while(!master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+                pros::delay(10);
+            }
+        }
     }
 }

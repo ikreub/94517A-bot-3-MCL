@@ -10,4 +10,6 @@ namespace intake{
     inline double speed;
     inline Rtype type;
     inline bool toggle = false;
+    void wait_until_color(bool color, int timeout);
+    bool get_color();
 }

@@ -78,11 +78,14 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"move", mover},
+      {"move \n NOTE: all autons can be started with A and Left \n this INCLUDES in driver\nthere is no overide so be careful not to start auton in driver \n this is also how you would do a skills macro in auton", mover},
       {"set auton", set_auton},
       {"Right side", right_auton},
+      {"safe  right side", safe_right_auton},
       {"Left side", left_auton},
-      {"Skills", skills_auton},
+      {"Safe left side \n WARNING: i dont think it will work on middle goal", safe_left_auton},
+      {"Solo auto win point \n WARNING: i didn't get much testing, \n test it on the skills or practice field first", SAWP},
+      {"Skills", skills_but_better},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
       {"Measure DSRDS offsets", measure_DSRDS_offsets},
   });
@@ -129,6 +132,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
+  colorStop.set_led_pwm(100);
   chassis.pid_targets_reset();                // Resets PID targets to 0
   chassis.drive_imu_reset();                  // Reset gyro position to 0
   chassis.drive_sensor_reset();               // Reset drive sensors to 0
@@ -149,6 +153,7 @@ void autonomous() {
   */
 
   ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
+  colorStop.set_led_pwm(0);
 }
 
 /**
@@ -201,6 +206,9 @@ void ez_screen_task() {
             ez::screen_print(DSR::sensors[i].get_dir_string() +  "offset: " + util::to_string_with_precision(DSR::sensors[int(i)].get_dir_offset()), 1 + int(i));
           }
         }
+        if(ez::as::page_blank_is_on(3)){
+          ez::screen_print(util::to_string_with_precision(colorStop.get_proximity()));
+        }
       }
     }
 
@@ -238,12 +246,7 @@ void ez_template_extras() {
     if (master.get_digital_new_press(DIGITAL_X))
       chassis.pid_tuner_toggle();
 
-    // Trigger the selected autonomous routine
-    if (master.get_digital(DIGITAL_A) && master.get_digital(DIGITAL_LEFT)) {
-      pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
-      autonomous();
-      chassis.drive_brake_set(preference);
-    }
+    
 
     if(master.get_digital(DIGITAL_A) &&  master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
       pros::delay(500);
@@ -314,6 +317,12 @@ void opcontrol() {
   while (true) {
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
+    // Trigger the selected autonomous routine
+    if (master.get_digital(DIGITAL_A) && master.get_digital(DIGITAL_LEFT)) {
+      pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
+      autonomous();
+      chassis.drive_brake_set(preference);
+    }
 
     // chassis.opcontrol_tank();  // Tank control
     // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
