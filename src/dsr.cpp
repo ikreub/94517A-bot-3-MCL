@@ -146,7 +146,7 @@ namespace DSR{
         }
 
         //get the robot angle to determine which way the bot is facing
-        robot_angle = fmod(chassis.odom_theta_get() - 180, 360) + 180;
+        robot_angle = fmod(chassis.odom_theta_get() + 180, 360) - 180;
 
         //find direction
         if(-45 <= robot_angle && robot_angle < 45){

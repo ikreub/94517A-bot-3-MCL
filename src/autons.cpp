@@ -997,7 +997,7 @@ void SAWP(){
   antiJam::disabled = false;
   intake::move(P_1, 127);
   DSR::reset_tracking(B, L);
-  chassis.pid_drive_set(5_in, DRIVE_SPEED);
+  chassis.pid_drive_set(10_in, DRIVE_SPEED);
   chassis.pid_wait();
   chassis.pid_odom_set({{123_in, 24_in}, rev, DRIVE_SPEED});
   chassis.pid_wait_quick_chain();

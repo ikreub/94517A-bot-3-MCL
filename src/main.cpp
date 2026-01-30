@@ -78,13 +78,13 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"move \n NOTE: all autons can be started with A and Left \n this INCLUDES in driver\nthere is no overide so be careful not to start auton in driver \n this is also how you would do a skills macro in auton", mover},
+      {"move \n NOTE: autons start with A + Left \n INCLUDES in match", mover},
       {"set auton", set_auton},
       {"Right side", right_auton},
       {"safe  right side", safe_right_auton},
       {"Left side", left_auton},
-      {"Safe left side \n WARNING: i dont think it will work on middle goal", safe_left_auton},
-      {"Solo auto win point \n WARNING: i didn't get much testing, \n test it on the skills or practice field first", SAWP},
+      {"Safe left side", safe_left_auton},
+      {"Solo auto win point \n WARNING: little testing", SAWP},
       {"Skills", skills_but_better},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
       {"Measure DSRDS offsets", measure_DSRDS_offsets},
