@@ -30,7 +30,7 @@ ez::Drive chassis(
 //  - you should get positive values on the encoders going FORWARD and RIGHT
 // - `2.75` is the wheel diameter
 // - `4.0` is the distance from the center of the wheel to the center of the robot
-ez::tracking_wheel horiz_tracker(10, 2, 0.03);  // This tracking wheel is perpendicular to the drive wheels
+ez::tracking_wheel horiz_tracker(-10, 2, 0.03);  // This tracking wheel is perpendicular to the drive wheels
 ez::tracking_wheel vert_tracker(-15, 2.75, 1.88);   // This tracking wheel is parallel to the drive wheels
 DSRDS front_sensor(17, Front, 9.83);
 DSRDS Left_sensor(16, Left, 2.87);
@@ -83,8 +83,6 @@ void initialize() {
       {"Right side", right_auton},
       {"safe  right side", safe_right_auton},
       {"Left side", left_auton},
-      {"Safe left side", safe_left_auton},
-      {"Solo auto win point \n WARNING: little testing", SAWP},
       {"Skills", skills_but_better},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
       {"Measure DSRDS offsets", measure_DSRDS_offsets},

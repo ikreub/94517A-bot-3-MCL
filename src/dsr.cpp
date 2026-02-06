@@ -1,26 +1,65 @@
 #include "../include/dsr.hpp"
+#include <stdlib.h>
 #include <cmath>
 #include "EZ-Template/util.hpp"
 #include "main.h"
 #include "subsystems.hpp"
 
+//22.83
+//46.38
+//69.97
+//93.7
+//117.32
+
 //extras
 int Xsen;
 int Ysen;
 double robot_angle;
+const double feild_size = 144;//140.94488189; //currently code is designed for 144 inches feild
 
 const bool debug = true;
 
+double deg_mod(double num){
+    bool is_done = false;
+    while(!is_done){
+        if(num > 180){
+            num -= 360;
+        }else if(num < -180){
+            num += 360;
+        }else{
+            is_done = true;
+        }
+    }
+    return num;
+}
+
 void read_sensor_measure(double& read, DSRDS& sensor){
-    double readt;
+    double readt = 9999;
 
     //make sure the sensor is reading something valid, and if it is, add it to the total
-    for(int p = 0; p < 20; p++){
+    while(readt >= 9999 || readt < 0){
         readt = sensor.read_in();
         if(readt < 9999 / 25.4){
             read = readt;
             break;
         }
+    }
+}
+
+double dir_trig(Dir direction, double num){
+    switch(direction){
+        case f:
+        return abs(num * cos(util::to_rad(chassis.odom_theta_get())));
+        break;
+        case r:
+        return abs(num * sin(util::to_rad(chassis.odom_theta_get())));
+        break;
+        case l:
+        return abs(num * sin(util::to_rad(chassis.odom_theta_get())));
+        break;
+        case b:
+        return abs(num * cos(util::to_rad(chassis.odom_theta_get())));
+        break;
     }
 }
 
@@ -51,34 +90,38 @@ void triple_read(int angle, int iterations, int i){
 void odom_reset(Dir senX_dir, Dir Xdir, int Xsen, Dir senY_dir, Dir Ydir, int Ysen){
     double read;
     //reset the tracking values based on the sensor readings and the direction of the sensors
-    read = DSR::sensors[Xsen].read_in();
+    read = dir_trig(Ydir,DSR::sensors[Xsen].read_in() + DSR::sensors[Xsen].get_dir_offset());
     if(read < 9999 / 25.4){
         if(int(senX_dir) == int(Xdir)){
-            chassis.odom_x_set(read + DSR::sensors[Xsen].get_dir_offset());
+            chassis.odom_x_set(read);
             if(debug){
-                ez::screen_print("X: true     Raw: " + util::to_string_with_precision(read + DSR::sensors[Xsen].get_dir_offset(), 5));
+                ez::screen_print("X: true read: " + util::to_string_with_precision(read) + " Raw: " + util::to_string_with_precision(DSR::sensors[Xsen].read_in() + DSR::sensors[Xsen].get_dir_offset()),5);
             }
         }else{
-            chassis.odom_x_set(144 - read - DSR::sensors[Xsen].get_dir_offset());
+            chassis.odom_x_set(feild_size - read);
             if(debug){
-                ez::screen_print("X: false     Raw: " + util::to_string_with_precision(read + DSR::sensors[Xsen].get_dir_offset()), 5);
+                ez::screen_print("X: false read: " + util::to_string_with_precision(read) + " Raw: " + util::to_string_with_precision(DSR::sensors[Xsen].read_in() + DSR::sensors[Xsen].get_dir_offset()),5);
             }
         }
+    }else{
+        ez::screen_print("error: no legnth read", 5);
     }
 
-    read = DSR::sensors[Ysen].read_in();
+    read = dir_trig(Ydir,DSR::sensors[Ysen].read_in() + DSR::sensors[Ysen].get_dir_offset());
     if(read < 9999 / 25.4){
         if(int(senY_dir) == int(Ydir)){
-            chassis.odom_y_set(read + DSR::sensors[Ysen].get_dir_offset());
+            chassis.odom_y_set(read);
             if(debug){
-                ez::screen_print("Y: true     Raw: " + util::to_string_with_precision(read + DSR::sensors[Ysen].get_dir_offset()), 6);
+                ez::screen_print("Y: true read: " + util::to_string_with_precision(read) + " Raw: " + util::to_string_with_precision(DSR::sensors[Ysen].read_in() + DSR::sensors[Ysen].get_dir_offset()), 6);
             }
         }else{
-            chassis.odom_y_set(144 - read - DSR::sensors[Ysen].get_dir_offset());
+            chassis.odom_y_set(feild_size - read);
             if(debug){
-                ez::screen_print("Y: false     Raw: " + util::to_string_with_precision(read + DSR::sensors[Ysen].get_dir_offset()), 6);
+                ez::screen_print("Y: false read: " + util::to_string_with_precision(read) + " Raw: " + util::to_string_with_precision(DSR::sensors[Ysen].read_in() + DSR::sensors[Ysen].get_dir_offset()), 6);
             }
         }
+    }else{
+        ez:screen_print("error: no legnth read", 6);
     }
 }
 
@@ -146,7 +189,7 @@ namespace DSR{
         }
 
         //get the robot angle to determine which way the bot is facing
-        robot_angle = fmod(chassis.odom_theta_get() + 180, 360) - 180;
+        robot_angle = deg_mod(chassis.odom_theta_get());
 
         //find direction
         if(-45 <= robot_angle && robot_angle < 45){
@@ -176,6 +219,8 @@ namespace DSR{
                 ez::screen_print("Left", 4);
             }
             odom_reset(sensorX_dir, Front, Xsen, sensorY_dir, Left, Ysen);
+        }else{
+            ez::screen_print("error:angle out of bounds", 4);
         }
         if(debug){
             ez::screen_print("pose: (" + util::to_string_with_precision(chassis.odom_x_get()) + ", " + util::to_string_with_precision(chassis.odom_y_get()) + ")", 7);
