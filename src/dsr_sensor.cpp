@@ -23,7 +23,7 @@ double DSRDS::read(){
 
 double DSRDS::read_in(){
     double reading = 9999;
-    for(int i = 0; reading >= 9999 || reading < 0; i++){
+    for(int i = 0; reading >= 9999 && i < 100; i++){
         reading = read();
         pros::delay(10);
     }

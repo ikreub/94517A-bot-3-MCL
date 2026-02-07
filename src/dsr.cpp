@@ -17,7 +17,7 @@ int Ysen;
 double robot_angle;
 const double feild_size = 144;//140.94488189; //currently code is designed for 144 inches feild
 
-const bool debug = true;
+const bool debug = false;
 
 double deg_mod(double num){
     bool is_done = false;

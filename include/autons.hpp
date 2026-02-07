@@ -25,6 +25,8 @@ void safe_right_auton();
 void left_auton();
 void left_rush_auton();
 void right_rush_auton();
+void super_safe_right();
+void super_safe_left();
 void skills_auton();
 void skills_but_better();
 void mover();

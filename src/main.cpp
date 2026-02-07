@@ -57,11 +57,6 @@ void initialize() {
   //  - ignore this if you aren't using a vertical tracker
   chassis.odom_tracker_right_set(&vert_tracker);
 
-  DSR::add_sensor(front_sensor);
-  DSR::add_sensor(Left_sensor);
-  DSR::add_sensor(back_sensor);
-  DSR::add_sensor(right_sensor);
-
   // Configure your chassis controls
   chassis.opcontrol_curve_buttons_toggle(true);   // Enables modifying the controller curve with buttons on the joysticks
   chassis.opcontrol_drive_activebrake_set(0.0);   // Sets the active brake kP. We recommend ~2.  0 will disable.
@@ -82,8 +77,11 @@ void initialize() {
       {"set auton", set_auton},
       {"Right side", right_auton},
       {"safe  right side", safe_right_auton},
+      {"super safe right as in it doesn't use dsr at all for the worst case senario", super_safe_right},
       {"Left side", left_auton},
+      {"Super safe left", super_safe_left},
       {"Skills", skills_but_better},
+      {"Back up skills", skills_auton},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
       {"Measure DSRDS offsets", measure_DSRDS_offsets},
   });
@@ -92,6 +90,11 @@ void initialize() {
   chassis.initialize();
   ez::as::initialize();
   master.rumble(chassis.drive_imu_calibrated() ? "." : "---");
+
+  DSR::add_sensor(back_sensor);
+  DSR::add_sensor(right_sensor);
+  DSR::add_sensor(front_sensor);
+  DSR::add_sensor(Left_sensor);
 }
 
 pros::Task aniJammer(antiJam::Task);
